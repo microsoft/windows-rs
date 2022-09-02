@@ -55,7 +55,7 @@ impl File {
     pub fn new(path: &str) -> Result<Self> {
         let path = std::path::Path::new(path);
 
-        let mut result = File { bytes: std::fs::read(&path)?, ..Default::default() };
+        let mut result = File { bytes: std::fs::read(path)?, ..Default::default() };
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0);
 
