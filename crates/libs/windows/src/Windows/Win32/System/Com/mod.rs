@@ -9114,51 +9114,6 @@ pub struct ITypeLibRegistrationReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-pub struct IUnknown(::windows::core::IUnknown);
-impl IUnknown {
-    pub unsafe fn QueryInterface<T>(&self) -> ::windows::core::Result<T>
-    where
-        T: ::windows::core::Interface,
-    {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).QueryInterface)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        (::windows::core::Interface::vtable(self).AddRef)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        (::windows::core::Interface::vtable(self).Release)(::windows::core::Interface::as_raw(self))
-    }
-}
-impl ::core::clone::Clone for IUnknown {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUnknown {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUnknown {}
-impl ::core::fmt::Debug for IUnknown {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUnknown").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IUnknown {
-    type Vtable = IUnknown_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IUnknown_Vtbl {
-    pub QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
 pub struct IUri(::windows::core::IUnknown);
 impl IUri {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

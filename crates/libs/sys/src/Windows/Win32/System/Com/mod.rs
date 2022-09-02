@@ -357,7 +357,6 @@ pub type ITypeLib = *mut ::core::ffi::c_void;
 pub type ITypeLib2 = *mut ::core::ffi::c_void;
 pub type ITypeLibRegistration = *mut ::core::ffi::c_void;
 pub type ITypeLibRegistrationReader = *mut ::core::ffi::c_void;
-pub type IUnknown = *mut ::core::ffi::c_void;
 pub type IUri = *mut ::core::ffi::c_void;
 pub type IUriBuilder = *mut ::core::ffi::c_void;
 pub type IUrlMon = *mut ::core::ffi::c_void;

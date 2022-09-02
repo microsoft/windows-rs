@@ -1952,65 +1952,6 @@ pub struct IInputPaneInterop_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-pub struct IInspectable(::windows::core::IUnknown);
-impl IInspectable {
-    pub unsafe fn GetIids(&self, iidcount: &mut u32, iids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iidcount), ::core::mem::transmute(iids)).ok()
-    }
-    pub unsafe fn GetRuntimeClassName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRuntimeClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-    }
-    pub unsafe fn GetTrustLevel(&self) -> ::windows::core::Result<TrustLevel> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetTrustLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TrustLevel>(result__)
-    }
-}
-impl ::core::convert::From<IInspectable> for ::windows::core::IUnknown {
-    fn from(value: IInspectable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInspectable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInspectable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInspectable> for ::windows::core::IUnknown {
-    fn from(value: &IInspectable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for IInspectable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IInspectable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInspectable {}
-impl ::core::fmt::Debug for IInspectable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInspectable").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IInspectable {
-    type Vtable = IInspectable_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IInspectable_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub GetIids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iidcount: *mut u32, iids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classname: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub GetTrustLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trustlevel: *mut TrustLevel) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo {
     pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3880,33 +3821,6 @@ impl ::core::default::Default for EventRegistrationToken {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HSTRING(pub isize);
-impl ::core::default::Default for HSTRING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HSTRING {}
-impl ::core::fmt::Debug for HSTRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HSTRING").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HSTRING>> for HSTRING {
-    fn from(optional: ::core::option::Option<HSTRING>) -> HSTRING {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HSTRING {
-    type Abi = Self;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

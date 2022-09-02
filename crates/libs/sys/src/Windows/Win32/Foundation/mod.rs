@@ -19733,7 +19733,6 @@ impl ::core::clone::Clone for HLSURF__ {
         *self
     }
 }
-pub type HRESULT = i32;
 pub type HRSRC = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -19769,43 +19768,6 @@ impl ::core::clone::Clone for HUMPD__ {
     }
 }
 pub type HWND = isize;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub union LARGE_INTEGER {
-    pub Anonymous: LARGE_INTEGER_0,
-    pub u: LARGE_INTEGER_1,
-    pub QuadPart: i64,
-}
-impl ::core::marker::Copy for LARGE_INTEGER {}
-impl ::core::clone::Clone for LARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct LARGE_INTEGER_0 {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-impl ::core::marker::Copy for LARGE_INTEGER_0 {}
-impl ::core::clone::Clone for LARGE_INTEGER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct LARGE_INTEGER_1 {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-impl ::core::marker::Copy for LARGE_INTEGER_1 {}
-impl ::core::clone::Clone for LARGE_INTEGER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
@@ -19858,8 +19820,6 @@ impl ::core::clone::Clone for POINTS {
     }
 }
 pub type PSID = *mut ::core::ffi::c_void;
-pub type PSTR = *mut u8;
-pub type PWSTR = *mut u16;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub struct RECT {
@@ -19915,43 +19875,6 @@ pub struct SYSTEMTIME {
 }
 impl ::core::marker::Copy for SYSTEMTIME {}
 impl ::core::clone::Clone for SYSTEMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub union ULARGE_INTEGER {
-    pub Anonymous: ULARGE_INTEGER_0,
-    pub u: ULARGE_INTEGER_1,
-    pub QuadPart: u64,
-}
-impl ::core::marker::Copy for ULARGE_INTEGER {}
-impl ::core::clone::Clone for ULARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct ULARGE_INTEGER_0 {
-    pub LowPart: u32,
-    pub HighPart: u32,
-}
-impl ::core::marker::Copy for ULARGE_INTEGER_0 {}
-impl ::core::clone::Clone for ULARGE_INTEGER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct ULARGE_INTEGER_1 {
-    pub LowPart: u32,
-    pub HighPart: u32,
-}
-impl ::core::marker::Copy for ULARGE_INTEGER_1 {}
-impl ::core::clone::Clone for ULARGE_INTEGER_1 {
     fn clone(&self) -> Self {
         *self
     }

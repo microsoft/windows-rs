@@ -4864,35 +4864,6 @@ impl ITypeLibRegistrationReader_Vtbl {
         iid == &<ITypeLibRegistrationReader as ::windows::core::Interface>::IID
     }
 }
-pub trait IUnknown_Impl: Sized {
-    fn QueryInterface(&self, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-}
-impl ::windows::core::RuntimeName for IUnknown {}
-impl IUnknown_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUnknown_Impl, const OFFSET: isize>() -> IUnknown_Vtbl {
-        unsafe extern "system" fn QueryInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUnknown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.QueryInterface(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobject)).into()
-        }
-        unsafe extern "system" fn AddRef<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUnknown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.AddRef()
-        }
-        unsafe extern "system" fn Release<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUnknown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.Release()
-        }
-        Self { QueryInterface: QueryInterface::<Identity, Impl, OFFSET>, AddRef: AddRef::<Identity, Impl, OFFSET>, Release: Release::<Identity, Impl, OFFSET> }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUnknown as ::windows::core::Interface>::IID
-    }
-}
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUri_Impl: Sized {
     fn GetPropertyBSTR(&self, uriprop: Uri_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()>;
