@@ -93,7 +93,7 @@ pub enum AsyncKind {
     OperationWithProgress,
 }
 
-#[derive(PartialEq, Eq, Debug)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug, PartialOrd, Ord)]
 pub enum TypeKind {
     Interface,
     Class,
@@ -584,6 +584,18 @@ impl<'a> Reader<'a> {
         }
 
         Signature { def: row, params, return_type }
+    }
+    pub fn method_def_extern_abi(&self, def: MethodDef) -> &'static str {
+        let impl_map = self.method_def_impl_map(def).expect("ImplMap not found");
+        let flags = self.impl_map_flags(impl_map);
+
+        if flags.conv_platform() {
+            "system"
+        } else if flags.conv_cdecl() {
+            "cdecl"
+        } else {
+            unimplemented!()
+        }
     }
     pub fn method_def_size(&self, method: MethodDef) -> usize {
         let signature = self.method_def_signature(method, &[]);

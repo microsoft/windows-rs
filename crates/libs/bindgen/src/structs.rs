@@ -22,11 +22,7 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
     let name = to_ident(struct_name);
 
     if gen.reader.type_def_fields(def).next().is_none() {
-        if let Some(guid) = gen.reader.type_def_guid(def) {
-            let value = gen.guid(&guid);
-            let guid = gen.type_name(&Type::GUID);
-            return quote! { pub const #name: #guid = #value; };
-        } else if name.as_str().ends_with("Vtbl") {
+        if name.as_str().ends_with("Vtbl") {
             // This just omits some useless struct declarations like `IDDVideoPortContainerVtbl`
             return quote! {};
         } else {
