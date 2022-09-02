@@ -71,7 +71,7 @@ EXPORTS
     drop(def);
 
     let mut cmd = std::process::Command::new("dlltool");
-    cmd.current_dir(&output);
+    cmd.current_dir(output);
 
     if platform.eq("i686_gnu") {
         cmd.arg("-k");
@@ -94,7 +94,7 @@ EXPORTS
     // unnecessary sections and symbols.
     std::fs::rename(output.join(format!("lib{}.a", library)), output.join("tmp.a")).unwrap();
     let mut cmd = std::process::Command::new("objcopy");
-    cmd.current_dir(&output);
+    cmd.current_dir(output);
     cmd.arg("--remove-section=.bss");
     cmd.arg("--remove-section=.data");
     cmd.arg("--strip-unneeded-symbol=fthunk");
@@ -128,7 +128,7 @@ fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<Str
     mri.write_all(b"SAVE\nEND\n").unwrap();
 
     let mut cmd = std::process::Command::new("ar");
-    cmd.current_dir(&output);
+    cmd.current_dir(output);
     cmd.arg("-M");
     cmd.stdin(std::fs::File::open(&mri_path).unwrap());
     cmd.output().unwrap();
