@@ -26,8 +26,6 @@ pub mod Printing;
 pub mod Shell;
 #[cfg(feature = "Win32_System_WinRT_Storage")]
 pub mod Storage;
-#[cfg(feature = "Win32_System_WinRT_Xaml")]
-pub mod Xaml;
 #[cfg_attr(windows, link(name = "windows"))]
 extern "cdecl" {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]

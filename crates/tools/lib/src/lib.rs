@@ -2,7 +2,7 @@ use std::collections::*;
 use std::io::*;
 
 /// Namespaces to exclude from code generation for the `windows` and `windows-sys` crates.
-pub const EXCLUDE_NAMESPACES: [&str; 4] = ["Windows.UI.Xaml", "Windows.Win32.Interop", "Windows.Win32.System.Diagnostics.Debug.WebApp", "Windows.Win32.Web"];
+pub const EXCLUDE_NAMESPACES: [&str; 5] = ["Windows.UI.Xaml", "Windows.Win32.System.WinRT.Xaml", "Windows.Win32.Interop", "Windows.Win32.System.Diagnostics.Debug.WebApp", "Windows.Win32.Web"];
 
 /// Formats the token string
 pub fn format(namespace: &str, tokens: &mut String, use_rustfmt: bool) {
