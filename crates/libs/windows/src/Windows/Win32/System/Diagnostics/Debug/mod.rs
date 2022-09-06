@@ -4549,8 +4549,8 @@ impl IActiveScript {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetScriptThreadState)(::windows::core::Interface::as_raw(self), stidthread, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SCRIPTTHREADSTATE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InterruptScriptThread(&self, stidthread: u32, pexcepinfo: &super::super::Com::EXCEPINFO, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InterruptScriptThread)(::windows::core::Interface::as_raw(self), stidthread, ::core::mem::transmute(pexcepinfo), dwflags).ok()
     }
@@ -4612,9 +4612,9 @@ pub struct IActiveScript_Vtbl {
     pub GetCurrentScriptThreadID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstidthread: *mut u32) -> ::windows::core::HRESULT,
     pub GetScriptThreadID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwin32threadid: u32, pstidthread: *mut u32) -> ::windows::core::HRESULT,
     pub GetScriptThreadState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stidthread: u32, pstsstate: *mut SCRIPTTHREADSTATE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(feature = "Win32_System_Com")]
     pub InterruptScriptThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stidthread: u32, pexcepinfo: *const super::super::Com::EXCEPINFO, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(not(feature = "Win32_System_Com"))]
     InterruptScriptThread: usize,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscript: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4694,11 +4694,9 @@ impl IActiveScriptAuthor {
     pub unsafe fn RemoveTypeLib(&self, rguidtypelib: &::windows::core::GUID, dwmajor: u32, dwminor: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveTypeLib)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidtypelib), dwmajor, dwminor).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetChars(&self, frequestedlist: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetChars(&self, frequestedlist: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetChars)(::windows::core::Interface::as_raw(self), frequestedlist, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetChars)(::windows::core::Interface::as_raw(self), frequestedlist, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetInfoFromContext<'a, P0>(&self, pszcode: P0, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: &mut u32, pichlistanchorposition: &mut u32, pichfuncanchorposition: &mut u32, pmemid: &mut i32, picurrentparameter: &mut i32, ppunk: &mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
@@ -4769,10 +4767,7 @@ pub struct IActiveScriptAuthor_Vtbl {
     pub RemoveNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub AddTypeLib: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidtypelib: *const ::windows::core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> ::windows::core::HRESULT,
     pub RemoveTypeLib: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidtypelib: *const ::windows::core::GUID, dwmajor: u32, dwminor: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetChars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frequestedlist: u32, pbstrchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetChars: usize,
+    pub GetChars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frequestedlist: u32, pbstrchars: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetInfoFromContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: ::windows::core::PCWSTR, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: *mut u32, pichlistanchorposition: *mut u32, pichfuncanchorposition: *mut u32, pmemid: *mut i32, picurrentparameter: *mut i32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCommitChar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ch: u16, pfcommit: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -4985,9 +4980,7 @@ impl IActiveScriptEncode {
     {
         (::windows::core::Interface::vtable(self).DecodeScript)(::windows::core::Interface::as_raw(self), pchin.into(), cchin, ::core::mem::transmute(pchout), cchout, ::core::mem::transmute(pcchret)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEncodeProgId(&self, pbstrout: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEncodeProgId(&self, pbstrout: &mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEncodeProgId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrout)).ok()
     }
 }
@@ -5032,17 +5025,14 @@ pub struct IActiveScriptEncode_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub EncodeSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchin: ::windows::core::PCWSTR, cchin: u32, pchout: ::windows::core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows::core::HRESULT,
     pub DecodeScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchin: ::windows::core::PCWSTR, cchin: u32, pchout: ::windows::core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetEncodeProgId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrout: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEncodeProgId: usize,
+    pub GetEncodeProgId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 pub struct IActiveScriptError(::windows::core::IUnknown);
 impl IActiveScriptError {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetExceptionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::EXCEPINFO>(result__)
@@ -5050,11 +5040,9 @@ impl IActiveScriptError {
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: &mut u32, pullinenumber: &mut u32, plcharacterposition: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSourcePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwsourcecontext), ::core::mem::transmute(pullinenumber), ::core::mem::transmute(plcharacterposition)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IActiveScriptError> for ::windows::core::IUnknown {
@@ -5096,22 +5084,19 @@ unsafe impl ::windows::core::Interface for IActiveScriptError {
 #[doc(hidden)]
 pub struct IActiveScriptError_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(feature = "Win32_System_Com")]
     pub GetExceptionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(not(feature = "Win32_System_Com"))]
     GetExceptionInfo: usize,
     pub GetSourcePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetSourceLineText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetSourceLineText: usize,
+    pub GetSourceLineText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 pub struct IActiveScriptError64(::windows::core::IUnknown);
 impl IActiveScriptError64 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetExceptionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::EXCEPINFO>(result__)
@@ -5119,11 +5104,9 @@ impl IActiveScriptError64 {
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: &mut u32, pullinenumber: &mut u32, plcharacterposition: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetSourcePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwsourcecontext), ::core::mem::transmute(pullinenumber), ::core::mem::transmute(plcharacterposition)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetSourcePosition64(&self, pdwsourcecontext: &mut u64, pullinenumber: &mut u32, plcharacterposition: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSourcePosition64)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwsourcecontext), ::core::mem::transmute(pullinenumber), ::core::mem::transmute(plcharacterposition)).ok()
@@ -5189,8 +5172,8 @@ pub struct IActiveScriptError64_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptErrorDebug(::windows::core::IUnknown);
 impl IActiveScriptErrorDebug {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetExceptionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::EXCEPINFO>(result__)
@@ -5198,11 +5181,9 @@ impl IActiveScriptErrorDebug {
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: &mut u32, pullinenumber: &mut u32, plcharacterposition: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetSourcePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwsourcecontext), ::core::mem::transmute(pullinenumber), ::core::mem::transmute(plcharacterposition)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentContext(&self) -> ::windows::core::Result<IDebugDocumentContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5373,14 +5354,8 @@ pub struct IActiveScriptGarbageCollector_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptHostEncode(::windows::core::IUnknown);
 impl IActiveScriptHostEncode {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EncodeScriptHostFile<'a, P0, P1>(&self, bstrinfile: P0, pbstroutfile: &mut super::super::super::Foundation::BSTR, cflags: u32, bstrdefaultlang: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
-    {
-        (::windows::core::Interface::vtable(self).EncodeScriptHostFile)(::windows::core::Interface::as_raw(self), bstrinfile.into().abi(), ::core::mem::transmute(pbstroutfile), cflags, bstrdefaultlang.into().abi()).ok()
+    pub unsafe fn EncodeScriptHostFile(&self, bstrinfile: &::windows::core::BSTR, pbstroutfile: &mut ::windows::core::BSTR, cflags: u32, bstrdefaultlang: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EncodeScriptHostFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrinfile), ::core::mem::transmute(pbstroutfile), cflags, ::core::mem::transmute_copy(bstrdefaultlang)).ok()
     }
 }
 impl ::core::convert::From<IActiveScriptHostEncode> for ::windows::core::IUnknown {
@@ -5422,10 +5397,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptHostEncode {
 #[doc(hidden)]
 pub struct IActiveScriptHostEncode_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub EncodeScriptHostFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfile: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstroutfile: *mut super::super::super::Foundation::BSTR, cflags: u32, bstrdefaultlang: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    EncodeScriptHostFile: usize,
+    pub EncodeScriptHostFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstroutfile: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, cflags: u32, bstrdefaultlang: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -5434,9 +5406,9 @@ impl IActiveScriptParse32 {
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitNew)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScriptlet<'a, P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: &mut super::super::super::Foundation::BSTR, pexcepinfo: &mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn AddScriptlet<'a, P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: &mut ::windows::core::BSTR, pexcepinfo: &mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5499,9 +5471,9 @@ unsafe impl ::windows::core::Interface for IActiveScriptParse32 {
 pub struct IActiveScriptParse32_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut super::super::super::Foundation::BSTR, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
@@ -5515,9 +5487,9 @@ impl IActiveScriptParse64 {
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitNew)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScriptlet<'a, P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: &mut super::super::super::Foundation::BSTR, pexcepinfo: &mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn AddScriptlet<'a, P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: &mut ::windows::core::BSTR, pexcepinfo: &mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -5580,9 +5552,9 @@ unsafe impl ::windows::core::Interface for IActiveScriptParse64 {
 pub struct IActiveScriptParse64_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut super::super::super::Foundation::BSTR, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
@@ -6762,8 +6734,6 @@ impl IActiveScriptProfilerHeapEnum {
     pub unsafe fn Next(&self, heapobjects: &mut [*mut PROFILER_HEAP_OBJECT], pceltfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), heapobjects.len() as _, ::core::mem::transmute(heapobjects.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOptionalInfo(&self, heapobject: &PROFILER_HEAP_OBJECT, optionalinfo: &mut [PROFILER_HEAP_OBJECT_OPTIONAL_INFO]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOptionalInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(heapobject), optionalinfo.len() as _, ::core::mem::transmute(optionalinfo.as_ptr())).ok()
     }
@@ -6814,10 +6784,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptProfilerHeapEnum {
 pub struct IActiveScriptProfilerHeapEnum_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, heapobjects: *mut *mut PROFILER_HEAP_OBJECT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetOptionalInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, heapobject: *const PROFILER_HEAP_OBJECT, celt: u32, optionalinfo: *mut PROFILER_HEAP_OBJECT_OPTIONAL_INFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetOptionalInfo: usize,
     pub FreeObjectAndOptionalInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, heapobjects: *const *const PROFILER_HEAP_OBJECT) -> ::windows::core::HRESULT,
     pub GetNameIdMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamelist: *mut *mut *mut ::windows::core::PWSTR, pcelt: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -6951,11 +6918,9 @@ impl IActiveScriptSite {
     {
         (::windows::core::Interface::vtable(self).GetItemInfo)(::windows::core::Interface::as_raw(self), pstrname.into(), dwreturnmask, ::core::mem::transmute(ppiunkitem), ::core::mem::transmute(ppti)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDocVersionString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetDocVersionString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetDocVersionString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDocVersionString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7022,10 +6987,7 @@ pub struct IActiveScriptSite_Vtbl {
     pub GetItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrname: ::windows::core::PCWSTR, dwreturnmask: u32, ppiunkitem: *mut *mut ::core::ffi::c_void, ppti: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetItemInfo: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetDocVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversion: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDocVersionString: usize,
+    pub GetDocVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub OnScriptTerminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarresult: *const super::super::Com::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7513,15 +7475,9 @@ pub struct IActiveScriptStats_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptStringCompare(::windows::core::IUnknown);
 impl IActiveScriptStringCompare {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StrComp<'a, P0, P1>(&self, bszstr1: P0, bszstr2: P1) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
-    {
+    pub unsafe fn StrComp(&self, bszstr1: &::windows::core::BSTR, bszstr2: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).StrComp)(::windows::core::Interface::as_raw(self), bszstr1.into().abi(), bszstr2.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).StrComp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszstr1), ::core::mem::transmute_copy(bszstr2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 impl ::core::convert::From<IActiveScriptStringCompare> for ::windows::core::IUnknown {
@@ -7563,10 +7519,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptStringCompare {
 #[doc(hidden)]
 pub struct IActiveScriptStringCompare_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub StrComp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszstr1: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bszstr2: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, iret: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    StrComp: usize,
+    pub StrComp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszstr1: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszstr2: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iret: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -7628,8 +7581,8 @@ pub struct IActiveScriptTraceInfo_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptWinRTErrorDebug(::windows::core::IUnknown);
 impl IActiveScriptWinRTErrorDebug {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self) -> ::windows::core::Result<super::super::Com::EXCEPINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetExceptionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::EXCEPINFO>(result__)
@@ -7637,29 +7590,21 @@ impl IActiveScriptWinRTErrorDebug {
     pub unsafe fn GetSourcePosition(&self, pdwsourcecontext: &mut u32, pullinenumber: &mut u32, plcharacterposition: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetSourcePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwsourcecontext), ::core::mem::transmute(pullinenumber), ::core::mem::transmute(plcharacterposition)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetSourceLineText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSourceLineText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRestrictedErrorString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetRestrictedErrorString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestrictedErrorString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictedErrorString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRestrictedErrorReference(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetRestrictedErrorReference(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestrictedErrorReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictedErrorReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCapabilitySid(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetCapabilitySid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCapabilitySid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetCapabilitySid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IActiveScriptWinRTErrorDebug> for ::windows::core::IUnknown {
@@ -7716,18 +7661,9 @@ unsafe impl ::windows::core::Interface for IActiveScriptWinRTErrorDebug {
 #[doc(hidden)]
 pub struct IActiveScriptWinRTErrorDebug_Vtbl {
     pub base__: IActiveScriptError_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetRestrictedErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetRestrictedErrorString: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetRestrictedErrorReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referencestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetRestrictedErrorReference: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetCapabilitySid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitysid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCapabilitySid: usize,
+    pub GetRestrictedErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRestrictedErrorReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referencestring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetCapabilitySid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitysid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -8048,11 +7984,9 @@ impl IDataModelConcept {
     {
         (::windows::core::Interface::vtable(self).InitializeObject)(::windows::core::Interface::as_raw(self), modelobject.into().abi(), matchingtypesignature.into().abi(), wildcardmatches.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDataModelConcept> for ::windows::core::IUnknown {
@@ -8095,10 +8029,7 @@ unsafe impl ::windows::core::Interface for IDataModelConcept {
 pub struct IDataModelConcept_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub InitializeObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelobject: *mut ::core::ffi::c_void, matchingtypesignature: *mut ::core::ffi::c_void, wildcardmatches: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -8599,11 +8530,9 @@ pub struct IDataModelNameBinder_Vtbl {
 #[repr(transparent)]
 pub struct IDataModelScript(::windows::core::IUnknown);
 impl IDataModelScript {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn Rename<'a, P0>(&self, scriptname: P0) -> ::windows::core::Result<()>
     where
@@ -8678,10 +8607,7 @@ unsafe impl ::windows::core::Interface for IDataModelScript {
 #[doc(hidden)]
 pub struct IDataModelScript_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Rename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Populate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8751,9 +8677,7 @@ impl IDataModelScriptDebug {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
         (::windows::core::Interface::vtable(self).GetDebugState)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCurrentPosition(&self, currentposition: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut super::super::super::Foundation::BSTR>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCurrentPosition(&self, currentposition: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(currentposition), ::core::mem::transmute(positionspanend), ::core::mem::transmute(linetext)).ok()
     }
     pub unsafe fn GetStack(&self) -> ::windows::core::Result<IDataModelScriptDebugStack> {
@@ -8832,10 +8756,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebug {
 pub struct IDataModelScriptDebug_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetDebugState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ScriptDebugState,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCurrentPosition: usize,
+    pub GetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetStack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stack: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBreakpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineposition: u32, columnposition: u32, breakpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FindBreakpointById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breakpointid: u64, breakpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8852,9 +8773,7 @@ impl IDataModelScriptDebug2 {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
         (::windows::core::Interface::vtable(self).base__.GetDebugState)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCurrentPosition(&self, currentposition: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut super::super::super::Foundation::BSTR>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCurrentPosition(&self, currentposition: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(currentposition), ::core::mem::transmute(positionspanend), ::core::mem::transmute(linetext)).ok()
     }
     pub unsafe fn GetStack(&self) -> ::windows::core::Result<IDataModelScriptDebugStack> {
@@ -8975,9 +8894,7 @@ impl IDataModelScriptDebugBreakpoint {
     pub unsafe fn Remove(&self) {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPosition(&self, position: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut super::super::super::Foundation::BSTR>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPosition(&self, position: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(position), ::core::mem::transmute(positionspanend), ::core::mem::transmute(linetext)).ok()
     }
 }
@@ -9025,10 +8942,7 @@ pub struct IDataModelScriptDebugBreakpoint_Vtbl {
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetPosition: usize,
+    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -9195,15 +9109,11 @@ pub struct IDataModelScriptDebugStack_Vtbl {
 #[repr(transparent)]
 pub struct IDataModelScriptDebugStackFrame(::windows::core::IUnknown);
 impl IDataModelScriptDebugStackFrame {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPosition(&self, position: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut super::super::super::Foundation::BSTR>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPosition(&self, position: &mut ScriptDebugPosition, positionspanend: ::core::option::Option<&mut ScriptDebugPosition>, linetext: ::core::option::Option<&mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(position), ::core::mem::transmute(positionspanend), ::core::mem::transmute(linetext)).ok()
     }
     pub unsafe fn IsTransitionPoint(&self) -> ::windows::core::Result<bool> {
@@ -9268,14 +9178,8 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugStackFrame {
 #[doc(hidden)]
 pub struct IDataModelScriptDebugStackFrame_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetPosition: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub IsTransitionPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransitionpoint: *mut bool) -> ::windows::core::HRESULT,
     pub GetTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transitionscript: *mut *mut ::core::ffi::c_void, istransitioncontiguous: *mut bool) -> ::windows::core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszexpression: ::windows::core::PCWSTR, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9289,9 +9193,7 @@ impl IDataModelScriptDebugVariableSetEnumerator {
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNext(&self, variablename: &mut super::super::super::Foundation::BSTR, variablevalue: ::core::option::Option<&mut ::core::option::Option<IModelObject>>, variablemetadata: ::core::option::Option<&mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetNext(&self, variablename: &mut ::windows::core::BSTR, variablevalue: ::core::option::Option<&mut ::core::option::Option<IModelObject>>, variablemetadata: ::core::option::Option<&mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(variablename), ::core::mem::transmute(variablevalue), ::core::mem::transmute(variablemetadata)).ok()
     }
 }
@@ -9335,10 +9237,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugVariableSetEnume
 pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablename: *mut super::super::super::Foundation::BSTR, variablevalue: *mut *mut ::core::ffi::c_void, variablemetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetNext: usize,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, variablevalue: *mut *mut ::core::ffi::c_void, variablemetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -9486,17 +9385,13 @@ pub struct IDataModelScriptManager_Vtbl {
 #[repr(transparent)]
 pub struct IDataModelScriptProvider(::windows::core::IUnknown);
 impl IDataModelScriptProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtension(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetExtension(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn CreateScript(&self) -> ::windows::core::Result<IDataModelScript> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9550,14 +9445,8 @@ unsafe impl ::windows::core::Interface for IDataModelScriptProvider {
 #[doc(hidden)]
 pub struct IDataModelScriptProvider_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetExtension: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CreateScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDefaultTemplateContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatecontent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateTemplates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9620,17 +9509,13 @@ pub struct IDataModelScriptProviderEnumerator_Vtbl {
 #[repr(transparent)]
 pub struct IDataModelScriptTemplate(::windows::core::IUnknown);
 impl IDataModelScriptTemplate {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9678,14 +9563,8 @@ unsafe impl ::windows::core::Interface for IDataModelScriptTemplate {
 #[doc(hidden)]
 pub struct IDataModelScriptTemplate_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatedescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDescription: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatedescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10305,11 +10184,9 @@ impl IDebugApplication32 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRemoteDebugApplicationThreads>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetRootNode(&self) -> ::windows::core::Result<IDebugApplicationNode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10541,11 +10418,9 @@ impl IDebugApplication64 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRemoteDebugApplicationThreads>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetRootNode(&self) -> ::windows::core::Result<IDebugApplicationNode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10741,11 +10616,9 @@ pub struct IDebugApplication64_Vtbl {
 #[repr(transparent)]
 pub struct IDebugApplicationNode(::windows::core::IUnknown);
 impl IDebugApplicationNode {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentClassId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11005,9 +10878,7 @@ impl IDebugApplicationThread {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumStackFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDebugStackFrames>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDescription(&self, pbstrdescription: &mut super::super::super::Foundation::BSTR, pbstrstate: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDescription(&self, pbstrdescription: &mut ::windows::core::BSTR, pbstrstate: &mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdescription), ::core::mem::transmute(pbstrstate)).ok()
     }
     pub unsafe fn SetNextStatement<'a, P0, P1>(&self, pstackframe: P0, pcodecontext: P1) -> ::windows::core::Result<()>
@@ -11288,9 +11159,7 @@ impl IDebugApplicationThread64 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnumStackFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDebugStackFrames>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDescription(&self, pbstrdescription: &mut super::super::super::Foundation::BSTR, pbstrstate: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDescription(&self, pbstrdescription: &mut ::windows::core::BSTR, pbstrstate: &mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdescription), ::core::mem::transmute(pbstrstate)).ok()
     }
     pub unsafe fn SetNextStatement<'a, P0, P1>(&self, pstackframe: P0, pcodecontext: P1) -> ::windows::core::Result<()>
@@ -22924,11 +22793,9 @@ pub struct IDebugDataSpaces4_Vtbl {
 #[repr(transparent)]
 pub struct IDebugDocument(::windows::core::IUnknown);
 impl IDebugDocument {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentClassId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -23374,14 +23241,12 @@ impl IDebugDocumentHost {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPathName(&self, pbstrlongname: &mut super::super::super::Foundation::BSTR, pfisoriginalfile: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPathName(&self, pbstrlongname: &mut ::windows::core::BSTR, pfisoriginalfile: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPathName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrlongname), ::core::mem::transmute(pfisoriginalfile)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetFileName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn NotifyChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NotifyChanged)(::windows::core::Interface::as_raw(self)).ok()
@@ -23430,24 +23295,19 @@ pub struct IDebugDocumentHost_Vtbl {
     pub GetScriptTextAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT,
     pub OnCreateDocumentContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkouter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut super::super::super::Foundation::BSTR, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPathName: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetFileName: usize,
+    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub NotifyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 pub struct IDebugDocumentInfo(::windows::core::IUnknown);
 impl IDebugDocumentInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentClassId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -23493,21 +23353,16 @@ unsafe impl ::windows::core::Interface for IDebugDocumentInfo {
 #[doc(hidden)]
 pub struct IDebugDocumentInfo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnt: DOCUMENTNAMETYPE, pbstrname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnt: DOCUMENTNAMETYPE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetDocumentClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddocument: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 pub struct IDebugDocumentProvider(::windows::core::IUnknown);
 impl IDebugDocumentProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentClassId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -23578,11 +23433,9 @@ pub struct IDebugDocumentProvider_Vtbl {
 #[repr(transparent)]
 pub struct IDebugDocumentText(::windows::core::IUnknown);
 impl IDebugDocumentText {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentClassId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -23697,11 +23550,9 @@ pub struct IDebugDocumentText_Vtbl {
 #[repr(transparent)]
 pub struct IDebugDocumentTextAuthor(::windows::core::IUnknown);
 impl IDebugDocumentTextAuthor {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetName)(::windows::core::Interface::as_raw(self), dnt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentClassId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -23907,14 +23758,12 @@ pub struct IDebugDocumentTextExternalAuthor(::windows::core::IUnknown);
 impl IDebugDocumentTextExternalAuthor {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPathName(&self, pbstrlongname: &mut super::super::super::Foundation::BSTR, pfisoriginalfile: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPathName(&self, pbstrlongname: &mut ::windows::core::BSTR, pfisoriginalfile: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPathName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrlongname), ::core::mem::transmute(pfisoriginalfile)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetFileName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn NotifyChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NotifyChanged)(::windows::core::Interface::as_raw(self)).ok()
@@ -23960,13 +23809,10 @@ unsafe impl ::windows::core::Interface for IDebugDocumentTextExternalAuthor {
 pub struct IDebugDocumentTextExternalAuthor_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut super::super::super::Foundation::BSTR, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPathName: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetFileName: usize,
+    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub NotifyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -24348,9 +24194,7 @@ impl IDebugExpression {
     pub unsafe fn QueryIsComplete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryIsComplete)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetResultAsString(&self, phrresult: &mut ::windows::core::HRESULT, pbstrresult: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn GetResultAsString(&self, phrresult: &mut ::windows::core::HRESULT, pbstrresult: &mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetResultAsString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phrresult), ::core::mem::transmute(pbstrresult)).ok()
     }
     pub unsafe fn GetResultAsDebugProperty(&self, phrresult: &mut ::windows::core::HRESULT, ppdp: &mut ::core::option::Option<IDebugProperty>) -> ::windows::core::Result<()> {
@@ -24399,10 +24243,7 @@ pub struct IDebugExpression_Vtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QueryIsComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetResultAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pbstrresult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetResultAsString: usize,
+    pub GetResultAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pbstrresult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetResultAsDebugProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, ppdp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -24466,9 +24307,7 @@ impl IDebugExpressionContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParseLanguageText)(::windows::core::Interface::as_raw(self), pstrcode.into(), nradix, pstrdelimiter.into(), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugExpression>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguageInfo(&self, pbstrlanguagename: &mut super::super::super::Foundation::BSTR, planguageid: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLanguageInfo(&self, pbstrlanguagename: &mut ::windows::core::BSTR, planguageid: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLanguageInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrlanguagename), ::core::mem::transmute(planguageid)).ok()
     }
 }
@@ -24512,17 +24351,12 @@ unsafe impl ::windows::core::Interface for IDebugExpressionContext {
 pub struct IDebugExpressionContext_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ParseLanguageText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, nradix: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, ppe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetLanguageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlanguagename: *mut super::super::super::Foundation::BSTR, planguageid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLanguageInfo: usize,
+    pub GetLanguageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlanguagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, planguageid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 pub struct IDebugExtendedProperty(::windows::core::IUnknown);
 impl IDebugExtendedProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32) -> ::windows::core::Result<DebugPropertyInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPropertyInfo)(::windows::core::Interface::as_raw(self), dwfieldspec, nradix, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DebugPropertyInfo>(result__)
@@ -24623,9 +24457,9 @@ pub struct IDebugFormatter(::windows::core::IUnknown);
 impl IDebugFormatter {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetStringForVariant(&self, pvar: &super::super::Com::VARIANT, nradix: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetStringForVariant(&self, pvar: &super::super::Com::VARIANT, nradix: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetStringForVariant)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), nradix, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetStringForVariant)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), nradix, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24636,11 +24470,11 @@ impl IDebugFormatter {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetVariantForString)(::windows::core::Interface::as_raw(self), pwstrvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetStringForVarType(&self, vt: super::super::Com::VARENUM, ptdescarraytype: &super::super::Com::TYPEDESC) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn GetStringForVarType(&self, vt: super::super::Com::VARENUM, ptdescarraytype: &super::super::Com::TYPEDESC) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetStringForVarType)(::windows::core::Interface::as_raw(self), vt, ::core::mem::transmute(ptdescarraytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetStringForVarType)(::windows::core::Interface::as_raw(self), vt, ::core::mem::transmute(ptdescarraytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDebugFormatter> for ::windows::core::IUnknown {
@@ -24683,16 +24517,16 @@ unsafe impl ::windows::core::Interface for IDebugFormatter {
 pub struct IDebugFormatter_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, nradix: u32, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, nradix: u32, pbstrvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetStringForVariant: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetVariantForString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrvalue: ::windows::core::PCWSTR, pvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetVariantForString: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetStringForVarType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub GetStringForVarType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetStringForVarType: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -24861,11 +24695,9 @@ impl IDebugHostBaseClass {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -24962,11 +24794,9 @@ impl IDebugHostConstant {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -25121,11 +24951,9 @@ impl IDebugHostData {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -25496,11 +25324,9 @@ impl IDebugHostField {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -25627,14 +25453,12 @@ impl IDebugHostMemory {
     {
         (::windows::core::Interface::vtable(self).WritePointers)(::windows::core::Interface::as_raw(self), context.into().abi(), ::core::mem::transmute(location), pointers.len() as _, ::core::mem::transmute(pointers.as_ptr())).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDisplayStringForLocation<'a, P0>(&self, context: P0, location: Location, verbose: u8) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+    pub unsafe fn GetDisplayStringForLocation<'a, P0>(&self, context: P0, location: Location, verbose: u8) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDebugHostContext>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetDisplayStringForLocation)(::windows::core::Interface::as_raw(self), context.into().abi(), ::core::mem::transmute(location), verbose, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDisplayStringForLocation)(::windows::core::Interface::as_raw(self), context.into().abi(), ::core::mem::transmute(location), verbose, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDebugHostMemory> for ::windows::core::IUnknown {
@@ -25680,10 +25504,7 @@ pub struct IDebugHostMemory_Vtbl {
     pub WriteBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> ::windows::core::HRESULT,
     pub ReadPointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, count: u64, pointers: *mut u64) -> ::windows::core::HRESULT,
     pub WritePointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, count: u64, pointers: *const u64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetDisplayStringForLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, verbose: u8, locationname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDisplayStringForLocation: usize,
+    pub GetDisplayStringForLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, verbose: u8, locationname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -25714,14 +25535,12 @@ impl IDebugHostMemory2 {
     {
         (::windows::core::Interface::vtable(self).base__.WritePointers)(::windows::core::Interface::as_raw(self), context.into().abi(), ::core::mem::transmute(location), pointers.len() as _, ::core::mem::transmute(pointers.as_ptr())).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDisplayStringForLocation<'a, P0>(&self, context: P0, location: Location, verbose: u8) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+    pub unsafe fn GetDisplayStringForLocation<'a, P0>(&self, context: P0, location: Location, verbose: u8) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDebugHostContext>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDisplayStringForLocation)(::windows::core::Interface::as_raw(self), context.into().abi(), ::core::mem::transmute(location), verbose, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDisplayStringForLocation)(::windows::core::Interface::as_raw(self), context.into().abi(), ::core::mem::transmute(location), verbose, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn LinearizeLocation<'a, P0>(&self, context: P0, location: Location) -> ::windows::core::Result<Location>
     where
@@ -25806,11 +25625,9 @@ impl IDebugHostModule {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -25827,11 +25644,9 @@ impl IDebugHostModule {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CompareAgainst)(::windows::core::Interface::as_raw(self), pcomparisonsymbol.into().abi(), comparisonflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<bool>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetImageName(&self, allowpath: u8) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetImageName(&self, allowpath: u8) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageName)(::windows::core::Interface::as_raw(self), allowpath, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetImageName)(::windows::core::Interface::as_raw(self), allowpath, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetBaseLocation(&self) -> ::windows::core::Result<Location> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -25913,10 +25728,7 @@ unsafe impl ::windows::core::Interface for IDebugHostModule {
 #[doc(hidden)]
 pub struct IDebugHostModule_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetImageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowpath: u8, imagename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetImageName: usize,
+    pub GetImageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowpath: u8, imagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetBaseLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modulebaselocation: *mut Location) -> ::windows::core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileversion: *mut u64, productversion: *mut u64) -> ::windows::core::HRESULT,
     pub FindTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::windows::core::PCWSTR, r#type: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -25942,11 +25754,9 @@ impl IDebugHostModule2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -25963,11 +25773,9 @@ impl IDebugHostModule2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CompareAgainst)(::windows::core::Interface::as_raw(self), pcomparisonsymbol.into().abi(), comparisonflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<bool>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetImageName(&self, allowpath: u8) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetImageName(&self, allowpath: u8) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetImageName)(::windows::core::Interface::as_raw(self), allowpath, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetImageName)(::windows::core::Interface::as_raw(self), allowpath, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetBaseLocation(&self) -> ::windows::core::Result<Location> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26141,11 +25949,9 @@ impl IDebugHostPublic {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26350,11 +26156,9 @@ impl IDebugHostSymbol {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26414,10 +26218,7 @@ pub struct IDebugHostSymbol_Vtbl {
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SymbolKind, name: ::windows::core::PCWSTR, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSymbolKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut SymbolKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContainingModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingmodule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompareAgainst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomparisonsymbol: *mut ::core::ffi::c_void, comparisonflags: u32, pmatches: *mut bool) -> ::windows::core::HRESULT,
@@ -26441,11 +26242,9 @@ impl IDebugHostSymbol2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26704,11 +26503,9 @@ impl IDebugHostType {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26892,11 +26689,9 @@ impl IDebugHostType2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetSymbolKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SymbolKind>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<IDebugHostType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -27669,8 +27464,6 @@ pub struct IDebugPlmClient3_Vtbl {
 #[repr(transparent)]
 pub struct IDebugProperty(::windows::core::IUnknown);
 impl IDebugProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32) -> ::windows::core::Result<DebugPropertyInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyInfo)(::windows::core::Interface::as_raw(self), dwfieldspec, nradix, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DebugPropertyInfo>(result__)
@@ -27734,10 +27527,7 @@ unsafe impl ::windows::core::Interface for IDebugProperty {
 #[doc(hidden)]
 pub struct IDebugProperty_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetPropertyInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetExtendedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -27750,11 +27540,9 @@ pub struct IDebugProperty_Vtbl {
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_All(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_All {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDebugPropertyEnumType_All> for ::windows::core::IUnknown {
@@ -27796,20 +27584,15 @@ unsafe impl ::windows::core::Interface for IDebugPropertyEnumType_All {
 #[doc(hidden)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_Arguments(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_Arguments {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDebugPropertyEnumType_Arguments> for ::windows::core::IUnknown {
@@ -27871,11 +27654,9 @@ pub struct IDebugPropertyEnumType_Arguments_Vtbl {
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_Locals(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_Locals {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDebugPropertyEnumType_Locals> for ::windows::core::IUnknown {
@@ -27937,11 +27718,9 @@ pub struct IDebugPropertyEnumType_Locals_Vtbl {
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_LocalsPlusArgs(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_LocalsPlusArgs {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDebugPropertyEnumType_LocalsPlusArgs> for ::windows::core::IUnknown {
@@ -28003,11 +27782,9 @@ pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_Registers(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_Registers {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IDebugPropertyEnumType_Registers> for ::windows::core::IUnknown {
@@ -28459,21 +28236,21 @@ impl IDebugStackFrame {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDescriptionString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+    pub unsafe fn GetDescriptionString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetDescriptionString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDescriptionString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguageString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+    pub unsafe fn GetLanguageString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetLanguageString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetLanguageString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetThread(&self) -> ::windows::core::Result<IDebugApplicationThread> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -28525,11 +28302,11 @@ pub struct IDebugStackFrame_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetCodeContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetDescriptionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    pub GetDescriptionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetDescriptionString: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetLanguageString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrlanguage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    pub GetLanguageString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrlanguage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetLanguageString: usize,
     pub GetThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -28545,21 +28322,21 @@ impl IDebugStackFrame110 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDescriptionString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+    pub unsafe fn GetDescriptionString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDescriptionString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDescriptionString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguageString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+    pub unsafe fn GetLanguageString<'a, P0>(&self, flong: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetLanguageString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLanguageString)(::windows::core::Interface::as_raw(self), flong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetThread(&self) -> ::windows::core::Result<IDebugApplicationThread> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33578,8 +33355,6 @@ pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDebugPropertyInfo(::windows::core::IUnknown);
 impl IEnumDebugPropertyInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, pi: &mut [DebugPropertyInfo], pceltsfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), pi.len() as _, ::core::mem::transmute(pi.as_ptr()), ::core::mem::transmute(pceltsfetched)).ok()
     }
@@ -33637,10 +33412,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugPropertyInfo {
 #[doc(hidden)]
 pub struct IEnumDebugPropertyInfo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppepi: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -34351,17 +34123,13 @@ impl IJsDebugDataTarget {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTlsValue)(::windows::core::Interface::as_raw(self), threadid, tlsindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReadBSTR(&self, address: u64) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn ReadBSTR(&self, address: u64) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ReadBSTR)(::windows::core::Interface::as_raw(self), address, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ReadBSTR)(::windows::core::Interface::as_raw(self), address, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReadNullTerminatedString(&self, address: u64, charactersize: u16, maxcharacters: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn ReadNullTerminatedString(&self, address: u64, charactersize: u16, maxcharacters: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ReadNullTerminatedString)(::windows::core::Interface::as_raw(self), address, charactersize, maxcharacters, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ReadNullTerminatedString)(::windows::core::Interface::as_raw(self), address, charactersize, maxcharacters, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn CreateStackFrameEnumerator(&self, threadid: u32) -> ::windows::core::Result<IEnumJsStackFrames> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -34415,14 +34183,8 @@ pub struct IJsDebugDataTarget_Vtbl {
     pub AllocateVirtualMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, size: u32, allocationtype: u32, pageprotection: u32, pallocatedaddress: *mut u64) -> ::windows::core::HRESULT,
     pub FreeVirtualMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, size: u32, freetype: u32) -> ::windows::core::HRESULT,
     pub GetTlsValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, tlsindex: u32, pvalue: *mut u64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub ReadBSTR: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, pstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ReadBSTR: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub ReadNullTerminatedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, charactersize: u16, maxcharacters: u32, pstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ReadNullTerminatedString: usize,
+    pub ReadBSTR: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, pstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ReadNullTerminatedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, charactersize: u16, maxcharacters: u32, pstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CreateStackFrameEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, contextflags: u32, contextsize: u32, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -34433,18 +34195,14 @@ impl IJsDebugFrame {
     pub unsafe fn GetStackRange(&self, pstart: &mut u64, pend: &mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStackRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetDocumentPositionWithId(&self, pdocumentid: &mut u64, pcharacteroffset: &mut u32, pstatementcharcount: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDocumentPositionWithId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdocumentid), ::core::mem::transmute(pcharacteroffset), ::core::mem::transmute(pstatementcharcount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDocumentPositionWithName(&self, pdocumentname: &mut super::super::super::Foundation::BSTR, pline: &mut u32, pcolumn: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDocumentPositionWithName(&self, pdocumentname: &mut ::windows::core::BSTR, pline: &mut u32, pcolumn: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDocumentPositionWithName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdocumentname), ::core::mem::transmute(pline), ::core::mem::transmute(pcolumn)).ok()
     }
     pub unsafe fn GetDebugProperty(&self) -> ::windows::core::Result<IJsDebugProperty> {
@@ -34455,9 +34213,7 @@ impl IJsDebugFrame {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetReturnAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Evaluate<'a, P0>(&self, pexpressiontext: P0, ppdebugproperty: &mut ::core::option::Option<IJsDebugProperty>, perror: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Evaluate<'a, P0>(&self, pexpressiontext: P0, ppdebugproperty: &mut ::core::option::Option<IJsDebugProperty>, perror: &mut ::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -34504,21 +34260,12 @@ unsafe impl ::windows::core::Interface for IJsDebugFrame {
 pub struct IJsDebugFrame_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetStackRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstart: *mut u64, pend: *mut u64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetDocumentPositionWithId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentid: *mut u64, pcharacteroffset: *mut u32, pstatementcharcount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetDocumentPositionWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentname: *mut super::super::super::Foundation::BSTR, pline: *mut u32, pcolumn: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDocumentPositionWithName: usize,
+    pub GetDocumentPositionWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pline: *mut u32, pcolumn: *mut u32) -> ::windows::core::HRESULT,
     pub GetDebugProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdebugproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetReturnAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preturnaddress: *mut u64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexpressiontext: ::windows::core::PCWSTR, ppdebugproperty: *mut *mut ::core::ffi::c_void, perror: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Evaluate: usize,
+    pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexpressiontext: ::windows::core::PCWSTR, ppdebugproperty: *mut *mut ::core::ffi::c_void, perror: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -34596,8 +34343,6 @@ pub struct IJsDebugProcess_Vtbl {
 #[repr(transparent)]
 pub struct IJsDebugProperty(::windows::core::IUnknown);
 impl IJsDebugProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyInfo(&self, nradix: u32) -> ::windows::core::Result<JsDebugPropertyInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyInfo)(::windows::core::Interface::as_raw(self), nradix, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<JsDebugPropertyInfo>(result__)
@@ -34646,10 +34391,7 @@ unsafe impl ::windows::core::Interface for IJsDebugProperty {
 #[doc(hidden)]
 pub struct IJsDebugProperty_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nradix: u32, ppropertyinfo: *mut JsDebugPropertyInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetPropertyInfo: usize,
     pub GetMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, members: JS_PROPERTY_MEMBERS, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34763,9 +34505,7 @@ impl IKeyEnumerator {
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNext(&self, key: &mut super::super::super::Foundation::BSTR, value: ::core::option::Option<&mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<&mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetNext(&self, key: &mut ::windows::core::BSTR, value: ::core::option::Option<&mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<&mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(value), ::core::mem::transmute(metadata)).ok()
     }
 }
@@ -34809,10 +34549,7 @@ unsafe impl ::windows::core::Interface for IKeyEnumerator {
 pub struct IKeyEnumerator_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut super::super::super::Foundation::BSTR, value: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetNext: usize,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -35134,11 +34871,9 @@ pub struct IModelIterator_Vtbl {
 #[repr(transparent)]
 pub struct IModelKeyReference(::windows::core::IUnknown);
 impl IModelKeyReference {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKeyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetKeyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetKeyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetKeyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetOriginalObject(&self) -> ::windows::core::Result<IModelObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -35207,10 +34942,7 @@ unsafe impl ::windows::core::Interface for IModelKeyReference {
 #[doc(hidden)]
 pub struct IModelKeyReference_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keyname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetKeyName: usize,
+    pub GetKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetOriginalObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, originalobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContextObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35222,11 +34954,9 @@ pub struct IModelKeyReference_Vtbl {
 #[repr(transparent)]
 pub struct IModelKeyReference2(::windows::core::IUnknown);
 impl IModelKeyReference2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetKeyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetKeyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetKeyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetKeyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetOriginalObject(&self) -> ::windows::core::Result<IModelObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -35744,11 +35474,9 @@ pub struct IObjectSafety_Vtbl {
 #[repr(transparent)]
 pub struct IPerPropertyBrowsing2(::windows::core::IUnknown);
 impl IPerPropertyBrowsing2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDisplayString(&self, dispid: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetDisplayString(&self, dispid: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetDisplayString)(::windows::core::Interface::as_raw(self), dispid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDisplayString)(::windows::core::Interface::as_raw(self), dispid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -35802,10 +35530,7 @@ unsafe impl ::windows::core::Interface for IPerPropertyBrowsing2 {
 #[doc(hidden)]
 pub struct IPerPropertyBrowsing2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDisplayString: usize,
+    pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsidproppage: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> ::windows::core::HRESULT,
@@ -36073,9 +35798,7 @@ impl IRawEnumerator {
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNext(&self, name: ::core::option::Option<&mut super::super::super::Foundation::BSTR>, kind: ::core::option::Option<&mut SymbolKind>, value: ::core::option::Option<&mut ::core::option::Option<IModelObject>>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetNext(&self, name: ::core::option::Option<&mut ::windows::core::BSTR>, kind: ::core::option::Option<&mut SymbolKind>, value: ::core::option::Option<&mut ::core::option::Option<IModelObject>>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(kind), ::core::mem::transmute(value)).ok()
     }
 }
@@ -36119,10 +35842,7 @@ unsafe impl ::windows::core::Interface for IRawEnumerator {
 pub struct IRawEnumerator_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR, kind: *mut SymbolKind, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetNext: usize,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, kind: *mut SymbolKind, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -36164,11 +35884,9 @@ impl IRemoteDebugApplication {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRemoteDebugApplicationThreads>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetRootNode(&self) -> ::windows::core::Result<IDebugApplicationNode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -36226,10 +35944,7 @@ pub struct IRemoteDebugApplication_Vtbl {
     pub CreateInstanceAtApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QueryAlive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperdat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetRootNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdanroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumGlobalExpressionContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedec: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -36417,9 +36132,7 @@ impl IRemoteDebugApplicationThread {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumStackFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDebugStackFrames>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDescription(&self, pbstrdescription: &mut super::super::super::Foundation::BSTR, pbstrstate: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDescription(&self, pbstrdescription: &mut ::windows::core::BSTR, pbstrstate: &mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdescription), ::core::mem::transmute(pbstrstate)).ok()
     }
     pub unsafe fn SetNextStatement<'a, P0, P1>(&self, pstackframe: P0, pcodecontext: P1) -> ::windows::core::Result<()>
@@ -36488,10 +36201,7 @@ pub struct IRemoteDebugApplicationThread_Vtbl {
     pub GetSystemThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthreadid: *mut u32) -> ::windows::core::HRESULT,
     pub GetApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumStackFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::super::Foundation::BSTR, pbstrstate: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetDescription: usize,
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrstate: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetNextStatement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstackframe: *mut ::core::ffi::c_void, pcodecontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut u32) -> ::windows::core::HRESULT,
     pub Suspend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
@@ -36502,9 +36212,7 @@ pub struct IRemoteDebugApplicationThread_Vtbl {
 #[repr(transparent)]
 pub struct IRemoteDebugCriticalErrorEvent110(::windows::core::IUnknown);
 impl IRemoteDebugCriticalErrorEvent110 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetErrorInfo(&self, pbstrsource: &mut super::super::super::Foundation::BSTR, pmessageid: &mut i32, pbstrmessage: &mut super::super::super::Foundation::BSTR, pplocation: &mut ::core::option::Option<IDebugDocumentContext>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetErrorInfo(&self, pbstrsource: &mut ::windows::core::BSTR, pmessageid: &mut i32, pbstrmessage: &mut ::windows::core::BSTR, pplocation: &mut ::core::option::Option<IDebugDocumentContext>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsource), ::core::mem::transmute(pmessageid), ::core::mem::transmute(pbstrmessage), ::core::mem::transmute(pplocation)).ok()
     }
 }
@@ -36547,18 +36255,13 @@ unsafe impl ::windows::core::Interface for IRemoteDebugCriticalErrorEvent110 {
 #[doc(hidden)]
 pub struct IRemoteDebugCriticalErrorEvent110_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut super::super::super::Foundation::BSTR, pmessageid: *mut i32, pbstrmessage: *mut super::super::super::Foundation::BSTR, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetErrorInfo: usize,
+    pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pmessageid: *mut i32, pbstrmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 pub struct IRemoteDebugInfoEvent110(::windows::core::IUnknown);
 impl IRemoteDebugInfoEvent110 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEventInfo(&self, pmessagetype: &mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: &mut super::super::super::Foundation::BSTR, pbstrurl: &mut super::super::super::Foundation::BSTR, pplocation: &mut ::core::option::Option<IDebugDocumentContext>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEventInfo(&self, pmessagetype: &mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: &mut ::windows::core::BSTR, pbstrurl: &mut ::windows::core::BSTR, pplocation: &mut ::core::option::Option<IDebugDocumentContext>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEventInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmessagetype), ::core::mem::transmute(pbstrmessage), ::core::mem::transmute(pbstrurl), ::core::mem::transmute(pplocation)).ok()
     }
 }
@@ -36601,10 +36304,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugInfoEvent110 {
 #[doc(hidden)]
 pub struct IRemoteDebugInfoEvent110_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut super::super::super::Foundation::BSTR, pbstrurl: *mut super::super::super::Foundation::BSTR, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEventInfo: usize,
+    pub GetEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -36636,11 +36336,9 @@ impl IScriptEntry {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetChild)(::windows::core::Interface::as_raw(self), isn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IScriptNode>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn CreateChildEntry<'a, P0>(&self, isn: u32, dwcookie: u32, pszdelimiter: P0) -> ::windows::core::Result<IScriptEntry>
     where
@@ -36661,11 +36359,9 @@ impl IScriptEntry {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateChildHandler)(::windows::core::Interface::as_raw(self), pszdefaultname.into(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len() as _, pszevent.into(), pszdelimiter.into(), ptisignature.into().abi(), imethodsignature, isn, dwcookie, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IScriptEntry>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetText<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -36673,11 +36369,9 @@ impl IScriptEntry {
     {
         (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBody(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetBody(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetBody<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -36685,11 +36379,9 @@ impl IScriptEntry {
     {
         (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetName<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -36697,11 +36389,9 @@ impl IScriptEntry {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetItemName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetItemName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetItemName<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -36780,25 +36470,13 @@ unsafe impl ::windows::core::Interface for IScriptEntry {
 #[doc(hidden)]
 pub struct IScriptEntry_Vtbl {
     pub base__: IScriptNode_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetText: usize,
+    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetBody: usize,
+    pub GetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetName: usize,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetItemName: usize,
+    pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppti: *mut *mut ::core::ffi::c_void, pimethod: *mut u32) -> ::windows::core::HRESULT,
@@ -36818,11 +36496,9 @@ impl IScriptInvocationContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetContextType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SCRIPT_INVOCATION_CONTEXT_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetContextDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetContextDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetContextDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetContextDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn GetContextObject(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -36869,10 +36545,7 @@ unsafe impl ::windows::core::Interface for IScriptInvocationContext {
 pub struct IScriptInvocationContext_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetContextType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinvocationcontexttype: *mut SCRIPT_INVOCATION_CONTEXT_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetContextDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetContextDescription: usize,
+    pub GetContextDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetContextObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontextobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -36905,11 +36578,9 @@ impl IScriptNode {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetChild)(::windows::core::Interface::as_raw(self), isn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IScriptNode>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn CreateChildEntry<'a, P0>(&self, isn: u32, dwcookie: u32, pszdelimiter: P0) -> ::windows::core::Result<IScriptEntry>
     where
@@ -36977,10 +36648,7 @@ pub struct IScriptNode_Vtbl {
     pub GetCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub GetNumberOfChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcsn: *mut u32) -> ::windows::core::HRESULT,
     pub GetChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isn: u32, ppsn: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLanguage: usize,
+    pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CreateChildEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isn: u32, dwcookie: u32, pszdelimiter: ::windows::core::PCWSTR, ppse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateChildHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultname: ::windows::core::PCWSTR, prgpsznames: *const ::windows::core::PWSTR, cpsznames: u32, pszevent: ::windows::core::PCWSTR, pszdelimiter: ::windows::core::PCWSTR, ptisignature: *mut ::core::ffi::c_void, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -37017,11 +36685,9 @@ impl IScriptScriptlet {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetChild)(::windows::core::Interface::as_raw(self), isn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IScriptNode>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn CreateChildEntry<'a, P0>(&self, isn: u32, dwcookie: u32, pszdelimiter: P0) -> ::windows::core::Result<IScriptEntry>
     where
@@ -37042,11 +36708,9 @@ impl IScriptScriptlet {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateChildHandler)(::windows::core::Interface::as_raw(self), pszdefaultname.into(), ::core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len() as _, pszevent.into(), pszdelimiter.into(), ptisignature.into().abi(), imethodsignature, isn, dwcookie, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IScriptEntry>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetText<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -37054,11 +36718,9 @@ impl IScriptScriptlet {
     {
         (::windows::core::Interface::vtable(self).base__.SetText)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBody(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetBody(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetBody<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -37066,11 +36728,9 @@ impl IScriptScriptlet {
     {
         (::windows::core::Interface::vtable(self).base__.SetBody)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetName<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -37078,11 +36738,9 @@ impl IScriptScriptlet {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetItemName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetItemName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetItemName<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -37106,11 +36764,9 @@ impl IScriptScriptlet {
     pub unsafe fn GetRange(&self, pichmin: &mut u32, pcch: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pichmin), ::core::mem::transmute(pcch)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSubItemName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetSubItemName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSubItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSubItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetSubItemName<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -37118,11 +36774,9 @@ impl IScriptScriptlet {
     {
         (::windows::core::Interface::vtable(self).SetSubItemName)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEventName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetEventName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetEventName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetEventName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetEventName<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -37130,11 +36784,9 @@ impl IScriptScriptlet {
     {
         (::windows::core::Interface::vtable(self).SetEventName)(::windows::core::Interface::as_raw(self), psz.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSimpleEventName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetSimpleEventName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSimpleEventName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSimpleEventName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn SetSimpleEventName<'a, P0>(&self, psz: P0) -> ::windows::core::Result<()>
     where
@@ -37212,20 +36864,11 @@ unsafe impl ::windows::core::Interface for IScriptScriptlet {
 #[doc(hidden)]
 pub struct IScriptScriptlet_Vtbl {
     pub base__: IScriptEntry_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetSubItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetSubItemName: usize,
+    pub GetSubItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetSubItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetEventName: usize,
+    pub GetEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetSimpleEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetSimpleEventName: usize,
+    pub GetSimpleEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetSimpleEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -37236,9 +36879,7 @@ impl ISimpleConnectionPoint {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEventCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DescribeEvents(&self, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut super::super::super::Foundation::BSTR, pceventsfetched: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DescribeEvents(&self, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut ::windows::core::BSTR, pceventsfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DescribeEvents)(::windows::core::Interface::as_raw(self), ievent, ::core::mem::transmute(cevents), ::core::mem::transmute(prgid), ::core::mem::transmute(prgbstr), ::core::mem::transmute(pceventsfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -37294,10 +36935,7 @@ unsafe impl ::windows::core::Interface for ISimpleConnectionPoint {
 pub struct ISimpleConnectionPoint_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetEventCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub DescribeEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut super::super::super::Foundation::BSTR, pceventsfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    DescribeEvents: usize,
+    pub DescribeEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pceventsfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisp: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -37308,15 +36946,13 @@ pub struct ISimpleConnectionPoint_Vtbl {
 #[repr(transparent)]
 pub struct IStringDisplayableConcept(::windows::core::IUnknown);
 impl IStringDisplayableConcept {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ToDisplayString<'a, P0, P1>(&self, contextobject: P0, metadata: P1) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+    pub unsafe fn ToDisplayString<'a, P0, P1>(&self, contextobject: P0, metadata: P1) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IModelObject>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IKeyStore>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ToDisplayString)(::windows::core::Interface::as_raw(self), contextobject.into().abi(), metadata.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ToDisplayString)(::windows::core::Interface::as_raw(self), contextobject.into().abi(), metadata.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IStringDisplayableConcept> for ::windows::core::IUnknown {
@@ -37358,10 +36994,7 @@ unsafe impl ::windows::core::Interface for IStringDisplayableConcept {
 #[doc(hidden)]
 pub struct IStringDisplayableConcept_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub ToDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void, displaystring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ToDisplayString: usize,
+    pub ToDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void, displaystring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -49474,18 +49107,16 @@ impl ::core::default::Default for DUMP_HEADER64_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
-    pub m_bstrName: super::super::super::Foundation::BSTR,
-    pub m_bstrType: super::super::super::Foundation::BSTR,
-    pub m_bstrValue: super::super::super::Foundation::BSTR,
-    pub m_bstrFullName: super::super::super::Foundation::BSTR,
+    pub m_bstrName: ::windows::core::BSTR,
+    pub m_bstrType: ::windows::core::BSTR,
+    pub m_bstrValue: ::windows::core::BSTR,
+    pub m_bstrFullName: ::windows::core::BSTR,
     pub m_dwAttrib: u32,
     pub m_pDebugProp: ::core::option::Option<IDebugProperty>,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DebugPropertyInfo {
     fn clone(&self) -> Self {
         Self {
@@ -49499,25 +49130,20 @@ impl ::core::clone::Clone for DebugPropertyInfo {
         }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DebugPropertyInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DebugPropertyInfo").field("m_dwValidFields", &self.m_dwValidFields).field("m_bstrName", &self.m_bstrName).field("m_bstrType", &self.m_bstrType).field("m_bstrValue", &self.m_bstrValue).field("m_bstrFullName", &self.m_bstrFullName).field("m_dwAttrib", &self.m_dwAttrib).field("m_pDebugProp", &self.m_pDebugProp).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DebugPropertyInfo {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
         self.m_dwValidFields == other.m_dwValidFields && self.m_bstrName == other.m_bstrName && self.m_bstrType == other.m_bstrType && self.m_bstrValue == other.m_bstrValue && self.m_bstrFullName == other.m_bstrFullName && self.m_dwAttrib == other.m_dwAttrib && self.m_pDebugProp == other.m_pDebugProp
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DebugPropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DebugPropertyInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53391,40 +53017,33 @@ impl ::core::default::Default for JS_NATIVE_FRAME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct JsDebugPropertyInfo {
-    pub name: super::super::super::Foundation::BSTR,
-    pub r#type: super::super::super::Foundation::BSTR,
-    pub value: super::super::super::Foundation::BSTR,
-    pub fullName: super::super::super::Foundation::BSTR,
+    pub name: ::windows::core::BSTR,
+    pub r#type: ::windows::core::BSTR,
+    pub value: ::windows::core::BSTR,
+    pub fullName: ::windows::core::BSTR,
     pub attr: JS_PROPERTY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JsDebugPropertyInfo {
     fn clone(&self) -> Self {
         Self { name: self.name.clone(), r#type: self.r#type.clone(), value: self.value.clone(), fullName: self.fullName.clone(), attr: self.attr }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for JsDebugPropertyInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("JsDebugPropertyInfo").field("name", &self.name).field("type", &self.r#type).field("value", &self.value).field("fullName", &self.fullName).field("attr", &self.attr).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JsDebugPropertyInfo {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JsDebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.r#type == other.r#type && self.value == other.value && self.fullName == other.fullName && self.attr == other.attr
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JsDebugPropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JsDebugPropertyInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58181,41 +57800,33 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     pub infoType: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE,
     pub Anonymous: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILER_HEAP_OBJECT_OPTIONAL_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub prototype: usize,
     pub functionName: ::windows::core::PCWSTR,
@@ -58231,125 +57842,101 @@ pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub mapCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
     pub setCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub relationshipId: u32,
     pub relationshipInfo: PROFILER_RELATIONSHIP_INFO,
     pub Anonymous: PROFILER_HEAP_OBJECT_RELATIONSHIP_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn clone(&self) -> Self {
         Self { relationshipId: self.relationshipId, relationshipInfo: self.relationshipInfo, Anonymous: self.Anonymous.clone() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn eq(&self, other: &Self) -> bool {
         self.relationshipId == other.relationshipId && self.relationshipInfo == other.relationshipInfo && self.Anonymous == other.Anonymous
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROFILER_HEAP_OBJECT_RELATIONSHIP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub numberValue: f64,
     pub stringValue: ::windows::core::PCWSTR,
-    pub bstrValue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>,
+    pub bstrValue: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
     pub objectId: usize,
     pub externalObjectAddress: *mut ::core::ffi::c_void,
     pub subString: *mut PROFILER_PROPERTY_TYPE_SUBSTRING_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILER_HEAP_OBJECT_RELATIONSHIP_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
     pub elements: [PROFILER_HEAP_OBJECT_RELATIONSHIP; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn clone(&self) -> Self {
         Self { count: self.count, elements: self.elements.clone() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.count == other.count && self.elements == other.elements
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

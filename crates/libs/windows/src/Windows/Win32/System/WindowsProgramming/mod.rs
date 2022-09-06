@@ -2817,11 +2817,9 @@ impl ICameraUIControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrentViewType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CameraUIControlViewType>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetActiveItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetActiveItem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetActiveItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetActiveItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2886,10 +2884,7 @@ pub struct ICameraUIControl_Vtbl {
     Suspend: usize,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentViewType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtype: *mut CameraUIControlViewType) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetActiveItem: usize,
+    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSelectedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppselecteditempaths: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2971,17 +2966,8 @@ pub struct ICameraUIControlEventCallback_Vtbl {
 #[repr(transparent)]
 pub struct IClipServiceNotificationHelper(::windows::core::IUnknown);
 impl IClipServiceNotificationHelper {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowToast<'a, P0, P1, P2, P3, P4>(&self, titletext: P0, bodytext: P1, packagename: P2, appid: P3, launchcommand: P4) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-    {
-        (::windows::core::Interface::vtable(self).ShowToast)(::windows::core::Interface::as_raw(self), titletext.into().abi(), bodytext.into().abi(), packagename.into().abi(), appid.into().abi(), launchcommand.into().abi()).ok()
+    pub unsafe fn ShowToast(&self, titletext: &::windows::core::BSTR, bodytext: &::windows::core::BSTR, packagename: &::windows::core::BSTR, appid: &::windows::core::BSTR, launchcommand: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowToast)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(titletext), ::core::mem::transmute_copy(bodytext), ::core::mem::transmute_copy(packagename), ::core::mem::transmute_copy(appid), ::core::mem::transmute_copy(launchcommand)).ok()
     }
 }
 impl ::core::convert::From<IClipServiceNotificationHelper> for ::windows::core::IUnknown {
@@ -3023,10 +3009,7 @@ unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
 #[doc(hidden)]
 pub struct IClipServiceNotificationHelper_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bodytext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, packagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, launchcommand: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ShowToast: usize,
+    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bodytext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, packagename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, appid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, launchcommand: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
@@ -3188,13 +3171,8 @@ impl IEditionUpgradeBroker {
     pub unsafe fn InitializeParentWindow(&self, parenthandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitializeParentWindow)(::windows::core::Interface::as_raw(self), parenthandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateOperatingSystem<'a, P0>(&self, parameter: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-    {
-        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), parameter.into().abi()).ok()
+    pub unsafe fn UpdateOperatingSystem(&self, parameter: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(parameter)).ok()
     }
     pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()
@@ -3243,10 +3221,7 @@ unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
 pub struct IEditionUpgradeBroker_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    UpdateOperatingSystem: usize,
+    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

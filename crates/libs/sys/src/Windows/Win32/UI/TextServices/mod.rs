@@ -1347,47 +1347,38 @@ impl ::core::clone::Clone for TF_LANGUAGEPROFILE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
-    pub bstrText: super::super::Foundation::BSTR,
+    pub bstrText: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TF_LBBALLOONINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_LBBALLOONINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_LMLATTELEMENT {
     pub dwFrameStart: u32,
     pub dwFrameLen: u32,
     pub dwFlags: u32,
     pub Anonymous: TF_LMLATTELEMENT_0,
-    pub bstrText: super::super::Foundation::BSTR,
+    pub bstrText: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TF_LMLATTELEMENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_LMLATTELEMENT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TF_LMLATTELEMENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
     fn clone(&self) -> Self {
         *self

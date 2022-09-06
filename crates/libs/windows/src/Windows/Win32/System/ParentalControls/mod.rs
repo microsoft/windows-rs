@@ -83,32 +83,25 @@ pub struct IWPCGamesSettings_Vtbl {
 #[repr(transparent)]
 pub struct IWPCProviderConfig(::windows::core::IUnknown);
 impl IWPCProviderConfig {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUserSummary<'a, P0>(&self, bstrsid: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-    {
+    pub unsafe fn GetUserSummary(&self, bstrsid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetUserSummary)(::windows::core::Interface::as_raw(self), bstrsid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetUserSummary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Configure<'a, P0, P1>(&self, hwnd: P0, bstrsid: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Configure<'a, P0>(&self, hwnd: P0, bstrsid: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), hwnd.into(), bstrsid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute_copy(bstrsid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestOverride<'a, P0, P1>(&self, hwnd: P0, bstrpath: P1, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>
+    pub unsafe fn RequestOverride<'a, P0>(&self, hwnd: P0, bstrpath: &::windows::core::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into(), bstrpath.into().abi(), dwflags).ok()
+        (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute_copy(bstrpath), dwflags).ok()
     }
 }
 impl ::core::convert::From<IWPCProviderConfig> for ::windows::core::IUnknown {
@@ -150,16 +143,13 @@ unsafe impl ::windows::core::Interface for IWPCProviderConfig {
 #[doc(hidden)]
 pub struct IWPCProviderConfig_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
+    pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrusersummary: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrusersummary: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetUserSummary: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
+    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Configure: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
+    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestOverride: usize,
 }

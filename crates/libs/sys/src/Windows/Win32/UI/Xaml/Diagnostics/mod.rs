@@ -109,33 +109,30 @@ impl ::core::clone::Clone for BitmapDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub struct CollectionElementValue {
     pub Index: u32,
-    pub ValueType: super::super::super::Foundation::BSTR,
-    pub Value: super::super::super::Foundation::BSTR,
+    pub ValueType: ::windows_sys::core::BSTR,
+    pub Value: ::windows_sys::core::BSTR,
     pub MetadataBits: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CollectionElementValue {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CollectionElementValue {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct EnumType {
-    pub Name: super::super::super::Foundation::BSTR,
+    pub Name: ::windows_sys::core::BSTR,
     pub ValueInts: *mut super::super::super::System::Com::SAFEARRAY,
     pub ValueStrings: *mut super::super::super::System::Com::SAFEARRAY,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for EnumType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for EnumType {
     fn clone(&self) -> Self {
         *self
@@ -155,18 +152,15 @@ impl ::core::clone::Clone for ParentChildRelation {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub struct PropertyChainSource {
     pub Handle: u64,
-    pub TargetType: super::super::super::Foundation::BSTR,
-    pub Name: super::super::super::Foundation::BSTR,
+    pub TargetType: ::windows_sys::core::BSTR,
+    pub Name: ::windows_sys::core::BSTR,
     pub Source: BaseValueSource,
     pub SrcInfo: SourceInfo,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PropertyChainSource {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PropertyChainSource {
     fn clone(&self) -> Self {
         *self
@@ -177,14 +171,14 @@ impl ::core::clone::Clone for PropertyChainSource {
 #[cfg(feature = "Win32_Foundation")]
 pub struct PropertyChainValue {
     pub Index: u32,
-    pub Type: super::super::super::Foundation::BSTR,
-    pub DeclaringType: super::super::super::Foundation::BSTR,
-    pub ValueType: super::super::super::Foundation::BSTR,
-    pub ItemType: super::super::super::Foundation::BSTR,
-    pub Value: super::super::super::Foundation::BSTR,
+    pub Type: ::windows_sys::core::BSTR,
+    pub DeclaringType: ::windows_sys::core::BSTR,
+    pub ValueType: ::windows_sys::core::BSTR,
+    pub ItemType: ::windows_sys::core::BSTR,
+    pub Value: ::windows_sys::core::BSTR,
     pub Overridden: super::super::super::Foundation::BOOL,
     pub MetadataBits: i64,
-    pub PropertyName: super::super::super::Foundation::BSTR,
+    pub PropertyName: ::windows_sys::core::BSTR,
     pub PropertyChainIndex: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -196,36 +190,30 @@ impl ::core::clone::Clone for PropertyChainValue {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub struct SourceInfo {
-    pub FileName: super::super::super::Foundation::BSTR,
+    pub FileName: ::windows_sys::core::BSTR,
     pub LineNumber: u32,
     pub ColumnNumber: u32,
     pub CharPosition: u32,
-    pub Hash: super::super::super::Foundation::BSTR,
+    pub Hash: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SourceInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SourceInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub struct VisualElement {
     pub Handle: u64,
     pub SrcInfo: SourceInfo,
-    pub Type: super::super::super::Foundation::BSTR,
-    pub Name: super::super::super::Foundation::BSTR,
+    pub Type: ::windows_sys::core::BSTR,
+    pub Name: ::windows_sys::core::BSTR,
     pub NumChildren: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VisualElement {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VisualElement {
     fn clone(&self) -> Self {
         *self

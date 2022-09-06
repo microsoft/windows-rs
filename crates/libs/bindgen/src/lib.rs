@@ -11,7 +11,6 @@ mod implements;
 mod interfaces;
 mod iterators;
 mod method_names;
-mod replacements;
 mod structs;
 mod winrt_methods;
 pub use gen::*;

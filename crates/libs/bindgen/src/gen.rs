@@ -91,6 +91,10 @@ impl<'a> Gen<'a> {
                 let crate_name = self.crate_name();
                 quote! { ::#crate_name::core::HSTRING }
             }
+            Type::BSTR => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::BSTR }
+            }
             Type::IInspectable => {
                 let crate_name = self.crate_name();
                 quote! { ::#crate_name::core::IInspectable }
@@ -160,6 +164,9 @@ impl<'a> Gen<'a> {
         match ty {
             Type::String => {
                 quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
+            }
+            Type::BSTR => {
+                quote! { ::core::mem::ManuallyDrop<::windows::core::BSTR> }
             }
             Type::IUnknown | Type::IInspectable => {
                 quote! { *mut ::core::ffi::c_void }

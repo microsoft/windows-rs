@@ -1,4 +1,5 @@
-use windows::Win32::Foundation::{SysAllocStringLen, BSTR};
+use windows::core::*;
+use windows::Win32::Foundation::*;
 
 #[test]
 fn test() {
@@ -43,4 +44,14 @@ fn clone() {
     let a: BSTR = unsafe { SysAllocStringLen(None) };
     assert!(a.is_empty());
     assert!(a.len() == 0);
+}
+
+#[test]
+fn interop() -> Result<()> {
+    unsafe {
+        let b: BSTR = "hello".into();
+        SysAddRefString(&b)?;
+        SysFreeString(&b);
+        Ok(())
+    }
 }

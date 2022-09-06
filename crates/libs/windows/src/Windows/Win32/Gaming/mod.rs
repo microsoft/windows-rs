@@ -321,14 +321,8 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
 #[repr(transparent)]
 pub struct IGameExplorer(::windows::core::IUnknown);
 impl IGameExplorer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddGame<'a, P0, P1>(&self, bstrgdfbinarypath: P0, bstrgameinstalldirectory: P1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: &mut ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
-        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into().abi(), bstrgameinstalldirectory.into().abi(), installscope, ::core::mem::transmute(pguidinstanceid)).ok()
+    pub unsafe fn AddGame(&self, bstrgdfbinarypath: &::windows::core::BSTR, bstrgameinstalldirectory: &::windows::core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), ::core::mem::transmute_copy(bstrgameinstalldirectory), installscope, ::core::mem::transmute(pguidinstanceid)).ok()
     }
     pub unsafe fn RemoveGame(&self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveGame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidinstanceid)).ok()
@@ -338,12 +332,9 @@ impl IGameExplorer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VerifyAccess<'a, P0>(&self, bstrgdfbinarypath: P0) -> ::windows::core::Result<super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
+    pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &::windows::core::BSTR) -> ::windows::core::Result<super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).VerifyAccess)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).VerifyAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IGameExplorer> for ::windows::core::IUnknown {
@@ -385,14 +376,11 @@ unsafe impl ::windows::core::Interface for IGameExplorer {
 #[doc(hidden)]
 pub struct IGameExplorer_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub AddGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AddGame: usize,
+    pub AddGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<::windows::core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub RemoveGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidinstanceid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub UpdateGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidinstanceid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub VerifyAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub VerifyAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     VerifyAccess: usize,
 }

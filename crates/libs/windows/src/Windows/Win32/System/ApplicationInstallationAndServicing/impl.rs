@@ -271,19 +271,16 @@ impl IEnumMsmError_Vtbl {
         iid == &<IEnumMsmError as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumMsmString_Impl: Sized {
-    fn Next(&self, cfetch: u32, rgbstrstrings: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Next(&self, cfetch: u32, rgbstrstrings: *mut ::windows::core::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, cskip: u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumMsmString>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IEnumMsmString {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumMsmString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMsmString_Impl, const OFFSET: isize>() -> IEnumMsmString_Vtbl {
-        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMsmString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfetch: u32, rgbstrstrings: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMsmString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfetch: u32, rgbstrstrings: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&cfetch), ::core::mem::transmute_copy(&rgbstrstrings), ::core::mem::transmute_copy(&pcfetched)).into()
@@ -372,16 +369,16 @@ impl IMsmDependencies_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmDependency_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Module(&self, module: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Module(&self, module: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Language(&self, language: *mut i16) -> ::windows::core::Result<()>;
-    fn Version(&self, version: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Version(&self, version: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMsmDependency {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmDependency_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependency_Impl, const OFFSET: isize>() -> IMsmDependency_Vtbl {
-        unsafe extern "system" fn Module<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Module<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Module(::core::mem::transmute_copy(&module)).into()
@@ -391,7 +388,7 @@ impl IMsmDependency_Vtbl {
             let this = (*this).get_impl();
             this.Language(::core::mem::transmute_copy(&language)).into()
         }
-        unsafe extern "system" fn Version<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, version: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Version<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, version: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Version(::core::mem::transmute_copy(&version)).into()
@@ -410,11 +407,11 @@ impl IMsmDependency_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self, errortype: *mut msmErrorType) -> ::windows::core::Result<()>;
-    fn Path(&self, errorpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Path(&self, errorpath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Language(&self, errorlanguage: *mut i16) -> ::windows::core::Result<()>;
-    fn DatabaseTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DatabaseTable(&self, errortable: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn DatabaseKeys(&self) -> ::windows::core::Result<IMsmStrings>;
-    fn ModuleTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ModuleTable(&self, errortable: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ModuleKeys(&self) -> ::windows::core::Result<IMsmStrings>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -427,7 +424,7 @@ impl IMsmError_Vtbl {
             let this = (*this).get_impl();
             this.Type(::core::mem::transmute_copy(&errortype)).into()
         }
-        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorpath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Path(::core::mem::transmute_copy(&errorpath)).into()
@@ -437,7 +434,7 @@ impl IMsmError_Vtbl {
             let this = (*this).get_impl();
             this.Language(::core::mem::transmute_copy(&errorlanguage)).into()
         }
-        unsafe extern "system" fn DatabaseTable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DatabaseTable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errortable: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DatabaseTable(::core::mem::transmute_copy(&errortable)).into()
@@ -453,7 +450,7 @@ impl IMsmError_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModuleTable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModuleTable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errortable: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ModuleTable(::core::mem::transmute_copy(&errortable)).into()
@@ -561,31 +558,31 @@ impl IMsmGetFiles_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
-    fn OpenDatabase(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OpenModule(&self, path: &super::super::Foundation::BSTR, language: i16) -> ::windows::core::Result<()>;
+    fn OpenDatabase(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OpenModule(&self, path: &::windows::core::BSTR, language: i16) -> ::windows::core::Result<()>;
     fn CloseDatabase(&self, commit: i16) -> ::windows::core::Result<()>;
     fn CloseModule(&self) -> ::windows::core::Result<()>;
-    fn OpenLog(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OpenLog(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn CloseLog(&self) -> ::windows::core::Result<()>;
-    fn Log(&self, message: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Log(&self, message: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Errors(&self) -> ::windows::core::Result<IMsmErrors>;
     fn Dependencies(&self) -> ::windows::core::Result<IMsmDependencies>;
-    fn Merge(&self, feature: &super::super::Foundation::BSTR, redirectdir: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Connect(&self, feature: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExtractCAB(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExtractFiles(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Merge(&self, feature: &::windows::core::BSTR, redirectdir: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Connect(&self, feature: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ExtractCAB(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ExtractFiles(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMsmMerge {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmMerge_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>() -> IMsmMerge_Vtbl {
-        unsafe extern "system" fn OpenDatabase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenDatabase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OpenDatabase(::core::mem::transmute(&path)).into()
         }
-        unsafe extern "system" fn OpenModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, language: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, language: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OpenModule(::core::mem::transmute(&path), ::core::mem::transmute_copy(&language)).into()
@@ -600,7 +597,7 @@ impl IMsmMerge_Vtbl {
             let this = (*this).get_impl();
             this.CloseModule().into()
         }
-        unsafe extern "system" fn OpenLog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenLog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OpenLog(::core::mem::transmute(&path)).into()
@@ -610,7 +607,7 @@ impl IMsmMerge_Vtbl {
             let this = (*this).get_impl();
             this.CloseLog().into()
         }
-        unsafe extern "system" fn Log<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Log<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Log(::core::mem::transmute(&message)).into()
@@ -637,22 +634,22 @@ impl IMsmMerge_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Merge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, redirectdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Merge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<::windows::core::BSTR>, redirectdir: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Merge(::core::mem::transmute(&feature), ::core::mem::transmute(&redirectdir)).into()
         }
-        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Connect(::core::mem::transmute(&feature)).into()
         }
-        unsafe extern "system" fn ExtractCAB<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtractCAB<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExtractCAB(::core::mem::transmute(&filename)).into()
         }
-        unsafe extern "system" fn ExtractFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtractFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExtractFiles(::core::mem::transmute(&path)).into()
@@ -680,7 +677,7 @@ impl IMsmMerge_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmStrings_Impl: Sized + super::Com::IDispatch_Impl {
-    fn get_Item(&self, item: i32, r#return: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_Item(&self, item: i32, r#return: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -689,7 +686,7 @@ impl ::windows::core::RuntimeName for IMsmStrings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmStrings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmStrings_Impl, const OFFSET: isize>() -> IMsmStrings_Vtbl {
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_Item(::core::mem::transmute_copy(&item), ::core::mem::transmute_copy(&r#return)).into()
@@ -726,9 +723,9 @@ pub trait IPMApplicationInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn InstanceID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn OfferID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DefaultTask(&self, pdefaulttask: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AppTitle(&self, papptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IconPath(&self, pappiconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DefaultTask(&self, pdefaulttask: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn AppTitle(&self, papptitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn IconPath(&self, pappiconpath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn NotificationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn AppInstallType(&self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE>;
     fn State(&self) -> ::windows::core::Result<PM_APPLICATION_STATE>;
@@ -738,24 +735,24 @@ pub trait IPMApplicationInfo_Impl: Sized {
     fn IsUninstallable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsTrial(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn InstallPath(&self, pinstallpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DataRoot(&self, pdataroot: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallPath(&self, pinstallpath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn DataRoot(&self, pdataroot: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Genre(&self) -> ::windows::core::Result<PM_APP_GENRE>;
-    fn Publisher(&self, ppublisher: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Author(&self, pauthor: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Version(&self, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Publisher(&self, ppublisher: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Author(&self, pauthor: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self, pdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Version(&self, pversion: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_InvocationInfo(&self, pimageurn: *mut ::windows::core::BSTR, pparameters: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AppPlatMajorVersion(&self) -> ::windows::core::Result<u8>;
     fn AppPlatMinorVersion(&self) -> ::windows::core::Result<u8>;
     fn PublisherID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn IsMultiCore(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SID(&self, psid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SID(&self, psid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AppPlatMajorVersionLightUp(&self) -> ::windows::core::Result<u8>;
     fn AppPlatMinorVersionLightUp(&self) -> ::windows::core::Result<u8>;
     fn set_UpdateAvailable(&self, isupdateavailable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn set_NotificationState(&self, isnotified: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_IconPath(&self, appiconpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn set_IconPath(&self, appiconpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn set_UninstallableState(&self, isuninstallable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsPinableOnKidZone(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsOriginallyPreInstalled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -777,7 +774,7 @@ pub trait IPMApplicationInfo_Impl: Sized {
     fn ShouldDeferMdilBind(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsFullyPreInstall(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_Title(&self, apptitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn set_Title(&self, apptitle: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPMApplicationInfo {}
@@ -817,17 +814,17 @@ impl IPMApplicationInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdefaulttask: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdefaulttask: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DefaultTask(::core::mem::transmute_copy(&pdefaulttask)).into()
         }
-        unsafe extern "system" fn AppTitle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, papptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppTitle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, papptitle: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AppTitle(::core::mem::transmute_copy(&papptitle)).into()
         }
-        unsafe extern "system" fn IconPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappiconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IconPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappiconpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.IconPath(::core::mem::transmute_copy(&pappiconpath)).into()
@@ -931,12 +928,12 @@ impl IPMApplicationInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstallPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallpath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InstallPath(::core::mem::transmute_copy(&pinstallpath)).into()
         }
-        unsafe extern "system" fn DataRoot<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataroot: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataRoot<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataroot: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DataRoot(::core::mem::transmute_copy(&pdataroot)).into()
@@ -952,27 +949,27 @@ impl IPMApplicationInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Publisher<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppublisher: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Publisher<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppublisher: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Publisher(::core::mem::transmute_copy(&ppublisher)).into()
         }
-        unsafe extern "system" fn Author<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pauthor: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Author<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pauthor: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Author(::core::mem::transmute_copy(&pauthor)).into()
         }
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Description(::core::mem::transmute_copy(&pdescription)).into()
         }
-        unsafe extern "system" fn Version<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Version<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pversion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Version(::core::mem::transmute_copy(&pversion)).into()
         }
-        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
@@ -1021,7 +1018,7 @@ impl IPMApplicationInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SID(::core::mem::transmute_copy(&psid)).into()
@@ -1058,7 +1055,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             this.set_NotificationState(::core::mem::transmute_copy(&isnotified)).into()
         }
-        unsafe extern "system" fn set_IconPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appiconpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn set_IconPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appiconpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.set_IconPath(::core::mem::transmute(&appiconpath)).into()
@@ -1264,7 +1261,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             this.set_IsMdilMaintenanceNeeded(::core::mem::transmute_copy(&fismdilmaintenanceneeded)).into()
         }
-        unsafe extern "system" fn set_Title<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apptitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn set_Title<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apptitle: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.set_Title(::core::mem::transmute(&apptitle)).into()
@@ -1358,16 +1355,16 @@ impl IPMApplicationInfoEnumerator_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMBackgroundServiceAgentInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskID(&self, ptaskid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn BSAID(&self) -> ::windows::core::Result<u32>;
-    fn BGSpecifier(&self, pbgspecifier: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGSource(&self, pbgsource: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGType(&self, pbgtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BGSpecifier(&self, pbgspecifier: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn BGName(&self, pbgname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn BGSource(&self, pbgsource: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn BGType(&self, pbgtype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsPeriodic(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsScheduled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsScheduleAllowed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self, pdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsLaunchOnBoot(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn set_IsScheduled(&self, isscheduled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn set_IsScheduleAllowed(&self, isscheduleallowed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -1388,7 +1385,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TaskID(::core::mem::transmute_copy(&ptaskid)).into()
@@ -1404,22 +1401,22 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BGSpecifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgspecifier: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BGSpecifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgspecifier: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BGSpecifier(::core::mem::transmute_copy(&pbgspecifier)).into()
         }
-        unsafe extern "system" fn BGName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BGName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BGName(::core::mem::transmute_copy(&pbgname)).into()
         }
-        unsafe extern "system" fn BGSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgsource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BGSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BGSource(::core::mem::transmute_copy(&pbgsource)).into()
         }
-        unsafe extern "system" fn BGType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgtype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BGType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BGType(::core::mem::transmute_copy(&pbgtype)).into()
@@ -1457,7 +1454,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Description(::core::mem::transmute_copy(&pdescription)).into()
@@ -1531,8 +1528,8 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMBackgroundWorkerInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskID(&self, ptaskid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn BGName(&self, pbgname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MaxStartupLatency(&self) -> ::windows::core::Result<u32>;
     fn ExpectedRuntime(&self) -> ::windows::core::Result<u32>;
     fn IsBootWorker(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1553,12 +1550,12 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundWorkerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundWorkerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TaskID(::core::mem::transmute_copy(&ptaskid)).into()
         }
-        unsafe extern "system" fn BGName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundWorkerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BGName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMBackgroundWorkerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BGName(::core::mem::transmute_copy(&pbgname)).into()
@@ -1646,7 +1643,7 @@ pub trait IPMDeploymentManager_Impl: Sized {
     fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()>;
     fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
     fn BeginUpdateLicense(&self, productid: &::windows::core::GUID, offerid: &::windows::core::GUID, pblicense: *const u8, cblicense: u32) -> ::windows::core::Result<()>;
-    fn GetLicenseChallenge(&self, packagepath: &super::super::Foundation::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLicenseChallenge(&self, packagepath: &::windows::core::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()>;
     fn GetLicenseChallengeByProductID(&self, productid: &::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::Result<()>;
     fn GetLicenseChallengeByProductID2(&self, productid: &::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()>;
     fn RevokeLicense(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1654,7 +1651,7 @@ pub trait IPMDeploymentManager_Impl: Sized {
     fn RebindAllMdilBinaries(&self, productid: &::windows::core::GUID, instanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RegenerateXbf(&self, productid: &::windows::core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn GenerateXbfForCurrentLocale(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn BeginProvision(&self, productid: &::windows::core::GUID, xmlpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BeginProvision(&self, productid: &::windows::core::GUID, xmlpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn BeginDeprovision(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn ReindexSQLCEDatabases(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> ::windows::core::Result<u32>;
@@ -1662,12 +1659,12 @@ pub trait IPMDeploymentManager_Impl: Sized {
     fn EnterprisePolicyIsApplicationAllowed(&self, productid: &::windows::core::GUID, publishername: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
     fn ReportRestoreCancelled(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ResolveResourceString(&self, resourcestring: &::windows::core::PCWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ResolveResourceString(&self, resourcestring: &::windows::core::PCWSTR, presolvedresourcestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn UpdateCapabilitiesForModernApps(&self) -> ::windows::core::Result<()>;
     fn ReportDownloadStatusUpdate(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn BeginUninstallWithOptions(&self, productid: &::windows::core::GUID, removaloptions: u32) -> ::windows::core::Result<()>;
     fn BindDeferredMdilBinaries(&self) -> ::windows::core::Result<()>;
-    fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AddLicenseForAppx(&self, productid: &::windows::core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> ::windows::core::Result<()>;
     fn FixJunctionsForAppsOnSDCard(&self) -> ::windows::core::Result<()>;
 }
@@ -1731,7 +1728,7 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             this.BeginUpdateLicense(::core::mem::transmute(&productid), ::core::mem::transmute(&offerid), ::core::mem::transmute_copy(&pblicense), ::core::mem::transmute_copy(&cblicense)).into()
         }
-        unsafe extern "system" fn GetLicenseChallenge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLicenseChallenge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLicenseChallenge(::core::mem::transmute(&packagepath), ::core::mem::transmute_copy(&ppbchallenge), ::core::mem::transmute_copy(&pcbchallenge), ::core::mem::transmute_copy(&ppbkid), ::core::mem::transmute_copy(&pcbkid), ::core::mem::transmute_copy(&ppbdeviceid), ::core::mem::transmute_copy(&pcbdeviceid), ::core::mem::transmute_copy(&ppbsaltvalue), ::core::mem::transmute_copy(&pcbsaltvalue), ::core::mem::transmute_copy(&ppbkgvvalue), ::core::mem::transmute_copy(&pcbkgvvalue))
@@ -1773,7 +1770,7 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             this.GenerateXbfForCurrentLocale(::core::mem::transmute(&productid)).into()
         }
-        unsafe extern "system" fn BeginProvision<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, xmlpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginProvision<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, xmlpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginProvision(::core::mem::transmute(&productid), ::core::mem::transmute(&xmlpath)).into()
@@ -1825,7 +1822,7 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             this.ReportRestoreCancelled(::core::mem::transmute(&productid)).into()
         }
-        unsafe extern "system" fn ResolveResourceString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcestring: ::windows::core::PCWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolveResourceString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcestring: ::windows::core::PCWSTR, presolvedresourcestring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResolveResourceString(::core::mem::transmute(&resourcestring), ::core::mem::transmute_copy(&presolvedresourcestring)).into()
@@ -1850,7 +1847,7 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             this.BindDeferredMdilBinaries().into()
         }
-        unsafe extern "system" fn GenerateXamlLightupXbfForCurrentLocale<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateXamlLightupXbfForCurrentLocale<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GenerateXamlLightupXbfForCurrentLocale(::core::mem::transmute(&packagefamilyname)).into()
@@ -1917,15 +1914,15 @@ pub trait IPMEnumerationManager_Impl: Sized {
     fn get_AllBackgroundServiceAgents(&self, ppbsaenum: *mut ::core::option::Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
     fn get_AllBackgroundWorkers(&self, ppbswenum: *mut ::core::option::Option<IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
     fn get_ApplicationInfo(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo>;
-    fn get_TileInfo(&self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTileInfo>;
-    fn get_TaskInfo(&self, productid: &::windows::core::GUID, taskid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTaskInfo>;
+    fn get_TileInfo(&self, productid: &::windows::core::GUID, tileid: &::windows::core::BSTR) -> ::windows::core::Result<IPMTileInfo>;
+    fn get_TaskInfo(&self, productid: &::windows::core::GUID, taskid: &::windows::core::BSTR) -> ::windows::core::Result<IPMTaskInfo>;
     fn get_TaskInfoEx(&self, productid: &::windows::core::GUID, taskid: &::windows::core::PCWSTR) -> ::windows::core::Result<IPMTaskInfo>;
     fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo>;
     fn AllLiveTileJobs(&self) -> ::windows::core::Result<IPMLiveTileJobInfoEnumerator>;
-    fn get_LiveTileJob(&self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo>;
+    fn get_LiveTileJob(&self, productid: &::windows::core::GUID, tileid: &::windows::core::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo>;
     fn get_ApplicationInfoExternal(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo>;
-    fn get_FileHandlerGenericLogo(&self, filetype: &super::super::Foundation::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &super::super::Foundation::BSTR, sysappid1: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMApplicationInfo>;
+    fn get_FileHandlerGenericLogo(&self, filetype: &::windows::core::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &::windows::core::BSTR, sysappid1: &::windows::core::BSTR) -> ::windows::core::Result<IPMApplicationInfo>;
     fn get_StartTileEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>;
     fn get_StartAppEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>;
 }
@@ -1975,7 +1972,7 @@ impl IPMEnumerationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_TileInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptileinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_TileInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptileinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_TileInfo(::core::mem::transmute(&productid), ::core::mem::transmute(&tileid)) {
@@ -1986,7 +1983,7 @@ impl IPMEnumerationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_TaskInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptaskinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_TaskInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptaskinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_TaskInfo(::core::mem::transmute(&productid), ::core::mem::transmute(&taskid)) {
@@ -2030,7 +2027,7 @@ impl IPMEnumerationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_LiveTileJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE, pplivetilejobinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_LiveTileJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE, pplivetilejobinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_LiveTileJob(::core::mem::transmute(&productid), ::core::mem::transmute(&tileid), ::core::mem::transmute_copy(&recurrencetype)) {
@@ -2052,12 +2049,12 @@ impl IPMEnumerationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_FileHandlerGenericLogo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_FileHandlerGenericLogo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, logosize: PM_LOGO_SIZE, plogo: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_FileHandlerGenericLogo(::core::mem::transmute(&filetype), ::core::mem::transmute_copy(&logosize), ::core::mem::transmute_copy(&plogo)).into()
         }
-        unsafe extern "system" fn get_ApplicationInfoFromAccessClaims<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sysappid0: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, sysappid1: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ApplicationInfoFromAccessClaims<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sysappid0: ::core::mem::ManuallyDrop<::windows::core::BSTR>, sysappid1: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ApplicationInfoFromAccessClaims(::core::mem::transmute(&sysappid0), ::core::mem::transmute(&sysappid1)) {
@@ -2130,16 +2127,13 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
         iid == &<IPMExtensionCachedFileUpdaterInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionContractInfo_Impl: Sized {
-    fn get_InvocationInfo(&self, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_InvocationInfo(&self, paumid: *mut ::windows::core::BSTR, pargs: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPMExtensionContractInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionContractInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionContractInfo_Impl, const OFFSET: isize>() -> IPMExtensionContractInfo_Vtbl {
-        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionContractInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionContractInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paumid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pargs: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_InvocationInfo(::core::mem::transmute_copy(&paumid), ::core::mem::transmute_copy(&pargs)).into()
@@ -2150,52 +2144,49 @@ impl IPMExtensionContractInfo_Vtbl {
         iid == &<IPMExtensionContractInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileExtensionInfo_Impl: Sized {
-    fn Name(&self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisplayName(&self, pdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_ContentType(&self, filetype: &super::super::Foundation::BSTR, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_FileType(&self, contenttype: &super::super::Foundation::BSTR, pfiletype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Name(&self, pname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn DisplayName(&self, pdisplayname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_ContentType(&self, filetype: &::windows::core::BSTR, pcontenttype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_FileType(&self, contenttype: &::windows::core::BSTR, pfiletype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_InvocationInfo(&self, pimageurn: *mut ::windows::core::BSTR, pparameters: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPMExtensionFileExtensionInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileExtensionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>() -> IPMExtensionFileExtensionInfo_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Name(::core::mem::transmute_copy(&pname)).into()
         }
-        unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisplayname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DisplayName(::core::mem::transmute_copy(&pdisplayname)).into()
         }
-        unsafe extern "system" fn get_Logo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Logo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logosize: PM_LOGO_SIZE, plogo: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_Logo(::core::mem::transmute_copy(&logosize), ::core::mem::transmute_copy(&plogo)).into()
         }
-        unsafe extern "system" fn get_ContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontenttype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_ContentType(::core::mem::transmute(&filetype), ::core::mem::transmute_copy(&pcontenttype)).into()
         }
-        unsafe extern "system" fn get_FileType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfiletype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_FileType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfiletype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_FileType(::core::mem::transmute(&contenttype), ::core::mem::transmute_copy(&pfiletype)).into()
         }
-        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
         }
-        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbtypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbtypes: *mut u32, pptypes: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_AllFileTypes(::core::mem::transmute_copy(&pcbtypes), ::core::mem::transmute_copy(&pptypes)).into()
@@ -2217,7 +2208,7 @@ impl IPMExtensionFileExtensionInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileOpenPickerInfo_Impl: Sized {
-    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2225,7 +2216,7 @@ impl ::windows::core::RuntimeName for IPMExtensionFileOpenPickerInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileOpenPickerInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileOpenPickerInfo_Impl, const OFFSET: isize>() -> IPMExtensionFileOpenPickerInfo_Vtbl {
-        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileOpenPickerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileOpenPickerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32, pptypes: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_AllFileTypes(::core::mem::transmute_copy(&pctypes), ::core::mem::transmute_copy(&pptypes)).into()
@@ -2253,7 +2244,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileSavePickerInfo_Impl: Sized {
-    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2261,7 +2252,7 @@ impl ::windows::core::RuntimeName for IPMExtensionFileSavePickerInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileSavePickerInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileSavePickerInfo_Impl, const OFFSET: isize>() -> IPMExtensionFileSavePickerInfo_Vtbl {
-        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileSavePickerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionFileSavePickerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32, pptypes: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_AllFileTypes(::core::mem::transmute_copy(&pctypes), ::core::mem::transmute_copy(&pptypes)).into()
@@ -2287,18 +2278,15 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
         iid == &<IPMExtensionFileSavePickerInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionInfo_Impl: Sized {
     fn SupplierPID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SupplierTaskID(&self, psuppliertid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Title(&self, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IconPath(&self, piconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExtraFile(&self, pfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SupplierTaskID(&self, psuppliertid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Title(&self, ptitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn IconPath(&self, piconpath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ExtraFile(&self, pfilepath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_InvocationInfo(&self, pimageurn: *mut ::windows::core::BSTR, pparameters: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPMExtensionInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>() -> IPMExtensionInfo_Vtbl {
         unsafe extern "system" fn SupplierPID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psupplierpid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -2312,27 +2300,27 @@ impl IPMExtensionInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupplierTaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psuppliertid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupplierTaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psuppliertid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SupplierTaskID(::core::mem::transmute_copy(&psuppliertid)).into()
         }
-        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptitle: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Title(::core::mem::transmute_copy(&ptitle)).into()
         }
-        unsafe extern "system" fn IconPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IconPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piconpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.IconPath(::core::mem::transmute_copy(&piconpath)).into()
         }
-        unsafe extern "system" fn ExtraFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtraFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExtraFile(::core::mem::transmute_copy(&pfilepath)).into()
         }
-        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
@@ -2374,22 +2362,19 @@ impl IPMExtensionInfoEnumerator_Vtbl {
         iid == &<IPMExtensionInfoEnumerator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionProtocolInfo_Impl: Sized {
-    fn Protocol(&self, pprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Protocol(&self, pprotocol: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_InvocationInfo(&self, pimageurn: *mut ::windows::core::BSTR, pparameters: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPMExtensionProtocolInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionProtocolInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionProtocolInfo_Impl, const OFFSET: isize>() -> IPMExtensionProtocolInfo_Vtbl {
-        unsafe extern "system" fn Protocol<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionProtocolInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Protocol<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionProtocolInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocol: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Protocol(::core::mem::transmute_copy(&pprotocol)).into()
         }
-        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionProtocolInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionProtocolInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
@@ -2406,8 +2391,8 @@ impl IPMExtensionProtocolInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionShareTargetInfo_Impl: Sized {
-    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2415,12 +2400,12 @@ impl ::windows::core::RuntimeName for IPMExtensionShareTargetInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionShareTargetInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionShareTargetInfo_Impl, const OFFSET: isize>() -> IPMExtensionShareTargetInfo_Vtbl {
-        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionShareTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionShareTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32, pptypes: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_AllFileTypes(::core::mem::transmute_copy(&pctypes), ::core::mem::transmute_copy(&pptypes)).into()
         }
-        unsafe extern "system" fn get_AllDataFormats<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionShareTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdataformats: *mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AllDataFormats<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMExtensionShareTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdataformats: *mut u32, ppdataformats: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_AllDataFormats(::core::mem::transmute_copy(&pcdataformats), ::core::mem::transmute_copy(&ppdataformats)).into()
@@ -2450,7 +2435,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMLiveTileJobInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TileID(&self, ptileid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn NextSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
     fn set_NextSchedule(&self, ftnextschedule: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn StartSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
@@ -2490,7 +2475,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TileID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMLiveTileJobInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TileID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMLiveTileJobInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptileid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TileID(::core::mem::transmute_copy(&ptileid)).into()
@@ -2717,17 +2702,17 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMTaskInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NavigationPage(&self, pnavigationpage: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskID(&self, ptaskid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn NavigationPage(&self, pnavigationpage: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TaskTransition(&self) -> ::windows::core::Result<PM_TASK_TRANSITION>;
     fn RuntimeType(&self) -> ::windows::core::Result<PACKMAN_RUNTIME>;
     fn ActivationPolicy(&self) -> ::windows::core::Result<PM_ACTIVATION_POLICY>;
     fn TaskType(&self) -> ::windows::core::Result<PM_TASK_TYPE>;
-    fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImagePath(&self, pimagepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImageParams(&self, pimageparams: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InstallRootFolder(&self, pinstallrootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DataRootFolder(&self, pdatarootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_InvocationInfo(&self, pimageurn: *mut ::windows::core::BSTR, pparameters: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ImagePath(&self, pimagepath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ImageParams(&self, pimageparams: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn InstallRootFolder(&self, pinstallrootfolder: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn DataRootFolder(&self, pdatarootfolder: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsSingleInstanceHost(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsInteropEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ApplicationState(&self) -> ::windows::core::Result<PM_APPLICATION_STATE>;
@@ -2735,7 +2720,7 @@ pub trait IPMTaskInfo_Impl: Sized {
     fn get_Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> ::windows::core::Result<()>;
     fn BitsPerPixel(&self) -> ::windows::core::Result<u16>;
     fn SuppressesDehydration(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsOptedForExtendedMem(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2754,12 +2739,12 @@ impl IPMTaskInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TaskID(::core::mem::transmute_copy(&ptaskid)).into()
         }
-        unsafe extern "system" fn NavigationPage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnavigationpage: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NavigationPage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnavigationpage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NavigationPage(::core::mem::transmute_copy(&pnavigationpage)).into()
@@ -2808,27 +2793,27 @@ impl IPMTaskInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
         }
-        unsafe extern "system" fn ImagePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimagepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImagePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimagepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ImagePath(::core::mem::transmute_copy(&pimagepath)).into()
         }
-        unsafe extern "system" fn ImageParams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageparams: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageParams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageparams: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ImageParams(::core::mem::transmute_copy(&pimageparams)).into()
         }
-        unsafe extern "system" fn InstallRootFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallrootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallRootFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallrootfolder: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InstallRootFolder(::core::mem::transmute_copy(&pinstallrootfolder)).into()
         }
-        unsafe extern "system" fn DataRootFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatarootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataRootFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatarootfolder: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DataRootFolder(::core::mem::transmute_copy(&pdatarootfolder)).into()
@@ -2904,7 +2889,7 @@ impl IPMTaskInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackgroundExecutionAbilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbackgroundexecutionabilities: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundExecutionAbilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTaskInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbackgroundexecutionabilities: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BackgroundExecutionAbilities(::core::mem::transmute_copy(&pbackgroundexecutionabilities)).into()
@@ -2975,24 +2960,24 @@ impl IPMTaskInfoEnumerator_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMTileInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TileID(&self, ptileid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TemplateType(&self) -> ::windows::core::Result<TILE_TEMPLATE_TYPE>;
     fn get_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn get_HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<u32>;
     fn IsNotified(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskID(&self, ptaskid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TileType(&self) -> ::windows::core::Result<PM_STARTTILE_TYPE>;
     fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn get_PropertyById(&self, propid: u32) -> ::windows::core::Result<IPMTilePropertyInfo>;
-    fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_InvocationInfo(&self, pimageurn: *mut ::windows::core::BSTR, pparameters: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn PropertyEnum(&self) -> ::windows::core::Result<IPMTilePropertyEnumerator>;
     fn get_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<PM_TILE_SIZE>;
     fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> ::windows::core::Result<()>;
     fn set_NotifiedState(&self, notified: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn set_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE, pinned: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::Result<()>;
-    fn set_InvocationInfo(&self, taskname: &super::super::Foundation::BSTR, taskparameters: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn set_InvocationInfo(&self, taskname: &::windows::core::BSTR, taskparameters: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>;
     fn IsRestoring(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsAutoRestoreDisabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -3015,7 +3000,7 @@ impl IPMTileInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TileID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TileID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptileid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TileID(::core::mem::transmute_copy(&ptileid)).into()
@@ -3075,7 +3060,7 @@ impl IPMTileInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TaskID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TaskID(::core::mem::transmute_copy(&ptaskid)).into()
@@ -3113,7 +3098,7 @@ impl IPMTileInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_InvocationInfo(::core::mem::transmute_copy(&pimageurn), ::core::mem::transmute_copy(&pparameters)).into()
@@ -3160,7 +3145,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             this.set_HubTileSize(::core::mem::transmute_copy(&hubtype), ::core::mem::transmute_copy(&size)).into()
         }
-        unsafe extern "system" fn set_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, taskparameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn set_InvocationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, taskparameters: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.set_InvocationInfo(::core::mem::transmute(&taskname), ::core::mem::transmute(&taskparameters)).into()
@@ -3280,15 +3265,12 @@ impl IPMTilePropertyEnumerator_Vtbl {
         iid == &<IPMTilePropertyEnumerator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPMTilePropertyInfo_Impl: Sized {
     fn PropertyID(&self) -> ::windows::core::Result<u32>;
-    fn PropertyValue(&self, ppropvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn set_Property(&self, propvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PropertyValue(&self, ppropvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn set_Property(&self, propvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPMTilePropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IPMTilePropertyInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTilePropertyInfo_Impl, const OFFSET: isize>() -> IPMTilePropertyInfo_Vtbl {
         unsafe extern "system" fn PropertyID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTilePropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropid: *mut u32) -> ::windows::core::HRESULT {
@@ -3302,12 +3284,12 @@ impl IPMTilePropertyInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropertyValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTilePropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropertyValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTilePropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PropertyValue(::core::mem::transmute_copy(&ppropvalue)).into()
         }
-        unsafe extern "system" fn set_Property<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTilePropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn set_Property<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTilePropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.set_Property(::core::mem::transmute(&propvalue)).into()

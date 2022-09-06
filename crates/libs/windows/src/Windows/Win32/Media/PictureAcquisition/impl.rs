@@ -51,7 +51,7 @@ impl IPhotoAcquire_Vtbl {
 pub trait IPhotoAcquireDeviceSelectionDialog_Impl: Sized {
     fn SetTitle(&self, psztitle: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetSubmitButtonText(&self, pszsubmitbuttontext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn DoModal(&self, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut super::super::Foundation::BSTR, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> ::windows::core::Result<()>;
+    fn DoModal(&self, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut ::windows::core::BSTR, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPhotoAcquireDeviceSelectionDialog {}
@@ -68,7 +68,7 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
             let this = (*this).get_impl();
             this.SetSubmitButtonText(::core::mem::transmute(&pszsubmitbuttontext)).into()
         }
-        unsafe extern "system" fn DoModal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut super::super::Foundation::BSTR, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoModal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DoModal(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwdeviceflags), ::core::mem::transmute_copy(&pbstrdeviceid), ::core::mem::transmute_copy(&pndevicetype)).into()
@@ -86,7 +86,7 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPhotoAcquireItem_Impl: Sized {
-    fn GetItemName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetItemName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetThumbnail(&self, sizethumbnail: &super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>;
     fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -101,7 +101,7 @@ impl ::windows::core::RuntimeName for IPhotoAcquireItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPhotoAcquireItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>() -> IPhotoAcquireItem_Vtbl {
-        unsafe extern "system" fn GetItemName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstritemname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstritemname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemName() {
@@ -483,10 +483,10 @@ pub trait IPhotoAcquireSettings_Impl: Sized {
     fn SetGroupTag(&self, pszgrouptag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetAcquisitionTime(&self, pftacquisitiontime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn GetFlags(&self) -> ::windows::core::Result<u32>;
-    fn GetOutputFilenameTemplate(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetOutputFilenameTemplate(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetSequencePaddingWidth(&self) -> ::windows::core::Result<u32>;
     fn GetSequenceZeroPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetGroupTag(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetGroupTag(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetAcquisitionTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -540,7 +540,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputFilenameTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtemplate: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutputFilenameTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtemplate: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetOutputFilenameTemplate() {
@@ -573,7 +573,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGroupTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgrouptag: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGroupTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgrouptag: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetGroupTag() {
@@ -618,13 +618,13 @@ impl IPhotoAcquireSettings_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPhotoAcquireSource_Impl: Sized {
-    fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetDeviceIcons(&self, nsize: u32, phlargeicon: *mut super::super::UI::WindowsAndMessaging::HICON, phsmallicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::Result<()>;
     fn InitializeItemList(&self, fforceenumeration: super::super::Foundation::BOOL, pphotoacquireprogresscb: &::core::option::Option<IPhotoAcquireProgressCB>, pnitemcount: *mut u32) -> ::windows::core::Result<()>;
     fn GetItemCount(&self) -> ::windows::core::Result<u32>;
     fn GetItemAt(&self, nindex: u32) -> ::windows::core::Result<IPhotoAcquireItem>;
     fn GetPhotoAcquireSettings(&self) -> ::windows::core::Result<IPhotoAcquireSettings>;
-    fn GetDeviceId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDeviceId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BindToObject(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -632,7 +632,7 @@ impl ::windows::core::RuntimeName for IPhotoAcquireSource {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IPhotoAcquireSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>() -> IPhotoAcquireSource_Vtbl {
-        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFriendlyName() {
@@ -686,7 +686,7 @@ impl IPhotoAcquireSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdeviceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceId() {
@@ -898,25 +898,25 @@ impl IPhotoProgressDialog_Vtbl {
         iid == &<IPhotoProgressDialog as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IUserInputString_Impl: Sized {
-    fn GetSubmitButtonText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPrompt(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetStringId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetSubmitButtonText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetPrompt(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetStringId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetStringType(&self) -> ::windows::core::Result<USER_INPUT_STRING_TYPE>;
-    fn GetTooltipText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetTooltipText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetMaxLength(&self) -> ::windows::core::Result<u32>;
-    fn GetDefault(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDefault(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetMruCount(&self) -> ::windows::core::Result<u32>;
-    fn GetMruEntryAt(&self, nindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetMruEntryAt(&self, nindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetImage(&self, nsize: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IUserInputString {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IUserInputString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>() -> IUserInputString_Vtbl {
-        unsafe extern "system" fn GetSubmitButtonText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmitbuttontext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubmitButtonText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmitbuttontext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSubmitButtonText() {
@@ -927,7 +927,7 @@ impl IUserInputString_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrompt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprompttitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrompt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprompttitle: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPrompt() {
@@ -938,7 +938,7 @@ impl IUserInputString_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstringid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstringid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStringId() {
@@ -960,7 +960,7 @@ impl IUserInputString_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTooltipText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtooltiptext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTooltipText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtooltiptext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTooltipText() {
@@ -982,7 +982,7 @@ impl IUserInputString_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdefault: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdefault: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefault() {
@@ -1004,7 +1004,7 @@ impl IUserInputString_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMruEntryAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, pbstrmruentry: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMruEntryAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, pbstrmruentry: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMruEntryAt(::core::mem::transmute_copy(&nindex)) {

@@ -80,20 +80,20 @@ impl DDiscFormat2TrackAtOnceEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscMaster2Events_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn NotifyDeviceAdded(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NotifyDeviceRemoved(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NotifyDeviceAdded(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn NotifyDeviceRemoved(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DDiscMaster2Events {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscMaster2Events_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>() -> DDiscMaster2Events_Vtbl {
-        unsafe extern "system" fn NotifyDeviceAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, uniqueid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyDeviceAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, uniqueid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NotifyDeviceAdded(::core::mem::transmute(&object), ::core::mem::transmute(&uniqueid)).into()
         }
-        unsafe extern "system" fn NotifyDeviceRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, uniqueid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyDeviceRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, uniqueid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NotifyDeviceRemoved(::core::mem::transmute(&object), ::core::mem::transmute(&uniqueid)).into()
@@ -110,14 +110,14 @@ impl DDiscMaster2Events_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DFileSystemImageEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, currentfile: &super::super::Foundation::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>;
+    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, currentfile: &::windows::core::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DFileSystemImageEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DFileSystemImageEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageEvents_Impl, const OFFSET: isize>() -> DFileSystemImageEvents_Vtbl {
-        unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, currentfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, copiedsectors: i32, totalsectors: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, currentfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, copiedsectors: i32, totalsectors: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Update(::core::mem::transmute(&object), ::core::mem::transmute(&currentfile), ::core::mem::transmute_copy(&copiedsectors), ::core::mem::transmute_copy(&totalsectors)).into()
@@ -130,14 +130,14 @@ impl DFileSystemImageEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DFileSystemImageImportEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn UpdateImport(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &super::super::Foundation::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>;
+    fn UpdateImport(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &::windows::core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DFileSystemImageImportEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DFileSystemImageImportEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageImportEvents_Impl, const OFFSET: isize>() -> DFileSystemImageImportEvents_Vtbl {
-        unsafe extern "system" fn UpdateImport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageImportEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, currentitem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateImport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageImportEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, currentitem: ::core::mem::ManuallyDrop<::windows::core::BSTR>, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateImport(::core::mem::transmute(&object), ::core::mem::transmute_copy(&filesystem), ::core::mem::transmute(&currentitem), ::core::mem::transmute_copy(&importeddirectoryitems), ::core::mem::transmute_copy(&totaldirectoryitems), ::core::mem::transmute_copy(&importedfileitems), ::core::mem::transmute_copy(&totalfileitems)).into()
@@ -239,8 +239,8 @@ impl IBlockRangeList_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBootOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn BootImage(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn Manufacturer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetManufacturer(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Manufacturer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetManufacturer(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn PlatformId(&self) -> ::windows::core::Result<PlatformId>;
     fn SetPlatformId(&self, newval: PlatformId) -> ::windows::core::Result<()>;
     fn Emulation(&self) -> ::windows::core::Result<EmulationType>;
@@ -264,7 +264,7 @@ impl IBootOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Manufacturer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBootOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Manufacturer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBootOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Manufacturer() {
@@ -275,7 +275,7 @@ impl IBootOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetManufacturer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBootOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetManufacturer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBootOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetManufacturer(::core::mem::transmute(&newval)).into()
@@ -479,8 +479,8 @@ pub trait IDiscFormat2Data_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn SetDisableConsumerDvdCompatibilityMode(&self, value: i16) -> ::windows::core::Result<()>;
     fn DisableConsumerDvdCompatibilityMode(&self) -> ::windows::core::Result<i16>;
     fn CurrentPhysicalMediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn RequestedWriteSpeed(&self) -> ::windows::core::Result<i32>;
     fn RequestedRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
     fn CurrentWriteSpeed(&self) -> ::windows::core::Result<i32>;
@@ -667,12 +667,12 @@ impl IDiscFormat2Data_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetClientName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientName() {
@@ -906,8 +906,8 @@ pub trait IDiscFormat2Erase_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SetFullErase(&self, value: i16) -> ::windows::core::Result<()>;
     fn FullErase(&self) -> ::windows::core::Result<i16>;
     fn CurrentPhysicalMediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn EraseMedia(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -958,12 +958,12 @@ impl IDiscFormat2Erase_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetClientName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientName() {
@@ -1013,8 +1013,8 @@ pub trait IDiscFormat2RawCD_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SupportedSectorTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetRequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()>;
     fn RequestedSectorType(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
-    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn RequestedWriteSpeed(&self) -> ::windows::core::Result<i32>;
     fn RequestedRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
     fn CurrentWriteSpeed(&self) -> ::windows::core::Result<i32>;
@@ -1149,12 +1149,12 @@ impl IDiscFormat2RawCD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetClientName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientName() {
@@ -1337,8 +1337,8 @@ pub trait IDiscFormat2TrackAtOnce_Impl: Sized + super::super::System::Com::IDisp
     fn DoNotFinalizeMedia(&self) -> ::windows::core::Result<i16>;
     fn ExpectedTableOfContents(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CurrentPhysicalMediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn RequestedWriteSpeed(&self) -> ::windows::core::Result<i32>;
     fn RequestedRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
     fn CurrentWriteSpeed(&self) -> ::windows::core::Result<i32>;
@@ -1490,12 +1490,12 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetClientName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientName() {
@@ -1803,7 +1803,7 @@ impl IDiscMaster_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscMaster2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn IsSupportedEnvironment(&self) -> ::windows::core::Result<i16>;
 }
@@ -1823,7 +1823,7 @@ impl IDiscMaster2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscMaster2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscMaster2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
@@ -1950,14 +1950,14 @@ impl IDiscMasterProgressEvents_Vtbl {
         iid == &<IDiscMasterProgressEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IDiscRecorder_Impl: Sized {
     fn Init(&self, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> ::windows::core::Result<()>;
     fn GetRecorderGUID(&self, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> ::windows::core::Result<()>;
     fn GetRecorderType(&self) -> ::windows::core::Result<RECORDER_TYPES>;
-    fn GetDisplayNames(&self, pbstrvendorid: *mut super::super::Foundation::BSTR, pbstrproductid: *mut super::super::Foundation::BSTR, pbstrrevision: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetBasePnPID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDisplayNames(&self, pbstrvendorid: *mut ::windows::core::BSTR, pbstrproductid: *mut ::windows::core::BSTR, pbstrrevision: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn GetBasePnPID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetRecorderProperties(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
     fn SetRecorderProperties(&self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
     fn GetRecorderState(&self) -> ::windows::core::Result<DISC_RECORDER_STATE_FLAGS>;
@@ -1968,9 +1968,9 @@ pub trait IDiscRecorder_Impl: Sized {
     fn Erase(&self, bfullerase: u8) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for IDiscRecorder {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IDiscRecorder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>() -> IDiscRecorder_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> ::windows::core::HRESULT {
@@ -1994,12 +1994,12 @@ impl IDiscRecorder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDisplayNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrvendorid: *mut super::super::Foundation::BSTR, pbstrproductid: *mut super::super::Foundation::BSTR, pbstrrevision: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrvendorid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrproductid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrrevision: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDisplayNames(::core::mem::transmute_copy(&pbstrvendorid), ::core::mem::transmute_copy(&pbstrproductid), ::core::mem::transmute_copy(&pbstrrevision)).into()
         }
-        unsafe extern "system" fn GetBasePnPID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbasepnpid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBasePnPID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbasepnpid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBasePnPID() {
@@ -2010,7 +2010,7 @@ impl IDiscRecorder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPath() {
@@ -2105,16 +2105,16 @@ impl IDiscRecorder_Vtbl {
 pub trait IDiscRecorder2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EjectMedia(&self) -> ::windows::core::Result<()>;
     fn CloseTray(&self) -> ::windows::core::Result<()>;
-    fn AcquireExclusiveAccess(&self, force: i16, __midl__idiscrecorder20000: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AcquireExclusiveAccess(&self, force: i16, __midl__idiscrecorder20000: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ReleaseExclusiveAccess(&self) -> ::windows::core::Result<()>;
     fn DisableMcn(&self) -> ::windows::core::Result<()>;
     fn EnableMcn(&self) -> ::windows::core::Result<()>;
-    fn InitializeDiscRecorder(&self, recorderuniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ActiveDiscRecorder(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VendorId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductRevision(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InitializeDiscRecorder(&self, recorderuniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ActiveDiscRecorder(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn VendorId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ProductId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ProductRevision(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn VolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn VolumePathNames(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn DeviceCanLoadMedia(&self) -> ::windows::core::Result<i16>;
     fn LegacyDeviceNumber(&self) -> ::windows::core::Result<i32>;
@@ -2123,7 +2123,7 @@ pub trait IDiscRecorder2_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn SupportedProfiles(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CurrentProfiles(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SupportedModePages(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ExclusiveAccessOwner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ExclusiveAccessOwner(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDiscRecorder2 {}
@@ -2140,7 +2140,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             this.CloseTray().into()
         }
-        unsafe extern "system" fn AcquireExclusiveAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, force: i16, __midl__idiscrecorder20000: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcquireExclusiveAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, force: i16, __midl__idiscrecorder20000: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AcquireExclusiveAccess(::core::mem::transmute_copy(&force), ::core::mem::transmute(&__midl__idiscrecorder20000)).into()
@@ -2160,12 +2160,12 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             this.EnableMcn().into()
         }
-        unsafe extern "system" fn InitializeDiscRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recorderuniqueid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeDiscRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recorderuniqueid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeDiscRecorder(::core::mem::transmute(&recorderuniqueid)).into()
         }
-        unsafe extern "system" fn ActiveDiscRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActiveDiscRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ActiveDiscRecorder() {
@@ -2176,7 +2176,7 @@ impl IDiscRecorder2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VendorId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VendorId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VendorId() {
@@ -2187,7 +2187,7 @@ impl IDiscRecorder2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProductId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProductId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ProductId() {
@@ -2198,7 +2198,7 @@ impl IDiscRecorder2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProductRevision<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProductRevision<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ProductRevision() {
@@ -2209,7 +2209,7 @@ impl IDiscRecorder2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VolumeName() {
@@ -2308,7 +2308,7 @@ impl IDiscRecorder2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExclusiveAccessOwner<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExclusiveAccessOwner<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExclusiveAccessOwner() {
@@ -2711,15 +2711,15 @@ pub trait IFileSystemImage_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn SetFreeMediaBlocks(&self, newval: i32) -> ::windows::core::Result<()>;
     fn SetMaxMediaBlocksFromDevice(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn UsedBlocks(&self) -> ::windows::core::Result<i32>;
-    fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetVolumeName(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImportedVolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn VolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetVolumeName(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ImportedVolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BootImageOptions(&self) -> ::windows::core::Result<IBootOptions>;
     fn SetBootImageOptions(&self, newval: &::core::option::Option<IBootOptions>) -> ::windows::core::Result<()>;
     fn FileCount(&self) -> ::windows::core::Result<i32>;
     fn DirectoryCount(&self) -> ::windows::core::Result<i32>;
-    fn WorkingDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetWorkingDirectory(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn WorkingDirectory(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetWorkingDirectory(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ChangePoint(&self) -> ::windows::core::Result<i32>;
     fn StrictFileSystemCompliance(&self) -> ::windows::core::Result<i16>;
     fn SetStrictFileSystemCompliance(&self, newval: i16) -> ::windows::core::Result<()>;
@@ -2737,19 +2737,19 @@ pub trait IFileSystemImage_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn ISO9660InterchangeLevel(&self) -> ::windows::core::Result<i32>;
     fn ISO9660InterchangeLevelsSupported(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CreateResultImage(&self) -> ::windows::core::Result<IFileSystemImageResult>;
-    fn Exists(&self, fullpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<FsiItemType>;
-    fn CalculateDiscIdentifier(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Exists(&self, fullpath: &::windows::core::BSTR) -> ::windows::core::Result<FsiItemType>;
+    fn CalculateDiscIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn IdentifyFileSystemsOnDisc(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<FsiFileSystems>;
     fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> ::windows::core::Result<FsiFileSystems>;
     fn ImportFileSystem(&self) -> ::windows::core::Result<FsiFileSystems>;
     fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> ::windows::core::Result<()>;
     fn RollbackToChangePoint(&self, changepoint: i32) -> ::windows::core::Result<()>;
     fn LockInChangePoint(&self) -> ::windows::core::Result<()>;
-    fn CreateDirectoryItem(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiDirectoryItem>;
-    fn CreateFileItem(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiFileItem>;
-    fn VolumeNameUDF(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VolumeNameJoliet(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VolumeNameISO9660(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CreateDirectoryItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiDirectoryItem>;
+    fn CreateFileItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiFileItem>;
+    fn VolumeNameUDF(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn VolumeNameJoliet(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn VolumeNameISO9660(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn StageFiles(&self) -> ::windows::core::Result<i16>;
     fn SetStageFiles(&self, newval: i16) -> ::windows::core::Result<()>;
     fn MultisessionInterfaces(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2819,7 +2819,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VolumeName() {
@@ -2830,12 +2830,12 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetVolumeName(::core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn ImportedVolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportedVolumeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImportedVolumeName() {
@@ -2884,7 +2884,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WorkingDirectory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WorkingDirectory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.WorkingDirectory() {
@@ -2895,7 +2895,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWorkingDirectory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWorkingDirectory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetWorkingDirectory(::core::mem::transmute(&newval)).into()
@@ -3045,7 +3045,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Exists<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fullpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, itemtype: *mut FsiItemType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Exists<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fullpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, itemtype: *mut FsiItemType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Exists(::core::mem::transmute(&fullpath)) {
@@ -3056,7 +3056,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CalculateDiscIdentifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discidentifier: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CalculateDiscIdentifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discidentifier: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CalculateDiscIdentifier() {
@@ -3115,7 +3115,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             this.LockInChangePoint().into()
         }
-        unsafe extern "system" fn CreateDirectoryItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDirectoryItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, newitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateDirectoryItem(::core::mem::transmute(&name)) {
@@ -3126,7 +3126,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFileItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, newitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateFileItem(::core::mem::transmute(&name)) {
@@ -3137,7 +3137,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VolumeNameUDF<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeNameUDF<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VolumeNameUDF() {
@@ -3148,7 +3148,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VolumeNameJoliet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeNameJoliet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VolumeNameJoliet() {
@@ -3159,7 +3159,7 @@ impl IFileSystemImage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VolumeNameISO9660<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeNameISO9660<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VolumeNameISO9660() {
@@ -3351,7 +3351,7 @@ pub trait IFileSystemImageResult_Impl: Sized + super::super::System::Com::IDispa
     fn ProgressItems(&self) -> ::windows::core::Result<IProgressItems>;
     fn TotalBlocks(&self) -> ::windows::core::Result<i32>;
     fn BlockSize(&self) -> ::windows::core::Result<i32>;
-    fn DiscId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DiscId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFileSystemImageResult {}
@@ -3402,7 +3402,7 @@ impl IFileSystemImageResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DiscId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImageResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DiscId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImageResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DiscId() {
@@ -3455,15 +3455,15 @@ impl IFileSystemImageResult2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiDirectoryItem_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn get_Item(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiItem>;
+    fn get_Item(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IFsiItem>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn EnumFsiItems(&self) -> ::windows::core::Result<IEnumFsiItems>;
-    fn AddDirectory(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddFile(&self, path: &super::super::Foundation::BSTR, filedata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn AddTree(&self, sourcedirectory: &super::super::Foundation::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
+    fn AddDirectory(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn AddFile(&self, path: &::windows::core::BSTR, filedata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddTree(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
     fn Add(&self, item: &::core::option::Option<IFsiItem>) -> ::windows::core::Result<()>;
-    fn Remove(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveTree(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Remove(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn RemoveTree(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFsiDirectoryItem {}
@@ -3481,7 +3481,7 @@ impl IFsiDirectoryItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&path)) {
@@ -3514,17 +3514,17 @@ impl IFsiDirectoryItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddDirectory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDirectory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddDirectory(::core::mem::transmute(&path)).into()
         }
-        unsafe extern "system" fn AddFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, filedata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, filedata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddFile(::core::mem::transmute(&path), ::core::mem::transmute(&filedata)).into()
         }
-        unsafe extern "system" fn AddTree<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcedirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, includebasedirectory: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTree<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcedirectory: ::core::mem::ManuallyDrop<::windows::core::BSTR>, includebasedirectory: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddTree(::core::mem::transmute(&sourcedirectory), ::core::mem::transmute_copy(&includebasedirectory)).into()
@@ -3534,12 +3534,12 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&item)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&path)).into()
         }
-        unsafe extern "system" fn RemoveTree<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTree<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveTree(::core::mem::transmute(&path)).into()
@@ -3564,14 +3564,14 @@ impl IFsiDirectoryItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiDirectoryItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl + IFsiDirectoryItem_Impl {
-    fn AddTreeWithNamedStreams(&self, sourcedirectory: &super::super::Foundation::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
+    fn AddTreeWithNamedStreams(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFsiDirectoryItem2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiDirectoryItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem2_Impl, const OFFSET: isize>() -> IFsiDirectoryItem2_Vtbl {
-        unsafe extern "system" fn AddTreeWithNamedStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcedirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, includebasedirectory: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTreeWithNamedStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcedirectory: ::core::mem::ManuallyDrop<::windows::core::BSTR>, includebasedirectory: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddTreeWithNamedStreams(::core::mem::transmute(&sourcedirectory), ::core::mem::transmute_copy(&includebasedirectory)).into()
@@ -3661,8 +3661,8 @@ impl IFsiFileItem_Vtbl {
 pub trait IFsiFileItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl + IFsiFileItem_Impl {
     fn FsiNamedStreams(&self) -> ::windows::core::Result<IFsiNamedStreams>;
     fn IsNamedStream(&self) -> ::windows::core::Result<i16>;
-    fn AddStream(&self, name: &super::super::Foundation::BSTR, streamdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn RemoveStream(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddStream(&self, name: &::windows::core::BSTR, streamdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn RemoveStream(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsRealTime(&self) -> ::windows::core::Result<i16>;
     fn SetIsRealTime(&self, newval: i16) -> ::windows::core::Result<()>;
 }
@@ -3693,12 +3693,12 @@ impl IFsiFileItem2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, streamdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, streamdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddStream(::core::mem::transmute(&name), ::core::mem::transmute(&streamdata)).into()
         }
-        unsafe extern "system" fn RemoveStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveStream(::core::mem::transmute(&name)).into()
@@ -3735,8 +3735,8 @@ impl IFsiFileItem2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn FullPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn FullPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CreationTime(&self) -> ::windows::core::Result<f64>;
     fn SetCreationTime(&self, newval: f64) -> ::windows::core::Result<()>;
     fn LastAccessedTime(&self) -> ::windows::core::Result<f64>;
@@ -3745,15 +3745,15 @@ pub trait IFsiItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetLastModifiedTime(&self, newval: f64) -> ::windows::core::Result<()>;
     fn IsHidden(&self) -> ::windows::core::Result<i16>;
     fn SetIsHidden(&self, newval: i16) -> ::windows::core::Result<()>;
-    fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFsiItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>() -> IFsiItem_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -3764,7 +3764,7 @@ impl IFsiItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FullPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FullPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FullPath() {
@@ -3839,7 +3839,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             this.SetIsHidden(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn FileSystemName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileSystemName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FileSystemName(::core::mem::transmute_copy(&filesystem)) {
@@ -3850,7 +3850,7 @@ impl IFsiItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FileSystemPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileSystemPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FileSystemPath(::core::mem::transmute_copy(&filesystem)) {
@@ -3951,9 +3951,9 @@ impl IFsiNamedStreams_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IIsoImageManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Stream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetPath(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPath(&self, val: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetStream(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn Validate(&self) -> ::windows::core::Result<()>;
 }
@@ -3962,7 +3962,7 @@ impl ::windows::core::RuntimeName for IIsoImageManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IIsoImageManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIsoImageManager_Impl, const OFFSET: isize>() -> IIsoImageManager_Vtbl {
-        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Path() {
@@ -3984,7 +3984,7 @@ impl IIsoImageManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPath(::core::mem::transmute(&val)).into()
@@ -4320,7 +4320,7 @@ impl IMultisessionSequential2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IProgressItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn FirstBlock(&self) -> ::windows::core::Result<u32>;
     fn LastBlock(&self) -> ::windows::core::Result<u32>;
     fn BlockCount(&self) -> ::windows::core::Result<u32>;
@@ -4330,7 +4330,7 @@ impl ::windows::core::RuntimeName for IProgressItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProgressItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProgressItem_Impl, const OFFSET: isize>() -> IProgressItem_Vtbl {
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProgressItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProgressItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Description() {
@@ -4392,7 +4392,7 @@ pub trait IProgressItems_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn get_Item(&self, index: i32) -> ::windows::core::Result<IProgressItem>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn ProgressItemFromBlock(&self, block: u32) -> ::windows::core::Result<IProgressItem>;
-    fn ProgressItemFromDescription(&self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<IProgressItem>;
+    fn ProgressItemFromDescription(&self, description: &::windows::core::BSTR) -> ::windows::core::Result<IProgressItem>;
     fn EnumProgressItems(&self) -> ::windows::core::Result<IEnumProgressItems>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4444,7 +4444,7 @@ impl IProgressItems_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProgressItemFromDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProgressItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProgressItemFromDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProgressItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<::windows::core::BSTR>, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ProgressItemFromDescription(::core::mem::transmute(&description)) {
@@ -4493,8 +4493,8 @@ pub trait IRawCDImageCreator_Impl: Sized + super::super::System::Com::IDispatch_
     fn StartOfLeadoutLimit(&self) -> ::windows::core::Result<i32>;
     fn SetDisableGaplessAudio(&self, value: i16) -> ::windows::core::Result<()>;
     fn DisableGaplessAudio(&self) -> ::windows::core::Result<i16>;
-    fn SetMediaCatalogNumber(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MediaCatalogNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetMediaCatalogNumber(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn MediaCatalogNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetStartingTrackNumber(&self, value: i32) -> ::windows::core::Result<()>;
     fn StartingTrackNumber(&self) -> ::windows::core::Result<i32>;
     fn get_TrackInfo(&self, trackindex: i32) -> ::windows::core::Result<IRawCDImageTrackInfo>;
@@ -4598,12 +4598,12 @@ impl IRawCDImageCreator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMediaCatalogNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMediaCatalogNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMediaCatalogNumber(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn MediaCatalogNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaCatalogNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MediaCatalogNumber() {
@@ -4707,8 +4707,8 @@ pub trait IRawCDImageTrackInfo_Impl: Sized + super::super::System::Com::IDispatc
     fn SectorCount(&self) -> ::windows::core::Result<i32>;
     fn TrackNumber(&self) -> ::windows::core::Result<i32>;
     fn SectorType(&self) -> ::windows::core::Result<IMAPI_CD_SECTOR_TYPE>;
-    fn ISRC(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetISRC(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ISRC(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetISRC(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn DigitalAudioCopySetting(&self) -> ::windows::core::Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING>;
     fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> ::windows::core::Result<()>;
     fn AudioHasPreemphasis(&self) -> ::windows::core::Result<i16>;
@@ -4766,7 +4766,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ISRC<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ISRC<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ISRC() {
@@ -4777,7 +4777,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetISRC<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetISRC<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetISRC(::core::mem::transmute(&value)).into()

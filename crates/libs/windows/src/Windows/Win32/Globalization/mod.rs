@@ -13197,14 +13197,9 @@ impl IMultiLanguage {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumCodePages)(::windows::core::Interface::as_raw(self), grfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCodePage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCharsetInfo<'a, P0>(&self, charset: P0) -> ::windows::core::Result<MIMECSETINFO>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
+    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCharsetInfo)(::windows::core::Interface::as_raw(self), charset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MIMECSETINFO>(result__)
+        (::windows::core::Interface::vtable(self).GetCharsetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(charset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MIMECSETINFO>(result__)
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsConvertible)(::windows::core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
@@ -13221,19 +13216,12 @@ impl IMultiLanguage {
     pub unsafe fn ConvertStringReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertStringReset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<super::Foundation::BSTR> {
+    pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRfc1766FromLcid)(::windows::core::Interface::as_raw(self), locale, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetRfc1766FromLcid)(::windows::core::Interface::as_raw(self), locale, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: &mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
-        (::windows::core::Interface::vtable(self).GetLcidFromRfc1766)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plocale), bstrrfc1766.into().abi()).ok()
+    pub unsafe fn GetLcidFromRfc1766(&self, plocale: &mut u32, bstrrfc1766: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLcidFromRfc1766)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plocale), ::core::mem::transmute_copy(bstrrfc1766)).ok()
     }
     pub unsafe fn EnumRfc1766(&self) -> ::windows::core::Result<IEnumRfc1766> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13291,23 +13279,14 @@ pub struct IMultiLanguage_Vtbl {
     pub GetCodePageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> ::windows::core::HRESULT,
     pub GetFamilyCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, puifamilycodepage: *mut u32) -> ::windows::core::HRESULT,
     pub EnumCodePages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, ppenumcodepage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetCharsetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCharsetInfo: usize,
+    pub GetCharsetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT,
     pub IsConvertible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::HRESULT,
     pub ConvertString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertStringToUnicode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertStringFromUnicode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertStringReset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetRfc1766FromLcid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetRfc1766FromLcid: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetLcidFromRfc1766: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLcidFromRfc1766: usize,
+    pub GetRfc1766FromLcid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLcidFromRfc1766: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub EnumRfc1766: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumrfc1766: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRfc1766Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, prfc1766info: *mut RFC1766INFO) -> ::windows::core::HRESULT,
     pub CreateConvertCharset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32, ppmlangconvertcharset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -13332,14 +13311,9 @@ impl IMultiLanguage2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumCodePages)(::windows::core::Interface::as_raw(self), grfflags, langid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCodePage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCharsetInfo<'a, P0>(&self, charset: P0) -> ::windows::core::Result<MIMECSETINFO>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
+    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCharsetInfo)(::windows::core::Interface::as_raw(self), charset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MIMECSETINFO>(result__)
+        (::windows::core::Interface::vtable(self).GetCharsetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(charset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MIMECSETINFO>(result__)
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsConvertible)(::windows::core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
@@ -13356,19 +13330,12 @@ impl IMultiLanguage2 {
     pub unsafe fn ConvertStringReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertStringReset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<super::Foundation::BSTR> {
+    pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRfc1766FromLcid)(::windows::core::Interface::as_raw(self), locale, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetRfc1766FromLcid)(::windows::core::Interface::as_raw(self), locale, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: &mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
-        (::windows::core::Interface::vtable(self).GetLcidFromRfc1766)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plocale), bstrrfc1766.into().abi()).ok()
+    pub unsafe fn GetLcidFromRfc1766(&self, plocale: &mut u32, bstrrfc1766: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLcidFromRfc1766)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plocale), ::core::mem::transmute_copy(bstrrfc1766)).ok()
     }
     pub unsafe fn EnumRfc1766(&self, langid: u16) -> ::windows::core::Result<IEnumRfc1766> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13492,23 +13459,14 @@ pub struct IMultiLanguage2_Vtbl {
     pub GetCodePageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, langid: u16, pcodepageinfo: *mut MIMECPINFO) -> ::windows::core::HRESULT,
     pub GetFamilyCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, puifamilycodepage: *mut u32) -> ::windows::core::HRESULT,
     pub EnumCodePages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, langid: u16, ppenumcodepage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetCharsetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCharsetInfo: usize,
+    pub GetCharsetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT,
     pub IsConvertible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::HRESULT,
     pub ConvertString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertStringToUnicode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertStringFromUnicode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertStringReset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetRfc1766FromLcid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetRfc1766FromLcid: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetLcidFromRfc1766: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetLcidFromRfc1766: usize,
+    pub GetRfc1766FromLcid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLcidFromRfc1766: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub EnumRfc1766: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16, ppenumrfc1766: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRfc1766Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, langid: u16, prfc1766info: *mut RFC1766INFO) -> ::windows::core::HRESULT,
     pub CreateConvertCharset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32, ppmlangconvertcharset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -13557,14 +13515,9 @@ impl IMultiLanguage3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumCodePages)(::windows::core::Interface::as_raw(self), grfflags, langid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCodePage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCharsetInfo<'a, P0>(&self, charset: P0) -> ::windows::core::Result<MIMECSETINFO>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
+    pub unsafe fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCharsetInfo)(::windows::core::Interface::as_raw(self), charset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MIMECSETINFO>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCharsetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(charset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MIMECSETINFO>(result__)
     }
     pub unsafe fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.IsConvertible)(::windows::core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
@@ -13581,19 +13534,12 @@ impl IMultiLanguage3 {
     pub unsafe fn ConvertStringReset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ConvertStringReset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<super::Foundation::BSTR> {
+    pub unsafe fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetRfc1766FromLcid)(::windows::core::Interface::as_raw(self), locale, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRfc1766FromLcid)(::windows::core::Interface::as_raw(self), locale, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLcidFromRfc1766<'a, P0>(&self, plocale: &mut u32, bstrrfc1766: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GetLcidFromRfc1766)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plocale), bstrrfc1766.into().abi()).ok()
+    pub unsafe fn GetLcidFromRfc1766(&self, plocale: &mut u32, bstrrfc1766: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetLcidFromRfc1766)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plocale), ::core::mem::transmute_copy(bstrrfc1766)).ok()
     }
     pub unsafe fn EnumRfc1766(&self, langid: u16) -> ::windows::core::Result<IEnumRfc1766> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

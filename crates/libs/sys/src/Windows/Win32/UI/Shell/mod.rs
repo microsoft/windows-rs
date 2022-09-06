@@ -1674,9 +1674,9 @@ extern "system" {
     pub fn StrRStrIA(pszsource: ::windows_sys::core::PCSTR, pszlast: ::windows_sys::core::PCSTR, pszsrch: ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn StrRStrIW(pszsource: ::windows_sys::core::PCWSTR, pszlast: ::windows_sys::core::PCWSTR, pszsrch: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR;
-    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub fn StrRetToBSTR(pstr: *mut Common::STRRET, pidl: *const Common::ITEMIDLIST, pbstr: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
+    #[cfg(feature = "Win32_UI_Shell_Common")]
+    pub fn StrRetToBSTR(pstr: *mut Common::STRRET, pidl: *const Common::ITEMIDLIST, pbstr: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn StrRetToBufA(pstr: *mut Common::STRRET, pidl: *const Common::ITEMIDLIST, pszbuf: ::windows_sys::core::PSTR, cchbuf: u32) -> ::windows_sys::core::HRESULT;

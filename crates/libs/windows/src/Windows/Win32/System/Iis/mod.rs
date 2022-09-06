@@ -4119,37 +4119,30 @@ impl ::core::default::Default for CERT_CONTEXT_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: super::super::Foundation::BSTR,
-    pub bstrValue: super::super::Foundation::BSTR,
+    pub bstrKey: ::windows::core::BSTR,
+    pub bstrValue: ::windows::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {
         Self { bstrKey: self.bstrKey.clone(), bstrValue: self.bstrValue.clone() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CONFIGURATION_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CONFIGURATION_ENTRY").field("bstrKey", &self.bstrKey).field("bstrValue", &self.bstrValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONFIGURATION_ENTRY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONFIGURATION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.bstrKey == other.bstrKey && self.bstrValue == other.bstrValue
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CONFIGURATION_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONFIGURATION_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

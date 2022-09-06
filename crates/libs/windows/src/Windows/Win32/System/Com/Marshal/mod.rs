@@ -1,80 +1,72 @@
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserFree(param0: &u32, param1: &super::super::super::Foundation::BSTR) {
+pub unsafe fn BSTR_UserFree(param0: &u32, param1: &::windows::core::BSTR) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserFree(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
+        fn BSTR_UserFree(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>);
     }
     BSTR_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserFree64(param0: &u32, param1: &super::super::super::Foundation::BSTR) {
+pub unsafe fn BSTR_UserFree64(param0: &u32, param1: &::windows::core::BSTR) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
+        fn BSTR_UserFree64(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>);
     }
     BSTR_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::Foundation::BSTR) -> *mut u8 {
+pub unsafe fn BSTR_UserMarshal(param0: &u32, param1: &mut u8, param2: &::windows::core::BSTR) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::super::Foundation::BSTR) -> *mut u8;
+        fn BSTR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> *mut u8;
     }
     BSTR_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::Foundation::BSTR) -> *mut u8 {
+pub unsafe fn BSTR_UserMarshal64(param0: &u32, param1: &mut u8, param2: &::windows::core::BSTR) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::super::Foundation::BSTR) -> *mut u8;
+        fn BSTR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> *mut u8;
     }
     BSTR_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserSize(param0: &u32, param1: u32, param2: &super::super::super::Foundation::BSTR) -> u32 {
+pub unsafe fn BSTR_UserSize(param0: &u32, param1: u32, param2: &::windows::core::BSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
+        fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> u32;
     }
     BSTR_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::Foundation::BSTR) -> u32 {
+pub unsafe fn BSTR_UserSize64(param0: &u32, param1: u32, param2: &::windows::core::BSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
+        fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> u32;
     }
     BSTR_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::Foundation::BSTR) -> *mut u8 {
+pub unsafe fn BSTR_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut ::windows::core::BSTR) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::super::Foundation::BSTR) -> *mut u8;
+        fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> *mut u8;
     }
     BSTR_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn BSTR_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::Foundation::BSTR) -> *mut u8 {
+pub unsafe fn BSTR_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut ::windows::core::BSTR) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::super::Foundation::BSTR) -> *mut u8;
+        fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> *mut u8;
     }
     BSTR_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }

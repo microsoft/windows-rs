@@ -11389,18 +11389,15 @@ impl ::core::clone::Clone for D3DOVERLAYCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub struct DEVICE_INFO {
-    pub pFriendlyDeviceName: super::super::Foundation::BSTR,
-    pub pUniqueDeviceName: super::super::Foundation::BSTR,
-    pub pManufacturerName: super::super::Foundation::BSTR,
-    pub pModelName: super::super::Foundation::BSTR,
-    pub pIconURL: super::super::Foundation::BSTR,
+    pub pFriendlyDeviceName: ::windows_sys::core::BSTR,
+    pub pUniqueDeviceName: ::windows_sys::core::BSTR,
+    pub pManufacturerName: ::windows_sys::core::BSTR,
+    pub pModelName: ::windows_sys::core::BSTR,
+    pub pIconURL: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICE_INFO {
     fn clone(&self) -> Self {
         *self

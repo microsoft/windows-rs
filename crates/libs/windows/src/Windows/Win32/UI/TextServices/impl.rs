@@ -68,18 +68,18 @@ impl IAccClientDocMgr_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAccDictionary_Impl: Sized {
-    fn GetLocalizedString(&self, term: *const ::windows::core::GUID, lcid: u32, presult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLocalizedString(&self, term: *const ::windows::core::GUID, lcid: u32, presult: *mut ::windows::core::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
     fn GetParentTerm(&self, term: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetMnemonicString(&self, term: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn LookupMnemonicTerm(&self, bstrmnemonic: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ConvertValueToString(&self, term: *const ::windows::core::GUID, lcid: u32, varvalue: &super::super::System::Com::VARIANT, pbstrresult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
+    fn GetMnemonicString(&self, term: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn LookupMnemonicTerm(&self, bstrmnemonic: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ConvertValueToString(&self, term: *const ::windows::core::GUID, lcid: u32, varvalue: &super::super::System::Com::VARIANT, pbstrresult: *mut ::windows::core::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IAccDictionary {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAccDictionary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>() -> IAccDictionary_Vtbl {
-        unsafe extern "system" fn GetLocalizedString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, presult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalizedString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, plcid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLocalizedString(::core::mem::transmute_copy(&term), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&presult), ::core::mem::transmute_copy(&plcid)).into()
@@ -95,7 +95,7 @@ impl IAccDictionary_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMnemonicString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, presult: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMnemonicString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMnemonicString(::core::mem::transmute_copy(&term)) {
@@ -106,7 +106,7 @@ impl IAccDictionary_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LookupMnemonicTerm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmnemonic: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pterm: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LookupMnemonicTerm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmnemonic: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pterm: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LookupMnemonicTerm(::core::mem::transmute(&bstrmnemonic)) {
@@ -117,7 +117,7 @@ impl IAccDictionary_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConvertValueToString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrresult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertValueToString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrresult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, plcid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ConvertValueToString(::core::mem::transmute_copy(&term), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute(&varvalue), ::core::mem::transmute_copy(&pbstrresult), ::core::mem::transmute_copy(&plcid)).into()
@@ -997,16 +997,13 @@ impl IEnumTfLanguageProfiles_Vtbl {
         iid == &<IEnumTfLanguageProfiles as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumTfLatticeElements_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumTfLatticeElements>;
     fn Next(&self, ulcount: u32, rgselements: *mut TF_LMLATTELEMENT, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IEnumTfLatticeElements {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumTfLatticeElements_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTfLatticeElements_Impl, const OFFSET: isize>() -> IEnumTfLatticeElements_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTfLatticeElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2433,7 +2430,7 @@ pub trait ITfCandidateListUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetDocumentMgr(&self) -> ::windows::core::Result<ITfDocumentMgr>;
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetSelection(&self) -> ::windows::core::Result<u32>;
-    fn GetString(&self, uindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetString(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetPageIndex(&self, pindex: *mut u32, usize: u32, pupagecnt: *mut u32) -> ::windows::core::Result<()>;
     fn SetPageIndex(&self, pindex: *const u32, upagecnt: u32) -> ::windows::core::Result<()>;
     fn GetCurrentPage(&self) -> ::windows::core::Result<u32>;
@@ -2487,7 +2484,7 @@ impl ITfCandidateListUIElement_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfCandidateListUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, pstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfCandidateListUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, pstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetString(::core::mem::transmute_copy(&uindex)) {
@@ -2572,17 +2569,14 @@ impl ITfCandidateListUIElementBehavior_Vtbl {
         iid == &<ITfCandidateListUIElementBehavior as ::windows::core::Interface>::IID || iid == &<ITfUIElement as ::windows::core::Interface>::IID || iid == &<ITfCandidateListUIElement as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfCandidateString_Impl: Sized {
-    fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetIndex(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfCandidateString {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfCandidateString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfCandidateString_Impl, const OFFSET: isize>() -> ITfCandidateString_Vtbl {
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfCandidateString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfCandidateString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetString() {
@@ -2623,7 +2617,7 @@ pub trait ITfCategoryMgr_Impl: Sized {
     fn FindClosestCategory(&self, rguid: *const ::windows::core::GUID, pcatid: *mut ::windows::core::GUID, ppcatidlist: *const *const ::windows::core::GUID, ulcount: u32) -> ::windows::core::Result<()>;
     fn RegisterGUIDDescription(&self, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID, pchdesc: &::windows::core::PCWSTR, cch: u32) -> ::windows::core::Result<()>;
     fn UnregisterGUIDDescription(&self, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetGUIDDescription(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetGUIDDescription(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::BSTR>;
     fn RegisterGUIDDWORD(&self, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID, dw: u32) -> ::windows::core::Result<()>;
     fn UnregisterGUIDDWORD(&self, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetGUIDDWORD(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
@@ -2683,7 +2677,7 @@ impl ITfCategoryMgr_Vtbl {
             let this = (*this).get_impl();
             this.UnregisterGUIDDescription(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&rguid)).into()
         }
-        unsafe extern "system" fn GetGUIDDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfCategoryMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGUIDDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfCategoryMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetGUIDDescription(::core::mem::transmute_copy(&rguid)) {
@@ -3727,7 +3721,7 @@ impl ITfCreatePropertyStore_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfDisplayAttributeInfo_Impl: Sized {
     fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetAttributeInfo(&self) -> ::windows::core::Result<TF_DISPLAYATTRIBUTE>;
     fn SetAttributeInfo(&self, pda: *const TF_DISPLAYATTRIBUTE) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
@@ -3748,7 +3742,7 @@ impl ITfDisplayAttributeInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfDisplayAttributeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdesc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfDisplayAttributeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDescription() {
@@ -4048,14 +4042,11 @@ impl ITfEditTransactionSink_Vtbl {
         iid == &<ITfEditTransactionSink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnAdviseText_Impl: Sized + ITfFunction_Impl {
     fn OnTextUpdate(&self, prange: &::core::option::Option<ITfRange>, pchtext: &::windows::core::PCWSTR, cch: i32) -> ::windows::core::Result<()>;
     fn OnLatticeUpdate(&self, prange: &::core::option::Option<ITfRange>, plattice: &::core::option::Option<ITfLMLattice>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnAdviseText {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFnAdviseText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnAdviseText_Impl, const OFFSET: isize>() -> ITfFnAdviseText_Vtbl {
         unsafe extern "system" fn OnTextUpdate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnAdviseText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, pchtext: ::windows::core::PCWSTR, cch: i32) -> ::windows::core::HRESULT {
@@ -4117,14 +4108,14 @@ impl ITfFnConfigure_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnConfigureRegisterEudc_Impl: Sized + ITfFunction_Impl {
-    fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnConfigureRegisterEudc {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnConfigureRegisterEudc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnConfigureRegisterEudc_Impl, const OFFSET: isize>() -> ITfFnConfigureRegisterEudc_Vtbl {
-        unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnConfigureRegisterEudc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnConfigureRegisterEudc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Show(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&langid), ::core::mem::transmute_copy(&rguidprofile), ::core::mem::transmute(&bstrregistered)).into()
@@ -4137,14 +4128,14 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnConfigureRegisterWord_Impl: Sized + ITfFunction_Impl {
-    fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnConfigureRegisterWord {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnConfigureRegisterWord_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnConfigureRegisterWord_Impl, const OFFSET: isize>() -> ITfFnConfigureRegisterWord_Vtbl {
-        unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnConfigureRegisterWord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnConfigureRegisterWord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Show(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&langid), ::core::mem::transmute_copy(&rguidprofile), ::core::mem::transmute(&bstrregistered)).into()
@@ -4155,13 +4146,10 @@ impl ITfFnConfigureRegisterWord_Vtbl {
         iid == &<ITfFnConfigureRegisterWord as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnCustomSpeechCommand_Impl: Sized + ITfFunction_Impl {
     fn SetSpeechCommandProvider(&self, pspcmdprovider: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnCustomSpeechCommand {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFnCustomSpeechCommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnCustomSpeechCommand_Impl, const OFFSET: isize>() -> ITfFnCustomSpeechCommand_Vtbl {
         unsafe extern "system" fn SetSpeechCommandProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnCustomSpeechCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pspcmdprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4175,13 +4163,10 @@ impl ITfFnCustomSpeechCommand_Vtbl {
         iid == &<ITfFnCustomSpeechCommand as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnGetLinguisticAlternates_Impl: Sized + ITfFunction_Impl {
     fn GetAlternates(&self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnGetLinguisticAlternates {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFnGetLinguisticAlternates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnGetLinguisticAlternates_Impl, const OFFSET: isize>() -> ITfFnGetLinguisticAlternates_Vtbl {
         unsafe extern "system" fn GetAlternates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnGetLinguisticAlternates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, ppcandidatelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4201,13 +4186,10 @@ impl ITfFnGetLinguisticAlternates_Vtbl {
         iid == &<ITfFnGetLinguisticAlternates as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnGetPreferredTouchKeyboardLayout_Impl: Sized + ITfFunction_Impl {
     fn GetLayout(&self, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnGetPreferredTouchKeyboardLayout {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnGetPreferredTouchKeyboardLayout_Impl, const OFFSET: isize>() -> ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
         unsafe extern "system" fn GetLayout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnGetPreferredTouchKeyboardLayout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::core::HRESULT {
@@ -4221,13 +4203,10 @@ impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
         iid == &<ITfFnGetPreferredTouchKeyboardLayout as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnGetSAPIObject_Impl: Sized + ITfFunction_Impl {
     fn Get(&self, sobj: TfSapiObject) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnGetSAPIObject {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFnGetSAPIObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnGetSAPIObject_Impl, const OFFSET: isize>() -> ITfFnGetSAPIObject_Vtbl {
         unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnGetSAPIObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sobj: TfSapiObject, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4416,14 +4395,11 @@ impl ITfFnPlayBack_Vtbl {
         iid == &<ITfFnPlayBack as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnPropertyUIStatus_Impl: Sized + ITfFunction_Impl {
     fn GetStatus(&self, refguidprop: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
     fn SetStatus(&self, refguidprop: *const ::windows::core::GUID, dw: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnPropertyUIStatus {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFnPropertyUIStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnPropertyUIStatus_Impl, const OFFSET: isize>() -> ITfFnPropertyUIStatus_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnPropertyUIStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refguidprop: *const ::windows::core::GUID, pdw: *mut u32) -> ::windows::core::HRESULT {
@@ -4495,17 +4471,14 @@ impl ITfFnReconversion_Vtbl {
         iid == &<ITfFnReconversion as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnSearchCandidateProvider_Impl: Sized + ITfFunction_Impl {
-    fn GetSearchCandidates(&self, bstrquery: &super::super::Foundation::BSTR, bstrapplicationid: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITfCandidateList>;
-    fn SetResult(&self, bstrquery: &super::super::Foundation::BSTR, bstrapplicationid: &super::super::Foundation::BSTR, bstrresult: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetSearchCandidates(&self, bstrquery: &::windows::core::BSTR, bstrapplicationid: &::windows::core::BSTR) -> ::windows::core::Result<ITfCandidateList>;
+    fn SetResult(&self, bstrquery: &::windows::core::BSTR, bstrapplicationid: &::windows::core::BSTR, bstrresult: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFnSearchCandidateProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFnSearchCandidateProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnSearchCandidateProvider_Impl, const OFFSET: isize>() -> ITfFnSearchCandidateProvider_Vtbl {
-        unsafe extern "system" fn GetSearchCandidates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnSearchCandidateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrquery: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrapplicationid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pplist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSearchCandidates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnSearchCandidateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrquery: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrapplicationid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSearchCandidates(::core::mem::transmute(&bstrquery), ::core::mem::transmute(&bstrapplicationid)) {
@@ -4516,7 +4489,7 @@ impl ITfFnSearchCandidateProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResult<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnSearchCandidateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrquery: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrapplicationid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrresult: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResult<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFnSearchCandidateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrquery: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrapplicationid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrresult: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetResult(::core::mem::transmute(&bstrquery), ::core::mem::transmute(&bstrapplicationid), ::core::mem::transmute(&bstrresult)).into()
@@ -4551,16 +4524,13 @@ impl ITfFnShowHelp_Vtbl {
         iid == &<ITfFnShowHelp as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFunction_Impl: Sized {
-    fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFunction {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFunction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFunction_Impl, const OFFSET: isize>() -> ITfFunction_Vtbl {
-        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDisplayName() {
@@ -4577,15 +4547,12 @@ impl ITfFunction_Vtbl {
         iid == &<ITfFunction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfFunctionProvider_Impl: Sized {
     fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetFunction(&self, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfFunctionProvider {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfFunctionProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFunctionProvider_Impl, const OFFSET: isize>() -> ITfFunctionProvider_Vtbl {
         unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFunctionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -4599,7 +4566,7 @@ impl ITfFunctionProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFunctionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdesc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfFunctionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDescription() {
@@ -4790,7 +4757,7 @@ pub trait ITfInputProcessorProfiles_Impl: Sized {
     fn SetDefaultLanguageProfile(&self, langid: u16, rclsid: *const ::windows::core::GUID, guidprofiles: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn ActivateLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofiles: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetActiveLanguageProfile(&self, rclsid: *const ::windows::core::GUID, plangid: *mut u16, pguidprofile: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetLanguageProfileDescription(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetLanguageProfileDescription(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetCurrentLanguage(&self) -> ::windows::core::Result<u16>;
     fn ChangeCurrentLanguage(&self, langid: u16) -> ::windows::core::Result<()>;
     fn GetLanguageList(&self, pplangid: *mut *mut u16, pulcount: *mut u32) -> ::windows::core::Result<()>;
@@ -4856,7 +4823,7 @@ impl ITfInputProcessorProfiles_Vtbl {
             let this = (*this).get_impl();
             this.GetActiveLanguageProfile(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&plangid), ::core::mem::transmute_copy(&pguidprofile)).into()
         }
-        unsafe extern "system" fn GetLanguageProfileDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputProcessorProfiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pbstrprofile: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLanguageProfileDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputProcessorProfiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pbstrprofile: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetLanguageProfileDescription(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&langid), ::core::mem::transmute_copy(&guidprofile)) {
@@ -4974,17 +4941,14 @@ impl ITfInputProcessorProfilesEx_Vtbl {
         iid == &<ITfInputProcessorProfilesEx as ::windows::core::Interface>::IID || iid == &<ITfInputProcessorProfiles as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfInputScope_Impl: Sized {
     fn GetInputScopes(&self, pprginputscopes: *mut *mut InputScope, pccount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPhrase(&self, ppbstrphrases: *mut *mut super::super::Foundation::BSTR, pccount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRegularExpression(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetSRGS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPhrase(&self, ppbstrphrases: *mut *mut ::windows::core::BSTR, pccount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRegularExpression(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetSRGS(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetXML(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfInputScope {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfInputScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>() -> ITfInputScope_Vtbl {
         unsafe extern "system" fn GetInputScopes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprginputscopes: *mut *mut InputScope, pccount: *mut u32) -> ::windows::core::HRESULT {
@@ -4992,12 +4956,12 @@ impl ITfInputScope_Vtbl {
             let this = (*this).get_impl();
             this.GetInputScopes(::core::mem::transmute_copy(&pprginputscopes), ::core::mem::transmute_copy(&pccount)).into()
         }
-        unsafe extern "system" fn GetPhrase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbstrphrases: *mut *mut super::super::Foundation::BSTR, pccount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPhrase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbstrphrases: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pccount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPhrase(::core::mem::transmute_copy(&ppbstrphrases), ::core::mem::transmute_copy(&pccount)).into()
         }
-        unsafe extern "system" fn GetRegularExpression<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrregexp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRegularExpression<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrregexp: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRegularExpression() {
@@ -5008,7 +4972,7 @@ impl ITfInputScope_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSRGS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsrgs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSRGS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsrgs: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSRGS() {
@@ -5019,7 +4983,7 @@ impl ITfInputScope_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetXML() {
@@ -5043,13 +5007,13 @@ impl ITfInputScope_Vtbl {
         iid == &<ITfInputScope as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ITfInputScope2_Impl: Sized + ITfInputScope_Impl {
     fn EnumWordList(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ITfInputScope2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ITfInputScope2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope2_Impl, const OFFSET: isize>() -> ITfInputScope2_Vtbl {
         unsafe extern "system" fn EnumWordList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5312,7 +5276,7 @@ pub trait ITfKeystrokeMgr_Impl: Sized {
     fn PreserveKey(&self, tid: u32, rguid: *const ::windows::core::GUID, prekey: *const TF_PRESERVEDKEY, pchdesc: &::windows::core::PCWSTR, cchdesc: u32) -> ::windows::core::Result<()>;
     fn UnpreserveKey(&self, rguid: *const ::windows::core::GUID, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::Result<()>;
     fn SetPreservedKeyDescription(&self, rguid: *const ::windows::core::GUID, pchdesc: &::windows::core::PCWSTR, cchdesc: u32) -> ::windows::core::Result<()>;
-    fn GetPreservedKeyDescription(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPreservedKeyDescription(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SimulatePreservedKey(&self, pic: &::core::option::Option<ITfContext>, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5422,7 +5386,7 @@ impl ITfKeystrokeMgr_Vtbl {
             let this = (*this).get_impl();
             this.SetPreservedKeyDescription(::core::mem::transmute_copy(&rguid), ::core::mem::transmute(&pchdesc), ::core::mem::transmute_copy(&cchdesc)).into()
         }
-        unsafe extern "system" fn GetPreservedKeyDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfKeystrokeMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreservedKeyDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfKeystrokeMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPreservedKeyDescription(::core::mem::transmute_copy(&rguid)) {
@@ -5577,7 +5541,7 @@ pub trait ITfLangBarItem_Impl: Sized {
     fn GetInfo(&self) -> ::windows::core::Result<TF_LANGBARITEMINFO>;
     fn GetStatus(&self) -> ::windows::core::Result<u32>;
     fn Show(&self, fshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetTooltipString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetTooltipString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfLangBarItem {}
@@ -5611,7 +5575,7 @@ impl ITfLangBarItem_Vtbl {
             let this = (*this).get_impl();
             this.Show(::core::mem::transmute_copy(&fshow)).into()
         }
-        unsafe extern "system" fn GetTooltipString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfLangBarItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtooltip: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTooltipString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfLangBarItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtooltip: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTooltipString() {
@@ -5733,7 +5697,7 @@ pub trait ITfLangBarItemBitmapButton_Impl: Sized + ITfLangBarItem_Impl {
     fn OnMenuSelect(&self, wid: u32) -> ::windows::core::Result<()>;
     fn GetPreferredSize(&self, pszdefault: *const super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Foundation::SIZE>;
     fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
-    fn GetText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::windows::core::RuntimeName for ITfLangBarItemBitmapButton {}
@@ -5771,7 +5735,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
             let this = (*this).get_impl();
             this.DrawBitmap(::core::mem::transmute_copy(&bmwidth), ::core::mem::transmute_copy(&bmheight), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&phbmp), ::core::mem::transmute_copy(&phbmpmask)).into()
         }
-        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetText() {
@@ -5802,7 +5766,7 @@ pub trait ITfLangBarItemButton_Impl: Sized + ITfLangBarItem_Impl {
     fn InitMenu(&self, pmenu: &::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
     fn OnMenuSelect(&self, wid: u32) -> ::windows::core::Result<()>;
     fn GetIcon(&self) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>;
-    fn GetText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for ITfLangBarItemButton {}
@@ -5835,7 +5799,7 @@ impl ITfLangBarItemButton_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetText() {
@@ -6911,7 +6875,7 @@ impl ITfReadOnlyProperty_Vtbl {
 pub trait ITfReadingInformationUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetUpdatedFlags(&self) -> ::windows::core::Result<u32>;
     fn GetContext(&self) -> ::windows::core::Result<ITfContext>;
-    fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetMaxReadingStringLength(&self) -> ::windows::core::Result<u32>;
     fn GetErrorIndex(&self) -> ::windows::core::Result<u32>;
     fn IsVerticalOrderPreferred(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -6943,7 +6907,7 @@ impl ITfReadingInformationUIElement_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfReadingInformationUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfReadingInformationUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetString() {
@@ -7024,14 +6988,11 @@ impl ITfReverseConversion_Vtbl {
         iid == &<ITfReverseConversion as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfReverseConversionList_Impl: Sized {
     fn GetLength(&self) -> ::windows::core::Result<u32>;
-    fn GetString(&self, uindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetString(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfReverseConversionList {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfReverseConversionList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfReverseConversionList_Impl, const OFFSET: isize>() -> ITfReverseConversionList_Vtbl {
         unsafe extern "system" fn GetLength<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfReverseConversionList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puindex: *mut u32) -> ::windows::core::HRESULT {
@@ -7045,7 +7006,7 @@ impl ITfReverseConversionList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfReverseConversionList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfReverseConversionList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetString(::core::mem::transmute_copy(&uindex)) {
@@ -7293,14 +7254,11 @@ impl ITfSystemLangBarItemSink_Vtbl {
         iid == &<ITfSystemLangBarItemSink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITfSystemLangBarItemText_Impl: Sized {
     fn SetItemText(&self, pch: &::windows::core::PCWSTR, cch: u32) -> ::windows::core::Result<()>;
-    fn GetItemText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetItemText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfSystemLangBarItemText {}
-#[cfg(feature = "Win32_Foundation")]
 impl ITfSystemLangBarItemText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfSystemLangBarItemText_Impl, const OFFSET: isize>() -> ITfSystemLangBarItemText_Vtbl {
         unsafe extern "system" fn SetItemText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfSystemLangBarItemText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pch: ::windows::core::PCWSTR, cch: u32) -> ::windows::core::HRESULT {
@@ -7308,7 +7266,7 @@ impl ITfSystemLangBarItemText_Vtbl {
             let this = (*this).get_impl();
             this.SetItemText(::core::mem::transmute(&pch), ::core::mem::transmute_copy(&cch)).into()
         }
-        unsafe extern "system" fn GetItemText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfSystemLangBarItemText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfSystemLangBarItemText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemText() {
@@ -7835,14 +7793,14 @@ impl ITfThreadMgrEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfToolTipUIElement_Impl: Sized + ITfUIElement_Impl {
-    fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITfToolTipUIElement {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfToolTipUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfToolTipUIElement_Impl, const OFFSET: isize>() -> ITfToolTipUIElement_Vtbl {
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfToolTipUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfToolTipUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetString() {
@@ -7916,7 +7874,7 @@ impl ITfTransitoryExtensionUIElement_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfUIElement_Impl: Sized {
-    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Show(&self, bshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7926,7 +7884,7 @@ impl ::windows::core::RuntimeName for ITfUIElement {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfUIElement_Impl, const OFFSET: isize>() -> ITfUIElement_Vtbl {
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDescription() {
@@ -8134,17 +8092,14 @@ impl IUIManagerEventSink_Vtbl {
         iid == &<IUIManagerEventSink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVersionInfo_Impl: Sized {
     fn GetSubcomponentCount(&self, ulsub: u32) -> ::windows::core::Result<u32>;
     fn GetImplementationID(&self, ulsub: u32) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetBuildVersion(&self, ulsub: u32, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::Result<()>;
-    fn GetComponentDescription(&self, ulsub: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetInstanceDescription(&self, ulsub: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetComponentDescription(&self, ulsub: u32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetInstanceDescription(&self, ulsub: u32) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVersionInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl IVersionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVersionInfo_Impl, const OFFSET: isize>() -> IVersionInfo_Vtbl {
         unsafe extern "system" fn GetSubcomponentCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulsub: u32, ulcount: *mut u32) -> ::windows::core::HRESULT {
@@ -8174,7 +8129,7 @@ impl IVersionInfo_Vtbl {
             let this = (*this).get_impl();
             this.GetBuildVersion(::core::mem::transmute_copy(&ulsub), ::core::mem::transmute_copy(&pdwmajor), ::core::mem::transmute_copy(&pdwminor)).into()
         }
-        unsafe extern "system" fn GetComponentDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComponentDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetComponentDescription(::core::mem::transmute_copy(&ulsub)) {
@@ -8185,7 +8140,7 @@ impl IVersionInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInstanceDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInstanceDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInstanceDescription(::core::mem::transmute_copy(&ulsub)) {

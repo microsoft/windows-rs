@@ -2381,16 +2381,12 @@ pub struct IPlayToManagerInterop_Vtbl {
 #[repr(transparent)]
 pub struct IRestrictedErrorInfo(::windows::core::IUnknown);
 impl IRestrictedErrorInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetErrorDetails(&self, description: &mut super::super::Foundation::BSTR, error: &mut ::windows::core::HRESULT, restricteddescription: &mut super::super::Foundation::BSTR, capabilitysid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn GetErrorDetails(&self, description: &mut ::windows::core::BSTR, error: &mut ::windows::core::HRESULT, restricteddescription: &mut ::windows::core::BSTR, capabilitysid: &mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetErrorDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(description), ::core::mem::transmute(error), ::core::mem::transmute(restricteddescription), ::core::mem::transmute(capabilitysid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetReference(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetReference(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::core::IUnknown {
@@ -2434,14 +2430,8 @@ unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
 #[doc(hidden)]
 pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::core::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetErrorDetails: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetReference: usize,
+    pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, error: *mut ::windows::core::HRESULT, restricteddescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, capabilitysid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]

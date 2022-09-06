@@ -4006,53 +4006,43 @@ impl ::core::clone::Clone for PMSIHANDLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BSATASKID {
     pub ProductID: ::windows_sys::core::GUID,
-    pub TaskID: super::super::Foundation::BSTR,
+    pub TaskID: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_BSATASKID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_BSATASKID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BWTASKID {
     pub ProductID: ::windows_sys::core::GUID,
-    pub TaskID: super::super::Foundation::BSTR,
+    pub TaskID: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_BWTASKID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_BWTASKID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_ENUM_FILTER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_ENUM_FILTER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub union PM_ENUM_FILTER_0 {
     pub Dummy: i32,
     pub Genre: PM_APP_GENRE,
@@ -4066,30 +4056,25 @@ pub union PM_ENUM_FILTER_0 {
     pub BSATask: PM_BSATASKID,
     pub BSAProductID: ::windows_sys::core::GUID,
     pub BWTask: PM_BWTASKID,
-    pub ProtocolName: super::super::Foundation::BSTR,
-    pub FileType: super::super::Foundation::BSTR,
-    pub ContentType: super::super::Foundation::BSTR,
+    pub ProtocolName: ::windows_sys::core::BSTR,
+    pub FileType: ::windows_sys::core::BSTR,
+    pub ContentType: ::windows_sys::core::BSTR,
     pub AppSupportedFileExtPID: ::windows_sys::core::GUID,
-    pub ShareTargetFileType: super::super::Foundation::BSTR,
+    pub ShareTargetFileType: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_ENUM_FILTER_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_ENUM_FILTER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: ::windows_sys::core::GUID,
-    pub ExtensionID: super::super::Foundation::BSTR,
+    pub ExtensionID: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_EXTENSIONCONSUMER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_EXTENSIONCONSUMER {
     fn clone(&self) -> Self {
         *self
@@ -4100,14 +4085,14 @@ impl ::core::clone::Clone for PM_EXTENSIONCONSUMER {
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_INSTALLINFO {
     pub ProductID: ::windows_sys::core::GUID,
-    pub PackagePath: super::super::Foundation::BSTR,
+    pub PackagePath: ::windows_sys::core::BSTR,
     pub InstanceID: ::windows_sys::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
     pub IsUninstallDisabled: super::super::Foundation::BOOL,
     pub DeploymentOptions: u32,
     pub OfferID: ::windows_sys::core::GUID,
-    pub MarketplaceAppVersion: super::super::Foundation::BSTR,
+    pub MarketplaceAppVersion: ::windows_sys::core::BSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_INSTALLINFO {}
@@ -4118,15 +4103,12 @@ impl ::core::clone::Clone for PM_INSTALLINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_INVOCATIONINFO {
-    pub URIBaseOrAUMID: super::super::Foundation::BSTR,
-    pub URIFragmentOrArgs: super::super::Foundation::BSTR,
+    pub URIBaseOrAUMID: ::windows_sys::core::BSTR,
+    pub URIFragmentOrArgs: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_INVOCATIONINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_INVOCATIONINFO {
     fn clone(&self) -> Self {
         *self
@@ -4138,8 +4120,8 @@ impl ::core::clone::Clone for PM_INVOCATIONINFO {
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows_sys::core::GUID,
-    pub AppTitle: super::super::Foundation::BSTR,
-    pub IconPath: super::super::Foundation::BSTR,
+    pub AppTitle: ::windows_sys::core::BSTR,
+    pub IconPath: ::windows_sys::core::BSTR,
     pub IsUninstallable: super::super::Foundation::BOOL,
     pub AppInstallType: PM_APPLICATION_INSTALL_TYPE,
     pub InstanceID: ::windows_sys::core::GUID,
@@ -4162,7 +4144,7 @@ impl ::core::clone::Clone for PM_STARTAPPBLOB {
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows_sys::core::GUID,
-    pub TileID: super::super::Foundation::BSTR,
+    pub TileID: ::windows_sys::core::BSTR,
     pub TemplateType: TILE_TEMPLATE_TYPE,
     pub HubPosition: [u32; 32],
     pub HubVisibilityBitmask: u32,
@@ -4183,39 +4165,33 @@ impl ::core::clone::Clone for PM_STARTTILEBLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_UPDATEINFO {
     pub ProductID: ::windows_sys::core::GUID,
-    pub PackagePath: super::super::Foundation::BSTR,
+    pub PackagePath: ::windows_sys::core::BSTR,
     pub InstanceID: ::windows_sys::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: super::super::Foundation::BSTR,
+    pub MarketplaceAppVersion: ::windows_sys::core::BSTR,
     pub DeploymentOptions: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_UPDATEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_UPDATEINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: ::windows_sys::core::GUID,
-    pub PackagePath: super::super::Foundation::BSTR,
+    pub PackagePath: ::windows_sys::core::BSTR,
     pub InstanceID: ::windows_sys::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: super::super::Foundation::BSTR,
+    pub MarketplaceAppVersion: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PM_UPDATEINFO_LEGACY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_UPDATEINFO_LEGACY {
     fn clone(&self) -> Self {
         *self

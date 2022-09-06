@@ -128,7 +128,7 @@ impl ISettingsContext_Vtbl {
 pub trait ISettingsEngine_Impl: Sized {
     fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator>;
     fn GetNamespace(&self, settingsid: &::core::option::Option<ISettingsIdentity>, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace>;
-    fn GetErrorDescription(&self, hresult: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetErrorDescription(&self, hresult: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CreateSettingsIdentity(&self) -> ::windows::core::Result<ISettingsIdentity>;
     fn GetStoreStatus(&self, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<WcmUserStatus>;
     fn LoadStore(&self, flags: u32) -> ::windows::core::Result<()>;
@@ -170,7 +170,7 @@ impl ISettingsEngine_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, message: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, message: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetErrorDescription(::core::mem::transmute_copy(&hresult)) {
@@ -312,19 +312,16 @@ impl ISettingsEngine_Vtbl {
         iid == &<ISettingsEngine as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISettingsIdentity_Impl: Sized {
-    fn GetAttribute(&self, reserved: *const ::core::ffi::c_void, name: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetAttribute(&self, reserved: *const ::core::ffi::c_void, name: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetAttribute(&self, reserved: *const ::core::ffi::c_void, name: &::windows::core::PCWSTR, value: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetFlags(&self) -> ::windows::core::Result<u32>;
     fn SetFlags(&self, flags: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ISettingsIdentity {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISettingsIdentity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsIdentity_Impl, const OFFSET: isize>() -> ISettingsIdentity_Vtbl {
-        unsafe extern "system" fn GetAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsIdentity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, name: ::windows::core::PCWSTR, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsIdentity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, name: ::windows::core::PCWSTR, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAttribute(::core::mem::transmute_copy(&reserved), ::core::mem::transmute(&name)) {
@@ -370,7 +367,7 @@ impl ISettingsIdentity_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISettingsItem_Impl: Sized {
-    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetValue(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetValue(&self, value: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetSettingType(&self) -> ::windows::core::Result<WcmSettingType>;
@@ -383,12 +380,12 @@ pub trait ISettingsItem_Impl: Sized {
     fn GetSettingByPath(&self, path: &::windows::core::PCWSTR) -> ::windows::core::Result<ISettingsItem>;
     fn CreateSettingByPath(&self, path: &::windows::core::PCWSTR) -> ::windows::core::Result<ISettingsItem>;
     fn RemoveSettingByPath(&self, path: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetListKeyInformation(&self, keyname: *mut super::super::Foundation::BSTR, datatype: *mut WcmDataType) -> ::windows::core::Result<()>;
+    fn GetListKeyInformation(&self, keyname: *mut ::windows::core::BSTR, datatype: *mut WcmDataType) -> ::windows::core::Result<()>;
     fn CreateListElement(&self, keydata: *const super::Com::VARIANT) -> ::windows::core::Result<ISettingsItem>;
     fn RemoveListElement(&self, elementname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Attributes(&self) -> ::windows::core::Result<IItemEnumerator>;
     fn GetAttribute(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetRestrictionFacets(&self) -> ::windows::core::Result<WcmRestrictionFacets>;
     fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows::core::Result<super::Com::VARIANT>;
     fn GetKeyValue(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -398,7 +395,7 @@ impl ::windows::core::RuntimeName for ISettingsItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISettingsItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>() -> ISettingsItem_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetName() {
@@ -517,7 +514,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             this.RemoveSettingByPath(::core::mem::transmute(&path)).into()
         }
-        unsafe extern "system" fn GetListKeyInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyname: *mut super::super::Foundation::BSTR, datatype: *mut WcmDataType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetListKeyInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, datatype: *mut WcmDataType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetListKeyInformation(::core::mem::transmute_copy(&keyname), ::core::mem::transmute_copy(&datatype)).into()
@@ -560,7 +557,7 @@ impl ISettingsItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPath() {
@@ -735,21 +732,18 @@ impl ISettingsNamespace_Vtbl {
         iid == &<ISettingsNamespace as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISettingsResult_Impl: Sized {
-    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn GetContextDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetContextDescription(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetLine(&self) -> ::windows::core::Result<u32>;
     fn GetColumn(&self) -> ::windows::core::Result<u32>;
-    fn GetSource(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetSource(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ISettingsResult {}
-#[cfg(feature = "Win32_Foundation")]
 impl ISettingsResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsResult_Impl, const OFFSET: isize>() -> ISettingsResult_Vtbl {
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDescription() {
@@ -771,7 +765,7 @@ impl ISettingsResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContextDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContextDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetContextDescription() {
@@ -804,7 +798,7 @@ impl ISettingsResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSource() {
@@ -833,25 +827,25 @@ impl ISettingsResult_Vtbl {
 pub trait ITargetInfo_Impl: Sized {
     fn GetTargetMode(&self) -> ::windows::core::Result<WcmTargetMode>;
     fn SetTargetMode(&self, targetmode: WcmTargetMode) -> ::windows::core::Result<()>;
-    fn GetTemporaryStoreLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetTemporaryStoreLocation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetTemporaryStoreLocation(&self, temporarystorelocation: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetTargetID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetTargetID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetTargetID(&self, targetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetTargetProcessorArchitecture(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetTargetProcessorArchitecture(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetTargetProcessorArchitecture(&self, processorarchitecture: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetProperty(&self, offline: super::super::Foundation::BOOL, property: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetProperty(&self, offline: super::super::Foundation::BOOL, property: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetProperty(&self, offline: super::super::Foundation::BOOL, property: &::windows::core::PCWSTR, value: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<IItemEnumerator>;
-    fn ExpandTarget(&self, offline: super::super::Foundation::BOOL, location: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ExpandTargetPath(&self, offline: super::super::Foundation::BOOL, location: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ExpandTarget(&self, offline: super::super::Foundation::BOOL, location: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ExpandTargetPath(&self, offline: super::super::Foundation::BOOL, location: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetModulePath(&self, module: &::windows::core::PCWSTR, path: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn LoadModule(&self, module: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>;
     fn SetWow64Context(&self, installermodule: &::windows::core::PCWSTR, wow64context: *const u8) -> ::windows::core::Result<()>;
-    fn TranslateWow64(&self, clientarchitecture: &::windows::core::PCWSTR, value: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn TranslateWow64(&self, clientarchitecture: &::windows::core::PCWSTR, value: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetSchemaHiveLocation(&self, pwzhivedir: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetSchemaHiveLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetSchemaHiveLocation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetSchemaHiveMountName(&self, pwzmountname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetSchemaHiveMountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetSchemaHiveMountName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITargetInfo {}
@@ -874,7 +868,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetTargetMode(::core::mem::transmute_copy(&targetmode)).into()
         }
-        unsafe extern "system" fn GetTemporaryStoreLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, temporarystorelocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTemporaryStoreLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, temporarystorelocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTemporaryStoreLocation() {
@@ -890,7 +884,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetTemporaryStoreLocation(::core::mem::transmute(&temporarystorelocation)).into()
         }
-        unsafe extern "system" fn GetTargetID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTargetID() {
@@ -906,7 +900,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetTargetID(::core::mem::transmute(&targetid)).into()
         }
-        unsafe extern "system" fn GetTargetProcessorArchitecture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processorarchitecture: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetProcessorArchitecture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processorarchitecture: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTargetProcessorArchitecture() {
@@ -922,7 +916,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetTargetProcessorArchitecture(::core::mem::transmute(&processorarchitecture)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offline: super::super::Foundation::BOOL, property: ::windows::core::PCWSTR, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offline: super::super::Foundation::BOOL, property: ::windows::core::PCWSTR, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&offline), ::core::mem::transmute(&property)) {
@@ -949,7 +943,7 @@ impl ITargetInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpandTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offline: super::super::Foundation::BOOL, location: ::windows::core::PCWSTR, expandedlocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpandTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offline: super::super::Foundation::BOOL, location: ::windows::core::PCWSTR, expandedlocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExpandTarget(::core::mem::transmute_copy(&offline), ::core::mem::transmute(&location)) {
@@ -960,7 +954,7 @@ impl ITargetInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpandTargetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offline: super::super::Foundation::BOOL, location: ::windows::core::PCWSTR, expandedlocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpandTargetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offline: super::super::Foundation::BOOL, location: ::windows::core::PCWSTR, expandedlocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExpandTargetPath(::core::mem::transmute_copy(&offline), ::core::mem::transmute(&location)) {
@@ -992,7 +986,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetWow64Context(::core::mem::transmute(&installermodule), ::core::mem::transmute_copy(&wow64context)).into()
         }
-        unsafe extern "system" fn TranslateWow64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientarchitecture: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR, translatedvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateWow64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientarchitecture: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR, translatedvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TranslateWow64(::core::mem::transmute(&clientarchitecture), ::core::mem::transmute(&value)) {
@@ -1008,7 +1002,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetSchemaHiveLocation(::core::mem::transmute(&pwzhivedir)).into()
         }
-        unsafe extern "system" fn GetSchemaHiveLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phivelocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSchemaHiveLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phivelocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSchemaHiveLocation() {
@@ -1024,7 +1018,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetSchemaHiveMountName(::core::mem::transmute(&pwzmountname)).into()
         }
-        unsafe extern "system" fn GetSchemaHiveMountName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmountname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSchemaHiveMountName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmountname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSchemaHiveMountName() {

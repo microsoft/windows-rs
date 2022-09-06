@@ -5,7 +5,7 @@ pub trait ICameraUIControl_Impl: Sized {
     fn Suspend(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType>;
-    fn GetActiveItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetActiveItem(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
     fn RemoveCapturedItem(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -51,7 +51,7 @@ impl ICameraUIControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActiveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActiveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetActiveItem() {
@@ -142,16 +142,13 @@ impl ICameraUIControlEventCallback_Vtbl {
         iid == &<ICameraUIControlEventCallback as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IClipServiceNotificationHelper_Impl: Sized {
-    fn ShowToast(&self, titletext: &super::super::Foundation::BSTR, bodytext: &super::super::Foundation::BSTR, packagename: &super::super::Foundation::BSTR, appid: &super::super::Foundation::BSTR, launchcommand: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ShowToast(&self, titletext: &::windows::core::BSTR, bodytext: &::windows::core::BSTR, packagename: &::windows::core::BSTR, appid: &::windows::core::BSTR, launchcommand: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IClipServiceNotificationHelper {}
-#[cfg(feature = "Win32_Foundation")]
 impl IClipServiceNotificationHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>() -> IClipServiceNotificationHelper_Vtbl {
-        unsafe extern "system" fn ShowToast<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bodytext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, packagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, launchcommand: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowToast<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bodytext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, packagename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, appid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, launchcommand: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ShowToast(::core::mem::transmute(&titletext), ::core::mem::transmute(&bodytext), ::core::mem::transmute(&packagename), ::core::mem::transmute(&appid), ::core::mem::transmute(&launchcommand)).into()
@@ -222,16 +219,13 @@ impl IDeleteBrowsingHistory_Vtbl {
         iid == &<IDeleteBrowsingHistory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEditionUpgradeBroker_Impl: Sized {
     fn InitializeParentWindow(&self, parenthandle: u32) -> ::windows::core::Result<()>;
-    fn UpdateOperatingSystem(&self, parameter: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UpdateOperatingSystem(&self, parameter: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ShowProductKeyUI(&self) -> ::windows::core::Result<()>;
     fn CanUpgrade(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IEditionUpgradeBroker {}
-#[cfg(feature = "Win32_Foundation")]
 impl IEditionUpgradeBroker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>() -> IEditionUpgradeBroker_Vtbl {
         unsafe extern "system" fn InitializeParentWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parenthandle: u32) -> ::windows::core::HRESULT {
@@ -239,7 +233,7 @@ impl IEditionUpgradeBroker_Vtbl {
             let this = (*this).get_impl();
             this.InitializeParentWindow(::core::mem::transmute_copy(&parenthandle)).into()
         }
-        unsafe extern "system" fn UpdateOperatingSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateOperatingSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateOperatingSystem(::core::mem::transmute(&parameter)).into()

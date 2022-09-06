@@ -29,19 +29,16 @@ pub const EOC_ModifiedObject: EOC_ChangeType = 1i32;
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EOC_DeletedObject: EOC_ChangeType = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub struct COMEVENTSYSCHANGEINFO {
     pub cbSize: u32,
     pub changeType: EOC_ChangeType,
-    pub objectId: super::super::super::Foundation::BSTR,
-    pub partitionId: super::super::super::Foundation::BSTR,
-    pub applicationId: super::super::super::Foundation::BSTR,
+    pub objectId: ::windows_sys::core::BSTR,
+    pub partitionId: ::windows_sys::core::BSTR,
+    pub applicationId: ::windows_sys::core::BSTR,
     pub reserved: [::windows_sys::core::GUID; 10],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMEVENTSYSCHANGEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMEVENTSYSCHANGEINFO {
     fn clone(&self) -> Self {
         *self

@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication_Impl: Sized + super::Com::IDispatch_Impl {
-    fn MachineIdOfMachineName(&self, machinename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MachineIdOfMachineName(&self, machinename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSMQApplication {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication_Impl, const OFFSET: isize>() -> IMSMQApplication_Vtbl {
-        unsafe extern "system" fn MachineIdOfMachineName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, machinename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrguid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MachineIdOfMachineName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, machinename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrguid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MachineIdOfMachineName(::core::mem::transmute(&machinename)) {
@@ -27,7 +27,7 @@ impl IMSMQApplication_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQApplication_Impl {
     fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn MachineNameOfMachineId(&self, bstrguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MachineNameOfMachineId(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16>;
     fn MSMQVersionMinor(&self) -> ::windows::core::Result<i16>;
     fn MSMQVersionBuild(&self) -> ::windows::core::Result<i16>;
@@ -44,7 +44,7 @@ impl IMSMQApplication2_Vtbl {
             let this = (*this).get_impl();
             this.RegisterCertificate(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&externalcertificate)).into()
         }
-        unsafe extern "system" fn MachineNameOfMachineId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrmachinename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MachineNameOfMachineId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrmachinename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MachineNameOfMachineId(::core::mem::transmute(&bstrguid)) {
@@ -129,11 +129,11 @@ impl IMSMQApplication2_Vtbl {
 pub trait IMSMQApplication3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQApplication_Impl + IMSMQApplication2_Impl {
     fn ActiveQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn PrivateQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn DirectoryServiceServer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DirectoryServiceServer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn IsConnected(&self) -> ::windows::core::Result<i16>;
     fn BytesInAllQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetMachine(&self, bstrmachine: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetMachine(&self, bstrmachine: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Connect(&self) -> ::windows::core::Result<()>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
     fn Tidy(&self) -> ::windows::core::Result<()>;
@@ -165,7 +165,7 @@ impl IMSMQApplication3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DirectoryServiceServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdirectoryserviceserver: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DirectoryServiceServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdirectoryserviceserver: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DirectoryServiceServer() {
@@ -198,12 +198,12 @@ impl IMSMQApplication3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMachine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmachine: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMachine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmachine: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMachine(::core::mem::transmute(&bstrmachine)).into()
         }
-        unsafe extern "system" fn Machine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmachine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Machine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmachine: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Machine() {
@@ -419,12 +419,12 @@ pub trait IMSMQDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsOpen(&self) -> ::windows::core::Result<i16>;
     fn IADs(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn putref_IADs(&self, piads: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetADsPath(&self, bstradspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetADsPath(&self, bstradspath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Destinations(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn putref_Destinations(&self, pdestinations: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -471,7 +471,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             this.putref_IADs(::core::mem::transmute(&piads)).into()
         }
-        unsafe extern "system" fn ADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstradspath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ADsPath() {
@@ -482,12 +482,12 @@ impl IMSMQDestination_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradspath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetADsPath(::core::mem::transmute(&bstradspath)).into()
         }
-        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathName() {
@@ -498,12 +498,12 @@ impl IMSMQDestination_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPathName(::core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatName() {
@@ -514,7 +514,7 @@ impl IMSMQDestination_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFormatName(::core::mem::transmute(&bstrformatname)).into()
@@ -623,8 +623,8 @@ impl IMSMQEvent3_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQManagement_Impl: Sized + super::Com::IDispatch_Impl {
     fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn MessageCount(&self) -> ::windows::core::Result<i32>;
     fn ForeignStatus(&self) -> ::windows::core::Result<i32>;
     fn QueueType(&self) -> ::windows::core::Result<i32>;
@@ -642,7 +642,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             this.Init(::core::mem::transmute_copy(&machine), ::core::mem::transmute_copy(&pathname), ::core::mem::transmute_copy(&formatname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatName() {
@@ -653,7 +653,7 @@ impl IMSMQManagement_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Machine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmachine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Machine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmachine: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Machine() {
@@ -767,7 +767,7 @@ pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_ResponseQueueInfo(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
     fn AppSpecific(&self) -> ::windows::core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BodyLength(&self) -> ::windows::core::Result<i32>;
     fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -778,8 +778,8 @@ pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Ack(&self) -> ::windows::core::Result<i32>;
     fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
     fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
     fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
@@ -954,7 +954,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             this.SetAppSpecific(::core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SourceMachineGuid() {
@@ -1051,7 +1051,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             this.SetAck(::core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -1062,7 +1062,7 @@ impl IMSMQMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
@@ -1294,7 +1294,7 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
     fn AppSpecific(&self) -> ::windows::core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BodyLength(&self) -> ::windows::core::Result<i32>;
     fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -1305,8 +1305,8 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Ack(&self) -> ::windows::core::Result<i32>;
     fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
     fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
     fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
@@ -1328,8 +1328,8 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SenderVersion(&self) -> ::windows::core::Result<i32>;
     fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetExtension(&self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
     fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -1337,8 +1337,8 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetSignature(&self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32>;
     fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAuthenticationProviderName(&self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetAuthenticationProviderName(&self, bstrauthprovname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetSenderId(&self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MsgClass(&self) -> ::windows::core::Result<i32>;
     fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()>;
@@ -1507,7 +1507,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             this.SetAppSpecific(::core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SourceMachineGuid() {
@@ -1604,7 +1604,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             this.SetAck(::core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -1615,7 +1615,7 @@ impl IMSMQMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
@@ -1797,7 +1797,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             this.SetExtension(::core::mem::transmute(&varextension)).into()
         }
-        unsafe extern "system" fn ConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConnectorTypeGuid() {
@@ -1808,7 +1808,7 @@ impl IMSMQMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetConnectorTypeGuid(::core::mem::transmute(&bstrguidconnectortype)).into()
@@ -1872,7 +1872,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             this.SetAuthenticationProviderType(::core::mem::transmute_copy(&lauthprovtype)).into()
         }
-        unsafe extern "system" fn AuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AuthenticationProviderName() {
@@ -1883,7 +1883,7 @@ impl IMSMQMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthprovname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthprovname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAuthenticationProviderName(::core::mem::transmute(&bstrauthprovname)).into()
@@ -2099,7 +2099,7 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
     fn AppSpecific(&self) -> ::windows::core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BodyLength(&self) -> ::windows::core::Result<i32>;
     fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -2110,8 +2110,8 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Ack(&self) -> ::windows::core::Result<i32>;
     fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
     fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
     fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
@@ -2133,8 +2133,8 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SenderVersion(&self) -> ::windows::core::Result<i32>;
     fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetExtension(&self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3>;
     fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -2142,8 +2142,8 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetSignature(&self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32>;
     fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAuthenticationProviderName(&self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetAuthenticationProviderName(&self, bstrauthprovname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetSenderId(&self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MsgClass(&self) -> ::windows::core::Result<i32>;
     fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()>;
@@ -2168,10 +2168,10 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16>;
     fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16>;
     fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()>;
-    fn SoapEnvelope(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SoapEnvelope(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSoapHeader(&self, bstrsoapheader: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSoapBody(&self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSoapHeader(&self, bstrsoapheader: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn SetSoapBody(&self, bstrsoapbody: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSMQMessage3 {}
@@ -2328,7 +2328,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             this.SetAppSpecific(::core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SourceMachineGuid() {
@@ -2425,7 +2425,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             this.SetAck(::core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -2436,7 +2436,7 @@ impl IMSMQMessage3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
@@ -2618,7 +2618,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             this.SetExtension(::core::mem::transmute(&varextension)).into()
         }
-        unsafe extern "system" fn ConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConnectorTypeGuid() {
@@ -2629,7 +2629,7 @@ impl IMSMQMessage3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetConnectorTypeGuid(::core::mem::transmute(&bstrguidconnectortype)).into()
@@ -2693,7 +2693,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             this.SetAuthenticationProviderType(::core::mem::transmute_copy(&lauthprovtype)).into()
         }
-        unsafe extern "system" fn AuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AuthenticationProviderName() {
@@ -2704,7 +2704,7 @@ impl IMSMQMessage3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthprovname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthprovname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAuthenticationProviderName(::core::mem::transmute(&bstrauthprovname)).into()
@@ -2925,7 +2925,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             this.AttachCurrentSecurityContext2().into()
         }
-        unsafe extern "system" fn SoapEnvelope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoapEnvelope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SoapEnvelope() {
@@ -2947,12 +2947,12 @@ impl IMSMQMessage3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSoapHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapheader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSoapHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapheader: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSoapHeader(::core::mem::transmute(&bstrsoapheader)).into()
         }
-        unsafe extern "system" fn SetSoapBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapbody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSoapBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapbody: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSoapBody(::core::mem::transmute(&bstrsoapbody)).into()
@@ -3076,7 +3076,7 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
     fn AppSpecific(&self) -> ::windows::core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BodyLength(&self) -> ::windows::core::Result<i32>;
     fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -3087,8 +3087,8 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Ack(&self) -> ::windows::core::Result<i32>;
     fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
     fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
     fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
@@ -3110,8 +3110,8 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn SenderVersion(&self) -> ::windows::core::Result<i32>;
     fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetExtension(&self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4>;
     fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -3119,8 +3119,8 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetSignature(&self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32>;
     fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAuthenticationProviderName(&self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetAuthenticationProviderName(&self, bstrauthprovname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetSenderId(&self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MsgClass(&self) -> ::windows::core::Result<i32>;
     fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()>;
@@ -3145,10 +3145,10 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16>;
     fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16>;
     fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()>;
-    fn SoapEnvelope(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SoapEnvelope(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSoapHeader(&self, bstrsoapheader: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSoapBody(&self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSoapHeader(&self, bstrsoapheader: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn SetSoapBody(&self, bstrsoapbody: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSMQMessage4 {}
@@ -3305,7 +3305,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             this.SetAppSpecific(::core::mem::transmute_copy(&lappspecific)).into()
         }
-        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceMachineGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SourceMachineGuid() {
@@ -3402,7 +3402,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             this.SetAck(::core::mem::transmute_copy(&lack)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -3413,7 +3413,7 @@ impl IMSMQMessage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
@@ -3595,7 +3595,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             this.SetExtension(::core::mem::transmute(&varextension)).into()
         }
-        unsafe extern "system" fn ConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConnectorTypeGuid() {
@@ -3606,7 +3606,7 @@ impl IMSMQMessage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConnectorTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetConnectorTypeGuid(::core::mem::transmute(&bstrguidconnectortype)).into()
@@ -3670,7 +3670,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             this.SetAuthenticationProviderType(::core::mem::transmute_copy(&lauthprovtype)).into()
         }
-        unsafe extern "system" fn AuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AuthenticationProviderName() {
@@ -3681,7 +3681,7 @@ impl IMSMQMessage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthprovname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthprovname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAuthenticationProviderName(::core::mem::transmute(&bstrauthprovname)).into()
@@ -3902,7 +3902,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             this.AttachCurrentSecurityContext2().into()
         }
-        unsafe extern "system" fn SoapEnvelope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoapEnvelope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SoapEnvelope() {
@@ -3924,12 +3924,12 @@ impl IMSMQMessage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSoapHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapheader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSoapHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapheader: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSoapHeader(::core::mem::transmute(&bstrsoapheader)).into()
         }
-        unsafe extern "system" fn SetSoapBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapbody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSoapBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsoapbody: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSoapBody(::core::mem::transmute(&bstrsoapbody)).into()
@@ -5633,15 +5633,15 @@ impl IMSMQQueue4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsTransactional(&self) -> ::windows::core::Result<i16>;
     fn PrivLevel(&self) -> ::windows::core::Result<i32>;
     fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
@@ -5669,7 +5669,7 @@ impl ::windows::core::RuntimeName for IMSMQQueueInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>() -> IMSMQQueueInfo_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QueueGuid() {
@@ -5680,7 +5680,7 @@ impl IMSMQQueueInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceTypeGuid() {
@@ -5691,12 +5691,12 @@ impl IMSMQQueueInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetServiceTypeGuid(::core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -5707,12 +5707,12 @@ impl IMSMQQueueInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathName() {
@@ -5723,12 +5723,12 @@ impl IMSMQQueueInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPathName(::core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatName() {
@@ -5739,7 +5739,7 @@ impl IMSMQQueueInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFormatName(::core::mem::transmute(&bstrformatname)).into()
@@ -5955,15 +5955,15 @@ impl IMSMQQueueInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsTransactional(&self) -> ::windows::core::Result<i16>;
     fn PrivLevel(&self) -> ::windows::core::Result<i32>;
     fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
@@ -5985,7 +5985,7 @@ pub trait IMSMQQueueInfo2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue2>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Update(&self) -> ::windows::core::Result<()>;
-    fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PathNameDNS(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -5995,7 +5995,7 @@ impl ::windows::core::RuntimeName for IMSMQQueueInfo2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>() -> IMSMQQueueInfo2_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QueueGuid() {
@@ -6006,7 +6006,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceTypeGuid() {
@@ -6017,12 +6017,12 @@ impl IMSMQQueueInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetServiceTypeGuid(::core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -6033,12 +6033,12 @@ impl IMSMQQueueInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathName() {
@@ -6049,12 +6049,12 @@ impl IMSMQQueueInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPathName(::core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatName() {
@@ -6065,7 +6065,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFormatName(::core::mem::transmute(&bstrformatname)).into()
@@ -6241,7 +6241,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             this.Update().into()
         }
-        unsafe extern "system" fn PathNameDNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathNameDNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathNameDNS() {
@@ -6323,15 +6323,15 @@ impl IMSMQQueueInfo2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsTransactional(&self) -> ::windows::core::Result<i16>;
     fn PrivLevel(&self) -> ::windows::core::Result<i32>;
     fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
@@ -6353,22 +6353,22 @@ pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue3>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Update(&self) -> ::windows::core::Result<()>;
-    fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PathNameDNS(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn IsTransactional2(&self) -> ::windows::core::Result<i16>;
     fn IsWorldReadable2(&self) -> ::windows::core::Result<i16>;
-    fn MulticastAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMulticastAddress(&self, bstrmulticastaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MulticastAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetMulticastAddress(&self, bstrmulticastaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSMQQueueInfo3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>() -> IMSMQQueueInfo3_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QueueGuid() {
@@ -6379,7 +6379,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceTypeGuid() {
@@ -6390,12 +6390,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetServiceTypeGuid(::core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -6406,12 +6406,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathName() {
@@ -6422,12 +6422,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPathName(::core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatName() {
@@ -6438,7 +6438,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFormatName(::core::mem::transmute(&bstrformatname)).into()
@@ -6614,7 +6614,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             this.Update().into()
         }
-        unsafe extern "system" fn PathNameDNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathNameDNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathNameDNS() {
@@ -6674,7 +6674,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MulticastAddress() {
@@ -6685,12 +6685,12 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMulticastAddress(::core::mem::transmute(&bstrmulticastaddress)).into()
         }
-        unsafe extern "system" fn ADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstradspath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ADsPath() {
@@ -6750,15 +6750,15 @@ impl IMSMQQueueInfo3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsTransactional(&self) -> ::windows::core::Result<i16>;
     fn PrivLevel(&self) -> ::windows::core::Result<i32>;
     fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
@@ -6780,22 +6780,22 @@ pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue4>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Update(&self) -> ::windows::core::Result<()>;
-    fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PathNameDNS(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn IsTransactional2(&self) -> ::windows::core::Result<i16>;
     fn IsWorldReadable2(&self) -> ::windows::core::Result<i16>;
-    fn MulticastAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMulticastAddress(&self, bstrmulticastaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MulticastAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetMulticastAddress(&self, bstrmulticastaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSMQQueueInfo4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>() -> IMSMQQueueInfo4_Vtbl {
-        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QueueGuid() {
@@ -6806,7 +6806,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceTypeGuid() {
@@ -6817,12 +6817,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServiceTypeGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetServiceTypeGuid(::core::mem::transmute(&bstrguidservicetype)).into()
         }
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -6833,12 +6833,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrlabel: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&bstrlabel)).into()
         }
-        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathName() {
@@ -6849,12 +6849,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPathName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpathname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPathName(::core::mem::transmute(&bstrpathname)).into()
         }
-        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatName() {
@@ -6865,7 +6865,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormatName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrformatname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFormatName(::core::mem::transmute(&bstrformatname)).into()
@@ -7041,7 +7041,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             this.Update().into()
         }
-        unsafe extern "system" fn PathNameDNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathNameDNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathNameDNS() {
@@ -7101,7 +7101,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MulticastAddress() {
@@ -7112,12 +7112,12 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMulticastAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMulticastAddress(::core::mem::transmute(&bstrmulticastaddress)).into()
         }
-        unsafe extern "system" fn ADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstradspath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ADsPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ADsPath() {

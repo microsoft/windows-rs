@@ -153,17 +153,14 @@ impl ::core::clone::Clone for DedupHash {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DedupStream {
-    pub Path: super::super::Foundation::BSTR,
+    pub Path: ::windows_sys::core::BSTR,
     pub Offset: u64,
     pub Length: u64,
     pub ChunkCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DedupStream {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DedupStream {
     fn clone(&self) -> Self {
         *self

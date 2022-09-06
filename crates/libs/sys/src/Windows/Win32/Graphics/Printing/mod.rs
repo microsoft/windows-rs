@@ -5249,24 +5249,21 @@ impl ::core::clone::Clone for INVOC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct ImgErrorInfo {
-    pub description: super::super::Foundation::BSTR,
+    pub description: ::windows_sys::core::BSTR,
     pub guid: ::windows_sys::core::GUID,
     pub helpContext: u32,
-    pub helpFile: super::super::Foundation::BSTR,
-    pub source: super::super::Foundation::BSTR,
-    pub devDescription: super::super::Foundation::BSTR,
+    pub helpFile: ::windows_sys::core::BSTR,
+    pub source: ::windows_sys::core::BSTR,
+    pub devDescription: ::windows_sys::core::BSTR,
     pub errorID: ::windows_sys::core::GUID,
     pub cUserParameters: u32,
-    pub aUserParameters: *mut super::super::Foundation::BSTR,
-    pub userFallback: super::super::Foundation::BSTR,
+    pub aUserParameters: *mut ::windows_sys::core::BSTR,
+    pub userFallback: ::windows_sys::core::BSTR,
     pub exceptionID: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ImgErrorInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ImgErrorInfo {
     fn clone(&self) -> Self {
         *self

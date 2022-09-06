@@ -1994,15 +1994,12 @@ impl ::core::clone::Clone for CERT_CONTEXT_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: super::super::Foundation::BSTR,
-    pub bstrValue: super::super::Foundation::BSTR,
+    pub bstrKey: ::windows_sys::core::BSTR,
+    pub bstrValue: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONFIGURATION_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {
         *self

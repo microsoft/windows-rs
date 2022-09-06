@@ -816,20 +816,20 @@ pub trait IDxcPdbUtils_Impl: Sized {
     fn Load(&self, ppdbordxil: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
     fn GetSourceCount(&self) -> ::windows::core::Result<u32>;
     fn GetSource(&self, uindex: u32) -> ::windows::core::Result<IDxcBlobEncoding>;
-    fn GetSourceName(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetSourceName(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetFlagCount(&self) -> ::windows::core::Result<u32>;
-    fn GetFlag(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetFlag(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetArgCount(&self) -> ::windows::core::Result<u32>;
-    fn GetArg(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetArg(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetArgPairCount(&self) -> ::windows::core::Result<u32>;
-    fn GetArgPair(&self, uindex: u32, pname: *mut super::super::super::Foundation::BSTR, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetArgPair(&self, uindex: u32, pname: *mut ::windows::core::BSTR, pvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetDefineCount(&self) -> ::windows::core::Result<u32>;
-    fn GetDefine(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn GetTargetProfile(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn GetEntryPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn GetMainFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetDefine(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetTargetProfile(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetEntryPoint(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetMainFileName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetHash(&self) -> ::windows::core::Result<IDxcBlob>;
-    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL;
     fn GetFullPDB(&self) -> ::windows::core::Result<IDxcBlob>;
     fn GetVersionInfo(&self) -> ::windows::core::Result<IDxcVersionInfo>;
@@ -870,7 +870,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSourceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSourceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSourceName(::core::mem::transmute_copy(&uindex)) {
@@ -892,7 +892,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFlag(::core::mem::transmute_copy(&uindex)) {
@@ -914,7 +914,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetArg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetArg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetArg(::core::mem::transmute_copy(&uindex)) {
@@ -936,7 +936,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetArgPair<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, pname: *mut super::super::super::Foundation::BSTR, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetArgPair<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetArgPair(::core::mem::transmute_copy(&uindex), ::core::mem::transmute_copy(&pname), ::core::mem::transmute_copy(&pvalue)).into()
@@ -952,7 +952,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefine(::core::mem::transmute_copy(&uindex)) {
@@ -963,7 +963,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTargetProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTargetProfile() {
@@ -974,7 +974,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEntryPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEntryPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetEntryPoint() {
@@ -985,7 +985,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMainFileName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMainFileName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMainFileName() {
@@ -1007,7 +1007,7 @@ impl IDxcPdbUtils_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetName() {

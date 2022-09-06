@@ -1,3 +1,4 @@
+mod bstr;
 mod hstring;
 mod literals;
 mod pcstr;
@@ -5,6 +6,7 @@ mod pcwstr;
 mod pstr;
 mod pwstr;
 
+pub use bstr::*;
 pub use hstring::*;
 #[doc(hidden)]
 pub use literals::*;

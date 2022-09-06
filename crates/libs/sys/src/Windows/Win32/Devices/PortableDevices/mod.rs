@@ -1,8 +1,7 @@
 #[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DMProcessConfigXMLFiltered(pszxmlin: ::windows_sys::core::PCWSTR, rgszallowedcspnodes: *const ::windows_sys::core::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+    pub fn DMProcessConfigXMLFiltered(pszxmlin: ::windows_sys::core::PCWSTR, rgszallowedcspnodes: *const ::windows_sys::core::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
 }
 pub type IConnectionRequestCallback = *mut ::core::ffi::c_void;
 pub type IEnumPortableDeviceConnectors = *mut ::core::ffi::c_void;

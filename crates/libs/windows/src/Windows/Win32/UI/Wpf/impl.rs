@@ -255,17 +255,14 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
         iid == &<IMILBitmapEffectConnectorInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectEvents_Impl: Sized {
-    fn PropertyChange(&self, peffect: &::core::option::Option<IMILBitmapEffect>, bstrpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PropertyChange(&self, peffect: &::core::option::Option<IMILBitmapEffect>, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn DirtyRegion(&self, peffect: &::core::option::Option<IMILBitmapEffect>, prect: *const MilRectD) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMILBitmapEffectEvents {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>() -> IMILBitmapEffectEvents_Vtbl {
-        unsafe extern "system" fn PropertyChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropertyChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PropertyChange(::core::mem::transmute(&peffect), ::core::mem::transmute(&bstrpropertyname)).into()

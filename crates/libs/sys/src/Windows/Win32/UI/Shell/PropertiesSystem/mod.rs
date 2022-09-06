@@ -181,9 +181,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PSPropertyBag_ReadBOOL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadBSTR(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: *mut super::super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+    pub fn PSPropertyBag_ReadBSTR(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub fn PSPropertyBag_ReadDWORD(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: *mut u32) -> ::windows_sys::core::HRESULT;
@@ -232,9 +232,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PSPropertyBag_WriteBOOL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteBSTR(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: super::super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+    pub fn PSPropertyBag_WriteBSTR(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub fn PSPropertyBag_WriteDWORD(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: ::windows_sys::core::PCWSTR, value: u32) -> ::windows_sys::core::HRESULT;
@@ -340,7 +340,7 @@ extern "system" {
     pub fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pbstrout: *mut super::super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;

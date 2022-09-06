@@ -1,13 +1,10 @@
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDedupBackupSupport_Impl: Sized {
-    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const super::super::Foundation::BSTR, store: &::core::option::Option<IDedupReadFileCallback>, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: &::core::option::Option<IDedupReadFileCallback>, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDedupBackupSupport {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDedupBackupSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupBackupSupport_Impl, const OFFSET: isize>() -> IDedupBackupSupport_Vtbl {
-        unsafe extern "system" fn RestoreFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupBackupSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const super::super::Foundation::BSTR, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestoreFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupBackupSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RestoreFiles(::core::mem::transmute_copy(&numberoffiles), ::core::mem::transmute_copy(&filefullpaths), ::core::mem::transmute(&store), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&fileresults)).into()
@@ -68,7 +65,7 @@ impl IDedupChunkLibrary_Vtbl {
         iid == &<IDedupChunkLibrary as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IDedupDataPort_Impl: Sized {
     fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows::core::Result<()>;
     fn LookupChunks(&self, count: u32, phashes: *const DedupHash) -> ::windows::core::Result<::windows::core::GUID>;
@@ -76,16 +73,16 @@ pub trait IDedupDataPort_Impl: Sized {
     fn InsertChunksWithStream(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<::windows::core::GUID>;
     fn CommitStreams(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry) -> ::windows::core::Result<::windows::core::GUID>;
     fn CommitStreamsWithStream(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetStreams(&self, streamcount: u32, pstreampaths: *const super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetStreams(&self, streamcount: u32, pstreampaths: *const ::windows::core::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetStreamsResults(&self, requestid: &::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn GetChunks(&self, count: u32, phashes: *const DedupHash) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetChunksResults(&self, requestid: &::windows::core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn GetRequestStatus(&self, requestid: &::windows::core::GUID) -> ::windows::core::Result<DedupDataPortRequestStatus>;
     fn GetRequestResults(&self, requestid: &::windows::core::GUID, maxwaitms: u32, pbatchresult: *mut ::windows::core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IDedupDataPort {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IDedupDataPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>() -> IDedupDataPort_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows::core::HRESULT {
@@ -148,7 +145,7 @@ impl IDedupDataPort_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamcount: u32, pstreampaths: *const super::super::Foundation::BSTR, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamcount: u32, pstreampaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStreams(::core::mem::transmute_copy(&streamcount), ::core::mem::transmute_copy(&pstreampaths)) {
@@ -216,15 +213,12 @@ impl IDedupDataPort_Vtbl {
         iid == &<IDedupDataPort as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDedupDataPortManager_Impl: Sized {
     fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::Result<()>;
-    fn GetVolumeStatus(&self, options: u32, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<DedupDataPortVolumeStatus>;
-    fn GetVolumeDataPort(&self, options: u32, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IDedupDataPort>;
+    fn GetVolumeStatus(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<DedupDataPortVolumeStatus>;
+    fn GetVolumeDataPort(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<IDedupDataPort>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDedupDataPortManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDedupDataPortManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>() -> IDedupDataPortManager_Vtbl {
         unsafe extern "system" fn GetConfiguration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::HRESULT {
@@ -232,7 +226,7 @@ impl IDedupDataPortManager_Vtbl {
             let this = (*this).get_impl();
             this.GetConfiguration(::core::mem::transmute_copy(&pminchunksize), ::core::mem::transmute_copy(&pmaxchunksize), ::core::mem::transmute_copy(&pchunkingalgorithm), ::core::mem::transmute_copy(&phashingalgorithm), ::core::mem::transmute_copy(&pcompressionalgorithm)).into()
         }
-        unsafe extern "system" fn GetVolumeStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: u32, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pstatus: *mut DedupDataPortVolumeStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVolumeStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: u32, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pstatus: *mut DedupDataPortVolumeStatus) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetVolumeStatus(::core::mem::transmute_copy(&options), ::core::mem::transmute(&path)) {
@@ -243,7 +237,7 @@ impl IDedupDataPortManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVolumeDataPort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: u32, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdataport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVolumeDataPort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: u32, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppdataport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetVolumeDataPort(::core::mem::transmute_copy(&options), ::core::mem::transmute(&path)) {
@@ -306,28 +300,25 @@ impl IDedupIterateChunksHash32_Vtbl {
         iid == &<IDedupIterateChunksHash32 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDedupReadFileCallback_Impl: Sized {
-    fn ReadBackupFile(&self, filefullpath: &super::super::Foundation::BSTR, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()>;
-    fn OrderContainersRestore(&self, numberofcontainers: u32, containerpaths: *const super::super::Foundation::BSTR, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()>;
-    fn PreviewContainerRead(&self, filefullpath: &super::super::Foundation::BSTR, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::Result<()>;
+    fn ReadBackupFile(&self, filefullpath: &::windows::core::BSTR, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()>;
+    fn OrderContainersRestore(&self, numberofcontainers: u32, containerpaths: *const ::windows::core::BSTR, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()>;
+    fn PreviewContainerRead(&self, filefullpath: &::windows::core::BSTR, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDedupReadFileCallback {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDedupReadFileCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>() -> IDedupReadFileCallback_Vtbl {
-        unsafe extern "system" fn ReadBackupFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filefullpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadBackupFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filefullpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReadBackupFile(::core::mem::transmute(&filefullpath), ::core::mem::transmute_copy(&fileoffset), ::core::mem::transmute_copy(&sizetoread), ::core::mem::transmute_copy(&filebuffer), ::core::mem::transmute_copy(&returnedsize), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn OrderContainersRestore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberofcontainers: u32, containerpaths: *const super::super::Foundation::BSTR, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OrderContainersRestore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberofcontainers: u32, containerpaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OrderContainersRestore(::core::mem::transmute_copy(&numberofcontainers), ::core::mem::transmute_copy(&containerpaths), ::core::mem::transmute_copy(&readplanentries), ::core::mem::transmute_copy(&readplan)).into()
         }
-        unsafe extern "system" fn PreviewContainerRead<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filefullpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreviewContainerRead<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filefullpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PreviewContainerRead(::core::mem::transmute(&filefullpath), ::core::mem::transmute_copy(&numberofreads), ::core::mem::transmute_copy(&readoffsets)).into()

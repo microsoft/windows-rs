@@ -381,15 +381,12 @@ impl ::core::clone::Clone for CABOOL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct CABSTR {
     pub cElems: u32,
-    pub pElems: *mut super::super::super::Foundation::BSTR,
+    pub pElems: *mut ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CABSTR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CABSTR {
     fn clone(&self) -> Self {
         *self
@@ -790,7 +787,7 @@ pub union PROPVARIANT_0_0_0 {
     pub filetime: super::super::super::Foundation::FILETIME,
     pub puuid: *mut ::windows_sys::core::GUID,
     pub pclipdata: *mut CLIPDATA,
-    pub bstrVal: super::super::super::Foundation::BSTR,
+    pub bstrVal: ::windows_sys::core::BSTR,
     pub bstrblobVal: BSTRBLOB,
     pub blob: super::BLOB,
     pub pszVal: ::windows_sys::core::PSTR,
@@ -838,7 +835,7 @@ pub union PROPVARIANT_0_0_0 {
     pub pscode: *mut i32,
     pub pcyVal: *mut super::CY,
     pub pdate: *mut f64,
-    pub pbstrVal: *mut super::super::super::Foundation::BSTR,
+    pub pbstrVal: *mut ::windows_sys::core::BSTR,
     pub ppunkVal: *mut ::windows_sys::core::IUnknown,
     pub ppdispVal: *mut super::IDispatch,
     pub pparray: *mut *mut super::SAFEARRAY,

@@ -57,7 +57,7 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnableBITSUploads(&self) -> ::windows::core::Result<()>;
     fn DisableBITSUploads(&self) -> ::windows::core::Result<()>;
-    fn GetCleanupTaskName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetCleanupTaskName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetCleanupTask(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -75,7 +75,7 @@ impl IBITSExtensionSetup_Vtbl {
             let this = (*this).get_impl();
             this.DisableBITSUploads().into()
         }
-        unsafe extern "system" fn GetCleanupTaskName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCleanupTaskName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptaskname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCleanupTaskName() {
@@ -111,14 +111,14 @@ impl IBITSExtensionSetup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetObject(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IBITSExtensionSetup>;
+    fn GetObject(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IBITSExtensionSetup>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IBITSExtensionSetupFactory {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBITSExtensionSetupFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>() -> IBITSExtensionSetupFactory_Vtbl {
-        unsafe extern "system" fn GetObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppextensionsetup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppextensionsetup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetObject(::core::mem::transmute(&path)) {
@@ -1054,7 +1054,6 @@ impl IBackgroundCopyJob_Vtbl {
         iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob1_Impl: Sized {
     fn CancelJob(&self) -> ::windows::core::Result<()>;
     fn GetProgress(&self, dwflags: u32) -> ::windows::core::Result<u32>;
@@ -1065,9 +1064,7 @@ pub trait IBackgroundCopyJob1_Impl: Sized {
     fn SwitchToForeground(&self) -> ::windows::core::Result<()>;
     fn JobID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundCopyJob1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob1_Impl, const OFFSET: isize>() -> IBackgroundCopyJob1_Vtbl {
         unsafe extern "system" fn CancelJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

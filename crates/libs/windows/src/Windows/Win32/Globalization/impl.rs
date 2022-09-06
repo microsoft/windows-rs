@@ -808,27 +808,24 @@ impl IMLangStringWStr_Vtbl {
         iid == &<IMLangStringWStr as ::windows::core::Interface>::IID || iid == &<IMLangString as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMultiLanguage_Impl: Sized {
     fn GetNumberOfCodePageInfo(&self) -> ::windows::core::Result<u32>;
     fn GetCodePageInfo(&self, uicodepage: u32) -> ::windows::core::Result<MIMECPINFO>;
     fn GetFamilyCodePage(&self, uicodepage: u32) -> ::windows::core::Result<u32>;
     fn EnumCodePages(&self, grfflags: u32) -> ::windows::core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&self, charset: &super::Foundation::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
+    fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
     fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()>;
     fn ConvertString(&self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringToUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &::windows::core::PCSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringFromUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringReset(&self) -> ::windows::core::Result<()>;
-    fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<super::Foundation::BSTR>;
-    fn GetLcidFromRfc1766(&self, plocale: *mut u32, bstrrfc1766: &super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetLcidFromRfc1766(&self, plocale: *mut u32, bstrrfc1766: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn EnumRfc1766(&self) -> ::windows::core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&self, locale: u32) -> ::windows::core::Result<RFC1766INFO>;
     fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMultiLanguage {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMultiLanguage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>() -> IMultiLanguage_Vtbl {
         unsafe extern "system" fn GetNumberOfCodePageInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccodepage: *mut u32) -> ::windows::core::HRESULT {
@@ -875,7 +872,7 @@ impl IMultiLanguage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharsetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCharsetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCharsetInfo(::core::mem::transmute(&charset)) {
@@ -911,7 +908,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             this.ConvertStringReset().into()
         }
-        unsafe extern "system" fn GetRfc1766FromLcid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRfc1766FromLcid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRfc1766FromLcid(::core::mem::transmute_copy(&locale)) {
@@ -922,7 +919,7 @@ impl IMultiLanguage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLcidFromRfc1766<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLcidFromRfc1766<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLcidFromRfc1766(::core::mem::transmute_copy(&plocale), ::core::mem::transmute(&bstrrfc1766)).into()
@@ -989,14 +986,14 @@ pub trait IMultiLanguage2_Impl: Sized {
     fn GetCodePageInfo(&self, uicodepage: u32, langid: u16) -> ::windows::core::Result<MIMECPINFO>;
     fn GetFamilyCodePage(&self, uicodepage: u32) -> ::windows::core::Result<u32>;
     fn EnumCodePages(&self, grfflags: u32, langid: u16) -> ::windows::core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&self, charset: &super::Foundation::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
+    fn GetCharsetInfo(&self, charset: &::windows::core::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
     fn IsConvertible(&self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()>;
     fn ConvertString(&self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringToUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &::windows::core::PCSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringFromUnicode(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringReset(&self) -> ::windows::core::Result<()>;
-    fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<super::Foundation::BSTR>;
-    fn GetLcidFromRfc1766(&self, plocale: *mut u32, bstrrfc1766: &super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetRfc1766FromLcid(&self, locale: u32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetLcidFromRfc1766(&self, plocale: *mut u32, bstrrfc1766: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn EnumRfc1766(&self, langid: u16) -> ::windows::core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&self, locale: u32, langid: u16) -> ::windows::core::Result<RFC1766INFO>;
     fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset>;
@@ -1062,7 +1059,7 @@ impl IMultiLanguage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharsetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCharsetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCharsetInfo(::core::mem::transmute(&charset)) {
@@ -1098,7 +1095,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             this.ConvertStringReset().into()
         }
-        unsafe extern "system" fn GetRfc1766FromLcid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRfc1766FromLcid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locale: u32, pbstrrfc1766: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRfc1766FromLcid(::core::mem::transmute_copy(&locale)) {
@@ -1109,7 +1106,7 @@ impl IMultiLanguage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLcidFromRfc1766<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLcidFromRfc1766<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLcidFromRfc1766(::core::mem::transmute_copy(&plocale), ::core::mem::transmute(&bstrrfc1766)).into()

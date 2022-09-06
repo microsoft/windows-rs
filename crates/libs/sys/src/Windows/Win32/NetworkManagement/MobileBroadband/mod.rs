@@ -489,62 +489,53 @@ pub const MBN_CDMA_SHORT_MSG_SIZE_UNKNOWN: WWAEXT_SMS_CONSTANTS = 0i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CDMA_SHORT_MSG_SIZE_MAX: WWAEXT_SMS_CONSTANTS = 160i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_CONTEXT {
     pub contextID: u32,
     pub contextType: MBN_CONTEXT_TYPE,
-    pub accessString: super::super::Foundation::BSTR,
-    pub userName: super::super::Foundation::BSTR,
-    pub password: super::super::Foundation::BSTR,
+    pub accessString: ::windows_sys::core::BSTR,
+    pub userName: ::windows_sys::core::BSTR,
+    pub password: ::windows_sys::core::BSTR,
     pub compression: MBN_COMPRESSION,
     pub authType: MBN_AUTH_PROTOCOL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MBN_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MBN_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_DEVICE_SERVICE {
-    pub deviceServiceID: super::super::Foundation::BSTR,
+    pub deviceServiceID: ::windows_sys::core::BSTR,
     pub dataWriteSupported: i16,
     pub dataReadSupported: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MBN_DEVICE_SERVICE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_INTERFACE_CAPS {
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub voiceClass: MBN_VOICE_CLASS,
     pub dataClass: u32,
-    pub customDataClass: super::super::Foundation::BSTR,
+    pub customDataClass: ::windows_sys::core::BSTR,
     pub gsmBandClass: u32,
     pub cdmaBandClass: u32,
-    pub customBandClass: super::super::Foundation::BSTR,
+    pub customBandClass: ::windows_sys::core::BSTR,
     pub smsCaps: u32,
     pub controlCaps: u32,
-    pub deviceID: super::super::Foundation::BSTR,
-    pub manufacturer: super::super::Foundation::BSTR,
-    pub model: super::super::Foundation::BSTR,
-    pub firmwareInfo: super::super::Foundation::BSTR,
+    pub deviceID: ::windows_sys::core::BSTR,
+    pub manufacturer: ::windows_sys::core::BSTR,
+    pub model: ::windows_sys::core::BSTR,
+    pub firmwareInfo: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MBN_INTERFACE_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
     fn clone(&self) -> Self {
         *self
@@ -564,34 +555,28 @@ impl ::core::clone::Clone for MBN_PIN_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_PROVIDER {
-    pub providerID: super::super::Foundation::BSTR,
+    pub providerID: ::windows_sys::core::BSTR,
     pub providerState: u32,
-    pub providerName: super::super::Foundation::BSTR,
+    pub providerName: ::windows_sys::core::BSTR,
     pub dataClass: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MBN_PROVIDER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MBN_PROVIDER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_PROVIDER2 {
     pub provider: MBN_PROVIDER,
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub signalStrength: u32,
     pub signalError: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MBN_PROVIDER2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MBN_PROVIDER2 {
     fn clone(&self) -> Self {
         *self
