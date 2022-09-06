@@ -7399,6 +7399,71 @@ impl ::core::fmt::Debug for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MODIFIERKEYS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_LBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_RBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_SHIFT: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_CONTROL: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_MBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_XBUTTON1: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_XBUTTON2: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(64u32);
+impl ::core::marker::Copy for MODIFIERKEYS_FLAGS {}
+impl ::core::clone::Clone for MODIFIERKEYS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODIFIERKEYS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODIFIERKEYS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODIFIERKEYS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODIFIERKEYS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODIFIERKEYS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODIFIERKEYS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODIFIERKEYS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODIFIERKEYS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODIFIERKEYS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONITOR_DISPLAY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
@@ -7948,6 +8013,93 @@ unsafe impl ::windows::core::Abi for SE_LEARNING_MODE_DATA_TYPE {
 impl ::core::fmt::Debug for SE_LEARNING_MODE_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SE_LEARNING_MODE_DATA_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STATIC_STYLES(pub u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_LEFT: STATIC_STYLES = STATIC_STYLES(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_CENTER: STATIC_STYLES = STATIC_STYLES(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_RIGHT: STATIC_STYLES = STATIC_STYLES(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ICON: STATIC_STYLES = STATIC_STYLES(3u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_BLACKRECT: STATIC_STYLES = STATIC_STYLES(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_GRAYRECT: STATIC_STYLES = STATIC_STYLES(5u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_WHITERECT: STATIC_STYLES = STATIC_STYLES(6u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_BLACKFRAME: STATIC_STYLES = STATIC_STYLES(7u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_GRAYFRAME: STATIC_STYLES = STATIC_STYLES(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_WHITEFRAME: STATIC_STYLES = STATIC_STYLES(9u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_USERITEM: STATIC_STYLES = STATIC_STYLES(10u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_SIMPLE: STATIC_STYLES = STATIC_STYLES(11u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_LEFTNOWORDWRAP: STATIC_STYLES = STATIC_STYLES(12u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_OWNERDRAW: STATIC_STYLES = STATIC_STYLES(13u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_BITMAP: STATIC_STYLES = STATIC_STYLES(14u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ENHMETAFILE: STATIC_STYLES = STATIC_STYLES(15u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ETCHEDHORZ: STATIC_STYLES = STATIC_STYLES(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ETCHEDVERT: STATIC_STYLES = STATIC_STYLES(17u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ETCHEDFRAME: STATIC_STYLES = STATIC_STYLES(18u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_TYPEMASK: STATIC_STYLES = STATIC_STYLES(31u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_REALSIZECONTROL: STATIC_STYLES = STATIC_STYLES(64u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_NOPREFIX: STATIC_STYLES = STATIC_STYLES(128u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_NOTIFY: STATIC_STYLES = STATIC_STYLES(256u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_CENTERIMAGE: STATIC_STYLES = STATIC_STYLES(512u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_RIGHTJUST: STATIC_STYLES = STATIC_STYLES(1024u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_REALSIZEIMAGE: STATIC_STYLES = STATIC_STYLES(2048u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_SUNKEN: STATIC_STYLES = STATIC_STYLES(4096u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_EDITCONTROL: STATIC_STYLES = STATIC_STYLES(8192u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ENDELLIPSIS: STATIC_STYLES = STATIC_STYLES(16384u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_PATHELLIPSIS: STATIC_STYLES = STATIC_STYLES(32768u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_WORDELLIPSIS: STATIC_STYLES = STATIC_STYLES(49152u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ELLIPSISMASK: STATIC_STYLES = STATIC_STYLES(49152u32);
+impl ::core::marker::Copy for STATIC_STYLES {}
+impl ::core::clone::Clone for STATIC_STYLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STATIC_STYLES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STATIC_STYLES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STATIC_STYLES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STATIC_STYLES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]

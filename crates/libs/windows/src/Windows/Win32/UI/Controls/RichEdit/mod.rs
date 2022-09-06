@@ -228,9 +228,9 @@ impl IRichEditOleCallback {
     pub unsafe fn GetClipboardData(&self, lpchrg: &mut CHARRANGE, reco: u32, lplpdataobj: &mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClipboardData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpchrg), reco, ::core::mem::transmute(lplpdataobj)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDragDropEffect<'a, P0>(&self, fdrag: P0, grfkeystate: u32, pdweffect: &mut u32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    pub unsafe fn GetDragDropEffect<'a, P0>(&self, fdrag: P0, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: &mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -316,9 +316,9 @@ pub struct IRichEditOleCallback_Vtbl {
     pub GetClipboardData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetClipboardData: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetDragDropEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    pub GetDragDropEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))]
     GetDragDropEffect: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub GetContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: *mut ::core::ffi::c_void, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,

@@ -6418,9 +6418,9 @@ pub struct IDispatchEx_Vtbl {
 #[repr(transparent)]
 pub struct IDropSource(::windows::core::IUnknown);
 impl IDropSource {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryContinueDrag<'a, P0>(&self, fescapepressed: P0, grfkeystate: u32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    pub unsafe fn QueryContinueDrag<'a, P0>(&self, fescapepressed: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -6469,9 +6469,9 @@ unsafe impl ::windows::core::Interface for IDropSource {
 #[doc(hidden)]
 pub struct IDropSource_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub QueryContinueDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    pub QueryContinueDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))]
     QueryContinueDrag: usize,
     pub GiveFeedback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffect: u32) -> ::windows::core::HRESULT,
 }
@@ -6540,25 +6540,25 @@ pub struct IDropSourceNotify_Vtbl {
 #[repr(transparent)]
 pub struct IDropTarget(::windows::core::IUnknown);
 impl IDropTarget {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn DragEnter<'a, P0>(&self, pdataobj: P0, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
+    pub unsafe fn DragEnter<'a, P0>(&self, pdataobj: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
         (::windows::core::Interface::vtable(self).DragEnter)(::windows::core::Interface::as_raw(self), pdataobj.into().abi(), grfkeystate, ::core::mem::transmute(pt), ::core::mem::transmute(pdweffect)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragOver(&self, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    pub unsafe fn DragOver(&self, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DragOver)(::windows::core::Interface::as_raw(self), grfkeystate, ::core::mem::transmute(pt), ::core::mem::transmute(pdweffect)).ok()
     }
     pub unsafe fn DragLeave(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DragLeave)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Drop<'a, P0>(&self, pdataobj: P0, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
+    pub unsafe fn Drop<'a, P0>(&self, pdataobj: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
@@ -6604,18 +6604,18 @@ unsafe impl ::windows::core::Interface for IDropTarget {
 #[doc(hidden)]
 pub struct IDropTarget_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
+    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
     DragEnter: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub DragOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    pub DragOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))]
     DragOver: usize,
     pub DragLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Drop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
+    pub Drop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
     Drop: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]

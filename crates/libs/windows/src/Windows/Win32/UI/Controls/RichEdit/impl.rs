@@ -132,7 +132,7 @@ impl IRichEditOle_Vtbl {
         iid == &<IRichEditOle as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IRichEditOleCallback_Impl: Sized {
     fn GetNewStorage(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::IStorage>;
     fn GetInPlaceContext(&self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OIFI) -> ::windows::core::Result<()>;
@@ -142,12 +142,12 @@ pub trait IRichEditOleCallback_Impl: Sized {
     fn QueryAcceptData(&self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: u32, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut u32) -> ::windows::core::Result<()>;
     fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IRichEditOleCallback {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IRichEditOleCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>() -> IRichEditOleCallback_Vtbl {
         unsafe extern "system" fn GetNewStorage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lplpstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -196,7 +196,7 @@ impl IRichEditOleCallback_Vtbl {
             let this = (*this).get_impl();
             this.GetClipboardData(::core::mem::transmute_copy(&lpchrg), ::core::mem::transmute_copy(&reco), ::core::mem::transmute_copy(&lplpdataobj)).into()
         }
-        unsafe extern "system" fn GetDragDropEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDragDropEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDragDropEffect(::core::mem::transmute_copy(&fdrag), ::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute_copy(&pdweffect)).into()

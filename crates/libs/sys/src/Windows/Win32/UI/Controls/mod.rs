@@ -9149,7 +9149,7 @@ impl ::core::clone::Clone for COMBOBOXINFO {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMPAREITEMSTRUCT {
-    pub CtlType: u32,
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
     pub hwndItem: super::super::Foundation::HWND,
     pub itemID1: u32,
@@ -9971,7 +9971,7 @@ impl ::core::clone::Clone for MCHITTESTINFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct MEASUREITEMSTRUCT {
-    pub CtlType: u32,
+    pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
     pub itemID: u32,
     pub itemWidth: u32,

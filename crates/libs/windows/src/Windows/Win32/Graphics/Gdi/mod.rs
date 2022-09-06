@@ -2944,7 +2944,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUpdateRgn<'a, P0, P1, P2>(hwnd: P0, hrgn: P1, berase: P2) -> i32
+pub unsafe fn GetUpdateRgn<'a, P0, P1, P2>(hwnd: P0, hrgn: P1, berase: P2) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<HRGN>,
@@ -2952,7 +2952,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetUpdateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: super::super::Foundation::BOOL) -> i32;
+        fn GetUpdateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: super::super::Foundation::BOOL) -> GDI_REGION_TYPE;
     }
     GetUpdateRgn(hwnd.into(), hrgn.into(), berase.into())
 }
@@ -3037,27 +3037,27 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetWindowRgn<'a, P0, P1>(hwnd: P0, hrgn: P1) -> i32
+pub unsafe fn GetWindowRgn<'a, P0, P1>(hwnd: P0, hrgn: P1) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<HRGN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN) -> i32;
+        fn GetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN) -> GDI_REGION_TYPE;
     }
     GetWindowRgn(hwnd.into(), hrgn.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetWindowRgnBox<'a, P0>(hwnd: P0, lprc: &mut super::super::Foundation::RECT) -> i32
+pub unsafe fn GetWindowRgnBox<'a, P0>(hwnd: P0, lprc: &mut super::super::Foundation::RECT) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetWindowRgnBox(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT) -> i32;
+        fn GetWindowRgnBox(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE;
     }
     GetWindowRgnBox(hwnd.into(), ::core::mem::transmute(lprc))
 }
@@ -5634,252 +5634,6 @@ pub const ELF_VENDOR_SIZE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_VERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ABORTPATH: u32 = 68u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ALPHABLEND: u32 = 114u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ANGLEARC: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ARC: u32 = 45u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ARCTO: u32 = 55u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_BEGINPATH: u32 = 59u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_BITBLT: u32 = 76u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CHORD: u32 = 46u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CLOSEFIGURE: u32 = 61u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_COLORCORRECTPALETTE: u32 = 111u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_COLORMATCHTOTARGETW: u32 = 121u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEBRUSHINDIRECT: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATECOLORSPACE: u32 = 99u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATECOLORSPACEW: u32 = 122u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEDIBPATTERNBRUSHPT: u32 = 94u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEMONOBRUSH: u32 = 93u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEPALETTE: u32 = 49u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEPEN: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_DELETECOLORSPACE: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_DELETEOBJECT: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ELLIPSE: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ENDPATH: u32 = 60u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EOF: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXCLUDECLIPRECT: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTCREATEFONTINDIRECTW: u32 = 82u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTCREATEPEN: u32 = 95u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTFLOODFILL: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTSELECTCLIPRGN: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTTEXTOUTA: u32 = 83u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTTEXTOUTW: u32 = 84u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FILLPATH: u32 = 62u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FILLRGN: u32 = 71u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FLATTENPATH: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FRAMERGN: u32 = 72u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GDICOMMENT: u32 = 70u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GLSBOUNDEDRECORD: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GLSRECORD: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GRADIENTFILL: u32 = 118u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_HEADER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_INTERSECTCLIPRECT: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_INVERTRGN: u32 = 73u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_LINETO: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MASKBLT: u32 = 78u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MAX: u32 = 122u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MODIFYWORLDTRANSFORM: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MOVETOEX: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_OFFSETCLIPRGN: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PAINTRGN: u32 = 74u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PIE: u32 = 47u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PIXELFORMAT: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PLGBLT: u32 = 79u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIER16: u32 = 85u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIERTO: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIERTO16: u32 = 88u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYDRAW: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYDRAW16: u32 = 92u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYGON: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYGON16: u32 = 86u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINE16: u32 = 87u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINETO: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINETO16: u32 = 89u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYGON: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYGON16: u32 = 91u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYLINE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYLINE16: u32 = 90u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYTEXTOUTA: u32 = 96u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYTEXTOUTW: u32 = 97u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_REALIZEPALETTE: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RECTANGLE: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_105: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_106: u32 = 106u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_107: u32 = 107u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_108: u32 = 108u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_109: u32 = 109u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_110: u32 = 110u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_117: u32 = 117u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_119: u32 = 119u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_120: u32 = 120u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESIZEPALETTE: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESTOREDC: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ROUNDRECT: u32 = 44u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SAVEDC: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SCALEVIEWPORTEXTEX: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SCALEWINDOWEXTEX: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SELECTCLIPPATH: u32 = 67u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SELECTOBJECT: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SELECTPALETTE: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETARCDIRECTION: u32 = 57u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETBKCOLOR: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETBKMODE: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETBRUSHORGEX: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETCOLORADJUSTMENT: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETCOLORSPACE: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETDIBITSTODEVICE: u32 = 80u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETICMMODE: u32 = 98u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETICMPROFILEA: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETICMPROFILEW: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETLAYOUT: u32 = 115u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMAPMODE: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMAPPERFLAGS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMETARGN: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMITERLIMIT: u32 = 58u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETPALETTEENTRIES: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETPIXELV: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETPOLYFILLMODE: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETROP2: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETSTRETCHBLTMODE: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETTEXTALIGN: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETTEXTCOLOR: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETVIEWPORTEXTEX: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETVIEWPORTORGEX: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETWINDOWEXTEX: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETWINDOWORGEX: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETWORLDTRANSFORM: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STRETCHBLT: u32 = 77u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STRETCHDIBITS: u32 = 81u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STROKEANDFILLPATH: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STROKEPATH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_TRANSPARENTBLT: u32 = 116u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_WIDENPATH: u32 = 66u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENABLEDUPLEX: u32 = 28u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENABLEPAIRKERNING: u32 = 769u32;
@@ -8292,6 +8046,275 @@ unsafe impl ::windows::core::Abi for EMBED_FONT_CHARSET {
 impl ::core::fmt::Debug for EMBED_FONT_CHARSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EMBED_FONT_CHARSET").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ENHANCED_METAFILE_RECORD_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_HEADER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIERTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETWINDOWORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(11u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETVIEWPORTORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETBRUSHORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(13u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EOF: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(14u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETPIXELV: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(15u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMAPPERFLAGS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMAPMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(17u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETBKMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(18u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETPOLYFILLMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(19u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETROP2: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(20u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETSTRETCHBLTMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(21u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETTEXTALIGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(22u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETCOLORADJUSTMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(23u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETTEXTCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(24u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETBKCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(25u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_OFFSETCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(26u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MOVETOEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(27u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMETARGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(28u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXCLUDECLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(29u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_INTERSECTCLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(30u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SCALEVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(31u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SCALEWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SAVEDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(33u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESTOREDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(34u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(35u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MODIFYWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(36u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SELECTOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(37u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(38u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEBRUSHINDIRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(39u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_DELETEOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(40u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ANGLEARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(41u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ELLIPSE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(42u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RECTANGLE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(43u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ROUNDRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(44u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(45u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CHORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(46u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PIE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(47u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SELECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(48u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(49u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETPALETTEENTRIES: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(50u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(51u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_REALIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(52u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTFLOODFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(53u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_LINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(54u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ARCTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(55u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYDRAW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(56u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETARCDIRECTION: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(57u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMITERLIMIT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(58u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_BEGINPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(59u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ENDPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(60u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CLOSEFIGURE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(61u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(62u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STROKEANDFILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(63u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STROKEPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FLATTENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(65u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_WIDENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(66u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SELECTCLIPPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(67u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ABORTPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(68u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GDICOMMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(70u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FILLRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(71u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FRAMERGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(72u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_INVERTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(73u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PAINTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(74u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTSELECTCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(75u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_BITBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(76u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STRETCHBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(77u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MASKBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(78u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PLGBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(79u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETDIBITSTODEVICE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(80u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STRETCHDIBITS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(81u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTCREATEFONTINDIRECTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(82u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(83u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(84u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIER16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(85u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(86u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(87u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIERTO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(88u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINETO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(89u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(90u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(91u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYDRAW16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(92u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEMONOBRUSH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(93u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEDIBPATTERNBRUSHPT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(94u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTCREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(95u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(96u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(97u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETICMMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(98u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(99u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETCOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(100u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_DELETECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(101u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GLSRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(102u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GLSBOUNDEDRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(103u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PIXELFORMAT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(104u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_105: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(105u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_106: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(106u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_107: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(107u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_108: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(108u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_109: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(109u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_110: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(110u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_COLORCORRECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(111u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETICMPROFILEA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(112u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETICMPROFILEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(113u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ALPHABLEND: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(114u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETLAYOUT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(115u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_TRANSPARENTBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(116u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_117: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(117u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GRADIENTFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(118u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_119: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(119u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_120: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(120u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_COLORMATCHTOTARGETW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(121u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATECOLORSPACEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MIN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MAX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
+impl ::core::marker::Copy for ENHANCED_METAFILE_RECORD_TYPE {}
+impl ::core::clone::Clone for ENHANCED_METAFILE_RECORD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENHANCED_METAFILE_RECORD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENHANCED_METAFILE_RECORD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENHANCED_METAFILE_RECORD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENHANCED_METAFILE_RECORD_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
