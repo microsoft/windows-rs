@@ -12,4 +12,5 @@ features = [
     "Win32_Graphics_Gdi", 
     "Win32_System_Com_StructuredStorage",
     "Win32_System_Ole",
+    "Win32_System_SystemServices",
 ]

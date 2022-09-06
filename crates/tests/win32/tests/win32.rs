@@ -96,7 +96,7 @@ fn function() -> windows::core::Result<()> {
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
-        assert!(result == WAIT_OBJECT_0.0);
+        assert!(result == WAIT_OBJECT_0);
 
         CloseHandle(event).ok()?;
         Ok(())
