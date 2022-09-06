@@ -614,6 +614,7 @@ pub struct IWindowsMediaLibrarySharingServices_Vtbl {
     getAllDevices: usize,
     pub customSettingsApplied: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customsettingsapplied: *mut i16) -> ::windows::core::HRESULT,
 }
+pub const WindowsMediaLibrarySharingServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -643,6 +644,5 @@ impl ::core::fmt::Debug for WindowsMediaLibrarySharingDeviceAuthorizationStatus 
         f.debug_tuple("WindowsMediaLibrarySharingDeviceAuthorizationStatus").field(&self.0).finish()
     }
 }
-pub const WindowsMediaLibrarySharingServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

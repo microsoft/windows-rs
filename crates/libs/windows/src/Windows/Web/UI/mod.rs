@@ -1898,81 +1898,6 @@ impl ::core::convert::From<&WebViewControlPermissionRequestedEventArgs> for &::w
 }
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebViewControlPermissionState(pub i32);
-impl WebViewControlPermissionState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Defer: Self = Self(1i32);
-    pub const Allow: Self = Self(2i32);
-    pub const Deny: Self = Self(3i32);
-}
-impl ::core::marker::Copy for WebViewControlPermissionState {}
-impl ::core::clone::Clone for WebViewControlPermissionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlPermissionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebViewControlPermissionState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebViewControlPermissionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_UI\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebViewControlPermissionType(pub i32);
-impl WebViewControlPermissionType {
-    pub const Geolocation: Self = Self(0i32);
-    pub const UnlimitedIndexedDBQuota: Self = Self(1i32);
-    pub const Media: Self = Self(2i32);
-    pub const PointerLock: Self = Self(3i32);
-    pub const WebNotifications: Self = Self(4i32);
-    pub const Screen: Self = Self(5i32);
-    pub const ImmersiveView: Self = Self(6i32);
-}
-impl ::core::marker::Copy for WebViewControlPermissionType {}
-impl ::core::clone::Clone for WebViewControlPermissionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlPermissionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebViewControlPermissionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebViewControlPermissionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_UI\"`*"]
-#[repr(transparent)]
 pub struct WebViewControlScriptNotifyEventArgs(::windows::core::IUnknown);
 impl WebViewControlScriptNotifyEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2424,6 +2349,81 @@ impl ::core::convert::From<&WebViewControlWebResourceRequestedEventArgs> for ::w
 impl ::core::convert::From<&WebViewControlWebResourceRequestedEventArgs> for &::windows::core::IInspectable {
     fn from(value: &WebViewControlWebResourceRequestedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Web_UI\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebViewControlPermissionState(pub i32);
+impl WebViewControlPermissionState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Defer: Self = Self(1i32);
+    pub const Allow: Self = Self(2i32);
+    pub const Deny: Self = Self(3i32);
+}
+impl ::core::marker::Copy for WebViewControlPermissionState {}
+impl ::core::clone::Clone for WebViewControlPermissionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebViewControlPermissionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebViewControlPermissionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebViewControlPermissionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_UI\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebViewControlPermissionType(pub i32);
+impl WebViewControlPermissionType {
+    pub const Geolocation: Self = Self(0i32);
+    pub const UnlimitedIndexedDBQuota: Self = Self(1i32);
+    pub const Media: Self = Self(2i32);
+    pub const PointerLock: Self = Self(3i32);
+    pub const WebNotifications: Self = Self(4i32);
+    pub const Screen: Self = Self(5i32);
+    pub const ImmersiveView: Self = Self(6i32);
+}
+impl ::core::marker::Copy for WebViewControlPermissionType {}
+impl ::core::clone::Clone for WebViewControlPermissionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebViewControlPermissionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebViewControlPermissionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebViewControlPermissionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

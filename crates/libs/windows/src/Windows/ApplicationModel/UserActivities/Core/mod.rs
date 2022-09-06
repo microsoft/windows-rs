@@ -1,3 +1,20 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreUserActivityManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreUserActivityManagerStatics {
+    type Vtable = ICoreUserActivityManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreUserActivityManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateUserActivitySessionInBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activity: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub DeleteUserActivitySessionsInTimeRangeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: *mut ::core::ffi::c_void, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DeleteUserActivitySessionsInTimeRangeAsync: usize,
+}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`*"]
 pub struct CoreUserActivityManager;
 impl CoreUserActivityManager {
@@ -29,23 +46,6 @@ impl CoreUserActivityManager {
 }
 impl ::windows::core::RuntimeName for CoreUserActivityManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager";
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreUserActivityManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreUserActivityManagerStatics {
-    type Vtable = ICoreUserActivityManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreUserActivityManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateUserActivitySessionInBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activity: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub DeleteUserActivitySessionsInTimeRangeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: *mut ::core::ffi::c_void, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DeleteUserActivitySessionsInTimeRangeAsync: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -267,41 +267,6 @@ impl ::core::convert::From<&SearchSuggestion> for &::windows::core::IInspectable
 }
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SearchSuggestionKind(pub i32);
-impl SearchSuggestionKind {
-    pub const Query: Self = Self(0i32);
-    pub const Result: Self = Self(1i32);
-    pub const Separator: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SearchSuggestionKind {}
-impl ::core::clone::Clone for SearchSuggestionKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SearchSuggestionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SearchSuggestionKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SearchSuggestionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SearchSuggestionKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-#[repr(transparent)]
 pub struct SearchSuggestionManager(::windows::core::IUnknown);
 impl SearchSuggestionManager {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -568,5 +533,40 @@ impl ::core::convert::From<&SearchSuggestionsRequestedEventArgs> for &::windows:
 }
 unsafe impl ::core::marker::Send for SearchSuggestionsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for SearchSuggestionsRequestedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SearchSuggestionKind(pub i32);
+impl SearchSuggestionKind {
+    pub const Query: Self = Self(0i32);
+    pub const Result: Self = Self(1i32);
+    pub const Separator: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SearchSuggestionKind {}
+impl ::core::clone::Clone for SearchSuggestionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SearchSuggestionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SearchSuggestionKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SearchSuggestionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchSuggestionKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

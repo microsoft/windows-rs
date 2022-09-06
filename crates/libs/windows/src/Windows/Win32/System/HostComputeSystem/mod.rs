@@ -1,495 +1,4 @@
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_CREATE_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
-impl ::core::marker::Copy for HCS_CREATE_OPTIONS {}
-impl ::core::clone::Clone for HCS_CREATE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_CREATE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCS_CREATE_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_CREATE_OPTIONS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct HCS_CREATE_OPTIONS_1 {
-    pub Version: HCS_CREATE_OPTIONS,
-    pub UserToken: super::super::Foundation::HANDLE,
-    pub SecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
-    pub CallbackOptions: HCS_EVENT_OPTIONS,
-    pub CallbackContext: *mut ::core::ffi::c_void,
-    pub Callback: HCS_EVENT_CALLBACK,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for HCS_CREATE_OPTIONS_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for HCS_CREATE_OPTIONS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for HCS_CREATE_OPTIONS_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCS_CREATE_OPTIONS_1").field("Version", &self.Version).field("UserToken", &self.UserToken).field("SecurityDescriptor", &self.SecurityDescriptor).field("CallbackOptions", &self.CallbackOptions).field("CallbackContext", &self.CallbackContext).field("Callback", &self.Callback.map(|f| f as usize)).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS_1 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for HCS_CREATE_OPTIONS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_CREATE_OPTIONS_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for HCS_CREATE_OPTIONS_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for HCS_CREATE_OPTIONS_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub struct HCS_EVENT {
-    pub Type: HCS_EVENT_TYPE,
-    pub EventData: ::windows::core::PCWSTR,
-    pub Operation: HCS_OPERATION,
-}
-impl ::core::marker::Copy for HCS_EVENT {}
-impl ::core::clone::Clone for HCS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HCS_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCS_EVENT").field("Type", &self.Type).field("EventData", &self.EventData).field("Operation", &self.Operation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_EVENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HCS_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_EVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HCS_EVENT {}
-impl ::core::default::Default for HCS_EVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_EVENT_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1u32);
-impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
-impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_EVENT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_EVENT_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCS_EVENT_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_EVENT_OPTIONS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HCS_EVENT_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HCS_EVENT_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HCS_EVENT_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HCS_EVENT_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HCS_EVENT_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemCrashReport: HCS_EVENT_TYPE = HCS_EVENT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = HCS_EVENT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = HCS_EVENT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
-impl ::core::marker::Copy for HCS_EVENT_TYPE {}
-impl ::core::clone::Clone for HCS_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_EVENT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCS_EVENT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_EVENT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_NOTIFICATIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(3i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(6i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(7i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(8i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(9i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(11i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(12i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(13i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(14i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(15i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
-impl ::core::marker::Copy for HCS_NOTIFICATIONS {}
-impl ::core::clone::Clone for HCS_NOTIFICATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_NOTIFICATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_NOTIFICATIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCS_NOTIFICATIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_NOTIFICATIONS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: ::windows::core::PCWSTR)>;
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_NOTIFICATION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
-impl ::core::marker::Copy for HCS_NOTIFICATION_FLAGS {}
-impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_NOTIFICATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_NOTIFICATION_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_NOTIFICATION_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_OPERATION(pub isize);
-impl HCS_OPERATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HCS_OPERATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HCS_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HCS_OPERATION {}
-impl ::core::fmt::Debug for HCS_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_OPERATION").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HCS_OPERATION>> for HCS_OPERATION {
-    fn from(optional: ::core::option::Option<HCS_OPERATION>) -> HCS_OPERATION {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_OPERATION {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_OPERATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypePause: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
-impl ::core::marker::Copy for HCS_OPERATION_TYPE {}
-impl ::core::clone::Clone for HCS_OPERATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_OPERATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_OPERATION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_OPERATION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_PROCESS(pub isize);
-impl HCS_PROCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HCS_PROCESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HCS_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HCS_PROCESS {}
-impl ::core::fmt::Debug for HCS_PROCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_PROCESS").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HCS_PROCESS>> for HCS_PROCESS {
-    fn from(optional: ::core::option::Option<HCS_PROCESS>) -> HCS_PROCESS {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_PROCESS {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct HCS_PROCESS_INFORMATION {
-    pub ProcessId: u32,
-    pub Reserved: u32,
-    pub StdInput: super::super::Foundation::HANDLE,
-    pub StdOutput: super::super::Foundation::HANDLE,
-    pub StdError: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HCS_PROCESS_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HCS_PROCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HCS_PROCESS_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCS_PROCESS_INFORMATION").field("ProcessId", &self.ProcessId).field("Reserved", &self.Reserved).field("StdInput", &self.StdInput).field("StdOutput", &self.StdOutput).field("StdError", &self.StdError).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HCS_PROCESS_INFORMATION {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HCS_PROCESS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_PROCESS_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HCS_PROCESS_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HCS_PROCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_SYSTEM(pub isize);
-impl HCS_SYSTEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HCS_SYSTEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HCS_SYSTEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HCS_SYSTEM {}
-impl ::core::fmt::Debug for HCS_SYSTEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCS_SYSTEM").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HCS_SYSTEM>> for HCS_SYSTEM {
-    fn from(optional: ::core::option::Option<HCS_SYSTEM>) -> HCS_SYSTEM {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_SYSTEM {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
 pub unsafe fn HcsAttachLayerStorageFilter<'a, P0, P1>(layerpath: P0, layerdata: P1) -> ::windows::core::Result<()>
 where
@@ -1335,5 +844,496 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsWaitForProcessExit(computesystem.into(), timeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_CREATE_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
+impl ::core::marker::Copy for HCS_CREATE_OPTIONS {}
+impl ::core::clone::Clone for HCS_CREATE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_CREATE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCS_CREATE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_CREATE_OPTIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_EVENT_OPTIONS(pub u32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1u32);
+impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
+impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_EVENT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_EVENT_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCS_EVENT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_EVENT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HCS_EVENT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HCS_EVENT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HCS_EVENT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HCS_EVENT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HCS_EVENT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_EVENT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemCrashReport: HCS_EVENT_TYPE = HCS_EVENT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = HCS_EVENT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = HCS_EVENT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
+impl ::core::marker::Copy for HCS_EVENT_TYPE {}
+impl ::core::clone::Clone for HCS_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCS_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_NOTIFICATIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(3i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(7i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(8i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(9i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(11i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(12i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(13i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(14i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(15i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
+impl ::core::marker::Copy for HCS_NOTIFICATIONS {}
+impl ::core::clone::Clone for HCS_NOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_NOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_NOTIFICATIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCS_NOTIFICATIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_NOTIFICATIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_NOTIFICATION_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
+impl ::core::marker::Copy for HCS_NOTIFICATION_FLAGS {}
+impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_NOTIFICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_NOTIFICATION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_OPERATION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypePause: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
+impl ::core::marker::Copy for HCS_OPERATION_TYPE {}
+impl ::core::clone::Clone for HCS_OPERATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_OPERATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_OPERATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct HCS_CREATE_OPTIONS_1 {
+    pub Version: HCS_CREATE_OPTIONS,
+    pub UserToken: super::super::Foundation::HANDLE,
+    pub SecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub CallbackOptions: HCS_EVENT_OPTIONS,
+    pub CallbackContext: *mut ::core::ffi::c_void,
+    pub Callback: HCS_EVENT_CALLBACK,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for HCS_CREATE_OPTIONS_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for HCS_CREATE_OPTIONS_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for HCS_CREATE_OPTIONS_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HCS_CREATE_OPTIONS_1").field("Version", &self.Version).field("UserToken", &self.UserToken).field("SecurityDescriptor", &self.SecurityDescriptor).field("CallbackOptions", &self.CallbackOptions).field("CallbackContext", &self.CallbackContext).field("Callback", &self.Callback.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS_1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for HCS_CREATE_OPTIONS_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_CREATE_OPTIONS_1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for HCS_CREATE_OPTIONS_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for HCS_CREATE_OPTIONS_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub struct HCS_EVENT {
+    pub Type: HCS_EVENT_TYPE,
+    pub EventData: ::windows::core::PCWSTR,
+    pub Operation: HCS_OPERATION,
+}
+impl ::core::marker::Copy for HCS_EVENT {}
+impl ::core::clone::Clone for HCS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HCS_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HCS_EVENT").field("Type", &self.Type).field("EventData", &self.EventData).field("Operation", &self.Operation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_EVENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HCS_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_EVENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HCS_EVENT {}
+impl ::core::default::Default for HCS_EVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_OPERATION(pub isize);
+impl HCS_OPERATION {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HCS_OPERATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCS_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCS_OPERATION {}
+impl ::core::fmt::Debug for HCS_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_OPERATION").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HCS_OPERATION>> for HCS_OPERATION {
+    fn from(optional: ::core::option::Option<HCS_OPERATION>) -> HCS_OPERATION {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_OPERATION {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_PROCESS(pub isize);
+impl HCS_PROCESS {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HCS_PROCESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCS_PROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCS_PROCESS {}
+impl ::core::fmt::Debug for HCS_PROCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_PROCESS").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HCS_PROCESS>> for HCS_PROCESS {
+    fn from(optional: ::core::option::Option<HCS_PROCESS>) -> HCS_PROCESS {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_PROCESS {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HCS_PROCESS_INFORMATION {
+    pub ProcessId: u32,
+    pub Reserved: u32,
+    pub StdInput: super::super::Foundation::HANDLE,
+    pub StdOutput: super::super::Foundation::HANDLE,
+    pub StdError: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HCS_PROCESS_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HCS_PROCESS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HCS_PROCESS_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HCS_PROCESS_INFORMATION").field("ProcessId", &self.ProcessId).field("Reserved", &self.Reserved).field("StdInput", &self.StdInput).field("StdOutput", &self.StdOutput).field("StdError", &self.StdError).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HCS_PROCESS_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HCS_PROCESS_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_PROCESS_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HCS_PROCESS_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HCS_PROCESS_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_SYSTEM(pub isize);
+impl HCS_SYSTEM {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HCS_SYSTEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HCS_SYSTEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HCS_SYSTEM {}
+impl ::core::fmt::Debug for HCS_SYSTEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_SYSTEM").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HCS_SYSTEM>> for HCS_SYSTEM {
+    fn from(optional: ::core::option::Option<HCS_SYSTEM>) -> HCS_SYSTEM {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HCS_SYSTEM {
+    type Abi = Self;
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: ::windows::core::PCWSTR)>;
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

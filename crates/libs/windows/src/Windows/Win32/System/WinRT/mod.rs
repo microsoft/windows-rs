@@ -29,213 +29,6 @@ pub mod Storage;
 #[cfg(feature = "Win32_System_WinRT_Xaml")]
 pub mod Xaml;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACTIVATIONTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
-impl ::core::marker::Copy for ACTIVATIONTYPE {}
-impl ::core::clone::Clone for ACTIVATIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVATIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACTIVATIONTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTIVATIONTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTIVATIONTYPE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
-impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
-impl ::core::fmt::Debug for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APARTMENT_SHUTDOWN_REGISTRATION_COOKIE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>> for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn from(optional: ::core::option::Option<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>) -> APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AgileReferenceOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
-impl ::core::marker::Copy for AgileReferenceOptions {}
-impl ::core::clone::Clone for AgileReferenceOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AgileReferenceOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AgileReferenceOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AgileReferenceOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BSOS_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
-impl ::core::marker::Copy for BSOS_OPTIONS {}
-impl ::core::clone::Clone for BSOS_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BSOS_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BSOS_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BSOS_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BSOS_OPTIONS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
-impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CASTING_CONNECTION_ERROR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CASTING_CONNECTION_ERROR_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CASTING_CONNECTION_ERROR_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CASTING_CONNECTION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
-impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CASTING_CONNECTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CASTING_CONNECTION_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CASTING_CONNECTION_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_CastingTypes: &str = "CastingTypes";
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &str = "PreferredSourceUriScheme";
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_ProtectedMedia: &str = "ProtectedMedia";
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::core::Result<ServerInformation> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64, pserverinformation: *mut ServerInformation) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoDecodeProxy(dwclientpid, ui64proxyaddress, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerInformation>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateControlInput<T>() -> ::windows::core::Result<T>
 where
@@ -261,6 +54,16 @@ where
     }
     let mut result__ = ::core::option::Option::None;
     CreateControlInputEx(pcorewindow.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::core::Result<ServerInformation> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64, pserverinformation: *mut ServerInformation) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    CoDecodeProxy(dwclientpid, ui64proxyaddress, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerInformation>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"System\"`*"]
 #[cfg(feature = "System")]
@@ -317,124 +120,6 @@ where
     CreateStreamOverRandomAccessStream(randomaccessstream.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPATCHERQUEUE_THREAD_APARTMENTTYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPATCHERQUEUE_THREAD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPATCHERQUEUE_THREAD_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub struct DispatcherQueueOptions {
-    pub dwSize: u32,
-    pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
-    pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
-}
-impl ::core::marker::Copy for DispatcherQueueOptions {}
-impl ::core::clone::Clone for DispatcherQueueOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DispatcherQueueOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DispatcherQueueOptions").field("dwSize", &self.dwSize).field("threadType", &self.threadType).field("apartmentType", &self.apartmentType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DispatcherQueueOptions {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DispatcherQueueOptions {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DispatcherQueueOptions>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueOptions {}
-impl ::core::default::Default for DispatcherQueueOptions {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub struct EventRegistrationToken {
-    pub value: i64,
-}
-impl ::core::marker::Copy for EventRegistrationToken {}
-impl ::core::clone::Clone for EventRegistrationToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for EventRegistrationToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EventRegistrationToken").field("value", &self.value).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for EventRegistrationToken {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for EventRegistrationToken {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EventRegistrationToken>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EventRegistrationToken {}
-impl ::core::default::Default for EventRegistrationToken {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErrorInfo> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -443,72 +128,6 @@ pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErr
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetRestrictedErrorInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HSTRING_BUFFER(pub isize);
-impl HSTRING_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HSTRING_BUFFER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HSTRING_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HSTRING_BUFFER {}
-impl ::core::fmt::Debug for HSTRING_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HSTRING_BUFFER").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HSTRING_BUFFER>> for HSTRING_BUFFER {
-    fn from(optional: ::core::option::Option<HSTRING_BUFFER>) -> HSTRING_BUFFER {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HSTRING_BUFFER {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub struct HSTRING_HEADER {
-    pub flags: u32,
-    pub length: u32,
-    pub padding1: u32,
-    pub padding2: u32,
-    pub data: isize,
-}
-impl ::core::marker::Copy for HSTRING_HEADER {}
-impl ::core::clone::Clone for HSTRING_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HSTRING_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HSTRING_HEADER").field("flags", &self.flags).field("length", &self.length).field("padding1", &self.padding1).field("padding2", &self.padding2).field("data", &self.data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HSTRING_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HSTRING_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTRING_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HSTRING_HEADER {}
-impl ::core::default::Default for HSTRING_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -581,6 +200,568 @@ pub unsafe fn HSTRING_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &
         fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> *mut u8;
     }
     HSTRING_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL;
+    }
+    IsErrorPropagationEnabled()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn MetaDataGetDispenser(rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    MetaDataGetDispenser(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoActivateInstance(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoActivateInstance(::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
+    }
+    RoCaptureErrorContext(hr).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoClearError() {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoClearError();
+    }
+    RoClearError()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT);
+    }
+    RoFailFastWithErrorContext(hrerror)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoFreeParameterizedTypeExtra<'a, P0>(extra: P0)
+where
+    P0: ::std::convert::Into<ROPARAMIIDHANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
+    }
+    RoFreeParameterizedTypeExtra(extra.into())
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<T>
+where
+    T: ::windows::core::Interface,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetActivationFactory(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iid: *const ::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::option::Option::None;
+    RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoGetAgileReference<'a, P0>(options: AgileReferenceOptions, riid: &::windows::core::GUID, punk: P0) -> ::windows::core::Result<IAgileReference>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoGetAgileReference(options, ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetApartmentIdentifier(apartmentidentifier: *mut u64) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoGetApartmentIdentifier(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com_Marshal\"`*"]
+#[cfg(feature = "Win32_System_Com_Marshal")]
+#[inline]
+pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Marshal::IMarshal> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetBufferMarshaler(buffermarshaler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoGetBufferMarshaler(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::Marshal::IMarshal>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetErrorReportingFlags(pflags: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoGetErrorReportingFlags(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -> ::windows::core::Result<IRestrictedErrorInfo> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT, pprestrictederrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoGetMatchingRestrictedErrorInfo(hrin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, P0>(nameelements: &[::windows::core::PWSTR], metadatalocator: P0, iid: &mut ::windows::core::GUID, pextra: ::core::option::Option<&mut ROPARAMIIDHANDLE>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRoMetaDataLocator>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetParameterizedTypeInstanceIID(nameelementcount: u32, nameelements: *const ::windows::core::PWSTR, metadatalocator: *mut ::core::ffi::c_void, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::HRESULT;
+    }
+    RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(pextra)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRING, activatableclassids: &mut *mut ::windows::core::HSTRING, count: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoGetServerActivatableClasses(servername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activatableclassids: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, count: *mut u32) -> ::windows::core::HRESULT;
+    }
+    RoGetServerActivatableClasses(::core::mem::transmute_copy(servername), ::core::mem::transmute(activatableclassids), ::core::mem::transmute(count)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::HRESULT;
+    }
+    RoInitialize(inittype).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void, framecount: &mut u32, targetbacktraceaddress: &mut usize) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::core::HRESULT;
+    }
+    RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, ::core::mem::transmute(readmemorycallback), ::core::mem::transmute(context), ::core::mem::transmute(framecount), ::core::mem::transmute(targetbacktraceaddress)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows::core::Result<usize> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, targeterrorinfoaddress: *mut usize) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoInspectThreadErrorInfo(targettebaddress, machine, ::core::mem::transmute(readmemorycallback), ::core::mem::transmute(context), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RoOriginateError(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoOriginateError(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
+    }
+    RoOriginateError(error, ::core::mem::transmute_copy(message))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    RoOriginateErrorW(error, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RoOriginateLanguageException<'a, P0>(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING, languageexception: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoOriginateLanguageException(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languageexception: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    }
+    RoOriginateLanguageException(error, ::core::mem::transmute_copy(message), languageexception.into().abi())
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, P0>(extra: P0) -> ::windows::core::PSTR
+where
+    P0: ::std::convert::Into<ROPARAMIIDHANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> ::windows::core::PSTR;
+    }
+    RoParameterizedTypeExtraGetTypeSignature(extra.into())
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const isize, count: u32) -> ::windows::core::Result<isize> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoRegisterActivationFactories(activatableclassids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activationfactorycallbacks: *const isize, count: u32, cookie: *mut isize) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), ::core::mem::transmute(activationfactorycallbacks), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoRegisterForApartmentShutdown<'a, P0>(callbackobject: P0, apartmentidentifier: &mut u64, regcookie: &mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IApartmentShutdown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoRegisterForApartmentShutdown(callbackobject: *mut ::core::ffi::c_void, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
+    }
+    RoRegisterForApartmentShutdown(callbackobject.into().abi(), ::core::mem::transmute(apartmentidentifier), ::core::mem::transmute(regcookie)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoReportFailedDelegate<'a, P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoReportFailedDelegate(punkdelegate: *mut ::core::ffi::c_void, prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    RoReportFailedDelegate(punkdelegate.into().abi(), prestrictederrorinfo.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoReportUnhandledError<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoReportUnhandledError(prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    RoReportUnhandledError(prestrictederrorinfo.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, P0>(reference: P0) -> ::windows::core::Result<IRestrictedErrorInfo>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoResolveRestrictedErrorInfoReference(reference: ::windows::core::PCWSTR, pprestrictederrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    RoResolveRestrictedErrorInfoReference(reference.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoRevokeActivationFactories(cookie: isize);
+    }
+    RoRevokeActivationFactories(cookie)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::HRESULT;
+    }
+    RoSetErrorReportingFlags(flags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
+    }
+    RoTransformError(olderror, newerror, ::core::mem::transmute_copy(message))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    RoTransformErrorW(olderror, newerror, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoUninitialize() {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoUninitialize();
+    }
+    RoUninitialize()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn RoUnregisterForApartmentShutdown<'a, P0>(regcookie: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
+    }
+    RoUnregisterForApartmentShutdown(regcookie.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn SetRestrictedErrorInfo<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetRestrictedErrorInfo(prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    SetRestrictedErrorInfo(prestrictederrorinfo.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsCompareStringOrdinal(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<i32> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsCompareStringOrdinal(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut i32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsCompareStringOrdinal(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsConcatString(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsConcatString(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsConcatString(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsCreateString(sourcestring: ::windows::core::PCWSTR, length: u32, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsCreateStringReference<'a, P0>(sourcestring: P0, length: u32, hstringheader: &mut HSTRING_HEADER, string: ::core::option::Option<&mut ::windows::core::HSTRING>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsCreateStringReference(sourcestring: ::windows::core::PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    WindowsCreateStringReference(sourcestring.into(), length, ::core::mem::transmute(hstringheader), ::core::mem::transmute(string)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsDeleteString(string: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsDeleteString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    WindowsDeleteString(::core::mem::transmute_copy(string)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsDeleteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HSTRING_BUFFER>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsDeleteStringBuffer(bufferhandle: HSTRING_BUFFER) -> ::windows::core::HRESULT;
+    }
+    WindowsDeleteStringBuffer(bufferhandle.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsDuplicateString(string: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsDuplicateString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsDuplicateString(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsGetStringLen(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> u32;
+    }
+    WindowsGetStringLen(::core::mem::transmute_copy(string))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: ::core::option::Option<&mut u32>) -> ::windows::core::PWSTR {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsGetStringRawBuffer(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, length: *mut u32) -> ::windows::core::PWSTR;
+    }
+    WindowsGetStringRawBuffer(::core::mem::transmute_copy(string), ::core::mem::transmute(length))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: *const ::core::ffi::c_void, length: &mut u32, targetstringaddress: &mut usize) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsInspectString(targethstring: usize, machine: u16, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::core::HRESULT;
+    }
+    WindowsInspectString(targethstring, machine, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(length), ::core::mem::transmute(targetstringaddress)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: *const ::core::ffi::c_void, length: &mut u32, targetstringaddress: &mut u64) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsInspectString2(targethstring: u64, machine: u16, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::core::HRESULT;
+    }
+    WindowsInspectString2(targethstring, machine, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(length), ::core::mem::transmute(targetstringaddress)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WindowsIsStringEmpty(string: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsIsStringEmpty(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
+    }
+    WindowsIsStringEmpty(::core::mem::transmute_copy(string))
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: &mut *mut u16, bufferhandle: &mut HSTRING_BUFFER) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> ::windows::core::HRESULT;
+    }
+    WindowsPreallocateStringBuffer(length, ::core::mem::transmute(charbuffer), ::core::mem::transmute(bufferhandle)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsPromoteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<HSTRING_BUFFER>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsPromoteStringBuffer(bufferhandle: HSTRING_BUFFER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsPromoteStringBuffer(bufferhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringreplaced: &::windows::core::HSTRING, stringreplacewith: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsReplaceString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplaced: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplacewith: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsStringHasEmbeddedNull(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasembednull: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsStringHasEmbeddedNull(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsSubstring(string: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsSubstring(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsSubstring(::core::mem::transmute_copy(string), startindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &::windows::core::HSTRING, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsSubstringWithSpecifiedLength(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, length: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsSubstringWithSpecifiedLength(::core::mem::transmute_copy(string), startindex, length, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsTrimStringEnd(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsTrimStringEnd(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsTrimStringEnd(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[inline]
+pub unsafe fn WindowsTrimStringStart(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowsTrimStringStart(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowsTrimStringStart(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -3207,64 +3388,228 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestTokenWithWebAccountForWindowAsync: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL;
-    }
-    IsErrorPropagationEnabled()
-}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CastingSourceInfo_Property_CastingTypes: &str = "CastingTypes";
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &str = "PreferredSourceUriScheme";
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CastingSourceInfo_Property_ProtectedMedia: &str = "ProtectedMedia";
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn MetaDataGetDispenser(rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    MetaDataGetDispenser(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub type PINSPECT_HSTRING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub type PINSPECT_HSTRING_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub type PINSPECT_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ROPARAMIIDHANDLE(pub isize);
-impl ROPARAMIIDHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for ROPARAMIIDHANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for ROPARAMIIDHANDLE {
+pub struct ACTIVATIONTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
+impl ::core::marker::Copy for ACTIVATIONTYPE {}
+impl ::core::clone::Clone for ACTIVATIONTYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for ROPARAMIIDHANDLE {}
-impl ::core::fmt::Debug for ROPARAMIIDHANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ROPARAMIIDHANDLE").field(&self.0).finish()
+impl ::core::default::Default for ACTIVATIONTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
-impl ::core::convert::From<::core::option::Option<ROPARAMIIDHANDLE>> for ROPARAMIIDHANDLE {
-    fn from(optional: ::core::option::Option<ROPARAMIIDHANDLE>) -> ROPARAMIIDHANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for ROPARAMIIDHANDLE {
+unsafe impl ::windows::core::Abi for ACTIVATIONTYPE {
     type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTIVATIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVATIONTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AgileReferenceOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
+impl ::core::marker::Copy for AgileReferenceOptions {}
+impl ::core::clone::Clone for AgileReferenceOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AgileReferenceOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AgileReferenceOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AgileReferenceOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BSOS_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
+impl ::core::marker::Copy for BSOS_OPTIONS {}
+impl ::core::clone::Clone for BSOS_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BSOS_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BSOS_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BSOS_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BSOS_OPTIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
+impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
+impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CASTING_CONNECTION_ERROR_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CASTING_CONNECTION_ERROR_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CASTING_CONNECTION_ERROR_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CASTING_CONNECTION_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
+impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
+impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CASTING_CONNECTION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CASTING_CONNECTION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CASTING_CONNECTION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
+impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
+impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPATCHERQUEUE_THREAD_APARTMENTTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
+impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
+impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPATCHERQUEUE_THREAD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPATCHERQUEUE_THREAD_TYPE").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -3355,333 +3700,225 @@ impl ::core::fmt::Debug for RO_INIT_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoActivateInstance(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoActivateInstance(::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
-}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TrustLevel(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
-    }
-    RoCaptureErrorContext(hr).ok()
-}
+pub const BaseTrust: TrustLevel = TrustLevel(0i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoClearError() {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoClearError();
-    }
-    RoClearError()
-}
+pub const PartialTrust: TrustLevel = TrustLevel(1i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT);
+pub const FullTrust: TrustLevel = TrustLevel(2i32);
+impl ::core::marker::Copy for TrustLevel {}
+impl ::core::clone::Clone for TrustLevel {
+    fn clone(&self) -> Self {
+        *self
     }
-    RoFailFastWithErrorContext(hrerror)
 }
+impl ::core::default::Default for TrustLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TrustLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TrustLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TrustLevel").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
+impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
+impl ::core::fmt::Debug for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APARTMENT_SHUTDOWN_REGISTRATION_COOKIE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>> for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn from(optional: ::core::option::Option<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>) -> APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    type Abi = Self;
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoFreeParameterizedTypeExtra<'a, P0>(extra: P0)
-where
-    P0: ::std::convert::Into<ROPARAMIIDHANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
-    }
-    RoFreeParameterizedTypeExtra(extra.into())
+pub struct DispatcherQueueOptions {
+    pub dwSize: u32,
+    pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
+    pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
+impl ::core::marker::Copy for DispatcherQueueOptions {}
+impl ::core::clone::Clone for DispatcherQueueOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DispatcherQueueOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DispatcherQueueOptions").field("dwSize", &self.dwSize).field("threadType", &self.threadType).field("apartmentType", &self.apartmentType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DispatcherQueueOptions {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DispatcherQueueOptions {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DispatcherQueueOptions>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DispatcherQueueOptions {}
+impl ::core::default::Default for DispatcherQueueOptions {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<T>
-where
-    T: ::windows::core::Interface,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetActivationFactory(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iid: *const ::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::option::Option::None;
-    RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+pub struct EventRegistrationToken {
+    pub value: i64,
 }
+impl ::core::marker::Copy for EventRegistrationToken {}
+impl ::core::clone::Clone for EventRegistrationToken {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for EventRegistrationToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EventRegistrationToken").field("value", &self.value).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for EventRegistrationToken {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EventRegistrationToken {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EventRegistrationToken>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EventRegistrationToken {}
+impl ::core::default::Default for EventRegistrationToken {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HSTRING_BUFFER(pub isize);
+impl HSTRING_BUFFER {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HSTRING_BUFFER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSTRING_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSTRING_BUFFER {}
+impl ::core::fmt::Debug for HSTRING_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSTRING_BUFFER").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HSTRING_BUFFER>> for HSTRING_BUFFER {
+    fn from(optional: ::core::option::Option<HSTRING_BUFFER>) -> HSTRING_BUFFER {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HSTRING_BUFFER {
+    type Abi = Self;
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoGetAgileReference<'a, P0>(options: AgileReferenceOptions, riid: &::windows::core::GUID, punk: P0) -> ::windows::core::Result<IAgileReference>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetAgileReference(options, ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
+pub struct HSTRING_HEADER {
+    pub flags: u32,
+    pub length: u32,
+    pub padding1: u32,
+    pub padding2: u32,
+    pub data: isize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetApartmentIdentifier(apartmentidentifier: *mut u64) -> ::windows::core::HRESULT;
+impl ::core::marker::Copy for HSTRING_HEADER {}
+impl ::core::clone::Clone for HSTRING_HEADER {
+    fn clone(&self) -> Self {
+        *self
     }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetApartmentIdentifier(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com_Marshal\"`*"]
-#[cfg(feature = "Win32_System_Com_Marshal")]
-#[inline]
-pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Marshal::IMarshal> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetBufferMarshaler(buffermarshaler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+impl ::core::fmt::Debug for HSTRING_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSTRING_HEADER").field("flags", &self.flags).field("length", &self.length).field("padding1", &self.padding1).field("padding2", &self.padding2).field("data", &self.data).finish()
     }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetBufferMarshaler(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::Marshal::IMarshal>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetErrorReportingFlags(pflags: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetErrorReportingFlags(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+unsafe impl ::windows::core::Abi for HSTRING_HEADER {
+    type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -> ::windows::core::Result<IRestrictedErrorInfo> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT, pprestrictederrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+impl ::core::cmp::PartialEq for HSTRING_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTRING_HEADER>()) == 0 }
     }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoGetMatchingRestrictedErrorInfo(hrin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, P0>(nameelements: &[::windows::core::PWSTR], metadatalocator: P0, iid: &mut ::windows::core::GUID, pextra: ::core::option::Option<&mut ROPARAMIIDHANDLE>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRoMetaDataLocator>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetParameterizedTypeInstanceIID(nameelementcount: u32, nameelements: *const ::windows::core::PWSTR, metadatalocator: *mut ::core::ffi::c_void, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::HRESULT;
+impl ::core::cmp::Eq for HSTRING_HEADER {}
+impl ::core::default::Default for HSTRING_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
-    RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(pextra)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRING, activatableclassids: &mut *mut ::windows::core::HSTRING, count: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoGetServerActivatableClasses(servername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activatableclassids: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, count: *mut u32) -> ::windows::core::HRESULT;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ROPARAMIIDHANDLE(pub isize);
+impl ROPARAMIIDHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
-    RoGetServerActivatableClasses(::core::mem::transmute_copy(servername), ::core::mem::transmute(activatableclassids), ::core::mem::transmute(count)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::HRESULT;
+impl ::core::default::Default for ROPARAMIIDHANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
-    RoInitialize(inittype).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void, framecount: &mut u32, targetbacktraceaddress: &mut usize) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::core::HRESULT;
+impl ::core::clone::Clone for ROPARAMIIDHANDLE {
+    fn clone(&self) -> Self {
+        *self
     }
-    RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, ::core::mem::transmute(readmemorycallback), ::core::mem::transmute(context), ::core::mem::transmute(framecount), ::core::mem::transmute(targetbacktraceaddress)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows::core::Result<usize> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, targeterrorinfoaddress: *mut usize) -> ::windows::core::HRESULT;
+impl ::core::marker::Copy for ROPARAMIIDHANDLE {}
+impl ::core::fmt::Debug for ROPARAMIIDHANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ROPARAMIIDHANDLE").field(&self.0).finish()
     }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoInspectThreadErrorInfo(targettebaddress, machine, ::core::mem::transmute(readmemorycallback), ::core::mem::transmute(context), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RoOriginateError(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoOriginateError(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
+impl ::core::convert::From<::core::option::Option<ROPARAMIIDHANDLE>> for ROPARAMIIDHANDLE {
+    fn from(optional: ::core::option::Option<ROPARAMIIDHANDLE>) -> ROPARAMIIDHANDLE {
+        optional.unwrap_or_default()
     }
-    RoOriginateError(error, ::core::mem::transmute_copy(message))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    RoOriginateErrorW(error, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RoOriginateLanguageException<'a, P0>(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING, languageexception: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoOriginateLanguageException(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languageexception: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    }
-    RoOriginateLanguageException(error, ::core::mem::transmute_copy(message), languageexception.into().abi())
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, P0>(extra: P0) -> ::windows::core::PSTR
-where
-    P0: ::std::convert::Into<ROPARAMIIDHANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> ::windows::core::PSTR;
-    }
-    RoParameterizedTypeExtraGetTypeSignature(extra.into())
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const isize, count: u32) -> ::windows::core::Result<isize> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoRegisterActivationFactories(activatableclassids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activationfactorycallbacks: *const isize, count: u32, cookie: *mut isize) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), ::core::mem::transmute(activationfactorycallbacks), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoRegisterForApartmentShutdown<'a, P0>(callbackobject: P0, apartmentidentifier: &mut u64, regcookie: &mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IApartmentShutdown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoRegisterForApartmentShutdown(callbackobject: *mut ::core::ffi::c_void, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
-    }
-    RoRegisterForApartmentShutdown(callbackobject.into().abi(), ::core::mem::transmute(apartmentidentifier), ::core::mem::transmute(regcookie)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoReportFailedDelegate<'a, P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoReportFailedDelegate(punkdelegate: *mut ::core::ffi::c_void, prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    RoReportFailedDelegate(punkdelegate.into().abi(), prestrictederrorinfo.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoReportUnhandledError<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoReportUnhandledError(prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    RoReportUnhandledError(prestrictederrorinfo.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, P0>(reference: P0) -> ::windows::core::Result<IRestrictedErrorInfo>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoResolveRestrictedErrorInfoReference(reference: ::windows::core::PCWSTR, pprestrictederrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoResolveRestrictedErrorInfoReference(reference.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoRevokeActivationFactories(cookie: isize);
-    }
-    RoRevokeActivationFactories(cookie)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::HRESULT;
-    }
-    RoSetErrorReportingFlags(flags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
-    }
-    RoTransformError(olderror, newerror, ::core::mem::transmute_copy(message))
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    RoTransformErrorW(olderror, newerror, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoUninitialize() {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoUninitialize();
-    }
-    RoUninitialize()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoUnregisterForApartmentShutdown<'a, P0>(regcookie: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
-    }
-    RoUnregisterForApartmentShutdown(regcookie.into()).ok()
+unsafe impl ::windows::core::Abi for ROPARAMIIDHANDLE {
+    type Abi = Self;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -3715,250 +3952,13 @@ impl ::core::default::Default for ServerInformation {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn SetRestrictedErrorInfo<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetRestrictedErrorInfo(prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    SetRestrictedErrorInfo(prestrictederrorinfo.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TrustLevel(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const BaseTrust: TrustLevel = TrustLevel(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const PartialTrust: TrustLevel = TrustLevel(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const FullTrust: TrustLevel = TrustLevel(2i32);
-impl ::core::marker::Copy for TrustLevel {}
-impl ::core::clone::Clone for TrustLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TrustLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TrustLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TrustLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TrustLevel").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsCompareStringOrdinal(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<i32> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsCompareStringOrdinal(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut i32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsCompareStringOrdinal(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsConcatString(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsConcatString(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsConcatString(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsCreateString(sourcestring: ::windows::core::PCWSTR, length: u32, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsCreateStringReference<'a, P0>(sourcestring: P0, length: u32, hstringheader: &mut HSTRING_HEADER, string: ::core::option::Option<&mut ::windows::core::HSTRING>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsCreateStringReference(sourcestring: ::windows::core::PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    WindowsCreateStringReference(sourcestring.into(), length, ::core::mem::transmute(hstringheader), ::core::mem::transmute(string)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsDeleteString(string: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsDeleteString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    WindowsDeleteString(::core::mem::transmute_copy(string)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsDeleteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HSTRING_BUFFER>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsDeleteStringBuffer(bufferhandle: HSTRING_BUFFER) -> ::windows::core::HRESULT;
-    }
-    WindowsDeleteStringBuffer(bufferhandle.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsDuplicateString(string: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsDuplicateString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsDuplicateString(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsGetStringLen(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> u32;
-    }
-    WindowsGetStringLen(::core::mem::transmute_copy(string))
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: ::core::option::Option<&mut u32>) -> ::windows::core::PWSTR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsGetStringRawBuffer(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, length: *mut u32) -> ::windows::core::PWSTR;
-    }
-    WindowsGetStringRawBuffer(::core::mem::transmute_copy(string), ::core::mem::transmute(length))
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: *const ::core::ffi::c_void, length: &mut u32, targetstringaddress: &mut usize) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsInspectString(targethstring: usize, machine: u16, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::core::HRESULT;
-    }
-    WindowsInspectString(targethstring, machine, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(length), ::core::mem::transmute(targetstringaddress)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: *const ::core::ffi::c_void, length: &mut u32, targetstringaddress: &mut u64) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsInspectString2(targethstring: u64, machine: u16, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::core::HRESULT;
-    }
-    WindowsInspectString2(targethstring, machine, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(length), ::core::mem::transmute(targetstringaddress)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WindowsIsStringEmpty(string: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsIsStringEmpty(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
-    }
-    WindowsIsStringEmpty(::core::mem::transmute_copy(string))
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: &mut *mut u16, bufferhandle: &mut HSTRING_BUFFER) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> ::windows::core::HRESULT;
-    }
-    WindowsPreallocateStringBuffer(length, ::core::mem::transmute(charbuffer), ::core::mem::transmute(bufferhandle)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsPromoteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-where
-    P0: ::std::convert::Into<HSTRING_BUFFER>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsPromoteStringBuffer(bufferhandle: HSTRING_BUFFER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsPromoteStringBuffer(bufferhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringreplaced: &::windows::core::HSTRING, stringreplacewith: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsReplaceString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplaced: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplacewith: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsStringHasEmbeddedNull(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasembednull: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsStringHasEmbeddedNull(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsSubstring(string: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsSubstring(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsSubstring(::core::mem::transmute_copy(string), startindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &::windows::core::HSTRING, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsSubstringWithSpecifiedLength(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, length: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsSubstringWithSpecifiedLength(::core::mem::transmute_copy(string), startindex, length, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsTrimStringEnd(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsTrimStringEnd(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsTrimStringEnd(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn WindowsTrimStringStart(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowsTrimStringStart(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowsTrimStringStart(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
-}
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub type PINSPECT_HSTRING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub type PINSPECT_HSTRING_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub type PINSPECT_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

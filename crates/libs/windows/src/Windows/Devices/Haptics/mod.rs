@@ -468,42 +468,6 @@ unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VibrationAccessStatus(pub i32);
-impl VibrationAccessStatus {
-    pub const Allowed: Self = Self(0i32);
-    pub const DeniedByUser: Self = Self(1i32);
-    pub const DeniedBySystem: Self = Self(2i32);
-    pub const DeniedByEnergySaver: Self = Self(3i32);
-}
-impl ::core::marker::Copy for VibrationAccessStatus {}
-impl ::core::clone::Clone for VibrationAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VibrationAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VibrationAccessStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VibrationAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Haptics\"`*"]
-#[repr(transparent)]
 pub struct VibrationDevice(::windows::core::IUnknown);
 impl VibrationDevice {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -626,5 +590,41 @@ impl ::core::convert::From<&VibrationDevice> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
+#[doc = "*Required features: `\"Devices_Haptics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VibrationAccessStatus(pub i32);
+impl VibrationAccessStatus {
+    pub const Allowed: Self = Self(0i32);
+    pub const DeniedByUser: Self = Self(1i32);
+    pub const DeniedBySystem: Self = Self(2i32);
+    pub const DeniedByEnergySaver: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VibrationAccessStatus {}
+impl ::core::clone::Clone for VibrationAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VibrationAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VibrationAccessStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VibrationAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

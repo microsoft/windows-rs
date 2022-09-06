@@ -1,9 +1,4 @@
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
-pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x339c9bf4_bcfe_4ed8_94df_eaf8c26ab61b);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IComponentAuthenticate(::windows::core::IUnknown);
 impl IComponentAuthenticate {
@@ -1978,8 +1973,6 @@ pub struct IMDServiceProvider3_Vtbl {
     pub base__: IMDServiceProvider2_Vtbl,
     pub SetDeviceEnumPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenumpref: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct ISCPSecureAuthenticate(::windows::core::IUnknown);
@@ -5532,6 +5525,13 @@ pub struct IWMDeviceManager3_Vtbl {
     pub SetDeviceEnumPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenumpref: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
+pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x339c9bf4_bcfe_4ed8_94df_eaf8c26ab61b);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_READ: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_SEEK_BOF: u32 = 1u32;
@@ -5541,65 +5541,6 @@ pub const MDSP_SEEK_CUR: u32 = 2u32;
 pub const MDSP_SEEK_EOF: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MDSP_WRITE: u32 = 2u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct MTP_COMMAND_DATA_IN {
-    pub OpCode: u16,
-    pub NumParams: u32,
-    pub Params: [u32; 5],
-    pub NextPhase: u32,
-    pub CommandWriteDataSize: u32,
-    pub CommandWriteData: [u8; 1],
-}
-impl ::core::marker::Copy for MTP_COMMAND_DATA_IN {}
-impl ::core::clone::Clone for MTP_COMMAND_DATA_IN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_IN {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MTP_COMMAND_DATA_IN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MTP_COMMAND_DATA_IN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MTP_COMMAND_DATA_IN {}
-impl ::core::default::Default for MTP_COMMAND_DATA_IN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct MTP_COMMAND_DATA_OUT {
-    pub ResponseCode: u16,
-    pub NumParams: u32,
-    pub Params: [u32; 5],
-    pub CommandReadDataSize: u32,
-    pub CommandReadData: [u8; 1],
-}
-impl ::core::marker::Copy for MTP_COMMAND_DATA_OUT {}
-impl ::core::clone::Clone for MTP_COMMAND_DATA_OUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_OUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MTP_COMMAND_DATA_OUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MTP_COMMAND_DATA_OUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MTP_COMMAND_DATA_OUT {}
-impl ::core::default::Default for MTP_COMMAND_DATA_OUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const MTP_COMMAND_MAX_PARAMS: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -5614,39 +5555,6 @@ pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
 pub const MediaDevMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25baad81_3560_11d3_8471_00c04f79dbc0);
 pub const MediaDevMgrClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50040c1d_bdbf_4924_b873_f14d6c5bfd66);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct OPAQUECOMMAND {
-    pub guidCommand: ::windows::core::GUID,
-    pub dwDataLen: u32,
-    pub pData: *mut u8,
-    pub abMAC: [u8; 20],
-}
-impl ::core::marker::Copy for OPAQUECOMMAND {}
-impl ::core::clone::Clone for OPAQUECOMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OPAQUECOMMAND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPAQUECOMMAND").field("guidCommand", &self.guidCommand).field("dwDataLen", &self.dwDataLen).field("pData", &self.pData).field("abMAC", &self.abMAC).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OPAQUECOMMAND {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OPAQUECOMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPAQUECOMMAND>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPAQUECOMMAND {}
-impl ::core::default::Default for OPAQUECOMMAND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const RSA_KEY_LEN: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -5665,284 +5573,11 @@ pub const SCP_EVENTID_ACQSECURECLOCK: ::windows::core::GUID = ::windows::core::G
 pub const SCP_EVENTID_DRMINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x213dd287_41d2_432b_9e3f_3b4f7b3581dd);
 pub const SCP_EVENTID_NEEDTOINDIV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a507c7_b469_4386_b976_d5d1ce538a6f);
 pub const SCP_PARAMID_DRMVERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d0155d_7cc7_4217_ada9_005074624da4);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct WMDMDATETIME {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-}
-impl ::core::marker::Copy for WMDMDATETIME {}
-impl ::core::clone::Clone for WMDMDATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMDMDATETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMDMDATETIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMDMDATETIME {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMDMDATETIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMDATETIME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMDMDATETIME {}
-impl ::core::default::Default for WMDMDATETIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub union WMDMDetermineMaxPropStringLen {
-    pub sz001: [u16; 27],
-    pub sz002: [u16; 31],
-    pub sz003: [u16; 14],
-    pub sz004: [u16; 16],
-    pub sz005: [u16; 22],
-    pub sz006: [u16; 14],
-    pub sz007: [u16; 20],
-    pub sz008: [u16; 20],
-    pub sz009: [u16; 22],
-    pub sz010: [u16; 11],
-    pub sz011: [u16; 12],
-    pub sz012: [u16; 17],
-    pub sz013: [u16; 17],
-    pub sz014: [u16; 16],
-    pub sz015: [u16; 17],
-    pub sz016: [u16; 11],
-    pub sz017: [u16; 11],
-    pub sz018: [u16; 15],
-    pub sz019: [u16; 22],
-    pub sz020: [u16; 20],
-    pub sz021: [u16; 22],
-    pub sz022: [u16; 21],
-    pub sz023: [u16; 24],
-    pub sz024: [u16; 20],
-    pub sz025: [u16; 10],
-    pub sz026: [u16; 14],
-    pub sz027: [u16; 11],
-    pub sz028: [u16; 11],
-    pub sz029: [u16; 13],
-    pub sz030: [u16; 17],
-    pub sz031: [u16; 16],
-    pub sz032: [u16; 17],
-    pub sz033: [u16; 20],
-    pub sz034: [u16; 19],
-    pub sz035: [u16; 18],
-    pub sz036: [u16; 18],
-    pub sz037: [u16; 15],
-    pub sz041: [u16; 14],
-    pub sz043: [u16; 22],
-    pub sz044: [u16; 16],
-    pub sz045: [u16; 20],
-    pub sz046: [u16; 14],
-    pub sz047: [u16; 14],
-    pub sz048: [u16; 12],
-    pub sz049: [u16; 25],
-    pub sz050: [u16; 26],
-    pub sz051: [u16; 25],
-    pub sz052: [u16; 16],
-    pub sz053: [u16; 24],
-    pub sz054: [u16; 15],
-    pub sz055: [u16; 21],
-    pub sz056: [u16; 16],
-    pub sz057: [u16; 22],
-    pub sz058: [u16; 14],
-    pub sz059: [u16; 25],
-    pub sz060: [u16; 18],
-    pub sz061: [u16; 22],
-    pub sz062: [u16; 26],
-    pub sz063: [u16; 36],
-    pub sz064: [u16; 23],
-    pub sz065: [u16; 12],
-    pub sz066: [u16; 24],
-    pub sz067: [u16; 11],
-    pub sz068: [u16; 12],
-    pub sz069: [u16; 14],
-    pub sz070: [u16; 20],
-    pub sz071: [u16; 15],
-    pub sz072: [u16; 14],
-    pub sz073: [u16; 31],
-    pub sz074: [u16; 24],
-    pub sz075: [u16; 22],
-    pub sz076: [u16; 24],
-    pub sz077: [u16; 21],
-    pub sz078: [u16; 27],
-    pub sz079: [u16; 27],
-    pub sz080: [u16; 20],
-    pub sz081: [u16; 33],
-    pub sz082: [u16; 21],
-    pub sz083: [u16; 32],
-    pub sz084: [u16; 26],
-    pub sz085: [u16; 18],
-    pub sz086: [u16; 30],
-}
-impl ::core::marker::Copy for WMDMDetermineMaxPropStringLen {}
-impl ::core::clone::Clone for WMDMDetermineMaxPropStringLen {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WMDMDetermineMaxPropStringLen {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMDMDetermineMaxPropStringLen {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMDetermineMaxPropStringLen>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMDMDetermineMaxPropStringLen {}
-impl ::core::default::Default for WMDMDetermineMaxPropStringLen {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 pub const WMDMDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMDeviceEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct WMDMID {
-    pub cbSize: u32,
-    pub dwVendorID: u32,
-    pub pID: [u8; 128],
-    pub SerialNumberLength: u32,
-}
-impl ::core::marker::Copy for WMDMID {}
-impl ::core::clone::Clone for WMDMID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMDMID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMDMID").field("cbSize", &self.cbSize).field("dwVendorID", &self.dwVendorID).field("pID", &self.pID).field("SerialNumberLength", &self.SerialNumberLength).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMDMID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMDMID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMDMID {}
-impl ::core::default::Default for WMDMID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDMID_LENGTH: u32 = 128u32;
 pub const WMDMLogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMDMMessage(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = WMDMMessage(1i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = WMDMMessage(2i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = WMDMMessage(3i32);
-impl ::core::marker::Copy for WMDMMessage {}
-impl ::core::clone::Clone for WMDMMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDMMessage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMDMMessage {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMDMMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMDMMessage").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct WMDMMetadataView {
-    pub pwszViewName: ::windows::core::PWSTR,
-    pub nDepth: u32,
-    pub ppwszTags: *mut *mut u16,
-}
-impl ::core::marker::Copy for WMDMMetadataView {}
-impl ::core::clone::Clone for WMDMMetadataView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMDMMetadataView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMDMMetadataView").field("pwszViewName", &self.pwszViewName).field("nDepth", &self.nDepth).field("ppwszTags", &self.ppwszTags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMDMMetadataView {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMDMMetadataView {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMMetadataView>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMDMMetadataView {}
-impl ::core::default::Default for WMDMMetadataView {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct WMDMRIGHTS {
-    pub cbSize: u32,
-    pub dwContentType: u32,
-    pub fuFlags: u32,
-    pub fuRights: u32,
-    pub dwAppSec: u32,
-    pub dwPlaybackCount: u32,
-    pub ExpirationDate: WMDMDATETIME,
-}
-impl ::core::marker::Copy for WMDMRIGHTS {}
-impl ::core::clone::Clone for WMDMRIGHTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMDMRIGHTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMDMRIGHTS").field("cbSize", &self.cbSize).field("dwContentType", &self.dwContentType).field("fuFlags", &self.fuFlags).field("fuRights", &self.fuRights).field("dwAppSec", &self.dwAppSec).field("dwPlaybackCount", &self.dwPlaybackCount).field("ExpirationDate", &self.ExpirationDate).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMDMRIGHTS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMDMRIGHTS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMRIGHTS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMDMRIGHTS {}
-impl ::core::default::Default for WMDMRIGHTS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 pub const WMDMStorage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807b3ce0_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMStorageEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
 pub const WMDMStorageGlobal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807b3ce1_357a_11d3_8471_00c04f79dbc0);
@@ -5997,35 +5632,6 @@ pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
-impl ::core::marker::Copy for WMDM_ENUM_PROP_VALID_VALUES_FORM {}
-impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMDM_ENUM_PROP_VALID_VALUES_FORM").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -6102,6 +5708,435 @@ pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_GET_FORMAT_SUPPORT_FILE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_GET_FORMAT_SUPPORT_VIDEO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_LOG_NOTIMESTAMP: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_LOG_SEV_ERROR: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_LOG_SEV_INFO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_LOG_SEV_WARN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MAC_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MODE_BLOCK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MODE_PROGRESS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MODE_QUERY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MODE_RECURSIVE: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MODE_THREAD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MODE_TRANSFER_PROTECTED: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MODE_TRANSFER_UNPROTECTED: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_POWER_CAP_BATTERY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_POWER_CAP_EXTERNAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_COPY_TO_NON_SDMI_DEVICE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_COPY_TO_SDMI_DEVICE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_EXPIRATIONDATE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_FREESERIALIDS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_GROUPID: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_NAMEDSERIALIDS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_PLAYBACKCOUNT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_RIGHTS_PLAY_ON_PC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_DECIDE_DATA: i32 = 8i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_DRMINFO_NOT_DRMPROTECTED: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_DRMINFO_V1HEADER: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_DRMINFO_V2HEADER: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_EXAMINE_DATA: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_EXAMINE_EXTENSION: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_NO_MORE_CHANGES: i32 = 64i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_PROTECTED_OUTPUT: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_REVOKED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_RIGHTS_DATA: i32 = 64i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_TRANSFER_OBJECTDATA: i32 = 32i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SCP_UNPROTECTED_OUTPUT: i32 = 32i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SEEK_BEGIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SEEK_CURRENT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SEEK_END: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
+pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de8686d_78ee_43ea_a496_c625ac91cc5d);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SP_REVOKED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_BUSY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_DEVICECONTROL_PAUSED: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_DEVICECONTROL_PLAYING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_DEVICECONTROL_RECORDING: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_DEVICECONTROL_REMOTE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_DEVICECONTROL_STREAM: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_DEVICE_NOTPRESENT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_READY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGECONTROL_APPENDING: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGECONTROL_DELETING: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGECONTROL_INSERTING: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGECONTROL_MOVING: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGECONTROL_READING: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGE_BROKEN: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGE_INITIALIZING: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGE_NOTPRESENT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGE_NOTSUPPORTED: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STATUS_STORAGE_UNFORMATTED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECAP_FILELIMITEXISTS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECAP_FILESINFOLDERS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECAP_FILESINROOT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECAP_FOLDERLIMITEXISTS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECAP_FOLDERSINFOLDERS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECAP_FOLDERSINROOT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECAP_NOT_INITIALIZABLE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECONTROL_INSERTAFTER: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECONTROL_INSERTBEFORE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGECONTROL_INSERTINTO: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_CANEDITMETADATA: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_FILESYSTEM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_FOLDERS: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_HAS_FILES: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_HAS_FOLDERS: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_WMDM_REVOKED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszAudioWAVECodec: &str = "WMDM/AudioWAVECodec";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszVideoFourCCCodec: &str = "WMDM/VideoFourCCCodec";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumArt: &str = "WMDM/AlbumArt";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumArtist: &str = "WMDM/AlbumArtist";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumCoverData: &str = "WMDM/AlbumCoverData";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumCoverDuration: &str = "WMDM/AlbumCoverDuration";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumCoverFormat: &str = "WMDM/AlbumCoverFormat";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumCoverHeight: &str = "WMDM/AlbumCoverHeight";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumCoverSize: &str = "WMDM/AlbumCoverSize";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumCoverWidth: &str = "WMDM/AlbumCoverWidth";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAlbumTitle: &str = "WMDM/AlbumTitle";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAudioBitDepth: &str = "WMDM/AudioBitDepth";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAuthor: &str = "WMDM/Author";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMAuthorDate: &str = "WMDM/AuthorDate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMBitRateType: &str = "WMDM/BitRateType";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMBitrate: &str = "WMDM/Bitrate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMBlockAlignment: &str = "WMDM/BlockAlignment";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMBufferSize: &str = "WMDM/BufferSize";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMBuyNow: &str = "WMDM/BuyNow";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMByteBookmark: &str = "WMDM/ByteBookmark";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMCategory: &str = "WMDM/Category";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMCodec: &str = "WMDM/Codec";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMCollectionID: &str = "WMDM/CollectionID";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMComposer: &str = "WMDM/Composer";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDRMId: &str = "WMDM/DRMId";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDataLength: &str = "WMDM/DataLength";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDataOffset: &str = "WMDM/DataOffset";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDataUnits: &str = "WMDM/DataUnits";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDescription: &str = "WMDM/Description";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDestinationURL: &str = "WMDM/DestinationURL";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDeviceFirmwareVersion: &str = "WMDM/DeviceFirmwareVersion";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDeviceFriendlyName: &str = "WMDM/DeviceFriendlyName";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDeviceModelName: &str = "WMDM/DeviceModelName";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDevicePlayCount: &str = "WMDM/DevicePlayCount";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDeviceProtocol: &str = "WMDM/DeviceProtocol";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDeviceRevocationInfo: &str = "WMDM/DeviceRevocationInfo";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDeviceServiceProviderVendor: &str = "WMDM/DeviceServiceProviderVendor";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDeviceVendorExtension: &str = "WMDM/DeviceVendorExtension";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMDuration: &str = "WMDM/Duration";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMEditor: &str = "WMDM/Editor";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMEncodingProfile: &str = "WMDM/EncodingProfile";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFileAttributes: &str = "WMDM/FileAttributes";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFileCreationDate: &str = "WMDM/FileCreationDate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFileName: &str = "WMDM/FileName";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFileSize: &str = "WMDM/FileSize";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFormatCode: &str = "WMDM/FormatCode";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFormatsSupported: &str = "WMDM/FormatsSupported";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFormatsSupportedAreOrdered: &str = "WMDM/FormatsSupportedAreOrdered";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMFrameRate: &str = "WMDM/FrameRate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMGenre: &str = "WMDM/Genre";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMHeight: &str = "WMDM/Height";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMIsProtected: &str = "WMDM/IsProtected";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMIsRepeat: &str = "WMDM/IsRepeat";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMKeyFrameDistance: &str = "WMDM/KeyFrameDistance";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMLastModifiedDate: &str = "WMDM/LastModifiedDate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMMediaClassSecondaryID: &str = "WMDM/MediaClassSecondaryID";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMMediaCredits: &str = "WMDM/MediaCredits";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMMediaGuid: &str = "WMDM/MediaGuid";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMMediaOriginalBroadcastDateTime: &str = "WMDM/MediaOriginalBroadcastDateTime";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMMediaOriginalChannel: &str = "WMDM/MediaOriginalChannel";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMMediaStationName: &str = "WMDM/MediaStationName";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMMetaGenre: &str = "WMDM/MetaGenre";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMNonConsumable: &str = "WMDM/NonConsumable";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMNumChannels: &str = "WMDM/NumChannels";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMObjectBookmark: &str = "WMDM/ObjectBookmark";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMOwner: &str = "WMDM/Owner";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMParentalRating: &str = "WMDM/ParentalRating";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMPersistentUniqueID: &str = "WMDM/PersistentUniqueID";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMPlayCount: &str = "WMDM/PlayCount";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMProviderCopyright: &str = "WMDM/ProviderCopyright";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMQualitySetting: &str = "WMDM/QualitySetting";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSampleRate: &str = "WMDM/SampleRate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMScanType: &str = "WMDM/ScanType";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSourceURL: &str = "WMDM/SourceURL";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSubTitle: &str = "WMDM/SubTitle";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSubTitleDescription: &str = "WMDM/SubTitleDescription";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSupportedDeviceProperties: &str = "WMDM/SupportedDeviceProperties";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSyncID: &str = "WMDM/SyncID";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSyncRelationshipID: &str = "WMDM/SyncRelationshipID";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMSyncTime: &str = "WMDM/SyncTime";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMTimeBookmark: &str = "WMDM/TimeBookmark";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMTimeToLive: &str = "WMDM/TimeToLive";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMTitle: &str = "WMDM/Title";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMTotalBitrate: &str = "WMDM/TotalBitrate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMTrack: &str = "WMDM/Track";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMTrackMood: &str = "WMDM/TrackMood";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMUserEffectiveRating: &str = "WMDM/UserEffectiveRating";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMUserLastPlayTime: &str = "WMDM/UserLastPlayTime";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMUserRating: &str = "WMDM/UserRating";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMUserRatingOnDevice: &str = "WMDM/UserRatingOnDevice";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMVideoBitrate: &str = "WMDM/VideoBitrate";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMWebmaster: &str = "WMDM/Webmaster";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMWidth: &str = "WMDM/Width";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMYear: &str = "WMDM/Year";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWMDMediaClassPrimaryID: &str = "WMDM/MediaClassPrimaryID";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const g_wszWPDPassthroughPropertyValues: &str = "WPD/PassthroughPropertyValues";
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMDMMessage(pub i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = WMDMMessage(1i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = WMDMMessage(2i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = WMDMMessage(3i32);
+impl ::core::marker::Copy for WMDMMessage {}
+impl ::core::clone::Clone for WMDMMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMDMMessage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMDMMessage {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMDMMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMDMMessage").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
+impl ::core::marker::Copy for WMDM_ENUM_PROP_VALID_VALUES_FORM {}
+impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMDM_ENUM_PROP_VALID_VALUES_FORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMDM_ENUM_PROP_VALID_VALUES_FORM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMDM_ENUM_PROP_VALID_VALUES_FORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMDM_ENUM_PROP_VALID_VALUES_FORM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6342,6 +6377,441 @@ impl ::core::fmt::Debug for WMDM_FORMATCODE {
         f.debug_tuple("WMDM_FORMATCODE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMDM_SESSION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(4096i32);
+impl ::core::marker::Copy for WMDM_SESSION_TYPE {}
+impl ::core::clone::Clone for WMDM_SESSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMDM_SESSION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMDM_SESSION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMDM_SESSION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMDM_SESSION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(2i32);
+impl ::core::marker::Copy for WMDM_STORAGE_ENUM_MODE {}
+impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMDM_STORAGE_ENUM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMDM_STORAGE_ENUM_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMDM_STORAGE_ENUM_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMDM_STORAGE_ENUM_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMDM_TAG_DATATYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_BINARY: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_BOOL: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(5i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(6i32);
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(7i32);
+impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
+impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMDM_TAG_DATATYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMDM_TAG_DATATYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMDM_TAG_DATATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMDM_TAG_DATATYPE").field(&self.0).finish()
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub struct MTP_COMMAND_DATA_IN {
+    pub OpCode: u16,
+    pub NumParams: u32,
+    pub Params: [u32; 5],
+    pub NextPhase: u32,
+    pub CommandWriteDataSize: u32,
+    pub CommandWriteData: [u8; 1],
+}
+impl ::core::marker::Copy for MTP_COMMAND_DATA_IN {}
+impl ::core::clone::Clone for MTP_COMMAND_DATA_IN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_IN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MTP_COMMAND_DATA_IN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MTP_COMMAND_DATA_IN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MTP_COMMAND_DATA_IN {}
+impl ::core::default::Default for MTP_COMMAND_DATA_IN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub struct MTP_COMMAND_DATA_OUT {
+    pub ResponseCode: u16,
+    pub NumParams: u32,
+    pub Params: [u32; 5],
+    pub CommandReadDataSize: u32,
+    pub CommandReadData: [u8; 1],
+}
+impl ::core::marker::Copy for MTP_COMMAND_DATA_OUT {}
+impl ::core::clone::Clone for MTP_COMMAND_DATA_OUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_OUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MTP_COMMAND_DATA_OUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MTP_COMMAND_DATA_OUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MTP_COMMAND_DATA_OUT {}
+impl ::core::default::Default for MTP_COMMAND_DATA_OUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub struct OPAQUECOMMAND {
+    pub guidCommand: ::windows::core::GUID,
+    pub dwDataLen: u32,
+    pub pData: *mut u8,
+    pub abMAC: [u8; 20],
+}
+impl ::core::marker::Copy for OPAQUECOMMAND {}
+impl ::core::clone::Clone for OPAQUECOMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OPAQUECOMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPAQUECOMMAND").field("guidCommand", &self.guidCommand).field("dwDataLen", &self.dwDataLen).field("pData", &self.pData).field("abMAC", &self.abMAC).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OPAQUECOMMAND {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OPAQUECOMMAND {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPAQUECOMMAND>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OPAQUECOMMAND {}
+impl ::core::default::Default for OPAQUECOMMAND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub struct WMDMDATETIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+}
+impl ::core::marker::Copy for WMDMDATETIME {}
+impl ::core::clone::Clone for WMDMDATETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMDMDATETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMDATETIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMDMDATETIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMDMDATETIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMDATETIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMDMDATETIME {}
+impl ::core::default::Default for WMDMDATETIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub union WMDMDetermineMaxPropStringLen {
+    pub sz001: [u16; 27],
+    pub sz002: [u16; 31],
+    pub sz003: [u16; 14],
+    pub sz004: [u16; 16],
+    pub sz005: [u16; 22],
+    pub sz006: [u16; 14],
+    pub sz007: [u16; 20],
+    pub sz008: [u16; 20],
+    pub sz009: [u16; 22],
+    pub sz010: [u16; 11],
+    pub sz011: [u16; 12],
+    pub sz012: [u16; 17],
+    pub sz013: [u16; 17],
+    pub sz014: [u16; 16],
+    pub sz015: [u16; 17],
+    pub sz016: [u16; 11],
+    pub sz017: [u16; 11],
+    pub sz018: [u16; 15],
+    pub sz019: [u16; 22],
+    pub sz020: [u16; 20],
+    pub sz021: [u16; 22],
+    pub sz022: [u16; 21],
+    pub sz023: [u16; 24],
+    pub sz024: [u16; 20],
+    pub sz025: [u16; 10],
+    pub sz026: [u16; 14],
+    pub sz027: [u16; 11],
+    pub sz028: [u16; 11],
+    pub sz029: [u16; 13],
+    pub sz030: [u16; 17],
+    pub sz031: [u16; 16],
+    pub sz032: [u16; 17],
+    pub sz033: [u16; 20],
+    pub sz034: [u16; 19],
+    pub sz035: [u16; 18],
+    pub sz036: [u16; 18],
+    pub sz037: [u16; 15],
+    pub sz041: [u16; 14],
+    pub sz043: [u16; 22],
+    pub sz044: [u16; 16],
+    pub sz045: [u16; 20],
+    pub sz046: [u16; 14],
+    pub sz047: [u16; 14],
+    pub sz048: [u16; 12],
+    pub sz049: [u16; 25],
+    pub sz050: [u16; 26],
+    pub sz051: [u16; 25],
+    pub sz052: [u16; 16],
+    pub sz053: [u16; 24],
+    pub sz054: [u16; 15],
+    pub sz055: [u16; 21],
+    pub sz056: [u16; 16],
+    pub sz057: [u16; 22],
+    pub sz058: [u16; 14],
+    pub sz059: [u16; 25],
+    pub sz060: [u16; 18],
+    pub sz061: [u16; 22],
+    pub sz062: [u16; 26],
+    pub sz063: [u16; 36],
+    pub sz064: [u16; 23],
+    pub sz065: [u16; 12],
+    pub sz066: [u16; 24],
+    pub sz067: [u16; 11],
+    pub sz068: [u16; 12],
+    pub sz069: [u16; 14],
+    pub sz070: [u16; 20],
+    pub sz071: [u16; 15],
+    pub sz072: [u16; 14],
+    pub sz073: [u16; 31],
+    pub sz074: [u16; 24],
+    pub sz075: [u16; 22],
+    pub sz076: [u16; 24],
+    pub sz077: [u16; 21],
+    pub sz078: [u16; 27],
+    pub sz079: [u16; 27],
+    pub sz080: [u16; 20],
+    pub sz081: [u16; 33],
+    pub sz082: [u16; 21],
+    pub sz083: [u16; 32],
+    pub sz084: [u16; 26],
+    pub sz085: [u16; 18],
+    pub sz086: [u16; 30],
+}
+impl ::core::marker::Copy for WMDMDetermineMaxPropStringLen {}
+impl ::core::clone::Clone for WMDMDetermineMaxPropStringLen {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMDMDetermineMaxPropStringLen {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMDMDetermineMaxPropStringLen {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMDetermineMaxPropStringLen>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMDMDetermineMaxPropStringLen {}
+impl ::core::default::Default for WMDMDetermineMaxPropStringLen {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub struct WMDMID {
+    pub cbSize: u32,
+    pub dwVendorID: u32,
+    pub pID: [u8; 128],
+    pub SerialNumberLength: u32,
+}
+impl ::core::marker::Copy for WMDMID {}
+impl ::core::clone::Clone for WMDMID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMDMID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMID").field("cbSize", &self.cbSize).field("dwVendorID", &self.dwVendorID).field("pID", &self.pID).field("SerialNumberLength", &self.SerialNumberLength).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMDMID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMDMID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMDMID {}
+impl ::core::default::Default for WMDMID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub struct WMDMMetadataView {
+    pub pwszViewName: ::windows::core::PWSTR,
+    pub nDepth: u32,
+    pub ppwszTags: *mut *mut u16,
+}
+impl ::core::marker::Copy for WMDMMetadataView {}
+impl ::core::clone::Clone for WMDMMetadataView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMDMMetadataView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMMetadataView").field("pwszViewName", &self.pwszViewName).field("nDepth", &self.nDepth).field("ppwszTags", &self.ppwszTags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMDMMetadataView {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMDMMetadataView {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMMetadataView>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMDMMetadataView {}
+impl ::core::default::Default for WMDMMetadataView {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
+pub struct WMDMRIGHTS {
+    pub cbSize: u32,
+    pub dwContentType: u32,
+    pub fuFlags: u32,
+    pub fuRights: u32,
+    pub dwAppSec: u32,
+    pub dwPlaybackCount: u32,
+    pub ExpirationDate: WMDMDATETIME,
+}
+impl ::core::marker::Copy for WMDMRIGHTS {}
+impl ::core::clone::Clone for WMDMRIGHTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMDMRIGHTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDMRIGHTS").field("cbSize", &self.cbSize).field("dwContentType", &self.dwContentType).field("fuFlags", &self.fuFlags).field("fuRights", &self.fuRights).field("dwAppSec", &self.dwAppSec).field("dwPlaybackCount", &self.dwPlaybackCount).field("ExpirationDate", &self.ExpirationDate).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMDMRIGHTS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMDMRIGHTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMRIGHTS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMDMRIGHTS {}
+impl ::core::default::Default for WMDMRIGHTS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6381,46 +6851,6 @@ impl ::core::default::Default for WMDM_FORMAT_CAPABILITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_GET_FORMAT_SUPPORT_FILE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_GET_FORMAT_SUPPORT_VIDEO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_LOG_NOTIMESTAMP: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_LOG_SEV_ERROR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_LOG_SEV_INFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_LOG_SEV_WARN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MAC_LENGTH: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MODE_BLOCK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MODE_PROGRESS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MODE_QUERY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MODE_RECURSIVE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MODE_THREAD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MODE_TRANSFER_PROTECTED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_MODE_TRANSFER_UNPROTECTED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_POWER_CAP_BATTERY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_POWER_CAP_EXTERNAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6595,244 +7025,6 @@ impl ::core::default::Default for WMDM_PROP_VALUES_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_COPY_TO_NON_SDMI_DEVICE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_COPY_TO_SDMI_DEVICE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_EXPIRATIONDATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_FREESERIALIDS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_GROUPID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_NAMEDSERIALIDS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_PLAYBACKCOUNT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_RIGHTS_PLAY_ON_PC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_DECIDE_DATA: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_DRMINFO_NOT_DRMPROTECTED: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_DRMINFO_V1HEADER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_DRMINFO_V2HEADER: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_EXAMINE_DATA: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_EXAMINE_EXTENSION: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_NO_MORE_CHANGES: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_PROTECTED_OUTPUT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_REVOKED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_RIGHTS_DATA: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_TRANSFER_OBJECTDATA: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SCP_UNPROTECTED_OUTPUT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SEEK_BEGIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SEEK_CURRENT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SEEK_END: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
-pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de8686d_78ee_43ea_a496_c625ac91cc5d);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMDM_SESSION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(256i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(4096i32);
-impl ::core::marker::Copy for WMDM_SESSION_TYPE {}
-impl ::core::clone::Clone for WMDM_SESSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_SESSION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMDM_SESSION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMDM_SESSION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMDM_SESSION_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_SP_REVOKED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_BUSY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_DEVICECONTROL_PAUSED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_DEVICECONTROL_PLAYING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_DEVICECONTROL_RECORDING: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_DEVICECONTROL_REMOTE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_DEVICECONTROL_STREAM: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_DEVICE_NOTPRESENT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_READY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGECONTROL_APPENDING: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGECONTROL_DELETING: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGECONTROL_INSERTING: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGECONTROL_MOVING: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGECONTROL_READING: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGE_BROKEN: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGE_INITIALIZING: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGE_NOTPRESENT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGE_NOTSUPPORTED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STATUS_STORAGE_UNFORMATTED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECAP_FILELIMITEXISTS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECAP_FILESINFOLDERS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECAP_FILESINROOT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECAP_FOLDERLIMITEXISTS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECAP_FOLDERSINFOLDERS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECAP_FOLDERSINROOT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECAP_NOT_INITIALIZABLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECONTROL_INSERTAFTER: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECONTROL_INSERTBEFORE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGECONTROL_INSERTINTO: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_CANEDITMETADATA: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_FILESYSTEM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_FOLDERS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_HAS_FILES: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_HAS_FOLDERS: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(2i32);
-impl ::core::marker::Copy for WMDM_STORAGE_ENUM_MODE {}
-impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_STORAGE_ENUM_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMDM_STORAGE_ENUM_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMDM_STORAGE_ENUM_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMDM_STORAGE_ENUM_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMDM_TAG_DATATYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_BINARY: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_BOOL: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(6i32);
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(7i32);
-impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
-impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_TAG_DATATYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMDM_TAG_DATATYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMDM_TAG_DATATYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMDM_TAG_DATATYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct WMFILECAPABILITIES {
@@ -6903,197 +7095,5 @@ impl ::core::default::Default for __MACINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszAudioWAVECodec: &str = "WMDM/AudioWAVECodec";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszVideoFourCCCodec: &str = "WMDM/VideoFourCCCodec";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumArt: &str = "WMDM/AlbumArt";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumArtist: &str = "WMDM/AlbumArtist";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumCoverData: &str = "WMDM/AlbumCoverData";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumCoverDuration: &str = "WMDM/AlbumCoverDuration";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumCoverFormat: &str = "WMDM/AlbumCoverFormat";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumCoverHeight: &str = "WMDM/AlbumCoverHeight";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumCoverSize: &str = "WMDM/AlbumCoverSize";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumCoverWidth: &str = "WMDM/AlbumCoverWidth";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAlbumTitle: &str = "WMDM/AlbumTitle";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAudioBitDepth: &str = "WMDM/AudioBitDepth";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAuthor: &str = "WMDM/Author";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMAuthorDate: &str = "WMDM/AuthorDate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMBitRateType: &str = "WMDM/BitRateType";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMBitrate: &str = "WMDM/Bitrate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMBlockAlignment: &str = "WMDM/BlockAlignment";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMBufferSize: &str = "WMDM/BufferSize";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMBuyNow: &str = "WMDM/BuyNow";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMByteBookmark: &str = "WMDM/ByteBookmark";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMCategory: &str = "WMDM/Category";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMCodec: &str = "WMDM/Codec";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMCollectionID: &str = "WMDM/CollectionID";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMComposer: &str = "WMDM/Composer";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDRMId: &str = "WMDM/DRMId";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDataLength: &str = "WMDM/DataLength";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDataOffset: &str = "WMDM/DataOffset";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDataUnits: &str = "WMDM/DataUnits";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDescription: &str = "WMDM/Description";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDestinationURL: &str = "WMDM/DestinationURL";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDeviceFirmwareVersion: &str = "WMDM/DeviceFirmwareVersion";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDeviceFriendlyName: &str = "WMDM/DeviceFriendlyName";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDeviceModelName: &str = "WMDM/DeviceModelName";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDevicePlayCount: &str = "WMDM/DevicePlayCount";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDeviceProtocol: &str = "WMDM/DeviceProtocol";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDeviceRevocationInfo: &str = "WMDM/DeviceRevocationInfo";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDeviceServiceProviderVendor: &str = "WMDM/DeviceServiceProviderVendor";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDeviceVendorExtension: &str = "WMDM/DeviceVendorExtension";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMDuration: &str = "WMDM/Duration";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMEditor: &str = "WMDM/Editor";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMEncodingProfile: &str = "WMDM/EncodingProfile";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFileAttributes: &str = "WMDM/FileAttributes";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFileCreationDate: &str = "WMDM/FileCreationDate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFileName: &str = "WMDM/FileName";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFileSize: &str = "WMDM/FileSize";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFormatCode: &str = "WMDM/FormatCode";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFormatsSupported: &str = "WMDM/FormatsSupported";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFormatsSupportedAreOrdered: &str = "WMDM/FormatsSupportedAreOrdered";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMFrameRate: &str = "WMDM/FrameRate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMGenre: &str = "WMDM/Genre";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMHeight: &str = "WMDM/Height";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMIsProtected: &str = "WMDM/IsProtected";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMIsRepeat: &str = "WMDM/IsRepeat";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMKeyFrameDistance: &str = "WMDM/KeyFrameDistance";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMLastModifiedDate: &str = "WMDM/LastModifiedDate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMMediaClassSecondaryID: &str = "WMDM/MediaClassSecondaryID";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMMediaCredits: &str = "WMDM/MediaCredits";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMMediaGuid: &str = "WMDM/MediaGuid";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMMediaOriginalBroadcastDateTime: &str = "WMDM/MediaOriginalBroadcastDateTime";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMMediaOriginalChannel: &str = "WMDM/MediaOriginalChannel";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMMediaStationName: &str = "WMDM/MediaStationName";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMMetaGenre: &str = "WMDM/MetaGenre";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMNonConsumable: &str = "WMDM/NonConsumable";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMNumChannels: &str = "WMDM/NumChannels";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMObjectBookmark: &str = "WMDM/ObjectBookmark";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMOwner: &str = "WMDM/Owner";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMParentalRating: &str = "WMDM/ParentalRating";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMPersistentUniqueID: &str = "WMDM/PersistentUniqueID";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMPlayCount: &str = "WMDM/PlayCount";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMProviderCopyright: &str = "WMDM/ProviderCopyright";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMQualitySetting: &str = "WMDM/QualitySetting";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSampleRate: &str = "WMDM/SampleRate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMScanType: &str = "WMDM/ScanType";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSourceURL: &str = "WMDM/SourceURL";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSubTitle: &str = "WMDM/SubTitle";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSubTitleDescription: &str = "WMDM/SubTitleDescription";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSupportedDeviceProperties: &str = "WMDM/SupportedDeviceProperties";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSyncID: &str = "WMDM/SyncID";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSyncRelationshipID: &str = "WMDM/SyncRelationshipID";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMSyncTime: &str = "WMDM/SyncTime";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMTimeBookmark: &str = "WMDM/TimeBookmark";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMTimeToLive: &str = "WMDM/TimeToLive";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMTitle: &str = "WMDM/Title";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMTotalBitrate: &str = "WMDM/TotalBitrate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMTrack: &str = "WMDM/Track";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMTrackMood: &str = "WMDM/TrackMood";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMUserEffectiveRating: &str = "WMDM/UserEffectiveRating";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMUserLastPlayTime: &str = "WMDM/UserLastPlayTime";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMUserRating: &str = "WMDM/UserRating";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMUserRatingOnDevice: &str = "WMDM/UserRatingOnDevice";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMVideoBitrate: &str = "WMDM/VideoBitrate";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMWebmaster: &str = "WMDM/Webmaster";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMWidth: &str = "WMDM/Width";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMYear: &str = "WMDM/Year";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWMDMediaClassPrimaryID: &str = "WMDM/MediaClassPrimaryID";
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub const g_wszWPDPassthroughPropertyValues: &str = "WPD/PassthroughPropertyValues";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

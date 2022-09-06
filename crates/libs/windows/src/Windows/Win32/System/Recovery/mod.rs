@@ -48,6 +48,46 @@ where
     }
     GetApplicationRestartSettings(hprocess.into(), ::core::mem::transmute(pwzcommandline), ::core::mem::transmute(pcchsize), ::core::mem::transmute(pdwflags)).ok()
 }
+#[doc = "*Required features: `\"Win32_System_Recovery\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
+pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterApplicationRecoveryCallback(precoveycallback: *mut ::core::ffi::c_void, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::HRESULT;
+    }
+    RegisterApplicationRecoveryCallback(::core::mem::transmute(precoveycallback), ::core::mem::transmute(pvparameter), dwpinginterval, dwflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
+#[inline]
+pub unsafe fn RegisterApplicationRestart<'a, P0>(pwzcommandline: P0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterApplicationRestart(pwzcommandline: ::windows::core::PCWSTR, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::HRESULT;
+    }
+    RegisterApplicationRestart(pwzcommandline.into(), dwflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
+#[inline]
+pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterApplicationRecoveryCallback() -> ::windows::core::HRESULT;
+    }
+    UnregisterApplicationRecoveryCallback().ok()
+}
+#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
+#[inline]
+pub unsafe fn UnregisterApplicationRestart() -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterApplicationRestart() -> ::windows::core::HRESULT;
+    }
+    UnregisterApplicationRestart().ok()
+}
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -106,46 +146,6 @@ impl ::core::ops::Not for REGISTER_APPLICATION_RESTART_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[doc = "*Required features: `\"Win32_System_Recovery\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-#[inline]
-pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterApplicationRecoveryCallback(precoveycallback: *mut ::core::ffi::c_void, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::HRESULT;
-    }
-    RegisterApplicationRecoveryCallback(::core::mem::transmute(precoveycallback), ::core::mem::transmute(pvparameter), dwpinginterval, dwflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
-#[inline]
-pub unsafe fn RegisterApplicationRestart<'a, P0>(pwzcommandline: P0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterApplicationRestart(pwzcommandline: ::windows::core::PCWSTR, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::HRESULT;
-    }
-    RegisterApplicationRestart(pwzcommandline.into(), dwflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
-#[inline]
-pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterApplicationRecoveryCallback() -> ::windows::core::HRESULT;
-    }
-    UnregisterApplicationRecoveryCallback().ok()
-}
-#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
-#[inline]
-pub unsafe fn UnregisterApplicationRestart() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterApplicationRestart() -> ::windows::core::HRESULT;
-    }
-    UnregisterApplicationRestart().ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

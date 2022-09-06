@@ -1,37 +1,63 @@
-#[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
+#[doc(hidden)]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AddContactResult(pub i32);
-impl AddContactResult {
-    pub const Added: Self = Self(0i32);
-    pub const AlreadyAdded: Self = Self(1i32);
-    pub const Unavailable: Self = Self(2i32);
+pub struct IContactPickerUI(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactPickerUI {
+    type Vtable = IContactPickerUI_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 }
-impl ::core::marker::Copy for AddContactResult {}
-impl ::core::clone::Clone for AddContactResult {
-    fn clone(&self) -> Self {
-        *self
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactPickerUI_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contact: *mut ::core::ffi::c_void, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    AddContact: usize,
+    pub RemoveContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ContainsContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub DesiredFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    DesiredFields: usize,
+    pub SelectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ContactSelectionMode) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ContactRemoved: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveContactRemoved: usize,
 }
-impl ::core::default::Default for AddContactResult {
-    fn default() -> Self {
-        Self(0)
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactPickerUI2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactPickerUI2 {
+    type Vtable = IContactPickerUI2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 }
-unsafe impl ::windows::core::Abi for AddContactResult {
-    type Abi = Self;
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactPickerUI2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: *mut ::core::ffi::c_void, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DesiredFieldsWithContactFieldType: usize,
 }
-impl ::core::fmt::Debug for AddContactResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddContactResult").field(&self.0).finish()
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactRemovedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactRemovedEventArgs {
+    type Vtable = IContactRemovedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 }
-unsafe impl ::windows::core::RuntimeType for AddContactResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactRemovedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
@@ -246,66 +272,40 @@ impl ::core::convert::From<&ContactRemovedEventArgs> for &::windows::core::IInsp
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc(hidden)]
+#[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
-pub struct IContactPickerUI(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactPickerUI {
-    type Vtable = IContactPickerUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AddContactResult(pub i32);
+impl AddContactResult {
+    pub const Added: Self = Self(0i32);
+    pub const AlreadyAdded: Self = Self(1i32);
+    pub const Unavailable: Self = Self(2i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactPickerUI_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contact: *mut ::core::ffi::c_void, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AddContact: usize,
-    pub RemoveContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ContainsContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub DesiredFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
-    DesiredFields: usize,
-    pub SelectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ContactSelectionMode) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ContactRemoved: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveContactRemoved: usize,
+impl ::core::marker::Copy for AddContactResult {}
+impl ::core::clone::Clone for AddContactResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactPickerUI2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactPickerUI2 {
-    type Vtable = IContactPickerUI2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
+impl ::core::default::Default for AddContactResult {
+    fn default() -> Self {
+        Self(0)
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactPickerUI2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: *mut ::core::ffi::c_void, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DesiredFieldsWithContactFieldType: usize,
+unsafe impl ::windows::core::Abi for AddContactResult {
+    type Abi = Self;
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactRemovedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactRemovedEventArgs {
-    type Vtable = IContactRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
+impl ::core::fmt::Debug for AddContactResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddContactResult").field(&self.0).finish()
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactRemovedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::RuntimeType for AddContactResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

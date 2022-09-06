@@ -2928,97 +2928,6 @@ pub struct IOpcUri_Vtbl {
     CombinePartUri: usize,
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OPC_CANONICALIZATION_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_CANONICALIZATION_C14N: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_CANONICALIZATION_C14N_WITH_COMMENTS: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(2i32);
-impl ::core::marker::Copy for OPC_CANONICALIZATION_METHOD {}
-impl ::core::clone::Clone for OPC_CANONICALIZATION_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_CANONICALIZATION_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OPC_CANONICALIZATION_METHOD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OPC_CANONICALIZATION_METHOD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OPC_CANONICALIZATION_METHOD").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_CERTIFICATE_IN_SIGNATURE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_CERTIFICATE_NOT_EMBEDDED: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(2i32);
-impl ::core::marker::Copy for OPC_CERTIFICATE_EMBEDDING_OPTION {}
-impl ::core::clone::Clone for OPC_CERTIFICATE_EMBEDDING_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_CERTIFICATE_EMBEDDING_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OPC_CERTIFICATE_EMBEDDING_OPTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OPC_CERTIFICATE_EMBEDDING_OPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OPC_CERTIFICATE_EMBEDDING_OPTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OPC_COMPRESSION_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(-1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_COMPRESSION_NORMAL: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_COMPRESSION_MAXIMUM: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_COMPRESSION_FAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_COMPRESSION_SUPERFAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(3i32);
-impl ::core::marker::Copy for OPC_COMPRESSION_OPTIONS {}
-impl ::core::clone::Clone for OPC_COMPRESSION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_COMPRESSION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OPC_COMPRESSION_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OPC_COMPRESSION_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OPC_COMPRESSION_OPTIONS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175212i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_COULD_NOT_RECOVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175154i32);
@@ -3222,6 +3131,98 @@ pub const OPC_E_ZIP_NAME_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::
 pub const OPC_E_ZIP_REQUIRES_64_BIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171120i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_E_ZIP_UNSUPPORTEDARCHIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171128i32);
+pub const OpcFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OPC_CANONICALIZATION_METHOD(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_CANONICALIZATION_C14N: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_CANONICALIZATION_C14N_WITH_COMMENTS: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(2i32);
+impl ::core::marker::Copy for OPC_CANONICALIZATION_METHOD {}
+impl ::core::clone::Clone for OPC_CANONICALIZATION_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OPC_CANONICALIZATION_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_CANONICALIZATION_METHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_CANONICALIZATION_METHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_CANONICALIZATION_METHOD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_CERTIFICATE_IN_SIGNATURE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_CERTIFICATE_NOT_EMBEDDED: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(2i32);
+impl ::core::marker::Copy for OPC_CERTIFICATE_EMBEDDING_OPTION {}
+impl ::core::clone::Clone for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_CERTIFICATE_EMBEDDING_OPTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OPC_COMPRESSION_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(-1i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_COMPRESSION_NORMAL: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_COMPRESSION_MAXIMUM: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_COMPRESSION_FAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
+pub const OPC_COMPRESSION_SUPERFAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(3i32);
+impl ::core::marker::Copy for OPC_COMPRESSION_OPTIONS {}
+impl ::core::clone::Clone for OPC_COMPRESSION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OPC_COMPRESSION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_COMPRESSION_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_COMPRESSION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_COMPRESSION_OPTIONS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3504,6 +3505,5 @@ impl ::core::ops::Not for OPC_WRITE_FLAGS {
         Self(self.0.not())
     }
 }
-pub const OpcFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

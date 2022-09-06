@@ -4,6 +4,742 @@ pub mod Diagnostics;
 pub mod Filters;
 #[cfg(feature = "Web_Http_Headers")]
 pub mod Headers;
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpBufferContentFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpBufferContentFactory {
+    type Vtable = IHttpBufferContentFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc20c193_c41f_4ff7_9123_6435736eadc2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpBufferContentFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFromBuffer: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFromBufferWithOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, offset: u32, count: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFromBufferWithOffset: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpClient(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpClient {
+    type Vtable = IHttpClient_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpClient_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DeleteAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetWithOptionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetWithOptionAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub GetBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    GetBufferAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub GetInputStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    GetInputStreamAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetStringAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub PostAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PostAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub PutAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PutAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub SendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SendRequestAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub SendRequestWithOptionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SendRequestWithOptionAsync: usize,
+    #[cfg(feature = "Web_Http_Headers")]
+    pub DefaultRequestHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Web_Http_Headers"))]
+    DefaultRequestHeaders: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpClient2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpClient2 {
+    type Vtable = IHttpClient2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd83348_e8b7_4cec_b1b0_dc455fe72c92);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpClient2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub TryDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryDeleteAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryGetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryGetAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryGetAsync2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryGetAsync2: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryGetBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryGetBufferAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryGetInputStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryGetInputStreamAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryGetStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryGetStringAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryPostAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryPostAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryPutAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryPutAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TrySendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TrySendRequestAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TrySendRequestAsync2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TrySendRequestAsync2: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpClientFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpClientFactory {
+    type Vtable = IHttpClientFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30c4eca_e3fa_4f99_afb4_63cc65009462);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpClientFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Web_Http_Filters")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Web_Http_Filters"))]
+    Create: usize,
+}
+#[doc = "*Required features: `\"Web_Http\"`*"]
+#[repr(transparent)]
+pub struct IHttpContent(::windows::core::IUnknown);
+impl IHttpContent {
+    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
+    #[cfg(feature = "Web_Http_Headers")]
+    pub fn Headers(&self) -> ::windows::core::Result<Headers::HttpContentHeaderCollection> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn BufferAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn ReadAsBufferAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn ReadAsInputStreamAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadAsStringAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+        }
+    }
+    pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+}
+impl ::core::convert::From<IHttpContent> for ::windows::core::IUnknown {
+    fn from(value: IHttpContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHttpContent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IHttpContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IHttpContent> for ::windows::core::IUnknown {
+    fn from(value: &IHttpContent) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<IHttpContent> for ::windows::core::IInspectable {
+    fn from(value: IHttpContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHttpContent> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IHttpContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IHttpContent> for ::windows::core::IInspectable {
+    fn from(value: &IHttpContent) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<IHttpContent> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IHttpContent) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&IHttpContent> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IHttpContent) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&IHttpContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IHttpContent) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::clone::Clone for IHttpContent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IHttpContent {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IHttpContent {}
+impl ::core::fmt::Debug for IHttpContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHttpContent").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IHttpContent {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for IHttpContent {
+    type Vtable = IHttpContent_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpContent_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Web_Http_Headers")]
+    pub Headers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Web_Http_Headers"))]
+    Headers: usize,
+    #[cfg(feature = "Foundation")]
+    pub BufferAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    BufferAllAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub ReadAsBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    ReadAsBufferAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub ReadAsInputStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    ReadAsInputStreamAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReadAsStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReadAsStringAsync: usize,
+    pub TryComputeLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut u64, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub WriteToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    WriteToStreamAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpCookie(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpCookie {
+    type Vtable = IHttpCookie_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5488e2_cc2d_4779_86a7_88f10687d249);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpCookie_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub Expires: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Expires: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetExpires: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetExpires: usize,
+    pub HttpOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetHttpOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub Secure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpCookieFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpCookieFactory {
+    type Vtable = IHttpCookieFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0585a9_931c_4cd1_a96d_c21701785c5f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpCookieFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domain: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpCookieManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpCookieManager {
+    type Vtable = IHttpCookieManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpCookieManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SetCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetCookieWithThirdParty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: *mut ::core::ffi::c_void, thirdparty: bool, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub DeleteCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetCookies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetCookies: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpFormUrlEncodedContentFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpFormUrlEncodedContentFactory {
+    type Vtable = IHttpFormUrlEncodedContentFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f0138c_2f73_4302_b5f3_eae9238a5e01);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpFormUrlEncodedContentFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Create: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpGetBufferResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpGetBufferResult {
+    type Vtable = IHttpGetBufferResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d08e7c_e209_404e_9a49_742d8236fd3a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpGetBufferResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Value: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpGetInputStreamResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpGetInputStreamResult {
+    type Vtable = IHttpGetInputStreamResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpGetInputStreamResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Value: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpGetStringResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpGetStringResult {
+    type Vtable = IHttpGetStringResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bac466d_8509_4775_b16d_8953f47a7f5f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpGetStringResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpMethod(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpMethod {
+    type Vtable = IHttpMethod_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728d4022_700d_4fe0_afa5_40299c58dbfd);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpMethod_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Method: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpMethodFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpMethodFactory {
+    type Vtable = IHttpMethodFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c51d10d_36d7_40f8_a86d_e759caf2f83f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpMethodFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpMethodStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpMethodStatics {
+    type Vtable = IHttpMethodStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d171f0_d99a_4153_8dc6_d68cc4cce317);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpMethodStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Head: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Patch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Post: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Put: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpMultipartContent(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpMultipartContent {
+    type Vtable = IHttpMultipartContent_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf916aff_9926_4ac9_aaf1_e0d04ef09bb9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpMultipartContent_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpMultipartContentFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpMultipartContentFactory {
+    type Vtable = IHttpMultipartContentFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb42e62_0222_4f20_b372_47d5db5d33b4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpMultipartContentFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateWithSubtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateWithSubtypeAndBoundary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpMultipartFormDataContent(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContent {
+    type Vtable = IHttpMultipartFormDataContent_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d337e2_e967_4624_b6d1_cf74604a4a42);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpMultipartFormDataContent_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AddWithNameAndFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpMultipartFormDataContentFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContentFactory {
+    type Vtable = IHttpMultipartFormDataContentFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa04d7311_5017_4622_93a8_49b24a4fcbfc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpMultipartFormDataContentFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateWithBoundary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpRequestMessage(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpRequestMessage {
+    type Vtable = IHttpRequestMessage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpRequestMessage_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Web_Http_Headers")]
+    pub Headers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Web_Http_Headers"))]
+    Headers: usize,
+    pub Method: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    #[cfg(feature = "Foundation")]
+    pub RequestUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestUri: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetRequestUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetRequestUri: usize,
+    pub TransportInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpRequestMessageFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpRequestMessageFactory {
+    type Vtable = IHttpRequestMessageFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bac994e_3886_412e_aec3_52ec7f25616f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpRequestMessageFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Create: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpRequestResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpRequestResult {
+    type Vtable = IHttpRequestResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpRequestResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpResponseMessage(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpResponseMessage {
+    type Vtable = IHttpResponseMessage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee200fb_8664_44e0_95d9_42696199bffc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpResponseMessage_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Web_Http_Headers")]
+    pub Headers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Web_Http_Headers"))]
+    Headers: usize,
+    pub IsSuccessStatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub ReasonPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetReasonPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetRequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpResponseMessageSource) -> ::windows::core::HRESULT,
+    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpResponseMessageSource) -> ::windows::core::HRESULT,
+    pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpStatusCode) -> ::windows::core::HRESULT,
+    pub SetStatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpStatusCode) -> ::windows::core::HRESULT,
+    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpVersion) -> ::windows::core::HRESULT,
+    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpVersion) -> ::windows::core::HRESULT,
+    pub EnsureSuccessStatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpResponseMessageFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpResponseMessageFactory {
+    type Vtable = IHttpResponseMessageFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52a8af99_f095_43da_b60f_7cfc2bc7ea2f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpResponseMessageFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statuscode: HttpStatusCode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpStreamContentFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpStreamContentFactory {
+    type Vtable = IHttpStreamContentFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3e64d9d_f725_407e_942f_0eda189809f4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpStreamContentFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFromInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFromInputStream: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpStringContentFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpStringContentFactory {
+    type Vtable = IHttpStringContentFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46649d5b_2e93_48eb_8e61_19677878e57f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpStringContentFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateFromString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFromStringWithEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, encoding: super::super::Storage::Streams::UnicodeEncoding, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFromStringWithEncoding: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFromStringWithEncodingAndMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFromStringWithEncodingAndMediaType: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpTransportInformation(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHttpTransportInformation {
+    type Vtable = IHttpTransportInformation_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpTransportInformation_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Cryptography_Certificates")]
+    pub ServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
+    ServerCertificate: usize,
+    #[cfg(feature = "Networking_Sockets")]
+    pub ServerCertificateErrorSeverity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Networking::Sockets::SocketSslErrorSeverity) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Networking_Sockets"))]
+    ServerCertificateErrorSeverity: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub ServerCertificateErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    ServerCertificateErrors: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub ServerIntermediateCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    ServerIntermediateCertificates: usize,
+}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
 pub struct HttpBufferContent(::windows::core::IUnknown);
@@ -650,40 +1386,6 @@ impl<'a> ::core::convert::TryFrom<&HttpClient> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for HttpClient {}
 unsafe impl ::core::marker::Sync for HttpClient {}
-#[doc = "*Required features: `\"Web_Http\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HttpCompletionOption(pub i32);
-impl HttpCompletionOption {
-    pub const ResponseContentRead: Self = Self(0i32);
-    pub const ResponseHeadersRead: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HttpCompletionOption {}
-impl ::core::clone::Clone for HttpCompletionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpCompletionOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HttpCompletionOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpCompletionOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCompletionOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HttpCompletionOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
 pub struct HttpCookie(::windows::core::IUnknown);
@@ -2629,104 +3331,6 @@ impl<'a> ::core::convert::TryFrom<&HttpMultipartFormDataContent> for ::windows::
 }
 unsafe impl ::core::marker::Send for HttpMultipartFormDataContent {}
 unsafe impl ::core::marker::Sync for HttpMultipartFormDataContent {}
-#[repr(C)]
-#[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
-#[cfg(feature = "Foundation")]
-pub struct HttpProgress {
-    pub Stage: HttpProgressStage,
-    pub BytesSent: u64,
-    pub TotalBytesToSend: ::core::option::Option<super::super::Foundation::IReference<u64>>,
-    pub BytesReceived: u64,
-    pub TotalBytesToReceive: ::core::option::Option<super::super::Foundation::IReference<u64>>,
-    pub Retries: u32,
-}
-#[cfg(feature = "Foundation")]
-impl ::core::clone::Clone for HttpProgress {
-    fn clone(&self) -> Self {
-        Self {
-            Stage: self.Stage,
-            BytesSent: self.BytesSent,
-            TotalBytesToSend: self.TotalBytesToSend.clone(),
-            BytesReceived: self.BytesReceived,
-            TotalBytesToReceive: self.TotalBytesToReceive.clone(),
-            Retries: self.Retries,
-        }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for HttpProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HttpProgress").field("Stage", &self.Stage).field("BytesSent", &self.BytesSent).field("TotalBytesToSend", &self.TotalBytesToSend).field("BytesReceived", &self.BytesReceived).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("Retries", &self.Retries).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Abi for HttpProgress {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::RuntimeType for HttpProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for HttpProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.Stage == other.Stage && self.BytesSent == other.BytesSent && self.TotalBytesToSend == other.TotalBytesToSend && self.BytesReceived == other.BytesReceived && self.TotalBytesToReceive == other.TotalBytesToReceive && self.Retries == other.Retries
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for HttpProgress {}
-#[cfg(feature = "Foundation")]
-impl ::core::default::Default for HttpProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Web_Http\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HttpProgressStage(pub i32);
-impl HttpProgressStage {
-    pub const None: Self = Self(0i32);
-    pub const DetectingProxy: Self = Self(10i32);
-    pub const ResolvingName: Self = Self(20i32);
-    pub const ConnectingToServer: Self = Self(30i32);
-    pub const NegotiatingSsl: Self = Self(40i32);
-    pub const SendingHeaders: Self = Self(50i32);
-    pub const SendingContent: Self = Self(60i32);
-    pub const WaitingForResponse: Self = Self(70i32);
-    pub const ReceivingHeaders: Self = Self(80i32);
-    pub const ReceivingContent: Self = Self(90i32);
-}
-impl ::core::marker::Copy for HttpProgressStage {}
-impl ::core::clone::Clone for HttpProgressStage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpProgressStage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HttpProgressStage {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpProgressStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpProgressStage").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HttpProgressStage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
 pub struct HttpRequestMessage(::windows::core::IUnknown);
@@ -3345,131 +3949,6 @@ unsafe impl ::core::marker::Send for HttpResponseMessage {}
 unsafe impl ::core::marker::Sync for HttpResponseMessage {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HttpResponseMessageSource(pub i32);
-impl HttpResponseMessageSource {
-    pub const None: Self = Self(0i32);
-    pub const Cache: Self = Self(1i32);
-    pub const Network: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HttpResponseMessageSource {}
-impl ::core::clone::Clone for HttpResponseMessageSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpResponseMessageSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HttpResponseMessageSource {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpResponseMessageSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpResponseMessageSource").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HttpResponseMessageSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_Http\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HttpStatusCode(pub i32);
-impl HttpStatusCode {
-    pub const None: Self = Self(0i32);
-    pub const Continue: Self = Self(100i32);
-    pub const SwitchingProtocols: Self = Self(101i32);
-    pub const Processing: Self = Self(102i32);
-    pub const Ok: Self = Self(200i32);
-    pub const Created: Self = Self(201i32);
-    pub const Accepted: Self = Self(202i32);
-    pub const NonAuthoritativeInformation: Self = Self(203i32);
-    pub const NoContent: Self = Self(204i32);
-    pub const ResetContent: Self = Self(205i32);
-    pub const PartialContent: Self = Self(206i32);
-    pub const MultiStatus: Self = Self(207i32);
-    pub const AlreadyReported: Self = Self(208i32);
-    pub const IMUsed: Self = Self(226i32);
-    pub const MultipleChoices: Self = Self(300i32);
-    pub const MovedPermanently: Self = Self(301i32);
-    pub const Found: Self = Self(302i32);
-    pub const SeeOther: Self = Self(303i32);
-    pub const NotModified: Self = Self(304i32);
-    pub const UseProxy: Self = Self(305i32);
-    pub const TemporaryRedirect: Self = Self(307i32);
-    pub const PermanentRedirect: Self = Self(308i32);
-    pub const BadRequest: Self = Self(400i32);
-    pub const Unauthorized: Self = Self(401i32);
-    pub const PaymentRequired: Self = Self(402i32);
-    pub const Forbidden: Self = Self(403i32);
-    pub const NotFound: Self = Self(404i32);
-    pub const MethodNotAllowed: Self = Self(405i32);
-    pub const NotAcceptable: Self = Self(406i32);
-    pub const ProxyAuthenticationRequired: Self = Self(407i32);
-    pub const RequestTimeout: Self = Self(408i32);
-    pub const Conflict: Self = Self(409i32);
-    pub const Gone: Self = Self(410i32);
-    pub const LengthRequired: Self = Self(411i32);
-    pub const PreconditionFailed: Self = Self(412i32);
-    pub const RequestEntityTooLarge: Self = Self(413i32);
-    pub const RequestUriTooLong: Self = Self(414i32);
-    pub const UnsupportedMediaType: Self = Self(415i32);
-    pub const RequestedRangeNotSatisfiable: Self = Self(416i32);
-    pub const ExpectationFailed: Self = Self(417i32);
-    pub const UnprocessableEntity: Self = Self(422i32);
-    pub const Locked: Self = Self(423i32);
-    pub const FailedDependency: Self = Self(424i32);
-    pub const UpgradeRequired: Self = Self(426i32);
-    pub const PreconditionRequired: Self = Self(428i32);
-    pub const TooManyRequests: Self = Self(429i32);
-    pub const RequestHeaderFieldsTooLarge: Self = Self(431i32);
-    pub const InternalServerError: Self = Self(500i32);
-    pub const NotImplemented: Self = Self(501i32);
-    pub const BadGateway: Self = Self(502i32);
-    pub const ServiceUnavailable: Self = Self(503i32);
-    pub const GatewayTimeout: Self = Self(504i32);
-    pub const HttpVersionNotSupported: Self = Self(505i32);
-    pub const VariantAlsoNegotiates: Self = Self(506i32);
-    pub const InsufficientStorage: Self = Self(507i32);
-    pub const LoopDetected: Self = Self(508i32);
-    pub const NotExtended: Self = Self(510i32);
-    pub const NetworkAuthenticationRequired: Self = Self(511i32);
-}
-impl ::core::marker::Copy for HttpStatusCode {}
-impl ::core::clone::Clone for HttpStatusCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpStatusCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HttpStatusCode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpStatusCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpStatusCode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HttpStatusCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_Http\"`*"]
-#[repr(transparent)]
 pub struct HttpStreamContent(::windows::core::IUnknown);
 impl HttpStreamContent {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4069,6 +4548,207 @@ unsafe impl ::core::marker::Sync for HttpTransportInformation {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HttpCompletionOption(pub i32);
+impl HttpCompletionOption {
+    pub const ResponseContentRead: Self = Self(0i32);
+    pub const ResponseHeadersRead: Self = Self(1i32);
+}
+impl ::core::marker::Copy for HttpCompletionOption {}
+impl ::core::clone::Clone for HttpCompletionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HttpCompletionOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HttpCompletionOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HttpCompletionOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCompletionOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HttpCompletionOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_Http\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HttpProgressStage(pub i32);
+impl HttpProgressStage {
+    pub const None: Self = Self(0i32);
+    pub const DetectingProxy: Self = Self(10i32);
+    pub const ResolvingName: Self = Self(20i32);
+    pub const ConnectingToServer: Self = Self(30i32);
+    pub const NegotiatingSsl: Self = Self(40i32);
+    pub const SendingHeaders: Self = Self(50i32);
+    pub const SendingContent: Self = Self(60i32);
+    pub const WaitingForResponse: Self = Self(70i32);
+    pub const ReceivingHeaders: Self = Self(80i32);
+    pub const ReceivingContent: Self = Self(90i32);
+}
+impl ::core::marker::Copy for HttpProgressStage {}
+impl ::core::clone::Clone for HttpProgressStage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HttpProgressStage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HttpProgressStage {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HttpProgressStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpProgressStage").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HttpProgressStage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_Http\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HttpResponseMessageSource(pub i32);
+impl HttpResponseMessageSource {
+    pub const None: Self = Self(0i32);
+    pub const Cache: Self = Self(1i32);
+    pub const Network: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HttpResponseMessageSource {}
+impl ::core::clone::Clone for HttpResponseMessageSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HttpResponseMessageSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HttpResponseMessageSource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HttpResponseMessageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpResponseMessageSource").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HttpResponseMessageSource {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_Http\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HttpStatusCode(pub i32);
+impl HttpStatusCode {
+    pub const None: Self = Self(0i32);
+    pub const Continue: Self = Self(100i32);
+    pub const SwitchingProtocols: Self = Self(101i32);
+    pub const Processing: Self = Self(102i32);
+    pub const Ok: Self = Self(200i32);
+    pub const Created: Self = Self(201i32);
+    pub const Accepted: Self = Self(202i32);
+    pub const NonAuthoritativeInformation: Self = Self(203i32);
+    pub const NoContent: Self = Self(204i32);
+    pub const ResetContent: Self = Self(205i32);
+    pub const PartialContent: Self = Self(206i32);
+    pub const MultiStatus: Self = Self(207i32);
+    pub const AlreadyReported: Self = Self(208i32);
+    pub const IMUsed: Self = Self(226i32);
+    pub const MultipleChoices: Self = Self(300i32);
+    pub const MovedPermanently: Self = Self(301i32);
+    pub const Found: Self = Self(302i32);
+    pub const SeeOther: Self = Self(303i32);
+    pub const NotModified: Self = Self(304i32);
+    pub const UseProxy: Self = Self(305i32);
+    pub const TemporaryRedirect: Self = Self(307i32);
+    pub const PermanentRedirect: Self = Self(308i32);
+    pub const BadRequest: Self = Self(400i32);
+    pub const Unauthorized: Self = Self(401i32);
+    pub const PaymentRequired: Self = Self(402i32);
+    pub const Forbidden: Self = Self(403i32);
+    pub const NotFound: Self = Self(404i32);
+    pub const MethodNotAllowed: Self = Self(405i32);
+    pub const NotAcceptable: Self = Self(406i32);
+    pub const ProxyAuthenticationRequired: Self = Self(407i32);
+    pub const RequestTimeout: Self = Self(408i32);
+    pub const Conflict: Self = Self(409i32);
+    pub const Gone: Self = Self(410i32);
+    pub const LengthRequired: Self = Self(411i32);
+    pub const PreconditionFailed: Self = Self(412i32);
+    pub const RequestEntityTooLarge: Self = Self(413i32);
+    pub const RequestUriTooLong: Self = Self(414i32);
+    pub const UnsupportedMediaType: Self = Self(415i32);
+    pub const RequestedRangeNotSatisfiable: Self = Self(416i32);
+    pub const ExpectationFailed: Self = Self(417i32);
+    pub const UnprocessableEntity: Self = Self(422i32);
+    pub const Locked: Self = Self(423i32);
+    pub const FailedDependency: Self = Self(424i32);
+    pub const UpgradeRequired: Self = Self(426i32);
+    pub const PreconditionRequired: Self = Self(428i32);
+    pub const TooManyRequests: Self = Self(429i32);
+    pub const RequestHeaderFieldsTooLarge: Self = Self(431i32);
+    pub const InternalServerError: Self = Self(500i32);
+    pub const NotImplemented: Self = Self(501i32);
+    pub const BadGateway: Self = Self(502i32);
+    pub const ServiceUnavailable: Self = Self(503i32);
+    pub const GatewayTimeout: Self = Self(504i32);
+    pub const HttpVersionNotSupported: Self = Self(505i32);
+    pub const VariantAlsoNegotiates: Self = Self(506i32);
+    pub const InsufficientStorage: Self = Self(507i32);
+    pub const LoopDetected: Self = Self(508i32);
+    pub const NotExtended: Self = Self(510i32);
+    pub const NetworkAuthenticationRequired: Self = Self(511i32);
+}
+impl ::core::marker::Copy for HttpStatusCode {}
+impl ::core::clone::Clone for HttpStatusCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HttpStatusCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HttpStatusCode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HttpStatusCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpStatusCode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HttpStatusCode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_Http\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
     pub const None: Self = Self(0i32);
@@ -4102,741 +4782,61 @@ unsafe impl ::windows::core::RuntimeType for HttpVersion {
         Ok(*from)
     }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpBufferContentFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpBufferContentFactory {
-    type Vtable = IHttpBufferContentFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc20c193_c41f_4ff7_9123_6435736eadc2);
-}
 #[repr(C)]
-#[doc(hidden)]
-pub struct IHttpBufferContentFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFromBuffer: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBufferWithOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, offset: u32, count: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFromBufferWithOffset: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpClient(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpClient {
-    type Vtable = IHttpClient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpClient_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DeleteAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetWithOptionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetWithOptionAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub GetBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    GetBufferAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub GetInputStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    GetInputStreamAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetStringAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub PostAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PostAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub PutAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PutAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub SendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SendRequestAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub SendRequestWithOptionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SendRequestWithOptionAsync: usize,
-    #[cfg(feature = "Web_Http_Headers")]
-    pub DefaultRequestHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Web_Http_Headers"))]
-    DefaultRequestHeaders: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpClient2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpClient2 {
-    type Vtable = IHttpClient2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd83348_e8b7_4cec_b1b0_dc455fe72c92);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpClient2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub TryDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryDeleteAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryGetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryGetAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryGetAsync2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryGetAsync2: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryGetBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryGetBufferAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryGetInputStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryGetInputStreamAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryGetStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryGetStringAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryPostAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryPostAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryPutAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryPutAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TrySendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TrySendRequestAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TrySendRequestAsync2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, completionoption: HttpCompletionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TrySendRequestAsync2: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpClientFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpClientFactory {
-    type Vtable = IHttpClientFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30c4eca_e3fa_4f99_afb4_63cc65009462);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpClientFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Web_Http_Filters")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Web_Http_Filters"))]
-    Create: usize,
-}
-#[doc = "*Required features: `\"Web_Http\"`*"]
-#[repr(transparent)]
-pub struct IHttpContent(::windows::core::IUnknown);
-impl IHttpContent {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
-    #[cfg(feature = "Web_Http_Headers")]
-    pub fn Headers(&self) -> ::windows::core::Result<Headers::HttpContentHeaderCollection> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Headers::HttpContentHeaderCollection>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn BufferAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsBufferAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsInputStreamAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadAsStringAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
-        }
-    }
-    pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-}
-impl ::core::convert::From<IHttpContent> for ::windows::core::IUnknown {
-    fn from(value: IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpContent> for ::windows::core::IUnknown {
-    fn from(value: &IHttpContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHttpContent> for ::windows::core::IInspectable {
-    fn from(value: IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpContent> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpContent> for ::windows::core::IInspectable {
-    fn from(value: &IHttpContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
+#[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
+#[cfg(feature = "Foundation")]
+pub struct HttpProgress {
+    pub Stage: HttpProgressStage,
+    pub BytesSent: u64,
+    pub TotalBytesToSend: ::core::option::Option<super::super::Foundation::IReference<u64>>,
+    pub BytesReceived: u64,
+    pub TotalBytesToReceive: ::core::option::Option<super::super::Foundation::IReference<u64>>,
+    pub Retries: u32,
 }
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<IHttpContent> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: IHttpContent) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&IHttpContent> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IHttpContent) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&IHttpContent> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IHttpContent) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::clone::Clone for IHttpContent {
+impl ::core::clone::Clone for HttpProgress {
     fn clone(&self) -> Self {
-        Self(self.0.clone())
+        Self {
+            Stage: self.Stage,
+            BytesSent: self.BytesSent,
+            TotalBytesToSend: self.TotalBytesToSend.clone(),
+            BytesReceived: self.BytesReceived,
+            TotalBytesToReceive: self.TotalBytesToReceive.clone(),
+            Retries: self.Retries,
+        }
     }
 }
-impl ::core::cmp::PartialEq for IHttpContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHttpContent {}
-impl ::core::fmt::Debug for IHttpContent {
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for HttpProgress {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHttpContent").field(&self.0).finish()
+        f.debug_struct("HttpProgress").field("Stage", &self.Stage).field("BytesSent", &self.BytesSent).field("TotalBytesToSend", &self.TotalBytesToSend).field("BytesReceived", &self.BytesReceived).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("Retries", &self.Retries).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IHttpContent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
-    type DefaultType = ::core::option::Option<Self>;
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::Abi for HttpProgress {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::RuntimeType for HttpProgress {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
+    type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+        Ok(from.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpContent {
-    type Vtable = IHttpContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::PartialEq for HttpProgress {
+    fn eq(&self, other: &Self) -> bool {
+        self.Stage == other.Stage && self.BytesSent == other.BytesSent && self.TotalBytesToSend == other.TotalBytesToSend && self.BytesReceived == other.BytesReceived && self.TotalBytesToReceive == other.TotalBytesToReceive && self.Retries == other.Retries
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpContent_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Web_Http_Headers")]
-    pub Headers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Web_Http_Headers"))]
-    Headers: usize,
-    #[cfg(feature = "Foundation")]
-    pub BufferAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BufferAllAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub ReadAsBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    ReadAsBufferAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub ReadAsInputStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    ReadAsInputStreamAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReadAsStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReadAsStringAsync: usize,
-    pub TryComputeLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut u64, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub WriteToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    WriteToStreamAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpCookie(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpCookie {
-    type Vtable = IHttpCookie_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5488e2_cc2d_4779_86a7_88f10687d249);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpCookie_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub Expires: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Expires: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetExpires: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetExpires: usize,
-    pub HttpOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetHttpOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub Secure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpCookieFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpCookieFactory {
-    type Vtable = IHttpCookieFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0585a9_931c_4cd1_a96d_c21701785c5f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpCookieFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domain: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpCookieManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpCookieManager {
-    type Vtable = IHttpCookieManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpCookieManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SetCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetCookieWithThirdParty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: *mut ::core::ffi::c_void, thirdparty: bool, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub DeleteCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetCookies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCookies: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpFormUrlEncodedContentFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpFormUrlEncodedContentFactory {
-    type Vtable = IHttpFormUrlEncodedContentFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f0138c_2f73_4302_b5f3_eae9238a5e01);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpFormUrlEncodedContentFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Create: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpGetBufferResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpGetBufferResult {
-    type Vtable = IHttpGetBufferResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d08e7c_e209_404e_9a49_742d8236fd3a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpGetBufferResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Value: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpGetInputStreamResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpGetInputStreamResult {
-    type Vtable = IHttpGetInputStreamResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpGetInputStreamResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Value: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpGetStringResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpGetStringResult {
-    type Vtable = IHttpGetStringResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bac466d_8509_4775_b16d_8953f47a7f5f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpGetStringResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpMethod(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpMethod {
-    type Vtable = IHttpMethod_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728d4022_700d_4fe0_afa5_40299c58dbfd);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpMethod_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Method: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpMethodFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpMethodFactory {
-    type Vtable = IHttpMethodFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c51d10d_36d7_40f8_a86d_e759caf2f83f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpMethodFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpMethodStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpMethodStatics {
-    type Vtable = IHttpMethodStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d171f0_d99a_4153_8dc6_d68cc4cce317);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpMethodStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Head: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Patch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Post: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Put: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpMultipartContent(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpMultipartContent {
-    type Vtable = IHttpMultipartContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf916aff_9926_4ac9_aaf1_e0d04ef09bb9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpMultipartContent_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpMultipartContentFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpMultipartContentFactory {
-    type Vtable = IHttpMultipartContentFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb42e62_0222_4f20_b372_47d5db5d33b4);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpMultipartContentFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateWithSubtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateWithSubtypeAndBoundary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpMultipartFormDataContent(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContent {
-    type Vtable = IHttpMultipartFormDataContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d337e2_e967_4624_b6d1_cf74604a4a42);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpMultipartFormDataContent_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AddWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AddWithNameAndFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpMultipartFormDataContentFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContentFactory {
-    type Vtable = IHttpMultipartFormDataContentFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa04d7311_5017_4622_93a8_49b24a4fcbfc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpMultipartFormDataContentFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateWithBoundary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpRequestMessage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpRequestMessage {
-    type Vtable = IHttpRequestMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpRequestMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Web_Http_Headers")]
-    pub Headers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Web_Http_Headers"))]
-    Headers: usize,
-    pub Method: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-    #[cfg(feature = "Foundation")]
-    pub RequestUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestUri: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetRequestUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetRequestUri: usize,
-    pub TransportInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpRequestMessageFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpRequestMessageFactory {
-    type Vtable = IHttpRequestMessageFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bac994e_3886_412e_aec3_52ec7f25616f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpRequestMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Create: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpRequestResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpRequestResult {
-    type Vtable = IHttpRequestResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpRequestResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpResponseMessage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpResponseMessage {
-    type Vtable = IHttpResponseMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee200fb_8664_44e0_95d9_42696199bffc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpResponseMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Web_Http_Headers")]
-    pub Headers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Web_Http_Headers"))]
-    Headers: usize,
-    pub IsSuccessStatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub ReasonPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetReasonPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetRequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpResponseMessageSource) -> ::windows::core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpResponseMessageSource) -> ::windows::core::HRESULT,
-    pub StatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpStatusCode) -> ::windows::core::HRESULT,
-    pub SetStatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpStatusCode) -> ::windows::core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpVersion) -> ::windows::core::HRESULT,
-    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpVersion) -> ::windows::core::HRESULT,
-    pub EnsureSuccessStatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpResponseMessageFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpResponseMessageFactory {
-    type Vtable = IHttpResponseMessageFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52a8af99_f095_43da_b60f_7cfc2bc7ea2f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpResponseMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statuscode: HttpStatusCode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpStreamContentFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpStreamContentFactory {
-    type Vtable = IHttpStreamContentFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3e64d9d_f725_407e_942f_0eda189809f4);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpStreamContentFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFromInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFromInputStream: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpStringContentFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpStringContentFactory {
-    type Vtable = IHttpStringContentFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46649d5b_2e93_48eb_8e61_19677878e57f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpStringContentFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateFromString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFromStringWithEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, encoding: super::super::Storage::Streams::UnicodeEncoding, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFromStringWithEncoding: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFromStringWithEncodingAndMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFromStringWithEncodingAndMediaType: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHttpTransportInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHttpTransportInformation {
-    type Vtable = IHttpTransportInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHttpTransportInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub ServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Cryptography_Certificates"))]
-    ServerCertificate: usize,
-    #[cfg(feature = "Networking_Sockets")]
-    pub ServerCertificateErrorSeverity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Networking::Sockets::SocketSslErrorSeverity) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Networking_Sockets"))]
-    ServerCertificateErrorSeverity: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub ServerCertificateErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    ServerCertificateErrors: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub ServerIntermediateCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    ServerIntermediateCertificates: usize,
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::Eq for HttpProgress {}
+#[cfg(feature = "Foundation")]
+impl ::core::default::Default for HttpProgress {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

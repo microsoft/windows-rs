@@ -1,11 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
-pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
-pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
-pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
-pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -221,6 +213,15 @@ pub struct IRendezvousSession_Vtbl {
     Terminate: usize,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
+pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
+pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
+pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
+pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
+pub const RendezvousApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
+#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
@@ -294,6 +295,5 @@ impl ::core::fmt::Debug for RENDEZVOUS_SESSION_STATE {
         f.debug_tuple("RENDEZVOUS_SESSION_STATE").field(&self.0).finish()
     }
 }
-pub const RendezvousApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

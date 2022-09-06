@@ -547,44 +547,6 @@ impl ::core::convert::From<&MouseCapabilities> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for MouseCapabilities {}
 unsafe impl ::core::marker::Sync for MouseCapabilities {}
-#[repr(C)]
-#[doc = "*Required features: `\"Devices_Input\"`*"]
-pub struct MouseDelta {
-    pub X: i32,
-    pub Y: i32,
-}
-impl ::core::marker::Copy for MouseDelta {}
-impl ::core::clone::Clone for MouseDelta {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MouseDelta {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MouseDelta").field("X", &self.X).field("Y", &self.Y).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MouseDelta {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for MouseDelta {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for MouseDelta {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MouseDelta>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MouseDelta {}
-impl ::core::default::Default for MouseDelta {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct MouseDevice(::windows::core::IUnknown);
@@ -1612,85 +1574,6 @@ impl ::core::convert::From<&PointerDevice> for &::windows::core::IInspectable {
 }
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PointerDeviceType(pub i32);
-impl PointerDeviceType {
-    pub const Touch: Self = Self(0i32);
-    pub const Pen: Self = Self(1i32);
-    pub const Mouse: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PointerDeviceType {}
-impl ::core::clone::Clone for PointerDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PointerDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PointerDeviceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PointerDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointerDeviceType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PointerDeviceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Devices_Input\"`*"]
-pub struct PointerDeviceUsage {
-    pub UsagePage: u32,
-    pub Usage: u32,
-    pub MinLogical: i32,
-    pub MaxLogical: i32,
-    pub MinPhysical: i32,
-    pub MaxPhysical: i32,
-    pub Unit: u32,
-    pub PhysicalMultiplier: f32,
-}
-impl ::core::marker::Copy for PointerDeviceUsage {}
-impl ::core::clone::Clone for PointerDeviceUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for PointerDeviceUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PointerDeviceUsage").field("UsagePage", &self.UsagePage).field("Usage", &self.Usage).field("MinLogical", &self.MinLogical).field("MaxLogical", &self.MaxLogical).field("MinPhysical", &self.MinPhysical).field("MaxPhysical", &self.MaxPhysical).field("Unit", &self.Unit).field("PhysicalMultiplier", &self.PhysicalMultiplier).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PointerDeviceUsage {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for PointerDeviceUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for PointerDeviceUsage {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PointerDeviceUsage>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PointerDeviceUsage {}
-impl ::core::default::Default for PointerDeviceUsage {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
-#[repr(transparent)]
 pub struct TouchCapabilities(::windows::core::IUnknown);
 impl TouchCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1777,5 +1660,122 @@ impl ::core::convert::From<&TouchCapabilities> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for TouchCapabilities {}
 unsafe impl ::core::marker::Sync for TouchCapabilities {}
+#[doc = "*Required features: `\"Devices_Input\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PointerDeviceType(pub i32);
+impl PointerDeviceType {
+    pub const Touch: Self = Self(0i32);
+    pub const Pen: Self = Self(1i32);
+    pub const Mouse: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PointerDeviceType {}
+impl ::core::clone::Clone for PointerDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PointerDeviceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PointerDeviceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PointerDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerDeviceType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PointerDeviceType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Devices_Input\"`*"]
+pub struct MouseDelta {
+    pub X: i32,
+    pub Y: i32,
+}
+impl ::core::marker::Copy for MouseDelta {}
+impl ::core::clone::Clone for MouseDelta {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MouseDelta {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MouseDelta").field("X", &self.X).field("Y", &self.Y).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MouseDelta {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for MouseDelta {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for MouseDelta {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MouseDelta>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MouseDelta {}
+impl ::core::default::Default for MouseDelta {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Devices_Input\"`*"]
+pub struct PointerDeviceUsage {
+    pub UsagePage: u32,
+    pub Usage: u32,
+    pub MinLogical: i32,
+    pub MaxLogical: i32,
+    pub MinPhysical: i32,
+    pub MaxPhysical: i32,
+    pub Unit: u32,
+    pub PhysicalMultiplier: f32,
+}
+impl ::core::marker::Copy for PointerDeviceUsage {}
+impl ::core::clone::Clone for PointerDeviceUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PointerDeviceUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PointerDeviceUsage").field("UsagePage", &self.UsagePage).field("Usage", &self.Usage).field("MinLogical", &self.MinLogical).field("MaxLogical", &self.MaxLogical).field("MinPhysical", &self.MinPhysical).field("MaxPhysical", &self.MaxPhysical).field("Unit", &self.Unit).field("PhysicalMultiplier", &self.PhysicalMultiplier).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PointerDeviceUsage {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for PointerDeviceUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for PointerDeviceUsage {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PointerDeviceUsage>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PointerDeviceUsage {}
+impl ::core::default::Default for PointerDeviceUsage {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

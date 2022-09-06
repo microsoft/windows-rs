@@ -1,3003 +1,356 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_AUDIT_ALL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_A_ACL: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_A_CREATE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_A_DELETE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_A_OPEN: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_A_OWNER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_A_WRITE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_CLOSE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_F_ACL: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_F_CREATE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_F_DELETE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_F_OPEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_F_WRITE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_S_ACL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_S_CREATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_S_DELETE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_S_OPEN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AA_S_WRITE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_ACCESS_LIST_PARMNUM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_ATTR_PARMNUM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_AUDIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_COUNT_PARMNUM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_FAIL_ACL: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_FAIL_DELETE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_FAIL_MASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_FAIL_OPEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_FAIL_SHIFT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_FAIL_WRITE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_GROUP: u32 = 32768u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct ACCESS_INFO_0 {
-    pub acc0_resource_name: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ACCESS_INFO_0 {}
-impl ::core::clone::Clone for ACCESS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACCESS_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACCESS_INFO_0").field("acc0_resource_name", &self.acc0_resource_name).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACCESS_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACCESS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACCESS_INFO_0 {}
-impl ::core::default::Default for ACCESS_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct ACCESS_INFO_1 {
-    pub acc1_resource_name: ::windows::core::PWSTR,
-    pub acc1_attr: u32,
-    pub acc1_count: u32,
-}
-impl ::core::marker::Copy for ACCESS_INFO_1 {}
-impl ::core::clone::Clone for ACCESS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACCESS_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACCESS_INFO_1").field("acc1_resource_name", &self.acc1_resource_name).field("acc1_attr", &self.acc1_attr).field("acc1_count", &self.acc1_count).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACCESS_INFO_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACCESS_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACCESS_INFO_1 {}
-impl ::core::default::Default for ACCESS_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct ACCESS_INFO_1002 {
-    pub acc1002_attr: u32,
-}
-impl ::core::marker::Copy for ACCESS_INFO_1002 {}
-impl ::core::clone::Clone for ACCESS_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACCESS_INFO_1002 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACCESS_INFO_1002").field("acc1002_attr", &self.acc1002_attr).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACCESS_INFO_1002 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACCESS_INFO_1002 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_1002>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACCESS_INFO_1002 {}
-impl ::core::default::Default for ACCESS_INFO_1002 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_LETTERS: &str = "RWCXDAP         ";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct ACCESS_LIST {
-    pub acl_ugname: ::windows::core::PWSTR,
-    pub acl_access: u32,
-}
-impl ::core::marker::Copy for ACCESS_LIST {}
-impl ::core::clone::Clone for ACCESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACCESS_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACCESS_LIST").field("acl_ugname", &self.acl_ugname).field("acl_access", &self.acl_access).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACCESS_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACCESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACCESS_LIST {}
-impl ::core::default::Default for ACCESS_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_RESOURCE_NAME_PARMNUM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_SUCCESS_ACL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_SUCCESS_DELETE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_SUCCESS_MASK: u32 = 240u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_SUCCESS_OPEN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACCESS_SUCCESS_WRITE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACTION_ADMINUNLOCK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ACTION_LOCKOUT: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct ADMIN_OTHER_INFO {
-    pub alrtad_errcode: u32,
-    pub alrtad_numstrings: u32,
-}
-impl ::core::marker::Copy for ADMIN_OTHER_INFO {}
-impl ::core::clone::Clone for ADMIN_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADMIN_OTHER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADMIN_OTHER_INFO").field("alrtad_errcode", &self.alrtad_errcode).field("alrtad_numstrings", &self.alrtad_numstrings).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADMIN_OTHER_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADMIN_OTHER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADMIN_OTHER_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADMIN_OTHER_INFO {}
-impl ::core::default::Default for ADMIN_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_ACCLIM {
-    pub ae_al_compname: u32,
-    pub ae_al_username: u32,
-    pub ae_al_resname: u32,
-    pub ae_al_limit: u32,
-}
-impl ::core::marker::Copy for AE_ACCLIM {}
-impl ::core::clone::Clone for AE_ACCLIM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_ACCLIM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_ACCLIM").field("ae_al_compname", &self.ae_al_compname).field("ae_al_username", &self.ae_al_username).field("ae_al_resname", &self.ae_al_resname).field("ae_al_limit", &self.ae_al_limit).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_ACCLIM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_ACCLIM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_ACCLIM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_ACCLIM {}
-impl ::core::default::Default for AE_ACCLIM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ACCLIMITEXCD: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ACCRESTRICT: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_ACLMOD {
-    pub ae_am_compname: u32,
-    pub ae_am_username: u32,
-    pub ae_am_resname: u32,
-    pub ae_am_action: u32,
-    pub ae_am_datalen: u32,
-}
-impl ::core::marker::Copy for AE_ACLMOD {}
-impl ::core::clone::Clone for AE_ACLMOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_ACLMOD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_ACLMOD").field("ae_am_compname", &self.ae_am_compname).field("ae_am_username", &self.ae_am_username).field("ae_am_resname", &self.ae_am_resname).field("ae_am_action", &self.ae_am_action).field("ae_am_datalen", &self.ae_am_datalen).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_ACLMOD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_ACLMOD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_ACLMOD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_ACLMOD {}
-impl ::core::default::Default for AE_ACLMOD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ACLMOD: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ACLMODFAIL: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ADD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ADMIN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ADMINDIS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ADMINPRIVREQD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ADMIN_CLOSE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_AUTODIS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_BADPW: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_CLOSEFILE {
-    pub ae_cf_compname: u32,
-    pub ae_cf_username: u32,
-    pub ae_cf_resname: u32,
-    pub ae_cf_fileid: u32,
-    pub ae_cf_duration: u32,
-    pub ae_cf_reason: u32,
-}
-impl ::core::marker::Copy for AE_CLOSEFILE {}
-impl ::core::clone::Clone for AE_CLOSEFILE {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn LogErrorW(dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR], dwerrorcode: u32) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR, dwerrorcode: u32);
     }
+    LogErrorW(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
 }
-impl ::core::fmt::Debug for AE_CLOSEFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_CLOSEFILE").field("ae_cf_compname", &self.ae_cf_compname).field("ae_cf_username", &self.ae_cf_username).field("ae_cf_resname", &self.ae_cf_resname).field("ae_cf_fileid", &self.ae_cf_fileid).field("ae_cf_duration", &self.ae_cf_duration).field("ae_cf_reason", &self.ae_cf_reason).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_CLOSEFILE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_CLOSEFILE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CLOSEFILE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_CLOSEFILE {}
-impl ::core::default::Default for AE_CLOSEFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CLOSEFILE: u32 = 9u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_CONNREJ {
-    pub ae_cr_compname: u32,
-    pub ae_cr_username: u32,
-    pub ae_cr_netname: u32,
-    pub ae_cr_reason: u32,
-}
-impl ::core::marker::Copy for AE_CONNREJ {}
-impl ::core::clone::Clone for AE_CONNREJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_CONNREJ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_CONNREJ").field("ae_cr_compname", &self.ae_cr_compname).field("ae_cr_username", &self.ae_cr_username).field("ae_cr_netname", &self.ae_cr_netname).field("ae_cr_reason", &self.ae_cr_reason).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_CONNREJ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_CONNREJ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNREJ>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_CONNREJ {}
-impl ::core::default::Default for AE_CONNREJ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CONNREJ: u32 = 6u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_CONNSTART {
-    pub ae_ct_compname: u32,
-    pub ae_ct_username: u32,
-    pub ae_ct_netname: u32,
-    pub ae_ct_connid: u32,
-}
-impl ::core::marker::Copy for AE_CONNSTART {}
-impl ::core::clone::Clone for AE_CONNSTART {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_CONNSTART {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_CONNSTART").field("ae_ct_compname", &self.ae_ct_compname).field("ae_ct_username", &self.ae_ct_username).field("ae_ct_netname", &self.ae_ct_netname).field("ae_ct_connid", &self.ae_ct_connid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_CONNSTART {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_CONNSTART {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNSTART>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_CONNSTART {}
-impl ::core::default::Default for AE_CONNSTART {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CONNSTART: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_CONNSTOP {
-    pub ae_cp_compname: u32,
-    pub ae_cp_username: u32,
-    pub ae_cp_netname: u32,
-    pub ae_cp_connid: u32,
-    pub ae_cp_reason: u32,
-}
-impl ::core::marker::Copy for AE_CONNSTOP {}
-impl ::core::clone::Clone for AE_CONNSTOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_CONNSTOP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_CONNSTOP").field("ae_cp_compname", &self.ae_cp_compname).field("ae_cp_username", &self.ae_cp_username).field("ae_cp_netname", &self.ae_cp_netname).field("ae_cp_connid", &self.ae_cp_connid).field("ae_cp_reason", &self.ae_cp_reason).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_CONNSTOP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_CONNSTOP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNSTOP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_CONNSTOP {}
-impl ::core::default::Default for AE_CONNSTOP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CONNSTOP: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_DELETE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ERROR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_GENERAL: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_GENERIC {
-    pub ae_ge_msgfile: u32,
-    pub ae_ge_msgnum: u32,
-    pub ae_ge_params: u32,
-    pub ae_ge_param1: u32,
-    pub ae_ge_param2: u32,
-    pub ae_ge_param3: u32,
-    pub ae_ge_param4: u32,
-    pub ae_ge_param5: u32,
-    pub ae_ge_param6: u32,
-    pub ae_ge_param7: u32,
-    pub ae_ge_param8: u32,
-    pub ae_ge_param9: u32,
-}
-impl ::core::marker::Copy for AE_GENERIC {}
-impl ::core::clone::Clone for AE_GENERIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_GENERIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_GENERIC")
-            .field("ae_ge_msgfile", &self.ae_ge_msgfile)
-            .field("ae_ge_msgnum", &self.ae_ge_msgnum)
-            .field("ae_ge_params", &self.ae_ge_params)
-            .field("ae_ge_param1", &self.ae_ge_param1)
-            .field("ae_ge_param2", &self.ae_ge_param2)
-            .field("ae_ge_param3", &self.ae_ge_param3)
-            .field("ae_ge_param4", &self.ae_ge_param4)
-            .field("ae_ge_param5", &self.ae_ge_param5)
-            .field("ae_ge_param6", &self.ae_ge_param6)
-            .field("ae_ge_param7", &self.ae_ge_param7)
-            .field("ae_ge_param8", &self.ae_ge_param8)
-            .field("ae_ge_param9", &self.ae_ge_param9)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_GENERIC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_GENERIC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_GENERIC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_GENERIC {}
-impl ::core::default::Default for AE_GENERIC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_GENERIC_TYPE: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_GUEST: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LIM_DELETED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LIM_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LIM_EXPIRED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LIM_INVAL_WKSTA: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LIM_LOGONHOURS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LIM_UNKNOWN: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_LOCKOUT {
-    pub ae_lk_compname: u32,
-    pub ae_lk_username: u32,
-    pub ae_lk_action: u32,
-    pub ae_lk_bad_pw_count: u32,
-}
-impl ::core::marker::Copy for AE_LOCKOUT {}
-impl ::core::clone::Clone for AE_LOCKOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_LOCKOUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_LOCKOUT").field("ae_lk_compname", &self.ae_lk_compname).field("ae_lk_username", &self.ae_lk_username).field("ae_lk_action", &self.ae_lk_action).field("ae_lk_bad_pw_count", &self.ae_lk_bad_pw_count).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_LOCKOUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_LOCKOUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_LOCKOUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_LOCKOUT {}
-impl ::core::default::Default for AE_LOCKOUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LOCKOUT: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_MOD: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NETLOGDENIED: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_NETLOGOFF {
-    pub ae_nf_compname: u32,
-    pub ae_nf_username: u32,
-    pub ae_nf_reserved1: u32,
-    pub ae_nf_reserved2: u32,
-}
-impl ::core::marker::Copy for AE_NETLOGOFF {}
-impl ::core::clone::Clone for AE_NETLOGOFF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_NETLOGOFF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_NETLOGOFF").field("ae_nf_compname", &self.ae_nf_compname).field("ae_nf_username", &self.ae_nf_username).field("ae_nf_reserved1", &self.ae_nf_reserved1).field("ae_nf_reserved2", &self.ae_nf_reserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_NETLOGOFF {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_NETLOGOFF {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_NETLOGOFF>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_NETLOGOFF {}
-impl ::core::default::Default for AE_NETLOGOFF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NETLOGOFF: u32 = 15u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_NETLOGON {
-    pub ae_no_compname: u32,
-    pub ae_no_username: u32,
-    pub ae_no_privilege: u32,
-    pub ae_no_authflags: u32,
-}
-impl ::core::marker::Copy for AE_NETLOGON {}
-impl ::core::clone::Clone for AE_NETLOGON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_NETLOGON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_NETLOGON").field("ae_no_compname", &self.ae_no_compname).field("ae_no_username", &self.ae_no_username).field("ae_no_privilege", &self.ae_no_privilege).field("ae_no_authflags", &self.ae_no_authflags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_NETLOGON {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_NETLOGON {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_NETLOGON>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_NETLOGON {}
-impl ::core::default::Default for AE_NETLOGON {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NETLOGON: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NOACCESSPERM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NORMAL_CLOSE: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_RESACCESS {
-    pub ae_ra_compname: u32,
-    pub ae_ra_username: u32,
-    pub ae_ra_resname: u32,
-    pub ae_ra_operation: u32,
-    pub ae_ra_returncode: u32,
-    pub ae_ra_restype: u32,
-    pub ae_ra_fileid: u32,
-}
-impl ::core::marker::Copy for AE_RESACCESS {}
-impl ::core::clone::Clone for AE_RESACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_RESACCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_RESACCESS").field("ae_ra_compname", &self.ae_ra_compname).field("ae_ra_username", &self.ae_ra_username).field("ae_ra_resname", &self.ae_ra_resname).field("ae_ra_operation", &self.ae_ra_operation).field("ae_ra_returncode", &self.ae_ra_returncode).field("ae_ra_restype", &self.ae_ra_restype).field("ae_ra_fileid", &self.ae_ra_fileid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_RESACCESS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_RESACCESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_RESACCESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_RESACCESS {}
-impl ::core::default::Default for AE_RESACCESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_RESACCESS: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_RESACCESS2: u32 = 18u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_RESACCESSREJ {
-    pub ae_rr_compname: u32,
-    pub ae_rr_username: u32,
-    pub ae_rr_resname: u32,
-    pub ae_rr_operation: u32,
-}
-impl ::core::marker::Copy for AE_RESACCESSREJ {}
-impl ::core::clone::Clone for AE_RESACCESSREJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_RESACCESSREJ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_RESACCESSREJ").field("ae_rr_compname", &self.ae_rr_compname).field("ae_rr_username", &self.ae_rr_username).field("ae_rr_resname", &self.ae_rr_resname).field("ae_rr_operation", &self.ae_rr_operation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_RESACCESSREJ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_RESACCESSREJ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_RESACCESSREJ>()) == 0 }
+#[inline]
+pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR]) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR);
     }
+    LogEventW(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
 }
-impl ::core::cmp::Eq for AE_RESACCESSREJ {}
-impl ::core::default::Default for AE_RESACCESSREJ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_RESACCESSREJ: u32 = 8u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_SERVICESTAT {
-    pub ae_ss_compname: u32,
-    pub ae_ss_username: u32,
-    pub ae_ss_svcname: u32,
-    pub ae_ss_status: u32,
-    pub ae_ss_code: u32,
-    pub ae_ss_text: u32,
-    pub ae_ss_returnval: u32,
-}
-impl ::core::marker::Copy for AE_SERVICESTAT {}
-impl ::core::clone::Clone for AE_SERVICESTAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_SERVICESTAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_SERVICESTAT").field("ae_ss_compname", &self.ae_ss_compname).field("ae_ss_username", &self.ae_ss_username).field("ae_ss_svcname", &self.ae_ss_svcname).field("ae_ss_status", &self.ae_ss_status).field("ae_ss_code", &self.ae_ss_code).field("ae_ss_text", &self.ae_ss_text).field("ae_ss_returnval", &self.ae_ss_returnval).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_SERVICESTAT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_SERVICESTAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SERVICESTAT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_SERVICESTAT {}
-impl ::core::default::Default for AE_SERVICESTAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SERVICESTAT: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSDIS: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_SESSLOGOFF {
-    pub ae_sf_compname: u32,
-    pub ae_sf_username: u32,
-    pub ae_sf_reason: u32,
-}
-impl ::core::marker::Copy for AE_SESSLOGOFF {}
-impl ::core::clone::Clone for AE_SESSLOGOFF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_SESSLOGOFF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_SESSLOGOFF").field("ae_sf_compname", &self.ae_sf_compname).field("ae_sf_username", &self.ae_sf_username).field("ae_sf_reason", &self.ae_sf_reason).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_SESSLOGOFF {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_SESSLOGOFF {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSLOGOFF>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_SESSLOGOFF {}
-impl ::core::default::Default for AE_SESSLOGOFF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSLOGOFF: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_SESSLOGON {
-    pub ae_so_compname: u32,
-    pub ae_so_username: u32,
-    pub ae_so_privilege: u32,
-}
-impl ::core::marker::Copy for AE_SESSLOGON {}
-impl ::core::clone::Clone for AE_SESSLOGON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_SESSLOGON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_SESSLOGON").field("ae_so_compname", &self.ae_so_compname).field("ae_so_username", &self.ae_so_username).field("ae_so_privilege", &self.ae_so_privilege).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_SESSLOGON {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_SESSLOGON {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSLOGON>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_SESSLOGON {}
-impl ::core::default::Default for AE_SESSLOGON {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSLOGON: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_SESSPWERR {
-    pub ae_sp_compname: u32,
-    pub ae_sp_username: u32,
-}
-impl ::core::marker::Copy for AE_SESSPWERR {}
-impl ::core::clone::Clone for AE_SESSPWERR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_SESSPWERR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_SESSPWERR").field("ae_sp_compname", &self.ae_sp_compname).field("ae_sp_username", &self.ae_sp_username).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_SESSPWERR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_SESSPWERR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSPWERR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_SESSPWERR {}
-impl ::core::default::Default for AE_SESSPWERR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSPWERR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SES_CLOSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SRVCONT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SRVPAUSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SRVSTART: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_SRVSTATUS {
-    pub ae_sv_status: u32,
-}
-impl ::core::marker::Copy for AE_SRVSTATUS {}
-impl ::core::clone::Clone for AE_SRVSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_SRVSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_SRVSTATUS").field("ae_sv_status", &self.ae_sv_status).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_SRVSTATUS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_SRVSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SRVSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_SRVSTATUS {}
-impl ::core::default::Default for AE_SRVSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SRVSTATUS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SRVSTOP: u32 = 3u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AE_UASMOD {
-    pub ae_um_compname: u32,
-    pub ae_um_username: u32,
-    pub ae_um_resname: u32,
-    pub ae_um_rectype: u32,
-    pub ae_um_action: u32,
-    pub ae_um_datalen: u32,
-}
-impl ::core::marker::Copy for AE_UASMOD {}
-impl ::core::clone::Clone for AE_UASMOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_UASMOD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_UASMOD").field("ae_um_compname", &self.ae_um_compname).field("ae_um_username", &self.ae_um_username).field("ae_um_resname", &self.ae_um_resname).field("ae_um_rectype", &self.ae_um_rectype).field("ae_um_action", &self.ae_um_action).field("ae_um_datalen", &self.ae_um_datalen).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_UASMOD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_UASMOD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_UASMOD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_UASMOD {}
-impl ::core::default::Default for AE_UASMOD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_UASMOD: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_UAS_GROUP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_UAS_MODALS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_UAS_USER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_UNSHARE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_USER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_USERLIMIT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AF_OP(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_PRINT: AF_OP = AF_OP(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_COMM: AF_OP = AF_OP(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_SERVER: AF_OP = AF_OP(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_ACCOUNTS: AF_OP = AF_OP(8u32);
-impl ::core::marker::Copy for AF_OP {}
-impl ::core::clone::Clone for AF_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AF_OP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AF_OP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AF_OP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AF_OP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AF_OP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AF_OP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AF_OP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AF_OP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AF_OP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALERTER_MAILSLOT: &str = "\\\\.\\MAILSLOT\\Alerter";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALERTSZ: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALERT_ADMIN_EVENT: &str = "ADMIN";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALERT_ERRORLOG_EVENT: &str = "ERRORLOG";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALERT_MESSAGE_EVENT: &str = "MESSAGE";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALERT_PRINT_EVENT: &str = "PRINTING";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALERT_USER_EVENT: &str = "USER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALIGN_SIZE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ALLOCATE_RESPONSE: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AT_ENUM {
-    pub JobId: u32,
-    pub JobTime: usize,
-    pub DaysOfMonth: u32,
-    pub DaysOfWeek: u8,
-    pub Flags: u8,
-    pub Command: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for AT_ENUM {}
-impl ::core::clone::Clone for AT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AT_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AT_ENUM").field("JobId", &self.JobId).field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AT_ENUM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AT_ENUM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AT_ENUM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AT_ENUM {}
-impl ::core::default::Default for AT_ENUM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AT_INFO {
-    pub JobTime: usize,
-    pub DaysOfMonth: u32,
-    pub DaysOfWeek: u8,
-    pub Flags: u8,
-    pub Command: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for AT_INFO {}
-impl ::core::clone::Clone for AT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AT_INFO").field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AT_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AT_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AT_INFO {}
-impl ::core::default::Default for AT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct AUDIT_ENTRY {
-    pub ae_len: u32,
-    pub ae_reserved: u32,
-    pub ae_time: u32,
-    pub ae_type: u32,
-    pub ae_data_offset: u32,
-    pub ae_data_size: u32,
-}
-impl ::core::marker::Copy for AUDIT_ENTRY {}
-impl ::core::clone::Clone for AUDIT_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUDIT_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIT_ENTRY").field("ae_len", &self.ae_len).field("ae_reserved", &self.ae_reserved).field("ae_time", &self.ae_time).field("ae_type", &self.ae_type).field("ae_data_offset", &self.ae_data_offset).field("ae_data_size", &self.ae_data_size).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_ENTRY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_ENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_ENTRY {}
-impl ::core::default::Default for AUDIT_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const BACKUP_MSG_FILENAME: &str = "BAK.MSG";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BIND_FLAGS1(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_ADD: BIND_FLAGS1 = BIND_FLAGS1(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_REMOVE: BIND_FLAGS1 = BIND_FLAGS1(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_UPDATE: BIND_FLAGS1 = BIND_FLAGS1(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_ENABLE: BIND_FLAGS1 = BIND_FLAGS1(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_DISABLE: BIND_FLAGS1 = BIND_FLAGS1(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_BINDING_PATH: BIND_FLAGS1 = BIND_FLAGS1(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_PROPERTYCHANGE: BIND_FLAGS1 = BIND_FLAGS1(512i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NET: BIND_FLAGS1 = BIND_FLAGS1(65536i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NETTRANS: BIND_FLAGS1 = BIND_FLAGS1(131072i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NETCLIENT: BIND_FLAGS1 = BIND_FLAGS1(262144i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NETSERVICE: BIND_FLAGS1 = BIND_FLAGS1(524288i32);
-impl ::core::marker::Copy for BIND_FLAGS1 {}
-impl ::core::clone::Clone for BIND_FLAGS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BIND_FLAGS1 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BIND_FLAGS1 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BIND_FLAGS1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BIND_FLAGS1").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CLTYPE_LEN: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CNLEN: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMPONENT_CHARACTERISTICS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_SOFTWARE_ENUMERATED: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_PHYSICAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_HIDDEN: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_NO_SERVICE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_NOT_USER_REMOVABLE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_MULTIPORT_INSTANCED_ADAPTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_HAS_UI: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_SINGLE_INSTANCE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1024i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_DONTEXPOSELOWER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4096i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8192i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16384i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(131072i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(262144i32);
-impl ::core::marker::Copy for COMPONENT_CHARACTERISTICS {}
-impl ::core::clone::Clone for COMPONENT_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPONENT_CHARACTERISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMPONENT_CHARACTERISTICS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPONENT_CHARACTERISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPONENT_CHARACTERISTICS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct CONFIG_INFO_0 {
-    pub cfgi0_key: ::windows::core::PWSTR,
-    pub cfgi0_data: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for CONFIG_INFO_0 {}
-impl ::core::clone::Clone for CONFIG_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CONFIG_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONFIG_INFO_0").field("cfgi0_key", &self.cfgi0_key).field("cfgi0_data", &self.cfgi0_data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONFIG_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONFIG_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIG_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONFIG_INFO_0 {}
-impl ::core::default::Default for CONFIG_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const COULD_NOT_VERIFY_VOLUMES: i32 = -1073727512i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_BYPASS_CSC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_CRED_RESET: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_GLOBAL_MAPPING: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_NO_CONNECT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_PERSIST_MAPPING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_REQUIRE_CONNECTION_INTEGRITY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_REQUIRE_CONNECTION_PRIVACY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CREATE_WRITE_THROUGH_SEMANTICS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CRYPT_KEY_LEN: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const CRYPT_TXT_LEN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEFAULT_PAGES(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DPP_ADVANCED: DEFAULT_PAGES = DEFAULT_PAGES(1i32);
-impl ::core::marker::Copy for DEFAULT_PAGES {}
-impl ::core::clone::Clone for DEFAULT_PAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEFAULT_PAGES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DEFAULT_PAGES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DEFAULT_PAGES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DEFAULT_PAGES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DEF_MAX_BADPW: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DEF_MAX_PWHIST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DEF_MIN_PWLEN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DEF_PWUNIQUENESS: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DEVLEN: u32 = 80u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_CONNECTION_FAILURE: i32 = 1073756226i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_ACTIVEDIRECTORY_OFFLINE: i32 = -1073727301i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_CLUSTERINFO_FAILED: i32 = -1073727307i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_COMPUTERINFO_FAILED: i32 = -1073727308i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_CREATEEVENT_FAILED: i32 = -1073727309i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_CREATE_REPARSEPOINT_FAILURE: i32 = -1073727321i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_CREATE_REPARSEPOINT_SUCCESS: i32 = 1073756370i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_CROSS_FOREST_TRUST_INFO_FAILED: i32 = -1073727274i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_DCINFO_FAILED: i32 = -1073727306i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_DSCONNECT_FAILED: i32 = -2147469122i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_DUPLICATE_LINK: i32 = -1073727277i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_HANDLENAMESPACE_FAILED: i32 = -1073727304i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_LINKS_OVERLAP: i32 = -1073727280i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_LINK_OVERLAP: i32 = -1073727279i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_MUTLIPLE_ROOTS_NOT_SUPPORTED: i32 = -1073727289i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_NO_DFS_DATA: i32 = -1073727294i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_ON_ROOT: i32 = -2147469114i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_OVERLAPPING_DIRECTORIES: i32 = -1073727319i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_PREFIXTABLE_FAILED: i32 = -1073727305i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_REFLECTIONENGINE_FAILED: i32 = -1073727302i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_REGISTERSTORE_FAILED: i32 = -1073727303i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_REMOVE_LINK_FAILED: i32 = -1073727284i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_RESYNCHRONIZE_FAILED: i32 = -1073727285i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_ROOTSYNCINIT_FAILED: i32 = -1073727310i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_SECURITYINIT_FAILED: i32 = -1073727313i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_SITECACHEINIT_FAILED: i32 = -1073727311i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_SITESUPPOR_FAILED: i32 = -1073727300i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_TARGET_LIST_INCORRECT: i32 = -1073727281i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_THREADINIT_FAILED: i32 = -1073727312i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_TOO_MANY_ERRORS: i32 = -1073727315i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_TRUSTED_DOMAIN_INFO_FAILED: i32 = -1073727276i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_UNSUPPORTED_FILESYSTEM: i32 = -1073727320i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ERROR_WINSOCKINIT_FAILED: i32 = -1073727314i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_ACTIVEDIRECTORY_ONLINE: i32 = 1073756332i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_CROSS_FOREST_TRUST_INFO_SUCCESS: i32 = 1073756375i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_DOMAIN_REFERRAL_MIN_OVERFLOW: i32 = 1073756361i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_DS_RECONNECTED: i32 = 1073756353i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_FINISH_BUILDING_NAMESPACE: i32 = 1073756357i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_FINISH_INIT: i32 = 1073756355i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_RECONNECT_DATA: i32 = 1073756356i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INFO_TRUSTED_DOMAIN_INFO_SUCCESS: i32 = 1073756373i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_INIT_SUCCESS: i32 = 1073756376i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_MAX_DNR_ATTEMPTS: i32 = 1073756229i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_OPEN_FAILURE: i32 = 1073756231i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_REFERRAL_FAILURE: i32 = 1073756227i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_REFERRAL_REQUEST: i32 = 1073756142i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_REFERRAL_SUCCESS: i32 = 1073756228i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ROOT_SHARE_ACQUIRE_FAILED: i32 = -2147469095i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_ROOT_SHARE_ACQUIRE_SUCCESS: i32 = 1073756378i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_SPECIAL_REFERRAL_FAILURE: i32 = 1073756230i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_WARN_DOMAIN_REFERRAL_OVERFLOW: i32 = -2147469112i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_WARN_INCOMPLETE_MOVE: i32 = -2147469110i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_WARN_METADATA_LINK_INFO_INVALID: i32 = -2147469106i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DFS_WARN_METADATA_LINK_TYPE_INCORRECT: i32 = -2147469107i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DNLEN: u32 = 15u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-pub struct DSREG_JOIN_INFO {
-    pub joinType: DSREG_JOIN_TYPE,
-    pub pJoinCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
-    pub pszDeviceId: ::windows::core::PWSTR,
-    pub pszIdpDomain: ::windows::core::PWSTR,
-    pub pszTenantId: ::windows::core::PWSTR,
-    pub pszJoinUserEmail: ::windows::core::PWSTR,
-    pub pszTenantDisplayName: ::windows::core::PWSTR,
-    pub pszMdmEnrollmentUrl: ::windows::core::PWSTR,
-    pub pszMdmTermsOfUseUrl: ::windows::core::PWSTR,
-    pub pszMdmComplianceUrl: ::windows::core::PWSTR,
-    pub pszUserSettingSyncUrl: ::windows::core::PWSTR,
-    pub pUserInfo: *mut DSREG_USER_INFO,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::marker::Copy for DSREG_JOIN_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::clone::Clone for DSREG_JOIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for DSREG_JOIN_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSREG_JOIN_INFO")
-            .field("joinType", &self.joinType)
-            .field("pJoinCertificate", &self.pJoinCertificate)
-            .field("pszDeviceId", &self.pszDeviceId)
-            .field("pszIdpDomain", &self.pszIdpDomain)
-            .field("pszTenantId", &self.pszTenantId)
-            .field("pszJoinUserEmail", &self.pszJoinUserEmail)
-            .field("pszTenantDisplayName", &self.pszTenantDisplayName)
-            .field("pszMdmEnrollmentUrl", &self.pszMdmEnrollmentUrl)
-            .field("pszMdmTermsOfUseUrl", &self.pszMdmTermsOfUseUrl)
-            .field("pszMdmComplianceUrl", &self.pszMdmComplianceUrl)
-            .field("pszUserSettingSyncUrl", &self.pszUserSettingSyncUrl)
-            .field("pUserInfo", &self.pUserInfo)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for DSREG_JOIN_INFO {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for DSREG_JOIN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSREG_JOIN_INFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for DSREG_JOIN_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::default::Default for DSREG_JOIN_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DSREG_JOIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(2i32);
-impl ::core::marker::Copy for DSREG_JOIN_TYPE {}
-impl ::core::clone::Clone for DSREG_JOIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSREG_JOIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DSREG_JOIN_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DSREG_JOIN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DSREG_JOIN_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct DSREG_USER_INFO {
-    pub pszUserEmail: ::windows::core::PWSTR,
-    pub pszUserKeyId: ::windows::core::PWSTR,
-    pub pszUserKeyName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for DSREG_USER_INFO {}
-impl ::core::clone::Clone for DSREG_USER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSREG_USER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSREG_USER_INFO").field("pszUserEmail", &self.pszUserEmail).field("pszUserKeyId", &self.pszUserKeyId).field("pszUserKeyName", &self.pszUserKeyName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSREG_USER_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSREG_USER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSREG_USER_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSREG_USER_INFO {}
-impl ::core::default::Default for DSREG_USER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ENCRYPTED_PWLEN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ENUM_BINDING_PATHS_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(2i32);
-impl ::core::marker::Copy for ENUM_BINDING_PATHS_FLAGS {}
-impl ::core::clone::Clone for ENUM_BINDING_PATHS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENUM_BINDING_PATHS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ENUM_BINDING_PATHS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ENUM_BINDING_PATHS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ENUM_BINDING_PATHS_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ERRLOG2_BASE: u32 = 5700u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ERRLOG_BASE: u32 = 3100u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct ERRLOG_OTHER_INFO {
-    pub alrter_errcode: u32,
-    pub alrter_offset: u32,
-}
-impl ::core::marker::Copy for ERRLOG_OTHER_INFO {}
-impl ::core::clone::Clone for ERRLOG_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ERRLOG_OTHER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ERRLOG_OTHER_INFO").field("alrter_errcode", &self.alrter_errcode).field("alrter_offset", &self.alrter_offset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ERRLOG_OTHER_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ERRLOG_OTHER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERRLOG_OTHER_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ERRLOG_OTHER_INFO {}
-impl ::core::default::Default for ERRLOG_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct ERROR_LOG {
-    pub el_len: u32,
-    pub el_reserved: u32,
-    pub el_time: u32,
-    pub el_error: u32,
-    pub el_name: ::windows::core::PWSTR,
-    pub el_text: ::windows::core::PWSTR,
-    pub el_data: *mut u8,
-    pub el_data_size: u32,
-    pub el_nstrings: u32,
-}
-impl ::core::marker::Copy for ERROR_LOG {}
-impl ::core::clone::Clone for ERROR_LOG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ERROR_LOG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ERROR_LOG").field("el_len", &self.el_len).field("el_reserved", &self.el_reserved).field("el_time", &self.el_time).field("el_error", &self.el_error).field("el_name", &self.el_name).field("el_text", &self.el_text).field("el_data", &self.el_data).field("el_data_size", &self.el_data_size).field("el_nstrings", &self.el_nstrings).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ERROR_LOG {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ERROR_LOG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERROR_LOG>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ERROR_LOG {}
-impl ::core::default::Default for ERROR_LOG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BAD_ACCOUNT_NAME: i32 = -1073734816i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BAD_SERVICE_STATE: i32 = -1073734808i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOOT_SYSTEM_DRIVERS_FAILED: i32 = -1073734798i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_CANT_READ_REGISTRY: i32 = 1073749853i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_ELECTION_RECEIVED: i32 = 8012i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_ELECTION_SENT_FIND_MASTER_FAILED: i32 = 1073749838i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_ELECTION_SENT_GETBLIST_FAILED: i32 = 1073749837i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_GETBROWSERLIST_THRESHOLD_EXCEEDED: i32 = 1073749855i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_ILLEGAL_DATAGRAM: i32 = -2147475642i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_ILLEGAL_DATAGRAM_THRESHOLD: i32 = -1073733808i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_MAILSLOT_DATAGRAM_THRESHOLD_EXCEEDED: i32 = 1073749854i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_NAME_CONVERSION_FAILED: i32 = -1073733814i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_NON_MASTER_MASTER_ANNOUNCE: i32 = -2147475643i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_NON_PDC_WON_ELECTION: i32 = 1073749852i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_OLD_BACKUP_FOUND: i32 = 1073749848i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_OTHER_MASTER_ON_NET: i32 = -1073733821i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_PDC_LOST_ELECTION: i32 = 1073749851i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BOWSER_PROMOTED_WHILE_ALREADY_MASTER: i32 = -2147475644i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_ADAPTER_BIND_FAILED: i32 = -1073727120i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_ADAPTER_FILTER_FAILED: i32 = -1073727122i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_ADAPTER_LINK_SPEED_QUERY_FAILED: i32 = -1073727124i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_ADAPTER_MAC_ADDR_QUERY_FAILED: i32 = -1073727123i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_ADAPTER_NAME_QUERY_FAILED: i32 = -1073727121i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_BUFFER_POOL_CREATION_FAILED: i32 = -1073727214i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_DEVICE_CREATION_FAILED: i32 = -1073727221i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_ETHERNET_NOT_OFFERED: i32 = -1073727218i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_INIT_MALLOC_FAILED: i32 = -1073727213i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_MINIPORT_INIT_FAILED: i32 = -1073727219i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_MINIPORT_REGISTER_FAILED: i32 = -1073727222i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_MINIPROT_DEVNAME_MISSING: i32 = -1073727223i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_NO_BRIDGE_MAC_ADDR: i32 = -1073727220i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_PACKET_POOL_CREATION_FAILED: i32 = -1073727215i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_PROTOCOL_REGISTER_FAILED: i32 = -1073727224i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_THREAD_CREATION_FAILED: i32 = -1073727217i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BRIDGE_THREAD_REF_FAILED: i32 = -1073727216i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_BACKUP_STOPPED: i32 = -1073733792i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_DEPENDANT_SERVICE_FAILED: i32 = -1073733807i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_DOMAIN_LIST_FAILED: i32 = -2147475626i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_DOMAIN_LIST_RETRIEVED: i32 = 8026i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_ELECTION_SENT_LANMAN_NT_STARTED: i32 = 1073749839i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_ELECTION_SENT_LANMAN_NT_STOPPED: i32 = 1073749857i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_ELECTION_SENT_ROLE_CHANGED: i32 = 1073749859i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_GETBLIST_RECEIVED_NOT_MASTER: i32 = -1073733790i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_ILLEGAL_CONFIG: i32 = -2147475625i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_MASTER_PROMOTION_FAILED: i32 = -1073733815i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_MASTER_PROMOTION_FAILED_NO_MASTER: i32 = -1073733804i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_MASTER_PROMOTION_FAILED_STOPPING: i32 = -1073733805i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_NOT_STARTED_IPX_CONFIG_MISMATCH: i32 = -1073733788i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_OTHERDOMAIN_ADD_FAILED: i32 = -1073733813i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_ROLE_CHANGE_FAILED: i32 = -1073733816i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_SERVER_LIST_FAILED: i32 = -2147475627i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_SERVER_LIST_RETRIEVED: i32 = 8025i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_BROWSER_STATUS_BITS_UPDATE_FAILED: i32 = -1073733817i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_CALL_TO_FUNCTION_FAILED: i32 = -1073734819i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_CALL_TO_FUNCTION_FAILED_II: i32 = -1073734818i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_CIRCULAR_DEPENDENCY_AUTO: i32 = -1073734806i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_CIRCULAR_DEPENDENCY_DEMAND: i32 = -1073734807i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_COMMAND_NOT_INTERACTIVE: i32 = -1073733924i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_COMMAND_START_FAILED: i32 = -1073733923i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_CONNECTION_TIMEOUT: i32 = -1073734815i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_ComputerNameChange: i32 = -2147477637i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DAV_REDIR_DELAYED_WRITE_FAILED: i32 = -2147468848i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DCOM_ASSERTION_FAILURE: i32 = -1073731812i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DCOM_COMPLUS_DISABLED: i32 = -1073731810i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DCOM_INVALID_ENDPOINT_DATA: i32 = -1073731811i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DEPEND_ON_LATER_GROUP: i32 = -1073734804i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DEPEND_ON_LATER_SERVICE: i32 = -1073734805i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_NOTSUPP: i32 = -2147472466i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_NOTSUPP_PRIMARY_DN: i32 = -2147472454i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_OTHER: i32 = -2147472463i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_OTHER_PRIMARY_DN: i32 = -2147472451i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_REFUSED: i32 = -2147472465i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_REFUSED_PRIMARY_DN: i32 = -2147472453i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SECURITY: i32 = -2147472464i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SECURITY_PRIMARY_DN: i32 = -2147472452i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SERVERFAIL: i32 = -2147472467i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SERVERFAIL_PRIMARY_DN: i32 = -2147472455i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_TIMEOUT: i32 = -2147472468i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_TIMEOUT_PRIMARY_DN: i32 = -2147472456i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_NOTSUPP: i32 = -2147472460i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_OTHER: i32 = -2147472457i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_REFUSED: i32 = -2147472459i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_SECURITY: i32 = -2147472458i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_SERVERFAIL: i32 = -2147472461i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_TIMEOUT: i32 = -2147472462i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_NOTSUPP: i32 = -2147472490i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_OTHER: i32 = -2147472487i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_REFUSED: i32 = -2147472489i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_SECURITY: i32 = -2147472488i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_SERVERFAIL: i32 = -2147472491i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_TIMEOUT: i32 = -2147472492i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTERED_ADAPTER: i32 = 1073753024i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTERED_ADAPTER_PRIMARY_DN: i32 = 1073753026i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTERED_PTR: i32 = 1073753025i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_NOTSUPP: i32 = -2147472496i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_NOTSUPP_PRIMARY_DN: i32 = -2147472484i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_OTHER: i32 = -2147472493i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_OTHER_PRIMARY_DN: i32 = -2147472481i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_REFUSED: i32 = -2147472495i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_REFUSED_PRIMARY_DN: i32 = -2147472483i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_SECURITY: i32 = -2147472494i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_SECURITY_PRIMARY_DN: i32 = -2147472482i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_SERVERFAIL: i32 = -2147472497i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_SERVERFAIL_PRIMARY_DN: i32 = -2147472485i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_TIMEOUT: i32 = -2147472498i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSAPI_REGISTRATION_FAILED_TIMEOUT_PRIMARY_DN: i32 = -2147472486i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNSDomainNameChange: i32 = -2147477636i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_NETWORK_PERF_WARNING: i32 = -2147472598i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_LOW_MEMORY: i32 = -1073730817i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_NO_CONTROL: i32 = -1073730822i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_NO_DLL: i32 = -1073730824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_NO_DONE_EVENT: i32 = -1073730821i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_NO_ENTRY: i32 = -1073730823i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_NO_RPC: i32 = -1073730820i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_NO_SHUTDOWN_NOTIFY: i32 = -1073730819i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_START_FAILURE_NO_UPDATE: i32 = -1073730818i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_DNS_CACHE_UNABLE_TO_REACH_SERVER_WARNING: i32 = -2147472597i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_SIZE_ZERO: i32 = -1073725118i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_TOO_LONG: i32 = -1073725120i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_MACHINE_POLICY_REFERESH: i32 = -1073725124i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_ROOT_KEY: i32 = -1073725122i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_SUBKEY: i32 = -1073725116i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_OPENING_USER_POLICY_ROOT_KEY: i32 = -1073725121i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_OPENING_USER_POLICY_SUBKEY: i32 = -1073725115i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_PROCESSING_MACHINE_POLICY_FIELD: i32 = -1073725114i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_PROCESSING_USER_POLICY_FIELD: i32 = -1073725113i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_SETTING_APP_MARKING: i32 = -1073725111i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_SETTING_TCP_AUTOTUNING: i32 = -1073725112i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_SIZE_ZERO: i32 = -1073725117i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_TOO_LONG: i32 = -1073725119i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_ERROR_USER_POLICY_REFERESH: i32 = -1073725123i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_APP_MARKING_ALLOWED: i32 = 1073758335i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_APP_MARKING_IGNORED: i32 = 1073758334i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_APP_MARKING_NOT_CONFIGURED: i32 = 1073758333i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_LOCAL_SETTING_DONT_USE_NLA: i32 = 1073758336i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_MACHINE_POLICY_REFRESH_NO_CHANGE: i32 = 1073758324i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_MACHINE_POLICY_REFRESH_WITH_CHANGE: i32 = 1073758325i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_HIGHLY_RESTRICTED: i32 = 1073758330i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_NORMAL: i32 = 1073758332i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_NOT_CONFIGURED: i32 = 1073758328i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_OFF: i32 = 1073758329i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_RESTRICTED: i32 = 1073758331i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_USER_POLICY_REFRESH_NO_CHANGE: i32 = 1073758326i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_INFO_USER_POLICY_REFRESH_WITH_CHANGE: i32 = 1073758327i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_URL_QOS_APPLICATION_CONFLICT: i32 = 1073758337i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_MACHINE_POLICY_CONFLICT: i32 = -2147467040i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_MACHINE_POLICY_NO_FULLPATH_APPNAME: i32 = -2147467038i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_MACHINE_POLICY_PROFILE_NOT_SPECIFIED: i32 = -2147467044i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_MACHINE_POLICY_QUOTA_EXCEEDED: i32 = -2147467042i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_MACHINE_POLICY_VERSION: i32 = -2147467046i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_TEST_1: i32 = -2147467048i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_TEST_2: i32 = -2147467047i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_USER_POLICY_CONFLICT: i32 = -2147467039i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_USER_POLICY_NO_FULLPATH_APPNAME: i32 = -2147467037i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_USER_POLICY_PROFILE_NOT_SPECIFIED: i32 = -2147467043i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_USER_POLICY_QUOTA_EXCEEDED: i32 = -2147467041i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EQOS_WARNING_USER_POLICY_VERSION: i32 = -2147467045i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EventLogProductInfo: i32 = -2147477639i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EventlogAbnormalShutdown: i32 = -2147477640i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EventlogStarted: i32 = -2147477643i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EventlogStopped: i32 = -2147477642i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_EventlogUptime: i32 = -2147477635i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FIRST_LOGON_FAILED: i32 = -1073734811i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FIRST_LOGON_FAILED_II: i32 = -1073734786i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ACCESS_CHECKS_DISABLED: i32 = -2147470131i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ACCESS_CHECKS_FAILED_UNKNOWN: i32 = -1073728305i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ACCESS_CHECKS_FAILED_USER: i32 = -2147470130i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ASSERT: i32 = -1073728318i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_BAD_REG_DATA: i32 = -2147470101i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_CANNOT_COMMUNICATE: i32 = -1073728314i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_CANNOT_CREATE_UUID: i32 = -1073728300i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_CANNOT_START_BACKUP_RESTORE_IN_PROGRESS: i32 = -1073728303i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_CANT_OPEN_PREINSTALL: i32 = -1073728273i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_CANT_OPEN_STAGE: i32 = -1073728274i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_DATABASE_SPACE: i32 = -1073728313i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_DISK_WRITE_CACHE_ENABLED: i32 = -2147470136i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_DS_POLL_ERROR_SUMMARY: i32 = -2147470086i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_DUPLICATE_IN_CXTION: i32 = -1073728266i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_DUPLICATE_IN_CXTION_SYSVOL: i32 = -1073728267i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ERROR: i32 = -1073728324i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ERROR_REPLICA_SET_DELETED: i32 = -2147470088i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_HUGE_FILE: i32 = -2147470125i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_IN_ERROR_STATE: i32 = -1073728269i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_JET_1414: i32 = -1073728311i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_JOIN_FAIL_TIME_SKEW: i32 = -1073728276i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_LONG_JOIN: i32 = -2147470140i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_LONG_JOIN_DONE: i32 = -2147470139i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_MOVED_PREEXISTING: i32 = -2147470128i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_NO_DNS_ATTRIBUTE: i32 = -2147470123i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_NO_SID: i32 = -1073728298i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_OVERLAPS_LOGGING: i32 = -1073728283i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_OVERLAPS_OTHER_STAGE: i32 = -1073728279i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_OVERLAPS_ROOT: i32 = -1073728280i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_OVERLAPS_STAGE: i32 = -1073728281i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_OVERLAPS_WORKING: i32 = -1073728282i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_PREPARE_ROOT_FAILED: i32 = -1073728278i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_REPLICA_IN_JRNL_WRAP_ERROR: i32 = -1073728263i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_REPLICA_NO_ROOT_CHANGE: i32 = -1073728268i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_REPLICA_SET_CREATE_FAIL: i32 = -1073728272i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_REPLICA_SET_CREATE_OK: i32 = 1073755377i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_REPLICA_SET_CXTIONS: i32 = 1073755378i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_RMTCO_TIME_SKEW: i32 = -1073728275i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ROOT_HAS_MOVED: i32 = -1073728265i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_ROOT_NOT_VALID: i32 = -1073728285i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_STAGE_NOT_VALID: i32 = -1073728284i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_STAGING_AREA_FULL: i32 = -2147470126i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_STARTING: i32 = 1073755325i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_STOPPED: i32 = 1073755327i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_STOPPED_ASSERT: i32 = -1073728319i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_STOPPED_FORCE: i32 = -1073728320i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_STOPPING: i32 = 1073755326i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_SYSVOL_NOT_READY: i32 = -2147470134i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_SYSVOL_NOT_READY_PRIMARY: i32 = -2147470133i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_SYSVOL_READY: i32 = 1073755340i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_FRS_VOLUME_NOT_SUPPORTED: i32 = -1073728317i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_INVALID_DRIVER_DEPENDENCY: i32 = -1073734809i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_IPX_CREATE_DEVICE: i32 = -1073732318i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_IPX_ILLEGAL_CONFIG: i32 = -2147474145i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_IPX_INTERNAL_NET_INVALID: i32 = -1073732320i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_IPX_NEW_DEFAULT_TYPE: i32 = 1073751325i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_IPX_NO_ADAPTERS: i32 = -1073732317i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_IPX_NO_FRAME_TYPES: i32 = -1073732319i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_IPX_SAP_ANNOUNCE: i32 = -2147474146i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_BAD_BACKUP_WINS_ADDR: i32 = -2147479344i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_BAD_PRIMARY_WINS_ADDR: i32 = -2147479343i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_CREATE_ADDRESS: i32 = -1073737517i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_CREATE_CONNECTION: i32 = -1073737516i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_CREATE_DEVICE: i32 = -1073737513i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_CREATE_DRIVER: i32 = -1073737524i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_DUPLICATE_NAME: i32 = -1073737505i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_DUPLICATE_NAME_ERROR: i32 = -1073737503i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_NAME_RELEASE: i32 = -1073737504i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_NAME_SERVER_ADDRS: i32 = -1073737518i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_NON_OS_INIT: i32 = -1073737515i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_NO_BACKUP_WINS: i32 = -2147479346i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_NO_DEVICES: i32 = -2147479336i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_NO_RESOURCES: i32 = -1073737502i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_NO_WINS: i32 = -2147479345i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_OPEN_REG_LINKAGE: i32 = -1073737511i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_OPEN_REG_NAMESERVER: i32 = -2147479332i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_OPEN_REG_PARAMS: i32 = -1073737523i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_READ_BIND: i32 = -1073737510i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_READ_EXPORT: i32 = -1073737509i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NBT_TIMERS: i32 = -1073737514i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_ADAPTER_CHECK_ERROR: i32 = -1073736793i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_ADAPTER_DISABLED: i32 = -2147478634i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_ADAPTER_NOT_FOUND: i32 = -1073736821i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_BAD_IO_BASE_ADDRESS: i32 = -1073736812i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_BAD_VERSION: i32 = -1073736818i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_CABLE_DISCONNECTED_ERROR: i32 = -2147478615i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_DMA_CONFLICT: i32 = -2147478629i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_DRIVER_FAILURE: i32 = -1073736819i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_HARDWARE_FAILURE: i32 = -1073736822i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_INTERRUPT_CONFLICT: i32 = -2147478630i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_INTERRUPT_CONNECT: i32 = -1073736820i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_INVALID_DOWNLOAD_FILE_ERROR: i32 = -1073736804i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_INVALID_VALUE_FROM_ADAPTER: i32 = -1073736814i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_IO_PORT_CONFLICT: i32 = -2147478633i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_LOBE_FAILUE_ERROR: i32 = -2147478621i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_MAXFRAMESIZE_ERROR: i32 = -2147478625i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_MAXINTERNALBUFS_ERROR: i32 = -2147478624i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_MAXMULTICAST_ERROR: i32 = -2147478623i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_MAXRECEIVES_ERROR: i32 = -2147478627i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_MAXTRANSMITS_ERROR: i32 = -2147478626i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_MEMORY_CONFLICT: i32 = -2147478631i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_MISSING_CONFIGURATION_PARAMETER: i32 = -1073736813i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_NETWORK_ADDRESS: i32 = -1073736816i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_OUT_OF_RESOURCE: i32 = -1073736823i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_PORT_OR_DMA_CONFLICT: i32 = -2147478632i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_PRODUCTID_ERROR: i32 = -2147478622i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_RECEIVE_SPACE_SMALL: i32 = 1073746837i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_REMOVE_RECEIVED_ERROR: i32 = -2147478619i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_RESET_FAILURE_CORRECTION: i32 = -2147478614i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_RESET_FAILURE_ERROR: i32 = -2147478616i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_RESOURCE_CONFLICT: i32 = -1073736824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_SIGNAL_LOSS_ERROR: i32 = -2147478620i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_TIMEOUT: i32 = -2147478641i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_TOKEN_RING_CORRECTION: i32 = 1073746854i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_NDIS_UNSUPPORTED_CONFIGURATION: i32 = -1073736815i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_ADMISSIONCONTROL_OVERFLOW: i32 = -2147469537i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_BAD_BESTEFFORT_LIMIT: i32 = -2147469548i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_BINDING_FAILED: i32 = -1073727720i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_GPC_REGISTER_FAILED: i32 = -1073727824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_INIT_DEVICE_FAILED: i32 = -1073727717i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_MISSING_ADAPTER_REGISTRY_DATA: i32 = -1073727719i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_NETWORK_ADDRESS_FAIL: i32 = -1073727712i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_NO_RESOURCES_FOR_INIT: i32 = -1073727823i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_QUERY_OID_GEN_LINK_SPEED: i32 = -1073727721i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_QUERY_OID_GEN_MAXIMUM_FRAME_SIZE: i32 = -1073727723i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_QUERY_OID_GEN_MAXIMUM_TOTAL_SIZE: i32 = -1073727722i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_REGISTER_ADDRESS_FAMILY_FAILED: i32 = -1073727718i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_REGISTER_MINIPORT_FAILED: i32 = -1073727821i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_REGISTER_PROTOCOL_FAILED: i32 = -1073727822i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_RESOURCE_POOL: i32 = -1073727714i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_WAN_LIMITED_BESTEFFORT: i32 = -2147469539i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_PS_WMI_INSTANCE_NAME_FAILED: i32 = -1073727716i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_AT_THREAD_MAX: i32 = -2147480622i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_BIND_TRANSPORT: i32 = -2147480616i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_BUILD_SMB_HEADER: i32 = -2147480613i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_CREATE_DEVICE: i32 = -2147480646i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_CREATE_THREAD: i32 = -2147480645i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_GET_SECURITY_CONTEXT: i32 = -2147480614i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_READ_REGISTRY: i32 = -2147480621i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_REGISTER_ADDRESS: i32 = -2147480615i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CANT_SET_THREAD: i32 = -2147480644i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CLOSE_BEHIND: i32 = -2147480637i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CONNECTION: i32 = -2147480629i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CONNECTION_REFERENCE: i32 = -2147480633i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_CONTEXTS: i32 = -2147480624i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_DELAYED_SET_ATTRIBUTES_FAILED: i32 = -2147480618i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_DELETEONCLOSE_FAILED: i32 = -2147480617i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_DISPOSITION: i32 = -2147480625i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_ENCRYPT: i32 = -2147480630i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_FAILED_UNLOCK: i32 = -2147480639i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_INVALID_LOCK_REPLY: i32 = -2147480641i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_INVALID_OPLOCK: i32 = -2147480634i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_INVALID_REPLY: i32 = -2147480643i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_INVALID_SMB: i32 = -2147480642i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_MAXCMDS: i32 = -2147480627i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_OPLOCK_SMB: i32 = -2147480626i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_PRIMARY_TRANSPORT_CONNECT_FAILED: i32 = -2147480619i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_RESOURCE_SHORTAGE: i32 = -2147480647i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_SECURITY_SIGNATURE_MISMATCH: i32 = -2147480612i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_SERVER_REFERENCE: i32 = -2147480632i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_SMB_REFERENCE: i32 = -2147480631i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_TIMEOUT: i32 = -2147480635i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_TIMEZONE_BIAS_TOO_LARGE: i32 = -2147480620i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_UNEXPECTED_ERROR: i32 = -2147480636i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RDR_WRITE_BEHIND_FLUSH_FAILED: i32 = -2147480623i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_READFILE_TIMEOUT: i32 = -1073734814i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_REVERTED_TO_LASTKNOWNGOOD: i32 = -1073734817i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_ACTIVATION_ERROR: i32 = -1073731817i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_CREATEDEBUGGERPROCESS_FAILURE: i32 = -1073731794i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_CREATEPROCESS_FAILURE: i32 = -1073731824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_DEFAULT_LAUNCH_ACCESS_DENIED: i32 = -1073731821i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_LAUNCH_ACCESS_DENIED: i32 = -1073731822i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_REMOTE_SIDE_ERROR: i32 = -1073731818i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_REMOTE_SIDE_ERROR_WITH_FILE: i32 = -1073731816i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_REMOTE_SIDE_UNAVAILABLE: i32 = -1073731815i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_RUNAS_CANT_LOGIN: i32 = -1073731820i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_RUNAS_CREATEPROCESS_FAILURE: i32 = -1073731823i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_SERVER_NOT_RESPONDING: i32 = -1073731813i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_SERVER_START_TIMEOUT: i32 = -1073731814i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_START_SERVICE_FAILURE: i32 = -1073731819i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RPCSS_STOP_SERVICE_FAILURE: i32 = -1073731795i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_RUNNING_LASTKNOWNGOOD: i32 = -1073734797i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SCOPE_LABEL_TOO_LONG: i32 = -2147479331i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SCOPE_TOO_LONG: i32 = -2147479330i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SECOND_LOGON_FAILED: i32 = -1073734810i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_CONFIG_BACKOUT_FAILED: i32 = -1073734787i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_CONTROL_SUCCESS: i32 = 1073748859i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_CRASH: i32 = -1073734793i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_CRASH_NO_ACTION: i32 = -1073734790i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_DIFFERENT_PID_CONNECTED: i32 = -2147476609i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_EXIT_FAILED: i32 = -1073734801i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_EXIT_FAILED_SPECIFIC: i32 = -1073734800i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_LOGON_TYPE_NOT_GRANTED: i32 = -1073734783i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_NOT_INTERACTIVE: i32 = -1073734794i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_RECOVERY_FAILED: i32 = -1073734792i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_SCESRV_FAILED: i32 = -1073734791i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_SHUTDOWN_FAILED: i32 = -1073734781i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_START_AT_BOOT_FAILED: i32 = -1073734799i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_START_FAILED: i32 = -1073734824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_START_FAILED_GROUP: i32 = -1073734822i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_START_FAILED_II: i32 = -1073734823i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_START_FAILED_NONE: i32 = -1073734821i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_START_HUNG: i32 = -1073734802i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_START_TYPE_CHANGED: i32 = 1073748864i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_STATUS_SUCCESS: i32 = 1073748860i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SERVICE_STOP_SUCCESS_WITH_REASON: i32 = 1073748866i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SEVERE_SERVICE_FAILED: i32 = -1073734803i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_BIND_DUP_NAME: i32 = -1073739319i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_BIND_TO_TRANSPORT: i32 = -2147481144i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_CHANGE_DOMAIN_NAME: i32 = -2147481136i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_CREATE_DEVICE: i32 = -1073739822i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_CREATE_PROCESS: i32 = -1073739821i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_CREATE_THREAD: i32 = -1073739820i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_GROW_TABLE: i32 = -2147481639i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_LOAD_DRIVER: i32 = -2147481140i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_MAP_ERROR: i32 = -2147481138i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_OPEN_NPFS: i32 = -1073739817i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_RECREATE_SHARE: i32 = -2147481137i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_START_SCAVENGER: i32 = -1073739814i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_CANT_UNLOAD_DRIVER: i32 = -2147481139i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_DISK_FULL: i32 = -2147481635i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_DOS_ATTACK_DETECTED: i32 = -2147481623i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_INVALID_REGISTRY_VALUE: i32 = -2147481142i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_INVALID_REQUEST: i32 = -1073739818i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_INVALID_SD: i32 = -2147481141i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_IRP_STACK_SIZE: i32 = -1073739813i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_KEY_NOT_CREATED: i32 = -1073739322i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_KEY_NOT_FOUND: i32 = -1073739323i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NETWORK_ERROR: i32 = -2147481636i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NONPAGED_POOL_LIMIT: i32 = -1073739807i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_BLOCKING_IO: i32 = -2147481624i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_FREE_CONNECTIONS: i32 = -2147481626i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_FREE_RAW_WORK_ITEM: i32 = -2147481625i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_NONPAGED_POOL: i32 = -1073739805i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_PAGED_POOL: i32 = -1073739804i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_TRANSPORTS_BOUND: i32 = -1073739321i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_VIRTUAL_MEMORY: i32 = -1073739808i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_NO_WORK_ITEM: i32 = -2147481627i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_OUT_OF_WORK_ITEM_DOS: i32 = -2147481621i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_PAGED_POOL_LIMIT: i32 = -1073739806i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_RESOURCE_SHORTAGE: i32 = -1073739823i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_SERVICE_FAILED: i32 = -1073739824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_TOO_MANY_DOS: i32 = -2147481622i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_TXF_INIT_FAILED: i32 = -2147481135i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_SRV_UNEXPECTED_DISC: i32 = -1073739819i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_STREAMS_ALLOCB_FAILURE: i32 = -2147479647i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_STREAMS_ALLOCB_FAILURE_CNT: i32 = -2147479646i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_STREAMS_ESBALLOC_FAILURE: i32 = -2147479645i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_STREAMS_ESBALLOC_FAILURE_CNT: i32 = -2147479644i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_STREAMS_STRLOG: i32 = -1073737824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TAKE_OWNERSHIP: i32 = -1073734796i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP6_STARTED: i32 = 1073744924i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_ADAPTER_REG_FAILURE: i32 = -1073737633i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_ADDRESS_CONFLICT1: i32 = -1073737626i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_ADDRESS_CONFLICT2: i32 = -1073737625i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_AUTOCONFIGURED_ADDRESS_LIMIT_REACHED: i32 = -2147479444i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_AUTOCONFIGURED_ROUTE_LIMIT_REACHED: i32 = -2147479443i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_CREATE_DEVICE_FAILED: i32 = -1073737724i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_DHCP_INIT_FAILED: i32 = -2147479458i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_INTERFACE_BIND_FAILURE: i32 = -1073737617i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_INVALID_ADDRESS: i32 = -1073737637i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_INVALID_DEFAULT_GATEWAY: i32 = -2147479456i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_INVALID_MASK: i32 = -1073737636i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_IPV4_UNINSTALLED: i32 = 1073746027i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_IP_INIT_FAILED: i32 = -1073737628i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_MEDIA_CONNECT: i32 = 1073746025i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_MEDIA_DISCONNECT: i32 = 1073746026i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_NO_ADAPTER_RESOURCES: i32 = -1073737635i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_NO_ADDRESS_LIST: i32 = -1073737631i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_NO_BINDINGS: i32 = -1073737629i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_NO_MASK: i32 = -1073737638i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_NO_MASK_LIST: i32 = -1073737630i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_NO_RESOURCES_FOR_INIT: i32 = -1073737723i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_NTE_CONTEXT_LIST_FAILURE: i32 = -1073737624i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_OUT_OF_ORDER_FRAGMENTS_EXCEEDED: i32 = -2147479442i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_PCF_CLEAR_FILTER_FAILURE: i32 = -1073737530i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_PCF_MISSING_CAPABILITY: i32 = -2147479357i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_PCF_MULTICAST_OID_ISSUE: i32 = -2147479358i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_PCF_NO_ARP_FILTER: i32 = -2147479355i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_PCF_SET_FILTER_FAILURE: i32 = -2147479356i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TCP_CONNECTIONS_PERF_IMPACTED: i32 = -2147479418i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TCP_CONNECT_LIMIT_REACHED: i32 = -2147479422i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TCP_GLOBAL_EPHEMERAL_PORT_SPACE_EXHAUSTED: i32 = -2147479417i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TCP_INIT_FAILED: i32 = -1073737599i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TCP_MPP_ATTACKS_DETECTED: i32 = -2147479419i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TCP_TIME_WAIT_COLLISION: i32 = -2147479421i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TCP_WSD_WS_RESTRICTED: i32 = -2147479420i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TOO_MANY_GATEWAYS: i32 = -2147479451i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_TOO_MANY_NETS: i32 = -1073737639i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_UDP_GLOBAL_EPHEMERAL_PORT_SPACE_EXHAUSTED: i32 = -2147479382i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TCPIP_UDP_LIMIT_REACHED: i32 = -2147479383i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSACT_INVALID: i32 = -1073734812i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSACT_TIMEOUT: i32 = -1073734813i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_ADAPTER_NOT_FOUND: i32 = -1073732818i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_BAD_PROTOCOL: i32 = 1073750835i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_BINDING_FAILED: i32 = -1073732819i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_QUERY_OID_FAILED: i32 = -1073732816i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_REGISTER_FAILED: i32 = -1073732820i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_RESOURCE_LIMIT: i32 = -2147474646i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_RESOURCE_POOL: i32 = -2147474647i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_RESOURCE_SPECIFIC: i32 = -2147474645i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_SET_OID_FAILED: i32 = -1073732817i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_TOO_MANY_LINKS: i32 = 1073750834i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRANSPORT_TRANSFER_DATA: i32 = 1073750833i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_INTERNAL_ERROR: i32 = -1073729324i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_CORRUPT_LOG: i32 = -1073729321i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_DUPLICATE_VOLIDS: i32 = 1073754331i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_MOVE_QUOTA_EXCEEDED: i32 = -2147471140i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_START_FAILURE: i32 = -1073729322i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_START_SUCCESS: i32 = 1073754325i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_VOLUME_CLAIM: i32 = 1073754330i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_VOLUME_CREATE: i32 = 1073754329i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_TRK_SERVICE_VOL_QUOTA_EXCEEDED: i32 = -2147471144i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_UP_DRIVER_ON_MP: i32 = -1073735724i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WEBCLIENT_CLOSE_DELETE_FAILED: i32 = -2147468746i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WEBCLIENT_CLOSE_PROPPATCH_FAILED: i32 = -2147468745i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WEBCLIENT_CLOSE_PUT_FAILED: i32 = -2147468747i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WEBCLIENT_SETINFO_PROPPATCH_FAILED: i32 = -2147468744i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WINNAT_SESSION_LIMIT_REACHED: i32 = -2147466648i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WINSOCK_CLOSESOCKET_STUCK: i32 = -2147467646i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WINSOCK_TDI_FILTER_DETECTED: i32 = -2147467647i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVENT_WSK_OWNINGTHREAD_PARAMETER_IGNORED: i32 = -1073725824i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EVLEN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EXTRA_EXIT_POINT: i32 = -1073727524i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EXTRA_EXIT_POINT_DELETED: i32 = -1073727520i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EXTRA_EXIT_POINT_NOT_DELETED: i32 = -1073727519i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EXTRA_VOLUME: i32 = -1073727521i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EXTRA_VOLUME_DELETED: i32 = -1073727514i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EXTRA_VOLUME_NOT_DELETED: i32 = -1073727513i32;
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct FLAT_STRING {
-    pub MaximumLength: i16,
-    pub Length: i16,
-    pub Buffer: [super::super::Foundation::CHAR; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for FLAT_STRING {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for FLAT_STRING {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NetAddServiceAccount<'a, P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetAddServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
     }
+    NetAddServiceAccount(servername.into(), accountname.into(), password.into(), flags).ok()
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FLAT_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FLAT_STRING").field("MaximumLength", &self.MaximumLength).field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FLAT_STRING {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FLAT_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAT_STRING>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FLAT_STRING {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FLAT_STRING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FORCE_LEVEL_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(2u32);
-impl ::core::marker::Copy for FORCE_LEVEL_FLAGS {}
-impl ::core::clone::Clone for FORCE_LEVEL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FORCE_LEVEL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FORCE_LEVEL_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FORCE_LEVEL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FORCE_LEVEL_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GNLEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUPIDMASK: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_ALL_PARMNUM: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_ATTRIBUTES_PARMNUM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_COMMENT_PARMNUM: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct GROUP_INFO_0 {
-    pub grpi0_name: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for GROUP_INFO_0 {}
-impl ::core::clone::Clone for GROUP_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GROUP_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_INFO_0").field("grpi0_name", &self.grpi0_name).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GROUP_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GROUP_INFO_0 {}
-impl ::core::default::Default for GROUP_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct GROUP_INFO_1 {
-    pub grpi1_name: ::windows::core::PWSTR,
-    pub grpi1_comment: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for GROUP_INFO_1 {}
-impl ::core::clone::Clone for GROUP_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GROUP_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_INFO_1").field("grpi1_name", &self.grpi1_name).field("grpi1_comment", &self.grpi1_comment).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_INFO_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GROUP_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GROUP_INFO_1 {}
-impl ::core::default::Default for GROUP_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct GROUP_INFO_1002 {
-    pub grpi1002_comment: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for GROUP_INFO_1002 {}
-impl ::core::clone::Clone for GROUP_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GROUP_INFO_1002 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_INFO_1002").field("grpi1002_comment", &self.grpi1002_comment).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_INFO_1002 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GROUP_INFO_1002 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1002>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GROUP_INFO_1002 {}
-impl ::core::default::Default for GROUP_INFO_1002 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct GROUP_INFO_1005 {
-    pub grpi1005_attributes: u32,
-}
-impl ::core::marker::Copy for GROUP_INFO_1005 {}
-impl ::core::clone::Clone for GROUP_INFO_1005 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GROUP_INFO_1005 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_INFO_1005").field("grpi1005_attributes", &self.grpi1005_attributes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_INFO_1005 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GROUP_INFO_1005 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1005>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GROUP_INFO_1005 {}
-impl ::core::default::Default for GROUP_INFO_1005 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct GROUP_INFO_2 {
-    pub grpi2_name: ::windows::core::PWSTR,
-    pub grpi2_comment: ::windows::core::PWSTR,
-    pub grpi2_group_id: u32,
-    pub grpi2_attributes: u32,
-}
-impl ::core::marker::Copy for GROUP_INFO_2 {}
-impl ::core::clone::Clone for GROUP_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GROUP_INFO_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_INFO_2").field("grpi2_name", &self.grpi2_name).field("grpi2_comment", &self.grpi2_comment).field("grpi2_group_id", &self.grpi2_group_id).field("grpi2_attributes", &self.grpi2_attributes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_INFO_2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GROUP_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GROUP_INFO_2 {}
-impl ::core::default::Default for GROUP_INFO_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct GROUP_INFO_3 {
-    pub grpi3_name: ::windows::core::PWSTR,
-    pub grpi3_comment: ::windows::core::PWSTR,
-    pub grpi3_group_sid: super::super::Foundation::PSID,
-    pub grpi3_attributes: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for GROUP_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for GROUP_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NetEnumerateServiceAccounts<'a, P0>(servername: P0, flags: u32, accountscount: &mut u32, accounts: &mut *mut *mut u16) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetEnumerateServiceAccounts(servername: ::windows::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
     }
+    NetEnumerateServiceAccounts(servername.into(), flags, ::core::mem::transmute(accountscount), ::core::mem::transmute(accounts)).ok()
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GROUP_INFO_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_INFO_3").field("grpi3_name", &self.grpi3_name).field("grpi3_comment", &self.grpi3_comment).field("grpi3_group_sid", &self.grpi3_group_sid).field("grpi3_attributes", &self.grpi3_attributes).finish()
+#[inline]
+pub unsafe fn NetIsServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, isservice: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetIsServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
     }
+    NetIsServiceAccount(servername.into(), accountname.into(), ::core::mem::transmute(isservice)).ok()
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GROUP_INFO_3 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GROUP_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_3>()) == 0 }
+#[inline]
+pub unsafe fn NetQueryServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: &mut *mut u8) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetQueryServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
     }
+    NetQueryServiceAccount(servername.into(), accountname.into(), infolevel, ::core::mem::transmute(buffer)).ok()
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GROUP_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GROUP_INFO_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[inline]
+pub unsafe fn NetRemoveServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, flags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetRemoveServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
     }
+    NetRemoveServiceAccount(servername.into(), accountname.into(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_NAME_PARMNUM: u32 = 1u32;
+#[inline]
+pub unsafe fn RouterAssert<'a, P0, P1, P2>(pszfailedassertion: P0, pszfilename: P1, dwlinenumber: u32, pszmessage: P2)
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterAssert(pszfailedassertion: ::windows::core::PCSTR, pszfilename: ::windows::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows::core::PCSTR);
+    }
+    RouterAssert(pszfailedassertion.into(), pszfilename.into(), dwlinenumber, pszmessage.into())
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_SPECIALGRP_ADMINS: &str = "ADMINS";
+#[inline]
+pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: &mut ::windows::core::PSTR) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows::core::PSTR) -> u32;
+    }
+    RouterGetErrorStringA(dwerrorcode, ::core::mem::transmute(lplpszerrorstring))
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_SPECIALGRP_GUESTS: &str = "GUESTS";
+#[inline]
+pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: &mut ::windows::core::PWSTR) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows::core::PWSTR) -> u32;
+    }
+    RouterGetErrorStringW(dwerrorcode, ::core::mem::transmute(lplpwszerrorstring))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogDeregisterA<'a, P0>(hloghandle: P0)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
+    }
+    RouterLogDeregisterA(hloghandle.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogDeregisterW<'a, P0>(hloghandle: P0)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
+    }
+    RouterLogDeregisterW(hloghandle.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwerrorcode: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32);
+    }
+    RouterLogEventA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventDataA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    }
+    RouterLogEventDataA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventDataW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    }
+    RouterLogEventDataW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventExA<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR);
+    }
+    RouterLogEventExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventExW<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR);
+    }
+    RouterLogEventExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventStringA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PSTR], dwerrorcode: u32, dwerrorindex: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
+    }
+    RouterLogEventStringA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventStringW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PWSTR], dwerrorcode: u32, dwerrorindex: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
+    }
+    RouterLogEventStringW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventValistExA<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR, arglist: *mut i8);
+    }
+    RouterLogEventValistExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventValistExW<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR, arglist: *mut i8);
+    }
+    RouterLogEventValistExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwerrorcode: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32);
+    }
+    RouterLogEventW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogRegisterA<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogRegisterA(lpszsource: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    RouterLogRegisterA(lpszsource.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogRegisterW<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RouterLogRegisterW(lpszsource: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    }
+    RouterLogRegisterW(lpszsource.into())
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_SPECIALGRP_LOCAL: &str = "LOCAL";
+#[inline]
+pub unsafe fn TracePrintfA<'a, P0>(dwtraceid: u32, lpszformat: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn TracePrintfA(dwtraceid: u32, lpszformat: ::windows::core::PCSTR) -> u32;
+    }
+    TracePrintfA(dwtraceid, lpszformat.into())
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const GROUP_SPECIALGRP_USERS: &str = "USERS";
-#[repr(C)]
+#[inline]
+pub unsafe fn TracePrintfExA<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn TracePrintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCSTR) -> u32;
+    }
+    TracePrintfExA(dwtraceid, dwflags, lpszformat.into())
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct GROUP_USERS_INFO_0 {
-    pub grui0_name: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for GROUP_USERS_INFO_0 {}
-impl ::core::clone::Clone for GROUP_USERS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn TracePrintfExW<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn TracePrintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCWSTR) -> u32;
     }
+    TracePrintfExW(dwtraceid, dwflags, lpszformat.into())
 }
-impl ::core::fmt::Debug for GROUP_USERS_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_USERS_INFO_0").field("grui0_name", &self.grui0_name).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GROUP_USERS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_USERS_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GROUP_USERS_INFO_0 {}
-impl ::core::default::Default for GROUP_USERS_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct GROUP_USERS_INFO_1 {
-    pub grui1_name: ::windows::core::PWSTR,
-    pub grui1_attributes: u32,
-}
-impl ::core::marker::Copy for GROUP_USERS_INFO_1 {}
-impl ::core::clone::Clone for GROUP_USERS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn TracePrintfW<'a, P0>(dwtraceid: u32, lpszformat: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn TracePrintfW(dwtraceid: u32, lpszformat: ::windows::core::PCWSTR) -> u32;
     }
-}
-impl ::core::fmt::Debug for GROUP_USERS_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GROUP_USERS_INFO_1").field("grui1_name", &self.grui1_name).field("grui1_attributes", &self.grui1_attributes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GROUP_USERS_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_USERS_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GROUP_USERS_INFO_1 {}
-impl ::core::default::Default for GROUP_USERS_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    TracePrintfW(dwtraceid, lpszformat.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -3011,72 +364,1810 @@ where
     }
     GetNetScheduleAccountInformation(pwszservername.into(), wszaccount.len() as _, ::core::mem::transmute(wszaccount.as_ptr())).ok()
 }
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct HARDWARE_ADDRESS {
-    pub Address: [u8; 6],
-}
-impl ::core::marker::Copy for HARDWARE_ADDRESS {}
-impl ::core::clone::Clone for HARDWARE_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn I_NetLogonControl2<'a, P0>(servername: P0, functioncode: u32, querylevel: u32, data: &u8, buffer: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn I_NetLogonControl2(servername: ::windows::core::PCWSTR, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32;
     }
-}
-impl ::core::fmt::Debug for HARDWARE_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HARDWARE_ADDRESS").field("Address", &self.Address).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HARDWARE_ADDRESS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HARDWARE_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWARE_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HARDWARE_ADDRESS {}
-impl ::core::default::Default for HARDWARE_ADDRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    I_NetLogonControl2(servername.into(), functioncode, querylevel, ::core::mem::transmute(data), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const HARDWARE_ADDRESS_LENGTH: u32 = 6u32;
+#[inline]
+pub unsafe fn LogErrorA(dwmessageid: u32, plpwssubstrings: &[::windows::core::PSTR], dwerrorcode: u32) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR, dwerrorcode: u32);
+    }
+    LogErrorA(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const HELP_MSG_FILENAME: &str = "NETH";
-#[repr(C)]
+#[inline]
+pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PSTR]) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR);
+    }
+    LogEventA(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct HLOG {
-    pub time: u32,
-    pub last_flags: u32,
-    pub offset: u32,
-    pub rec_offset: u32,
-}
-impl ::core::marker::Copy for HLOG {}
-impl ::core::clone::Clone for HLOG {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: &mut *mut u8, lpdwentriesread: &mut u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
     }
+    MprSetupProtocolEnum(dwtransportid, ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwentriesread))
 }
-impl ::core::fmt::Debug for HLOG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HLOG").field("time", &self.time).field("last_flags", &self.last_flags).field("offset", &self.offset).field("rec_offset", &self.rec_offset).finish()
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32;
     }
+    MprSetupProtocolFree(::core::mem::transmute(lpbuffer))
 }
-unsafe impl ::windows::core::Abi for HLOG {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HLOG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HLOG>()) == 0 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAccessAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAccessAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
+    NetAccessAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
 }
-impl ::core::cmp::Eq for HLOG {}
-impl ::core::default::Default for HLOG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAccessDel<'a, P0, P1>(servername: P0, resource: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAccessDel(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR) -> u32;
     }
+    NetAccessDel(servername.into(), resource.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAccessEnum<'a, P0, P1>(servername: P0, basepath: P1, recursive: u32, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAccessEnum(servername: ::windows::core::PCWSTR, basepath: ::windows::core::PCWSTR, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    }
+    NetAccessEnum(servername.into(), basepath.into(), recursive, level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAccessGetInfo<'a, P0, P1>(servername: P0, resource: P1, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAccessGetInfo(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetAccessGetInfo(servername.into(), resource.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAccessGetUserPerms<'a, P0, P1, P2>(servername: P0, ugname: P1, resource: P2, perms: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAccessGetUserPerms(servername: ::windows::core::PCWSTR, ugname: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, perms: *mut u32) -> u32;
+    }
+    NetAccessGetUserPerms(servername.into(), ugname.into(), resource.into(), ::core::mem::transmute(perms))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAccessSetInfo<'a, P0, P1>(servername: P0, resource: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAccessSetInfo(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetAccessSetInfo(servername.into(), resource.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAddAlternateComputerName<'a, P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAddAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
+    }
+    NetAddAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAlertRaise<'a, P0>(alerttype: P0, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAlertRaise(alerttype: ::windows::core::PCWSTR, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32;
+    }
+    NetAlertRaise(alerttype.into(), ::core::mem::transmute(buffer), buffersize)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAlertRaiseEx<'a, P0, P1>(alerttype: P0, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAlertRaiseEx(alerttype: ::windows::core::PCWSTR, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: ::windows::core::PCWSTR) -> u32;
+    }
+    NetAlertRaiseEx(alerttype.into(), ::core::mem::transmute(variableinfo), variableinfosize, servicename.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32;
+    }
+    NetApiBufferAllocate(bytecount, ::core::mem::transmute(buffer))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetApiBufferFree(buffer: *const ::core::ffi::c_void) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetApiBufferFree(buffer: *const ::core::ffi::c_void) -> u32;
+    }
+    NetApiBufferFree(::core::mem::transmute(buffer))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32;
+    }
+    NetApiBufferReallocate(::core::mem::transmute(oldbuffer), newbytecount, ::core::mem::transmute(newbuffer))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: &mut u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *mut u32) -> u32;
+    }
+    NetApiBufferSize(::core::mem::transmute(buffer), ::core::mem::transmute(bytecount))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAuditClear<'a, P0, P1, P2>(server: P0, backupfile: P1, service: P2) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAuditClear(server: ::windows::core::PCWSTR, backupfile: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR) -> u32;
+    }
+    NetAuditClear(server.into(), backupfile.into(), service.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAuditRead<'a, P0, P1>(server: P0, service: P1, auditloghandle: &mut HLOG, offset: u32, reserved1: &mut u32, reserved2: u32, offsetflag: u32, bufptr: &mut *mut u8, prefmaxlen: u32, bytesread: &mut u32, totalavailable: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAuditRead(server: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
+    }
+    NetAuditRead(server.into(), service.into(), ::core::mem::transmute(auditloghandle), offset, ::core::mem::transmute(reserved1), reserved2, offsetflag, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetAuditWrite<'a, P0>(r#type: u32, buf: &mut u8, numbytes: u32, service: P0, reserved: &mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAuditWrite(r#type: u32, buf: *mut u8, numbytes: u32, service: ::windows::core::PCWSTR, reserved: *mut u8) -> u32;
+    }
+    NetAuditWrite(r#type, ::core::mem::transmute(buf), numbytes, service.into(), ::core::mem::transmute(reserved))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetConfigGet<'a, P0, P1, P2>(server: P0, component: P1, parameter: P2, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetConfigGet(server: ::windows::core::PCWSTR, component: ::windows::core::PCWSTR, parameter: ::windows::core::PCWSTR, bufptr: *mut *mut u8) -> u32;
+    }
+    NetConfigGet(server.into(), component.into(), parameter.into(), ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetConfigGetAll<'a, P0, P1>(server: P0, component: P1, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetConfigGetAll(server: ::windows::core::PCWSTR, component: ::windows::core::PCWSTR, bufptr: *mut *mut u8) -> u32;
+    }
+    NetConfigGetAll(server.into(), component.into(), ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetConfigSet<'a, P0, P1, P2>(server: P0, reserved1: P1, component: P2, level: u32, reserved2: u32, buf: &mut u8, reserved3: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetConfigSet(server: ::windows::core::PCWSTR, reserved1: ::windows::core::PCWSTR, component: ::windows::core::PCWSTR, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32;
+    }
+    NetConfigSet(server.into(), reserved1.into(), component.into(), level, reserved2, ::core::mem::transmute(buf), reserved3)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: &NETSETUP_PROVISIONING_PARAMS, pppackagebindata: ::core::option::Option<&mut *mut u8>, pdwpackagebindatasize: ::core::option::Option<&mut u32>, pppackagetextdata: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut ::windows::core::PWSTR) -> u32;
+    }
+    NetCreateProvisioningPackage(::core::mem::transmute(pprovisioningparams), ::core::mem::transmute(pppackagebindata), ::core::mem::transmute(pdwpackagebindatasize), ::core::mem::transmute(pppackagetextdata))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetEnumerateComputerNames<'a, P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: &mut u32, computernames: &mut *mut ::windows::core::PWSTR) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetEnumerateComputerNames(server: ::windows::core::PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32;
+    }
+    NetEnumerateComputerNames(server.into(), nametype, reserved, ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetErrorLogClear<'a, P0, P1>(uncservername: P0, backupfile: P1, reserved: ::core::option::Option<&u8>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetErrorLogClear(uncservername: ::windows::core::PCWSTR, backupfile: ::windows::core::PCWSTR, reserved: *const u8) -> u32;
+    }
+    NetErrorLogClear(uncservername.into(), backupfile.into(), ::core::mem::transmute(reserved))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetErrorLogRead<'a, P0, P1>(uncservername: P0, reserved1: P1, errorloghandle: &HLOG, offset: u32, reserved2: ::core::option::Option<&u32>, reserved3: u32, offsetflag: u32, bufptr: &mut *mut u8, prefmaxsize: u32, bytesread: &mut u32, totalavailable: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetErrorLogRead(uncservername: ::windows::core::PCWSTR, reserved1: ::windows::core::PCWSTR, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
+    }
+    NetErrorLogRead(uncservername.into(), reserved1.into(), ::core::mem::transmute(errorloghandle), offset, ::core::mem::transmute(reserved2), reserved3, offsetflag, ::core::mem::transmute(bufptr), prefmaxsize, ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetErrorLogWrite<'a, P0>(reserved1: ::core::option::Option<&u8>, code: u32, component: P0, buffer: &u8, numbytes: u32, msgbuf: &u8, strcount: u32, reserved2: ::core::option::Option<&u8>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetErrorLogWrite(reserved1: *const u8, code: u32, component: ::windows::core::PCWSTR, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32;
+    }
+    NetErrorLogWrite(::core::mem::transmute(reserved1), code, component.into(), ::core::mem::transmute(buffer), numbytes, ::core::mem::transmute(msgbuf), strcount, ::core::mem::transmute(reserved2))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
+pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<&DSREG_JOIN_INFO>) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO);
+    }
+    NetFreeAadJoinInformation(::core::mem::transmute(pjoininfo))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
+pub unsafe fn NetGetAadJoinInformation<'a, P0>(pcsztenantid: P0) -> ::windows::core::Result<*mut DSREG_JOIN_INFO>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGetAadJoinInformation(pcsztenantid: ::windows::core::PCWSTR, ppjoininfo: *mut *mut DSREG_JOIN_INFO) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    NetGetAadJoinInformation(pcsztenantid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DSREG_JOIN_INFO>(result__)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGetAnyDCName<'a, P0, P1>(servername: P0, domainname: P1, buffer: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGetAnyDCName(servername: ::windows::core::PCWSTR, domainname: ::windows::core::PCWSTR, buffer: *mut *mut u8) -> u32;
+    }
+    NetGetAnyDCName(servername.into(), domainname.into(), ::core::mem::transmute(buffer))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGetDCName<'a, P0, P1>(servername: P0, domainname: P1, buffer: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGetDCName(servername: ::windows::core::PCWSTR, domainname: ::windows::core::PCWSTR, buffer: *mut *mut u8) -> u32;
+    }
+    NetGetDCName(servername.into(), domainname.into(), ::core::mem::transmute(buffer))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGetDisplayInformationIndex<'a, P0, P1>(servername: P0, level: u32, prefix: P1, index: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGetDisplayInformationIndex(servername: ::windows::core::PCWSTR, level: u32, prefix: ::windows::core::PCWSTR, index: *mut u32) -> u32;
+    }
+    NetGetDisplayInformationIndex(servername.into(), level, prefix.into(), ::core::mem::transmute(index))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGetJoinInformation<'a, P0>(lpserver: P0, lpnamebuffer: &mut ::windows::core::PWSTR, buffertype: &mut NETSETUP_JOIN_STATUS) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGetJoinInformation(lpserver: ::windows::core::PCWSTR, lpnamebuffer: *mut ::windows::core::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32;
+    }
+    NetGetJoinInformation(lpserver.into(), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(buffertype))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGetJoinableOUs<'a, P0, P1, P2, P3>(lpserver: P0, lpdomain: P1, lpaccount: P2, lppassword: P3, oucount: &mut u32, ous: &mut *mut ::windows::core::PWSTR) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGetJoinableOUs(lpserver: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, oucount: *mut u32, ous: *mut *mut ::windows::core::PWSTR) -> u32;
+    }
+    NetGetJoinableOUs(lpserver.into(), lpdomain.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(oucount), ::core::mem::transmute(ous))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetGroupAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupAddUser<'a, P0, P1, P2>(servername: P0, groupname: P1, username: P2) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupAddUser(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR) -> u32;
+    }
+    NetGroupAddUser(servername.into(), groupname.into(), username.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupDel<'a, P0, P1>(servername: P0, groupname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupDel(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetGroupDel(servername.into(), groupname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupDelUser<'a, P0, P1, P2>(servername: P0, groupname: P1, username: P2) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupDelUser(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR) -> u32;
+    }
+    NetGroupDelUser(servername.into(), groupname.into(), username.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut usize>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
+    }
+    NetGroupEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupGetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupGetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetGroupGetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupGetUsers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut usize>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupGetUsers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
+    }
+    NetGroupGetUsers(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupSetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupSetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetGroupSetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetGroupSetUsers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetGroupSetUsers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    }
+    NetGroupSetUsers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetJoinDomain<'a, P0, P1, P2, P3, P4>(lpserver: P0, lpdomain: P1, lpmachineaccountou: P2, lpaccount: P3, lppassword: P4, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetJoinDomain(lpserver: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
+    }
+    NetJoinDomain(lpserver.into(), lpdomain.into(), lpmachineaccountou.into(), lpaccount.into(), lppassword.into(), fjoinoptions)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetLocalGroupAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetLocalGroupAddMember<'a, P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupAddMember(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, membersid: super::super::Foundation::PSID) -> u32;
+    }
+    NetLocalGroupAddMember(servername.into(), groupname.into(), membersid.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupAddMembers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupAddMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    }
+    NetLocalGroupAddMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupDel<'a, P0, P1>(servername: P0, groupname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupDel(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetLocalGroupDel(servername.into(), groupname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetLocalGroupDelMember<'a, P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupDelMember(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, membersid: super::super::Foundation::PSID) -> u32;
+    }
+    NetLocalGroupDelMember(servername.into(), groupname.into(), membersid.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupDelMembers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupDelMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    }
+    NetLocalGroupDelMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut usize>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
+    }
+    NetLocalGroupEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupGetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupGetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetLocalGroupGetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupGetMembers<'a, P0, P1>(servername: P0, localgroupname: P1, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut usize>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupGetMembers(servername: ::windows::core::PCWSTR, localgroupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
+    }
+    NetLocalGroupGetMembers(servername.into(), localgroupname.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupSetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupSetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetLocalGroupSetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetLocalGroupSetMembers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetLocalGroupSetMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    }
+    NetLocalGroupSetMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetMessageBufferSend<'a, P0, P1, P2>(servername: P0, msgname: P1, fromname: P2, buf: &u8, buflen: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetMessageBufferSend(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR, fromname: ::windows::core::PCWSTR, buf: *const u8, buflen: u32) -> u32;
+    }
+    NetMessageBufferSend(servername.into(), msgname.into(), fromname.into(), ::core::mem::transmute(buf), buflen)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetMessageNameAdd<'a, P0, P1>(servername: P0, msgname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetMessageNameAdd(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetMessageNameAdd(servername.into(), msgname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetMessageNameDel<'a, P0, P1>(servername: P0, msgname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetMessageNameDel(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetMessageNameDel(servername.into(), msgname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetMessageNameEnum<'a, P0>(servername: P0, level: u32, bufptr: &*const u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetMessageNameEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    }
+    NetMessageNameEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetMessageNameGetInfo<'a, P0, P1>(servername: P0, msgname: P1, level: u32, bufptr: &*const u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetMessageNameGetInfo(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR, level: u32, bufptr: *const *const u8) -> u32;
+    }
+    NetMessageNameGetInfo(servername.into(), msgname.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetProvisionComputerAccount<'a, P0, P1, P2, P3>(lpdomain: P0, lpmachinename: P1, lpmachineaccountou: P2, lpdcname: P3, dwoptions: NETSETUP_PROVISION, pprovisionbindata: ::core::option::Option<&mut *mut u8>, pdwprovisionbindatasize: ::core::option::Option<&mut u32>, pprovisiontextdata: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetProvisionComputerAccount(lpdomain: ::windows::core::PCWSTR, lpmachinename: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpdcname: ::windows::core::PCWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows::core::PWSTR) -> u32;
+    }
+    NetProvisionComputerAccount(lpdomain.into(), lpmachinename.into(), lpmachineaccountou.into(), lpdcname.into(), dwoptions, ::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(pdwprovisionbindatasize), ::core::mem::transmute(pprovisiontextdata))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetQueryDisplayInformation<'a, P0>(servername: P0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: &mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetQueryDisplayInformation(servername: ::windows::core::PCWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32;
+    }
+    NetQueryDisplayInformation(servername.into(), level, index, entriesrequested, preferredmaximumlength, ::core::mem::transmute(returnedentrycount), ::core::mem::transmute(sortedbuffer))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetRemoteComputerSupports<'a, P0>(uncservername: P0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetRemoteComputerSupports(uncservername: ::windows::core::PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
+    }
+    NetRemoteComputerSupports(uncservername.into(), optionswanted, ::core::mem::transmute(optionssupported))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetRemoteTOD<'a, P0>(uncservername: P0, bufferptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetRemoteTOD(uncservername: ::windows::core::PCWSTR, bufferptr: *mut *mut u8) -> u32;
+    }
+    NetRemoteTOD(uncservername.into(), ::core::mem::transmute(bufferptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetRemoveAlternateComputerName<'a, P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetRemoveAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
+    }
+    NetRemoveAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetRenameMachineInDomain<'a, P0, P1, P2, P3>(lpserver: P0, lpnewmachinename: P1, lpaccount: P2, lppassword: P3, frenameoptions: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetRenameMachineInDomain(lpserver: ::windows::core::PCWSTR, lpnewmachinename: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, frenameoptions: u32) -> u32;
+    }
+    NetRenameMachineInDomain(lpserver.into(), lpnewmachinename.into(), lpaccount.into(), lppassword.into(), frenameoptions)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplExportDirAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplExportDirAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetReplExportDirAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplExportDirDel<'a, P0, P1>(servername: P0, dirname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplExportDirDel(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetReplExportDirDel(servername.into(), dirname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplExportDirEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplExportDirEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    }
+    NetReplExportDirEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplExportDirGetInfo<'a, P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplExportDirGetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetReplExportDirGetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplExportDirLock<'a, P0, P1>(servername: P0, dirname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplExportDirLock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetReplExportDirLock(servername.into(), dirname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplExportDirSetInfo<'a, P0, P1>(servername: P0, dirname: P1, level: u32, buf: &u8, parm_err: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplExportDirSetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetReplExportDirSetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplExportDirUnlock<'a, P0, P1>(servername: P0, dirname: P1, unlockforce: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplExportDirUnlock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, unlockforce: u32) -> u32;
+    }
+    NetReplExportDirUnlock(servername.into(), dirname.into(), unlockforce)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplGetInfo<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetReplGetInfo(servername.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplImportDirAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplImportDirAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetReplImportDirAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplImportDirDel<'a, P0, P1>(servername: P0, dirname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplImportDirDel(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetReplImportDirDel(servername.into(), dirname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplImportDirEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplImportDirEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    }
+    NetReplImportDirEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplImportDirGetInfo<'a, P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplImportDirGetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetReplImportDirGetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplImportDirLock<'a, P0, P1>(servername: P0, dirname: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplImportDirLock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
+    }
+    NetReplImportDirLock(servername.into(), dirname.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplImportDirUnlock<'a, P0, P1>(servername: P0, dirname: P1, unlockforce: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplImportDirUnlock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, unlockforce: u32) -> u32;
+    }
+    NetReplImportDirUnlock(servername.into(), dirname.into(), unlockforce)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetReplSetInfo<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetReplSetInfo(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetReplSetInfo(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetRequestOfflineDomainJoin<'a, P0>(pprovisionbindata: &[u8], dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetRequestOfflineDomainJoin(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR) -> u32;
+    }
+    NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len() as _, dwoptions, lpwindowspath.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetRequestProvisioningPackageInstall<'a, P0>(ppackagebindata: &[u8], dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: *mut ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    }
+    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into(), ::core::mem::transmute(pvreserved))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetScheduleJobAdd<'a, P0>(servername: P0, buffer: &mut u8, jobid: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetScheduleJobAdd(servername: ::windows::core::PCWSTR, buffer: *mut u8, jobid: *mut u32) -> u32;
+    }
+    NetScheduleJobAdd(servername.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(jobid))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetScheduleJobDel<'a, P0>(servername: P0, minjobid: u32, maxjobid: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetScheduleJobDel(servername: ::windows::core::PCWSTR, minjobid: u32, maxjobid: u32) -> u32;
+    }
+    NetScheduleJobDel(servername.into(), minjobid, maxjobid)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetScheduleJobEnum<'a, P0>(servername: P0, pointertobuffer: &mut *mut u8, prefferedmaximumlength: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetScheduleJobEnum(servername: ::windows::core::PCWSTR, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    }
+    NetScheduleJobEnum(servername.into(), ::core::mem::transmute(pointertobuffer), prefferedmaximumlength, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetScheduleJobGetInfo<'a, P0>(servername: P0, jobid: u32, pointertobuffer: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetScheduleJobGetInfo(servername: ::windows::core::PCWSTR, jobid: u32, pointertobuffer: *mut *mut u8) -> u32;
+    }
+    NetScheduleJobGetInfo(servername.into(), jobid, ::core::mem::transmute(pointertobuffer))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerComputerNameAdd<'a, P0, P1, P2>(servername: P0, emulateddomainname: P1, emulatedservername: P2) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerComputerNameAdd(servername: ::windows::core::PCWSTR, emulateddomainname: ::windows::core::PCWSTR, emulatedservername: ::windows::core::PCWSTR) -> u32;
+    }
+    NetServerComputerNameAdd(servername.into(), emulateddomainname.into(), emulatedservername.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerComputerNameDel<'a, P0, P1>(servername: P0, emulatedservername: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerComputerNameDel(servername: ::windows::core::PCWSTR, emulatedservername: ::windows::core::PCWSTR) -> u32;
+    }
+    NetServerComputerNameDel(servername.into(), emulatedservername.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerDiskEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerDiskEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    }
+    NetServerDiskEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerEnum<'a, P0, P1>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, servertype: NET_SERVER_TYPE, domain: P1, resume_handle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: ::windows::core::PCWSTR, resume_handle: *mut u32) -> u32;
+    }
+    NetServerEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), servertype, domain.into(), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerGetInfo<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetServerGetInfo(servername.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerSetInfo<'a, P0>(servername: P0, level: u32, buf: &u8, parmerror: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerSetInfo(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parmerror: *mut u32) -> u32;
+    }
+    NetServerSetInfo(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parmerror))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerTransportAdd<'a, P0>(servername: P0, level: u32, bufptr: &u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerTransportAdd(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
+    }
+    NetServerTransportAdd(servername.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerTransportAddEx<'a, P0>(servername: P0, level: u32, bufptr: &u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerTransportAddEx(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
+    }
+    NetServerTransportAddEx(servername.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerTransportDel<'a, P0>(servername: P0, level: u32, bufptr: &u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerTransportDel(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
+    }
+    NetServerTransportDel(servername.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServerTransportEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServerTransportEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    }
+    NetServerTransportEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServiceControl<'a, P0, P1>(servername: P0, service: P1, opcode: u32, arg: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServiceControl(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetServiceControl(servername.into(), service.into(), opcode, arg, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServiceEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServiceEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    }
+    NetServiceEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServiceGetInfo<'a, P0, P1>(servername: P0, service: P1, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServiceGetInfo(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetServiceGetInfo(servername.into(), service.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetServiceInstall<'a, P0, P1>(servername: P0, service: P1, argv: &[::windows::core::PWSTR], bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetServiceInstall(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, argc: u32, argv: *const ::windows::core::PWSTR, bufptr: *mut *mut u8) -> u32;
+    }
+    NetServiceInstall(servername.into(), service.into(), argv.len() as _, ::core::mem::transmute(argv.as_ptr()), ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetSetPrimaryComputerName<'a, P0, P1, P2, P3>(server: P0, primaryname: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetSetPrimaryComputerName(server: ::windows::core::PCWSTR, primaryname: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
+    }
+    NetSetPrimaryComputerName(server.into(), primaryname.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUnjoinDomain<'a, P0, P1, P2>(lpserver: P0, lpaccount: P1, lppassword: P2, funjoinoptions: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUnjoinDomain(lpserver: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, funjoinoptions: u32) -> u32;
+    }
+    NetUnjoinDomain(lpserver.into(), lpaccount.into(), lppassword.into(), funjoinoptions)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUseAdd(servername: ::core::option::Option<&i8>, levelflags: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetUseAdd(::core::mem::transmute(servername), levelflags, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUseDel<'a, P0, P1>(uncservername: P0, usename: P1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUseDel(uncservername: ::windows::core::PCWSTR, usename: ::windows::core::PCWSTR, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32;
+    }
+    NetUseDel(uncservername.into(), usename.into(), forcelevelflags)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUseEnum<'a, P0>(uncservername: P0, levelflags: u32, bufptr: ::core::option::Option<&mut *mut u8>, preferedmaximumsize: u32, entriesread: ::core::option::Option<&mut u32>, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUseEnum(uncservername: ::windows::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    }
+    NetUseEnum(uncservername.into(), levelflags, ::core::mem::transmute(bufptr), preferedmaximumsize, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUseGetInfo<'a, P0, P1>(uncservername: P0, usename: P1, levelflags: u32, bufptr: ::core::option::Option<&mut *mut u8>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUseGetInfo(uncservername: ::windows::core::PCWSTR, usename: ::windows::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetUseGetInfo(uncservername.into(), usename.into(), levelflags, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetUserAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserChangePassword<'a, P0, P1, P2, P3>(domainname: P0, username: P1, oldpassword: P2, newpassword: P3) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserChangePassword(domainname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, oldpassword: ::windows::core::PCWSTR, newpassword: ::windows::core::PCWSTR) -> u32;
+    }
+    NetUserChangePassword(domainname.into(), username.into(), oldpassword.into(), newpassword.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserDel<'a, P0, P1>(servername: P0, username: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserDel(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR) -> u32;
+    }
+    NetUserDel(servername.into(), username.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserEnum<'a, P0>(servername: P0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserEnum(servername: ::windows::core::PCWSTR, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    }
+    NetUserEnum(servername.into(), level, filter, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserGetGroups<'a, P0, P1>(servername: P0, username: P1, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserGetGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+    }
+    NetUserGetGroups(servername.into(), username.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserGetInfo<'a, P0, P1>(servername: P0, username: P1, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserGetInfo(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetUserGetInfo(servername.into(), username.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserGetLocalGroups<'a, P0, P1>(servername: P0, username: P1, level: u32, flags: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserGetLocalGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+    }
+    NetUserGetLocalGroups(servername.into(), username.into(), level, flags, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserModalsGet<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserModalsGet(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetUserModalsGet(servername.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserModalsSet<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserModalsSet(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetUserModalsSet(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserSetGroups<'a, P0, P1>(servername: P0, username: P1, level: u32, buf: &u8, num_entries: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserSetGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
+    }
+    NetUserSetGroups(servername.into(), username.into(), level, ::core::mem::transmute(buf), num_entries)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetUserSetInfo<'a, P0, P1>(servername: P0, username: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetUserSetInfo(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetUserSetInfo(servername.into(), username.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetValidateName<'a, P0, P1, P2, P3>(lpserver: P0, lpname: P1, lpaccount: P2, lppassword: P3, nametype: NETSETUP_NAME_TYPE) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetValidateName(lpserver: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, nametype: NETSETUP_NAME_TYPE) -> u32;
+    }
+    NetValidateName(lpserver.into(), lpname.into(), lpaccount.into(), lppassword.into(), nametype)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetValidatePasswordPolicy<'a, P0>(servername: P0, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetValidatePasswordPolicy(servername: ::windows::core::PCWSTR, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32;
+    }
+    NetValidatePasswordPolicy(servername.into(), ::core::mem::transmute(qualifier), validationtype, ::core::mem::transmute(inputarg), ::core::mem::transmute(outputarg))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32;
+    }
+    NetValidatePasswordPolicyFree(::core::mem::transmute(outputarg))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaGetInfo<'a, P0>(servername: P0, level: u32, bufptr: ::core::option::Option<&mut *mut u8>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetWkstaGetInfo(servername.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaSetInfo<'a, P0>(servername: P0, level: u32, buffer: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaSetInfo(servername: ::windows::core::PCWSTR, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetWkstaSetInfo(servername.into(), level, ::core::mem::transmute(buffer), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaTransportAdd(servername: ::core::option::Option<&i8>, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetWkstaTransportAdd(::core::mem::transmute(servername), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaTransportDel<'a, P0, P1>(servername: P0, transportname: P1, ucond: FORCE_LEVEL_FLAGS) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaTransportDel(servername: ::windows::core::PCWSTR, transportname: ::windows::core::PCWSTR, ucond: FORCE_LEVEL_FLAGS) -> u32;
+    }
+    NetWkstaTransportDel(servername.into(), transportname.into(), ucond)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaTransportEnum(servername: ::core::option::Option<&i8>, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    }
+    NetWkstaTransportEnum(::core::mem::transmute(servername), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaUserEnum<'a, P0>(servername: P0, level: u32, bufptr: ::core::option::Option<&mut *mut u8>, prefmaxlen: u32, entriesread: ::core::option::Option<&mut u32>, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaUserEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    }
+    NetWkstaUserEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaUserGetInfo<'a, P0>(reserved: P0, level: u32, bufptr: &mut *mut u8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaUserGetInfo(reserved: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    }
+    NetWkstaUserGetInfo(reserved.into(), level, ::core::mem::transmute(bufptr))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn NetWkstaUserSetInfo<'a, P0>(reserved: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetWkstaUserSetInfo(reserved: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    }
+    NetWkstaUserSetInfo(reserved.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn SetNetScheduleAccountInformation<'a, P0, P1, P2>(pwszservername: P0, pwszaccount: P1, pwszpassword: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetNetScheduleAccountInformation(pwszservername: ::windows::core::PCWSTR, pwszaccount: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+    }
+    SetNetScheduleAccountInformation(pwszservername.into(), pwszaccount.into(), pwszpassword.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceDeregisterA(dwtraceid: u32) -> u32;
+    }
+    TraceDeregisterA(dwtraceid)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32;
+    }
+    TraceDeregisterExA(dwtraceid, dwflags)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32;
+    }
+    TraceDeregisterExW(dwtraceid, dwflags)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceDeregisterW(dwtraceid: u32) -> u32;
+    }
+    TraceDeregisterW(dwtraceid)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TraceDumpExA<'a, P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: &mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceDumpExA(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows::core::PCSTR) -> u32;
+    }
+    TraceDumpExA(dwtraceid, dwflags, ::core::mem::transmute(lpbbytes), dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TraceDumpExW<'a, P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: &mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceDumpExW(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows::core::PCWSTR) -> u32;
+    }
+    TraceDumpExW(dwtraceid, dwflags, ::core::mem::transmute(lpbbytes), dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: &mut super::super::Foundation::HANDLE) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
+    }
+    TraceGetConsoleA(dwtraceid, ::core::mem::transmute(lphconsole))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: &mut super::super::Foundation::HANDLE) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
+    }
+    TraceGetConsoleW(dwtraceid, ::core::mem::transmute(lphconsole))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TracePutsExA<'a, P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TracePutsExA(dwtraceid: u32, dwflags: u32, lpszstring: ::windows::core::PCSTR) -> u32;
+    }
+    TracePutsExA(dwtraceid, dwflags, lpszstring.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TracePutsExW<'a, P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TracePutsExW(dwtraceid: u32, dwflags: u32, lpszstring: ::windows::core::PCWSTR) -> u32;
+    }
+    TracePutsExW(dwtraceid, dwflags, lpszstring.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceRegisterExA<'a, P0>(lpszcallername: P0, dwflags: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceRegisterExA(lpszcallername: ::windows::core::PCSTR, dwflags: u32) -> u32;
+    }
+    TraceRegisterExA(lpszcallername.into(), dwflags)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceRegisterExW<'a, P0>(lpszcallername: P0, dwflags: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceRegisterExW(lpszcallername: ::windows::core::PCWSTR, dwflags: u32) -> u32;
+    }
+    TraceRegisterExW(lpszcallername.into(), dwflags)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceVprintfExA<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, arglist: &mut i8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceVprintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCSTR, arglist: *mut i8) -> u32;
+    }
+    TraceVprintfExA(dwtraceid, dwflags, lpszformat.into(), ::core::mem::transmute(arglist))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn TraceVprintfExW<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, arglist: &mut i8) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceVprintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCWSTR, arglist: *mut i8) -> u32;
+    }
+    TraceVprintfExW(dwtraceid, dwflags, lpszformat.into(), ::core::mem::transmute(arglist))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
@@ -3264,10 +2355,6 @@ pub struct IEnumNetCfgComponent_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const INVALID_TRACEID: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 pub struct INetCfg(::windows::core::IUnknown);
@@ -4753,10 +3840,6 @@ pub struct INetRasConnectionIpUiInfo_Vtbl {
     GetUiInfo: usize,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 pub struct IProvisioningDomain(::windows::core::IUnknown);
 impl IProvisioningDomain {
@@ -4883,21 +3966,1387 @@ pub struct IProvisioningProfileWireless_Vtbl {
     CreateProfile: usize,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_AUDIT_ALL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_A_ACL: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_A_CREATE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_A_DELETE: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_A_OPEN: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_A_OWNER: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_A_WRITE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_CLOSE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_F_ACL: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_F_CREATE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_F_DELETE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_F_OPEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_F_WRITE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_S_ACL: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_S_CREATE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_S_DELETE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_S_OPEN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AA_S_WRITE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_ACCESS_LIST_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_ATTR_PARMNUM: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_AUDIT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_COUNT_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_FAIL_ACL: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_FAIL_DELETE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_FAIL_MASK: u32 = 3840u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_FAIL_OPEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_FAIL_SHIFT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_FAIL_WRITE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_GROUP: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_LETTERS: &str = "RWCXDAP         ";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_RESOURCE_NAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_SUCCESS_ACL: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_SUCCESS_DELETE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_SUCCESS_MASK: u32 = 240u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_SUCCESS_OPEN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACCESS_SUCCESS_WRITE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACTION_ADMINUNLOCK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ACTION_LOCKOUT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ACCLIMITEXCD: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ACCRESTRICT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ACLMOD: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ACLMODFAIL: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ADD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ADMIN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ADMINDIS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ADMINPRIVREQD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ADMIN_CLOSE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_AUTODIS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_BADPW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_CLOSEFILE: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_CONNREJ: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_CONNSTART: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_CONNSTOP: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_DELETE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ERROR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_GENERAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_GENERIC_TYPE: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_GUEST: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LIM_DELETED: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LIM_DISABLED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LIM_EXPIRED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LIM_INVAL_WKSTA: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LIM_LOGONHOURS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LIM_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LOCKOUT: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_MOD: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_NETLOGDENIED: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_NETLOGOFF: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_NETLOGON: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_NOACCESSPERM: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_NORMAL_CLOSE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_RESACCESS: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_RESACCESS2: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_RESACCESSREJ: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SERVICESTAT: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SESSDIS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SESSLOGOFF: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SESSLOGON: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SESSPWERR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SES_CLOSE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SRVCONT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SRVPAUSED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SRVSTART: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SRVSTATUS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SRVSTOP: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_UASMOD: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_UAS_GROUP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_UAS_MODALS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_UAS_USER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_UNSHARE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_USER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_USERLIMIT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALERTER_MAILSLOT: &str = "\\\\.\\MAILSLOT\\Alerter";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALERTSZ: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALERT_ADMIN_EVENT: &str = "ADMIN";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALERT_ERRORLOG_EVENT: &str = "ERRORLOG";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALERT_MESSAGE_EVENT: &str = "MESSAGE";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALERT_PRINT_EVENT: &str = "PRINTING";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALERT_USER_EVENT: &str = "USER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALIGN_SIZE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ALLOCATE_RESPONSE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const BACKUP_MSG_FILENAME: &str = "BAK.MSG";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CLTYPE_LEN: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CNLEN: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const COULD_NOT_VERIFY_VOLUMES: i32 = -1073727512i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_BYPASS_CSC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_CRED_RESET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_GLOBAL_MAPPING: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_NO_CONNECT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_PERSIST_MAPPING: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_REQUIRE_CONNECTION_INTEGRITY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_REQUIRE_CONNECTION_PRIVACY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CREATE_WRITE_THROUGH_SEMANTICS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CRYPT_KEY_LEN: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const CRYPT_TXT_LEN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DEF_MAX_BADPW: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DEF_MAX_PWHIST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DEF_MIN_PWLEN: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DEF_PWUNIQUENESS: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DEVLEN: u32 = 80u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_CONNECTION_FAILURE: i32 = 1073756226i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_ACTIVEDIRECTORY_OFFLINE: i32 = -1073727301i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_CLUSTERINFO_FAILED: i32 = -1073727307i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_COMPUTERINFO_FAILED: i32 = -1073727308i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_CREATEEVENT_FAILED: i32 = -1073727309i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_CREATE_REPARSEPOINT_FAILURE: i32 = -1073727321i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_CREATE_REPARSEPOINT_SUCCESS: i32 = 1073756370i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_CROSS_FOREST_TRUST_INFO_FAILED: i32 = -1073727274i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_DCINFO_FAILED: i32 = -1073727306i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_DSCONNECT_FAILED: i32 = -2147469122i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_DUPLICATE_LINK: i32 = -1073727277i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_HANDLENAMESPACE_FAILED: i32 = -1073727304i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_LINKS_OVERLAP: i32 = -1073727280i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_LINK_OVERLAP: i32 = -1073727279i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_MUTLIPLE_ROOTS_NOT_SUPPORTED: i32 = -1073727289i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_NO_DFS_DATA: i32 = -1073727294i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_ON_ROOT: i32 = -2147469114i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_OVERLAPPING_DIRECTORIES: i32 = -1073727319i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_PREFIXTABLE_FAILED: i32 = -1073727305i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_REFLECTIONENGINE_FAILED: i32 = -1073727302i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_REGISTERSTORE_FAILED: i32 = -1073727303i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_REMOVE_LINK_FAILED: i32 = -1073727284i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_RESYNCHRONIZE_FAILED: i32 = -1073727285i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_ROOTSYNCINIT_FAILED: i32 = -1073727310i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_SECURITYINIT_FAILED: i32 = -1073727313i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_SITECACHEINIT_FAILED: i32 = -1073727311i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_SITESUPPOR_FAILED: i32 = -1073727300i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_TARGET_LIST_INCORRECT: i32 = -1073727281i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_THREADINIT_FAILED: i32 = -1073727312i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_TOO_MANY_ERRORS: i32 = -1073727315i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_TRUSTED_DOMAIN_INFO_FAILED: i32 = -1073727276i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_UNSUPPORTED_FILESYSTEM: i32 = -1073727320i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ERROR_WINSOCKINIT_FAILED: i32 = -1073727314i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_ACTIVEDIRECTORY_ONLINE: i32 = 1073756332i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_CROSS_FOREST_TRUST_INFO_SUCCESS: i32 = 1073756375i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_DOMAIN_REFERRAL_MIN_OVERFLOW: i32 = 1073756361i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_DS_RECONNECTED: i32 = 1073756353i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_FINISH_BUILDING_NAMESPACE: i32 = 1073756357i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_FINISH_INIT: i32 = 1073756355i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_RECONNECT_DATA: i32 = 1073756356i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INFO_TRUSTED_DOMAIN_INFO_SUCCESS: i32 = 1073756373i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_INIT_SUCCESS: i32 = 1073756376i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_MAX_DNR_ATTEMPTS: i32 = 1073756229i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_OPEN_FAILURE: i32 = 1073756231i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_REFERRAL_FAILURE: i32 = 1073756227i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_REFERRAL_REQUEST: i32 = 1073756142i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_REFERRAL_SUCCESS: i32 = 1073756228i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ROOT_SHARE_ACQUIRE_FAILED: i32 = -2147469095i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_ROOT_SHARE_ACQUIRE_SUCCESS: i32 = 1073756378i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_SPECIAL_REFERRAL_FAILURE: i32 = 1073756230i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_WARN_DOMAIN_REFERRAL_OVERFLOW: i32 = -2147469112i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_WARN_INCOMPLETE_MOVE: i32 = -2147469110i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_WARN_METADATA_LINK_INFO_INVALID: i32 = -2147469106i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DFS_WARN_METADATA_LINK_TYPE_INCORRECT: i32 = -2147469107i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DNLEN: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ENCRYPTED_PWLEN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ERRLOG2_BASE: u32 = 5700u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ERRLOG_BASE: u32 = 3100u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BAD_ACCOUNT_NAME: i32 = -1073734816i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BAD_SERVICE_STATE: i32 = -1073734808i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOOT_SYSTEM_DRIVERS_FAILED: i32 = -1073734798i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_CANT_READ_REGISTRY: i32 = 1073749853i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_ELECTION_RECEIVED: i32 = 8012i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_ELECTION_SENT_FIND_MASTER_FAILED: i32 = 1073749838i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_ELECTION_SENT_GETBLIST_FAILED: i32 = 1073749837i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_GETBROWSERLIST_THRESHOLD_EXCEEDED: i32 = 1073749855i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_ILLEGAL_DATAGRAM: i32 = -2147475642i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_ILLEGAL_DATAGRAM_THRESHOLD: i32 = -1073733808i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_MAILSLOT_DATAGRAM_THRESHOLD_EXCEEDED: i32 = 1073749854i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_NAME_CONVERSION_FAILED: i32 = -1073733814i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_NON_MASTER_MASTER_ANNOUNCE: i32 = -2147475643i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_NON_PDC_WON_ELECTION: i32 = 1073749852i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_OLD_BACKUP_FOUND: i32 = 1073749848i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_OTHER_MASTER_ON_NET: i32 = -1073733821i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_PDC_LOST_ELECTION: i32 = 1073749851i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BOWSER_PROMOTED_WHILE_ALREADY_MASTER: i32 = -2147475644i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_ADAPTER_BIND_FAILED: i32 = -1073727120i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_ADAPTER_FILTER_FAILED: i32 = -1073727122i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_ADAPTER_LINK_SPEED_QUERY_FAILED: i32 = -1073727124i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_ADAPTER_MAC_ADDR_QUERY_FAILED: i32 = -1073727123i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_ADAPTER_NAME_QUERY_FAILED: i32 = -1073727121i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_BUFFER_POOL_CREATION_FAILED: i32 = -1073727214i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_DEVICE_CREATION_FAILED: i32 = -1073727221i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_ETHERNET_NOT_OFFERED: i32 = -1073727218i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_INIT_MALLOC_FAILED: i32 = -1073727213i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_MINIPORT_INIT_FAILED: i32 = -1073727219i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_MINIPORT_REGISTER_FAILED: i32 = -1073727222i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_MINIPROT_DEVNAME_MISSING: i32 = -1073727223i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_NO_BRIDGE_MAC_ADDR: i32 = -1073727220i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_PACKET_POOL_CREATION_FAILED: i32 = -1073727215i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_PROTOCOL_REGISTER_FAILED: i32 = -1073727224i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_THREAD_CREATION_FAILED: i32 = -1073727217i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BRIDGE_THREAD_REF_FAILED: i32 = -1073727216i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_BACKUP_STOPPED: i32 = -1073733792i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_DEPENDANT_SERVICE_FAILED: i32 = -1073733807i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_DOMAIN_LIST_FAILED: i32 = -2147475626i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_DOMAIN_LIST_RETRIEVED: i32 = 8026i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_ELECTION_SENT_LANMAN_NT_STARTED: i32 = 1073749839i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_ELECTION_SENT_LANMAN_NT_STOPPED: i32 = 1073749857i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_ELECTION_SENT_ROLE_CHANGED: i32 = 1073749859i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_GETBLIST_RECEIVED_NOT_MASTER: i32 = -1073733790i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_ILLEGAL_CONFIG: i32 = -2147475625i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_MASTER_PROMOTION_FAILED: i32 = -1073733815i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_MASTER_PROMOTION_FAILED_NO_MASTER: i32 = -1073733804i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_MASTER_PROMOTION_FAILED_STOPPING: i32 = -1073733805i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_NOT_STARTED_IPX_CONFIG_MISMATCH: i32 = -1073733788i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_OTHERDOMAIN_ADD_FAILED: i32 = -1073733813i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_ROLE_CHANGE_FAILED: i32 = -1073733816i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_SERVER_LIST_FAILED: i32 = -2147475627i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_SERVER_LIST_RETRIEVED: i32 = 8025i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_BROWSER_STATUS_BITS_UPDATE_FAILED: i32 = -1073733817i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_CALL_TO_FUNCTION_FAILED: i32 = -1073734819i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_CALL_TO_FUNCTION_FAILED_II: i32 = -1073734818i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_CIRCULAR_DEPENDENCY_AUTO: i32 = -1073734806i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_CIRCULAR_DEPENDENCY_DEMAND: i32 = -1073734807i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_COMMAND_NOT_INTERACTIVE: i32 = -1073733924i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_COMMAND_START_FAILED: i32 = -1073733923i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_CONNECTION_TIMEOUT: i32 = -1073734815i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_ComputerNameChange: i32 = -2147477637i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DAV_REDIR_DELAYED_WRITE_FAILED: i32 = -2147468848i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DCOM_ASSERTION_FAILURE: i32 = -1073731812i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DCOM_COMPLUS_DISABLED: i32 = -1073731810i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DCOM_INVALID_ENDPOINT_DATA: i32 = -1073731811i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DEPEND_ON_LATER_GROUP: i32 = -1073734804i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DEPEND_ON_LATER_SERVICE: i32 = -1073734805i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_NOTSUPP: i32 = -2147472466i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_NOTSUPP_PRIMARY_DN: i32 = -2147472454i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_OTHER: i32 = -2147472463i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_OTHER_PRIMARY_DN: i32 = -2147472451i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_REFUSED: i32 = -2147472465i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_REFUSED_PRIMARY_DN: i32 = -2147472453i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SECURITY: i32 = -2147472464i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SECURITY_PRIMARY_DN: i32 = -2147472452i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SERVERFAIL: i32 = -2147472467i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_SERVERFAIL_PRIMARY_DN: i32 = -2147472455i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_TIMEOUT: i32 = -2147472468i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_DEREGISTRATION_FAILED_TIMEOUT_PRIMARY_DN: i32 = -2147472456i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_NOTSUPP: i32 = -2147472460i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_OTHER: i32 = -2147472457i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_REFUSED: i32 = -2147472459i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_SECURITY: i32 = -2147472458i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_SERVERFAIL: i32 = -2147472461i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_DEREGISTRATION_FAILED_TIMEOUT: i32 = -2147472462i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_NOTSUPP: i32 = -2147472490i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_OTHER: i32 = -2147472487i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_REFUSED: i32 = -2147472489i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_SECURITY: i32 = -2147472488i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_SERVERFAIL: i32 = -2147472491i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_PTR_REGISTRATION_FAILED_TIMEOUT: i32 = -2147472492i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTERED_ADAPTER: i32 = 1073753024i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTERED_ADAPTER_PRIMARY_DN: i32 = 1073753026i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTERED_PTR: i32 = 1073753025i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_NOTSUPP: i32 = -2147472496i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_NOTSUPP_PRIMARY_DN: i32 = -2147472484i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_OTHER: i32 = -2147472493i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_OTHER_PRIMARY_DN: i32 = -2147472481i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_REFUSED: i32 = -2147472495i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_REFUSED_PRIMARY_DN: i32 = -2147472483i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_SECURITY: i32 = -2147472494i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_SECURITY_PRIMARY_DN: i32 = -2147472482i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_SERVERFAIL: i32 = -2147472497i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_SERVERFAIL_PRIMARY_DN: i32 = -2147472485i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_TIMEOUT: i32 = -2147472498i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSAPI_REGISTRATION_FAILED_TIMEOUT_PRIMARY_DN: i32 = -2147472486i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNSDomainNameChange: i32 = -2147477636i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_NETWORK_PERF_WARNING: i32 = -2147472598i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_LOW_MEMORY: i32 = -1073730817i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_NO_CONTROL: i32 = -1073730822i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_NO_DLL: i32 = -1073730824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_NO_DONE_EVENT: i32 = -1073730821i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_NO_ENTRY: i32 = -1073730823i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_NO_RPC: i32 = -1073730820i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_NO_SHUTDOWN_NOTIFY: i32 = -1073730819i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_START_FAILURE_NO_UPDATE: i32 = -1073730818i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_DNS_CACHE_UNABLE_TO_REACH_SERVER_WARNING: i32 = -2147472597i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_SIZE_ZERO: i32 = -1073725118i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_TOO_LONG: i32 = -1073725120i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_MACHINE_POLICY_REFERESH: i32 = -1073725124i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_ROOT_KEY: i32 = -1073725122i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_SUBKEY: i32 = -1073725116i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_OPENING_USER_POLICY_ROOT_KEY: i32 = -1073725121i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_OPENING_USER_POLICY_SUBKEY: i32 = -1073725115i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_PROCESSING_MACHINE_POLICY_FIELD: i32 = -1073725114i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_PROCESSING_USER_POLICY_FIELD: i32 = -1073725113i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_SETTING_APP_MARKING: i32 = -1073725111i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_SETTING_TCP_AUTOTUNING: i32 = -1073725112i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_SIZE_ZERO: i32 = -1073725117i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_TOO_LONG: i32 = -1073725119i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_ERROR_USER_POLICY_REFERESH: i32 = -1073725123i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_APP_MARKING_ALLOWED: i32 = 1073758335i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_APP_MARKING_IGNORED: i32 = 1073758334i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_APP_MARKING_NOT_CONFIGURED: i32 = 1073758333i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_LOCAL_SETTING_DONT_USE_NLA: i32 = 1073758336i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_MACHINE_POLICY_REFRESH_NO_CHANGE: i32 = 1073758324i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_MACHINE_POLICY_REFRESH_WITH_CHANGE: i32 = 1073758325i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_HIGHLY_RESTRICTED: i32 = 1073758330i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_NORMAL: i32 = 1073758332i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_NOT_CONFIGURED: i32 = 1073758328i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_OFF: i32 = 1073758329i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_TCP_AUTOTUNING_RESTRICTED: i32 = 1073758331i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_USER_POLICY_REFRESH_NO_CHANGE: i32 = 1073758326i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_INFO_USER_POLICY_REFRESH_WITH_CHANGE: i32 = 1073758327i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_URL_QOS_APPLICATION_CONFLICT: i32 = 1073758337i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_MACHINE_POLICY_CONFLICT: i32 = -2147467040i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_MACHINE_POLICY_NO_FULLPATH_APPNAME: i32 = -2147467038i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_MACHINE_POLICY_PROFILE_NOT_SPECIFIED: i32 = -2147467044i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_MACHINE_POLICY_QUOTA_EXCEEDED: i32 = -2147467042i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_MACHINE_POLICY_VERSION: i32 = -2147467046i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_TEST_1: i32 = -2147467048i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_TEST_2: i32 = -2147467047i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_USER_POLICY_CONFLICT: i32 = -2147467039i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_USER_POLICY_NO_FULLPATH_APPNAME: i32 = -2147467037i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_USER_POLICY_PROFILE_NOT_SPECIFIED: i32 = -2147467043i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_USER_POLICY_QUOTA_EXCEEDED: i32 = -2147467041i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EQOS_WARNING_USER_POLICY_VERSION: i32 = -2147467045i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EventLogProductInfo: i32 = -2147477639i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EventlogAbnormalShutdown: i32 = -2147477640i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EventlogStarted: i32 = -2147477643i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EventlogStopped: i32 = -2147477642i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_EventlogUptime: i32 = -2147477635i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FIRST_LOGON_FAILED: i32 = -1073734811i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FIRST_LOGON_FAILED_II: i32 = -1073734786i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ACCESS_CHECKS_DISABLED: i32 = -2147470131i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ACCESS_CHECKS_FAILED_UNKNOWN: i32 = -1073728305i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ACCESS_CHECKS_FAILED_USER: i32 = -2147470130i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ASSERT: i32 = -1073728318i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_BAD_REG_DATA: i32 = -2147470101i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_CANNOT_COMMUNICATE: i32 = -1073728314i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_CANNOT_CREATE_UUID: i32 = -1073728300i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_CANNOT_START_BACKUP_RESTORE_IN_PROGRESS: i32 = -1073728303i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_CANT_OPEN_PREINSTALL: i32 = -1073728273i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_CANT_OPEN_STAGE: i32 = -1073728274i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_DATABASE_SPACE: i32 = -1073728313i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_DISK_WRITE_CACHE_ENABLED: i32 = -2147470136i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_DS_POLL_ERROR_SUMMARY: i32 = -2147470086i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_DUPLICATE_IN_CXTION: i32 = -1073728266i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_DUPLICATE_IN_CXTION_SYSVOL: i32 = -1073728267i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ERROR: i32 = -1073728324i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ERROR_REPLICA_SET_DELETED: i32 = -2147470088i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_HUGE_FILE: i32 = -2147470125i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_IN_ERROR_STATE: i32 = -1073728269i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_JET_1414: i32 = -1073728311i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_JOIN_FAIL_TIME_SKEW: i32 = -1073728276i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_LONG_JOIN: i32 = -2147470140i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_LONG_JOIN_DONE: i32 = -2147470139i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_MOVED_PREEXISTING: i32 = -2147470128i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_NO_DNS_ATTRIBUTE: i32 = -2147470123i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_NO_SID: i32 = -1073728298i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_OVERLAPS_LOGGING: i32 = -1073728283i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_OVERLAPS_OTHER_STAGE: i32 = -1073728279i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_OVERLAPS_ROOT: i32 = -1073728280i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_OVERLAPS_STAGE: i32 = -1073728281i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_OVERLAPS_WORKING: i32 = -1073728282i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_PREPARE_ROOT_FAILED: i32 = -1073728278i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_REPLICA_IN_JRNL_WRAP_ERROR: i32 = -1073728263i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_REPLICA_NO_ROOT_CHANGE: i32 = -1073728268i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_REPLICA_SET_CREATE_FAIL: i32 = -1073728272i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_REPLICA_SET_CREATE_OK: i32 = 1073755377i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_REPLICA_SET_CXTIONS: i32 = 1073755378i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_RMTCO_TIME_SKEW: i32 = -1073728275i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ROOT_HAS_MOVED: i32 = -1073728265i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_ROOT_NOT_VALID: i32 = -1073728285i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_STAGE_NOT_VALID: i32 = -1073728284i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_STAGING_AREA_FULL: i32 = -2147470126i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_STARTING: i32 = 1073755325i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_STOPPED: i32 = 1073755327i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_STOPPED_ASSERT: i32 = -1073728319i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_STOPPED_FORCE: i32 = -1073728320i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_STOPPING: i32 = 1073755326i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_SYSVOL_NOT_READY: i32 = -2147470134i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_SYSVOL_NOT_READY_PRIMARY: i32 = -2147470133i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_SYSVOL_READY: i32 = 1073755340i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_FRS_VOLUME_NOT_SUPPORTED: i32 = -1073728317i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_INVALID_DRIVER_DEPENDENCY: i32 = -1073734809i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_IPX_CREATE_DEVICE: i32 = -1073732318i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_IPX_ILLEGAL_CONFIG: i32 = -2147474145i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_IPX_INTERNAL_NET_INVALID: i32 = -1073732320i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_IPX_NEW_DEFAULT_TYPE: i32 = 1073751325i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_IPX_NO_ADAPTERS: i32 = -1073732317i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_IPX_NO_FRAME_TYPES: i32 = -1073732319i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_IPX_SAP_ANNOUNCE: i32 = -2147474146i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_BAD_BACKUP_WINS_ADDR: i32 = -2147479344i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_BAD_PRIMARY_WINS_ADDR: i32 = -2147479343i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_CREATE_ADDRESS: i32 = -1073737517i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_CREATE_CONNECTION: i32 = -1073737516i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_CREATE_DEVICE: i32 = -1073737513i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_CREATE_DRIVER: i32 = -1073737524i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_DUPLICATE_NAME: i32 = -1073737505i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_DUPLICATE_NAME_ERROR: i32 = -1073737503i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_NAME_RELEASE: i32 = -1073737504i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_NAME_SERVER_ADDRS: i32 = -1073737518i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_NON_OS_INIT: i32 = -1073737515i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_NO_BACKUP_WINS: i32 = -2147479346i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_NO_DEVICES: i32 = -2147479336i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_NO_RESOURCES: i32 = -1073737502i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_NO_WINS: i32 = -2147479345i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_OPEN_REG_LINKAGE: i32 = -1073737511i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_OPEN_REG_NAMESERVER: i32 = -2147479332i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_OPEN_REG_PARAMS: i32 = -1073737523i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_READ_BIND: i32 = -1073737510i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_READ_EXPORT: i32 = -1073737509i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NBT_TIMERS: i32 = -1073737514i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_ADAPTER_CHECK_ERROR: i32 = -1073736793i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_ADAPTER_DISABLED: i32 = -2147478634i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_ADAPTER_NOT_FOUND: i32 = -1073736821i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_BAD_IO_BASE_ADDRESS: i32 = -1073736812i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_BAD_VERSION: i32 = -1073736818i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_CABLE_DISCONNECTED_ERROR: i32 = -2147478615i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_DMA_CONFLICT: i32 = -2147478629i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_DRIVER_FAILURE: i32 = -1073736819i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_HARDWARE_FAILURE: i32 = -1073736822i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_INTERRUPT_CONFLICT: i32 = -2147478630i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_INTERRUPT_CONNECT: i32 = -1073736820i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_INVALID_DOWNLOAD_FILE_ERROR: i32 = -1073736804i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_INVALID_VALUE_FROM_ADAPTER: i32 = -1073736814i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_IO_PORT_CONFLICT: i32 = -2147478633i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_LOBE_FAILUE_ERROR: i32 = -2147478621i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_MAXFRAMESIZE_ERROR: i32 = -2147478625i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_MAXINTERNALBUFS_ERROR: i32 = -2147478624i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_MAXMULTICAST_ERROR: i32 = -2147478623i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_MAXRECEIVES_ERROR: i32 = -2147478627i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_MAXTRANSMITS_ERROR: i32 = -2147478626i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_MEMORY_CONFLICT: i32 = -2147478631i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_MISSING_CONFIGURATION_PARAMETER: i32 = -1073736813i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_NETWORK_ADDRESS: i32 = -1073736816i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_OUT_OF_RESOURCE: i32 = -1073736823i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_PORT_OR_DMA_CONFLICT: i32 = -2147478632i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_PRODUCTID_ERROR: i32 = -2147478622i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_RECEIVE_SPACE_SMALL: i32 = 1073746837i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_REMOVE_RECEIVED_ERROR: i32 = -2147478619i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_RESET_FAILURE_CORRECTION: i32 = -2147478614i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_RESET_FAILURE_ERROR: i32 = -2147478616i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_RESOURCE_CONFLICT: i32 = -1073736824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_SIGNAL_LOSS_ERROR: i32 = -2147478620i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_TIMEOUT: i32 = -2147478641i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_TOKEN_RING_CORRECTION: i32 = 1073746854i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_NDIS_UNSUPPORTED_CONFIGURATION: i32 = -1073736815i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_ADMISSIONCONTROL_OVERFLOW: i32 = -2147469537i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_BAD_BESTEFFORT_LIMIT: i32 = -2147469548i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_BINDING_FAILED: i32 = -1073727720i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_GPC_REGISTER_FAILED: i32 = -1073727824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_INIT_DEVICE_FAILED: i32 = -1073727717i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_MISSING_ADAPTER_REGISTRY_DATA: i32 = -1073727719i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_NETWORK_ADDRESS_FAIL: i32 = -1073727712i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_NO_RESOURCES_FOR_INIT: i32 = -1073727823i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_QUERY_OID_GEN_LINK_SPEED: i32 = -1073727721i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_QUERY_OID_GEN_MAXIMUM_FRAME_SIZE: i32 = -1073727723i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_QUERY_OID_GEN_MAXIMUM_TOTAL_SIZE: i32 = -1073727722i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_REGISTER_ADDRESS_FAMILY_FAILED: i32 = -1073727718i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_REGISTER_MINIPORT_FAILED: i32 = -1073727821i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_REGISTER_PROTOCOL_FAILED: i32 = -1073727822i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_RESOURCE_POOL: i32 = -1073727714i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_WAN_LIMITED_BESTEFFORT: i32 = -2147469539i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_PS_WMI_INSTANCE_NAME_FAILED: i32 = -1073727716i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_AT_THREAD_MAX: i32 = -2147480622i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_BIND_TRANSPORT: i32 = -2147480616i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_BUILD_SMB_HEADER: i32 = -2147480613i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_CREATE_DEVICE: i32 = -2147480646i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_CREATE_THREAD: i32 = -2147480645i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_GET_SECURITY_CONTEXT: i32 = -2147480614i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_READ_REGISTRY: i32 = -2147480621i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_REGISTER_ADDRESS: i32 = -2147480615i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CANT_SET_THREAD: i32 = -2147480644i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CLOSE_BEHIND: i32 = -2147480637i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CONNECTION: i32 = -2147480629i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CONNECTION_REFERENCE: i32 = -2147480633i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_CONTEXTS: i32 = -2147480624i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_DELAYED_SET_ATTRIBUTES_FAILED: i32 = -2147480618i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_DELETEONCLOSE_FAILED: i32 = -2147480617i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_DISPOSITION: i32 = -2147480625i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_ENCRYPT: i32 = -2147480630i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_FAILED_UNLOCK: i32 = -2147480639i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_INVALID_LOCK_REPLY: i32 = -2147480641i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_INVALID_OPLOCK: i32 = -2147480634i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_INVALID_REPLY: i32 = -2147480643i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_INVALID_SMB: i32 = -2147480642i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_MAXCMDS: i32 = -2147480627i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_OPLOCK_SMB: i32 = -2147480626i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_PRIMARY_TRANSPORT_CONNECT_FAILED: i32 = -2147480619i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_RESOURCE_SHORTAGE: i32 = -2147480647i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_SECURITY_SIGNATURE_MISMATCH: i32 = -2147480612i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_SERVER_REFERENCE: i32 = -2147480632i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_SMB_REFERENCE: i32 = -2147480631i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_TIMEOUT: i32 = -2147480635i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_TIMEZONE_BIAS_TOO_LARGE: i32 = -2147480620i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_UNEXPECTED_ERROR: i32 = -2147480636i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RDR_WRITE_BEHIND_FLUSH_FAILED: i32 = -2147480623i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_READFILE_TIMEOUT: i32 = -1073734814i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_REVERTED_TO_LASTKNOWNGOOD: i32 = -1073734817i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_ACTIVATION_ERROR: i32 = -1073731817i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_CREATEDEBUGGERPROCESS_FAILURE: i32 = -1073731794i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_CREATEPROCESS_FAILURE: i32 = -1073731824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_DEFAULT_LAUNCH_ACCESS_DENIED: i32 = -1073731821i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_LAUNCH_ACCESS_DENIED: i32 = -1073731822i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_REMOTE_SIDE_ERROR: i32 = -1073731818i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_REMOTE_SIDE_ERROR_WITH_FILE: i32 = -1073731816i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_REMOTE_SIDE_UNAVAILABLE: i32 = -1073731815i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_RUNAS_CANT_LOGIN: i32 = -1073731820i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_RUNAS_CREATEPROCESS_FAILURE: i32 = -1073731823i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_SERVER_NOT_RESPONDING: i32 = -1073731813i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_SERVER_START_TIMEOUT: i32 = -1073731814i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_START_SERVICE_FAILURE: i32 = -1073731819i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RPCSS_STOP_SERVICE_FAILURE: i32 = -1073731795i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_RUNNING_LASTKNOWNGOOD: i32 = -1073734797i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SCOPE_LABEL_TOO_LONG: i32 = -2147479331i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SCOPE_TOO_LONG: i32 = -2147479330i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SECOND_LOGON_FAILED: i32 = -1073734810i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_CONFIG_BACKOUT_FAILED: i32 = -1073734787i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_CONTROL_SUCCESS: i32 = 1073748859i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_CRASH: i32 = -1073734793i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_CRASH_NO_ACTION: i32 = -1073734790i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_DIFFERENT_PID_CONNECTED: i32 = -2147476609i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_EXIT_FAILED: i32 = -1073734801i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_EXIT_FAILED_SPECIFIC: i32 = -1073734800i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_LOGON_TYPE_NOT_GRANTED: i32 = -1073734783i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_NOT_INTERACTIVE: i32 = -1073734794i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_RECOVERY_FAILED: i32 = -1073734792i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_SCESRV_FAILED: i32 = -1073734791i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_SHUTDOWN_FAILED: i32 = -1073734781i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_START_AT_BOOT_FAILED: i32 = -1073734799i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_START_FAILED: i32 = -1073734824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_START_FAILED_GROUP: i32 = -1073734822i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_START_FAILED_II: i32 = -1073734823i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_START_FAILED_NONE: i32 = -1073734821i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_START_HUNG: i32 = -1073734802i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_START_TYPE_CHANGED: i32 = 1073748864i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_STATUS_SUCCESS: i32 = 1073748860i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SERVICE_STOP_SUCCESS_WITH_REASON: i32 = 1073748866i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SEVERE_SERVICE_FAILED: i32 = -1073734803i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_BIND_DUP_NAME: i32 = -1073739319i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_BIND_TO_TRANSPORT: i32 = -2147481144i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_CHANGE_DOMAIN_NAME: i32 = -2147481136i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_CREATE_DEVICE: i32 = -1073739822i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_CREATE_PROCESS: i32 = -1073739821i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_CREATE_THREAD: i32 = -1073739820i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_GROW_TABLE: i32 = -2147481639i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_LOAD_DRIVER: i32 = -2147481140i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_MAP_ERROR: i32 = -2147481138i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_OPEN_NPFS: i32 = -1073739817i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_RECREATE_SHARE: i32 = -2147481137i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_START_SCAVENGER: i32 = -1073739814i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_CANT_UNLOAD_DRIVER: i32 = -2147481139i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_DISK_FULL: i32 = -2147481635i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_DOS_ATTACK_DETECTED: i32 = -2147481623i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_INVALID_REGISTRY_VALUE: i32 = -2147481142i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_INVALID_REQUEST: i32 = -1073739818i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_INVALID_SD: i32 = -2147481141i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_IRP_STACK_SIZE: i32 = -1073739813i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_KEY_NOT_CREATED: i32 = -1073739322i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_KEY_NOT_FOUND: i32 = -1073739323i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NETWORK_ERROR: i32 = -2147481636i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NONPAGED_POOL_LIMIT: i32 = -1073739807i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_BLOCKING_IO: i32 = -2147481624i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_FREE_CONNECTIONS: i32 = -2147481626i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_FREE_RAW_WORK_ITEM: i32 = -2147481625i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_NONPAGED_POOL: i32 = -1073739805i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_PAGED_POOL: i32 = -1073739804i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_TRANSPORTS_BOUND: i32 = -1073739321i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_VIRTUAL_MEMORY: i32 = -1073739808i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_NO_WORK_ITEM: i32 = -2147481627i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_OUT_OF_WORK_ITEM_DOS: i32 = -2147481621i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_PAGED_POOL_LIMIT: i32 = -1073739806i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_RESOURCE_SHORTAGE: i32 = -1073739823i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_SERVICE_FAILED: i32 = -1073739824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_TOO_MANY_DOS: i32 = -2147481622i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_TXF_INIT_FAILED: i32 = -2147481135i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_SRV_UNEXPECTED_DISC: i32 = -1073739819i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_STREAMS_ALLOCB_FAILURE: i32 = -2147479647i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_STREAMS_ALLOCB_FAILURE_CNT: i32 = -2147479646i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_STREAMS_ESBALLOC_FAILURE: i32 = -2147479645i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_STREAMS_ESBALLOC_FAILURE_CNT: i32 = -2147479644i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_STREAMS_STRLOG: i32 = -1073737824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TAKE_OWNERSHIP: i32 = -1073734796i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP6_STARTED: i32 = 1073744924i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_ADAPTER_REG_FAILURE: i32 = -1073737633i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_ADDRESS_CONFLICT1: i32 = -1073737626i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_ADDRESS_CONFLICT2: i32 = -1073737625i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_AUTOCONFIGURED_ADDRESS_LIMIT_REACHED: i32 = -2147479444i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_AUTOCONFIGURED_ROUTE_LIMIT_REACHED: i32 = -2147479443i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_CREATE_DEVICE_FAILED: i32 = -1073737724i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_DHCP_INIT_FAILED: i32 = -2147479458i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_INTERFACE_BIND_FAILURE: i32 = -1073737617i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_INVALID_ADDRESS: i32 = -1073737637i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_INVALID_DEFAULT_GATEWAY: i32 = -2147479456i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_INVALID_MASK: i32 = -1073737636i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_IPV4_UNINSTALLED: i32 = 1073746027i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_IP_INIT_FAILED: i32 = -1073737628i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_MEDIA_CONNECT: i32 = 1073746025i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_MEDIA_DISCONNECT: i32 = 1073746026i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_NO_ADAPTER_RESOURCES: i32 = -1073737635i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_NO_ADDRESS_LIST: i32 = -1073737631i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_NO_BINDINGS: i32 = -1073737629i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_NO_MASK: i32 = -1073737638i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_NO_MASK_LIST: i32 = -1073737630i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_NO_RESOURCES_FOR_INIT: i32 = -1073737723i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_NTE_CONTEXT_LIST_FAILURE: i32 = -1073737624i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_OUT_OF_ORDER_FRAGMENTS_EXCEEDED: i32 = -2147479442i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_PCF_CLEAR_FILTER_FAILURE: i32 = -1073737530i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_PCF_MISSING_CAPABILITY: i32 = -2147479357i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_PCF_MULTICAST_OID_ISSUE: i32 = -2147479358i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_PCF_NO_ARP_FILTER: i32 = -2147479355i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_PCF_SET_FILTER_FAILURE: i32 = -2147479356i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TCP_CONNECTIONS_PERF_IMPACTED: i32 = -2147479418i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TCP_CONNECT_LIMIT_REACHED: i32 = -2147479422i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TCP_GLOBAL_EPHEMERAL_PORT_SPACE_EXHAUSTED: i32 = -2147479417i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TCP_INIT_FAILED: i32 = -1073737599i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TCP_MPP_ATTACKS_DETECTED: i32 = -2147479419i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TCP_TIME_WAIT_COLLISION: i32 = -2147479421i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TCP_WSD_WS_RESTRICTED: i32 = -2147479420i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TOO_MANY_GATEWAYS: i32 = -2147479451i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_TOO_MANY_NETS: i32 = -1073737639i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_UDP_GLOBAL_EPHEMERAL_PORT_SPACE_EXHAUSTED: i32 = -2147479382i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TCPIP_UDP_LIMIT_REACHED: i32 = -2147479383i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSACT_INVALID: i32 = -1073734812i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSACT_TIMEOUT: i32 = -1073734813i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_ADAPTER_NOT_FOUND: i32 = -1073732818i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_BAD_PROTOCOL: i32 = 1073750835i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_BINDING_FAILED: i32 = -1073732819i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_QUERY_OID_FAILED: i32 = -1073732816i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_REGISTER_FAILED: i32 = -1073732820i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_RESOURCE_LIMIT: i32 = -2147474646i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_RESOURCE_POOL: i32 = -2147474647i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_RESOURCE_SPECIFIC: i32 = -2147474645i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_SET_OID_FAILED: i32 = -1073732817i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_TOO_MANY_LINKS: i32 = 1073750834i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRANSPORT_TRANSFER_DATA: i32 = 1073750833i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_INTERNAL_ERROR: i32 = -1073729324i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_CORRUPT_LOG: i32 = -1073729321i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_DUPLICATE_VOLIDS: i32 = 1073754331i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_MOVE_QUOTA_EXCEEDED: i32 = -2147471140i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_START_FAILURE: i32 = -1073729322i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_START_SUCCESS: i32 = 1073754325i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_VOLUME_CLAIM: i32 = 1073754330i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_VOLUME_CREATE: i32 = 1073754329i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_TRK_SERVICE_VOL_QUOTA_EXCEEDED: i32 = -2147471144i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_UP_DRIVER_ON_MP: i32 = -1073735724i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WEBCLIENT_CLOSE_DELETE_FAILED: i32 = -2147468746i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WEBCLIENT_CLOSE_PROPPATCH_FAILED: i32 = -2147468745i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WEBCLIENT_CLOSE_PUT_FAILED: i32 = -2147468747i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WEBCLIENT_SETINFO_PROPPATCH_FAILED: i32 = -2147468744i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WINNAT_SESSION_LIMIT_REACHED: i32 = -2147466648i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WINSOCK_CLOSESOCKET_STUCK: i32 = -2147467646i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WINSOCK_TDI_FILTER_DETECTED: i32 = -2147467647i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVENT_WSK_OWNINGTHREAD_PARAMETER_IGNORED: i32 = -1073725824i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EVLEN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EXTRA_EXIT_POINT: i32 = -1073727524i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EXTRA_EXIT_POINT_DELETED: i32 = -1073727520i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EXTRA_EXIT_POINT_NOT_DELETED: i32 = -1073727519i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EXTRA_VOLUME: i32 = -1073727521i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EXTRA_VOLUME_DELETED: i32 = -1073727514i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EXTRA_VOLUME_NOT_DELETED: i32 = -1073727513i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GNLEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUPIDMASK: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_ALL_PARMNUM: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_ATTRIBUTES_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_COMMENT_PARMNUM: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_NAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_SPECIALGRP_ADMINS: &str = "ADMINS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_SPECIALGRP_GUESTS: &str = "GUESTS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_SPECIALGRP_LOCAL: &str = "LOCAL";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const GROUP_SPECIALGRP_USERS: &str = "USERS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const HARDWARE_ADDRESS_LENGTH: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const HELP_MSG_FILENAME: &str = "NETH";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const INVALID_TRACEID: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const IR_PROMISCUOUS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const IR_PROMISCUOUS_MULTICAST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn I_NetLogonControl2<'a, P0>(servername: P0, functioncode: u32, querylevel: u32, data: &u8, buffer: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn I_NetLogonControl2(servername: ::windows::core::PCWSTR, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32;
-    }
-    I_NetLogonControl2(servername.into(), functioncode, querylevel, ::core::mem::transmute(data), ::core::mem::transmute(buffer))
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const JOB_ADD_CURRENT_DATE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -4950,277 +5399,8 @@ pub const LM20_UNLEN: u32 = 20u32;
 pub const LM_REDIR_FAILURE: i32 = 1073756225i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const LOCALGROUP_COMMENT_PARMNUM: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct LOCALGROUP_INFO_0 {
-    pub lgrpi0_name: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for LOCALGROUP_INFO_0 {}
-impl ::core::clone::Clone for LOCALGROUP_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LOCALGROUP_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_INFO_0").field("lgrpi0_name", &self.lgrpi0_name).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LOCALGROUP_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LOCALGROUP_INFO_0 {}
-impl ::core::default::Default for LOCALGROUP_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct LOCALGROUP_INFO_1 {
-    pub lgrpi1_name: ::windows::core::PWSTR,
-    pub lgrpi1_comment: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for LOCALGROUP_INFO_1 {}
-impl ::core::clone::Clone for LOCALGROUP_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LOCALGROUP_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_INFO_1").field("lgrpi1_name", &self.lgrpi1_name).field("lgrpi1_comment", &self.lgrpi1_comment).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LOCALGROUP_INFO_1 {}
-impl ::core::default::Default for LOCALGROUP_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct LOCALGROUP_INFO_1002 {
-    pub lgrpi1002_comment: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for LOCALGROUP_INFO_1002 {}
-impl ::core::clone::Clone for LOCALGROUP_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LOCALGROUP_INFO_1002 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_INFO_1002").field("lgrpi1002_comment", &self.lgrpi1002_comment).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1002 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1002 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_1002>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LOCALGROUP_INFO_1002 {}
-impl ::core::default::Default for LOCALGROUP_INFO_1002 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct LOCALGROUP_MEMBERS_INFO_0 {
-    pub lgrmi0_sid: super::super::Foundation::PSID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_MEMBERS_INFO_0").field("lgrmi0_sid", &self.lgrmi0_sid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct LOCALGROUP_MEMBERS_INFO_1 {
-    pub lgrmi1_sid: super::super::Foundation::PSID,
-    pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
-    pub lgrmi1_name: ::windows::core::PWSTR,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_MEMBERS_INFO_1").field("lgrmi1_sid", &self.lgrmi1_sid).field("lgrmi1_sidusage", &self.lgrmi1_sidusage).field("lgrmi1_name", &self.lgrmi1_name).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_1 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct LOCALGROUP_MEMBERS_INFO_2 {
-    pub lgrmi2_sid: super::super::Foundation::PSID,
-    pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
-    pub lgrmi2_domainandname: ::windows::core::PWSTR,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_MEMBERS_INFO_2").field("lgrmi2_sid", &self.lgrmi2_sid).field("lgrmi2_sidusage", &self.lgrmi2_sidusage).field("lgrmi2_domainandname", &self.lgrmi2_domainandname).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_2 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_2>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct LOCALGROUP_MEMBERS_INFO_3 {
-    pub lgrmi3_domainandname: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_3 {}
-impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_MEMBERS_INFO_3").field("lgrmi3_domainandname", &self.lgrmi3_domainandname).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_3 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_3 {}
-impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const LOCALGROUP_NAME_PARMNUM: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct LOCALGROUP_USERS_INFO_0 {
-    pub lgrui0_name: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for LOCALGROUP_USERS_INFO_0 {}
-impl ::core::clone::Clone for LOCALGROUP_USERS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LOCALGROUP_USERS_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LOCALGROUP_USERS_INFO_0").field("lgrui0_name", &self.lgrui0_name).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LOCALGROUP_USERS_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LOCALGROUP_USERS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_USERS_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LOCALGROUP_USERS_INFO_0 {}
-impl ::core::default::Default for LOCALGROUP_USERS_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const LOGFLAGS_BACKWARD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -5231,42 +5411,6 @@ pub const LOGFLAGS_SEEK: u32 = 2u32;
 pub const LOWER_GET_HINT_MASK: u32 = 65280u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const LOWER_HINT_MASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn LogErrorA(dwmessageid: u32, plpwssubstrings: &[::windows::core::PSTR], dwerrorcode: u32) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR, dwerrorcode: u32);
-    }
-    LogErrorA(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn LogErrorW(dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR], dwerrorcode: u32) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR, dwerrorcode: u32);
-    }
-    LogErrorW(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PSTR]) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR);
-    }
-    LogEventA(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR]) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR);
-    }
-    LogEventW(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MACHINE_UNJOINED: i32 = -1073727507i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -5355,38 +5499,6 @@ pub const MODALS_PASSWD_HIST_LEN_PARMNUM: u32 = 5u32;
 pub const MODALS_PRIMARY_PARMNUM: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MODALS_ROLE_PARMNUM: u32 = 6u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct MPR_PROTOCOL_0 {
-    pub dwProtocolId: u32,
-    pub wszProtocol: [u16; 41],
-    pub wszDLLName: [u16; 49],
-}
-impl ::core::marker::Copy for MPR_PROTOCOL_0 {}
-impl ::core::clone::Clone for MPR_PROTOCOL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MPR_PROTOCOL_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MPR_PROTOCOL_0").field("dwProtocolId", &self.dwProtocolId).field("wszProtocol", &self.wszProtocol).field("wszDLLName", &self.wszDLLName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MPR_PROTOCOL_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MPR_PROTOCOL_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_PROTOCOL_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MPR_PROTOCOL_0 {}
-impl ::core::default::Default for MPR_PROTOCOL_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MRINFO_DISABLED_FLAG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -5399,238 +5511,14 @@ pub const MRINFO_PIM_FLAG: u32 = 4u32;
 pub const MRINFO_QUERIER_FLAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MRINFO_TUNNEL_FLAG: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct MSA_INFO_0 {
-    pub State: MSA_INFO_STATE,
-}
-impl ::core::marker::Copy for MSA_INFO_0 {}
-impl ::core::clone::Clone for MSA_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MSA_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSA_INFO_0").field("State", &self.State).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MSA_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MSA_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSA_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MSA_INFO_0 {}
-impl ::core::default::Default for MSA_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MSA_INFO_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoLevel0: MSA_INFO_LEVEL = MSA_INFO_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoLevelMax: MSA_INFO_LEVEL = MSA_INFO_LEVEL(1i32);
-impl ::core::marker::Copy for MSA_INFO_LEVEL {}
-impl ::core::clone::Clone for MSA_INFO_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSA_INFO_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MSA_INFO_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MSA_INFO_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MSA_INFO_LEVEL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MSA_INFO_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoNotExist: MSA_INFO_STATE = MSA_INFO_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoNotService: MSA_INFO_STATE = MSA_INFO_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoCannotInstall: MSA_INFO_STATE = MSA_INFO_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoCanInstall: MSA_INFO_STATE = MSA_INFO_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoInstalled: MSA_INFO_STATE = MSA_INFO_STATE(5i32);
-impl ::core::marker::Copy for MSA_INFO_STATE {}
-impl ::core::clone::Clone for MSA_INFO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSA_INFO_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MSA_INFO_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MSA_INFO_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MSA_INFO_STATE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MSGNAME_FORWARDED_FROM: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MSGNAME_FORWARDED_TO: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MSGNAME_NOT_FORWARDED: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct MSG_INFO_0 {
-    pub msgi0_name: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MSG_INFO_0 {}
-impl ::core::clone::Clone for MSG_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MSG_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSG_INFO_0").field("msgi0_name", &self.msgi0_name).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MSG_INFO_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MSG_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MSG_INFO_0 {}
-impl ::core::default::Default for MSG_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct MSG_INFO_1 {
-    pub msgi1_name: ::windows::core::PWSTR,
-    pub msgi1_forward_flag: u32,
-    pub msgi1_forward: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MSG_INFO_1 {}
-impl ::core::clone::Clone for MSG_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MSG_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSG_INFO_1").field("msgi1_name", &self.msgi1_name).field("msgi1_forward_flag", &self.msgi1_forward_flag).field("msgi1_forward", &self.msgi1_forward).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MSG_INFO_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MSG_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MSG_INFO_1 {}
-impl ::core::default::Default for MSG_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MS_ROUTER_VERSION: u32 = 1536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: &mut *mut u8, lpdwentriesread: &mut u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
-    }
-    MprSetupProtocolEnum(dwtransportid, ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwentriesread))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32;
-    }
-    MprSetupProtocolFree(::core::mem::transmute(lpbuffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NCPNP_RECONFIG_LAYER(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(2i32);
-impl ::core::marker::Copy for NCPNP_RECONFIG_LAYER {}
-impl ::core::clone::Clone for NCPNP_RECONFIG_LAYER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NCPNP_RECONFIG_LAYER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NCPNP_RECONFIG_LAYER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NCPNP_RECONFIG_LAYER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NCPNP_RECONFIG_LAYER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NCRP_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(2i32);
-impl ::core::marker::Copy for NCRP_FLAGS {}
-impl ::core::clone::Clone for NCRP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NCRP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NCRP_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NCRP_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NCRP_FLAGS").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NELOG_AT_Exec_Err: u32 = 3178u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -6869,137 +6757,6 @@ pub const NETLOGON_FULL_SYNC_REPLICATION: u32 = 4u32;
 pub const NETLOGON_HAS_IP: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETLOGON_HAS_TIMESERV: u32 = 32u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NETLOGON_INFO_1 {
-    pub netlog1_flags: u32,
-    pub netlog1_pdc_connection_status: u32,
-}
-impl ::core::marker::Copy for NETLOGON_INFO_1 {}
-impl ::core::clone::Clone for NETLOGON_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETLOGON_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETLOGON_INFO_1").field("netlog1_flags", &self.netlog1_flags).field("netlog1_pdc_connection_status", &self.netlog1_pdc_connection_status).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETLOGON_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETLOGON_INFO_1 {}
-impl ::core::default::Default for NETLOGON_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NETLOGON_INFO_2 {
-    pub netlog2_flags: u32,
-    pub netlog2_pdc_connection_status: u32,
-    pub netlog2_trusted_dc_name: ::windows::core::PWSTR,
-    pub netlog2_tc_connection_status: u32,
-}
-impl ::core::marker::Copy for NETLOGON_INFO_2 {}
-impl ::core::clone::Clone for NETLOGON_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETLOGON_INFO_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETLOGON_INFO_2").field("netlog2_flags", &self.netlog2_flags).field("netlog2_pdc_connection_status", &self.netlog2_pdc_connection_status).field("netlog2_trusted_dc_name", &self.netlog2_trusted_dc_name).field("netlog2_tc_connection_status", &self.netlog2_tc_connection_status).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETLOGON_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETLOGON_INFO_2 {}
-impl ::core::default::Default for NETLOGON_INFO_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NETLOGON_INFO_3 {
-    pub netlog3_flags: u32,
-    pub netlog3_logon_attempts: u32,
-    pub netlog3_reserved1: u32,
-    pub netlog3_reserved2: u32,
-    pub netlog3_reserved3: u32,
-    pub netlog3_reserved4: u32,
-    pub netlog3_reserved5: u32,
-}
-impl ::core::marker::Copy for NETLOGON_INFO_3 {}
-impl ::core::clone::Clone for NETLOGON_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETLOGON_INFO_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETLOGON_INFO_3").field("netlog3_flags", &self.netlog3_flags).field("netlog3_logon_attempts", &self.netlog3_logon_attempts).field("netlog3_reserved1", &self.netlog3_reserved1).field("netlog3_reserved2", &self.netlog3_reserved2).field("netlog3_reserved3", &self.netlog3_reserved3).field("netlog3_reserved4", &self.netlog3_reserved4).field("netlog3_reserved5", &self.netlog3_reserved5).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_3 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETLOGON_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETLOGON_INFO_3 {}
-impl ::core::default::Default for NETLOGON_INFO_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NETLOGON_INFO_4 {
-    pub netlog4_trusted_dc_name: ::windows::core::PWSTR,
-    pub netlog4_trusted_domain_name: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for NETLOGON_INFO_4 {}
-impl ::core::clone::Clone for NETLOGON_INFO_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETLOGON_INFO_4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETLOGON_INFO_4").field("netlog4_trusted_dc_name", &self.netlog4_trusted_dc_name).field("netlog4_trusted_domain_name", &self.netlog4_trusted_domain_name).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_4 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETLOGON_INFO_4 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_4>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETLOGON_INFO_4 {}
-impl ::core::default::Default for NETLOGON_INFO_4 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETLOGON_REDO_NEEDED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -7034,6 +6791,1697 @@ pub const NETSETUP_ALT_SAMACCOUNTNAME: u32 = 131072u32;
 pub const NETSETUP_DNS_NAME_CHANGES_ONLY: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_INSTALL_INVOCATION: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_PERSISTENTSITE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_DFS_ENUM: i32 = 1073756324i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_DFS_ENUMEX: i32 = 1073756325i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_IGNORE_UNSUPPORTED_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_VALIDATE_LOCKOUT_TIME: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_VALIDATE_PASSWORD_HISTORY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NON_VALIDATED_LOGON: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NOT_A_DFS_PATH: i32 = 1073756224i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NO_PERMISSION_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_COLLECT_RPC_BINDING_ERROR_CONN: i32 = -1073728292i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_COLLECT_RPC_BINDING_ERROR_SET: i32 = -1073728293i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_COLLECT_RPC_CALL_ERROR_CONN: i32 = -1073728290i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_COLLECT_RPC_CALL_ERROR_SET: i32 = -1073728291i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_OPEN_RPC_BINDING_ERROR_CONN: i32 = -1073728296i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_OPEN_RPC_BINDING_ERROR_SET: i32 = -1073728297i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_OPEN_RPC_CALL_ERROR_CONN: i32 = -1073728294i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_OPEN_RPC_CALL_ERROR_SET: i32 = -1073728295i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_REGISTRY_ERROR_CONN: i32 = -1073728286i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_REGISTRY_ERROR_SET: i32 = -1073728287i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_VIRTUALALLOC_ERROR_CONN: i32 = -1073728288i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NTFRSPRF_VIRTUALALLOC_ERROR_SET: i32 = -1073728289i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NULL_USERSETINFO_PASSWD: &str = "              ";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_DISPLAY_NAME: &str = "NW Sap Agent";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_BADWANFILTER_VALUE: i32 = -1073733302i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_BIND_FAILED: i32 = -1073733320i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_CARDLISTEVENT_FAIL: i32 = -1073733301i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_CARDMALLOC_FAILED: i32 = -1073733316i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_CREATELPCEVENT_ERROR: i32 = -1073733305i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_CREATELPCPORT_ERROR: i32 = -1073733306i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_GETSOCKNAME_FAILED: i32 = -1073733319i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_HASHTABLE_MALLOC_FAILED: i32 = -1073733308i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_INVALID_FILTERNAME: i32 = -2147475123i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_KEY_NOT_FOUND: i32 = -1073733324i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_LPCHANDLEMEMORY_ERROR: i32 = -1073733303i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_LPCLISTENMEMORY_ERROR: i32 = -1073733304i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_NOCARDS: i32 = -1073733315i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_OPTBCASTINADDR_FAILED: i32 = -1073733317i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_OPTEXTENDEDADDR_FAILED: i32 = -1073733318i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_OPTMAXADAPTERNUM_ERROR: i32 = -1073733293i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_RECVSEM_FAIL: i32 = -1073733313i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_SDMDEVENT_FAIL: i32 = -1073733300i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_SENDEVENT_FAIL: i32 = -1073733312i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_SETOPTBCAST_FAILED: i32 = -1073733321i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_SOCKET_FAILED: i32 = -1073733322i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_STARTLPCWORKER_ERROR: i32 = -1073733307i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_STARTRECEIVE_ERROR: i32 = -1073733311i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_STARTWANCHECK_ERROR: i32 = -1073733294i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_STARTWANWORKER_ERROR: i32 = -1073733295i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_STARTWORKER_ERROR: i32 = -1073733310i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_TABLE_MALLOC_FAILED: i32 = -1073733309i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_THREADEVENT_FAIL: i32 = -1073733314i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_WANBIND_FAILED: i32 = -1073733296i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_WANEVENT_ERROR: i32 = -1073733291i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_WANHANDLEMEMORY_ERROR: i32 = -1073733292i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_WANSEM_FAIL: i32 = -1073733298i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
+pub const NetProvisioning: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const OS2MSG_FILENAME: &str = "BASE";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PARMNUM_ALL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PARMNUM_BASE_INFOLEVEL: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PARM_ERROR_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PARM_ERROR_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PASSWORD_EXPIRED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PATHLEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PLATFORM_ID_DOS: u32 = 300u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PLATFORM_ID_NT: u32 = 500u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PLATFORM_ID_OS2: u32 = 400u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PLATFORM_ID_OSF: u32 = 600u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PLATFORM_ID_VMS: u32 = 700u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PREFIX_MISMATCH: i32 = -1073727510i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PREFIX_MISMATCH_FIXED: i32 = -1073727509i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PREFIX_MISMATCH_NOT_FIXED: i32 = -1073727508i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_COMPLETE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_DELETED: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_DESTNOPAPER: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_DESTOFFLINE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_DESTPAUSED: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_DEVSTATUS: u32 = 508u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_ERROR: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_INTERV: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_NOTIFY: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_QSTATUS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_QS_PAUSED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_QS_PRINTING: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_QS_QUEUED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PRJOB_QS_SPOOLING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IPV6_DHCP: u32 = 999u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_ALG: u32 = 10010u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_BGMP: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_BOOTP: u32 = 9999u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_DHCP_ALLOCATOR: u32 = 10004u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_DIFFSERV: u32 = 10008u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_DNS_PROXY: u32 = 10003u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_DTP: u32 = 10013u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_FTP: u32 = 10012u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_H323: u32 = 10011u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_IGMP: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_MGM: u32 = 10009u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_MSDP: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_NAT: u32 = 10005u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_IP_VRRP: u32 = 112u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_TYPE_MCAST: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_TYPE_MS0: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_TYPE_MS1: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_TYPE_UCAST: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_VENDOR_MS0: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_VENDOR_MS1: u32 = 311u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PROTO_VENDOR_MS2: u32 = 16383u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const PWLEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const QNLEN: u32 = 80u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: &str = "RegisterProtocol";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_EXPORT_EXTENT_INFOLEVEL: u32 = 1001u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_EXTENT_FILE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_EXTENT_TREE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_INTEGRITY_FILE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_INTEGRITY_TREE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_INTERVAL_INFOLEVEL: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_PULSE_INFOLEVEL: u32 = 1001u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_RANDOM_INFOLEVEL: u32 = 1003u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_ROLE_BOTH: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_ROLE_EXPORT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_ROLE_IMPORT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_STATE_NEVER_REPLICATED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_STATE_NO_MASTER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_STATE_NO_SYNC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_STATE_OK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_UNLOCK_FORCE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const REPL_UNLOCK_NOFORCE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RF_ADD_ALL_INTERFACES: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RF_DEMAND_UPDATE_ROUTES: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RF_MULTICAST: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RF_POWER: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RF_ROUTING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RF_ROUTINGV6: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RIS_INTERFACE_ADDRESS_CHANGE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RIS_INTERFACE_DISABLED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RIS_INTERFACE_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RIS_INTERFACE_MEDIA_ABSENT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RIS_INTERFACE_MEDIA_PRESENT: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const ROUTING_DOMAIN_INFO_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RTR_INFO_BLOCK_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RTUTILS_MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVCE_LM20_W32TIME: &str = "w32time";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVER_DISPLAY_NAME: &str = "Server";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE2_BASE: u32 = 5600u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ACCOUNT_FLAG_ADD_AGAINST_RODC: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ACCOUNT_PASSWORD: &str = "_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ACCOUNT_SECRET_PREFIX: &str = "_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ADWS: &str = "ADWS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_AFP: &str = "AFP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ALERTER: &str = "ALERTER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_BASE: u32 = 3050u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_BROWSER: &str = "BROWSER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CCP_CHKPT_NUM: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CCP_NO_HINT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CCP_QUERY_HINT: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CCP_WAIT_TIME: u32 = 65280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CTRL_CONTINUE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CTRL_INTERROGATE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CTRL_PAUSE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CTRL_REDIR_COMM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CTRL_REDIR_DISK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_CTRL_UNINSTALL: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_DHCP: &str = "DHCP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_DNS_CACHE: &str = "DnsCache";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_DOS_ENCRYPTION: &str = "ENCRYPT";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_DSROLE: &str = "DsRoleSvc";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_INSTALLED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_INSTALL_PENDING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_INSTALL_STATE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_IP_CHKPT_NUM: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_IP_NO_HINT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_IP_QUERY_HINT: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_IP_WAITTIME_SHIFT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_IP_WAIT_TIME: u32 = 65280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_ISMSERV: &str = "IsmServ";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_KDC: &str = "kdc";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_AFP: &str = "AFP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_ALERTER: &str = "ALERTER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_BROWSER: &str = "BROWSER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_DHCP: &str = "DHCP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_DSROLE: &str = "DsRoleSvc";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_ISMSERV: &str = "IsmServ";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_KDC: &str = "kdc";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_LMHOSTS: &str = "LMHOSTS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_MESSENGER: &str = "MESSENGER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_NBT: &str = "NBT";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_NETLOGON: &str = "NETLOGON";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_NETPOPUP: &str = "NETPOPUP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_NETRUN: &str = "NETRUN";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_NTDS: &str = "NTDS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_NTFRS: &str = "NtFrs";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_NWSAP: &str = "NwSapAgent";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_REPL: &str = "REPLICATOR";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_RIPL: &str = "REMOTEBOOT";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_RPCLOCATOR: &str = "RPCLOCATOR";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_SCHEDULE: &str = "Schedule";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_SERVER: &str = "SERVER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_SPOOLER: &str = "SPOOLER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_SQLSERVER: &str = "SQLSERVER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_TCPIP: &str = "TCPIP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_TELNET: &str = "Telnet";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_TIMESOURCE: &str = "TIMESOURCE";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_TRKSVR: &str = "TrkSvr";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_TRKWKS: &str = "TrkWks";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_UPS: &str = "UPS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_WORKSTATION: &str = "WORKSTATION";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LM20_XACTSRV: &str = "XACTSRV";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_LMHOSTS: &str = "LMHOSTS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_MAXTIME: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_MESSENGER: &str = "MESSENGER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NBT: &str = "NBT";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NETLOGON: &str = "NETLOGON";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NETPOPUP: &str = "NETPOPUP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NETRUN: &str = "NETRUN";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NOT_PAUSABLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NOT_UNINSTALLABLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NTDS: &str = "NTDS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NTFRS: &str = "NtFrs";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NTIP_WAITTIME_SHIFT: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NTLMSSP: &str = "NtLmSsp";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NT_MAXTIME: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NWCS: &str = "NWCWorkstation";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_NWSAP: &str = "NwSapAgent";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_PAUSABLE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_PAUSE_STATE: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_REDIR_COMM_PAUSED: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_REDIR_DISK_PAUSED: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_REDIR_PAUSED: u32 = 1792u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_REDIR_PRINT_PAUSED: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_REPL: &str = "REPLICATOR";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_RESRV_MASK: u32 = 131071u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_RIPL: &str = "REMOTEBOOT";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_RPCLOCATOR: &str = "RPCLOCATOR";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_SCHEDULE: &str = "Schedule";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_SERVER: &str = "LanmanServer";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_SPOOLER: &str = "SPOOLER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_SQLSERVER: &str = "SQLSERVER";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_TCPIP: &str = "TCPIP";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_TELNET: &str = "Telnet";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_TIMESOURCE: &str = "TIMESOURCE";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_TRKSVR: &str = "TrkSvr";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_TRKWKS: &str = "TrkWks";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_AMBIGPARM: u32 = 3058u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_BADPARMVAL: u32 = 3051u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_CONFIG: u32 = 3055u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_CONFLPARM: u32 = 3063u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_DUPPARM: u32 = 3059u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_EXEC: u32 = 3061u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_FILE: u32 = 3064u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_INTERNAL: u32 = 3057u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_KILL: u32 = 3060u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_MISSPARM: u32 = 3052u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_ADDPAK: u32 = 3090u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_ANNOUNCE: u32 = 3083u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_DATABASE_ERROR: u32 = 5602u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_DISK: u32 = 3071u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_ERRLOG: u32 = 3088u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_FILES: u32 = 3079u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_FILE_UW: u32 = 3089u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_LANGROUP: u32 = 3081u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_LANROOT: u32 = 3075u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_LAZY: u32 = 3091u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_LOGS: u32 = 3080u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_LSA_MACHINE_ACCT: u32 = 5601u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_MEMORY: u32 = 3070u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_MSGNAME: u32 = 3082u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_NETLOGON_AUTH: u32 = 3098u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_NETLOGON_DC_CFLCT: u32 = 3097u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_NETLOGON_MPATH: u32 = 5600u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_NETLOGON_NO_DC: u32 = 3096u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_NULL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_PROCESSES: u32 = 3073u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_REDIR: u32 = 3076u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_SECURITY: u32 = 3074u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_SEC_FILE_ERR: u32 = 3078u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_SERVER: u32 = 3077u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_SERVER_SEC_ERR: u32 = 3085u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_THREADS: u32 = 3072u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_UAS: u32 = 3084u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_UAS_INVALID_ROLE: u32 = 3095u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_UAS_MACHINE_ACCT: u32 = 3092u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_UAS_PROLOG: u32 = 3099u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_UAS_SERVERS_NMEMB: u32 = 3093u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_UAS_SERVERS_NOGRP: u32 = 3094u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_M_WKSTA: u32 = 3087u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_RESOURCE: u32 = 3054u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_SUBSERV: u32 = 3062u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_SYSTEM: u32 = 3056u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UIC_UNKPARM: u32 = 3053u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UNINSTALLABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UNINSTALLED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UNINSTALL_PENDING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_UPS: &str = "UPS";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_W32TIME: &str = "w32time";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_WORKSTATION: &str = "LanmanWorkstation";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SERVICE_XACTSRV: &str = "XACTSRV";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SESSION_CRYPT_KLEN: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SESSION_PWLEN: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SHPWLEN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SNLEN: u32 = 80u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SRV_HASH_GENERATION_ACTIVE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SRV_SUPPORT_HASH_GENERATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const STXTLEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SUPPORTS_ANY: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_BADNETLOGON: u32 = 384u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_BADSESSLOGON: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_BADUSE: u32 = 6144u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_GOODNETLOGON: u32 = 96u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_GOODSESSLOGON: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_GOODUSE: u32 = 1536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_LOGONLIM: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_PERMISSIONS: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_RESOURCE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_SERVICE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVAUD_USERLIST: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVI1_NUM_ELEMENTS: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVI2_NUM_ELEMENTS: u32 = 40u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVI3_NUM_ELEMENTS: u32 = 44u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_CLUSTER_DNN_NAME: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_CLUSTER_NAME: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_REMAP_PIPE_NAMES: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_RESERVED1: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_RESERVED2: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_RESERVED3: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_SCOPED_NAME: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SVTI2_UNICODE_TRANSPORT_ADDRESS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ACCEPTDOWNLEVELAPIS_PARMNUM: u32 = 517u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ACCESSALERT_PARMNUM: u32 = 40u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ACTIVELOCKS_PARMNUM: u32 = 419u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ALERTSCHEDULE_PARMNUM: u32 = 547u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ALERTSCHED_PARMNUM: u32 = 37u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ALERTS_PARMNUM: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ALIST_MTIME_PARMNUM: u32 = 403u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ANNDELTA_PARMNUM: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ANNOUNCE_PARMNUM: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_AUTOSHARESERVER_PARMNUM: u32 = 592u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_AUTOSHAREWKS_PARMNUM: u32 = 591u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_BALANCECOUNT_PARMNUM: u32 = 577u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CACHEDDIRECTORYLIMIT_PARMNUM: u32 = 587u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CACHEDOPENLIMIT_PARMNUM: u32 = 571u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CHDEVJOBS_PARMNUM: u32 = 411u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CHDEVQ_PARMNUM: u32 = 410u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_COMMENT_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CONNECTIONLESSAUTODISC_PARMNUM: u32 = 562u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CONNECTIONNOSESSIONSTIMEOUT_PARMNUM: u32 = 596u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CONNECTIONS_PARMNUM: u32 = 412u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_CRITICALTHREADS_PARMNUM: u32 = 572u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_DISABLEDOS_PARMNUM: u32 = 600u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_DISABLESTRICTNAMECHECKING_PARMNUM: u32 = 602u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_DISC_PARMNUM: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_DISKALERT_PARMNUM: u32 = 41u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_DISKSPACETHRESHOLD_PARMNUM: u32 = 550u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_DOMAIN_PARMNUM: u32 = 519u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLEAUTHENTICATEUSERSHARING_PARMNUM: u32 = 603u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLECOMPRESSION_PARMNUM: u32 = 590u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLEFCBOPENS_PARMNUM: u32 = 538u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLEFORCEDLOGOFF_PARMNUM: u32 = 515u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLEOPLOCKFORCECLOSE_PARMNUM: u32 = 537u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLEOPLOCKS_PARMNUM: u32 = 536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLERAW_PARMNUM: u32 = 539u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLESECURITYSIGNATURE_PARMNUM: u32 = 593u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLESHAREDNETDRIVES_PARMNUM: u32 = 540u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLESOFTCOMPAT_PARMNUM: u32 = 514u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLEW9XSECURITYSIGNATURE_PARMNUM: u32 = 598u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENABLEWFW311DIRECTIPX_PARMNUM: u32 = 574u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ENFORCEKERBEROSREAUTHENTICATION_PARMNUM: u32 = 599u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ERRORALERT_PARMNUM: u32 = 38u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ERRORTHRESHOLD_PARMNUM: u32 = 548u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_GLIST_MTIME_PARMNUM: u32 = 402u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_GUESTACC_PARMNUM: u32 = 408u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_HIDDEN_PARMNUM: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_IDLETHREADTIMEOUT_PARMNUM: u32 = 597u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_INITCONNTABLE_PARMNUM: u32 = 544u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_INITFILETABLE_PARMNUM: u32 = 545u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_INITSEARCHTABLE_PARMNUM: u32 = 546u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_INITSESSTABLE_PARMNUM: u32 = 543u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_INITWORKITEMS_PARMNUM: u32 = 505u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_IRPSTACKSIZE_PARMNUM: u32 = 508u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LANMASK_PARMNUM: u32 = 407u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LINKINFOVALIDTIME_PARMNUM: u32 = 554u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LMANNOUNCE_PARMNUM: u32 = 518u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LOCKVIOLATIONDELAY_PARMNUM: u32 = 569u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LOCKVIOLATIONOFFSET_PARMNUM: u32 = 568u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LOCKVIOLATIONRETRIES_PARMNUM: u32 = 567u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LOGONALERT_PARMNUM: u32 = 39u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_LOWDISKSPACEMINIMUM_PARMNUM: u32 = 601u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXAUDITSZ_PARMNUM: u32 = 43u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXCOPYLENGTH_PARMNUM: u32 = 588u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXCOPYREADLEN_PARMNUM: u32 = 520u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXCOPYWRITELEN_PARMNUM: u32 = 521u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXFREECONNECTIONS_PARMNUM: u32 = 542u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXFREELFCBS_PARMNUM: u32 = 581u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXFREEMFCBS_PARMNUM: u32 = 580u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXFREEPAGEDPOOLCHUNKS_PARMNUM: u32 = 582u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXFREERFCBS_PARMNUM: u32 = 579u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXGLOBALOPENSEARCH_PARMNUM: u32 = 565u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXKEEPCOMPLSEARCH_PARMNUM: u32 = 525u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXKEEPSEARCH_PARMNUM: u32 = 523u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXLINKDELAY_PARMNUM: u32 = 552u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXMPXCT_PARMNUM: u32 = 533u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXNONPAGEDMEMORYUSAGE_PARMNUM: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXPAGEDMEMORYUSAGE_PARMNUM: u32 = 513u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 584u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXRAWBUFLEN_PARMNUM: u32 = 509u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXRAWWORKITEMS_PARMNUM: u32 = 557u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXTHREADSPERQUEUE_PARMNUM: u32 = 586u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXWORKITEMIDLETIME_PARMNUM: u32 = 556u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAXWORKITEMS_PARMNUM: u32 = 506u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAX_CMD_LEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MAX_SRV_HEUR_LEN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MDLREADSWITCHOVER_PARMNUM: u32 = 570u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINCLIENTBUFFERSIZE_PARMNUM: u32 = 595u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINFREECONNECTIONS_PARMNUM: u32 = 541u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINFREEWORKITEMS_PARMNUM: u32 = 530u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINKEEPCOMPLSEARCH_PARMNUM: u32 = 524u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINKEEPSEARCH_PARMNUM: u32 = 522u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINLINKTHROUGHPUT_PARMNUM: u32 = 553u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 583u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_MINRCVQUEUE_PARMNUM: u32 = 529u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NAME_PARMNUM: u32 = 102u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NETIOALERT_PARMNUM: u32 = 42u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NETWORKERRORTHRESHOLD_PARMNUM: u32 = 549u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NODISC: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NUMADMIN_PARMNUM: u32 = 406u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NUMBIGBUF_PARMNUM: u32 = 422u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NUMBLOCKTHREADS_PARMNUM: u32 = 527u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NUMFILETASKS_PARMNUM: u32 = 423u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_NUMREQBUF_PARMNUM: u32 = 420u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_OPENFILES_PARMNUM: u32 = 414u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_OPENSEARCH_PARMNUM: u32 = 503u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_OPLOCKBREAKRESPONSEWAIT_PARMNUM: u32 = 535u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_OPLOCKBREAKWAIT_PARMNUM: u32 = 534u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_OTHERQUEUEAFFINITY_PARMNUM: u32 = 575u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_PLATFORM_ID_NT: u32 = 500u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_PLATFORM_ID_OS2: u32 = 400u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_PLATFORM_ID_PARMNUM: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_PREFERREDAFFINITY_PARMNUM: u32 = 578u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_PRODUCTTYPE_PARMNUM: u32 = 560u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_QUEUESAMPLESECS_PARMNUM: u32 = 576u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_RAWWORKITEMS_PARMNUM: u32 = 507u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_REMOVEDUPLICATESEARCHES_PARMNUM: u32 = 566u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_REQUIRESECURITYSIGNATURE_PARMNUM: u32 = 594u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_RESTRICTNULLSESSACCESS_PARMNUM: u32 = 573u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SCAVQOSINFOUPDATETIME_PARMNUM: u32 = 555u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SCAVTIMEOUT_PARMNUM: u32 = 528u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SECURITY_PARMNUM: u32 = 405u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SENDSFROMPREFERREDPROCESSOR_PARMNUM: u32 = 585u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SERVERSIZE_PARMNUM: u32 = 561u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SESSCONNS_PARMNUM: u32 = 511u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SESSOPENS_PARMNUM: u32 = 501u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SESSREQS_PARMNUM: u32 = 417u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SESSUSERS_PARMNUM: u32 = 510u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SESSVCS_PARMNUM: u32 = 502u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SHARES_PARMNUM: u32 = 413u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SHARINGVIOLATIONDELAY_PARMNUM: u32 = 564u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SHARINGVIOLATIONRETRIES_PARMNUM: u32 = 563u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SIZREQBUF_PARMNUM: u32 = 504u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SRVHEURISTICS_PARMNUM: u32 = 431u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_THREADCOUNTADD_PARMNUM: u32 = 526u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_THREADPRIORITY_PARMNUM: u32 = 532u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TIMESOURCE_PARMNUM: u32 = 516u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_PARMNUM: u32 = 105u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_ULIST_MTIME_PARMNUM: u32 = 401u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_USERPATH_PARMNUM: u32 = 112u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_USERS_PARMNUM: u32 = 107u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_USERS_PER_LICENSE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_VERSION_MAJOR_PARMNUM: u32 = 103u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_VERSION_MINOR_PARMNUM: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
+pub const ServiceAccountPasswordGUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TITLE_SC_MESSAGE_BOX: i32 = -1073734795i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRACE_NO_STDINFO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRACE_NO_SYNCH: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRACE_USE_CONSOLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRACE_USE_DATE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRACE_USE_FILE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRACE_USE_MASK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRACE_USE_MSEC: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRANSPORT_NAME_PARMNUM: u32 = 202u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_MNS_LOGON_ACCOUNT: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_NORMAL_ACCOUNT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_NO_AUTH_DATA_REQUIRED: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_PARTIAL_SECRETS_ACCOUNT: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_SERVER_TRUST_ACCOUNT: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_TEMP_DUPLICATE_ACCOUNT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_USE_AES_KEYS: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_WORKSTATION_TRUST_ACCOUNT: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UNCLEN: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UNITS_PER_DAY: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UNLEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UPPER_GET_HINT_MASK: u32 = 267386880u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UPPER_HINT_MASK: u32 = 65280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_ACCT_EXPIRES_PARMNUM: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_AUTH_FLAGS_PARMNUM: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_CODE_PAGE_PARMNUM: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_COMMENT_PARMNUM: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_COUNTRY_CODE_PARMNUM: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_FLAGS_PARMNUM: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_FULL_NAME_PARMNUM: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_HOME_DIR_PARMNUM: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_LAST_LOGOFF_PARMNUM: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_LAST_LOGON_PARMNUM: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_LOGON_HOURS_PARMNUM: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_LOGON_SERVER_PARMNUM: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_MAX_STORAGE_PARMNUM: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_NAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_NUM_LOGONS_PARMNUM: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PAD_PW_COUNT_PARMNUM: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PARMS_PARMNUM: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PASSWORD_AGE_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PASSWORD_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIMARY_GROUP_PARMNUM: u32 = 51u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_MASK: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PROFILE: u32 = 52u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PROFILE_PARMNUM: u32 = 52u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_SCRIPT_PATH_PARMNUM: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_UNITS_PER_WEEK_PARMNUM: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_USR_COMMENT_PARMNUM: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_WORKSTATIONS_PARMNUM: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_ASGTYPE_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_AUTHIDENTITY_PARMNUM: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_CHARDEV: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_CONN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_DEFAULT_CREDENTIALS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_DISCONN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_DOMAINNAME_PARMNUM: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_FLAGS_PARMNUM: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_LOCAL_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_NETERR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_OK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_OPTIONS_PARMNUM: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_PASSWORD_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_PAUSED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_RECONN: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_REMOTE_PARMNUM: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_SD_PARMNUM: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_SESSLOST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_SPECIFIC_TRANSPORT: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_USERNAME_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const VALIDATED_LOGON: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const VALID_LOGOFF: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_BUFFERNAMEDPIPES_PARMNUM: u32 = 51u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_BUFFERREADONLYFILES_PARMNUM: u32 = 59u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_BUFFILESWITHDENYWRITE_PARMNUM: u32 = 58u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_CACHEFILETIMEOUT_PARMNUM: u32 = 47u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_CHARCOUNT_PARMNUM: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_CHARTIME_PARMNUM: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_CHARWAIT_PARMNUM: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_COMPUTERNAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_KEEPCONN_PARMNUM: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_KEEPSEARCH_PARMNUM: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LANGROUP_PARMNUM: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LANROOT_PARMNUM: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LOCKINCREMENT_PARMNUM: u32 = 42u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LOCKMAXIMUM_PARMNUM: u32 = 43u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LOCKQUOTA_PARMNUM: u32 = 41u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LOGGED_ON_USERS_PARMNUM: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LOGON_DOMAIN_PARMNUM: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_LOGON_SERVER_PARMNUM: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_MAILSLOTS_PARMNUM: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_MAXCMDS_PARMNUM: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_MAXTHREADS_PARMNUM: u32 = 33u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_MAXWRKCACHE_PARMNUM: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_NUMALERTS_PARMNUM: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_NUMCHARBUF_PARMNUM: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_NUMDGRAMBUF_PARMNUM: u32 = 31u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_NUMSERVICES_PARMNUM: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_NUMWORKBUF_PARMNUM: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_OTH_DOMAINS_PARMNUM: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_PIPEINCREMENT_PARMNUM: u32 = 44u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_PIPEMAXIMUM_PARMNUM: u32 = 45u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_PLATFORM_ID_PARMNUM: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_PRINTBUFTIME_PARMNUM: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_READAHEADTHRUPUT_PARMNUM: u32 = 62u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_SESSTIMEOUT_PARMNUM: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_SIZERROR_PARMNUM: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USEENCRYPTION_PARMNUM: u32 = 57u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USELOCKANDREADANDUNLOCK_PARMNUM: u32 = 52u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USERAWREAD_PARMNUM: u32 = 54u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USEUNLOCKBEHIND_PARMNUM: u32 = 49u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_USEWRITERAWWITHDATA_PARMNUM: u32 = 56u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_UTILIZENTCACHING_PARMNUM: u32 = 53u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_VER_MAJOR_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WORKSTATION_DISPLAY_NAME: &str = "Workstation";
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_XML: u32 = 33u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_API_ERROR_INTERNAL: u32 = 36u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_API_ERROR_NOT_SUPPORTED: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_API_ERROR_XML_VALIDATION_FAILED: u32 = 35u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED_KEY_REQUIRED: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ENABLED_KEY_PROVIDED: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_NOT_APPLICABLE: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_REQUIRED: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_INVALID_AUTH_FOR_CONNECTION_TYPE: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_INVALID_ENCRYPTION_FOR_AUTHMODE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_NOT_APPLICABLE: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_REQUIRED: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_KEY_REQUIRED: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_WPA_ENCRYPTION_NOT_SUPPORTED: u32 = 26u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_CONFIG_ERROR_WPA_NOT_SUPPORTED: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_SET_ERROR_DUPLICATE_NETWORK: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_SET_ERROR_MEMORY_ALLOCATION: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_SET_ERROR_READING_1X_CONFIG: u32 = 29u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_SET_ERROR_WRITING_1X_CONFIG: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_SET_ERROR_WRITING_WZC_CFG: u32 = 31u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_1X_ENABLED: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_AUTHENTICATION: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_BAD_KEY_INDEX: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_BAD_NETWORK_KEY: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_BAD_SSID: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_BAD_VERSION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_CONNECTION_TYPE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_EAP_METHOD: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_ENCRYPTION: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_KEY_INDEX_RANGE: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_KEY_PROVIDED_AUTOMATICALLY: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_NO_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AF_OP(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_PRINT: AF_OP = AF_OP(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_COMM: AF_OP = AF_OP(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_SERVER: AF_OP = AF_OP(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_ACCOUNTS: AF_OP = AF_OP(8u32);
+impl ::core::marker::Copy for AF_OP {}
+impl ::core::clone::Clone for AF_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AF_OP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AF_OP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AF_OP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AF_OP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AF_OP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AF_OP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AF_OP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AF_OP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AF_OP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BIND_FLAGS1(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_ADD: BIND_FLAGS1 = BIND_FLAGS1(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_REMOVE: BIND_FLAGS1 = BIND_FLAGS1(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_UPDATE: BIND_FLAGS1 = BIND_FLAGS1(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_ENABLE: BIND_FLAGS1 = BIND_FLAGS1(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_DISABLE: BIND_FLAGS1 = BIND_FLAGS1(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_BINDING_PATH: BIND_FLAGS1 = BIND_FLAGS1(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_PROPERTYCHANGE: BIND_FLAGS1 = BIND_FLAGS1(512i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NET: BIND_FLAGS1 = BIND_FLAGS1(65536i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NETTRANS: BIND_FLAGS1 = BIND_FLAGS1(131072i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NETCLIENT: BIND_FLAGS1 = BIND_FLAGS1(262144i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NETSERVICE: BIND_FLAGS1 = BIND_FLAGS1(524288i32);
+impl ::core::marker::Copy for BIND_FLAGS1 {}
+impl ::core::clone::Clone for BIND_FLAGS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BIND_FLAGS1 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BIND_FLAGS1 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BIND_FLAGS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BIND_FLAGS1").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMPONENT_CHARACTERISTICS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_SOFTWARE_ENUMERATED: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_PHYSICAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_HIDDEN: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_NO_SERVICE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_NOT_USER_REMOVABLE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_MULTIPORT_INSTANCED_ADAPTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(64i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_HAS_UI: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_SINGLE_INSTANCE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1024i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_DONTEXPOSELOWER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4096i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8192i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16384i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(131072i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(262144i32);
+impl ::core::marker::Copy for COMPONENT_CHARACTERISTICS {}
+impl ::core::clone::Clone for COMPONENT_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMPONENT_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMPONENT_CHARACTERISTICS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPONENT_CHARACTERISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPONENT_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEFAULT_PAGES(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DPP_ADVANCED: DEFAULT_PAGES = DEFAULT_PAGES(1i32);
+impl ::core::marker::Copy for DEFAULT_PAGES {}
+impl ::core::clone::Clone for DEFAULT_PAGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEFAULT_PAGES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DEFAULT_PAGES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEFAULT_PAGES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEFAULT_PAGES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DSREG_JOIN_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(2i32);
+impl ::core::marker::Copy for DSREG_JOIN_TYPE {}
+impl ::core::clone::Clone for DSREG_JOIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DSREG_JOIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DSREG_JOIN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSREG_JOIN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSREG_JOIN_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ENUM_BINDING_PATHS_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(2i32);
+impl ::core::marker::Copy for ENUM_BINDING_PATHS_FLAGS {}
+impl ::core::clone::Clone for ENUM_BINDING_PATHS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENUM_BINDING_PATHS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_BINDING_PATHS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENUM_BINDING_PATHS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENUM_BINDING_PATHS_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FORCE_LEVEL_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(2u32);
+impl ::core::marker::Copy for FORCE_LEVEL_FLAGS {}
+impl ::core::clone::Clone for FORCE_LEVEL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FORCE_LEVEL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FORCE_LEVEL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FORCE_LEVEL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FORCE_LEVEL_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MSA_INFO_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoLevel0: MSA_INFO_LEVEL = MSA_INFO_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoLevelMax: MSA_INFO_LEVEL = MSA_INFO_LEVEL(1i32);
+impl ::core::marker::Copy for MSA_INFO_LEVEL {}
+impl ::core::clone::Clone for MSA_INFO_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MSA_INFO_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MSA_INFO_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSA_INFO_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSA_INFO_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MSA_INFO_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoNotExist: MSA_INFO_STATE = MSA_INFO_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoNotService: MSA_INFO_STATE = MSA_INFO_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoCannotInstall: MSA_INFO_STATE = MSA_INFO_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoCanInstall: MSA_INFO_STATE = MSA_INFO_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoInstalled: MSA_INFO_STATE = MSA_INFO_STATE(5i32);
+impl ::core::marker::Copy for MSA_INFO_STATE {}
+impl ::core::clone::Clone for MSA_INFO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MSA_INFO_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MSA_INFO_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSA_INFO_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSA_INFO_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NCPNP_RECONFIG_LAYER(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(2i32);
+impl ::core::marker::Copy for NCPNP_RECONFIG_LAYER {}
+impl ::core::clone::Clone for NCPNP_RECONFIG_LAYER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NCPNP_RECONFIG_LAYER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NCPNP_RECONFIG_LAYER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NCPNP_RECONFIG_LAYER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NCPNP_RECONFIG_LAYER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NCRP_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(2i32);
+impl ::core::marker::Copy for NCRP_FLAGS {}
+impl ::core::clone::Clone for NCRP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NCRP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NCRP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NCRP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NCRP_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -7161,74 +8609,6 @@ impl ::core::ops::Not for NETSETUP_PROVISION {
         Self(self.0.not())
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NETSETUP_PROVISIONING_PARAMS {
-    pub dwVersion: u32,
-    pub lpDomain: ::windows::core::PCWSTR,
-    pub lpHostName: ::windows::core::PCWSTR,
-    pub lpMachineAccountOU: ::windows::core::PCWSTR,
-    pub lpDcName: ::windows::core::PCWSTR,
-    pub dwProvisionOptions: NETSETUP_PROVISION,
-    pub aCertTemplateNames: *mut ::windows::core::PWSTR,
-    pub cCertTemplateNames: u32,
-    pub aMachinePolicyNames: *mut ::windows::core::PWSTR,
-    pub cMachinePolicyNames: u32,
-    pub aMachinePolicyPaths: *mut ::windows::core::PWSTR,
-    pub cMachinePolicyPaths: u32,
-    pub lpNetbiosName: ::windows::core::PWSTR,
-    pub lpSiteName: ::windows::core::PWSTR,
-    pub lpPrimaryDNSDomain: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for NETSETUP_PROVISIONING_PARAMS {}
-impl ::core::clone::Clone for NETSETUP_PROVISIONING_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETSETUP_PROVISIONING_PARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETSETUP_PROVISIONING_PARAMS")
-            .field("dwVersion", &self.dwVersion)
-            .field("lpDomain", &self.lpDomain)
-            .field("lpHostName", &self.lpHostName)
-            .field("lpMachineAccountOU", &self.lpMachineAccountOU)
-            .field("lpDcName", &self.lpDcName)
-            .field("dwProvisionOptions", &self.dwProvisionOptions)
-            .field("aCertTemplateNames", &self.aCertTemplateNames)
-            .field("cCertTemplateNames", &self.cCertTemplateNames)
-            .field("aMachinePolicyNames", &self.aMachinePolicyNames)
-            .field("cMachinePolicyNames", &self.cMachinePolicyNames)
-            .field("aMachinePolicyPaths", &self.aMachinePolicyPaths)
-            .field("cMachinePolicyPaths", &self.cMachinePolicyPaths)
-            .field("lpNetbiosName", &self.lpNetbiosName)
-            .field("lpSiteName", &self.lpSiteName)
-            .field("lpPrimaryDNSDomain", &self.lpPrimaryDNSDomain)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETSETUP_PROVISIONING_PARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETSETUP_PROVISIONING_PARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETSETUP_PROVISIONING_PARAMS {}
-impl ::core::default::Default for NETSETUP_PROVISIONING_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_PERSISTENTSITE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -7254,44 +8634,6 @@ unsafe impl ::windows::core::Abi for NETWORK_INSTALL_TIME {
 impl ::core::fmt::Debug for NETWORK_INSTALL_TIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NETWORK_INSTALL_TIME").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct NETWORK_NAME {
-    pub Name: FLAT_STRING,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NETWORK_NAME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for NETWORK_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NETWORK_NAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETWORK_NAME").field("Name", &self.Name).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETWORK_NAME {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NETWORK_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_NAME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NETWORK_NAME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NETWORK_NAME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -7360,115 +8702,6 @@ impl ::core::fmt::Debug for NET_COMPUTER_NAME_TYPE {
         f.debug_tuple("NET_COMPUTER_NAME_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_DFS_ENUM: i32 = 1073756324i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_DFS_ENUMEX: i32 = 1073756325i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NET_DISPLAY_GROUP {
-    pub grpi3_name: ::windows::core::PWSTR,
-    pub grpi3_comment: ::windows::core::PWSTR,
-    pub grpi3_group_id: u32,
-    pub grpi3_attributes: u32,
-    pub grpi3_next_index: u32,
-}
-impl ::core::marker::Copy for NET_DISPLAY_GROUP {}
-impl ::core::clone::Clone for NET_DISPLAY_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NET_DISPLAY_GROUP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NET_DISPLAY_GROUP").field("grpi3_name", &self.grpi3_name).field("grpi3_comment", &self.grpi3_comment).field("grpi3_group_id", &self.grpi3_group_id).field("grpi3_attributes", &self.grpi3_attributes).field("grpi3_next_index", &self.grpi3_next_index).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NET_DISPLAY_GROUP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_DISPLAY_GROUP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_GROUP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_DISPLAY_GROUP {}
-impl ::core::default::Default for NET_DISPLAY_GROUP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NET_DISPLAY_MACHINE {
-    pub usri2_name: ::windows::core::PWSTR,
-    pub usri2_comment: ::windows::core::PWSTR,
-    pub usri2_flags: USER_ACCOUNT_FLAGS,
-    pub usri2_user_id: u32,
-    pub usri2_next_index: u32,
-}
-impl ::core::marker::Copy for NET_DISPLAY_MACHINE {}
-impl ::core::clone::Clone for NET_DISPLAY_MACHINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NET_DISPLAY_MACHINE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NET_DISPLAY_MACHINE").field("usri2_name", &self.usri2_name).field("usri2_comment", &self.usri2_comment).field("usri2_flags", &self.usri2_flags).field("usri2_user_id", &self.usri2_user_id).field("usri2_next_index", &self.usri2_next_index).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NET_DISPLAY_MACHINE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_DISPLAY_MACHINE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_MACHINE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_DISPLAY_MACHINE {}
-impl ::core::default::Default for NET_DISPLAY_MACHINE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub struct NET_DISPLAY_USER {
-    pub usri1_name: ::windows::core::PWSTR,
-    pub usri1_comment: ::windows::core::PWSTR,
-    pub usri1_flags: USER_ACCOUNT_FLAGS,
-    pub usri1_full_name: ::windows::core::PWSTR,
-    pub usri1_user_id: u32,
-    pub usri1_next_index: u32,
-}
-impl ::core::marker::Copy for NET_DISPLAY_USER {}
-impl ::core::clone::Clone for NET_DISPLAY_USER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NET_DISPLAY_USER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NET_DISPLAY_USER").field("usri1_name", &self.usri1_name).field("usri1_comment", &self.usri1_comment).field("usri1_flags", &self.usri1_flags).field("usri1_full_name", &self.usri1_full_name).field("usri1_user_id", &self.usri1_user_id).field("usri1_next_index", &self.usri1_next_index).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NET_DISPLAY_USER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_DISPLAY_USER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_USER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_DISPLAY_USER {}
-impl ::core::default::Default for NET_DISPLAY_USER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_IGNORE_UNSUPPORTED_FLAGS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -7818,6 +9051,2557 @@ impl ::core::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_VALIDATE_PASSWORD_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(3i32);
+impl ::core::marker::Copy for NET_VALIDATE_PASSWORD_TYPE {}
+impl ::core::clone::Clone for NET_VALIDATE_PASSWORD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_VALIDATE_PASSWORD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_VALIDATE_PASSWORD_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OBO_TOKEN_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const OBO_USER: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const OBO_COMPONENT: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(3i32);
+impl ::core::marker::Copy for OBO_TOKEN_TYPE {}
+impl ::core::clone::Clone for OBO_TOKEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OBO_TOKEN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OBO_TOKEN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OBO_TOKEN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OBO_TOKEN_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SERVER_INFO_HIDDEN(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1u32);
+impl ::core::marker::Copy for SERVER_INFO_HIDDEN {}
+impl ::core::clone::Clone for SERVER_INFO_HIDDEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVER_INFO_HIDDEN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVER_INFO_HIDDEN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVER_INFO_HIDDEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVER_INFO_HIDDEN").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SERVER_INFO_SECURITY(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_USERSECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(1u32);
+impl ::core::marker::Copy for SERVER_INFO_SECURITY {}
+impl ::core::clone::Clone for SERVER_INFO_SECURITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVER_INFO_SECURITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVER_INFO_SECURITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVER_INFO_SECURITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVER_INFO_SECURITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SUPPORTS_BINDING_INTERFACE_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(2i32);
+impl ::core::marker::Copy for SUPPORTS_BINDING_INTERFACE_FLAGS {}
+impl ::core::clone::Clone for SUPPORTS_BINDING_INTERFACE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SUPPORTS_BINDING_INTERFACE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SUPPORTS_BINDING_INTERFACE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SUPPORTS_BINDING_INTERFACE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SUPPORTS_BINDING_INTERFACE_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRANSPORT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UseTransportType_None: TRANSPORT_TYPE = TRANSPORT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UseTransportType_Wsk: TRANSPORT_TYPE = TRANSPORT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UseTransportType_Quic: TRANSPORT_TYPE = TRANSPORT_TYPE(2i32);
+impl ::core::marker::Copy for TRANSPORT_TYPE {}
+impl ::core::clone::Clone for TRANSPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRANSPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSPORT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRANSPORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRANSPORT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USER_ACCOUNT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2097152u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8388608u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16777216u32);
+impl ::core::marker::Copy for USER_ACCOUNT_FLAGS {}
+impl ::core::clone::Clone for USER_ACCOUNT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USER_ACCOUNT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for USER_ACCOUNT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_ACCOUNT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_ACCOUNT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for USER_ACCOUNT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for USER_ACCOUNT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for USER_ACCOUNT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for USER_ACCOUNT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for USER_ACCOUNT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USER_MODALS_ROLES(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = USER_MODALS_ROLES(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = USER_MODALS_ROLES(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = USER_MODALS_ROLES(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = USER_MODALS_ROLES(3u32);
+impl ::core::marker::Copy for USER_MODALS_ROLES {}
+impl ::core::clone::Clone for USER_MODALS_ROLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USER_MODALS_ROLES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for USER_MODALS_ROLES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_MODALS_ROLES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_MODALS_ROLES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USER_PRIV(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_GUEST: USER_PRIV = USER_PRIV(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_USER: USER_PRIV = USER_PRIV(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_ADMIN: USER_PRIV = USER_PRIV(2u32);
+impl ::core::marker::Copy for USER_PRIV {}
+impl ::core::clone::Clone for USER_PRIV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USER_PRIV {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for USER_PRIV {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_PRIV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_PRIV").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USE_INFO_ASG_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_WILDCARD: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(4294967295u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_DISKDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_IPC: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(3u32);
+impl ::core::marker::Copy for USE_INFO_ASG_TYPE {}
+impl ::core::clone::Clone for USE_INFO_ASG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USE_INFO_ASG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for USE_INFO_ASG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USE_INFO_ASG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USE_INFO_ASG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct tagRASCON_IPUI_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_VPN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DEMAND_DIAL: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_NOT_ADMIN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_HEADER_COMPRESSION: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_DISABLE_REGISTER_DNS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_ENABLE_NBT: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32768i32);
+impl ::core::marker::Copy for tagRASCON_IPUI_FLAGS {}
+impl ::core::clone::Clone for tagRASCON_IPUI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for tagRASCON_IPUI_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for tagRASCON_IPUI_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for tagRASCON_IPUI_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("tagRASCON_IPUI_FLAGS").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct ACCESS_INFO_0 {
+    pub acc0_resource_name: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ACCESS_INFO_0 {}
+impl ::core::clone::Clone for ACCESS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACCESS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCESS_INFO_0").field("acc0_resource_name", &self.acc0_resource_name).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESS_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACCESS_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACCESS_INFO_0 {}
+impl ::core::default::Default for ACCESS_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct ACCESS_INFO_1 {
+    pub acc1_resource_name: ::windows::core::PWSTR,
+    pub acc1_attr: u32,
+    pub acc1_count: u32,
+}
+impl ::core::marker::Copy for ACCESS_INFO_1 {}
+impl ::core::clone::Clone for ACCESS_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACCESS_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCESS_INFO_1").field("acc1_resource_name", &self.acc1_resource_name).field("acc1_attr", &self.acc1_attr).field("acc1_count", &self.acc1_count).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESS_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACCESS_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACCESS_INFO_1 {}
+impl ::core::default::Default for ACCESS_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct ACCESS_INFO_1002 {
+    pub acc1002_attr: u32,
+}
+impl ::core::marker::Copy for ACCESS_INFO_1002 {}
+impl ::core::clone::Clone for ACCESS_INFO_1002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACCESS_INFO_1002 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCESS_INFO_1002").field("acc1002_attr", &self.acc1002_attr).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESS_INFO_1002 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACCESS_INFO_1002 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_1002>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACCESS_INFO_1002 {}
+impl ::core::default::Default for ACCESS_INFO_1002 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct ACCESS_LIST {
+    pub acl_ugname: ::windows::core::PWSTR,
+    pub acl_access: u32,
+}
+impl ::core::marker::Copy for ACCESS_LIST {}
+impl ::core::clone::Clone for ACCESS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACCESS_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCESS_LIST").field("acl_ugname", &self.acl_ugname).field("acl_access", &self.acl_access).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESS_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACCESS_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACCESS_LIST {}
+impl ::core::default::Default for ACCESS_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct ADMIN_OTHER_INFO {
+    pub alrtad_errcode: u32,
+    pub alrtad_numstrings: u32,
+}
+impl ::core::marker::Copy for ADMIN_OTHER_INFO {}
+impl ::core::clone::Clone for ADMIN_OTHER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADMIN_OTHER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADMIN_OTHER_INFO").field("alrtad_errcode", &self.alrtad_errcode).field("alrtad_numstrings", &self.alrtad_numstrings).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADMIN_OTHER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADMIN_OTHER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADMIN_OTHER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADMIN_OTHER_INFO {}
+impl ::core::default::Default for ADMIN_OTHER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_ACCLIM {
+    pub ae_al_compname: u32,
+    pub ae_al_username: u32,
+    pub ae_al_resname: u32,
+    pub ae_al_limit: u32,
+}
+impl ::core::marker::Copy for AE_ACCLIM {}
+impl ::core::clone::Clone for AE_ACCLIM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_ACCLIM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_ACCLIM").field("ae_al_compname", &self.ae_al_compname).field("ae_al_username", &self.ae_al_username).field("ae_al_resname", &self.ae_al_resname).field("ae_al_limit", &self.ae_al_limit).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_ACCLIM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_ACCLIM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_ACCLIM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_ACCLIM {}
+impl ::core::default::Default for AE_ACCLIM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_ACLMOD {
+    pub ae_am_compname: u32,
+    pub ae_am_username: u32,
+    pub ae_am_resname: u32,
+    pub ae_am_action: u32,
+    pub ae_am_datalen: u32,
+}
+impl ::core::marker::Copy for AE_ACLMOD {}
+impl ::core::clone::Clone for AE_ACLMOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_ACLMOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_ACLMOD").field("ae_am_compname", &self.ae_am_compname).field("ae_am_username", &self.ae_am_username).field("ae_am_resname", &self.ae_am_resname).field("ae_am_action", &self.ae_am_action).field("ae_am_datalen", &self.ae_am_datalen).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_ACLMOD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_ACLMOD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_ACLMOD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_ACLMOD {}
+impl ::core::default::Default for AE_ACLMOD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_CLOSEFILE {
+    pub ae_cf_compname: u32,
+    pub ae_cf_username: u32,
+    pub ae_cf_resname: u32,
+    pub ae_cf_fileid: u32,
+    pub ae_cf_duration: u32,
+    pub ae_cf_reason: u32,
+}
+impl ::core::marker::Copy for AE_CLOSEFILE {}
+impl ::core::clone::Clone for AE_CLOSEFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_CLOSEFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_CLOSEFILE").field("ae_cf_compname", &self.ae_cf_compname).field("ae_cf_username", &self.ae_cf_username).field("ae_cf_resname", &self.ae_cf_resname).field("ae_cf_fileid", &self.ae_cf_fileid).field("ae_cf_duration", &self.ae_cf_duration).field("ae_cf_reason", &self.ae_cf_reason).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_CLOSEFILE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_CLOSEFILE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CLOSEFILE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_CLOSEFILE {}
+impl ::core::default::Default for AE_CLOSEFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_CONNREJ {
+    pub ae_cr_compname: u32,
+    pub ae_cr_username: u32,
+    pub ae_cr_netname: u32,
+    pub ae_cr_reason: u32,
+}
+impl ::core::marker::Copy for AE_CONNREJ {}
+impl ::core::clone::Clone for AE_CONNREJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_CONNREJ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_CONNREJ").field("ae_cr_compname", &self.ae_cr_compname).field("ae_cr_username", &self.ae_cr_username).field("ae_cr_netname", &self.ae_cr_netname).field("ae_cr_reason", &self.ae_cr_reason).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_CONNREJ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_CONNREJ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNREJ>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_CONNREJ {}
+impl ::core::default::Default for AE_CONNREJ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_CONNSTART {
+    pub ae_ct_compname: u32,
+    pub ae_ct_username: u32,
+    pub ae_ct_netname: u32,
+    pub ae_ct_connid: u32,
+}
+impl ::core::marker::Copy for AE_CONNSTART {}
+impl ::core::clone::Clone for AE_CONNSTART {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_CONNSTART {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_CONNSTART").field("ae_ct_compname", &self.ae_ct_compname).field("ae_ct_username", &self.ae_ct_username).field("ae_ct_netname", &self.ae_ct_netname).field("ae_ct_connid", &self.ae_ct_connid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_CONNSTART {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_CONNSTART {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNSTART>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_CONNSTART {}
+impl ::core::default::Default for AE_CONNSTART {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_CONNSTOP {
+    pub ae_cp_compname: u32,
+    pub ae_cp_username: u32,
+    pub ae_cp_netname: u32,
+    pub ae_cp_connid: u32,
+    pub ae_cp_reason: u32,
+}
+impl ::core::marker::Copy for AE_CONNSTOP {}
+impl ::core::clone::Clone for AE_CONNSTOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_CONNSTOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_CONNSTOP").field("ae_cp_compname", &self.ae_cp_compname).field("ae_cp_username", &self.ae_cp_username).field("ae_cp_netname", &self.ae_cp_netname).field("ae_cp_connid", &self.ae_cp_connid).field("ae_cp_reason", &self.ae_cp_reason).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_CONNSTOP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_CONNSTOP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNSTOP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_CONNSTOP {}
+impl ::core::default::Default for AE_CONNSTOP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_GENERIC {
+    pub ae_ge_msgfile: u32,
+    pub ae_ge_msgnum: u32,
+    pub ae_ge_params: u32,
+    pub ae_ge_param1: u32,
+    pub ae_ge_param2: u32,
+    pub ae_ge_param3: u32,
+    pub ae_ge_param4: u32,
+    pub ae_ge_param5: u32,
+    pub ae_ge_param6: u32,
+    pub ae_ge_param7: u32,
+    pub ae_ge_param8: u32,
+    pub ae_ge_param9: u32,
+}
+impl ::core::marker::Copy for AE_GENERIC {}
+impl ::core::clone::Clone for AE_GENERIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_GENERIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_GENERIC")
+            .field("ae_ge_msgfile", &self.ae_ge_msgfile)
+            .field("ae_ge_msgnum", &self.ae_ge_msgnum)
+            .field("ae_ge_params", &self.ae_ge_params)
+            .field("ae_ge_param1", &self.ae_ge_param1)
+            .field("ae_ge_param2", &self.ae_ge_param2)
+            .field("ae_ge_param3", &self.ae_ge_param3)
+            .field("ae_ge_param4", &self.ae_ge_param4)
+            .field("ae_ge_param5", &self.ae_ge_param5)
+            .field("ae_ge_param6", &self.ae_ge_param6)
+            .field("ae_ge_param7", &self.ae_ge_param7)
+            .field("ae_ge_param8", &self.ae_ge_param8)
+            .field("ae_ge_param9", &self.ae_ge_param9)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_GENERIC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_GENERIC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_GENERIC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_GENERIC {}
+impl ::core::default::Default for AE_GENERIC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_LOCKOUT {
+    pub ae_lk_compname: u32,
+    pub ae_lk_username: u32,
+    pub ae_lk_action: u32,
+    pub ae_lk_bad_pw_count: u32,
+}
+impl ::core::marker::Copy for AE_LOCKOUT {}
+impl ::core::clone::Clone for AE_LOCKOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_LOCKOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_LOCKOUT").field("ae_lk_compname", &self.ae_lk_compname).field("ae_lk_username", &self.ae_lk_username).field("ae_lk_action", &self.ae_lk_action).field("ae_lk_bad_pw_count", &self.ae_lk_bad_pw_count).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_LOCKOUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_LOCKOUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_LOCKOUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_LOCKOUT {}
+impl ::core::default::Default for AE_LOCKOUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_NETLOGOFF {
+    pub ae_nf_compname: u32,
+    pub ae_nf_username: u32,
+    pub ae_nf_reserved1: u32,
+    pub ae_nf_reserved2: u32,
+}
+impl ::core::marker::Copy for AE_NETLOGOFF {}
+impl ::core::clone::Clone for AE_NETLOGOFF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_NETLOGOFF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_NETLOGOFF").field("ae_nf_compname", &self.ae_nf_compname).field("ae_nf_username", &self.ae_nf_username).field("ae_nf_reserved1", &self.ae_nf_reserved1).field("ae_nf_reserved2", &self.ae_nf_reserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_NETLOGOFF {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_NETLOGOFF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_NETLOGOFF>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_NETLOGOFF {}
+impl ::core::default::Default for AE_NETLOGOFF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_NETLOGON {
+    pub ae_no_compname: u32,
+    pub ae_no_username: u32,
+    pub ae_no_privilege: u32,
+    pub ae_no_authflags: u32,
+}
+impl ::core::marker::Copy for AE_NETLOGON {}
+impl ::core::clone::Clone for AE_NETLOGON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_NETLOGON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_NETLOGON").field("ae_no_compname", &self.ae_no_compname).field("ae_no_username", &self.ae_no_username).field("ae_no_privilege", &self.ae_no_privilege).field("ae_no_authflags", &self.ae_no_authflags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_NETLOGON {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_NETLOGON {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_NETLOGON>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_NETLOGON {}
+impl ::core::default::Default for AE_NETLOGON {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_RESACCESS {
+    pub ae_ra_compname: u32,
+    pub ae_ra_username: u32,
+    pub ae_ra_resname: u32,
+    pub ae_ra_operation: u32,
+    pub ae_ra_returncode: u32,
+    pub ae_ra_restype: u32,
+    pub ae_ra_fileid: u32,
+}
+impl ::core::marker::Copy for AE_RESACCESS {}
+impl ::core::clone::Clone for AE_RESACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_RESACCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_RESACCESS").field("ae_ra_compname", &self.ae_ra_compname).field("ae_ra_username", &self.ae_ra_username).field("ae_ra_resname", &self.ae_ra_resname).field("ae_ra_operation", &self.ae_ra_operation).field("ae_ra_returncode", &self.ae_ra_returncode).field("ae_ra_restype", &self.ae_ra_restype).field("ae_ra_fileid", &self.ae_ra_fileid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_RESACCESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_RESACCESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_RESACCESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_RESACCESS {}
+impl ::core::default::Default for AE_RESACCESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_RESACCESSREJ {
+    pub ae_rr_compname: u32,
+    pub ae_rr_username: u32,
+    pub ae_rr_resname: u32,
+    pub ae_rr_operation: u32,
+}
+impl ::core::marker::Copy for AE_RESACCESSREJ {}
+impl ::core::clone::Clone for AE_RESACCESSREJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_RESACCESSREJ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_RESACCESSREJ").field("ae_rr_compname", &self.ae_rr_compname).field("ae_rr_username", &self.ae_rr_username).field("ae_rr_resname", &self.ae_rr_resname).field("ae_rr_operation", &self.ae_rr_operation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_RESACCESSREJ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_RESACCESSREJ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_RESACCESSREJ>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_RESACCESSREJ {}
+impl ::core::default::Default for AE_RESACCESSREJ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_SERVICESTAT {
+    pub ae_ss_compname: u32,
+    pub ae_ss_username: u32,
+    pub ae_ss_svcname: u32,
+    pub ae_ss_status: u32,
+    pub ae_ss_code: u32,
+    pub ae_ss_text: u32,
+    pub ae_ss_returnval: u32,
+}
+impl ::core::marker::Copy for AE_SERVICESTAT {}
+impl ::core::clone::Clone for AE_SERVICESTAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_SERVICESTAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_SERVICESTAT").field("ae_ss_compname", &self.ae_ss_compname).field("ae_ss_username", &self.ae_ss_username).field("ae_ss_svcname", &self.ae_ss_svcname).field("ae_ss_status", &self.ae_ss_status).field("ae_ss_code", &self.ae_ss_code).field("ae_ss_text", &self.ae_ss_text).field("ae_ss_returnval", &self.ae_ss_returnval).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_SERVICESTAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_SERVICESTAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SERVICESTAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_SERVICESTAT {}
+impl ::core::default::Default for AE_SERVICESTAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_SESSLOGOFF {
+    pub ae_sf_compname: u32,
+    pub ae_sf_username: u32,
+    pub ae_sf_reason: u32,
+}
+impl ::core::marker::Copy for AE_SESSLOGOFF {}
+impl ::core::clone::Clone for AE_SESSLOGOFF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_SESSLOGOFF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_SESSLOGOFF").field("ae_sf_compname", &self.ae_sf_compname).field("ae_sf_username", &self.ae_sf_username).field("ae_sf_reason", &self.ae_sf_reason).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_SESSLOGOFF {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_SESSLOGOFF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSLOGOFF>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_SESSLOGOFF {}
+impl ::core::default::Default for AE_SESSLOGOFF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_SESSLOGON {
+    pub ae_so_compname: u32,
+    pub ae_so_username: u32,
+    pub ae_so_privilege: u32,
+}
+impl ::core::marker::Copy for AE_SESSLOGON {}
+impl ::core::clone::Clone for AE_SESSLOGON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_SESSLOGON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_SESSLOGON").field("ae_so_compname", &self.ae_so_compname).field("ae_so_username", &self.ae_so_username).field("ae_so_privilege", &self.ae_so_privilege).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_SESSLOGON {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_SESSLOGON {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSLOGON>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_SESSLOGON {}
+impl ::core::default::Default for AE_SESSLOGON {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_SESSPWERR {
+    pub ae_sp_compname: u32,
+    pub ae_sp_username: u32,
+}
+impl ::core::marker::Copy for AE_SESSPWERR {}
+impl ::core::clone::Clone for AE_SESSPWERR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_SESSPWERR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_SESSPWERR").field("ae_sp_compname", &self.ae_sp_compname).field("ae_sp_username", &self.ae_sp_username).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_SESSPWERR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_SESSPWERR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSPWERR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_SESSPWERR {}
+impl ::core::default::Default for AE_SESSPWERR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_SRVSTATUS {
+    pub ae_sv_status: u32,
+}
+impl ::core::marker::Copy for AE_SRVSTATUS {}
+impl ::core::clone::Clone for AE_SRVSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_SRVSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_SRVSTATUS").field("ae_sv_status", &self.ae_sv_status).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_SRVSTATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_SRVSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SRVSTATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_SRVSTATUS {}
+impl ::core::default::Default for AE_SRVSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AE_UASMOD {
+    pub ae_um_compname: u32,
+    pub ae_um_username: u32,
+    pub ae_um_resname: u32,
+    pub ae_um_rectype: u32,
+    pub ae_um_action: u32,
+    pub ae_um_datalen: u32,
+}
+impl ::core::marker::Copy for AE_UASMOD {}
+impl ::core::clone::Clone for AE_UASMOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_UASMOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_UASMOD").field("ae_um_compname", &self.ae_um_compname).field("ae_um_username", &self.ae_um_username).field("ae_um_resname", &self.ae_um_resname).field("ae_um_rectype", &self.ae_um_rectype).field("ae_um_action", &self.ae_um_action).field("ae_um_datalen", &self.ae_um_datalen).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_UASMOD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_UASMOD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_UASMOD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_UASMOD {}
+impl ::core::default::Default for AE_UASMOD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AT_ENUM {
+    pub JobId: u32,
+    pub JobTime: usize,
+    pub DaysOfMonth: u32,
+    pub DaysOfWeek: u8,
+    pub Flags: u8,
+    pub Command: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for AT_ENUM {}
+impl ::core::clone::Clone for AT_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AT_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AT_ENUM").field("JobId", &self.JobId).field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AT_ENUM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AT_ENUM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AT_ENUM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AT_ENUM {}
+impl ::core::default::Default for AT_ENUM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AT_INFO {
+    pub JobTime: usize,
+    pub DaysOfMonth: u32,
+    pub DaysOfWeek: u8,
+    pub Flags: u8,
+    pub Command: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for AT_INFO {}
+impl ::core::clone::Clone for AT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AT_INFO").field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AT_INFO {}
+impl ::core::default::Default for AT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct AUDIT_ENTRY {
+    pub ae_len: u32,
+    pub ae_reserved: u32,
+    pub ae_time: u32,
+    pub ae_type: u32,
+    pub ae_data_offset: u32,
+    pub ae_data_size: u32,
+}
+impl ::core::marker::Copy for AUDIT_ENTRY {}
+impl ::core::clone::Clone for AUDIT_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUDIT_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_ENTRY").field("ae_len", &self.ae_len).field("ae_reserved", &self.ae_reserved).field("ae_time", &self.ae_time).field("ae_type", &self.ae_type).field("ae_data_offset", &self.ae_data_offset).field("ae_data_size", &self.ae_data_size).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_ENTRY {}
+impl ::core::default::Default for AUDIT_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct CONFIG_INFO_0 {
+    pub cfgi0_key: ::windows::core::PWSTR,
+    pub cfgi0_data: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for CONFIG_INFO_0 {}
+impl ::core::clone::Clone for CONFIG_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONFIG_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFIG_INFO_0").field("cfgi0_key", &self.cfgi0_key).field("cfgi0_data", &self.cfgi0_data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CONFIG_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONFIG_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIG_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONFIG_INFO_0 {}
+impl ::core::default::Default for CONFIG_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+pub struct DSREG_JOIN_INFO {
+    pub joinType: DSREG_JOIN_TYPE,
+    pub pJoinCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
+    pub pszDeviceId: ::windows::core::PWSTR,
+    pub pszIdpDomain: ::windows::core::PWSTR,
+    pub pszTenantId: ::windows::core::PWSTR,
+    pub pszJoinUserEmail: ::windows::core::PWSTR,
+    pub pszTenantDisplayName: ::windows::core::PWSTR,
+    pub pszMdmEnrollmentUrl: ::windows::core::PWSTR,
+    pub pszMdmTermsOfUseUrl: ::windows::core::PWSTR,
+    pub pszMdmComplianceUrl: ::windows::core::PWSTR,
+    pub pszUserSettingSyncUrl: ::windows::core::PWSTR,
+    pub pUserInfo: *mut DSREG_USER_INFO,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::marker::Copy for DSREG_JOIN_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for DSREG_JOIN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::fmt::Debug for DSREG_JOIN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSREG_JOIN_INFO")
+            .field("joinType", &self.joinType)
+            .field("pJoinCertificate", &self.pJoinCertificate)
+            .field("pszDeviceId", &self.pszDeviceId)
+            .field("pszIdpDomain", &self.pszIdpDomain)
+            .field("pszTenantId", &self.pszTenantId)
+            .field("pszJoinUserEmail", &self.pszJoinUserEmail)
+            .field("pszTenantDisplayName", &self.pszTenantDisplayName)
+            .field("pszMdmEnrollmentUrl", &self.pszMdmEnrollmentUrl)
+            .field("pszMdmTermsOfUseUrl", &self.pszMdmTermsOfUseUrl)
+            .field("pszMdmComplianceUrl", &self.pszMdmComplianceUrl)
+            .field("pszUserSettingSyncUrl", &self.pszUserSettingSyncUrl)
+            .field("pUserInfo", &self.pUserInfo)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for DSREG_JOIN_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for DSREG_JOIN_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSREG_JOIN_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for DSREG_JOIN_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::default::Default for DSREG_JOIN_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct DSREG_USER_INFO {
+    pub pszUserEmail: ::windows::core::PWSTR,
+    pub pszUserKeyId: ::windows::core::PWSTR,
+    pub pszUserKeyName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for DSREG_USER_INFO {}
+impl ::core::clone::Clone for DSREG_USER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSREG_USER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSREG_USER_INFO").field("pszUserEmail", &self.pszUserEmail).field("pszUserKeyId", &self.pszUserKeyId).field("pszUserKeyName", &self.pszUserKeyName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSREG_USER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSREG_USER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSREG_USER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSREG_USER_INFO {}
+impl ::core::default::Default for DSREG_USER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct ERRLOG_OTHER_INFO {
+    pub alrter_errcode: u32,
+    pub alrter_offset: u32,
+}
+impl ::core::marker::Copy for ERRLOG_OTHER_INFO {}
+impl ::core::clone::Clone for ERRLOG_OTHER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ERRLOG_OTHER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ERRLOG_OTHER_INFO").field("alrter_errcode", &self.alrter_errcode).field("alrter_offset", &self.alrter_offset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ERRLOG_OTHER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ERRLOG_OTHER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERRLOG_OTHER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ERRLOG_OTHER_INFO {}
+impl ::core::default::Default for ERRLOG_OTHER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct ERROR_LOG {
+    pub el_len: u32,
+    pub el_reserved: u32,
+    pub el_time: u32,
+    pub el_error: u32,
+    pub el_name: ::windows::core::PWSTR,
+    pub el_text: ::windows::core::PWSTR,
+    pub el_data: *mut u8,
+    pub el_data_size: u32,
+    pub el_nstrings: u32,
+}
+impl ::core::marker::Copy for ERROR_LOG {}
+impl ::core::clone::Clone for ERROR_LOG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ERROR_LOG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ERROR_LOG").field("el_len", &self.el_len).field("el_reserved", &self.el_reserved).field("el_time", &self.el_time).field("el_error", &self.el_error).field("el_name", &self.el_name).field("el_text", &self.el_text).field("el_data", &self.el_data).field("el_data_size", &self.el_data_size).field("el_nstrings", &self.el_nstrings).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ERROR_LOG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ERROR_LOG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERROR_LOG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ERROR_LOG {}
+impl ::core::default::Default for ERROR_LOG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FLAT_STRING {
+    pub MaximumLength: i16,
+    pub Length: i16,
+    pub Buffer: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FLAT_STRING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FLAT_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for FLAT_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLAT_STRING").field("MaximumLength", &self.MaximumLength).field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FLAT_STRING {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FLAT_STRING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAT_STRING>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FLAT_STRING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for FLAT_STRING {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct GROUP_INFO_0 {
+    pub grpi0_name: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for GROUP_INFO_0 {}
+impl ::core::clone::Clone for GROUP_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_INFO_0").field("grpi0_name", &self.grpi0_name).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GROUP_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GROUP_INFO_0 {}
+impl ::core::default::Default for GROUP_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct GROUP_INFO_1 {
+    pub grpi1_name: ::windows::core::PWSTR,
+    pub grpi1_comment: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for GROUP_INFO_1 {}
+impl ::core::clone::Clone for GROUP_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_INFO_1").field("grpi1_name", &self.grpi1_name).field("grpi1_comment", &self.grpi1_comment).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GROUP_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GROUP_INFO_1 {}
+impl ::core::default::Default for GROUP_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct GROUP_INFO_1002 {
+    pub grpi1002_comment: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for GROUP_INFO_1002 {}
+impl ::core::clone::Clone for GROUP_INFO_1002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_INFO_1002 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_INFO_1002").field("grpi1002_comment", &self.grpi1002_comment).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_INFO_1002 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GROUP_INFO_1002 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1002>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GROUP_INFO_1002 {}
+impl ::core::default::Default for GROUP_INFO_1002 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct GROUP_INFO_1005 {
+    pub grpi1005_attributes: u32,
+}
+impl ::core::marker::Copy for GROUP_INFO_1005 {}
+impl ::core::clone::Clone for GROUP_INFO_1005 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_INFO_1005 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_INFO_1005").field("grpi1005_attributes", &self.grpi1005_attributes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_INFO_1005 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GROUP_INFO_1005 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1005>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GROUP_INFO_1005 {}
+impl ::core::default::Default for GROUP_INFO_1005 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct GROUP_INFO_2 {
+    pub grpi2_name: ::windows::core::PWSTR,
+    pub grpi2_comment: ::windows::core::PWSTR,
+    pub grpi2_group_id: u32,
+    pub grpi2_attributes: u32,
+}
+impl ::core::marker::Copy for GROUP_INFO_2 {}
+impl ::core::clone::Clone for GROUP_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_INFO_2").field("grpi2_name", &self.grpi2_name).field("grpi2_comment", &self.grpi2_comment).field("grpi2_group_id", &self.grpi2_group_id).field("grpi2_attributes", &self.grpi2_attributes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_INFO_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GROUP_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GROUP_INFO_2 {}
+impl ::core::default::Default for GROUP_INFO_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GROUP_INFO_3 {
+    pub grpi3_name: ::windows::core::PWSTR,
+    pub grpi3_comment: ::windows::core::PWSTR,
+    pub grpi3_group_sid: super::super::Foundation::PSID,
+    pub grpi3_attributes: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GROUP_INFO_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GROUP_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GROUP_INFO_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_INFO_3").field("grpi3_name", &self.grpi3_name).field("grpi3_comment", &self.grpi3_comment).field("grpi3_group_sid", &self.grpi3_group_sid).field("grpi3_attributes", &self.grpi3_attributes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for GROUP_INFO_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for GROUP_INFO_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for GROUP_INFO_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for GROUP_INFO_3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct GROUP_USERS_INFO_0 {
+    pub grui0_name: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for GROUP_USERS_INFO_0 {}
+impl ::core::clone::Clone for GROUP_USERS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_USERS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_USERS_INFO_0").field("grui0_name", &self.grui0_name).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GROUP_USERS_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_USERS_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GROUP_USERS_INFO_0 {}
+impl ::core::default::Default for GROUP_USERS_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct GROUP_USERS_INFO_1 {
+    pub grui1_name: ::windows::core::PWSTR,
+    pub grui1_attributes: u32,
+}
+impl ::core::marker::Copy for GROUP_USERS_INFO_1 {}
+impl ::core::clone::Clone for GROUP_USERS_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GROUP_USERS_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GROUP_USERS_INFO_1").field("grui1_name", &self.grui1_name).field("grui1_attributes", &self.grui1_attributes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GROUP_USERS_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_USERS_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GROUP_USERS_INFO_1 {}
+impl ::core::default::Default for GROUP_USERS_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct HARDWARE_ADDRESS {
+    pub Address: [u8; 6],
+}
+impl ::core::marker::Copy for HARDWARE_ADDRESS {}
+impl ::core::clone::Clone for HARDWARE_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HARDWARE_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HARDWARE_ADDRESS").field("Address", &self.Address).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HARDWARE_ADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HARDWARE_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWARE_ADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HARDWARE_ADDRESS {}
+impl ::core::default::Default for HARDWARE_ADDRESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct HLOG {
+    pub time: u32,
+    pub last_flags: u32,
+    pub offset: u32,
+    pub rec_offset: u32,
+}
+impl ::core::marker::Copy for HLOG {}
+impl ::core::clone::Clone for HLOG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HLOG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HLOG").field("time", &self.time).field("last_flags", &self.last_flags).field("offset", &self.offset).field("rec_offset", &self.rec_offset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HLOG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HLOG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HLOG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HLOG {}
+impl ::core::default::Default for HLOG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct LOCALGROUP_INFO_0 {
+    pub lgrpi0_name: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for LOCALGROUP_INFO_0 {}
+impl ::core::clone::Clone for LOCALGROUP_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LOCALGROUP_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_INFO_0").field("lgrpi0_name", &self.lgrpi0_name).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LOCALGROUP_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LOCALGROUP_INFO_0 {}
+impl ::core::default::Default for LOCALGROUP_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct LOCALGROUP_INFO_1 {
+    pub lgrpi1_name: ::windows::core::PWSTR,
+    pub lgrpi1_comment: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for LOCALGROUP_INFO_1 {}
+impl ::core::clone::Clone for LOCALGROUP_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LOCALGROUP_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_INFO_1").field("lgrpi1_name", &self.lgrpi1_name).field("lgrpi1_comment", &self.lgrpi1_comment).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LOCALGROUP_INFO_1 {}
+impl ::core::default::Default for LOCALGROUP_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct LOCALGROUP_INFO_1002 {
+    pub lgrpi1002_comment: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for LOCALGROUP_INFO_1002 {}
+impl ::core::clone::Clone for LOCALGROUP_INFO_1002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LOCALGROUP_INFO_1002 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_INFO_1002").field("lgrpi1002_comment", &self.lgrpi1002_comment).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1002 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1002 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_1002>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LOCALGROUP_INFO_1002 {}
+impl ::core::default::Default for LOCALGROUP_INFO_1002 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LOCALGROUP_MEMBERS_INFO_0 {
+    pub lgrmi0_sid: super::super::Foundation::PSID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_MEMBERS_INFO_0").field("lgrmi0_sid", &self.lgrmi0_sid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct LOCALGROUP_MEMBERS_INFO_1 {
+    pub lgrmi1_sid: super::super::Foundation::PSID,
+    pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
+    pub lgrmi1_name: ::windows::core::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_MEMBERS_INFO_1").field("lgrmi1_sid", &self.lgrmi1_sid).field("lgrmi1_sidusage", &self.lgrmi1_sidusage).field("lgrmi1_name", &self.lgrmi1_name).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct LOCALGROUP_MEMBERS_INFO_2 {
+    pub lgrmi2_sid: super::super::Foundation::PSID,
+    pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
+    pub lgrmi2_domainandname: ::windows::core::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_MEMBERS_INFO_2").field("lgrmi2_sid", &self.lgrmi2_sid).field("lgrmi2_sidusage", &self.lgrmi2_sidusage).field("lgrmi2_domainandname", &self.lgrmi2_domainandname).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct LOCALGROUP_MEMBERS_INFO_3 {
+    pub lgrmi3_domainandname: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_3 {}
+impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_MEMBERS_INFO_3").field("lgrmi3_domainandname", &self.lgrmi3_domainandname).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_3 {}
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct LOCALGROUP_USERS_INFO_0 {
+    pub lgrui0_name: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for LOCALGROUP_USERS_INFO_0 {}
+impl ::core::clone::Clone for LOCALGROUP_USERS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LOCALGROUP_USERS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LOCALGROUP_USERS_INFO_0").field("lgrui0_name", &self.lgrui0_name).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LOCALGROUP_USERS_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LOCALGROUP_USERS_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_USERS_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LOCALGROUP_USERS_INFO_0 {}
+impl ::core::default::Default for LOCALGROUP_USERS_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct MPR_PROTOCOL_0 {
+    pub dwProtocolId: u32,
+    pub wszProtocol: [u16; 41],
+    pub wszDLLName: [u16; 49],
+}
+impl ::core::marker::Copy for MPR_PROTOCOL_0 {}
+impl ::core::clone::Clone for MPR_PROTOCOL_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MPR_PROTOCOL_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPR_PROTOCOL_0").field("dwProtocolId", &self.dwProtocolId).field("wszProtocol", &self.wszProtocol).field("wszDLLName", &self.wszDLLName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MPR_PROTOCOL_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPR_PROTOCOL_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_PROTOCOL_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPR_PROTOCOL_0 {}
+impl ::core::default::Default for MPR_PROTOCOL_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct MSA_INFO_0 {
+    pub State: MSA_INFO_STATE,
+}
+impl ::core::marker::Copy for MSA_INFO_0 {}
+impl ::core::clone::Clone for MSA_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MSA_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSA_INFO_0").field("State", &self.State).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MSA_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MSA_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSA_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MSA_INFO_0 {}
+impl ::core::default::Default for MSA_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct MSG_INFO_0 {
+    pub msgi0_name: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MSG_INFO_0 {}
+impl ::core::clone::Clone for MSG_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MSG_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSG_INFO_0").field("msgi0_name", &self.msgi0_name).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MSG_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MSG_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MSG_INFO_0 {}
+impl ::core::default::Default for MSG_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct MSG_INFO_1 {
+    pub msgi1_name: ::windows::core::PWSTR,
+    pub msgi1_forward_flag: u32,
+    pub msgi1_forward: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MSG_INFO_1 {}
+impl ::core::clone::Clone for MSG_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MSG_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSG_INFO_1").field("msgi1_name", &self.msgi1_name).field("msgi1_forward_flag", &self.msgi1_forward_flag).field("msgi1_forward", &self.msgi1_forward).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MSG_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MSG_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MSG_INFO_1 {}
+impl ::core::default::Default for MSG_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NETLOGON_INFO_1 {
+    pub netlog1_flags: u32,
+    pub netlog1_pdc_connection_status: u32,
+}
+impl ::core::marker::Copy for NETLOGON_INFO_1 {}
+impl ::core::clone::Clone for NETLOGON_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETLOGON_INFO_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETLOGON_INFO_1").field("netlog1_flags", &self.netlog1_flags).field("netlog1_pdc_connection_status", &self.netlog1_pdc_connection_status).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETLOGON_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETLOGON_INFO_1 {}
+impl ::core::default::Default for NETLOGON_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NETLOGON_INFO_2 {
+    pub netlog2_flags: u32,
+    pub netlog2_pdc_connection_status: u32,
+    pub netlog2_trusted_dc_name: ::windows::core::PWSTR,
+    pub netlog2_tc_connection_status: u32,
+}
+impl ::core::marker::Copy for NETLOGON_INFO_2 {}
+impl ::core::clone::Clone for NETLOGON_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETLOGON_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETLOGON_INFO_2").field("netlog2_flags", &self.netlog2_flags).field("netlog2_pdc_connection_status", &self.netlog2_pdc_connection_status).field("netlog2_trusted_dc_name", &self.netlog2_trusted_dc_name).field("netlog2_tc_connection_status", &self.netlog2_tc_connection_status).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETLOGON_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETLOGON_INFO_2 {}
+impl ::core::default::Default for NETLOGON_INFO_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NETLOGON_INFO_3 {
+    pub netlog3_flags: u32,
+    pub netlog3_logon_attempts: u32,
+    pub netlog3_reserved1: u32,
+    pub netlog3_reserved2: u32,
+    pub netlog3_reserved3: u32,
+    pub netlog3_reserved4: u32,
+    pub netlog3_reserved5: u32,
+}
+impl ::core::marker::Copy for NETLOGON_INFO_3 {}
+impl ::core::clone::Clone for NETLOGON_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETLOGON_INFO_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETLOGON_INFO_3").field("netlog3_flags", &self.netlog3_flags).field("netlog3_logon_attempts", &self.netlog3_logon_attempts).field("netlog3_reserved1", &self.netlog3_reserved1).field("netlog3_reserved2", &self.netlog3_reserved2).field("netlog3_reserved3", &self.netlog3_reserved3).field("netlog3_reserved4", &self.netlog3_reserved4).field("netlog3_reserved5", &self.netlog3_reserved5).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETLOGON_INFO_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETLOGON_INFO_3 {}
+impl ::core::default::Default for NETLOGON_INFO_3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NETLOGON_INFO_4 {
+    pub netlog4_trusted_dc_name: ::windows::core::PWSTR,
+    pub netlog4_trusted_domain_name: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for NETLOGON_INFO_4 {}
+impl ::core::clone::Clone for NETLOGON_INFO_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETLOGON_INFO_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETLOGON_INFO_4").field("netlog4_trusted_dc_name", &self.netlog4_trusted_dc_name).field("netlog4_trusted_domain_name", &self.netlog4_trusted_domain_name).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETLOGON_INFO_4 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETLOGON_INFO_4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_4>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETLOGON_INFO_4 {}
+impl ::core::default::Default for NETLOGON_INFO_4 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NETSETUP_PROVISIONING_PARAMS {
+    pub dwVersion: u32,
+    pub lpDomain: ::windows::core::PCWSTR,
+    pub lpHostName: ::windows::core::PCWSTR,
+    pub lpMachineAccountOU: ::windows::core::PCWSTR,
+    pub lpDcName: ::windows::core::PCWSTR,
+    pub dwProvisionOptions: NETSETUP_PROVISION,
+    pub aCertTemplateNames: *mut ::windows::core::PWSTR,
+    pub cCertTemplateNames: u32,
+    pub aMachinePolicyNames: *mut ::windows::core::PWSTR,
+    pub cMachinePolicyNames: u32,
+    pub aMachinePolicyPaths: *mut ::windows::core::PWSTR,
+    pub cMachinePolicyPaths: u32,
+    pub lpNetbiosName: ::windows::core::PWSTR,
+    pub lpSiteName: ::windows::core::PWSTR,
+    pub lpPrimaryDNSDomain: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for NETSETUP_PROVISIONING_PARAMS {}
+impl ::core::clone::Clone for NETSETUP_PROVISIONING_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETSETUP_PROVISIONING_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETSETUP_PROVISIONING_PARAMS")
+            .field("dwVersion", &self.dwVersion)
+            .field("lpDomain", &self.lpDomain)
+            .field("lpHostName", &self.lpHostName)
+            .field("lpMachineAccountOU", &self.lpMachineAccountOU)
+            .field("lpDcName", &self.lpDcName)
+            .field("dwProvisionOptions", &self.dwProvisionOptions)
+            .field("aCertTemplateNames", &self.aCertTemplateNames)
+            .field("cCertTemplateNames", &self.cCertTemplateNames)
+            .field("aMachinePolicyNames", &self.aMachinePolicyNames)
+            .field("cMachinePolicyNames", &self.cMachinePolicyNames)
+            .field("aMachinePolicyPaths", &self.aMachinePolicyPaths)
+            .field("cMachinePolicyPaths", &self.cMachinePolicyPaths)
+            .field("lpNetbiosName", &self.lpNetbiosName)
+            .field("lpSiteName", &self.lpSiteName)
+            .field("lpPrimaryDNSDomain", &self.lpPrimaryDNSDomain)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETSETUP_PROVISIONING_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETSETUP_PROVISIONING_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETSETUP_PROVISIONING_PARAMS {}
+impl ::core::default::Default for NETSETUP_PROVISIONING_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NETWORK_NAME {
+    pub Name: FLAT_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NETWORK_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETWORK_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NETWORK_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETWORK_NAME").field("Name", &self.Name).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NETWORK_NAME {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NETWORK_NAME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_NAME>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NETWORK_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for NETWORK_NAME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NET_DISPLAY_GROUP {
+    pub grpi3_name: ::windows::core::PWSTR,
+    pub grpi3_comment: ::windows::core::PWSTR,
+    pub grpi3_group_id: u32,
+    pub grpi3_attributes: u32,
+    pub grpi3_next_index: u32,
+}
+impl ::core::marker::Copy for NET_DISPLAY_GROUP {}
+impl ::core::clone::Clone for NET_DISPLAY_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NET_DISPLAY_GROUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_DISPLAY_GROUP").field("grpi3_name", &self.grpi3_name).field("grpi3_comment", &self.grpi3_comment).field("grpi3_group_id", &self.grpi3_group_id).field("grpi3_attributes", &self.grpi3_attributes).field("grpi3_next_index", &self.grpi3_next_index).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NET_DISPLAY_GROUP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_DISPLAY_GROUP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_GROUP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_DISPLAY_GROUP {}
+impl ::core::default::Default for NET_DISPLAY_GROUP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NET_DISPLAY_MACHINE {
+    pub usri2_name: ::windows::core::PWSTR,
+    pub usri2_comment: ::windows::core::PWSTR,
+    pub usri2_flags: USER_ACCOUNT_FLAGS,
+    pub usri2_user_id: u32,
+    pub usri2_next_index: u32,
+}
+impl ::core::marker::Copy for NET_DISPLAY_MACHINE {}
+impl ::core::clone::Clone for NET_DISPLAY_MACHINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NET_DISPLAY_MACHINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_DISPLAY_MACHINE").field("usri2_name", &self.usri2_name).field("usri2_comment", &self.usri2_comment).field("usri2_flags", &self.usri2_flags).field("usri2_user_id", &self.usri2_user_id).field("usri2_next_index", &self.usri2_next_index).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NET_DISPLAY_MACHINE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_DISPLAY_MACHINE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_MACHINE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_DISPLAY_MACHINE {}
+impl ::core::default::Default for NET_DISPLAY_MACHINE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub struct NET_DISPLAY_USER {
+    pub usri1_name: ::windows::core::PWSTR,
+    pub usri1_comment: ::windows::core::PWSTR,
+    pub usri1_flags: USER_ACCOUNT_FLAGS,
+    pub usri1_full_name: ::windows::core::PWSTR,
+    pub usri1_user_id: u32,
+    pub usri1_next_index: u32,
+}
+impl ::core::marker::Copy for NET_DISPLAY_USER {}
+impl ::core::clone::Clone for NET_DISPLAY_USER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NET_DISPLAY_USER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_DISPLAY_USER").field("usri1_name", &self.usri1_name).field("usri1_comment", &self.usri1_comment).field("usri1_flags", &self.usri1_flags).field("usri1_full_name", &self.usri1_full_name).field("usri1_user_id", &self.usri1_user_id).field("usri1_next_index", &self.usri1_next_index).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NET_DISPLAY_USER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_DISPLAY_USER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_USER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_DISPLAY_USER {}
+impl ::core::default::Default for NET_DISPLAY_USER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7857,12 +11641,6 @@ impl ::core::default::Default for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_VALIDATE_LOCKOUT_TIME: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7975,12 +11753,6 @@ impl ::core::default::Default for NET_VALIDATE_PASSWORD_HASH {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_VALIDATE_PASSWORD_HISTORY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8022,35 +11794,6 @@ impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {}
 impl ::core::default::Default for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_VALIDATE_PASSWORD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(3i32);
-impl ::core::marker::Copy for NET_VALIDATE_PASSWORD_TYPE {}
-impl ::core::clone::Clone for NET_VALIDATE_PASSWORD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_VALIDATE_PASSWORD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_VALIDATE_PASSWORD_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -8096,1766 +11839,6 @@ impl ::core::default::Default for NET_VALIDATE_PERSISTED_FIELDS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NON_VALIDATED_LOGON: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NOT_A_DFS_PATH: i32 = 1073756224i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NO_PERMISSION_REQUIRED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_COLLECT_RPC_BINDING_ERROR_CONN: i32 = -1073728292i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_COLLECT_RPC_BINDING_ERROR_SET: i32 = -1073728293i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_COLLECT_RPC_CALL_ERROR_CONN: i32 = -1073728290i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_COLLECT_RPC_CALL_ERROR_SET: i32 = -1073728291i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_OPEN_RPC_BINDING_ERROR_CONN: i32 = -1073728296i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_OPEN_RPC_BINDING_ERROR_SET: i32 = -1073728297i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_OPEN_RPC_CALL_ERROR_CONN: i32 = -1073728294i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_OPEN_RPC_CALL_ERROR_SET: i32 = -1073728295i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_REGISTRY_ERROR_CONN: i32 = -1073728286i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_REGISTRY_ERROR_SET: i32 = -1073728287i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_VIRTUALALLOC_ERROR_CONN: i32 = -1073728288i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NTFRSPRF_VIRTUALALLOC_ERROR_SET: i32 = -1073728289i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NULL_USERSETINFO_PASSWD: &str = "              ";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_DISPLAY_NAME: &str = "NW Sap Agent";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_BADWANFILTER_VALUE: i32 = -1073733302i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_BIND_FAILED: i32 = -1073733320i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_CARDLISTEVENT_FAIL: i32 = -1073733301i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_CARDMALLOC_FAILED: i32 = -1073733316i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_CREATELPCEVENT_ERROR: i32 = -1073733305i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_CREATELPCPORT_ERROR: i32 = -1073733306i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_GETSOCKNAME_FAILED: i32 = -1073733319i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_HASHTABLE_MALLOC_FAILED: i32 = -1073733308i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_INVALID_FILTERNAME: i32 = -2147475123i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_KEY_NOT_FOUND: i32 = -1073733324i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_LPCHANDLEMEMORY_ERROR: i32 = -1073733303i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_LPCLISTENMEMORY_ERROR: i32 = -1073733304i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_NOCARDS: i32 = -1073733315i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_OPTBCASTINADDR_FAILED: i32 = -1073733317i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_OPTEXTENDEDADDR_FAILED: i32 = -1073733318i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_OPTMAXADAPTERNUM_ERROR: i32 = -1073733293i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_RECVSEM_FAIL: i32 = -1073733313i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_SDMDEVENT_FAIL: i32 = -1073733300i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_SENDEVENT_FAIL: i32 = -1073733312i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_SETOPTBCAST_FAILED: i32 = -1073733321i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_SOCKET_FAILED: i32 = -1073733322i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_STARTLPCWORKER_ERROR: i32 = -1073733307i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_STARTRECEIVE_ERROR: i32 = -1073733311i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_STARTWANCHECK_ERROR: i32 = -1073733294i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_STARTWANWORKER_ERROR: i32 = -1073733295i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_STARTWORKER_ERROR: i32 = -1073733310i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_TABLE_MALLOC_FAILED: i32 = -1073733309i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_THREADEVENT_FAIL: i32 = -1073733314i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_WANBIND_FAILED: i32 = -1073733296i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_WANEVENT_ERROR: i32 = -1073733291i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_WANHANDLEMEMORY_ERROR: i32 = -1073733292i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_WANSEM_FAIL: i32 = -1073733298i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAccessAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAccessAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetAccessAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAccessDel<'a, P0, P1>(servername: P0, resource: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAccessDel(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR) -> u32;
-    }
-    NetAccessDel(servername.into(), resource.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAccessEnum<'a, P0, P1>(servername: P0, basepath: P1, recursive: u32, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAccessEnum(servername: ::windows::core::PCWSTR, basepath: ::windows::core::PCWSTR, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    }
-    NetAccessEnum(servername.into(), basepath.into(), recursive, level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAccessGetInfo<'a, P0, P1>(servername: P0, resource: P1, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAccessGetInfo(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetAccessGetInfo(servername.into(), resource.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAccessGetUserPerms<'a, P0, P1, P2>(servername: P0, ugname: P1, resource: P2, perms: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAccessGetUserPerms(servername: ::windows::core::PCWSTR, ugname: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, perms: *mut u32) -> u32;
-    }
-    NetAccessGetUserPerms(servername.into(), ugname.into(), resource.into(), ::core::mem::transmute(perms))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAccessSetInfo<'a, P0, P1>(servername: P0, resource: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAccessSetInfo(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetAccessSetInfo(servername.into(), resource.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAddAlternateComputerName<'a, P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAddAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
-    }
-    NetAddAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetAddServiceAccount<'a, P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetAddServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NetAddServiceAccount(servername.into(), accountname.into(), password.into(), flags).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAlertRaise<'a, P0>(alerttype: P0, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAlertRaise(alerttype: ::windows::core::PCWSTR, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32;
-    }
-    NetAlertRaise(alerttype.into(), ::core::mem::transmute(buffer), buffersize)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAlertRaiseEx<'a, P0, P1>(alerttype: P0, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAlertRaiseEx(alerttype: ::windows::core::PCWSTR, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: ::windows::core::PCWSTR) -> u32;
-    }
-    NetAlertRaiseEx(alerttype.into(), ::core::mem::transmute(variableinfo), variableinfosize, servicename.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32;
-    }
-    NetApiBufferAllocate(bytecount, ::core::mem::transmute(buffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetApiBufferFree(buffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetApiBufferFree(buffer: *const ::core::ffi::c_void) -> u32;
-    }
-    NetApiBufferFree(::core::mem::transmute(buffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32;
-    }
-    NetApiBufferReallocate(::core::mem::transmute(oldbuffer), newbytecount, ::core::mem::transmute(newbuffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: &mut u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *mut u32) -> u32;
-    }
-    NetApiBufferSize(::core::mem::transmute(buffer), ::core::mem::transmute(bytecount))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAuditClear<'a, P0, P1, P2>(server: P0, backupfile: P1, service: P2) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAuditClear(server: ::windows::core::PCWSTR, backupfile: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR) -> u32;
-    }
-    NetAuditClear(server.into(), backupfile.into(), service.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAuditRead<'a, P0, P1>(server: P0, service: P1, auditloghandle: &mut HLOG, offset: u32, reserved1: &mut u32, reserved2: u32, offsetflag: u32, bufptr: &mut *mut u8, prefmaxlen: u32, bytesread: &mut u32, totalavailable: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAuditRead(server: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
-    }
-    NetAuditRead(server.into(), service.into(), ::core::mem::transmute(auditloghandle), offset, ::core::mem::transmute(reserved1), reserved2, offsetflag, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetAuditWrite<'a, P0>(r#type: u32, buf: &mut u8, numbytes: u32, service: P0, reserved: &mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetAuditWrite(r#type: u32, buf: *mut u8, numbytes: u32, service: ::windows::core::PCWSTR, reserved: *mut u8) -> u32;
-    }
-    NetAuditWrite(r#type, ::core::mem::transmute(buf), numbytes, service.into(), ::core::mem::transmute(reserved))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetConfigGet<'a, P0, P1, P2>(server: P0, component: P1, parameter: P2, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetConfigGet(server: ::windows::core::PCWSTR, component: ::windows::core::PCWSTR, parameter: ::windows::core::PCWSTR, bufptr: *mut *mut u8) -> u32;
-    }
-    NetConfigGet(server.into(), component.into(), parameter.into(), ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetConfigGetAll<'a, P0, P1>(server: P0, component: P1, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetConfigGetAll(server: ::windows::core::PCWSTR, component: ::windows::core::PCWSTR, bufptr: *mut *mut u8) -> u32;
-    }
-    NetConfigGetAll(server.into(), component.into(), ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetConfigSet<'a, P0, P1, P2>(server: P0, reserved1: P1, component: P2, level: u32, reserved2: u32, buf: &mut u8, reserved3: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetConfigSet(server: ::windows::core::PCWSTR, reserved1: ::windows::core::PCWSTR, component: ::windows::core::PCWSTR, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32;
-    }
-    NetConfigSet(server.into(), reserved1.into(), component.into(), level, reserved2, ::core::mem::transmute(buf), reserved3)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: &NETSETUP_PROVISIONING_PARAMS, pppackagebindata: ::core::option::Option<&mut *mut u8>, pdwpackagebindatasize: ::core::option::Option<&mut u32>, pppackagetextdata: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut ::windows::core::PWSTR) -> u32;
-    }
-    NetCreateProvisioningPackage(::core::mem::transmute(pprovisioningparams), ::core::mem::transmute(pppackagebindata), ::core::mem::transmute(pdwpackagebindatasize), ::core::mem::transmute(pppackagetextdata))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetEnumerateComputerNames<'a, P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: &mut u32, computernames: &mut *mut ::windows::core::PWSTR) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetEnumerateComputerNames(server: ::windows::core::PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32;
-    }
-    NetEnumerateComputerNames(server.into(), nametype, reserved, ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetEnumerateServiceAccounts<'a, P0>(servername: P0, flags: u32, accountscount: &mut u32, accounts: &mut *mut *mut u16) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetEnumerateServiceAccounts(servername: ::windows::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
-    }
-    NetEnumerateServiceAccounts(servername.into(), flags, ::core::mem::transmute(accountscount), ::core::mem::transmute(accounts)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetErrorLogClear<'a, P0, P1>(uncservername: P0, backupfile: P1, reserved: ::core::option::Option<&u8>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetErrorLogClear(uncservername: ::windows::core::PCWSTR, backupfile: ::windows::core::PCWSTR, reserved: *const u8) -> u32;
-    }
-    NetErrorLogClear(uncservername.into(), backupfile.into(), ::core::mem::transmute(reserved))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetErrorLogRead<'a, P0, P1>(uncservername: P0, reserved1: P1, errorloghandle: &HLOG, offset: u32, reserved2: ::core::option::Option<&u32>, reserved3: u32, offsetflag: u32, bufptr: &mut *mut u8, prefmaxsize: u32, bytesread: &mut u32, totalavailable: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetErrorLogRead(uncservername: ::windows::core::PCWSTR, reserved1: ::windows::core::PCWSTR, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
-    }
-    NetErrorLogRead(uncservername.into(), reserved1.into(), ::core::mem::transmute(errorloghandle), offset, ::core::mem::transmute(reserved2), reserved3, offsetflag, ::core::mem::transmute(bufptr), prefmaxsize, ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetErrorLogWrite<'a, P0>(reserved1: ::core::option::Option<&u8>, code: u32, component: P0, buffer: &u8, numbytes: u32, msgbuf: &u8, strcount: u32, reserved2: ::core::option::Option<&u8>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetErrorLogWrite(reserved1: *const u8, code: u32, component: ::windows::core::PCWSTR, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32;
-    }
-    NetErrorLogWrite(::core::mem::transmute(reserved1), code, component.into(), ::core::mem::transmute(buffer), numbytes, ::core::mem::transmute(msgbuf), strcount, ::core::mem::transmute(reserved2))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-#[inline]
-pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<&DSREG_JOIN_INFO>) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO);
-    }
-    NetFreeAadJoinInformation(::core::mem::transmute(pjoininfo))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-#[inline]
-pub unsafe fn NetGetAadJoinInformation<'a, P0>(pcsztenantid: P0) -> ::windows::core::Result<*mut DSREG_JOIN_INFO>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGetAadJoinInformation(pcsztenantid: ::windows::core::PCWSTR, ppjoininfo: *mut *mut DSREG_JOIN_INFO) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NetGetAadJoinInformation(pcsztenantid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DSREG_JOIN_INFO>(result__)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGetAnyDCName<'a, P0, P1>(servername: P0, domainname: P1, buffer: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGetAnyDCName(servername: ::windows::core::PCWSTR, domainname: ::windows::core::PCWSTR, buffer: *mut *mut u8) -> u32;
-    }
-    NetGetAnyDCName(servername.into(), domainname.into(), ::core::mem::transmute(buffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGetDCName<'a, P0, P1>(servername: P0, domainname: P1, buffer: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGetDCName(servername: ::windows::core::PCWSTR, domainname: ::windows::core::PCWSTR, buffer: *mut *mut u8) -> u32;
-    }
-    NetGetDCName(servername.into(), domainname.into(), ::core::mem::transmute(buffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGetDisplayInformationIndex<'a, P0, P1>(servername: P0, level: u32, prefix: P1, index: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGetDisplayInformationIndex(servername: ::windows::core::PCWSTR, level: u32, prefix: ::windows::core::PCWSTR, index: *mut u32) -> u32;
-    }
-    NetGetDisplayInformationIndex(servername.into(), level, prefix.into(), ::core::mem::transmute(index))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGetJoinInformation<'a, P0>(lpserver: P0, lpnamebuffer: &mut ::windows::core::PWSTR, buffertype: &mut NETSETUP_JOIN_STATUS) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGetJoinInformation(lpserver: ::windows::core::PCWSTR, lpnamebuffer: *mut ::windows::core::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32;
-    }
-    NetGetJoinInformation(lpserver.into(), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(buffertype))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGetJoinableOUs<'a, P0, P1, P2, P3>(lpserver: P0, lpdomain: P1, lpaccount: P2, lppassword: P3, oucount: &mut u32, ous: &mut *mut ::windows::core::PWSTR) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGetJoinableOUs(lpserver: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, oucount: *mut u32, ous: *mut *mut ::windows::core::PWSTR) -> u32;
-    }
-    NetGetJoinableOUs(lpserver.into(), lpdomain.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(oucount), ::core::mem::transmute(ous))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetGroupAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupAddUser<'a, P0, P1, P2>(servername: P0, groupname: P1, username: P2) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupAddUser(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR) -> u32;
-    }
-    NetGroupAddUser(servername.into(), groupname.into(), username.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupDel<'a, P0, P1>(servername: P0, groupname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupDel(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetGroupDel(servername.into(), groupname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupDelUser<'a, P0, P1, P2>(servername: P0, groupname: P1, username: P2) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupDelUser(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR) -> u32;
-    }
-    NetGroupDelUser(servername.into(), groupname.into(), username.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut usize>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
-    }
-    NetGroupEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupGetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupGetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetGroupGetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupGetUsers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut usize>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupGetUsers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
-    }
-    NetGroupGetUsers(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupSetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupSetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetGroupSetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetGroupSetUsers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetGroupSetUsers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    }
-    NetGroupSetUsers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetIsServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, isservice: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetIsServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
-    }
-    NetIsServiceAccount(servername.into(), accountname.into(), ::core::mem::transmute(isservice)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetJoinDomain<'a, P0, P1, P2, P3, P4>(lpserver: P0, lpdomain: P1, lpmachineaccountou: P2, lpaccount: P3, lppassword: P4, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetJoinDomain(lpserver: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
-    }
-    NetJoinDomain(lpserver.into(), lpdomain.into(), lpmachineaccountou.into(), lpaccount.into(), lppassword.into(), fjoinoptions)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetLocalGroupAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetLocalGroupAddMember<'a, P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupAddMember(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, membersid: super::super::Foundation::PSID) -> u32;
-    }
-    NetLocalGroupAddMember(servername.into(), groupname.into(), membersid.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupAddMembers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupAddMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    }
-    NetLocalGroupAddMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupDel<'a, P0, P1>(servername: P0, groupname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupDel(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetLocalGroupDel(servername.into(), groupname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetLocalGroupDelMember<'a, P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupDelMember(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, membersid: super::super::Foundation::PSID) -> u32;
-    }
-    NetLocalGroupDelMember(servername.into(), groupname.into(), membersid.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupDelMembers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupDelMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    }
-    NetLocalGroupDelMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut usize>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
-    }
-    NetLocalGroupEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupGetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupGetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetLocalGroupGetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupGetMembers<'a, P0, P1>(servername: P0, localgroupname: P1, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut usize>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupGetMembers(servername: ::windows::core::PCWSTR, localgroupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
-    }
-    NetLocalGroupGetMembers(servername.into(), localgroupname.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupSetInfo<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupSetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetLocalGroupSetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetLocalGroupSetMembers<'a, P0, P1>(servername: P0, groupname: P1, level: u32, buf: &u8, totalentries: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetLocalGroupSetMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    }
-    NetLocalGroupSetMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetMessageBufferSend<'a, P0, P1, P2>(servername: P0, msgname: P1, fromname: P2, buf: &u8, buflen: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetMessageBufferSend(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR, fromname: ::windows::core::PCWSTR, buf: *const u8, buflen: u32) -> u32;
-    }
-    NetMessageBufferSend(servername.into(), msgname.into(), fromname.into(), ::core::mem::transmute(buf), buflen)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetMessageNameAdd<'a, P0, P1>(servername: P0, msgname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetMessageNameAdd(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetMessageNameAdd(servername.into(), msgname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetMessageNameDel<'a, P0, P1>(servername: P0, msgname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetMessageNameDel(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetMessageNameDel(servername.into(), msgname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetMessageNameEnum<'a, P0>(servername: P0, level: u32, bufptr: &*const u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetMessageNameEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    }
-    NetMessageNameEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetMessageNameGetInfo<'a, P0, P1>(servername: P0, msgname: P1, level: u32, bufptr: &*const u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetMessageNameGetInfo(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR, level: u32, bufptr: *const *const u8) -> u32;
-    }
-    NetMessageNameGetInfo(servername.into(), msgname.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetProvisionComputerAccount<'a, P0, P1, P2, P3>(lpdomain: P0, lpmachinename: P1, lpmachineaccountou: P2, lpdcname: P3, dwoptions: NETSETUP_PROVISION, pprovisionbindata: ::core::option::Option<&mut *mut u8>, pdwprovisionbindatasize: ::core::option::Option<&mut u32>, pprovisiontextdata: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetProvisionComputerAccount(lpdomain: ::windows::core::PCWSTR, lpmachinename: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpdcname: ::windows::core::PCWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows::core::PWSTR) -> u32;
-    }
-    NetProvisionComputerAccount(lpdomain.into(), lpmachinename.into(), lpmachineaccountou.into(), lpdcname.into(), dwoptions, ::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(pdwprovisionbindatasize), ::core::mem::transmute(pprovisiontextdata))
-}
-pub const NetProvisioning: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetQueryDisplayInformation<'a, P0>(servername: P0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: &mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetQueryDisplayInformation(servername: ::windows::core::PCWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32;
-    }
-    NetQueryDisplayInformation(servername.into(), level, index, entriesrequested, preferredmaximumlength, ::core::mem::transmute(returnedentrycount), ::core::mem::transmute(sortedbuffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetQueryServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: &mut *mut u8) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetQueryServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
-    }
-    NetQueryServiceAccount(servername.into(), accountname.into(), infolevel, ::core::mem::transmute(buffer)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetRemoteComputerSupports<'a, P0>(uncservername: P0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetRemoteComputerSupports(uncservername: ::windows::core::PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
-    }
-    NetRemoteComputerSupports(uncservername.into(), optionswanted, ::core::mem::transmute(optionssupported))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetRemoteTOD<'a, P0>(uncservername: P0, bufferptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetRemoteTOD(uncservername: ::windows::core::PCWSTR, bufferptr: *mut *mut u8) -> u32;
-    }
-    NetRemoteTOD(uncservername.into(), ::core::mem::transmute(bufferptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetRemoveAlternateComputerName<'a, P0, P1, P2, P3>(server: P0, alternatename: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetRemoveAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
-    }
-    NetRemoveAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetRemoveServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, flags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetRemoveServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NetRemoveServiceAccount(servername.into(), accountname.into(), flags).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetRenameMachineInDomain<'a, P0, P1, P2, P3>(lpserver: P0, lpnewmachinename: P1, lpaccount: P2, lppassword: P3, frenameoptions: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetRenameMachineInDomain(lpserver: ::windows::core::PCWSTR, lpnewmachinename: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, frenameoptions: u32) -> u32;
-    }
-    NetRenameMachineInDomain(lpserver.into(), lpnewmachinename.into(), lpaccount.into(), lppassword.into(), frenameoptions)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplExportDirAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplExportDirAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetReplExportDirAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplExportDirDel<'a, P0, P1>(servername: P0, dirname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplExportDirDel(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetReplExportDirDel(servername.into(), dirname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplExportDirEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplExportDirEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    }
-    NetReplExportDirEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplExportDirGetInfo<'a, P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplExportDirGetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetReplExportDirGetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplExportDirLock<'a, P0, P1>(servername: P0, dirname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplExportDirLock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetReplExportDirLock(servername.into(), dirname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplExportDirSetInfo<'a, P0, P1>(servername: P0, dirname: P1, level: u32, buf: &u8, parm_err: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplExportDirSetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetReplExportDirSetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplExportDirUnlock<'a, P0, P1>(servername: P0, dirname: P1, unlockforce: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplExportDirUnlock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, unlockforce: u32) -> u32;
-    }
-    NetReplExportDirUnlock(servername.into(), dirname.into(), unlockforce)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplGetInfo<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetReplGetInfo(servername.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplImportDirAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplImportDirAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetReplImportDirAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplImportDirDel<'a, P0, P1>(servername: P0, dirname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplImportDirDel(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetReplImportDirDel(servername.into(), dirname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplImportDirEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplImportDirEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    }
-    NetReplImportDirEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplImportDirGetInfo<'a, P0, P1>(servername: P0, dirname: P1, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplImportDirGetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetReplImportDirGetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplImportDirLock<'a, P0, P1>(servername: P0, dirname: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplImportDirLock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR) -> u32;
-    }
-    NetReplImportDirLock(servername.into(), dirname.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplImportDirUnlock<'a, P0, P1>(servername: P0, dirname: P1, unlockforce: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplImportDirUnlock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, unlockforce: u32) -> u32;
-    }
-    NetReplImportDirUnlock(servername.into(), dirname.into(), unlockforce)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetReplSetInfo<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetReplSetInfo(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetReplSetInfo(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetRequestOfflineDomainJoin<'a, P0>(pprovisionbindata: &[u8], dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetRequestOfflineDomainJoin(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR) -> u32;
-    }
-    NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len() as _, dwoptions, lpwindowspath.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<'a, P0>(ppackagebindata: &[u8], dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: *mut ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
-    }
-    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into(), ::core::mem::transmute(pvreserved))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetScheduleJobAdd<'a, P0>(servername: P0, buffer: &mut u8, jobid: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetScheduleJobAdd(servername: ::windows::core::PCWSTR, buffer: *mut u8, jobid: *mut u32) -> u32;
-    }
-    NetScheduleJobAdd(servername.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(jobid))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetScheduleJobDel<'a, P0>(servername: P0, minjobid: u32, maxjobid: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetScheduleJobDel(servername: ::windows::core::PCWSTR, minjobid: u32, maxjobid: u32) -> u32;
-    }
-    NetScheduleJobDel(servername.into(), minjobid, maxjobid)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetScheduleJobEnum<'a, P0>(servername: P0, pointertobuffer: &mut *mut u8, prefferedmaximumlength: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetScheduleJobEnum(servername: ::windows::core::PCWSTR, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    }
-    NetScheduleJobEnum(servername.into(), ::core::mem::transmute(pointertobuffer), prefferedmaximumlength, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetScheduleJobGetInfo<'a, P0>(servername: P0, jobid: u32, pointertobuffer: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetScheduleJobGetInfo(servername: ::windows::core::PCWSTR, jobid: u32, pointertobuffer: *mut *mut u8) -> u32;
-    }
-    NetScheduleJobGetInfo(servername.into(), jobid, ::core::mem::transmute(pointertobuffer))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerComputerNameAdd<'a, P0, P1, P2>(servername: P0, emulateddomainname: P1, emulatedservername: P2) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerComputerNameAdd(servername: ::windows::core::PCWSTR, emulateddomainname: ::windows::core::PCWSTR, emulatedservername: ::windows::core::PCWSTR) -> u32;
-    }
-    NetServerComputerNameAdd(servername.into(), emulateddomainname.into(), emulatedservername.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerComputerNameDel<'a, P0, P1>(servername: P0, emulatedservername: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerComputerNameDel(servername: ::windows::core::PCWSTR, emulatedservername: ::windows::core::PCWSTR) -> u32;
-    }
-    NetServerComputerNameDel(servername.into(), emulatedservername.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerDiskEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerDiskEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    }
-    NetServerDiskEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerEnum<'a, P0, P1>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, servertype: NET_SERVER_TYPE, domain: P1, resume_handle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: ::windows::core::PCWSTR, resume_handle: *mut u32) -> u32;
-    }
-    NetServerEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), servertype, domain.into(), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerGetInfo<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetServerGetInfo(servername.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerSetInfo<'a, P0>(servername: P0, level: u32, buf: &u8, parmerror: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerSetInfo(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parmerror: *mut u32) -> u32;
-    }
-    NetServerSetInfo(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parmerror))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerTransportAdd<'a, P0>(servername: P0, level: u32, bufptr: &u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerTransportAdd(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
-    }
-    NetServerTransportAdd(servername.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerTransportAddEx<'a, P0>(servername: P0, level: u32, bufptr: &u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerTransportAddEx(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
-    }
-    NetServerTransportAddEx(servername.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerTransportDel<'a, P0>(servername: P0, level: u32, bufptr: &u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerTransportDel(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
-    }
-    NetServerTransportDel(servername.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServerTransportEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServerTransportEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    }
-    NetServerTransportEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServiceControl<'a, P0, P1>(servername: P0, service: P1, opcode: u32, arg: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServiceControl(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetServiceControl(servername.into(), service.into(), opcode, arg, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServiceEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServiceEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    }
-    NetServiceEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServiceGetInfo<'a, P0, P1>(servername: P0, service: P1, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServiceGetInfo(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetServiceGetInfo(servername.into(), service.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetServiceInstall<'a, P0, P1>(servername: P0, service: P1, argv: &[::windows::core::PWSTR], bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetServiceInstall(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, argc: u32, argv: *const ::windows::core::PWSTR, bufptr: *mut *mut u8) -> u32;
-    }
-    NetServiceInstall(servername.into(), service.into(), argv.len() as _, ::core::mem::transmute(argv.as_ptr()), ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetSetPrimaryComputerName<'a, P0, P1, P2, P3>(server: P0, primaryname: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetSetPrimaryComputerName(server: ::windows::core::PCWSTR, primaryname: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
-    }
-    NetSetPrimaryComputerName(server.into(), primaryname.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUnjoinDomain<'a, P0, P1, P2>(lpserver: P0, lpaccount: P1, lppassword: P2, funjoinoptions: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUnjoinDomain(lpserver: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, funjoinoptions: u32) -> u32;
-    }
-    NetUnjoinDomain(lpserver.into(), lpaccount.into(), lppassword.into(), funjoinoptions)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUseAdd(servername: ::core::option::Option<&i8>, levelflags: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetUseAdd(::core::mem::transmute(servername), levelflags, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUseDel<'a, P0, P1>(uncservername: P0, usename: P1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUseDel(uncservername: ::windows::core::PCWSTR, usename: ::windows::core::PCWSTR, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32;
-    }
-    NetUseDel(uncservername.into(), usename.into(), forcelevelflags)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUseEnum<'a, P0>(uncservername: P0, levelflags: u32, bufptr: ::core::option::Option<&mut *mut u8>, preferedmaximumsize: u32, entriesread: ::core::option::Option<&mut u32>, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUseEnum(uncservername: ::windows::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    }
-    NetUseEnum(uncservername.into(), levelflags, ::core::mem::transmute(bufptr), preferedmaximumsize, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUseGetInfo<'a, P0, P1>(uncservername: P0, usename: P1, levelflags: u32, bufptr: ::core::option::Option<&mut *mut u8>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUseGetInfo(uncservername: ::windows::core::PCWSTR, usename: ::windows::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetUseGetInfo(uncservername.into(), usename.into(), levelflags, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetUserAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserChangePassword<'a, P0, P1, P2, P3>(domainname: P0, username: P1, oldpassword: P2, newpassword: P3) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserChangePassword(domainname: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, oldpassword: ::windows::core::PCWSTR, newpassword: ::windows::core::PCWSTR) -> u32;
-    }
-    NetUserChangePassword(domainname.into(), username.into(), oldpassword.into(), newpassword.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserDel<'a, P0, P1>(servername: P0, username: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserDel(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR) -> u32;
-    }
-    NetUserDel(servername.into(), username.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserEnum<'a, P0>(servername: P0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserEnum(servername: ::windows::core::PCWSTR, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    }
-    NetUserEnum(servername.into(), level, filter, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserGetGroups<'a, P0, P1>(servername: P0, username: P1, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserGetGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
-    }
-    NetUserGetGroups(servername.into(), username.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserGetInfo<'a, P0, P1>(servername: P0, username: P1, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserGetInfo(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetUserGetInfo(servername.into(), username.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserGetLocalGroups<'a, P0, P1>(servername: P0, username: P1, level: u32, flags: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserGetLocalGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
-    }
-    NetUserGetLocalGroups(servername.into(), username.into(), level, flags, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserModalsGet<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserModalsGet(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetUserModalsGet(servername.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserModalsSet<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserModalsSet(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetUserModalsSet(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserSetGroups<'a, P0, P1>(servername: P0, username: P1, level: u32, buf: &u8, num_entries: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserSetGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
-    }
-    NetUserSetGroups(servername.into(), username.into(), level, ::core::mem::transmute(buf), num_entries)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetUserSetInfo<'a, P0, P1>(servername: P0, username: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetUserSetInfo(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetUserSetInfo(servername.into(), username.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetValidateName<'a, P0, P1, P2, P3>(lpserver: P0, lpname: P1, lpaccount: P2, lppassword: P3, nametype: NETSETUP_NAME_TYPE) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetValidateName(lpserver: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, nametype: NETSETUP_NAME_TYPE) -> u32;
-    }
-    NetValidateName(lpserver.into(), lpname.into(), lpaccount.into(), lppassword.into(), nametype)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetValidatePasswordPolicy<'a, P0>(servername: P0, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetValidatePasswordPolicy(servername: ::windows::core::PCWSTR, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32;
-    }
-    NetValidatePasswordPolicy(servername.into(), ::core::mem::transmute(qualifier), validationtype, ::core::mem::transmute(inputarg), ::core::mem::transmute(outputarg))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32;
-    }
-    NetValidatePasswordPolicyFree(::core::mem::transmute(outputarg))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaGetInfo<'a, P0>(servername: P0, level: u32, bufptr: ::core::option::Option<&mut *mut u8>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetWkstaGetInfo(servername.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaSetInfo<'a, P0>(servername: P0, level: u32, buffer: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaSetInfo(servername: ::windows::core::PCWSTR, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetWkstaSetInfo(servername.into(), level, ::core::mem::transmute(buffer), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaTransportAdd(servername: ::core::option::Option<&i8>, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetWkstaTransportAdd(::core::mem::transmute(servername), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaTransportDel<'a, P0, P1>(servername: P0, transportname: P1, ucond: FORCE_LEVEL_FLAGS) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaTransportDel(servername: ::windows::core::PCWSTR, transportname: ::windows::core::PCWSTR, ucond: FORCE_LEVEL_FLAGS) -> u32;
-    }
-    NetWkstaTransportDel(servername.into(), transportname.into(), ucond)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaTransportEnum(servername: ::core::option::Option<&i8>, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    }
-    NetWkstaTransportEnum(::core::mem::transmute(servername), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaUserEnum<'a, P0>(servername: P0, level: u32, bufptr: ::core::option::Option<&mut *mut u8>, prefmaxlen: u32, entriesread: ::core::option::Option<&mut u32>, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaUserEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    }
-    NetWkstaUserEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaUserGetInfo<'a, P0>(reserved: P0, level: u32, bufptr: &mut *mut u8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaUserGetInfo(reserved: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    }
-    NetWkstaUserGetInfo(reserved.into(), level, ::core::mem::transmute(bufptr))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn NetWkstaUserSetInfo<'a, P0>(reserved: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NetWkstaUserSetInfo(reserved: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    }
-    NetWkstaUserSetInfo(reserved.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -9905,65 +11888,6 @@ impl ::core::default::Default for OBO_TOKEN {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OBO_TOKEN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const OBO_USER: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const OBO_COMPONENT: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(3i32);
-impl ::core::marker::Copy for OBO_TOKEN_TYPE {}
-impl ::core::clone::Clone for OBO_TOKEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OBO_TOKEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OBO_TOKEN_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OBO_TOKEN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OBO_TOKEN_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const OS2MSG_FILENAME: &str = "BASE";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PARMNUM_ALL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PARMNUM_BASE_INFOLEVEL: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PARM_ERROR_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PARM_ERROR_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PASSWORD_EXPIRED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PATHLEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PLATFORM_ID_DOS: u32 = 300u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PLATFORM_ID_NT: u32 = 500u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PLATFORM_ID_OS2: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PLATFORM_ID_OSF: u32 = 600u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PLATFORM_ID_VMS: u32 = 700u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PREFIX_MISMATCH: i32 = -1073727510i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PREFIX_MISMATCH_FIXED: i32 = -1073727509i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PREFIX_MISMATCH_NOT_FIXED: i32 = -1073727508i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct PRINT_OTHER_INFO {
@@ -9997,82 +11921,6 @@ impl ::core::default::Default for PRINT_OTHER_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_COMPLETE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_DELETED: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_DESTNOPAPER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_DESTOFFLINE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_DESTPAUSED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_DEVSTATUS: u32 = 508u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_ERROR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_INTERV: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_NOTIFY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_QSTATUS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_QS_PAUSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_QS_PRINTING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_QS_QUEUED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PRJOB_QS_SPOOLING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IPV6_DHCP: u32 = 999u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_ALG: u32 = 10010u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_BGMP: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_BOOTP: u32 = 9999u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_DHCP_ALLOCATOR: u32 = 10004u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_DIFFSERV: u32 = 10008u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_DNS_PROXY: u32 = 10003u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_DTP: u32 = 10013u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_FTP: u32 = 10012u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_H323: u32 = 10011u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_IGMP: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_MGM: u32 = 10009u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_MSDP: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_NAT: u32 = 10005u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_IP_VRRP: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_TYPE_MCAST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_TYPE_MS0: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_TYPE_MS1: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_TYPE_UCAST: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_VENDOR_MS0: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_VENDOR_MS1: u32 = 311u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PROTO_VENDOR_MS2: u32 = 16383u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const PWLEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const QNLEN: u32 = 80u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10141,8 +11989,6 @@ impl ::core::default::Default for RASCON_IPUI {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: &str = "RegisterProtocol";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct REPL_EDIR_INFO_0 {
@@ -10299,16 +12145,6 @@ impl ::core::default::Default for REPL_EDIR_INFO_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_EXPORT_EXTENT_INFOLEVEL: u32 = 1001u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_EXTENT_FILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_EXTENT_TREE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct REPL_IDIR_INFO_0 {
@@ -10533,58 +12369,6 @@ impl ::core::default::Default for REPL_INFO_1003 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_INTEGRITY_FILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_INTEGRITY_TREE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_INTERVAL_INFOLEVEL: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_PULSE_INFOLEVEL: u32 = 1001u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_RANDOM_INFOLEVEL: u32 = 1003u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_ROLE_BOTH: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_ROLE_EXPORT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_ROLE_IMPORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_STATE_NEVER_REPLICATED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_STATE_NO_MASTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_STATE_NO_SYNC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_STATE_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_UNLOCK_FORCE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const REPL_UNLOCK_NOFORCE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RF_ADD_ALL_INTERFACES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RF_DEMAND_UPDATE_ROUTES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RF_MULTICAST: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RF_POWER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RF_ROUTING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RF_ROUTINGV6: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RIS_INTERFACE_ADDRESS_CHANGE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RIS_INTERFACE_DISABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RIS_INTERFACE_ENABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RIS_INTERFACE_MEDIA_ABSENT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RIS_INTERFACE_MEDIA_PRESENT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const ROUTING_DOMAIN_INFO_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct RTR_INFO_BLOCK_HEADER {
@@ -10618,8 +12402,6 @@ impl ::core::default::Default for RTR_INFO_BLOCK_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RTR_INFO_BLOCK_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct RTR_TOC_ENTRY {
@@ -10653,232 +12435,6 @@ impl ::core::default::Default for RTR_TOC_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RTUTILS_MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn RouterAssert<'a, P0, P1, P2>(pszfailedassertion: P0, pszfilename: P1, dwlinenumber: u32, pszmessage: P2)
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterAssert(pszfailedassertion: ::windows::core::PCSTR, pszfilename: ::windows::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows::core::PCSTR);
-    }
-    RouterAssert(pszfailedassertion.into(), pszfilename.into(), dwlinenumber, pszmessage.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: &mut ::windows::core::PSTR) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows::core::PSTR) -> u32;
-    }
-    RouterGetErrorStringA(dwerrorcode, ::core::mem::transmute(lplpszerrorstring))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: &mut ::windows::core::PWSTR) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows::core::PWSTR) -> u32;
-    }
-    RouterGetErrorStringW(dwerrorcode, ::core::mem::transmute(lplpwszerrorstring))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogDeregisterA<'a, P0>(hloghandle: P0)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
-    }
-    RouterLogDeregisterA(hloghandle.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogDeregisterW<'a, P0>(hloghandle: P0)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
-    }
-    RouterLogDeregisterW(hloghandle.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwerrorcode: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32);
-    }
-    RouterLogEventA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventDataA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
-    }
-    RouterLogEventDataA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventDataW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
-    }
-    RouterLogEventDataW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventExA<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR);
-    }
-    RouterLogEventExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventExW<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR);
-    }
-    RouterLogEventExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventStringA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PSTR], dwerrorcode: u32, dwerrorindex: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
-    }
-    RouterLogEventStringA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventStringW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PWSTR], dwerrorcode: u32, dwerrorindex: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
-    }
-    RouterLogEventStringW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventValistExA<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR, arglist: *mut i8);
-    }
-    RouterLogEventValistExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventValistExW<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR, arglist: *mut i8);
-    }
-    RouterLogEventValistExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwerrorcode: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32);
-    }
-    RouterLogEventW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogRegisterA<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogRegisterA(lpszsource: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    RouterLogRegisterA(lpszsource.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogRegisterW<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogRegisterW(lpszsource: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-    }
-    RouterLogRegisterW(lpszsource.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVCE_LM20_W32TIME: &str = "w32time";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVER_DISPLAY_NAME: &str = "Server";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct SERVER_INFO_100 {
@@ -14675,60 +16231,6 @@ impl ::core::default::Default for SERVER_INFO_599 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SERVER_INFO_HIDDEN(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1u32);
-impl ::core::marker::Copy for SERVER_INFO_HIDDEN {}
-impl ::core::clone::Clone for SERVER_INFO_HIDDEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVER_INFO_HIDDEN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVER_INFO_HIDDEN {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVER_INFO_HIDDEN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVER_INFO_HIDDEN").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SERVER_INFO_SECURITY(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_USERSECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(1u32);
-impl ::core::marker::Copy for SERVER_INFO_SECURITY {}
-impl ::core::clone::Clone for SERVER_INFO_SECURITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVER_INFO_SECURITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVER_INFO_SECURITY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVER_INFO_SECURITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVER_INFO_SECURITY").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct SERVER_TRANSPORT_INFO_0 {
@@ -14882,60 +16384,6 @@ impl ::core::default::Default for SERVER_TRANSPORT_INFO_3 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE2_BASE: u32 = 5600u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ACCOUNT_FLAG_ADD_AGAINST_RODC: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ACCOUNT_PASSWORD: &str = "_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ACCOUNT_SECRET_PREFIX: &str = "_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ADWS: &str = "ADWS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_AFP: &str = "AFP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ALERTER: &str = "ALERTER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_BASE: u32 = 3050u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_BROWSER: &str = "BROWSER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CCP_CHKPT_NUM: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CCP_NO_HINT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CCP_QUERY_HINT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CCP_WAIT_TIME: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CTRL_CONTINUE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CTRL_INTERROGATE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CTRL_PAUSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CTRL_REDIR_COMM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CTRL_REDIR_DISK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_CTRL_UNINSTALL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_DHCP: &str = "DHCP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_DNS_CACHE: &str = "DnsCache";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_DOS_ENCRYPTION: &str = "ENCRYPT";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_DSROLE: &str = "DsRoleSvc";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct SERVICE_INFO_0 {
@@ -15035,274 +16483,6 @@ impl ::core::default::Default for SERVICE_INFO_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_INSTALLED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_INSTALL_PENDING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_INSTALL_STATE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_IP_CHKPT_NUM: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_IP_NO_HINT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_IP_QUERY_HINT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_IP_WAITTIME_SHIFT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_IP_WAIT_TIME: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_ISMSERV: &str = "IsmServ";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_KDC: &str = "kdc";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_AFP: &str = "AFP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_ALERTER: &str = "ALERTER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_BROWSER: &str = "BROWSER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_DHCP: &str = "DHCP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_DSROLE: &str = "DsRoleSvc";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_ISMSERV: &str = "IsmServ";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_KDC: &str = "kdc";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_LMHOSTS: &str = "LMHOSTS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_MESSENGER: &str = "MESSENGER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_NBT: &str = "NBT";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_NETLOGON: &str = "NETLOGON";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_NETPOPUP: &str = "NETPOPUP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_NETRUN: &str = "NETRUN";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_NTDS: &str = "NTDS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_NTFRS: &str = "NtFrs";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_NWSAP: &str = "NwSapAgent";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_REPL: &str = "REPLICATOR";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_RIPL: &str = "REMOTEBOOT";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_RPCLOCATOR: &str = "RPCLOCATOR";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_SCHEDULE: &str = "Schedule";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_SERVER: &str = "SERVER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_SPOOLER: &str = "SPOOLER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_SQLSERVER: &str = "SQLSERVER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_TCPIP: &str = "TCPIP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_TELNET: &str = "Telnet";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_TIMESOURCE: &str = "TIMESOURCE";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_TRKSVR: &str = "TrkSvr";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_TRKWKS: &str = "TrkWks";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_UPS: &str = "UPS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_WORKSTATION: &str = "WORKSTATION";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LM20_XACTSRV: &str = "XACTSRV";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_LMHOSTS: &str = "LMHOSTS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_MAXTIME: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_MESSENGER: &str = "MESSENGER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NBT: &str = "NBT";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NETLOGON: &str = "NETLOGON";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NETPOPUP: &str = "NETPOPUP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NETRUN: &str = "NETRUN";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NOT_PAUSABLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NOT_UNINSTALLABLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NTDS: &str = "NTDS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NTFRS: &str = "NtFrs";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NTIP_WAITTIME_SHIFT: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NTLMSSP: &str = "NtLmSsp";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NT_MAXTIME: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NWCS: &str = "NWCWorkstation";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_NWSAP: &str = "NwSapAgent";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_PAUSABLE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_PAUSE_STATE: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_REDIR_COMM_PAUSED: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_REDIR_DISK_PAUSED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_REDIR_PAUSED: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_REDIR_PRINT_PAUSED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_REPL: &str = "REPLICATOR";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_RESRV_MASK: u32 = 131071u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_RIPL: &str = "REMOTEBOOT";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_RPCLOCATOR: &str = "RPCLOCATOR";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_SCHEDULE: &str = "Schedule";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_SERVER: &str = "LanmanServer";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_SPOOLER: &str = "SPOOLER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_SQLSERVER: &str = "SQLSERVER";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_TCPIP: &str = "TCPIP";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_TELNET: &str = "Telnet";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_TIMESOURCE: &str = "TIMESOURCE";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_TRKSVR: &str = "TrkSvr";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_TRKWKS: &str = "TrkWks";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_AMBIGPARM: u32 = 3058u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_BADPARMVAL: u32 = 3051u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_CONFIG: u32 = 3055u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_CONFLPARM: u32 = 3063u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_DUPPARM: u32 = 3059u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_EXEC: u32 = 3061u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_FILE: u32 = 3064u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_INTERNAL: u32 = 3057u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_KILL: u32 = 3060u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_MISSPARM: u32 = 3052u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_ADDPAK: u32 = 3090u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_ANNOUNCE: u32 = 3083u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_DATABASE_ERROR: u32 = 5602u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_DISK: u32 = 3071u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_ERRLOG: u32 = 3088u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_FILES: u32 = 3079u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_FILE_UW: u32 = 3089u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_LANGROUP: u32 = 3081u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_LANROOT: u32 = 3075u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_LAZY: u32 = 3091u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_LOGS: u32 = 3080u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_LSA_MACHINE_ACCT: u32 = 5601u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_MEMORY: u32 = 3070u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_MSGNAME: u32 = 3082u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_NETLOGON_AUTH: u32 = 3098u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_NETLOGON_DC_CFLCT: u32 = 3097u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_NETLOGON_MPATH: u32 = 5600u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_NETLOGON_NO_DC: u32 = 3096u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_NULL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_PROCESSES: u32 = 3073u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_REDIR: u32 = 3076u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_SECURITY: u32 = 3074u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_SEC_FILE_ERR: u32 = 3078u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_SERVER: u32 = 3077u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_SERVER_SEC_ERR: u32 = 3085u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_THREADS: u32 = 3072u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_UAS: u32 = 3084u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_UAS_INVALID_ROLE: u32 = 3095u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_UAS_MACHINE_ACCT: u32 = 3092u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_UAS_PROLOG: u32 = 3099u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_UAS_SERVERS_NMEMB: u32 = 3093u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_UAS_SERVERS_NOGRP: u32 = 3094u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_M_WKSTA: u32 = 3087u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_RESOURCE: u32 = 3054u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_SUBSERV: u32 = 3062u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_SYSTEM: u32 = 3056u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UIC_UNKPARM: u32 = 3053u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UNINSTALLABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UNINSTALLED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UNINSTALL_PENDING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_UPS: &str = "UPS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_W32TIME: &str = "w32time";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_WORKSTATION: &str = "LanmanWorkstation";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SERVICE_XACTSRV: &str = "XACTSRV";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SESSION_CRYPT_KLEN: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SESSION_PWLEN: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SHPWLEN: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15409,12 +16589,6 @@ impl ::core::default::Default for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SNLEN: u32 = 80u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SRV_HASH_GENERATION_ACTIVE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SRV_SUPPORT_HASH_GENERATION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct STD_ALERT {
@@ -15446,386 +16620,6 @@ impl ::core::default::Default for STD_ALERT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const STXTLEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_ANY: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SUPPORTS_BINDING_INTERFACE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(2i32);
-impl ::core::marker::Copy for SUPPORTS_BINDING_INTERFACE_FLAGS {}
-impl ::core::clone::Clone for SUPPORTS_BINDING_INTERFACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SUPPORTS_BINDING_INTERFACE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SUPPORTS_BINDING_INTERFACE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SUPPORTS_BINDING_INTERFACE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SUPPORTS_BINDING_INTERFACE_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_BADNETLOGON: u32 = 384u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_BADSESSLOGON: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_BADUSE: u32 = 6144u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_GOODNETLOGON: u32 = 96u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_GOODSESSLOGON: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_GOODUSE: u32 = 1536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_LOGONLIM: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_PERMISSIONS: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_RESOURCE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_SERVICE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVAUD_USERLIST: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVI1_NUM_ELEMENTS: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVI2_NUM_ELEMENTS: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVI3_NUM_ELEMENTS: u32 = 44u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_CLUSTER_DNN_NAME: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_CLUSTER_NAME: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_REMAP_PIPE_NAMES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_RESERVED1: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_RESERVED2: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_RESERVED3: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_SCOPED_NAME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SVTI2_UNICODE_TRANSPORT_ADDRESS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ACCEPTDOWNLEVELAPIS_PARMNUM: u32 = 517u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ACCESSALERT_PARMNUM: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ACTIVELOCKS_PARMNUM: u32 = 419u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ALERTSCHEDULE_PARMNUM: u32 = 547u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ALERTSCHED_PARMNUM: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ALERTS_PARMNUM: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ALIST_MTIME_PARMNUM: u32 = 403u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ANNDELTA_PARMNUM: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ANNOUNCE_PARMNUM: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_AUTOSHARESERVER_PARMNUM: u32 = 592u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_AUTOSHAREWKS_PARMNUM: u32 = 591u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_BALANCECOUNT_PARMNUM: u32 = 577u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CACHEDDIRECTORYLIMIT_PARMNUM: u32 = 587u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CACHEDOPENLIMIT_PARMNUM: u32 = 571u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CHDEVJOBS_PARMNUM: u32 = 411u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CHDEVQ_PARMNUM: u32 = 410u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_COMMENT_PARMNUM: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CONNECTIONLESSAUTODISC_PARMNUM: u32 = 562u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CONNECTIONNOSESSIONSTIMEOUT_PARMNUM: u32 = 596u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CONNECTIONS_PARMNUM: u32 = 412u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_CRITICALTHREADS_PARMNUM: u32 = 572u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_DISABLEDOS_PARMNUM: u32 = 600u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_DISABLESTRICTNAMECHECKING_PARMNUM: u32 = 602u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_DISC_PARMNUM: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_DISKALERT_PARMNUM: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_DISKSPACETHRESHOLD_PARMNUM: u32 = 550u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_DOMAIN_PARMNUM: u32 = 519u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLEAUTHENTICATEUSERSHARING_PARMNUM: u32 = 603u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLECOMPRESSION_PARMNUM: u32 = 590u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLEFCBOPENS_PARMNUM: u32 = 538u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLEFORCEDLOGOFF_PARMNUM: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLEOPLOCKFORCECLOSE_PARMNUM: u32 = 537u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLEOPLOCKS_PARMNUM: u32 = 536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLERAW_PARMNUM: u32 = 539u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLESECURITYSIGNATURE_PARMNUM: u32 = 593u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLESHAREDNETDRIVES_PARMNUM: u32 = 540u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLESOFTCOMPAT_PARMNUM: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLEW9XSECURITYSIGNATURE_PARMNUM: u32 = 598u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENABLEWFW311DIRECTIPX_PARMNUM: u32 = 574u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ENFORCEKERBEROSREAUTHENTICATION_PARMNUM: u32 = 599u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ERRORALERT_PARMNUM: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ERRORTHRESHOLD_PARMNUM: u32 = 548u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_GLIST_MTIME_PARMNUM: u32 = 402u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_GUESTACC_PARMNUM: u32 = 408u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_HIDDEN_PARMNUM: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_IDLETHREADTIMEOUT_PARMNUM: u32 = 597u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_INITCONNTABLE_PARMNUM: u32 = 544u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_INITFILETABLE_PARMNUM: u32 = 545u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_INITSEARCHTABLE_PARMNUM: u32 = 546u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_INITSESSTABLE_PARMNUM: u32 = 543u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_INITWORKITEMS_PARMNUM: u32 = 505u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_IRPSTACKSIZE_PARMNUM: u32 = 508u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LANMASK_PARMNUM: u32 = 407u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LINKINFOVALIDTIME_PARMNUM: u32 = 554u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LMANNOUNCE_PARMNUM: u32 = 518u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LOCKVIOLATIONDELAY_PARMNUM: u32 = 569u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LOCKVIOLATIONOFFSET_PARMNUM: u32 = 568u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LOCKVIOLATIONRETRIES_PARMNUM: u32 = 567u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LOGONALERT_PARMNUM: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_LOWDISKSPACEMINIMUM_PARMNUM: u32 = 601u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXAUDITSZ_PARMNUM: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXCOPYLENGTH_PARMNUM: u32 = 588u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXCOPYREADLEN_PARMNUM: u32 = 520u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXCOPYWRITELEN_PARMNUM: u32 = 521u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXFREECONNECTIONS_PARMNUM: u32 = 542u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXFREELFCBS_PARMNUM: u32 = 581u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXFREEMFCBS_PARMNUM: u32 = 580u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXFREEPAGEDPOOLCHUNKS_PARMNUM: u32 = 582u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXFREERFCBS_PARMNUM: u32 = 579u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXGLOBALOPENSEARCH_PARMNUM: u32 = 565u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXKEEPCOMPLSEARCH_PARMNUM: u32 = 525u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXKEEPSEARCH_PARMNUM: u32 = 523u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXLINKDELAY_PARMNUM: u32 = 552u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXMPXCT_PARMNUM: u32 = 533u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXNONPAGEDMEMORYUSAGE_PARMNUM: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXPAGEDMEMORYUSAGE_PARMNUM: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 584u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXRAWBUFLEN_PARMNUM: u32 = 509u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXRAWWORKITEMS_PARMNUM: u32 = 557u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXTHREADSPERQUEUE_PARMNUM: u32 = 586u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXWORKITEMIDLETIME_PARMNUM: u32 = 556u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAXWORKITEMS_PARMNUM: u32 = 506u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAX_CMD_LEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MAX_SRV_HEUR_LEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MDLREADSWITCHOVER_PARMNUM: u32 = 570u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINCLIENTBUFFERSIZE_PARMNUM: u32 = 595u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINFREECONNECTIONS_PARMNUM: u32 = 541u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINFREEWORKITEMS_PARMNUM: u32 = 530u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINKEEPCOMPLSEARCH_PARMNUM: u32 = 524u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINKEEPSEARCH_PARMNUM: u32 = 522u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINLINKTHROUGHPUT_PARMNUM: u32 = 553u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINPAGEDPOOLCHUNKSIZE_PARMNUM: u32 = 583u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_MINRCVQUEUE_PARMNUM: u32 = 529u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NAME_PARMNUM: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NETIOALERT_PARMNUM: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NETWORKERRORTHRESHOLD_PARMNUM: u32 = 549u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NODISC: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NUMADMIN_PARMNUM: u32 = 406u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NUMBIGBUF_PARMNUM: u32 = 422u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NUMBLOCKTHREADS_PARMNUM: u32 = 527u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NUMFILETASKS_PARMNUM: u32 = 423u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_NUMREQBUF_PARMNUM: u32 = 420u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_OPENFILES_PARMNUM: u32 = 414u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_OPENSEARCH_PARMNUM: u32 = 503u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_OPLOCKBREAKRESPONSEWAIT_PARMNUM: u32 = 535u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_OPLOCKBREAKWAIT_PARMNUM: u32 = 534u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_OTHERQUEUEAFFINITY_PARMNUM: u32 = 575u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_PLATFORM_ID_NT: u32 = 500u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_PLATFORM_ID_OS2: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_PLATFORM_ID_PARMNUM: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_PREFERREDAFFINITY_PARMNUM: u32 = 578u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_PRODUCTTYPE_PARMNUM: u32 = 560u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_QUEUESAMPLESECS_PARMNUM: u32 = 576u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_RAWWORKITEMS_PARMNUM: u32 = 507u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_REMOVEDUPLICATESEARCHES_PARMNUM: u32 = 566u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_REQUIRESECURITYSIGNATURE_PARMNUM: u32 = 594u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_RESTRICTNULLSESSACCESS_PARMNUM: u32 = 573u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SCAVQOSINFOUPDATETIME_PARMNUM: u32 = 555u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SCAVTIMEOUT_PARMNUM: u32 = 528u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SECURITY_PARMNUM: u32 = 405u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SENDSFROMPREFERREDPROCESSOR_PARMNUM: u32 = 585u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SERVERSIZE_PARMNUM: u32 = 561u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SESSCONNS_PARMNUM: u32 = 511u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SESSOPENS_PARMNUM: u32 = 501u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SESSREQS_PARMNUM: u32 = 417u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SESSUSERS_PARMNUM: u32 = 510u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SESSVCS_PARMNUM: u32 = 502u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SHARES_PARMNUM: u32 = 413u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SHARINGVIOLATIONDELAY_PARMNUM: u32 = 564u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SHARINGVIOLATIONRETRIES_PARMNUM: u32 = 563u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SIZREQBUF_PARMNUM: u32 = 504u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SRVHEURISTICS_PARMNUM: u32 = 431u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_THREADCOUNTADD_PARMNUM: u32 = 526u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_THREADPRIORITY_PARMNUM: u32 = 532u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TIMESOURCE_PARMNUM: u32 = 516u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_PARMNUM: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_ULIST_MTIME_PARMNUM: u32 = 401u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_USERPATH_PARMNUM: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_USERS_PARMNUM: u32 = 107u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_USERS_PER_LICENSE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_VERSION_MAJOR_PARMNUM: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_VERSION_MINOR_PARMNUM: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
-pub const ServiceAccountPasswordGUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn SetNetScheduleAccountInformation<'a, P0, P1, P2>(pwszservername: P0, pwszaccount: P1, pwszpassword: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetNetScheduleAccountInformation(pwszservername: ::windows::core::PCWSTR, pwszaccount: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
-    SetNetScheduleAccountInformation(pwszservername.into(), pwszaccount.into(), pwszpassword.into()).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -15881,22 +16675,6 @@ impl ::core::default::Default for TIME_OF_DAY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TITLE_SC_MESSAGE_BOX: i32 = -1073734795i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRACE_NO_STDINFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRACE_NO_SYNCH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRACE_USE_CONSOLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRACE_USE_DATE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRACE_USE_FILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRACE_USE_MASK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRACE_USE_MSEC: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15936,370 +16714,6 @@ impl ::core::default::Default for TRANSPORT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRANSPORT_NAME_PARMNUM: u32 = 202u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TRANSPORT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UseTransportType_None: TRANSPORT_TYPE = TRANSPORT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UseTransportType_Wsk: TRANSPORT_TYPE = TRANSPORT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UseTransportType_Quic: TRANSPORT_TYPE = TRANSPORT_TYPE(2i32);
-impl ::core::marker::Copy for TRANSPORT_TYPE {}
-impl ::core::clone::Clone for TRANSPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRANSPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TRANSPORT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TRANSPORT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TRANSPORT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceDeregisterA(dwtraceid: u32) -> u32;
-    }
-    TraceDeregisterA(dwtraceid)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32;
-    }
-    TraceDeregisterExA(dwtraceid, dwflags)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32;
-    }
-    TraceDeregisterExW(dwtraceid, dwflags)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceDeregisterW(dwtraceid: u32) -> u32;
-    }
-    TraceDeregisterW(dwtraceid)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TraceDumpExA<'a, P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: &mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceDumpExA(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows::core::PCSTR) -> u32;
-    }
-    TraceDumpExA(dwtraceid, dwflags, ::core::mem::transmute(lpbbytes), dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TraceDumpExW<'a, P0, P1>(dwtraceid: u32, dwflags: u32, lpbbytes: &mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: P0, lpszprefix: P1) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceDumpExW(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows::core::PCWSTR) -> u32;
-    }
-    TraceDumpExW(dwtraceid, dwflags, ::core::mem::transmute(lpbbytes), dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: &mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
-    }
-    TraceGetConsoleA(dwtraceid, ::core::mem::transmute(lphconsole))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: &mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
-    }
-    TraceGetConsoleW(dwtraceid, ::core::mem::transmute(lphconsole))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TracePrintfA<'a, P0>(dwtraceid: u32, lpszformat: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn TracePrintfA(dwtraceid: u32, lpszformat: ::windows::core::PCSTR) -> u32;
-    }
-    TracePrintfA(dwtraceid, lpszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TracePrintfExA<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn TracePrintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCSTR) -> u32;
-    }
-    TracePrintfExA(dwtraceid, dwflags, lpszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TracePrintfExW<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn TracePrintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCWSTR) -> u32;
-    }
-    TracePrintfExW(dwtraceid, dwflags, lpszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TracePrintfW<'a, P0>(dwtraceid: u32, lpszformat: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn TracePrintfW(dwtraceid: u32, lpszformat: ::windows::core::PCWSTR) -> u32;
-    }
-    TracePrintfW(dwtraceid, lpszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TracePutsExA<'a, P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TracePutsExA(dwtraceid: u32, dwflags: u32, lpszstring: ::windows::core::PCSTR) -> u32;
-    }
-    TracePutsExA(dwtraceid, dwflags, lpszstring.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TracePutsExW<'a, P0>(dwtraceid: u32, dwflags: u32, lpszstring: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TracePutsExW(dwtraceid: u32, dwflags: u32, lpszstring: ::windows::core::PCWSTR) -> u32;
-    }
-    TracePutsExW(dwtraceid, dwflags, lpszstring.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceRegisterExA<'a, P0>(lpszcallername: P0, dwflags: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceRegisterExA(lpszcallername: ::windows::core::PCSTR, dwflags: u32) -> u32;
-    }
-    TraceRegisterExA(lpszcallername.into(), dwflags)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceRegisterExW<'a, P0>(lpszcallername: P0, dwflags: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceRegisterExW(lpszcallername: ::windows::core::PCWSTR, dwflags: u32) -> u32;
-    }
-    TraceRegisterExW(lpszcallername.into(), dwflags)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceVprintfExA<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, arglist: &mut i8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceVprintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCSTR, arglist: *mut i8) -> u32;
-    }
-    TraceVprintfExA(dwtraceid, dwflags, lpszformat.into(), ::core::mem::transmute(arglist))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn TraceVprintfExW<'a, P0>(dwtraceid: u32, dwflags: u32, lpszformat: P0, arglist: &mut i8) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TraceVprintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCWSTR, arglist: *mut i8) -> u32;
-    }
-    TraceVprintfExW(dwtraceid, dwflags, lpszformat.into(), ::core::mem::transmute(arglist))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_MNS_LOGON_ACCOUNT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_NORMAL_ACCOUNT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_NO_AUTH_DATA_REQUIRED: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_PARTIAL_SECRETS_ACCOUNT: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_SERVER_TRUST_ACCOUNT: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_TEMP_DUPLICATE_ACCOUNT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_USE_AES_KEYS: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_WORKSTATION_TRUST_ACCOUNT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UNCLEN: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UNITS_PER_DAY: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UNLEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UPPER_GET_HINT_MASK: u32 = 267386880u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UPPER_HINT_MASK: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct USER_ACCOUNT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16777216u32);
-impl ::core::marker::Copy for USER_ACCOUNT_FLAGS {}
-impl ::core::clone::Clone for USER_ACCOUNT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USER_ACCOUNT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for USER_ACCOUNT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for USER_ACCOUNT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("USER_ACCOUNT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for USER_ACCOUNT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for USER_ACCOUNT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for USER_ACCOUNT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for USER_ACCOUNT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for USER_ACCOUNT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_ACCT_EXPIRES_PARMNUM: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_AUTH_FLAGS_PARMNUM: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_CODE_PAGE_PARMNUM: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_COMMENT_PARMNUM: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_COUNTRY_CODE_PARMNUM: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_FLAGS_PARMNUM: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_FULL_NAME_PARMNUM: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_HOME_DIR_PARMNUM: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct USER_INFO_0 {
@@ -17559,16 +17973,6 @@ impl ::core::default::Default for USER_INFO_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_LAST_LOGOFF_PARMNUM: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_LAST_LOGON_PARMNUM: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_LOGON_HOURS_PARMNUM: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_LOGON_SERVER_PARMNUM: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_MAX_STORAGE_PARMNUM: u32 = 18u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct USER_MODALS_INFO_0 {
@@ -17915,41 +18319,6 @@ impl ::core::default::Default for USER_MODALS_INFO_3 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct USER_MODALS_ROLES(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = USER_MODALS_ROLES(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = USER_MODALS_ROLES(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = USER_MODALS_ROLES(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = USER_MODALS_ROLES(3u32);
-impl ::core::marker::Copy for USER_MODALS_ROLES {}
-impl ::core::clone::Clone for USER_MODALS_ROLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USER_MODALS_ROLES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for USER_MODALS_ROLES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for USER_MODALS_ROLES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("USER_MODALS_ROLES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_NAME_PARMNUM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_NUM_LOGONS_PARMNUM: u32 = 22u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct USER_OTHER_INFO {
@@ -17981,79 +18350,6 @@ impl ::core::default::Default for USER_OTHER_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PAD_PW_COUNT_PARMNUM: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PARMS_PARMNUM: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PASSWORD_AGE_PARMNUM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PASSWORD_PARMNUM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIMARY_GROUP_PARMNUM: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct USER_PRIV(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_GUEST: USER_PRIV = USER_PRIV(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_USER: USER_PRIV = USER_PRIV(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_ADMIN: USER_PRIV = USER_PRIV(2u32);
-impl ::core::marker::Copy for USER_PRIV {}
-impl ::core::clone::Clone for USER_PRIV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USER_PRIV {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for USER_PRIV {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for USER_PRIV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("USER_PRIV").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_MASK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_PARMNUM: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PROFILE: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PROFILE_PARMNUM: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_SCRIPT_PATH_PARMNUM: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_UNITS_PER_WEEK_PARMNUM: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_USR_COMMENT_PARMNUM: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_WORKSTATIONS_PARMNUM: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_ASGTYPE_PARMNUM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_AUTHIDENTITY_PARMNUM: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_CHARDEV: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_CONN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_DEFAULT_CREDENTIALS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_DISCONN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_DOMAINNAME_PARMNUM: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_FLAGS_PARMNUM: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct USE_INFO_0 {
@@ -18258,45 +18554,6 @@ impl ::core::default::Default for USE_INFO_5 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct USE_INFO_ASG_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_WILDCARD: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(4294967295u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_DISKDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_IPC: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(3u32);
-impl ::core::marker::Copy for USE_INFO_ASG_TYPE {}
-impl ::core::clone::Clone for USE_INFO_ASG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USE_INFO_ASG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for USE_INFO_ASG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for USE_INFO_ASG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("USE_INFO_ASG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_LOCAL_PARMNUM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_NETERR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_OPTIONS_PARMNUM: u32 = 10u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
@@ -18425,48 +18682,6 @@ impl ::core::default::Default for USE_OPTION_TRANSPORT_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_PASSWORD_PARMNUM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_PAUSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_RECONN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_REMOTE_PARMNUM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_SD_PARMNUM: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_SESSLOST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_SPECIFIC_TRANSPORT: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_USERNAME_PARMNUM: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const VALIDATED_LOGON: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const VALID_LOGOFF: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_BUFFERNAMEDPIPES_PARMNUM: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_BUFFERREADONLYFILES_PARMNUM: u32 = 59u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_BUFFILESWITHDENYWRITE_PARMNUM: u32 = 58u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_CACHEFILETIMEOUT_PARMNUM: u32 = 47u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_CHARCOUNT_PARMNUM: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_CHARTIME_PARMNUM: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_CHARWAIT_PARMNUM: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_COMPUTERNAME_PARMNUM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct WKSTA_INFO_100 {
@@ -19894,64 +20109,6 @@ impl ::core::default::Default for WKSTA_INFO_502 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_KEEPCONN_PARMNUM: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_KEEPSEARCH_PARMNUM: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LANGROUP_PARMNUM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LANROOT_PARMNUM: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LOCKINCREMENT_PARMNUM: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LOCKMAXIMUM_PARMNUM: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LOCKQUOTA_PARMNUM: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LOGGED_ON_USERS_PARMNUM: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LOGON_DOMAIN_PARMNUM: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_LOGON_SERVER_PARMNUM: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_MAILSLOTS_PARMNUM: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_MAXCMDS_PARMNUM: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_MAXTHREADS_PARMNUM: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_MAXWRKCACHE_PARMNUM: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_NUMALERTS_PARMNUM: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_NUMCHARBUF_PARMNUM: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_NUMDGRAMBUF_PARMNUM: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_NUMSERVICES_PARMNUM: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_NUMWORKBUF_PARMNUM: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_OTH_DOMAINS_PARMNUM: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_PIPEINCREMENT_PARMNUM: u32 = 44u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_PIPEMAXIMUM_PARMNUM: u32 = 45u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_PLATFORM_ID_PARMNUM: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_PRINTBUFTIME_PARMNUM: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_READAHEADTHRUPUT_PARMNUM: u32 = 62u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_SESSTIMEOUT_PARMNUM: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_SIZERROR_PARMNUM: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19994,20 +20151,6 @@ impl ::core::default::Default for WKSTA_TRANSPORT_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USEENCRYPTION_PARMNUM: u32 = 57u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USELOCKANDREADANDUNLOCK_PARMNUM: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USERAWREAD_PARMNUM: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct WKSTA_USER_INFO_0 {
@@ -20102,149 +20245,6 @@ impl ::core::default::Default for WKSTA_USER_INFO_1101 {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USEUNLOCKBEHIND_PARMNUM: u32 = 49u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_USEWRITERAWWITHDATA_PARMNUM: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_UTILIZENTCACHING_PARMNUM: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_VER_MAJOR_PARMNUM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub type WORKERFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WORKSTATION_DISPLAY_NAME: &str = "Workstation";
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_XML: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_API_ERROR_INTERNAL: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_API_ERROR_NOT_SUPPORTED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_API_ERROR_XML_VALIDATION_FAILED: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED_KEY_REQUIRED: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_1X_NOT_ENABLED_KEY_PROVIDED: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_NOT_APPLICABLE: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_REQUIRED: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_INVALID_AUTH_FOR_CONNECTION_TYPE: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_INVALID_ENCRYPTION_FOR_AUTHMODE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_NOT_APPLICABLE: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_REQUIRED: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_KEY_REQUIRED: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_WPA_ENCRYPTION_NOT_SUPPORTED: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_CONFIG_ERROR_WPA_NOT_SUPPORTED: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_SET_ERROR_DUPLICATE_NETWORK: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_SET_ERROR_MEMORY_ALLOCATION: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_SET_ERROR_READING_1X_CONFIG: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_SET_ERROR_WRITING_1X_CONFIG: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_SET_ERROR_WRITING_WZC_CFG: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_SUCCESS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_1X_ENABLED: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_AUTHENTICATION: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_BAD_KEY_INDEX: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_BAD_NETWORK_KEY: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_BAD_SSID: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_BAD_VERSION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_CONNECTION_TYPE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_EAP_METHOD: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_ENCRYPTION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_KEY_INDEX_RANGE: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_KEY_PROVIDED_AUTOMATICALLY: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_NO_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct tagRASCON_IPUI_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_VPN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DEMAND_DIAL: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_NOT_ADMIN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_HEADER_COMPRESSION: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_DISABLE_REGISTER_DNS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_ENABLE_NBT: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32768i32);
-impl ::core::marker::Copy for tagRASCON_IPUI_FLAGS {}
-impl ::core::clone::Clone for tagRASCON_IPUI_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for tagRASCON_IPUI_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for tagRASCON_IPUI_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for tagRASCON_IPUI_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("tagRASCON_IPUI_FLAGS").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,3 +1,35 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDeviceServicingDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDeviceServicingDetails {
+    type Vtable = IDeviceServicingDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDeviceServicingDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ExpectedDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ExpectedDuration: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDeviceUseDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDeviceUseDetails {
+    type Vtable = IDeviceUseDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDeviceUseDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Devices_Background\"`*"]
 #[repr(transparent)]
 pub struct DeviceServicingDetails(::windows::core::IUnknown);
@@ -169,37 +201,5 @@ impl ::core::convert::From<&DeviceUseDetails> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for DeviceUseDetails {}
 unsafe impl ::core::marker::Sync for DeviceUseDetails {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDeviceServicingDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDeviceServicingDetails {
-    type Vtable = IDeviceServicingDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDeviceServicingDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ExpectedDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ExpectedDuration: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDeviceUseDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDeviceUseDetails {
-    type Vtable = IDeviceUseDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDeviceUseDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

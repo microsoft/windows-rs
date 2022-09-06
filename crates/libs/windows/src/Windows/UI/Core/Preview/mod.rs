@@ -1,3 +1,82 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreAppWindowPreview(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreAppWindowPreview {
+    type Vtable = ICoreAppWindowPreview_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f6e665_365e_5fde_87a5_9543c3a15aa8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreAppWindowPreview_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreAppWindowPreviewStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreAppWindowPreviewStatics {
+    type Vtable = ICoreAppWindowPreviewStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ac21be_423b_5db6_8a8e_4dc87353b75b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreAppWindowPreviewStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_WindowManagement")]
+    pub GetIdFromWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_WindowManagement"))]
+    GetIdFromWindow: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISystemNavigationCloseRequestedPreviewEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISystemNavigationCloseRequestedPreviewEventArgs {
+    type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d00de1_cbe5_4f31_8414_361da046518f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISystemNavigationManagerPreview(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISystemNavigationManagerPreview {
+    type Vtable = ISystemNavigationManagerPreview_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec5f0488_6425_4777_a536_cb5634427f0d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISystemNavigationManagerPreview_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub CloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CloseRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveCloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveCloseRequested: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISystemNavigationManagerPreviewStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISystemNavigationManagerPreviewStatics {
+    type Vtable = ISystemNavigationManagerPreviewStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e971360_df74_4bce_84cb_bd1181ac0a71);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct CoreAppWindowPreview(::windows::core::IUnknown);
@@ -81,85 +160,6 @@ impl ::core::convert::From<&CoreAppWindowPreview> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for CoreAppWindowPreview {}
 unsafe impl ::core::marker::Sync for CoreAppWindowPreview {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreAppWindowPreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreAppWindowPreview {
-    type Vtable = ICoreAppWindowPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f6e665_365e_5fde_87a5_9543c3a15aa8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreAppWindowPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreAppWindowPreviewStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreAppWindowPreviewStatics {
-    type Vtable = ICoreAppWindowPreviewStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ac21be_423b_5db6_8a8e_4dc87353b75b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreAppWindowPreviewStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "UI_WindowManagement")]
-    pub GetIdFromWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_WindowManagement"))]
-    GetIdFromWindow: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISystemNavigationCloseRequestedPreviewEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISystemNavigationCloseRequestedPreviewEventArgs {
-    type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d00de1_cbe5_4f31_8414_361da046518f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISystemNavigationManagerPreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISystemNavigationManagerPreview {
-    type Vtable = ISystemNavigationManagerPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec5f0488_6425_4777_a536_cb5634427f0d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISystemNavigationManagerPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub CloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CloseRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveCloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCloseRequested: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISystemNavigationManagerPreviewStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISystemNavigationManagerPreviewStatics {
-    type Vtable = ISystemNavigationManagerPreviewStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e971360_df74_4bce_84cb_bd1181ac0a71);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(::windows::core::IUnknown);

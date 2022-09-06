@@ -1,175 +1,31 @@
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BaseValueSource(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const BaseValueSourceUnknown: BaseValueSource = BaseValueSource(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const BaseValueSourceDefault: BaseValueSource = BaseValueSource(1i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const BaseValueSourceBuiltInStyle: BaseValueSource = BaseValueSource(2i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const BaseValueSourceStyle: BaseValueSource = BaseValueSource(3i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const BaseValueSourceLocal: BaseValueSource = BaseValueSource(4i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const Inherited: BaseValueSource = BaseValueSource(5i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const DefaultStyleTrigger: BaseValueSource = BaseValueSource(6i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const TemplateTrigger: BaseValueSource = BaseValueSource(7i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const StyleTrigger: BaseValueSource = BaseValueSource(8i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ImplicitStyleReference: BaseValueSource = BaseValueSource(9i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ParentTemplate: BaseValueSource = BaseValueSource(10i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ParentTemplateTrigger: BaseValueSource = BaseValueSource(11i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const Animation: BaseValueSource = BaseValueSource(12i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const Coercion: BaseValueSource = BaseValueSource(13i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const BaseValueSourceVisualState: BaseValueSource = BaseValueSource(14i32);
-impl ::core::marker::Copy for BaseValueSource {}
-impl ::core::clone::Clone for BaseValueSource {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn InitializeXamlDiagnostic<'a, P0, P1, P2>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn InitializeXamlDiagnostic(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-}
-impl ::core::default::Default for BaseValueSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BaseValueSource {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BaseValueSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BaseValueSource").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub struct BitmapDescription {
-    pub Width: u32,
-    pub Height: u32,
-    pub Format: super::super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
-    pub AlphaMode: super::super::super::Graphics::Dxgi::Common::DXGI_ALPHA_MODE,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::marker::Copy for BitmapDescription {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::clone::Clone for BitmapDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::fmt::Debug for BitmapDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BitmapDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("AlphaMode", &self.AlphaMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for BitmapDescription {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for BitmapDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BitmapDescription>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for BitmapDescription {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::default::Default for BitmapDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CollectionElementValue {
-    pub Index: u32,
-    pub ValueType: super::super::super::Foundation::BSTR,
-    pub Value: super::super::super::Foundation::BSTR,
-    pub MetadataBits: i64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CollectionElementValue {
-    fn clone(&self) -> Self {
-        Self { Index: self.Index, ValueType: self.ValueType.clone(), Value: self.Value.clone(), MetadataBits: self.MetadataBits }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CollectionElementValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CollectionElementValue").field("Index", &self.Index).field("ValueType", &self.ValueType).field("Value", &self.Value).field("MetadataBits", &self.MetadataBits).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CollectionElementValue {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CollectionElementValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.Index == other.Index && self.ValueType == other.ValueType && self.Value == other.Value && self.MetadataBits == other.MetadataBits
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CollectionElementValue {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CollectionElementValue {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    InitializeXamlDiagnostic(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const E_UNKNOWNTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144665560i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub struct EnumType {
-    pub Name: super::super::super::Foundation::BSTR,
-    pub ValueInts: *mut super::super::super::System::Com::SAFEARRAY,
-    pub ValueStrings: *mut super::super::super::System::Com::SAFEARRAY,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for EnumType {
-    fn clone(&self) -> Self {
-        Self { Name: self.Name.clone(), ValueInts: self.ValueInts, ValueStrings: self.ValueStrings }
+#[inline]
+pub unsafe fn InitializeXamlDiagnosticsEx<'a, P0, P1, P2, P3>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID, wszinitializationdata: P3) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn InitializeXamlDiagnosticsEx(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for EnumType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EnumType").field("Name", &self.Name).field("ValueInts", &self.ValueInts).field("ValueStrings", &self.ValueStrings).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for EnumType {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for EnumType {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.ValueInts == other.ValueInts && self.ValueStrings == other.ValueStrings
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for EnumType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::default::Default for EnumType {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    InitializeXamlDiagnosticsEx(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid), wszinitializationdata.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -919,33 +775,59 @@ pub struct IXamlDiagnostics_Vtbl {
     GetInitializationData: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[inline]
-pub unsafe fn InitializeXamlDiagnostic<'a, P0, P1, P2>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn InitializeXamlDiagnostic(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    InitializeXamlDiagnostic(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid)).ok()
-}
+pub const E_UNKNOWNTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144665560i32);
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[inline]
-pub unsafe fn InitializeXamlDiagnosticsEx<'a, P0, P1, P2, P3>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID, wszinitializationdata: P3) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn InitializeXamlDiagnosticsEx(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BaseValueSource(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const BaseValueSourceUnknown: BaseValueSource = BaseValueSource(0i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const BaseValueSourceDefault: BaseValueSource = BaseValueSource(1i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const BaseValueSourceBuiltInStyle: BaseValueSource = BaseValueSource(2i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const BaseValueSourceStyle: BaseValueSource = BaseValueSource(3i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const BaseValueSourceLocal: BaseValueSource = BaseValueSource(4i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const Inherited: BaseValueSource = BaseValueSource(5i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const DefaultStyleTrigger: BaseValueSource = BaseValueSource(6i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const TemplateTrigger: BaseValueSource = BaseValueSource(7i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const StyleTrigger: BaseValueSource = BaseValueSource(8i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ImplicitStyleReference: BaseValueSource = BaseValueSource(9i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ParentTemplate: BaseValueSource = BaseValueSource(10i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ParentTemplateTrigger: BaseValueSource = BaseValueSource(11i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const Animation: BaseValueSource = BaseValueSource(12i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const Coercion: BaseValueSource = BaseValueSource(13i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const BaseValueSourceVisualState: BaseValueSource = BaseValueSource(14i32);
+impl ::core::marker::Copy for BaseValueSource {}
+impl ::core::clone::Clone for BaseValueSource {
+    fn clone(&self) -> Self {
+        *self
     }
-    InitializeXamlDiagnosticsEx(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid), wszinitializationdata.into()).ok()
+}
+impl ::core::default::Default for BaseValueSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BaseValueSource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BaseValueSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BaseValueSource").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
@@ -978,6 +860,234 @@ unsafe impl ::windows::core::Abi for MetadataBit {
 impl ::core::fmt::Debug for MetadataBit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MetadataBit").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RenderTargetBitmapOptions(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const RenderTarget: RenderTargetBitmapOptions = RenderTargetBitmapOptions(0i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const RenderTargetAndChildren: RenderTargetBitmapOptions = RenderTargetBitmapOptions(1i32);
+impl ::core::marker::Copy for RenderTargetBitmapOptions {}
+impl ::core::clone::Clone for RenderTargetBitmapOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RenderTargetBitmapOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RenderTargetBitmapOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RenderTargetBitmapOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RenderTargetBitmapOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ResourceType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ResourceTypeStatic: ResourceType = ResourceType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ResourceTypeTheme: ResourceType = ResourceType(1i32);
+impl ::core::marker::Copy for ResourceType {}
+impl ::core::clone::Clone for ResourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ResourceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ResourceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResourceType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VisualElementState(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ErrorResolved: VisualElementState = VisualElementState(0i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ErrorResourceNotFound: VisualElementState = VisualElementState(1i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const ErrorInvalidResource: VisualElementState = VisualElementState(2i32);
+impl ::core::marker::Copy for VisualElementState {}
+impl ::core::clone::Clone for VisualElementState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VisualElementState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VisualElementState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VisualElementState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualElementState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VisualMutationType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const Add: VisualMutationType = VisualMutationType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
+pub const Remove: VisualMutationType = VisualMutationType(1i32);
+impl ::core::marker::Copy for VisualMutationType {}
+impl ::core::clone::Clone for VisualMutationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VisualMutationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VisualMutationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VisualMutationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualMutationType").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct BitmapDescription {
+    pub Width: u32,
+    pub Height: u32,
+    pub Format: super::super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub AlphaMode: super::super::super::Graphics::Dxgi::Common::DXGI_ALPHA_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for BitmapDescription {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for BitmapDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::fmt::Debug for BitmapDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BitmapDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("AlphaMode", &self.AlphaMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl ::windows::core::Abi for BitmapDescription {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::cmp::PartialEq for BitmapDescription {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BitmapDescription>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::cmp::Eq for BitmapDescription {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::default::Default for BitmapDescription {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CollectionElementValue {
+    pub Index: u32,
+    pub ValueType: super::super::super::Foundation::BSTR,
+    pub Value: super::super::super::Foundation::BSTR,
+    pub MetadataBits: i64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CollectionElementValue {
+    fn clone(&self) -> Self {
+        Self { Index: self.Index, ValueType: self.ValueType.clone(), Value: self.Value.clone(), MetadataBits: self.MetadataBits }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CollectionElementValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CollectionElementValue").field("Index", &self.Index).field("ValueType", &self.ValueType).field("Value", &self.Value).field("MetadataBits", &self.MetadataBits).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CollectionElementValue {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CollectionElementValue {
+    fn eq(&self, other: &Self) -> bool {
+        self.Index == other.Index && self.ValueType == other.ValueType && self.Value == other.Value && self.MetadataBits == other.MetadataBits
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CollectionElementValue {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CollectionElementValue {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct EnumType {
+    pub Name: super::super::super::Foundation::BSTR,
+    pub ValueInts: *mut super::super::super::System::Com::SAFEARRAY,
+    pub ValueStrings: *mut super::super::super::System::Com::SAFEARRAY,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for EnumType {
+    fn clone(&self) -> Self {
+        Self { Name: self.Name.clone(), ValueInts: self.ValueInts, ValueStrings: self.ValueStrings }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for EnumType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EnumType").field("Name", &self.Name).field("ValueInts", &self.ValueInts).field("ValueStrings", &self.ValueStrings).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+unsafe impl ::windows::core::Abi for EnumType {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::PartialEq for EnumType {
+    fn eq(&self, other: &Self) -> bool {
+        self.Name == other.Name && self.ValueInts == other.ValueInts && self.ValueStrings == other.ValueStrings
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::Eq for EnumType {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::default::Default for EnumType {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1108,60 +1218,6 @@ impl ::core::default::Default for PropertyChainValue {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RenderTargetBitmapOptions(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const RenderTarget: RenderTargetBitmapOptions = RenderTargetBitmapOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const RenderTargetAndChildren: RenderTargetBitmapOptions = RenderTargetBitmapOptions(1i32);
-impl ::core::marker::Copy for RenderTargetBitmapOptions {}
-impl ::core::clone::Clone for RenderTargetBitmapOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RenderTargetBitmapOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RenderTargetBitmapOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RenderTargetBitmapOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RenderTargetBitmapOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ResourceType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ResourceTypeStatic: ResourceType = ResourceType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ResourceTypeTheme: ResourceType = ResourceType(1i32);
-impl ::core::marker::Copy for ResourceType {}
-impl ::core::clone::Clone for ResourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ResourceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceType").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1246,62 +1302,6 @@ impl ::core::cmp::Eq for VisualElement {}
 impl ::core::default::Default for VisualElement {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VisualElementState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ErrorResolved: VisualElementState = VisualElementState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ErrorResourceNotFound: VisualElementState = VisualElementState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const ErrorInvalidResource: VisualElementState = VisualElementState(2i32);
-impl ::core::marker::Copy for VisualElementState {}
-impl ::core::clone::Clone for VisualElementState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VisualElementState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VisualElementState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VisualElementState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualElementState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VisualMutationType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const Add: VisualMutationType = VisualMutationType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-pub const Remove: VisualMutationType = VisualMutationType(1i32);
-impl ::core::marker::Copy for VisualMutationType {}
-impl ::core::clone::Clone for VisualMutationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VisualMutationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VisualMutationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VisualMutationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualMutationType").field(&self.0).finish()
     }
 }
 #[cfg(feature = "implement")]

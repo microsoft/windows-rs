@@ -80,42 +80,6 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneNumberFormat(pub i32);
-impl PhoneNumberFormat {
-    pub const E164: Self = Self(0i32);
-    pub const International: Self = Self(1i32);
-    pub const National: Self = Self(2i32);
-    pub const Rfc3966: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneNumberFormat {}
-impl ::core::clone::Clone for PhoneNumberFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneNumberFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneNumberFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneNumberFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNumberFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneNumberFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-#[repr(transparent)]
 pub struct PhoneNumberFormatter(::windows::core::IUnknown);
 impl PhoneNumberFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -440,6 +404,42 @@ impl<'a> ::core::convert::TryFrom<&PhoneNumberInfo> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
+#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneNumberFormat(pub i32);
+impl PhoneNumberFormat {
+    pub const E164: Self = Self(0i32);
+    pub const International: Self = Self(1i32);
+    pub const National: Self = Self(2i32);
+    pub const Rfc3966: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhoneNumberFormat {}
+impl ::core::clone::Clone for PhoneNumberFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneNumberFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneNumberFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneNumberFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneNumberFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

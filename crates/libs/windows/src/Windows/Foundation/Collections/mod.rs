@@ -1,41 +1,5 @@
 #[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CollectionChange(pub i32);
-impl CollectionChange {
-    pub const Reset: Self = Self(0i32);
-    pub const ItemInserted: Self = Self(1i32);
-    pub const ItemRemoved: Self = Self(2i32);
-    pub const ItemChanged: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CollectionChange {}
-impl ::core::clone::Clone for CollectionChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CollectionChange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CollectionChange {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CollectionChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CollectionChange").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CollectionChange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
-#[repr(transparent)]
 pub struct IIterable<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows::core::RuntimeType + 'static;
@@ -1859,111 +1823,6 @@ where
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
-pub struct MapChangedEventHandler<K, V>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
-where
-    K: ::windows::core::RuntimeType + 'static,
-    V: ::windows::core::RuntimeType + 'static;
-impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
-    pub fn new<F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = MapChangedEventHandlerBox::<K, V, F> { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableMap<K, V>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IMapChangedEventArgs<K>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.try_into().map_err(|e| e.into())?.abi(), event.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-}
-#[repr(C)]
-struct MapChangedEventHandlerBox<K, V, F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
-where
-    K: ::windows::core::RuntimeType + 'static,
-    V: ::windows::core::RuntimeType + 'static,
-{
-    vtable: *const MapChangedEventHandler_Vtbl<K, V>,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MapChangedEventHandlerBox<K, V, F> {
-    const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-        K: ::core::marker::PhantomData::<K>,
-        V: ::core::marker::PhantomData::<V>,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<MapChangedEventHandler<K, V> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&event)).into()
-    }
-}
-impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for MapChangedEventHandler<K, V> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
-    }
-}
-impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for MapChangedEventHandler<K, V> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for MapChangedEventHandler<K, V> {}
-impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for MapChangedEventHandler<K, V> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapChangedEventHandler").field(&self.0).finish()
-    }
-}
-unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for MapChangedEventHandler<K, V> {
-    type Vtable = MapChangedEventHandler_Vtbl<K, V>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
-}
-unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for MapChangedEventHandler<K, V> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct MapChangedEventHandler_Vtbl<K, V>
-where
-    K: ::windows::core::RuntimeType + 'static,
-    V: ::windows::core::RuntimeType + 'static,
-{
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub K: ::core::marker::PhantomData<K>,
-    pub V: ::core::marker::PhantomData<V>,
-}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
-#[repr(transparent)]
 pub struct PropertySet(::windows::core::IUnknown);
 impl PropertySet {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -2633,6 +2492,147 @@ impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IP
 }
 unsafe impl ::core::marker::Send for ValueSet {}
 unsafe impl ::core::marker::Sync for ValueSet {}
+#[doc = "*Required features: `\"Foundation_Collections\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CollectionChange(pub i32);
+impl CollectionChange {
+    pub const Reset: Self = Self(0i32);
+    pub const ItemInserted: Self = Self(1i32);
+    pub const ItemRemoved: Self = Self(2i32);
+    pub const ItemChanged: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CollectionChange {}
+impl ::core::clone::Clone for CollectionChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CollectionChange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CollectionChange {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CollectionChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CollectionChange").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CollectionChange {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Collections\"`*"]
+#[repr(transparent)]
+pub struct MapChangedEventHandler<K, V>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
+where
+    K: ::windows::core::RuntimeType + 'static,
+    V: ::windows::core::RuntimeType + 'static;
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
+    pub fn new<F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = MapChangedEventHandlerBox::<K, V, F> { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableMap<K, V>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IMapChangedEventArgs<K>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.try_into().map_err(|e| e.into())?.abi(), event.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+}
+#[repr(C)]
+struct MapChangedEventHandlerBox<K, V, F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
+where
+    K: ::windows::core::RuntimeType + 'static,
+    V: ::windows::core::RuntimeType + 'static,
+{
+    vtable: *const MapChangedEventHandler_Vtbl<K, V>,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MapChangedEventHandlerBox<K, V, F> {
+    const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+        K: ::core::marker::PhantomData::<K>,
+        V: ::core::marker::PhantomData::<V>,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<MapChangedEventHandler<K, V> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&event)).into()
+    }
+}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for MapChangedEventHandler<K, V> {
+    fn clone(&self) -> Self {
+        Self(self.0.clone(), ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+    }
+}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for MapChangedEventHandler<K, V> {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for MapChangedEventHandler<K, V> {}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for MapChangedEventHandler<K, V> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapChangedEventHandler").field(&self.0).finish()
+    }
+}
+unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for MapChangedEventHandler<K, V> {
+    type Vtable = MapChangedEventHandler_Vtbl<K, V>;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+}
+unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for MapChangedEventHandler<K, V> {
+    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct MapChangedEventHandler_Vtbl<K, V>
+where
+    K: ::windows::core::RuntimeType + 'static,
+    V: ::windows::core::RuntimeType + 'static,
+{
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub K: ::core::marker::PhantomData<K>,
+    pub V: ::core::marker::PhantomData<V>,
+}
 #[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct VectorChangedEventHandler<T>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<T>)

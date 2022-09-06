@@ -410,76 +410,6 @@ unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TargetedContentAppInstallationState(pub i32);
-impl TargetedContentAppInstallationState {
-    pub const NotApplicable: Self = Self(0i32);
-    pub const NotInstalled: Self = Self(1i32);
-    pub const Installed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TargetedContentAppInstallationState {}
-impl ::core::clone::Clone for TargetedContentAppInstallationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentAppInstallationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TargetedContentAppInstallationState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TargetedContentAppInstallationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentAppInstallationState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TargetedContentAppInstallationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TargetedContentAvailability(pub i32);
-impl TargetedContentAvailability {
-    pub const None: Self = Self(0i32);
-    pub const Partial: Self = Self(1i32);
-    pub const All: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TargetedContentAvailability {}
-impl ::core::clone::Clone for TargetedContentAvailability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentAvailability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TargetedContentAvailability {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TargetedContentAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentAvailability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TargetedContentAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-#[repr(transparent)]
 pub struct TargetedContentAvailabilityChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentAvailabilityChangedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1099,51 +1029,6 @@ unsafe impl ::core::marker::Send for TargetedContentImage {}
 unsafe impl ::core::marker::Sync for TargetedContentImage {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TargetedContentInteraction(pub i32);
-impl TargetedContentInteraction {
-    pub const Impression: Self = Self(0i32);
-    pub const ClickThrough: Self = Self(1i32);
-    pub const Hover: Self = Self(2i32);
-    pub const Like: Self = Self(3i32);
-    pub const Dislike: Self = Self(4i32);
-    pub const Dismiss: Self = Self(5i32);
-    pub const Ineligible: Self = Self(6i32);
-    pub const Accept: Self = Self(7i32);
-    pub const Decline: Self = Self(8i32);
-    pub const Defer: Self = Self(9i32);
-    pub const Canceled: Self = Self(10i32);
-    pub const Conversion: Self = Self(11i32);
-    pub const Opportunity: Self = Self(12i32);
-}
-impl ::core::marker::Copy for TargetedContentInteraction {}
-impl ::core::clone::Clone for TargetedContentInteraction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentInteraction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TargetedContentInteraction {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TargetedContentInteraction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentInteraction").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TargetedContentInteraction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-#[repr(transparent)]
 pub struct TargetedContentItem(::windows::core::IUnknown);
 impl TargetedContentItem {
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1425,41 +1310,6 @@ impl ::core::convert::From<&TargetedContentObject> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
-#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TargetedContentObjectKind(pub i32);
-impl TargetedContentObjectKind {
-    pub const Collection: Self = Self(0i32);
-    pub const Item: Self = Self(1i32);
-    pub const Value: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TargetedContentObjectKind {}
-impl ::core::clone::Clone for TargetedContentObjectKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentObjectKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TargetedContentObjectKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TargetedContentObjectKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentObjectKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TargetedContentObjectKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 pub struct TargetedContentStateChangedEventArgs(::windows::core::IUnknown);
@@ -1996,6 +1846,156 @@ impl ::core::convert::From<&TargetedContentValue> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TargetedContentAppInstallationState(pub i32);
+impl TargetedContentAppInstallationState {
+    pub const NotApplicable: Self = Self(0i32);
+    pub const NotInstalled: Self = Self(1i32);
+    pub const Installed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TargetedContentAppInstallationState {}
+impl ::core::clone::Clone for TargetedContentAppInstallationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TargetedContentAppInstallationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TargetedContentAppInstallationState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TargetedContentAppInstallationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAppInstallationState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TargetedContentAppInstallationState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TargetedContentAvailability(pub i32);
+impl TargetedContentAvailability {
+    pub const None: Self = Self(0i32);
+    pub const Partial: Self = Self(1i32);
+    pub const All: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TargetedContentAvailability {}
+impl ::core::clone::Clone for TargetedContentAvailability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TargetedContentAvailability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TargetedContentAvailability {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TargetedContentAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentAvailability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TargetedContentAvailability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TargetedContentInteraction(pub i32);
+impl TargetedContentInteraction {
+    pub const Impression: Self = Self(0i32);
+    pub const ClickThrough: Self = Self(1i32);
+    pub const Hover: Self = Self(2i32);
+    pub const Like: Self = Self(3i32);
+    pub const Dislike: Self = Self(4i32);
+    pub const Dismiss: Self = Self(5i32);
+    pub const Ineligible: Self = Self(6i32);
+    pub const Accept: Self = Self(7i32);
+    pub const Decline: Self = Self(8i32);
+    pub const Defer: Self = Self(9i32);
+    pub const Canceled: Self = Self(10i32);
+    pub const Conversion: Self = Self(11i32);
+    pub const Opportunity: Self = Self(12i32);
+}
+impl ::core::marker::Copy for TargetedContentInteraction {}
+impl ::core::clone::Clone for TargetedContentInteraction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TargetedContentInteraction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TargetedContentInteraction {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TargetedContentInteraction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentInteraction").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TargetedContentInteraction {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_TargetedContent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TargetedContentObjectKind(pub i32);
+impl TargetedContentObjectKind {
+    pub const Collection: Self = Self(0i32);
+    pub const Item: Self = Self(1i32);
+    pub const Value: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TargetedContentObjectKind {}
+impl ::core::clone::Clone for TargetedContentObjectKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TargetedContentObjectKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TargetedContentObjectKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TargetedContentObjectKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetedContentObjectKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TargetedContentObjectKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

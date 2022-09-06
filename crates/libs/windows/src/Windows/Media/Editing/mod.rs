@@ -1,280 +1,3 @@
-#[doc = "*Required features: `\"Media_Editing\"`*"]
-#[repr(transparent)]
-pub struct BackgroundAudioTrack(::windows::core::IUnknown);
-impl BackgroundAudioTrack {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TrimTimeFromStart)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TrimTimeFromEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TrimTimeFromEnd)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn OriginalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OriginalDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TrimmedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TrimmedDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UserData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    pub fn SetVolume(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVolume)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Volume(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Volume)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn Clone(&self) -> ::windows::core::Result<BackgroundAudioTrack> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Clone)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioEncodingProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
-    pub fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AudioEffectDefinitions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
-        }
-    }
-    pub fn CreateFromEmbeddedAudioTrack<'a, P0>(embeddedaudiotrack: P0) -> ::windows::core::Result<BackgroundAudioTrack>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, EmbeddedAudioTrack>>,
-    {
-        Self::IBackgroundAudioTrackStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(::windows::core::Interface::as_raw(this), embeddedaudiotrack.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IBackgroundAudioTrackStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundAudioTrack, IBackgroundAudioTrackStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for BackgroundAudioTrack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundAudioTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundAudioTrack {}
-impl ::core::fmt::Debug for BackgroundAudioTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundAudioTrack").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BackgroundAudioTrack {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BackgroundAudioTrack {
-    type Vtable = IBackgroundAudioTrack_Vtbl;
-    const IID: ::windows::core::GUID = <IBackgroundAudioTrack as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BackgroundAudioTrack {
-    const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
-}
-impl ::core::convert::From<BackgroundAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
-unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
-#[doc = "*Required features: `\"Media_Editing\"`*"]
-#[repr(transparent)]
-pub struct EmbeddedAudioTrack(::windows::core::IUnknown);
-impl EmbeddedAudioTrack {
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioEncodingProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for EmbeddedAudioTrack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for EmbeddedAudioTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmbeddedAudioTrack {}
-impl ::core::fmt::Debug for EmbeddedAudioTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmbeddedAudioTrack").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for EmbeddedAudioTrack {
-    type Vtable = IEmbeddedAudioTrack_Vtbl;
-    const IID: ::windows::core::GUID = <IEmbeddedAudioTrack as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for EmbeddedAudioTrack {
-    const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
-}
-impl ::core::convert::From<EmbeddedAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IUnknown {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmbeddedAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IInspectable {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for EmbeddedAudioTrack {}
-unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBackgroundAudioTrack(::windows::core::IUnknown);
@@ -665,6 +388,283 @@ pub struct IMediaOverlayLayerFactory_Vtbl {
     #[cfg(not(feature = "Media_Effects"))]
     CreateWithCompositorDefinition: usize,
 }
+#[doc = "*Required features: `\"Media_Editing\"`*"]
+#[repr(transparent)]
+pub struct BackgroundAudioTrack(::windows::core::IUnknown);
+impl BackgroundAudioTrack {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TrimTimeFromStart)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TrimTimeFromEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TrimTimeFromEnd)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn OriginalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OriginalDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TrimmedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TrimmedDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UserData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    pub fn SetVolume(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetVolume)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Volume(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Volume)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn Clone(&self) -> ::windows::core::Result<BackgroundAudioTrack> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Clone)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAudioEncodingProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    pub fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AudioEffectDefinitions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
+        }
+    }
+    pub fn CreateFromEmbeddedAudioTrack<'a, P0>(embeddedaudiotrack: P0) -> ::windows::core::Result<BackgroundAudioTrack>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, EmbeddedAudioTrack>>,
+    {
+        Self::IBackgroundAudioTrackStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(::windows::core::Interface::as_raw(this), embeddedaudiotrack.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub fn CreateFromFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IBackgroundAudioTrackStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<BackgroundAudioTrack, IBackgroundAudioTrackStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for BackgroundAudioTrack {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundAudioTrack {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundAudioTrack {}
+impl ::core::fmt::Debug for BackgroundAudioTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundAudioTrack").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BackgroundAudioTrack {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BackgroundAudioTrack {
+    type Vtable = IBackgroundAudioTrack_Vtbl;
+    const IID: ::windows::core::GUID = <IBackgroundAudioTrack as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BackgroundAudioTrack {
+    const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
+}
+impl ::core::convert::From<BackgroundAudioTrack> for ::windows::core::IUnknown {
+    fn from(value: BackgroundAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IUnknown {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BackgroundAudioTrack> for ::windows::core::IInspectable {
+    fn from(value: BackgroundAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IInspectable {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
+unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
+#[doc = "*Required features: `\"Media_Editing\"`*"]
+#[repr(transparent)]
+pub struct EmbeddedAudioTrack(::windows::core::IUnknown);
+impl EmbeddedAudioTrack {
+    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAudioEncodingProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for EmbeddedAudioTrack {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for EmbeddedAudioTrack {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for EmbeddedAudioTrack {}
+impl ::core::fmt::Debug for EmbeddedAudioTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmbeddedAudioTrack").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for EmbeddedAudioTrack {
+    type Vtable = IEmbeddedAudioTrack_Vtbl;
+    const IID: ::windows::core::GUID = <IEmbeddedAudioTrack as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for EmbeddedAudioTrack {
+    const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
+}
+impl ::core::convert::From<EmbeddedAudioTrack> for ::windows::core::IUnknown {
+    fn from(value: EmbeddedAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IUnknown {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IUnknown {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<EmbeddedAudioTrack> for ::windows::core::IInspectable {
+    fn from(value: EmbeddedAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IInspectable {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IInspectable {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for EmbeddedAudioTrack {}
+unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
 pub struct MediaClip(::windows::core::IUnknown);

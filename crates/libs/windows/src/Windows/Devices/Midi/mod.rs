@@ -1353,58 +1353,6 @@ unsafe impl ::core::marker::Send for MidiMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MidiMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_Midi\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MidiMessageType(pub i32);
-impl MidiMessageType {
-    pub const None: Self = Self(0i32);
-    pub const NoteOff: Self = Self(128i32);
-    pub const NoteOn: Self = Self(144i32);
-    pub const PolyphonicKeyPressure: Self = Self(160i32);
-    pub const ControlChange: Self = Self(176i32);
-    pub const ProgramChange: Self = Self(192i32);
-    pub const ChannelPressure: Self = Self(208i32);
-    pub const PitchBendChange: Self = Self(224i32);
-    pub const SystemExclusive: Self = Self(240i32);
-    pub const MidiTimeCode: Self = Self(241i32);
-    pub const SongPositionPointer: Self = Self(242i32);
-    pub const SongSelect: Self = Self(243i32);
-    pub const TuneRequest: Self = Self(246i32);
-    pub const EndSystemExclusive: Self = Self(247i32);
-    pub const TimingClock: Self = Self(248i32);
-    pub const Start: Self = Self(250i32);
-    pub const Continue: Self = Self(251i32);
-    pub const Stop: Self = Self(252i32);
-    pub const ActiveSensing: Self = Self(254i32);
-    pub const SystemReset: Self = Self(255i32);
-}
-impl ::core::marker::Copy for MidiMessageType {}
-impl ::core::clone::Clone for MidiMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MidiMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MidiMessageType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MidiMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiMessageType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MidiMessageType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Midi\"`*"]
-#[repr(transparent)]
 pub struct MidiNoteOffMessage(::windows::core::IUnknown);
 impl MidiNoteOffMessage {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3568,5 +3516,57 @@ impl<'a> ::core::convert::TryFrom<&MidiTuneRequestMessage> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for MidiTuneRequestMessage {}
 unsafe impl ::core::marker::Sync for MidiTuneRequestMessage {}
+#[doc = "*Required features: `\"Devices_Midi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MidiMessageType(pub i32);
+impl MidiMessageType {
+    pub const None: Self = Self(0i32);
+    pub const NoteOff: Self = Self(128i32);
+    pub const NoteOn: Self = Self(144i32);
+    pub const PolyphonicKeyPressure: Self = Self(160i32);
+    pub const ControlChange: Self = Self(176i32);
+    pub const ProgramChange: Self = Self(192i32);
+    pub const ChannelPressure: Self = Self(208i32);
+    pub const PitchBendChange: Self = Self(224i32);
+    pub const SystemExclusive: Self = Self(240i32);
+    pub const MidiTimeCode: Self = Self(241i32);
+    pub const SongPositionPointer: Self = Self(242i32);
+    pub const SongSelect: Self = Self(243i32);
+    pub const TuneRequest: Self = Self(246i32);
+    pub const EndSystemExclusive: Self = Self(247i32);
+    pub const TimingClock: Self = Self(248i32);
+    pub const Start: Self = Self(250i32);
+    pub const Continue: Self = Self(251i32);
+    pub const Stop: Self = Self(252i32);
+    pub const ActiveSensing: Self = Self(254i32);
+    pub const SystemReset: Self = Self(255i32);
+}
+impl ::core::marker::Copy for MidiMessageType {}
+impl ::core::clone::Clone for MidiMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MidiMessageType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MidiMessageType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MidiMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MidiMessageType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MidiMessageType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

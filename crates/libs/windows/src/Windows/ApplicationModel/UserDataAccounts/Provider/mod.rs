@@ -337,75 +337,6 @@ unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation 
 unsafe impl ::core::marker::Sync for UserDataAccountProviderAddAccountOperation {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserDataAccountProviderOperationKind(pub i32);
-impl UserDataAccountProviderOperationKind {
-    pub const AddAccount: Self = Self(0i32);
-    pub const Settings: Self = Self(1i32);
-    pub const ResolveErrors: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserDataAccountProviderOperationKind {}
-impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountProviderOperationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserDataAccountProviderOperationKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderOperationKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderOperationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
-impl UserDataAccountProviderPartnerAccountKind {
-    pub const Exchange: Self = Self(0i32);
-    pub const PopOrImap: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserDataAccountProviderPartnerAccountKind {}
-impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountProviderPartnerAccountKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserDataAccountProviderPartnerAccountKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataAccountProviderPartnerAccountKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderPartnerAccountKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderPartnerAccountKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
-#[repr(transparent)]
 pub struct UserDataAccountProviderResolveErrorsOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderResolveErrorsOperation {
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
@@ -612,5 +543,74 @@ impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderSettingsOperation> for
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderSettingsOperation {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderSettingsOperation {}
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserDataAccountProviderOperationKind(pub i32);
+impl UserDataAccountProviderOperationKind {
+    pub const AddAccount: Self = Self(0i32);
+    pub const Settings: Self = Self(1i32);
+    pub const ResolveErrors: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UserDataAccountProviderOperationKind {}
+impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserDataAccountProviderOperationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserDataAccountProviderOperationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountProviderOperationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderOperationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
+impl UserDataAccountProviderPartnerAccountKind {
+    pub const Exchange: Self = Self(0i32);
+    pub const PopOrImap: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserDataAccountProviderPartnerAccountKind {}
+impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserDataAccountProviderPartnerAccountKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserDataAccountProviderPartnerAccountKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserDataAccountProviderPartnerAccountKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountProviderPartnerAccountKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderPartnerAccountKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

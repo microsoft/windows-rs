@@ -1,3 +1,114 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEasClientDeviceInformation(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEasClientDeviceInformation {
+    type Vtable = IEasClientDeviceInformation_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEasClientDeviceInformation_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub OperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemManufacturer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemProductName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemSku: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEasClientDeviceInformation2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEasClientDeviceInformation2 {
+    type Vtable = IEasClientDeviceInformation2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEasClientDeviceInformation2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SystemHardwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SystemFirmwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEasClientSecurityPolicy(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEasClientSecurityPolicy {
+    type Vtable = IEasClientSecurityPolicy_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEasClientSecurityPolicy_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub RequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetRequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub MinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
+    pub SetMinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
+    pub DisallowConvenienceLogon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetDisallowConvenienceLogon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub MinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
+    pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub PasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PasswordExpiration: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetPasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetPasswordExpiration: usize,
+    pub PasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub SetPasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub MaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
+    pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub MaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MaxInactivityTimeLock: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetMaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetMaxInactivityTimeLock: usize,
+    pub CheckCompliance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ApplyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ApplyAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEasComplianceResults(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEasComplianceResults {
+    type Vtable = IEasComplianceResults_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEasComplianceResults_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Compliant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub RequireEncryptionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasRequireEncryptionResult) -> ::windows::core::HRESULT,
+    pub MinPasswordLengthResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordLengthResult) -> ::windows::core::HRESULT,
+    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasDisallowConvenienceLogonResult) -> ::windows::core::HRESULT,
+    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordComplexCharactersResult) -> ::windows::core::HRESULT,
+    pub PasswordExpirationResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordExpirationResult) -> ::windows::core::HRESULT,
+    pub PasswordHistoryResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordHistoryResult) -> ::windows::core::HRESULT,
+    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxPasswordFailedAttemptsResult) -> ::windows::core::HRESULT,
+    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEasComplianceResults2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEasComplianceResults2 {
+    type Vtable = IEasComplianceResults2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEasComplianceResults2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EncryptionProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasClientDeviceInformation(::windows::core::IUnknown);
@@ -812,117 +923,6 @@ unsafe impl ::windows::core::RuntimeType for EasRequireEncryptionResult {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEasClientDeviceInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEasClientDeviceInformation {
-    type Vtable = IEasClientDeviceInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEasClientDeviceInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub OperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SystemManufacturer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SystemProductName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SystemSku: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEasClientDeviceInformation2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEasClientDeviceInformation2 {
-    type Vtable = IEasClientDeviceInformation2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEasClientDeviceInformation2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SystemHardwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SystemFirmwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEasClientSecurityPolicy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEasClientSecurityPolicy {
-    type Vtable = IEasClientSecurityPolicy_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEasClientSecurityPolicy_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub RequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetRequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub MinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
-    pub SetMinPasswordLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
-    pub DisallowConvenienceLogon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetDisallowConvenienceLogon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub MinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
-    pub SetMinPasswordComplexCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub PasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PasswordExpiration: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetPasswordExpiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetPasswordExpiration: usize,
-    pub PasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub SetPasswordHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
-    pub MaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
-    pub SetMaxPasswordFailedAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub MaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxInactivityTimeLock: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetMaxInactivityTimeLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetMaxInactivityTimeLock: usize,
-    pub CheckCompliance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ApplyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ApplyAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEasComplianceResults(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEasComplianceResults {
-    type Vtable = IEasComplianceResults_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEasComplianceResults_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Compliant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub RequireEncryptionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasRequireEncryptionResult) -> ::windows::core::HRESULT,
-    pub MinPasswordLengthResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordLengthResult) -> ::windows::core::HRESULT,
-    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasDisallowConvenienceLogonResult) -> ::windows::core::HRESULT,
-    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordComplexCharactersResult) -> ::windows::core::HRESULT,
-    pub PasswordExpirationResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordExpirationResult) -> ::windows::core::HRESULT,
-    pub PasswordHistoryResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordHistoryResult) -> ::windows::core::HRESULT,
-    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxPasswordFailedAttemptsResult) -> ::windows::core::HRESULT,
-    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEasComplianceResults2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEasComplianceResults2 {
-    type Vtable = IEasComplianceResults2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEasComplianceResults2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EncryptionProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

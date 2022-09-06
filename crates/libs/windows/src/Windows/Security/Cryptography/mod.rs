@@ -4,40 +4,58 @@ pub mod Certificates;
 pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
-#[doc = "*Required features: `\"Security_Cryptography\"`*"]
+#[doc(hidden)]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BinaryStringEncoding(pub i32);
-impl BinaryStringEncoding {
-    pub const Utf8: Self = Self(0i32);
-    pub const Utf16LE: Self = Self(1i32);
-    pub const Utf16BE: Self = Self(2i32);
+pub struct ICryptographicBufferStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICryptographicBufferStatics {
+    type Vtable = ICryptographicBufferStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
 }
-impl ::core::marker::Copy for BinaryStringEncoding {}
-impl ::core::clone::Clone for BinaryStringEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BinaryStringEncoding {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BinaryStringEncoding {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BinaryStringEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BinaryStringEncoding").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICryptographicBufferStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object1: *mut ::core::ffi::c_void, object2: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Compare: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub GenerateRandom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GenerateRandom: usize,
+    pub GenerateRandomNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateFromByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateFromByteArray: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CopyToByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CopyToByteArray: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub DecodeFromHexString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    DecodeFromHexString: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub EncodeToHexString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    EncodeToHexString: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub DecodeFromBase64String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    DecodeFromBase64String: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub EncodeToBase64String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    EncodeToBase64String: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ConvertStringToBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, encoding: BinaryStringEncoding, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ConvertStringToBinary: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ConvertBinaryToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: BinaryStringEncoding, buffer: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ConvertBinaryToString: usize,
 }
 #[doc = "*Required features: `\"Security_Cryptography\"`*"]
 pub struct CryptographicBuffer;
@@ -156,58 +174,40 @@ impl CryptographicBuffer {
 impl ::windows::core::RuntimeName for CryptographicBuffer {
     const NAME: &'static str = "Windows.Security.Cryptography.CryptographicBuffer";
 }
-#[doc(hidden)]
+#[doc = "*Required features: `\"Security_Cryptography\"`*"]
 #[repr(transparent)]
-pub struct ICryptographicBufferStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICryptographicBufferStatics {
-    type Vtable = ICryptographicBufferStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BinaryStringEncoding(pub i32);
+impl BinaryStringEncoding {
+    pub const Utf8: Self = Self(0i32);
+    pub const Utf16LE: Self = Self(1i32);
+    pub const Utf16BE: Self = Self(2i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICryptographicBufferStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object1: *mut ::core::ffi::c_void, object2: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Compare: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub GenerateRandom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GenerateRandom: usize,
-    pub GenerateRandomNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateFromByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateFromByteArray: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub CopyToByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CopyToByteArray: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub DecodeFromHexString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    DecodeFromHexString: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub EncodeToHexString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    EncodeToHexString: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub DecodeFromBase64String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    DecodeFromBase64String: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub EncodeToBase64String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    EncodeToBase64String: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub ConvertStringToBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, encoding: BinaryStringEncoding, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ConvertStringToBinary: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub ConvertBinaryToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: BinaryStringEncoding, buffer: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ConvertBinaryToString: usize,
+impl ::core::marker::Copy for BinaryStringEncoding {}
+impl ::core::clone::Clone for BinaryStringEncoding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BinaryStringEncoding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BinaryStringEncoding {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BinaryStringEncoding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BinaryStringEncoding").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

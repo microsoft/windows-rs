@@ -1,49 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct D3D9ON12_ARGS {
-    pub Enable9On12: super::super::Foundation::BOOL,
-    pub pD3D12Device: ::core::option::Option<::windows::core::IUnknown>,
-    pub ppD3D12Queues: [::core::option::Option<::windows::core::IUnknown>; 2],
-    pub NumQueues: u32,
-    pub NodeMask: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for D3D9ON12_ARGS {
-    fn clone(&self) -> Self {
-        Self {
-            Enable9On12: self.Enable9On12,
-            pD3D12Device: self.pD3D12Device.clone(),
-            ppD3D12Queues: self.ppD3D12Queues.clone(),
-            NumQueues: self.NumQueues,
-            NodeMask: self.NodeMask,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for D3D9ON12_ARGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D9ON12_ARGS").field("Enable9On12", &self.Enable9On12).field("pD3D12Device", &self.pD3D12Device).field("ppD3D12Queues", &self.ppD3D12Queues).field("NumQueues", &self.NumQueues).field("NodeMask", &self.NodeMask).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for D3D9ON12_ARGS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D9ON12_ARGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable9On12 == other.Enable9On12 && self.pD3D12Device == other.pD3D12Device && self.ppD3D12Queues == other.ppD3D12Queues && self.NumQueues == other.NumQueues && self.NodeMask == other.NodeMask
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D9ON12_ARGS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for D3D9ON12_ARGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
@@ -140,6 +94,52 @@ pub struct IDirect3DDevice9On12_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`*"]
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D9ON12_ARGS {
+    pub Enable9On12: super::super::Foundation::BOOL,
+    pub pD3D12Device: ::core::option::Option<::windows::core::IUnknown>,
+    pub ppD3D12Queues: [::core::option::Option<::windows::core::IUnknown>; 2],
+    pub NumQueues: u32,
+    pub NodeMask: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D9ON12_ARGS {
+    fn clone(&self) -> Self {
+        Self {
+            Enable9On12: self.Enable9On12,
+            pD3D12Device: self.pD3D12Device.clone(),
+            ppD3D12Queues: self.ppD3D12Queues.clone(),
+            NumQueues: self.NumQueues,
+            NodeMask: self.NodeMask,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for D3D9ON12_ARGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D9ON12_ARGS").field("Enable9On12", &self.Enable9On12).field("pD3D12Device", &self.pD3D12Device).field("ppD3D12Queues", &self.ppD3D12Queues).field("NumQueues", &self.NumQueues).field("NodeMask", &self.NodeMask).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for D3D9ON12_ARGS {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for D3D9ON12_ARGS {
+    fn eq(&self, other: &Self) -> bool {
+        self.Enable9On12 == other.Enable9On12 && self.pD3D12Device == other.pD3D12Device && self.ppD3D12Queues == other.ppD3D12Queues && self.NumQueues == other.NumQueues && self.NodeMask == other.NodeMask
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for D3D9ON12_ARGS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for D3D9ON12_ARGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PFN_Direct3DCreate9On12 = ::core::option::Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>>;

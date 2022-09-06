@@ -2327,43 +2327,6 @@ unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LearningModelDeviceKind(pub i32);
-impl LearningModelDeviceKind {
-    pub const Default: Self = Self(0i32);
-    pub const Cpu: Self = Self(1i32);
-    pub const DirectX: Self = Self(2i32);
-    pub const DirectXHighPerformance: Self = Self(3i32);
-    pub const DirectXMinPower: Self = Self(4i32);
-}
-impl ::core::marker::Copy for LearningModelDeviceKind {}
-impl ::core::clone::Clone for LearningModelDeviceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LearningModelDeviceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LearningModelDeviceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-#[repr(transparent)]
 pub struct LearningModelEvaluationResult(::windows::core::IUnknown);
 impl LearningModelEvaluationResult {
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2459,77 +2422,6 @@ impl ::core::convert::From<&LearningModelEvaluationResult> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
-#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LearningModelFeatureKind(pub i32);
-impl LearningModelFeatureKind {
-    pub const Tensor: Self = Self(0i32);
-    pub const Sequence: Self = Self(1i32);
-    pub const Map: Self = Self(2i32);
-    pub const Image: Self = Self(3i32);
-}
-impl ::core::marker::Copy for LearningModelFeatureKind {}
-impl ::core::clone::Clone for LearningModelFeatureKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LearningModelFeatureKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LearningModelFeatureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LearningModelPixelRange(pub i32);
-impl LearningModelPixelRange {
-    pub const ZeroTo255: Self = Self(0i32);
-    pub const ZeroToOne: Self = Self(1i32);
-    pub const MinusOneToOne: Self = Self(2i32);
-}
-impl ::core::marker::Copy for LearningModelPixelRange {}
-impl ::core::clone::Clone for LearningModelPixelRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LearningModelPixelRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LearningModelPixelRange {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LearningModelPixelRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LearningModelPixelRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
 pub struct LearningModelSession(::windows::core::IUnknown);
@@ -5361,54 +5253,6 @@ unsafe impl ::core::marker::Send for TensorInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorInt8Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TensorKind(pub i32);
-impl TensorKind {
-    pub const Undefined: Self = Self(0i32);
-    pub const Float: Self = Self(1i32);
-    pub const UInt8: Self = Self(2i32);
-    pub const Int8: Self = Self(3i32);
-    pub const UInt16: Self = Self(4i32);
-    pub const Int16: Self = Self(5i32);
-    pub const Int32: Self = Self(6i32);
-    pub const Int64: Self = Self(7i32);
-    pub const String: Self = Self(8i32);
-    pub const Boolean: Self = Self(9i32);
-    pub const Float16: Self = Self(10i32);
-    pub const Double: Self = Self(11i32);
-    pub const UInt32: Self = Self(12i32);
-    pub const UInt64: Self = Self(13i32);
-    pub const Complex64: Self = Self(14i32);
-    pub const Complex128: Self = Self(15i32);
-}
-impl ::core::marker::Copy for TensorKind {}
-impl ::core::clone::Clone for TensorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TensorKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TensorKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TensorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TensorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-#[repr(transparent)]
 pub struct TensorString(::windows::core::IUnknown);
 impl TensorString {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6735,5 +6579,161 @@ impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<
 }
 unsafe impl ::core::marker::Send for TensorUInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt8Bit {}
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LearningModelDeviceKind(pub i32);
+impl LearningModelDeviceKind {
+    pub const Default: Self = Self(0i32);
+    pub const Cpu: Self = Self(1i32);
+    pub const DirectX: Self = Self(2i32);
+    pub const DirectXHighPerformance: Self = Self(3i32);
+    pub const DirectXMinPower: Self = Self(4i32);
+}
+impl ::core::marker::Copy for LearningModelDeviceKind {}
+impl ::core::clone::Clone for LearningModelDeviceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LearningModelDeviceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LearningModelDeviceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LearningModelFeatureKind(pub i32);
+impl LearningModelFeatureKind {
+    pub const Tensor: Self = Self(0i32);
+    pub const Sequence: Self = Self(1i32);
+    pub const Map: Self = Self(2i32);
+    pub const Image: Self = Self(3i32);
+}
+impl ::core::marker::Copy for LearningModelFeatureKind {}
+impl ::core::clone::Clone for LearningModelFeatureKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LearningModelFeatureKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LearningModelFeatureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LearningModelPixelRange(pub i32);
+impl LearningModelPixelRange {
+    pub const ZeroTo255: Self = Self(0i32);
+    pub const ZeroToOne: Self = Self(1i32);
+    pub const MinusOneToOne: Self = Self(2i32);
+}
+impl ::core::marker::Copy for LearningModelPixelRange {}
+impl ::core::clone::Clone for LearningModelPixelRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LearningModelPixelRange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LearningModelPixelRange {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LearningModelPixelRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LearningModelPixelRange {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"AI_MachineLearning\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TensorKind(pub i32);
+impl TensorKind {
+    pub const Undefined: Self = Self(0i32);
+    pub const Float: Self = Self(1i32);
+    pub const UInt8: Self = Self(2i32);
+    pub const Int8: Self = Self(3i32);
+    pub const UInt16: Self = Self(4i32);
+    pub const Int16: Self = Self(5i32);
+    pub const Int32: Self = Self(6i32);
+    pub const Int64: Self = Self(7i32);
+    pub const String: Self = Self(8i32);
+    pub const Boolean: Self = Self(9i32);
+    pub const Float16: Self = Self(10i32);
+    pub const Double: Self = Self(11i32);
+    pub const UInt32: Self = Self(12i32);
+    pub const UInt64: Self = Self(13i32);
+    pub const Complex64: Self = Self(14i32);
+    pub const Complex128: Self = Self(15i32);
+}
+impl ::core::marker::Copy for TensorKind {}
+impl ::core::clone::Clone for TensorKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TensorKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TensorKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TensorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TensorKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

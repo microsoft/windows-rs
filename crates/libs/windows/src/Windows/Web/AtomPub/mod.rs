@@ -1,3 +1,136 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAtomPubClient(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAtomPubClient {
+    type Vtable = IAtomPubClient_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAtomPubClient_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub RetrieveServiceDocumentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
+    RetrieveServiceDocumentAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
+    pub RetrieveMediaResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication")))]
+    RetrieveMediaResourceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub RetrieveResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
+    RetrieveResourceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub CreateResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
+    CreateResourceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
+    pub CreateMediaResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, description: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediastream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication")))]
+    CreateMediaResourceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
+    pub UpdateMediaResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediastream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication")))]
+    UpdateMediaResourceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub UpdateResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
+    UpdateResourceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub UpdateResourceItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
+    UpdateResourceItemAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub DeleteResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
+    DeleteResourceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub DeleteResourceItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
+    DeleteResourceItemAsync: usize,
+    pub CancelAsyncOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAtomPubClientFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAtomPubClientFactory {
+    type Vtable = IAtomPubClientFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d55012_57cb_4bde_ab9f_2610b172777b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAtomPubClientFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub CreateAtomPubClientWithCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servercredential: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    CreateAtomPubClientWithCredentials: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IResourceCollection(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IResourceCollection {
+    type Vtable = IResourceCollection_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IResourceCollection_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Web_Syndication")]
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Web_Syndication"))]
+    Title: usize,
+    #[cfg(feature = "Foundation")]
+    pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Uri: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
+    pub Categories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Syndication")))]
+    Categories: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Accepts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Accepts: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IServiceDocument(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IServiceDocument {
+    type Vtable = IServiceDocument_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IServiceDocument_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Workspaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Workspaces: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWorkspace(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWorkspace {
+    type Vtable = IWorkspace_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWorkspace_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Web_Syndication")]
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Web_Syndication"))]
+    Title: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Collections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Collections: usize,
+}
 #[doc = "*Required features: `\"Web_AtomPub\"`*"]
 #[repr(transparent)]
 pub struct AtomPubClient(::windows::core::IUnknown);
@@ -339,139 +472,6 @@ impl<'a> ::core::convert::TryFrom<&AtomPubClient> for ::windows::core::InParam<'
 }
 unsafe impl ::core::marker::Send for AtomPubClient {}
 unsafe impl ::core::marker::Sync for AtomPubClient {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAtomPubClient(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAtomPubClient {
-    type Vtable = IAtomPubClient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAtomPubClient_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub RetrieveServiceDocumentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
-    RetrieveServiceDocumentAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub RetrieveMediaResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication")))]
-    RetrieveMediaResourceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub RetrieveResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
-    RetrieveResourceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub CreateResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
-    CreateResourceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub CreateMediaResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, description: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediastream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication")))]
-    CreateMediaResourceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub UpdateMediaResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediastream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication")))]
-    UpdateMediaResourceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub UpdateResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
-    UpdateResourceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub UpdateResourceItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
-    UpdateResourceItemAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub DeleteResourceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
-    DeleteResourceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub DeleteResourceItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Syndication")))]
-    DeleteResourceItemAsync: usize,
-    pub CancelAsyncOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAtomPubClientFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAtomPubClientFactory {
-    type Vtable = IAtomPubClientFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d55012_57cb_4bde_ab9f_2610b172777b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAtomPubClientFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub CreateAtomPubClientWithCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servercredential: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    CreateAtomPubClientWithCredentials: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IResourceCollection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IResourceCollection {
-    type Vtable = IResourceCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IResourceCollection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Web_Syndication")]
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Web_Syndication"))]
-    Title: usize,
-    #[cfg(feature = "Foundation")]
-    pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Uri: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
-    pub Categories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Syndication")))]
-    Categories: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Accepts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Accepts: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IServiceDocument(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IServiceDocument {
-    type Vtable = IServiceDocument_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IServiceDocument_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Workspaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Workspaces: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWorkspace(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWorkspace {
-    type Vtable = IWorkspace_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWorkspace_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Web_Syndication")]
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Web_Syndication"))]
-    Title: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Collections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Collections: usize,
-}
 #[doc = "*Required features: `\"Web_AtomPub\"`*"]
 #[repr(transparent)]
 pub struct ResourceCollection(::windows::core::IUnknown);

@@ -1,483 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub struct ACT_AUTHORIZATION_STATE {
-    pub ulState: u32,
-}
-impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE {}
-impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACT_AUTHORIZATION_STATE").field("ulState", &self.ulState).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACT_AUTHORIZATION_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACT_AUTHORIZATION_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACT_AUTHORIZATION_STATE {}
-impl ::core::default::Default for ACT_AUTHORIZATION_STATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
-impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE_VALUE {}
-impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACT_AUTHORIZATION_STATE_VALUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE_VALUE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACT_AUTHORIZATION_STATE_VALUE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_UNAUTHORIZE_ON_SUSPEND: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const APPUSERMODEL_STARTPINOPTION_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const APPUSERMODEL_STARTPINOPTION_NOPINONINSTALL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const APPUSERMODEL_STARTPINOPTION_USERPINNED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const AUDIO_CHANNELCOUNT_MONO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const AUDIO_CHANNELCOUNT_STEREO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const BLUETOOTH_ADDRESS_TYPE_PUBLIC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const BLUETOOTH_ADDRESS_TYPE_RANDOM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const BLUETOOTH_CACHED_MODE_UNCACHED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const BLUETOOTH_CACHE_MODE_CACHED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_CAPABILITY_CERTIFICATE_SUPPORT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_CAPABILITY_HASH_ALG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_CAPABILITY_OPTIONAL_FEATURES: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_CAPABILITY_SIGNATURE_ALG: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_MAX_CAPABILITY: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_RSASSA_PSS_SHA1_OID: &str = "1.2.840.113549.1.1.10,1.3.14.3.2.26";
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_RSASSA_PSS_SHA256_OID: &str = "1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.1";
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_RSASSA_PSS_SHA384_OID: &str = "1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.2";
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_RSASSA_PSS_SHA512_OID: &str = "1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.3";
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_RSA_1024_OID: &str = "1.2.840.113549.1.1.1,1024";
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_RSA_2048_OID: &str = "1.2.840.113549.1.1.1,2048";
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_RSA_3072_OID: &str = "1.2.840.113549.1.1.1,3072";
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_TYPE_ASCh: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_TYPE_ASCm: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_TYPE_EMPTY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_TYPE_HCh: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_TYPE_PCp: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_TYPE_SIGNER: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_VALIDATION_POLICY_BASIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_VALIDATION_POLICY_EXTENDED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_VALIDATION_POLICY_NONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CERT_VALIDATION_POLICY_RESERVED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CREATOROPENWITHUIOPTION_HIDDEN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const CREATOROPENWITHUIOPTION_VISIBLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATION_DENIED: u32 = 2147483649u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ENHANCED_STORAGE_AUTHN_STATE_DEVICE_ERROR: u32 = 2147483650u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ENHANCED_STORAGE_AUTHN_STATE_NOT_AUTHENTICATED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ENHANCED_STORAGE_AUTHN_STATE_NO_AUTHENTICATION_REQUIRED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ENHANCED_STORAGE_AUTHN_STATE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4002u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_CAPABILITY_CERTIFICATE_EXTENSION_PARSING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4005u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_CAPABILITY_HASH_ALGS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4001u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_CAPABILITY_RENDER_USER_DATA_UNUSABLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4004u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_CAPABILITY_SIGNING_ALGS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4003u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_ADMIN_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 103u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_CREATE_CERTIFICATE_REQUEST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 108u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_DEVICE_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 102u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_ACT_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 113u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 106u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 105u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 112u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 111u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 114u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_HOST_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 101u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_INITIALIZE_TO_MANUFACTURER_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 104u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_SET_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 107u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_CERT_UNAUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 110u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_AUTHORIZE_ACT_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 203u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CHANGE_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 209u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CONFIG_ADMINISTRATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 206u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CREATE_USER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 207u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_DELETE_USER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 208u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_INITIALIZE_USER_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 210u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_QUERY_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 205u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_START_INITIALIZE_TO_MANUFACTURER_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 211u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_PASSWORD_UNAUTHORIZE_ACT_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 204u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_SILO_ENUMERATE_SILOS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 11u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_SILO_GET_AUTHENTICATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 7u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 6u32 };
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    pub CurrentAdminFailures: u8,
-    pub CurrentUserFailures: u8,
-    pub TotalUserAuthenticationCount: u32,
-    pub TotalAdminAuthenticationCount: u32,
-    pub FipsCompliant: super::super::Foundation::BOOL,
-    pub SecurityIDAvailable: super::super::Foundation::BOOL,
-    pub InitializeInProgress: super::super::Foundation::BOOL,
-    pub ITMSArmed: super::super::Foundation::BOOL,
-    pub ITMSArmable: super::super::Foundation::BOOL,
-    pub UserCreated: super::super::Foundation::BOOL,
-    pub ResetOnPORDefault: super::super::Foundation::BOOL,
-    pub ResetOnPORCurrent: super::super::Foundation::BOOL,
-    pub MaxAdminFailures: u8,
-    pub MaxUserFailures: u8,
-    pub TimeToCompleteInitialization: u32,
-    pub TimeRemainingToCompleteInitialization: u32,
-    pub MinTimeToAuthenticate: u32,
-    pub MaxAdminPasswordSize: u8,
-    pub MinAdminPasswordSize: u8,
-    pub MaxAdminHintSize: u8,
-    pub MaxUserPasswordSize: u8,
-    pub MinUserPasswordSize: u8,
-    pub MaxUserHintSize: u8,
-    pub MaxUserNameSize: u8,
-    pub MaxSiloNameSize: u8,
-    pub MaxChallengeSize: u16,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION")
-            .field("CurrentAdminFailures", &self.CurrentAdminFailures)
-            .field("CurrentUserFailures", &self.CurrentUserFailures)
-            .field("TotalUserAuthenticationCount", &self.TotalUserAuthenticationCount)
-            .field("TotalAdminAuthenticationCount", &self.TotalAdminAuthenticationCount)
-            .field("FipsCompliant", &self.FipsCompliant)
-            .field("SecurityIDAvailable", &self.SecurityIDAvailable)
-            .field("InitializeInProgress", &self.InitializeInProgress)
-            .field("ITMSArmed", &self.ITMSArmed)
-            .field("ITMSArmable", &self.ITMSArmable)
-            .field("UserCreated", &self.UserCreated)
-            .field("ResetOnPORDefault", &self.ResetOnPORDefault)
-            .field("ResetOnPORCurrent", &self.ResetOnPORCurrent)
-            .field("MaxAdminFailures", &self.MaxAdminFailures)
-            .field("MaxUserFailures", &self.MaxUserFailures)
-            .field("TimeToCompleteInitialization", &self.TimeToCompleteInitialization)
-            .field("TimeRemainingToCompleteInitialization", &self.TimeRemainingToCompleteInitialization)
-            .field("MinTimeToAuthenticate", &self.MinTimeToAuthenticate)
-            .field("MaxAdminPasswordSize", &self.MaxAdminPasswordSize)
-            .field("MinAdminPasswordSize", &self.MinAdminPasswordSize)
-            .field("MaxAdminHintSize", &self.MaxAdminHintSize)
-            .field("MaxUserPasswordSize", &self.MaxUserPasswordSize)
-            .field("MinUserPasswordSize", &self.MinUserPasswordSize)
-            .field("MaxUserHintSize", &self.MaxUserHintSize)
-            .field("MaxUserNameSize", &self.MaxUserNameSize)
-            .field("MaxSiloNameSize", &self.MaxSiloNameSize)
-            .field("MaxChallengeSize", &self.MaxChallengeSize)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2011u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1006u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3009u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_ACT_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3014u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_CAPABILITY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3011u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3003u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_LENGTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3008u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_REQUEST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3010u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3013u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3012u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3015u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3004u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_IS_AUTHENTICATION_SILO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1009u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_MAX_AUTH_FAILURES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2001u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_MAX_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3001u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2008u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD_INDICATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2007u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3006u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_OF_TYPE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3007u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_OLD_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2005u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2004u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_INDICATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2006u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_SILO_INFO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2014u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2017u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2016u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_SECURITY_IDENTIFIER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2015u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_SIGNER_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3016u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_SILO_FRIENDLYNAME_SPECIFIED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2013u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_SILO_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2012u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_STORED_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3002u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_TEMPORARY_UNAUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1010u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_USER_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2009u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_USER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2010u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const ENHANCED_STORAGE_PROPERTY_VALIDATION_POLICY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3005u32 };
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_AUTHN_ERROR_END: u32 = 1279u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_AUTHN_ERROR_START: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_GENERAL_ERROR_END: u32 = 1023u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_GENERAL_ERROR_START: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_PW_SILO_ERROR_END: u32 = 4607u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_PW_SILO_ERROR_START: u32 = 4352u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_RESERVED_COM_ERROR_END: u32 = 511u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_RESERVED_COM_ERROR_START: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_RESERVED_SILO_ERROR_END: u32 = 4095u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_RESERVED_SILO_ERROR_START: u32 = 1280u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
-pub const EnhancedStorageACT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf076a15_2ece_4ad4_bb21_29f040e176d8);
-pub const EnhancedStorageSilo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb25220c_76c7_4fee_842b_f3383cd022bc);
-pub const EnhancedStorageSiloAction: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
-pub const EnumEnhancedStorageACT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FILEOFFLINEAVAILABILITYSTATUS_EXCLUDED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FILEOFFLINEAVAILABILITYSTATUS_FOLDER_EMPTY: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FILEOFFLINEAVAILABILITYSTATUS_NOTAVAILABLEOFFLINE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FILEOFFLINEAVAILABILITYSTATUS_PARTIAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FLAGSTATUS_COMPLETED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FLAGSTATUS_FOLLOWUP: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const FLAGSTATUS_NOTFLAGGED: i32 = 0i32;
-pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3897f6a4_fd35_4bc8_a0b7_5dbba36adafa);
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 #[repr(transparent)]
 pub struct IEnhancedStorageACT(::windows::core::IUnknown);
@@ -965,6 +485,339 @@ pub struct IEnumEnhancedStorageACT_Vtbl {
     pub GetACTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut *mut ::core::ffi::c_void, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT,
     pub GetMatchingACT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: ::windows::core::PCWSTR, ppienhancedstorageact: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_UNAUTHORIZE_ON_SUSPEND: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const APPUSERMODEL_STARTPINOPTION_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const APPUSERMODEL_STARTPINOPTION_NOPINONINSTALL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const APPUSERMODEL_STARTPINOPTION_USERPINNED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const AUDIO_CHANNELCOUNT_MONO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const AUDIO_CHANNELCOUNT_STEREO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const BLUETOOTH_ADDRESS_TYPE_PUBLIC: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const BLUETOOTH_ADDRESS_TYPE_RANDOM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const BLUETOOTH_CACHED_MODE_UNCACHED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const BLUETOOTH_CACHE_MODE_CACHED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_CAPABILITY_CERTIFICATE_SUPPORT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_CAPABILITY_HASH_ALG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_CAPABILITY_OPTIONAL_FEATURES: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_CAPABILITY_SIGNATURE_ALG: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_MAX_CAPABILITY: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_RSASSA_PSS_SHA1_OID: &str = "1.2.840.113549.1.1.10,1.3.14.3.2.26";
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_RSASSA_PSS_SHA256_OID: &str = "1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.1";
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_RSASSA_PSS_SHA384_OID: &str = "1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.2";
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_RSASSA_PSS_SHA512_OID: &str = "1.2.840.113549.1.1.10,2.16.840.1.101.3.4.2.3";
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_RSA_1024_OID: &str = "1.2.840.113549.1.1.1,1024";
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_RSA_2048_OID: &str = "1.2.840.113549.1.1.1,2048";
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_RSA_3072_OID: &str = "1.2.840.113549.1.1.1,3072";
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_TYPE_ASCh: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_TYPE_ASCm: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_TYPE_EMPTY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_TYPE_HCh: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_TYPE_PCp: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_TYPE_SIGNER: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_VALIDATION_POLICY_BASIC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_VALIDATION_POLICY_EXTENDED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_VALIDATION_POLICY_NONE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CERT_VALIDATION_POLICY_RESERVED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CREATOROPENWITHUIOPTION_HIDDEN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const CREATOROPENWITHUIOPTION_VISIBLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATION_DENIED: u32 = 2147483649u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ENHANCED_STORAGE_AUTHN_STATE_DEVICE_ERROR: u32 = 2147483650u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ENHANCED_STORAGE_AUTHN_STATE_NOT_AUTHENTICATED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ENHANCED_STORAGE_AUTHN_STATE_NO_AUTHENTICATION_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ENHANCED_STORAGE_AUTHN_STATE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4002u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_CAPABILITY_CERTIFICATE_EXTENSION_PARSING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4005u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_CAPABILITY_HASH_ALGS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4001u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_CAPABILITY_RENDER_USER_DATA_UNUSABLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4004u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_CAPABILITY_SIGNING_ALGS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 4003u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_ADMIN_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 103u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_CREATE_CERTIFICATE_REQUEST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 108u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_DEVICE_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 102u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_ACT_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 113u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 106u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 105u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 112u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 111u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 114u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_HOST_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 101u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_INITIALIZE_TO_MANUFACTURER_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 104u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_SET_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 107u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_CERT_UNAUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 110u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_AUTHORIZE_ACT_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 203u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CHANGE_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 209u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CONFIG_ADMINISTRATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 206u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CREATE_USER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 207u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_DELETE_USER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 208u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_INITIALIZE_USER_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 210u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_QUERY_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 205u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_START_INITIALIZE_TO_MANUFACTURER_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 211u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_PASSWORD_UNAUTHORIZE_ACT_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 204u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_SILO_ENUMERATE_SILOS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 11u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_SILO_GET_AUTHENTICATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 7u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 6u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2011u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1006u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3009u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_ACT_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3014u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_CAPABILITY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3011u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3003u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_LENGTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3008u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_REQUEST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3010u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3013u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3012u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3015u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3004u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_IS_AUTHENTICATION_SILO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1009u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_MAX_AUTH_FAILURES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2001u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_MAX_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3001u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2008u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD_INDICATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2007u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3006u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_OF_TYPE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3007u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_OLD_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2005u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2004u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_INDICATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2006u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_SILO_INFO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2014u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2017u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2016u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_SECURITY_IDENTIFIER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2015u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_SIGNER_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3016u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_SILO_FRIENDLYNAME_SPECIFIED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2013u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_SILO_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2012u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_STORED_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3002u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_TEMPORARY_UNAUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 1010u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_USER_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2009u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_USER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 2010u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const ENHANCED_STORAGE_PROPERTY_VALIDATION_POLICY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c), pid: 3005u32 };
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_AUTHN_ERROR_END: u32 = 1279u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_AUTHN_ERROR_START: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_GENERAL_ERROR_END: u32 = 1023u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_GENERAL_ERROR_START: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_PW_SILO_ERROR_END: u32 = 4607u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_PW_SILO_ERROR_START: u32 = 4352u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_RESERVED_COM_ERROR_END: u32 = 511u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_RESERVED_COM_ERROR_START: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_RESERVED_SILO_ERROR_END: u32 = 4095u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_RESERVED_SILO_ERROR_START: u32 = 1280u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
+pub const EnhancedStorageACT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf076a15_2ece_4ad4_bb21_29f040e176d8);
+pub const EnhancedStorageSilo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb25220c_76c7_4fee_842b_f3383cd022bc);
+pub const EnhancedStorageSiloAction: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
+pub const EnumEnhancedStorageACT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FILEOFFLINEAVAILABILITYSTATUS_EXCLUDED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FILEOFFLINEAVAILABILITYSTATUS_FOLDER_EMPTY: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FILEOFFLINEAVAILABILITYSTATUS_NOTAVAILABLEOFFLINE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FILEOFFLINEAVAILABILITYSTATUS_PARTIAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FLAGSTATUS_COMPLETED: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FLAGSTATUS_FOLLOWUP: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const FLAGSTATUS_NOTFLAGGED: i32 = 0i32;
+pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3897f6a4_fd35_4bc8_a0b7_5dbba36adafa);
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
@@ -4399,42 +4252,6 @@ pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub struct SILO_INFO {
-    pub ulSTID: u32,
-    pub SpecificationMajor: u8,
-    pub SpecificationMinor: u8,
-    pub ImplementationMajor: u8,
-    pub ImplementationMinor: u8,
-    pub r#type: u8,
-    pub capabilities: u8,
-}
-impl ::core::marker::Copy for SILO_INFO {}
-impl ::core::clone::Clone for SILO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SILO_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SILO_INFO").field("ulSTID", &self.ulSTID).field("SpecificationMajor", &self.SpecificationMajor).field("SpecificationMinor", &self.SpecificationMinor).field("ImplementationMajor", &self.ImplementationMajor).field("ImplementationMinor", &self.ImplementationMinor).field("type", &self.r#type).field("capabilities", &self.capabilities).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SILO_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SILO_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SILO_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SILO_INFO {}
-impl ::core::default::Default for SILO_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const STORAGE_PROVIDER_SHARE_STATUS_GROUP: &str = "Group";
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
@@ -4486,5 +4303,188 @@ pub const SYNC_STATE_SYNCING: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const SYNC_STATE_SYNCNOTRUN: u32 = 1u32;
 pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c);
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
+impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE_VALUE {}
+impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ACT_AUTHORIZATION_STATE_VALUE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE_VALUE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACT_AUTHORIZATION_STATE_VALUE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub struct ACT_AUTHORIZATION_STATE {
+    pub ulState: u32,
+}
+impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE {}
+impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACT_AUTHORIZATION_STATE").field("ulState", &self.ulState).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACT_AUTHORIZATION_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACT_AUTHORIZATION_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACT_AUTHORIZATION_STATE {}
+impl ::core::default::Default for ACT_AUTHORIZATION_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    pub CurrentAdminFailures: u8,
+    pub CurrentUserFailures: u8,
+    pub TotalUserAuthenticationCount: u32,
+    pub TotalAdminAuthenticationCount: u32,
+    pub FipsCompliant: super::super::Foundation::BOOL,
+    pub SecurityIDAvailable: super::super::Foundation::BOOL,
+    pub InitializeInProgress: super::super::Foundation::BOOL,
+    pub ITMSArmed: super::super::Foundation::BOOL,
+    pub ITMSArmable: super::super::Foundation::BOOL,
+    pub UserCreated: super::super::Foundation::BOOL,
+    pub ResetOnPORDefault: super::super::Foundation::BOOL,
+    pub ResetOnPORCurrent: super::super::Foundation::BOOL,
+    pub MaxAdminFailures: u8,
+    pub MaxUserFailures: u8,
+    pub TimeToCompleteInitialization: u32,
+    pub TimeRemainingToCompleteInitialization: u32,
+    pub MinTimeToAuthenticate: u32,
+    pub MaxAdminPasswordSize: u8,
+    pub MinAdminPasswordSize: u8,
+    pub MaxAdminHintSize: u8,
+    pub MaxUserPasswordSize: u8,
+    pub MinUserPasswordSize: u8,
+    pub MaxUserHintSize: u8,
+    pub MaxUserNameSize: u8,
+    pub MaxSiloNameSize: u8,
+    pub MaxChallengeSize: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION")
+            .field("CurrentAdminFailures", &self.CurrentAdminFailures)
+            .field("CurrentUserFailures", &self.CurrentUserFailures)
+            .field("TotalUserAuthenticationCount", &self.TotalUserAuthenticationCount)
+            .field("TotalAdminAuthenticationCount", &self.TotalAdminAuthenticationCount)
+            .field("FipsCompliant", &self.FipsCompliant)
+            .field("SecurityIDAvailable", &self.SecurityIDAvailable)
+            .field("InitializeInProgress", &self.InitializeInProgress)
+            .field("ITMSArmed", &self.ITMSArmed)
+            .field("ITMSArmable", &self.ITMSArmable)
+            .field("UserCreated", &self.UserCreated)
+            .field("ResetOnPORDefault", &self.ResetOnPORDefault)
+            .field("ResetOnPORCurrent", &self.ResetOnPORCurrent)
+            .field("MaxAdminFailures", &self.MaxAdminFailures)
+            .field("MaxUserFailures", &self.MaxUserFailures)
+            .field("TimeToCompleteInitialization", &self.TimeToCompleteInitialization)
+            .field("TimeRemainingToCompleteInitialization", &self.TimeRemainingToCompleteInitialization)
+            .field("MinTimeToAuthenticate", &self.MinTimeToAuthenticate)
+            .field("MaxAdminPasswordSize", &self.MaxAdminPasswordSize)
+            .field("MinAdminPasswordSize", &self.MinAdminPasswordSize)
+            .field("MaxAdminHintSize", &self.MaxAdminHintSize)
+            .field("MaxUserPasswordSize", &self.MaxUserPasswordSize)
+            .field("MinUserPasswordSize", &self.MinUserPasswordSize)
+            .field("MaxUserHintSize", &self.MaxUserHintSize)
+            .field("MaxUserNameSize", &self.MaxUserNameSize)
+            .field("MaxSiloNameSize", &self.MaxSiloNameSize)
+            .field("MaxChallengeSize", &self.MaxChallengeSize)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub struct SILO_INFO {
+    pub ulSTID: u32,
+    pub SpecificationMajor: u8,
+    pub SpecificationMinor: u8,
+    pub ImplementationMajor: u8,
+    pub ImplementationMinor: u8,
+    pub r#type: u8,
+    pub capabilities: u8,
+}
+impl ::core::marker::Copy for SILO_INFO {}
+impl ::core::clone::Clone for SILO_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SILO_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SILO_INFO").field("ulSTID", &self.ulSTID).field("SpecificationMajor", &self.SpecificationMajor).field("SpecificationMinor", &self.SpecificationMinor).field("ImplementationMajor", &self.ImplementationMajor).field("ImplementationMinor", &self.ImplementationMinor).field("type", &self.r#type).field("capabilities", &self.capabilities).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SILO_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SILO_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SILO_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SILO_INFO {}
+impl ::core::default::Default for SILO_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

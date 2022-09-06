@@ -2,6 +2,243 @@
 pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryCount: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const freshSoHRequest: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxConnectionCountPerEnforcer: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxEnforcerCount: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxNetworkSoHSize: u32 = 4000u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxPrivateDataSize: u32 = 200u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxSoHAttributeCount: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxSoHAttributeSize: u32 = 4000u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxStringLength: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const maxSystemHealthEntityCount: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const minNetworkSoHSize: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const percentageNotSupported: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const shaFixup: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ExtendedIsolationState(pub i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateTransition: ExtendedIsolationState = ExtendedIsolationState(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateInfected: ExtendedIsolationState = ExtendedIsolationState(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateUnknown: ExtendedIsolationState = ExtendedIsolationState(3i32);
+impl ::core::marker::Copy for ExtendedIsolationState {}
+impl ::core::clone::Clone for ExtendedIsolationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ExtendedIsolationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ExtendedIsolationState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ExtendedIsolationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedIsolationState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FailureCategory(pub i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryNone: FailureCategory = FailureCategory(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryOther: FailureCategory = FailureCategory(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryClientComponent: FailureCategory = FailureCategory(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryClientCommunication: FailureCategory = FailureCategory(3i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryServerComponent: FailureCategory = FailureCategory(4i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryServerCommunication: FailureCategory = FailureCategory(5i32);
+impl ::core::marker::Copy for FailureCategory {}
+impl ::core::clone::Clone for FailureCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FailureCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FailureCategory {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FailureCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FailureCategory").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FixupState(pub i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const fixupStateSuccess: FixupState = FixupState(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const fixupStateInProgress: FixupState = FixupState(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const fixupStateCouldNotUpdate: FixupState = FixupState(2i32);
+impl ::core::marker::Copy for FixupState {}
+impl ::core::clone::Clone for FixupState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FixupState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FixupState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FixupState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FixupState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolationState(pub i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const isolationStateNotRestricted: IsolationState = IsolationState(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const isolationStateInProbation: IsolationState = IsolationState(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const isolationStateRestrictedAccess: IsolationState = IsolationState(3i32);
+impl ::core::marker::Copy for IsolationState {}
+impl ::core::clone::Clone for IsolationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolationState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolationState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NapNotifyType(pub i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const napNotifyTypeUnknown: NapNotifyType = NapNotifyType(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const napNotifyTypeServiceState: NapNotifyType = NapNotifyType(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const napNotifyTypeQuarState: NapNotifyType = NapNotifyType(2i32);
+impl ::core::marker::Copy for NapNotifyType {}
+impl ::core::clone::Clone for NapNotifyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NapNotifyType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NapNotifyType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NapNotifyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NapNotifyType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NapTracingLevel(pub i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelBasic: NapTracingLevel = NapTracingLevel(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelAdvanced: NapTracingLevel = NapTracingLevel(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelDebug: NapTracingLevel = NapTracingLevel(3i32);
+impl ::core::marker::Copy for NapTracingLevel {}
+impl ::core::clone::Clone for NapTracingLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NapTracingLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NapTracingLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NapTracingLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NapTracingLevel").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteConfigurationType(pub i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const remoteConfigTypeMachine: RemoteConfigurationType = RemoteConfigurationType(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const remoteConfigTypeConfigBlob: RemoteConfigurationType = RemoteConfigurationType(2i32);
+impl ::core::marker::Copy for RemoteConfigurationType {}
+impl ::core::clone::Clone for RemoteConfigurationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteConfigurationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteConfigurationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteConfigurationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteConfigurationType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -70,72 +307,6 @@ impl ::core::cmp::Eq for CountedString {}
 impl ::core::default::Default for CountedString {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ExtendedIsolationState(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateTransition: ExtendedIsolationState = ExtendedIsolationState(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateInfected: ExtendedIsolationState = ExtendedIsolationState(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateUnknown: ExtendedIsolationState = ExtendedIsolationState(3i32);
-impl ::core::marker::Copy for ExtendedIsolationState {}
-impl ::core::clone::Clone for ExtendedIsolationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedIsolationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ExtendedIsolationState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ExtendedIsolationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedIsolationState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FailureCategory(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryNone: FailureCategory = FailureCategory(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryOther: FailureCategory = FailureCategory(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryClientComponent: FailureCategory = FailureCategory(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryClientCommunication: FailureCategory = FailureCategory(3i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryServerComponent: FailureCategory = FailureCategory(4i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryServerCommunication: FailureCategory = FailureCategory(5i32);
-impl ::core::marker::Copy for FailureCategory {}
-impl ::core::clone::Clone for FailureCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FailureCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FailureCategory {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FailureCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FailureCategory").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -207,35 +378,6 @@ impl ::core::cmp::Eq for FixupInfo {}
 impl ::core::default::Default for FixupInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FixupState(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const fixupStateSuccess: FixupState = FixupState(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const fixupStateInProgress: FixupState = FixupState(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const fixupStateCouldNotUpdate: FixupState = FixupState(2i32);
-impl ::core::marker::Copy for FixupState {}
-impl ::core::clone::Clone for FixupState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FixupState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FixupState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FixupState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FixupState").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -379,35 +521,6 @@ impl ::core::default::Default for IsolationInfoEx {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolationState(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const isolationStateNotRestricted: IsolationState = IsolationState(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const isolationStateInProbation: IsolationState = IsolationState(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const isolationStateRestrictedAccess: IsolationState = IsolationState(3i32);
-impl ::core::marker::Copy for IsolationState {}
-impl ::core::clone::Clone for IsolationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolationState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolationState").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -452,66 +565,6 @@ impl ::core::cmp::Eq for NapComponentRegistrationInfo {}
 impl ::core::default::Default for NapComponentRegistrationInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NapNotifyType(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const napNotifyTypeUnknown: NapNotifyType = NapNotifyType(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const napNotifyTypeServiceState: NapNotifyType = NapNotifyType(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const napNotifyTypeQuarState: NapNotifyType = NapNotifyType(2i32);
-impl ::core::marker::Copy for NapNotifyType {}
-impl ::core::clone::Clone for NapNotifyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NapNotifyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NapNotifyType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NapNotifyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NapNotifyType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NapTracingLevel(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelBasic: NapTracingLevel = NapTracingLevel(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelAdvanced: NapTracingLevel = NapTracingLevel(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelDebug: NapTracingLevel = NapTracingLevel(3i32);
-impl ::core::marker::Copy for NapTracingLevel {}
-impl ::core::clone::Clone for NapTracingLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NapTracingLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NapTracingLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NapTracingLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NapTracingLevel").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -574,33 +627,6 @@ impl ::core::cmp::Eq for PrivateData {}
 impl ::core::default::Default for PrivateData {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteConfigurationType(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const remoteConfigTypeMachine: RemoteConfigurationType = RemoteConfigurationType(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const remoteConfigTypeConfigBlob: RemoteConfigurationType = RemoteConfigurationType(2i32);
-impl ::core::marker::Copy for RemoteConfigurationType {}
-impl ::core::clone::Clone for RemoteConfigurationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteConfigurationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteConfigurationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteConfigurationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteConfigurationType").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -730,31 +756,5 @@ impl ::core::default::Default for SystemHealthAgentState {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryCount: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const freshSoHRequest: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxConnectionCountPerEnforcer: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxEnforcerCount: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxNetworkSoHSize: u32 = 4000u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxPrivateDataSize: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxSoHAttributeCount: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxSoHAttributeSize: u32 = 4000u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxStringLength: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const maxSystemHealthEntityCount: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const minNetworkSoHSize: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const percentageNotSupported: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const shaFixup: u32 = 1u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

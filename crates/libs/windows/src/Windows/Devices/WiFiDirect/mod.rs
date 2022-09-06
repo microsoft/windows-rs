@@ -436,41 +436,6 @@ unsafe impl ::core::marker::Send for WiFiDirectAdvertisement {}
 unsafe impl ::core::marker::Sync for WiFiDirectAdvertisement {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WiFiDirectAdvertisementListenStateDiscoverability(pub i32);
-impl WiFiDirectAdvertisementListenStateDiscoverability {
-    pub const None: Self = Self(0i32);
-    pub const Normal: Self = Self(1i32);
-    pub const Intensive: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WiFiDirectAdvertisementListenStateDiscoverability {}
-impl ::core::clone::Clone for WiFiDirectAdvertisementListenStateDiscoverability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WiFiDirectAdvertisementListenStateDiscoverability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementListenStateDiscoverability {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WiFiDirectAdvertisementListenStateDiscoverability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectAdvertisementListenStateDiscoverability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementListenStateDiscoverability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementListenStateDiscoverability;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-#[repr(transparent)]
 pub struct WiFiDirectAdvertisementPublisher(::windows::core::IUnknown);
 impl WiFiDirectAdvertisementPublisher {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -585,42 +550,6 @@ unsafe impl ::core::marker::Send for WiFiDirectAdvertisementPublisher {}
 unsafe impl ::core::marker::Sync for WiFiDirectAdvertisementPublisher {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WiFiDirectAdvertisementPublisherStatus(pub i32);
-impl WiFiDirectAdvertisementPublisherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const Stopped: Self = Self(2i32);
-    pub const Aborted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for WiFiDirectAdvertisementPublisherStatus {}
-impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WiFiDirectAdvertisementPublisherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementPublisherStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectAdvertisementPublisherStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-#[repr(transparent)]
 pub struct WiFiDirectAdvertisementPublisherStatusChangedEventArgs(::windows::core::IUnknown);
 impl WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     pub fn Status(&self) -> ::windows::core::Result<WiFiDirectAdvertisementPublisherStatus> {
@@ -700,41 +629,6 @@ impl ::core::convert::From<&WiFiDirectAdvertisementPublisherStatusChangedEventAr
 }
 unsafe impl ::core::marker::Send for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WiFiDirectConfigurationMethod(pub i32);
-impl WiFiDirectConfigurationMethod {
-    pub const ProvidePin: Self = Self(0i32);
-    pub const DisplayPin: Self = Self(1i32);
-    pub const PushButton: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WiFiDirectConfigurationMethod {}
-impl ::core::clone::Clone for WiFiDirectConfigurationMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WiFiDirectConfigurationMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WiFiDirectConfigurationMethod {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WiFiDirectConfigurationMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectConfigurationMethod").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WiFiDirectConfigurationMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectConnectionListener(::windows::core::IUnknown);
@@ -1147,40 +1041,6 @@ unsafe impl ::core::marker::Send for WiFiDirectConnectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectConnectionRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WiFiDirectConnectionStatus(pub i32);
-impl WiFiDirectConnectionStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WiFiDirectConnectionStatus {}
-impl ::core::clone::Clone for WiFiDirectConnectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WiFiDirectConnectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WiFiDirectConnectionStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WiFiDirectConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectConnectionStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConnectionStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-#[repr(transparent)]
 pub struct WiFiDirectDevice(::windows::core::IUnknown);
 impl WiFiDirectDevice {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1356,75 +1216,6 @@ impl<'a> ::core::convert::TryFrom<&WiFiDirectDevice> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for WiFiDirectDevice {}
 unsafe impl ::core::marker::Sync for WiFiDirectDevice {}
-#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WiFiDirectDeviceSelectorType(pub i32);
-impl WiFiDirectDeviceSelectorType {
-    pub const DeviceInterface: Self = Self(0i32);
-    pub const AssociationEndpoint: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WiFiDirectDeviceSelectorType {}
-impl ::core::clone::Clone for WiFiDirectDeviceSelectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WiFiDirectDeviceSelectorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WiFiDirectDeviceSelectorType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WiFiDirectDeviceSelectorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectDeviceSelectorType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WiFiDirectDeviceSelectorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectDeviceSelectorType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WiFiDirectError(pub i32);
-impl WiFiDirectError {
-    pub const Success: Self = Self(0i32);
-    pub const RadioNotAvailable: Self = Self(1i32);
-    pub const ResourceInUse: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WiFiDirectError {}
-impl ::core::clone::Clone for WiFiDirectError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WiFiDirectError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WiFiDirectError {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WiFiDirectError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiDirectError").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WiFiDirectError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectError;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 pub struct WiFiDirectInformationElement(::windows::core::IUnknown);
@@ -1683,6 +1474,215 @@ impl ::core::convert::From<&WiFiDirectLegacySettings> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for WiFiDirectLegacySettings {}
 unsafe impl ::core::marker::Sync for WiFiDirectLegacySettings {}
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WiFiDirectAdvertisementListenStateDiscoverability(pub i32);
+impl WiFiDirectAdvertisementListenStateDiscoverability {
+    pub const None: Self = Self(0i32);
+    pub const Normal: Self = Self(1i32);
+    pub const Intensive: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WiFiDirectAdvertisementListenStateDiscoverability {}
+impl ::core::clone::Clone for WiFiDirectAdvertisementListenStateDiscoverability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WiFiDirectAdvertisementListenStateDiscoverability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementListenStateDiscoverability {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WiFiDirectAdvertisementListenStateDiscoverability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectAdvertisementListenStateDiscoverability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementListenStateDiscoverability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementListenStateDiscoverability;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WiFiDirectAdvertisementPublisherStatus(pub i32);
+impl WiFiDirectAdvertisementPublisherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const Stopped: Self = Self(2i32);
+    pub const Aborted: Self = Self(3i32);
+}
+impl ::core::marker::Copy for WiFiDirectAdvertisementPublisherStatus {}
+impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WiFiDirectAdvertisementPublisherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementPublisherStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectAdvertisementPublisherStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisherStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WiFiDirectConfigurationMethod(pub i32);
+impl WiFiDirectConfigurationMethod {
+    pub const ProvidePin: Self = Self(0i32);
+    pub const DisplayPin: Self = Self(1i32);
+    pub const PushButton: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WiFiDirectConfigurationMethod {}
+impl ::core::clone::Clone for WiFiDirectConfigurationMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WiFiDirectConfigurationMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WiFiDirectConfigurationMethod {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WiFiDirectConfigurationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConfigurationMethod").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiDirectConfigurationMethod {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WiFiDirectConnectionStatus(pub i32);
+impl WiFiDirectConnectionStatus {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WiFiDirectConnectionStatus {}
+impl ::core::clone::Clone for WiFiDirectConnectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WiFiDirectConnectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WiFiDirectConnectionStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WiFiDirectConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConnectionStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConnectionStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WiFiDirectDeviceSelectorType(pub i32);
+impl WiFiDirectDeviceSelectorType {
+    pub const DeviceInterface: Self = Self(0i32);
+    pub const AssociationEndpoint: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WiFiDirectDeviceSelectorType {}
+impl ::core::clone::Clone for WiFiDirectDeviceSelectorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WiFiDirectDeviceSelectorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WiFiDirectDeviceSelectorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WiFiDirectDeviceSelectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectDeviceSelectorType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiDirectDeviceSelectorType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectDeviceSelectorType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WiFiDirectError(pub i32);
+impl WiFiDirectError {
+    pub const Success: Self = Self(0i32);
+    pub const RadioNotAvailable: Self = Self(1i32);
+    pub const ResourceInUse: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WiFiDirectError {}
+impl ::core::clone::Clone for WiFiDirectError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WiFiDirectError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WiFiDirectError {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WiFiDirectError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectError").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiDirectError {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectError;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

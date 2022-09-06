@@ -1738,6 +1738,153 @@ unsafe impl ::core::marker::Sync for PerceptionPropertyChangeRequest {}
 #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+pub struct PerceptionVideoFrameAllocator(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+impl PerceptionVideoFrameAllocator {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn AllocateFrame(&self) -> ::windows::core::Result<PerceptionFrame> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AllocateFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Media", feature = "deprecated"))]
+    pub fn CopyFromVideoFrame<'a, P0>(&self, frame: P0) -> ::windows::core::Result<PerceptionFrame>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::VideoFrame>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CopyFromVideoFrame)(::windows::core::Interface::as_raw(this), frame.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated"))]
+    pub fn Create(maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<PerceptionVideoFrameAllocator> {
+        Self::IPerceptionVideoFrameAllocatorFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), maxoutstandingframecountforwrite, format, resolution, alpha, result__.as_mut_ptr()).from_abi::<PerceptionVideoFrameAllocator>(result__)
+        })
+    }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
+    pub fn IPerceptionVideoFrameAllocatorFactory<R, F: FnOnce(&IPerceptionVideoFrameAllocatorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<PerceptionVideoFrameAllocator, IPerceptionVideoFrameAllocatorFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for PerceptionVideoFrameAllocator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::PartialEq for PerceptionVideoFrameAllocator {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::Eq for PerceptionVideoFrameAllocator {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionVideoFrameAllocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionVideoFrameAllocator").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for PerceptionVideoFrameAllocator {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator;{4c38a7da-fdd8-4ed4-a039-2a6f9b235038})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionVideoFrameAllocator {
+    type Vtable = IPerceptionVideoFrameAllocator_Vtbl;
+    const IID: ::windows::core::GUID = <IPerceptionVideoFrameAllocator as ::windows::core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl ::windows::core::RuntimeName for PerceptionVideoFrameAllocator {
+    const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator";
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<PerceptionVideoFrameAllocator> for ::windows::core::IUnknown {
+    fn from(value: PerceptionVideoFrameAllocator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&PerceptionVideoFrameAllocator> for ::windows::core::IUnknown {
+    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&PerceptionVideoFrameAllocator> for &::windows::core::IUnknown {
+    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<PerceptionVideoFrameAllocator> for ::windows::core::IInspectable {
+    fn from(value: PerceptionVideoFrameAllocator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&PerceptionVideoFrameAllocator> for ::windows::core::IInspectable {
+    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&PerceptionVideoFrameAllocator> for &::windows::core::IInspectable {
+    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::convert::TryFrom<PerceptionVideoFrameAllocator> for super::super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: PerceptionVideoFrameAllocator) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::convert::TryFrom<&PerceptionVideoFrameAllocator> for super::super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PerceptionVideoFrameAllocator) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl<'a> ::core::convert::TryFrom<&PerceptionVideoFrameAllocator> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PerceptionVideoFrameAllocator) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Send for PerceptionVideoFrameAllocator {}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Sync for PerceptionVideoFrameAllocator {}
+#[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
 pub struct PerceptionStartFaceAuthenticationHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionStartFaceAuthenticationHandler {
@@ -1951,152 +2098,5 @@ pub struct PerceptionStopFaceAuthenticationHandler_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     Invoke: usize,
 }
-#[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct PerceptionVideoFrameAllocator(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl PerceptionVideoFrameAllocator {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn AllocateFrame(&self) -> ::windows::core::Result<PerceptionFrame> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AllocateFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Media", feature = "deprecated"))]
-    pub fn CopyFromVideoFrame<'a, P0>(&self, frame: P0) -> ::windows::core::Result<PerceptionFrame>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::VideoFrame>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CopyFromVideoFrame)(::windows::core::Interface::as_raw(this), frame.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated"))]
-    pub fn Create(maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<PerceptionVideoFrameAllocator> {
-        Self::IPerceptionVideoFrameAllocatorFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), maxoutstandingframecountforwrite, format, resolution, alpha, result__.as_mut_ptr()).from_abi::<PerceptionVideoFrameAllocator>(result__)
-        })
-    }
-    #[doc(hidden)]
-    #[cfg(feature = "deprecated")]
-    pub fn IPerceptionVideoFrameAllocatorFactory<R, F: FnOnce(&IPerceptionVideoFrameAllocatorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PerceptionVideoFrameAllocator, IPerceptionVideoFrameAllocatorFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for PerceptionVideoFrameAllocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PerceptionVideoFrameAllocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PerceptionVideoFrameAllocator {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PerceptionVideoFrameAllocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PerceptionVideoFrameAllocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for PerceptionVideoFrameAllocator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator;{4c38a7da-fdd8-4ed4-a039-2a6f9b235038})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionVideoFrameAllocator {
-    type Vtable = IPerceptionVideoFrameAllocator_Vtbl;
-    const IID: ::windows::core::GUID = <IPerceptionVideoFrameAllocator as ::windows::core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::RuntimeName for PerceptionVideoFrameAllocator {
-    const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator";
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionVideoFrameAllocator> for ::windows::core::IUnknown {
-    fn from(value: PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionVideoFrameAllocator> for ::windows::core::IInspectable {
-    fn from(value: PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::TryFrom<PerceptionVideoFrameAllocator> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PerceptionVideoFrameAllocator) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::TryFrom<&PerceptionVideoFrameAllocator> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PerceptionVideoFrameAllocator) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::core::convert::TryFrom<&PerceptionVideoFrameAllocator> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PerceptionVideoFrameAllocator) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Send for PerceptionVideoFrameAllocator {}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Sync for PerceptionVideoFrameAllocator {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

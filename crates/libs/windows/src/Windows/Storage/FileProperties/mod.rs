@@ -1,356 +1,3 @@
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
-pub struct BasicProperties(::windows::core::IUnknown);
-impl BasicProperties {
-    pub fn Size(&self) -> ::windows::core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DateModified(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DateModified)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ItemDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ItemDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RetrievePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SavePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestosave.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for BasicProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BasicProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BasicProperties {}
-impl ::core::fmt::Debug for BasicProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BasicProperties").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BasicProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BasicProperties {
-    type Vtable = IBasicProperties_Vtbl;
-    const IID: ::windows::core::GUID = <IBasicProperties as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BasicProperties {
-    const NAME: &'static str = "Windows.Storage.FileProperties.BasicProperties";
-}
-impl ::core::convert::From<BasicProperties> for ::windows::core::IUnknown {
-    fn from(value: BasicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BasicProperties> for ::windows::core::IUnknown {
-    fn from(value: &BasicProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BasicProperties> for &::windows::core::IUnknown {
-    fn from(value: &BasicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BasicProperties> for ::windows::core::IInspectable {
-    fn from(value: BasicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BasicProperties> for ::windows::core::IInspectable {
-    fn from(value: &BasicProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BasicProperties> for &::windows::core::IInspectable {
-    fn from(value: &BasicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<BasicProperties> for IStorageItemExtraProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BasicProperties) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&BasicProperties> for IStorageItemExtraProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BasicProperties) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&BasicProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BasicProperties) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
-pub struct DocumentProperties(::windows::core::IUnknown);
-impl DocumentProperties {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Author(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Author)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
-        }
-    }
-    pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Keywords)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
-        }
-    }
-    pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RetrievePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SavePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestosave.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DocumentProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DocumentProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DocumentProperties {}
-impl ::core::fmt::Debug for DocumentProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DocumentProperties").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DocumentProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DocumentProperties {
-    type Vtable = IDocumentProperties_Vtbl;
-    const IID: ::windows::core::GUID = <IDocumentProperties as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DocumentProperties {
-    const NAME: &'static str = "Windows.Storage.FileProperties.DocumentProperties";
-}
-impl ::core::convert::From<DocumentProperties> for ::windows::core::IUnknown {
-    fn from(value: DocumentProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DocumentProperties> for ::windows::core::IUnknown {
-    fn from(value: &DocumentProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DocumentProperties> for &::windows::core::IUnknown {
-    fn from(value: &DocumentProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DocumentProperties> for ::windows::core::IInspectable {
-    fn from(value: DocumentProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DocumentProperties> for ::windows::core::IInspectable {
-    fn from(value: &DocumentProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DocumentProperties> for &::windows::core::IInspectable {
-    fn from(value: &DocumentProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<DocumentProperties> for IStorageItemExtraProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DocumentProperties) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DocumentProperties> for IStorageItemExtraProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DocumentProperties) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DocumentProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DocumentProperties) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-pub struct GeotagHelper;
-impl GeotagHelper {
-    #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetGeotagAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IGeotagHelperStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetGeotagAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn SetGeotagFromGeolocatorAsync<'a, P0, E0, P1>(file: P0, geolocator: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geolocator>>,
-    {
-        Self::IGeotagHelperStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), geolocator.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn SetGeotagAsync<'a, P0, E0, P1>(file: P0, geopoint: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
-    {
-        Self::IGeotagHelperStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetGeotagAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), geopoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GeotagHelper, IGeotagHelperStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for GeotagHelper {
-    const NAME: &'static str = "Windows.Storage.FileProperties.GeotagHelper";
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBasicProperties(::windows::core::IUnknown);
@@ -733,6 +380,359 @@ pub struct IVideoProperties_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Directors: usize,
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VideoOrientation) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+pub struct BasicProperties(::windows::core::IUnknown);
+impl BasicProperties {
+    pub fn Size(&self) -> ::windows::core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DateModified(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DateModified)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ItemDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ItemDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RetrievePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SavePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestosave.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for BasicProperties {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BasicProperties {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BasicProperties {}
+impl ::core::fmt::Debug for BasicProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BasicProperties").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BasicProperties {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BasicProperties {
+    type Vtable = IBasicProperties_Vtbl;
+    const IID: ::windows::core::GUID = <IBasicProperties as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BasicProperties {
+    const NAME: &'static str = "Windows.Storage.FileProperties.BasicProperties";
+}
+impl ::core::convert::From<BasicProperties> for ::windows::core::IUnknown {
+    fn from(value: BasicProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BasicProperties> for ::windows::core::IUnknown {
+    fn from(value: &BasicProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BasicProperties> for &::windows::core::IUnknown {
+    fn from(value: &BasicProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BasicProperties> for ::windows::core::IInspectable {
+    fn from(value: BasicProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BasicProperties> for ::windows::core::IInspectable {
+    fn from(value: &BasicProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BasicProperties> for &::windows::core::IInspectable {
+    fn from(value: &BasicProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<BasicProperties> for IStorageItemExtraProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: BasicProperties) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&BasicProperties> for IStorageItemExtraProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BasicProperties) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&BasicProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BasicProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+pub struct DocumentProperties(::windows::core::IUnknown);
+impl DocumentProperties {
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Author(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Author)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+        }
+    }
+    pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Keywords)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+        }
+    }
+    pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RetrievePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SavePropertiesAsync<'a, P0, E0>(&self, propertiestosave: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SavePropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestosave.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DocumentProperties {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DocumentProperties {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DocumentProperties {}
+impl ::core::fmt::Debug for DocumentProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DocumentProperties").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DocumentProperties {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DocumentProperties {
+    type Vtable = IDocumentProperties_Vtbl;
+    const IID: ::windows::core::GUID = <IDocumentProperties as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DocumentProperties {
+    const NAME: &'static str = "Windows.Storage.FileProperties.DocumentProperties";
+}
+impl ::core::convert::From<DocumentProperties> for ::windows::core::IUnknown {
+    fn from(value: DocumentProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DocumentProperties> for ::windows::core::IUnknown {
+    fn from(value: &DocumentProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DocumentProperties> for &::windows::core::IUnknown {
+    fn from(value: &DocumentProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DocumentProperties> for ::windows::core::IInspectable {
+    fn from(value: DocumentProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DocumentProperties> for ::windows::core::IInspectable {
+    fn from(value: &DocumentProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DocumentProperties> for &::windows::core::IInspectable {
+    fn from(value: &DocumentProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<DocumentProperties> for IStorageItemExtraProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DocumentProperties) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DocumentProperties> for IStorageItemExtraProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DocumentProperties) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DocumentProperties> for ::windows::core::InParam<'a, IStorageItemExtraProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DocumentProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+pub struct GeotagHelper;
+impl GeotagHelper {
+    #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    pub fn GetGeotagAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IGeotagHelperStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetGeotagAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    pub fn SetGeotagFromGeolocatorAsync<'a, P0, E0, P1>(file: P0, geolocator: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geolocator>>,
+    {
+        Self::IGeotagHelperStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), geolocator.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    pub fn SetGeotagAsync<'a, P0, E0, P1>(file: P0, geopoint: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
+    {
+        Self::IGeotagHelperStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetGeotagAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), geopoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<GeotagHelper, IGeotagHelperStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for GeotagHelper {
+    const NAME: &'static str = "Windows.Storage.FileProperties.GeotagHelper";
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
@@ -1246,113 +1246,6 @@ impl<'a> ::core::convert::TryFrom<&MusicProperties> for ::windows::core::InParam
     fn try_from(value: &MusicProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
         Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoOrientation(pub i32);
-impl PhotoOrientation {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Normal: Self = Self(1i32);
-    pub const FlipHorizontal: Self = Self(2i32);
-    pub const Rotate180: Self = Self(3i32);
-    pub const FlipVertical: Self = Self(4i32);
-    pub const Transpose: Self = Self(5i32);
-    pub const Rotate270: Self = Self(6i32);
-    pub const Transverse: Self = Self(7i32);
-    pub const Rotate90: Self = Self(8i32);
-}
-impl ::core::marker::Copy for PhotoOrientation {}
-impl ::core::clone::Clone for PhotoOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoOrientation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoOrientation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PropertyPrefetchOptions(pub u32);
-impl PropertyPrefetchOptions {
-    pub const None: Self = Self(0u32);
-    pub const MusicProperties: Self = Self(1u32);
-    pub const VideoProperties: Self = Self(2u32);
-    pub const ImageProperties: Self = Self(4u32);
-    pub const DocumentProperties: Self = Self(8u32);
-    pub const BasicProperties: Self = Self(16u32);
-}
-impl ::core::marker::Copy for PropertyPrefetchOptions {}
-impl ::core::clone::Clone for PropertyPrefetchOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyPrefetchOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PropertyPrefetchOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PropertyPrefetchOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyPrefetchOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PropertyPrefetchOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PropertyPrefetchOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PropertyPrefetchOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PropertyPrefetchOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PropertyPrefetchOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PropertyPrefetchOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PropertyPrefetchOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
@@ -1877,178 +1770,6 @@ impl<'a> ::core::convert::TryFrom<&StorageItemThumbnail> for ::windows::core::In
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ThumbnailMode(pub i32);
-impl ThumbnailMode {
-    pub const PicturesView: Self = Self(0i32);
-    pub const VideosView: Self = Self(1i32);
-    pub const MusicView: Self = Self(2i32);
-    pub const DocumentsView: Self = Self(3i32);
-    pub const ListView: Self = Self(4i32);
-    pub const SingleItem: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ThumbnailMode {}
-impl ::core::clone::Clone for ThumbnailMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ThumbnailMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ThumbnailMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ThumbnailMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThumbnailMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ThumbnailMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ThumbnailOptions(pub u32);
-impl ThumbnailOptions {
-    pub const None: Self = Self(0u32);
-    pub const ReturnOnlyIfCached: Self = Self(1u32);
-    pub const ResizeThumbnail: Self = Self(2u32);
-    pub const UseCurrentScale: Self = Self(4u32);
-}
-impl ::core::marker::Copy for ThumbnailOptions {}
-impl ::core::clone::Clone for ThumbnailOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ThumbnailOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ThumbnailOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ThumbnailOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThumbnailOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ThumbnailOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ThumbnailOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ThumbnailOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ThumbnailOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ThumbnailOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ThumbnailOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ThumbnailType(pub i32);
-impl ThumbnailType {
-    pub const Image: Self = Self(0i32);
-    pub const Icon: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ThumbnailType {}
-impl ::core::clone::Clone for ThumbnailType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ThumbnailType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ThumbnailType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ThumbnailType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThumbnailType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ThumbnailType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VideoOrientation(pub i32);
-impl VideoOrientation {
-    pub const Normal: Self = Self(0i32);
-    pub const Rotate90: Self = Self(90i32);
-    pub const Rotate180: Self = Self(180i32);
-    pub const Rotate270: Self = Self(270i32);
-}
-impl ::core::marker::Copy for VideoOrientation {}
-impl ::core::clone::Clone for VideoOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VideoOrientation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VideoOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoOrientation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VideoOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.VideoOrientation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-#[repr(transparent)]
 pub struct VideoProperties(::windows::core::IUnknown);
 impl VideoProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2310,6 +2031,285 @@ impl<'a> ::core::convert::TryFrom<&VideoProperties> for ::windows::core::InParam
     fn try_from(value: &VideoProperties) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
         Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoOrientation(pub i32);
+impl PhotoOrientation {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Normal: Self = Self(1i32);
+    pub const FlipHorizontal: Self = Self(2i32);
+    pub const Rotate180: Self = Self(3i32);
+    pub const FlipVertical: Self = Self(4i32);
+    pub const Transpose: Self = Self(5i32);
+    pub const Rotate270: Self = Self(6i32);
+    pub const Transverse: Self = Self(7i32);
+    pub const Rotate90: Self = Self(8i32);
+}
+impl ::core::marker::Copy for PhotoOrientation {}
+impl ::core::clone::Clone for PhotoOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoOrientation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoOrientation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoOrientation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoOrientation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PropertyPrefetchOptions(pub u32);
+impl PropertyPrefetchOptions {
+    pub const None: Self = Self(0u32);
+    pub const MusicProperties: Self = Self(1u32);
+    pub const VideoProperties: Self = Self(2u32);
+    pub const ImageProperties: Self = Self(4u32);
+    pub const DocumentProperties: Self = Self(8u32);
+    pub const BasicProperties: Self = Self(16u32);
+}
+impl ::core::marker::Copy for PropertyPrefetchOptions {}
+impl ::core::clone::Clone for PropertyPrefetchOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PropertyPrefetchOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PropertyPrefetchOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PropertyPrefetchOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyPrefetchOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PropertyPrefetchOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PropertyPrefetchOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PropertyPrefetchOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PropertyPrefetchOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PropertyPrefetchOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PropertyPrefetchOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PropertyPrefetchOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ThumbnailMode(pub i32);
+impl ThumbnailMode {
+    pub const PicturesView: Self = Self(0i32);
+    pub const VideosView: Self = Self(1i32);
+    pub const MusicView: Self = Self(2i32);
+    pub const DocumentsView: Self = Self(3i32);
+    pub const ListView: Self = Self(4i32);
+    pub const SingleItem: Self = Self(5i32);
+}
+impl ::core::marker::Copy for ThumbnailMode {}
+impl ::core::clone::Clone for ThumbnailMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ThumbnailMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ThumbnailMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ThumbnailMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ThumbnailMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ThumbnailOptions(pub u32);
+impl ThumbnailOptions {
+    pub const None: Self = Self(0u32);
+    pub const ReturnOnlyIfCached: Self = Self(1u32);
+    pub const ResizeThumbnail: Self = Self(2u32);
+    pub const UseCurrentScale: Self = Self(4u32);
+}
+impl ::core::marker::Copy for ThumbnailOptions {}
+impl ::core::clone::Clone for ThumbnailOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ThumbnailOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ThumbnailOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ThumbnailOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ThumbnailOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ThumbnailOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ThumbnailOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ThumbnailOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ThumbnailOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ThumbnailOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ThumbnailType(pub i32);
+impl ThumbnailType {
+    pub const Image: Self = Self(0i32);
+    pub const Icon: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ThumbnailType {}
+impl ::core::clone::Clone for ThumbnailType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ThumbnailType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ThumbnailType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ThumbnailType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThumbnailType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ThumbnailType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VideoOrientation(pub i32);
+impl VideoOrientation {
+    pub const Normal: Self = Self(0i32);
+    pub const Rotate90: Self = Self(90i32);
+    pub const Rotate180: Self = Self(180i32);
+    pub const Rotate270: Self = Self(270i32);
+}
+impl ::core::marker::Copy for VideoOrientation {}
+impl ::core::clone::Clone for VideoOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VideoOrientation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VideoOrientation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VideoOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoOrientation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VideoOrientation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.VideoOrientation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

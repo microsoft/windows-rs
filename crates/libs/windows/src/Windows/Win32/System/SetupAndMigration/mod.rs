@@ -8,8 +8,6 @@ pub unsafe fn OOBEComplete(isoobecomplete: &mut super::super::Foundation::BOOL) 
     }
     OOBEComplete(::core::mem::transmute(isoobecomplete))
 }
-#[doc = "*Required features: `\"Win32_System_SetupAndMigration\"`*"]
-pub type OOBE_COMPLETED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_SetupAndMigration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -30,5 +28,7 @@ pub unsafe fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::core::ffi::c
     }
     UnregisterWaitUntilOOBECompleted(::core::mem::transmute(waithandle))
 }
+#[doc = "*Required features: `\"Win32_System_SetupAndMigration\"`*"]
+pub type OOBE_COMPLETED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

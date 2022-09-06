@@ -1,476 +1,3 @@
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-pub struct AudioEncodingProperties(::windows::core::IUnknown);
-impl AudioEncodingProperties {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn SetBitrate(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Bitrate(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Bitrate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetChannelCount(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChannelCount)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ChannelCount(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetSampleRate(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSampleRate)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SampleRate(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SampleRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetBitsPerSample(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitsPerSample)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn BitsPerSample(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BitsPerSample)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn IsSpatial(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IAudioEncodingProperties2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsSpatial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn Copy(&self) -> ::windows::core::Result<AudioEncodingProperties> {
-        let this = &::windows::core::Interface::cast::<IAudioEncodingProperties3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Copy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        }
-    }
-    pub fn CreateAac(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
-        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAac)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        })
-    }
-    pub fn CreateAacAdts(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
-        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAacAdts)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        })
-    }
-    pub fn CreateMp3(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
-        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMp3)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        })
-    }
-    pub fn CreatePcm(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties> {
-        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePcm)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitspersample, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        })
-    }
-    pub fn CreateWma(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
-        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWma)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        })
-    }
-    pub fn CreateAlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties> {
-        Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAlac)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitspersample, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        })
-    }
-    pub fn CreateFlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties> {
-        Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFlac)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitspersample, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
-        })
-    }
-    pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
-    }
-    pub fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).GetFormatUserData)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<MediaPropertySet> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPropertySet>(result__)
-        }
-    }
-    pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetSubtype(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Subtype)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc(hidden)]
-    pub fn IAudioEncodingPropertiesStatics<R, F: FnOnce(&IAudioEncodingPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IAudioEncodingPropertiesStatics2<R, F: FnOnce(&IAudioEncodingPropertiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for AudioEncodingProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioEncodingProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioEncodingProperties {}
-impl ::core::fmt::Debug for AudioEncodingProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEncodingProperties").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.AudioEncodingProperties;{62bc7a16-005c-4b3b-8a0b-0a090e9687f3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioEncodingProperties {
-    type Vtable = IAudioEncodingProperties_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioEncodingProperties as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioEncodingProperties {
-    const NAME: &'static str = "Windows.Media.MediaProperties.AudioEncodingProperties";
-}
-impl ::core::convert::From<AudioEncodingProperties> for ::windows::core::IUnknown {
-    fn from(value: AudioEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEncodingProperties> for ::windows::core::IUnknown {
-    fn from(value: &AudioEncodingProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEncodingProperties> for &::windows::core::IUnknown {
-    fn from(value: &AudioEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioEncodingProperties> for ::windows::core::IInspectable {
-    fn from(value: AudioEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEncodingProperties> for ::windows::core::IInspectable {
-    fn from(value: &AudioEncodingProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEncodingProperties> for &::windows::core::IInspectable {
-    fn from(value: &AudioEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AudioEncodingProperties> for IMediaEncodingProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AudioEncodingProperties) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AudioEncodingProperties> for IMediaEncodingProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioEncodingProperties) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AudioEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioEncodingProperties) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AudioEncodingProperties {}
-unsafe impl ::core::marker::Sync for AudioEncodingProperties {}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AudioEncodingQuality(pub i32);
-impl AudioEncodingQuality {
-    pub const Auto: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
-    pub const Medium: Self = Self(2i32);
-    pub const Low: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AudioEncodingQuality {}
-impl ::core::clone::Clone for AudioEncodingQuality {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioEncodingQuality {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AudioEncodingQuality {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioEncodingQuality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEncodingQuality").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioEncodingQuality {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-pub struct ContainerEncodingProperties(::windows::core::IUnknown);
-impl ContainerEncodingProperties {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContainerEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Copy(&self) -> ::windows::core::Result<ContainerEncodingProperties> {
-        let this = &::windows::core::Interface::cast::<IContainerEncodingProperties2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Copy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerEncodingProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<MediaPropertySet> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPropertySet>(result__)
-        }
-    }
-    pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetSubtype(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Subtype)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContainerEncodingProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContainerEncodingProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContainerEncodingProperties {}
-impl ::core::fmt::Debug for ContainerEncodingProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContainerEncodingProperties").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContainerEncodingProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ContainerEncodingProperties;{59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContainerEncodingProperties {
-    type Vtable = IContainerEncodingProperties_Vtbl;
-    const IID: ::windows::core::GUID = <IContainerEncodingProperties as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContainerEncodingProperties {
-    const NAME: &'static str = "Windows.Media.MediaProperties.ContainerEncodingProperties";
-}
-impl ::core::convert::From<ContainerEncodingProperties> for ::windows::core::IUnknown {
-    fn from(value: ContainerEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContainerEncodingProperties> for ::windows::core::IUnknown {
-    fn from(value: &ContainerEncodingProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContainerEncodingProperties> for &::windows::core::IUnknown {
-    fn from(value: &ContainerEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContainerEncodingProperties> for ::windows::core::IInspectable {
-    fn from(value: ContainerEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContainerEncodingProperties> for ::windows::core::IInspectable {
-    fn from(value: &ContainerEncodingProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContainerEncodingProperties> for &::windows::core::IInspectable {
-    fn from(value: &ContainerEncodingProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContainerEncodingProperties> for IMediaEncodingProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContainerEncodingProperties) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContainerEncodingProperties> for IMediaEncodingProperties {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContainerEncodingProperties) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContainerEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContainerEncodingProperties) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContainerEncodingProperties {}
-unsafe impl ::core::marker::Sync for ContainerEncodingProperties {}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-pub struct H264ProfileIds;
-impl H264ProfileIds {
-    pub fn ConstrainedBaseline() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConstrainedBaseline)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn Baseline() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Baseline)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn Extended() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Extended)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn Main() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Main)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn High() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).High)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn High10() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).High10)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn High422() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).High422)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn High444() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).High444)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn StereoHigh() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StereoHigh)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    pub fn MultiviewHigh() -> ::windows::core::Result<i32> {
-        Self::IH264ProfileIdsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MultiviewHigh)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IH264ProfileIdsStatics<R, F: FnOnce(&IH264ProfileIdsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<H264ProfileIds, IH264ProfileIdsStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for H264ProfileIds {
-    const NAME: &'static str = "Windows.Media.MediaProperties.H264ProfileIds";
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioEncodingProperties(::windows::core::IUnknown);
@@ -1191,6 +718,443 @@ unsafe impl ::windows::core::Interface for IVideoEncodingPropertiesStatics2 {
 pub struct IVideoEncodingPropertiesStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateHevc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+pub struct AudioEncodingProperties(::windows::core::IUnknown);
+impl AudioEncodingProperties {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn SetBitrate(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Bitrate(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Bitrate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetChannelCount(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetChannelCount)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ChannelCount(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ChannelCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetSampleRate(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetSampleRate)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SampleRate(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SampleRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetBitsPerSample(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetBitsPerSample)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn BitsPerSample(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BitsPerSample)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn IsSpatial(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IAudioEncodingProperties2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsSpatial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn Copy(&self) -> ::windows::core::Result<AudioEncodingProperties> {
+        let this = &::windows::core::Interface::cast::<IAudioEncodingProperties3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Copy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        }
+    }
+    pub fn CreateAac(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
+        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAac)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        })
+    }
+    pub fn CreateAacAdts(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
+        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAacAdts)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        })
+    }
+    pub fn CreateMp3(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
+        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateMp3)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        })
+    }
+    pub fn CreatePcm(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties> {
+        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreatePcm)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitspersample, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        })
+    }
+    pub fn CreateWma(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties> {
+        Self::IAudioEncodingPropertiesStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateWma)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitrate, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        })
+    }
+    pub fn CreateAlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties> {
+        Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAlac)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitspersample, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        })
+    }
+    pub fn CreateFlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties> {
+        Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFlac)(::windows::core::Interface::as_raw(this), samplerate, channelcount, bitspersample, result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
+        })
+    }
+    pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetFormatUserData)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
+    }
+    pub fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).GetFormatUserData)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<MediaPropertySet> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPropertySet>(result__)
+        }
+    }
+    pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetSubtype(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Subtype)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc(hidden)]
+    pub fn IAudioEncodingPropertiesStatics<R, F: FnOnce(&IAudioEncodingPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IAudioEncodingPropertiesStatics2<R, F: FnOnce(&IAudioEncodingPropertiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for AudioEncodingProperties {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioEncodingProperties {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioEncodingProperties {}
+impl ::core::fmt::Debug for AudioEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEncodingProperties").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioEncodingProperties {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.AudioEncodingProperties;{62bc7a16-005c-4b3b-8a0b-0a090e9687f3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioEncodingProperties {
+    type Vtable = IAudioEncodingProperties_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioEncodingProperties as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioEncodingProperties {
+    const NAME: &'static str = "Windows.Media.MediaProperties.AudioEncodingProperties";
+}
+impl ::core::convert::From<AudioEncodingProperties> for ::windows::core::IUnknown {
+    fn from(value: AudioEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioEncodingProperties> for ::windows::core::IUnknown {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioEncodingProperties> for &::windows::core::IUnknown {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioEncodingProperties> for ::windows::core::IInspectable {
+    fn from(value: AudioEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioEncodingProperties> for ::windows::core::IInspectable {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioEncodingProperties> for &::windows::core::IInspectable {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AudioEncodingProperties> for IMediaEncodingProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AudioEncodingProperties) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AudioEncodingProperties> for IMediaEncodingProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioEncodingProperties) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AudioEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioEncodingProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AudioEncodingProperties {}
+unsafe impl ::core::marker::Sync for AudioEncodingProperties {}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+pub struct ContainerEncodingProperties(::windows::core::IUnknown);
+impl ContainerEncodingProperties {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ContainerEncodingProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Copy(&self) -> ::windows::core::Result<ContainerEncodingProperties> {
+        let this = &::windows::core::Interface::cast::<IContainerEncodingProperties2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Copy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerEncodingProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<MediaPropertySet> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPropertySet>(result__)
+        }
+    }
+    pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetSubtype(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Subtype)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContainerEncodingProperties {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContainerEncodingProperties {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContainerEncodingProperties {}
+impl ::core::fmt::Debug for ContainerEncodingProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContainerEncodingProperties").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContainerEncodingProperties {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ContainerEncodingProperties;{59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContainerEncodingProperties {
+    type Vtable = IContainerEncodingProperties_Vtbl;
+    const IID: ::windows::core::GUID = <IContainerEncodingProperties as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContainerEncodingProperties {
+    const NAME: &'static str = "Windows.Media.MediaProperties.ContainerEncodingProperties";
+}
+impl ::core::convert::From<ContainerEncodingProperties> for ::windows::core::IUnknown {
+    fn from(value: ContainerEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContainerEncodingProperties> for ::windows::core::IUnknown {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContainerEncodingProperties> for &::windows::core::IUnknown {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContainerEncodingProperties> for ::windows::core::IInspectable {
+    fn from(value: ContainerEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContainerEncodingProperties> for ::windows::core::IInspectable {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContainerEncodingProperties> for &::windows::core::IInspectable {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContainerEncodingProperties> for IMediaEncodingProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContainerEncodingProperties) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContainerEncodingProperties> for IMediaEncodingProperties {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContainerEncodingProperties) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContainerEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContainerEncodingProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContainerEncodingProperties {}
+unsafe impl ::core::marker::Sync for ContainerEncodingProperties {}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+pub struct H264ProfileIds;
+impl H264ProfileIds {
+    pub fn ConstrainedBaseline() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ConstrainedBaseline)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn Baseline() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Baseline)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn Extended() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Extended)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn Main() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Main)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn High() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).High)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn High10() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).High10)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn High422() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).High422)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn High444() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).High444)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn StereoHigh() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StereoHigh)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    pub fn MultiviewHigh() -> ::windows::core::Result<i32> {
+        Self::IH264ProfileIdsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MultiviewHigh)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IH264ProfileIdsStatics<R, F: FnOnce(&IH264ProfileIdsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<H264ProfileIds, IH264ProfileIdsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for H264ProfileIds {
+    const NAME: &'static str = "Windows.Media.MediaProperties.H264ProfileIds";
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -2013,104 +1977,6 @@ impl MediaEncodingSubtypes {
 impl ::windows::core::RuntimeName for MediaEncodingSubtypes {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingSubtypes";
 }
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaMirroringOptions(pub u32);
-impl MediaMirroringOptions {
-    pub const None: Self = Self(0u32);
-    pub const Horizontal: Self = Self(1u32);
-    pub const Vertical: Self = Self(2u32);
-}
-impl ::core::marker::Copy for MediaMirroringOptions {}
-impl ::core::clone::Clone for MediaMirroringOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaMirroringOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaMirroringOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaMirroringOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MediaMirroringOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MediaMirroringOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MediaMirroringOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MediaMirroringOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MediaMirroringOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaMirroringOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPixelFormat(pub i32);
-impl MediaPixelFormat {
-    pub const Nv12: Self = Self(0i32);
-    pub const Bgra8: Self = Self(1i32);
-    pub const P010: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaPixelFormat {}
-impl ::core::clone::Clone for MediaPixelFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPixelFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPixelFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPixelFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPixelFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPixelFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
@@ -2421,76 +2287,6 @@ impl ::core::convert::From<&MediaRatio> for &::windows::core::IInspectable {
 unsafe impl ::core::marker::Send for MediaRatio {}
 unsafe impl ::core::marker::Sync for MediaRatio {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaRotation(pub i32);
-impl MediaRotation {
-    pub const None: Self = Self(0i32);
-    pub const Clockwise90Degrees: Self = Self(1i32);
-    pub const Clockwise180Degrees: Self = Self(2i32);
-    pub const Clockwise270Degrees: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaRotation {}
-impl ::core::clone::Clone for MediaRotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaRotation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaRotation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaRotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaRotation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaRotation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaThumbnailFormat(pub i32);
-impl MediaThumbnailFormat {
-    pub const Bmp: Self = Self(0i32);
-    pub const Bgra8: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaThumbnailFormat {}
-impl ::core::clone::Clone for MediaThumbnailFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaThumbnailFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaThumbnailFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaThumbnailFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaThumbnailFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaThumbnailFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 pub struct Mpeg2ProfileIds;
 impl Mpeg2ProfileIds {
     pub fn Simple() -> ::windows::core::Result<i32> {
@@ -2531,76 +2327,6 @@ impl Mpeg2ProfileIds {
 }
 impl ::windows::core::RuntimeName for Mpeg2ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.Mpeg2ProfileIds";
-}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SphericalVideoFrameFormat(pub i32);
-impl SphericalVideoFrameFormat {
-    pub const None: Self = Self(0i32);
-    pub const Unsupported: Self = Self(1i32);
-    pub const Equirectangular: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SphericalVideoFrameFormat {}
-impl ::core::clone::Clone for SphericalVideoFrameFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SphericalVideoFrameFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SphericalVideoFrameFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SphericalVideoFrameFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SphericalVideoFrameFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StereoscopicVideoPackingMode(pub i32);
-impl StereoscopicVideoPackingMode {
-    pub const None: Self = Self(0i32);
-    pub const SideBySide: Self = Self(1i32);
-    pub const TopBottom: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StereoscopicVideoPackingMode {}
-impl ::core::clone::Clone for StereoscopicVideoPackingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StereoscopicVideoPackingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StereoscopicVideoPackingMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StereoscopicVideoPackingMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StereoscopicVideoPackingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
@@ -3007,6 +2733,280 @@ impl<'a> ::core::convert::TryFrom<&VideoEncodingProperties> for ::windows::core:
 }
 unsafe impl ::core::marker::Send for VideoEncodingProperties {}
 unsafe impl ::core::marker::Sync for VideoEncodingProperties {}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AudioEncodingQuality(pub i32);
+impl AudioEncodingQuality {
+    pub const Auto: Self = Self(0i32);
+    pub const High: Self = Self(1i32);
+    pub const Medium: Self = Self(2i32);
+    pub const Low: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AudioEncodingQuality {}
+impl ::core::clone::Clone for AudioEncodingQuality {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AudioEncodingQuality {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AudioEncodingQuality {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioEncodingQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEncodingQuality").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioEncodingQuality {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaMirroringOptions(pub u32);
+impl MediaMirroringOptions {
+    pub const None: Self = Self(0u32);
+    pub const Horizontal: Self = Self(1u32);
+    pub const Vertical: Self = Self(2u32);
+}
+impl ::core::marker::Copy for MediaMirroringOptions {}
+impl ::core::clone::Clone for MediaMirroringOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaMirroringOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaMirroringOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaMirroringOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MediaMirroringOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MediaMirroringOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MediaMirroringOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MediaMirroringOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MediaMirroringOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaMirroringOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPixelFormat(pub i32);
+impl MediaPixelFormat {
+    pub const Nv12: Self = Self(0i32);
+    pub const Bgra8: Self = Self(1i32);
+    pub const P010: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MediaPixelFormat {}
+impl ::core::clone::Clone for MediaPixelFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPixelFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPixelFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPixelFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPixelFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPixelFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaRotation(pub i32);
+impl MediaRotation {
+    pub const None: Self = Self(0i32);
+    pub const Clockwise90Degrees: Self = Self(1i32);
+    pub const Clockwise180Degrees: Self = Self(2i32);
+    pub const Clockwise270Degrees: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MediaRotation {}
+impl ::core::clone::Clone for MediaRotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaRotation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaRotation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaRotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaRotation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaRotation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaThumbnailFormat(pub i32);
+impl MediaThumbnailFormat {
+    pub const Bmp: Self = Self(0i32);
+    pub const Bgra8: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaThumbnailFormat {}
+impl ::core::clone::Clone for MediaThumbnailFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaThumbnailFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaThumbnailFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaThumbnailFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaThumbnailFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaThumbnailFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SphericalVideoFrameFormat(pub i32);
+impl SphericalVideoFrameFormat {
+    pub const None: Self = Self(0i32);
+    pub const Unsupported: Self = Self(1i32);
+    pub const Equirectangular: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SphericalVideoFrameFormat {}
+impl ::core::clone::Clone for SphericalVideoFrameFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SphericalVideoFrameFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SphericalVideoFrameFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SphericalVideoFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SphericalVideoFrameFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StereoscopicVideoPackingMode(pub i32);
+impl StereoscopicVideoPackingMode {
+    pub const None: Self = Self(0i32);
+    pub const SideBySide: Self = Self(1i32);
+    pub const TopBottom: Self = Self(2i32);
+}
+impl ::core::marker::Copy for StereoscopicVideoPackingMode {}
+impl ::core::clone::Clone for StereoscopicVideoPackingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StereoscopicVideoPackingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StereoscopicVideoPackingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StereoscopicVideoPackingMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StereoscopicVideoPackingMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

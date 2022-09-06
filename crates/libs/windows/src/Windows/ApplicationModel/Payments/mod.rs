@@ -884,45 +884,6 @@ unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PaymentCanMakePaymentResultStatus(pub i32);
-impl PaymentCanMakePaymentResultStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const Yes: Self = Self(1i32);
-    pub const No: Self = Self(2i32);
-    pub const NotAllowed: Self = Self(3i32);
-    pub const UserNotSignedIn: Self = Self(4i32);
-    pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
-    pub const NoQualifyingCardOnFile: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PaymentCanMakePaymentResultStatus {}
-impl ::core::clone::Clone for PaymentCanMakePaymentResultStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentCanMakePaymentResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PaymentCanMakePaymentResultStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PaymentCanMakePaymentResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentCanMakePaymentResultStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PaymentCanMakePaymentResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-#[repr(transparent)]
 pub struct PaymentCurrencyAmount(::windows::core::IUnknown);
 impl PaymentCurrencyAmount {
     pub fn Currency(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1814,41 +1775,6 @@ unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PaymentOptionPresence(pub i32);
-impl PaymentOptionPresence {
-    pub const None: Self = Self(0i32);
-    pub const Optional: Self = Self(1i32);
-    pub const Required: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentOptionPresence {}
-impl ::core::clone::Clone for PaymentOptionPresence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentOptionPresence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PaymentOptionPresence {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PaymentOptionPresence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentOptionPresence").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PaymentOptionPresence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-#[repr(transparent)]
 pub struct PaymentOptions(::windows::core::IUnknown);
 impl PaymentOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -2149,40 +2075,6 @@ unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PaymentRequestChangeKind(pub i32);
-impl PaymentRequestChangeKind {
-    pub const ShippingOption: Self = Self(0i32);
-    pub const ShippingAddress: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PaymentRequestChangeKind {}
-impl ::core::clone::Clone for PaymentRequestChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentRequestChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PaymentRequestChangeKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PaymentRequestChangeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentRequestChangeKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PaymentRequestChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-#[repr(transparent)]
 pub struct PaymentRequestChangedArgs(::windows::core::IUnknown);
 impl PaymentRequestChangedArgs {
     pub fn ChangeKind(&self) -> ::windows::core::Result<PaymentRequestChangeKind> {
@@ -2276,94 +2168,6 @@ impl ::core::convert::From<&PaymentRequestChangedArgs> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for PaymentRequestChangedArgs {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-#[repr(transparent)]
-pub struct PaymentRequestChangedHandler(pub ::windows::core::IUnknown);
-impl PaymentRequestChangedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = PaymentRequestChangedHandlerBox::<F> { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, P1>(&self, paymentrequest: P0, args: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequestChangedArgs>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), paymentrequest.into().abi(), args.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct PaymentRequestChangedHandlerBox<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const PaymentRequestChangedHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PaymentRequestChangedHandlerBox<F> {
-    const VTABLE: PaymentRequestChangedHandler_Vtbl = PaymentRequestChangedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<PaymentRequestChangedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&paymentrequest), ::core::mem::transmute(&args)).into()
-    }
-}
-impl ::core::clone::Clone for PaymentRequestChangedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PaymentRequestChangedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentRequestChangedHandler {}
-impl ::core::fmt::Debug for PaymentRequestChangedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentRequestChangedHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for PaymentRequestChangedHandler {
-    type Vtable = PaymentRequestChangedHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
-}
-unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5078b9e1-f398-4f2c-a27e-94d371cf6c7d}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct PaymentRequestChangedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedResult(::windows::core::IUnknown);
@@ -2487,76 +2291,6 @@ impl ::core::convert::From<&PaymentRequestChangedResult> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PaymentRequestCompletionStatus(pub i32);
-impl PaymentRequestCompletionStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const Unknown: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentRequestCompletionStatus {}
-impl ::core::clone::Clone for PaymentRequestCompletionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentRequestCompletionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PaymentRequestCompletionStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PaymentRequestCompletionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentRequestCompletionStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PaymentRequestCompletionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PaymentRequestStatus(pub i32);
-impl PaymentRequestStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentRequestStatus {}
-impl ::core::clone::Clone for PaymentRequestStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentRequestStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PaymentRequestStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PaymentRequestStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentRequestStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PaymentRequestStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequestSubmitResult(::windows::core::IUnknown);
@@ -2904,41 +2638,6 @@ unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PaymentShippingType(pub i32);
-impl PaymentShippingType {
-    pub const Shipping: Self = Self(0i32);
-    pub const Delivery: Self = Self(1i32);
-    pub const Pickup: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentShippingType {}
-impl ::core::clone::Clone for PaymentShippingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentShippingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PaymentShippingType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PaymentShippingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentShippingType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PaymentShippingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-#[repr(transparent)]
 pub struct PaymentToken(::windows::core::IUnknown);
 impl PaymentToken {
     pub fn PaymentMethodId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3035,5 +2734,306 @@ impl ::core::convert::From<&PaymentToken> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PaymentToken {}
 unsafe impl ::core::marker::Sync for PaymentToken {}
+#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PaymentCanMakePaymentResultStatus(pub i32);
+impl PaymentCanMakePaymentResultStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const Yes: Self = Self(1i32);
+    pub const No: Self = Self(2i32);
+    pub const NotAllowed: Self = Self(3i32);
+    pub const UserNotSignedIn: Self = Self(4i32);
+    pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
+    pub const NoQualifyingCardOnFile: Self = Self(6i32);
+}
+impl ::core::marker::Copy for PaymentCanMakePaymentResultStatus {}
+impl ::core::clone::Clone for PaymentCanMakePaymentResultStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PaymentCanMakePaymentResultStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PaymentCanMakePaymentResultStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PaymentCanMakePaymentResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentCanMakePaymentResultStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PaymentCanMakePaymentResultStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PaymentOptionPresence(pub i32);
+impl PaymentOptionPresence {
+    pub const None: Self = Self(0i32);
+    pub const Optional: Self = Self(1i32);
+    pub const Required: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PaymentOptionPresence {}
+impl ::core::clone::Clone for PaymentOptionPresence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PaymentOptionPresence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PaymentOptionPresence {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PaymentOptionPresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentOptionPresence").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PaymentOptionPresence {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PaymentRequestChangeKind(pub i32);
+impl PaymentRequestChangeKind {
+    pub const ShippingOption: Self = Self(0i32);
+    pub const ShippingAddress: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PaymentRequestChangeKind {}
+impl ::core::clone::Clone for PaymentRequestChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PaymentRequestChangeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PaymentRequestChangeKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PaymentRequestChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestChangeKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PaymentRequestChangeKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PaymentRequestCompletionStatus(pub i32);
+impl PaymentRequestCompletionStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Unknown: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PaymentRequestCompletionStatus {}
+impl ::core::clone::Clone for PaymentRequestCompletionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PaymentRequestCompletionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PaymentRequestCompletionStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PaymentRequestCompletionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestCompletionStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PaymentRequestCompletionStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PaymentRequestStatus(pub i32);
+impl PaymentRequestStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PaymentRequestStatus {}
+impl ::core::clone::Clone for PaymentRequestStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PaymentRequestStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PaymentRequestStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PaymentRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PaymentRequestStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PaymentShippingType(pub i32);
+impl PaymentShippingType {
+    pub const Shipping: Self = Self(0i32);
+    pub const Delivery: Self = Self(1i32);
+    pub const Pickup: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PaymentShippingType {}
+impl ::core::clone::Clone for PaymentShippingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PaymentShippingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PaymentShippingType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PaymentShippingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentShippingType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PaymentShippingType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
+#[repr(transparent)]
+pub struct PaymentRequestChangedHandler(pub ::windows::core::IUnknown);
+impl PaymentRequestChangedHandler {
+    pub fn new<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = PaymentRequestChangedHandlerBox::<F> { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, P1>(&self, paymentrequest: P0, args: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequest>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequestChangedArgs>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), paymentrequest.into().abi(), args.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct PaymentRequestChangedHandlerBox<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const PaymentRequestChangedHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<PaymentRequestChangedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PaymentRequestChangedHandlerBox<F> {
+    const VTABLE: PaymentRequestChangedHandler_Vtbl = PaymentRequestChangedHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<PaymentRequestChangedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&paymentrequest), ::core::mem::transmute(&args)).into()
+    }
+}
+impl ::core::clone::Clone for PaymentRequestChangedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PaymentRequestChangedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PaymentRequestChangedHandler {}
+impl ::core::fmt::Debug for PaymentRequestChangedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestChangedHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for PaymentRequestChangedHandler {
+    type Vtable = PaymentRequestChangedHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
+}
+unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5078b9e1-f398-4f2c-a27e-94d371cf6c7d}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct PaymentRequestChangedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

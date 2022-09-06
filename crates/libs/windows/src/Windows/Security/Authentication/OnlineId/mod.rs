@@ -1,38 +1,3 @@
-#[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CredentialPromptType(pub i32);
-impl CredentialPromptType {
-    pub const PromptIfNeeded: Self = Self(0i32);
-    pub const RetypeCredentials: Self = Self(1i32);
-    pub const DoNotPrompt: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CredentialPromptType {}
-impl ::core::clone::Clone for CredentialPromptType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CredentialPromptType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CredentialPromptType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CredentialPromptType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CredentialPromptType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CredentialPromptType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdAuthenticator(::windows::core::IUnknown);
@@ -811,41 +776,6 @@ impl ::core::convert::From<&OnlineIdSystemTicketResult> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
-#[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OnlineIdSystemTicketStatus(pub i32);
-impl OnlineIdSystemTicketStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Error: Self = Self(1i32);
-    pub const ServiceConnectionError: Self = Self(2i32);
-}
-impl ::core::marker::Copy for OnlineIdSystemTicketStatus {}
-impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OnlineIdSystemTicketStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OnlineIdSystemTicketStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdSystemTicketStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
@@ -1418,5 +1348,75 @@ impl ::core::convert::From<&UserIdentity> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for UserIdentity {}
 unsafe impl ::core::marker::Sync for UserIdentity {}
+#[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CredentialPromptType(pub i32);
+impl CredentialPromptType {
+    pub const PromptIfNeeded: Self = Self(0i32);
+    pub const RetypeCredentials: Self = Self(1i32);
+    pub const DoNotPrompt: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CredentialPromptType {}
+impl ::core::clone::Clone for CredentialPromptType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CredentialPromptType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CredentialPromptType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CredentialPromptType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialPromptType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CredentialPromptType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OnlineIdSystemTicketStatus(pub i32);
+impl OnlineIdSystemTicketStatus {
+    pub const Success: Self = Self(0i32);
+    pub const Error: Self = Self(1i32);
+    pub const ServiceConnectionError: Self = Self(2i32);
+}
+impl ::core::marker::Copy for OnlineIdSystemTicketStatus {}
+impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OnlineIdSystemTicketStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OnlineIdSystemTicketStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OnlineIdSystemTicketStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

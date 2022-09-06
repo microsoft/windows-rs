@@ -1,1842 +1,4 @@
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DEFAULT_WEIGHT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPIDSPRG(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGId: DISPIDSPRG = DISPIDSPRG(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGRecoContext: DISPIDSPRG = DISPIDSPRG(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGState: DISPIDSPRG = DISPIDSPRG(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGRules: DISPIDSPRG = DISPIDSPRG(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGReset: DISPIDSPRG = DISPIDSPRG(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCommit: DISPIDSPRG = DISPIDSPRG(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCmdLoadFromFile: DISPIDSPRG = DISPIDSPRG(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCmdLoadFromObject: DISPIDSPRG = DISPIDSPRG(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCmdLoadFromResource: DISPIDSPRG = DISPIDSPRG(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCmdLoadFromMemory: DISPIDSPRG = DISPIDSPRG(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCmdLoadFromProprietaryGrammar: DISPIDSPRG = DISPIDSPRG(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCmdSetRuleState: DISPIDSPRG = DISPIDSPRG(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGCmdSetRuleIdState: DISPIDSPRG = DISPIDSPRG(13i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGDictationLoad: DISPIDSPRG = DISPIDSPRG(14i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGDictationUnload: DISPIDSPRG = DISPIDSPRG(15i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGDictationSetState: DISPIDSPRG = DISPIDSPRG(16i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGSetWordSequenceData: DISPIDSPRG = DISPIDSPRG(17i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGSetTextSelection: DISPIDSPRG = DISPIDSPRG(18i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGIsPronounceable: DISPIDSPRG = DISPIDSPRG(19i32);
-impl ::core::marker::Copy for DISPIDSPRG {}
-impl ::core::clone::Clone for DISPIDSPRG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPIDSPRG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPIDSPRG {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPIDSPRG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPIDSPRG").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPIDSPTSI(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPIDSPTSI_ActiveOffset: DISPIDSPTSI = DISPIDSPTSI(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPIDSPTSI_ActiveLength: DISPIDSPTSI = DISPIDSPTSI(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPIDSPTSI_SelectionOffset: DISPIDSPTSI = DISPIDSPTSI(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPIDSPTSI_SelectionLength: DISPIDSPTSI = DISPIDSPTSI(4i32);
-impl ::core::marker::Copy for DISPIDSPTSI {}
-impl ::core::clone::Clone for DISPIDSPTSI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPIDSPTSI {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPIDSPTSI {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPIDSPTSI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPIDSPTSI").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechAudio(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SAStatus: DISPID_SpeechAudio = DISPID_SpeechAudio(200i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SABufferInfo: DISPID_SpeechAudio = DISPID_SpeechAudio(201i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SADefaultFormat: DISPID_SpeechAudio = DISPID_SpeechAudio(202i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SAVolume: DISPID_SpeechAudio = DISPID_SpeechAudio(203i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SABufferNotifySize: DISPID_SpeechAudio = DISPID_SpeechAudio(204i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SAEventHandle: DISPID_SpeechAudio = DISPID_SpeechAudio(205i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SASetState: DISPID_SpeechAudio = DISPID_SpeechAudio(206i32);
-impl ::core::marker::Copy for DISPID_SpeechAudio {}
-impl ::core::clone::Clone for DISPID_SpeechAudio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudio {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechAudio {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechAudio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechAudio").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechAudioBufferInfo(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SABIMinNotification: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SABIBufferSize: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SABIEventBias: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(3i32);
-impl ::core::marker::Copy for DISPID_SpeechAudioBufferInfo {}
-impl ::core::clone::Clone for DISPID_SpeechAudioBufferInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudioBufferInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechAudioBufferInfo {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechAudioBufferInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechAudioBufferInfo").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechAudioFormat(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SAFType: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SAFGuid: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SAFGetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SAFSetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(4i32);
-impl ::core::marker::Copy for DISPID_SpeechAudioFormat {}
-impl ::core::clone::Clone for DISPID_SpeechAudioFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudioFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechAudioFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechAudioFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechAudioFormat").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechAudioStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SASFreeBufferSpace: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SASNonBlockingIO: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SASState: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SASCurrentSeekPosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SASCurrentDevicePosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(5i32);
-impl ::core::marker::Copy for DISPID_SpeechAudioStatus {}
-impl ::core::clone::Clone for DISPID_SpeechAudioStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudioStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechAudioStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechAudioStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechAudioStatus").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechBaseStream(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SBSFormat: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SBSRead: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SBSWrite: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SBSSeek: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(4i32);
-impl ::core::marker::Copy for DISPID_SpeechBaseStream {}
-impl ::core::clone::Clone for DISPID_SpeechBaseStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechBaseStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechBaseStream {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechBaseStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechBaseStream").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechCustomStream(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SCSBaseStream: DISPID_SpeechCustomStream = DISPID_SpeechCustomStream(100i32);
-impl ::core::marker::Copy for DISPID_SpeechCustomStream {}
-impl ::core::clone::Clone for DISPID_SpeechCustomStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechCustomStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechCustomStream {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechCustomStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechCustomStream").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechDataKey(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKSetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKGetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKSetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKGetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKSetLongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKGetlongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKOpenKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKCreateKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKDeleteKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKDeleteValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKEnumKeys: DISPID_SpeechDataKey = DISPID_SpeechDataKey(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SDKEnumValues: DISPID_SpeechDataKey = DISPID_SpeechDataKey(12i32);
-impl ::core::marker::Copy for DISPID_SpeechDataKey {}
-impl ::core::clone::Clone for DISPID_SpeechDataKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechDataKey {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechDataKey {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechDataKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechDataKey").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechFileStream(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SFSOpen: DISPID_SpeechFileStream = DISPID_SpeechFileStream(100i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SFSClose: DISPID_SpeechFileStream = DISPID_SpeechFileStream(101i32);
-impl ::core::marker::Copy for DISPID_SpeechFileStream {}
-impl ::core::clone::Clone for DISPID_SpeechFileStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechFileStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechFileStream {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechFileStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechFileStream").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechGrammarRule(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRAttributes: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRInitialState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRName: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRId: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRClear: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRAddResource: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRAddState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(7i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRule {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRule {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRule {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechGrammarRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechGrammarRule").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechGrammarRuleState(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSRule: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTransitions: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSAddWordTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSAddRuleTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSAddSpecialTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(5i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRuleState {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRuleState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRuleState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechGrammarRuleState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTType: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTText: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTRule: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTWeight: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTPropertyName: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTPropertyId: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTPropertyValue: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTNextState: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(8i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransition {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleStateTransition {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechGrammarRuleStateTransition").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTsCount: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTsItem: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRSTs_NewEnum: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransitions {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransitions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransitions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleStateTransitions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransitions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechGrammarRuleStateTransitions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechGrammarRules(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRsCount: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRsDynamic: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRsAdd: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRsCommit: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRsCommitAndSave: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRsFindRule: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRsItem: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SGRs_NewEnum: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRules {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRules {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRules {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechGrammarRules {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechGrammarRules").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechLexicon(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLGenerationId: DISPID_SpeechLexicon = DISPID_SpeechLexicon(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLGetWords: DISPID_SpeechLexicon = DISPID_SpeechLexicon(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLAddPronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLAddPronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLRemovePronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLRemovePronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLGetPronunciations: DISPID_SpeechLexicon = DISPID_SpeechLexicon(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLGetGenerationChange: DISPID_SpeechLexicon = DISPID_SpeechLexicon(8i32);
-impl ::core::marker::Copy for DISPID_SpeechLexicon {}
-impl ::core::clone::Clone for DISPID_SpeechLexicon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexicon {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechLexicon {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechLexicon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechLexicon").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechLexiconProns(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPsCount: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPsItem: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPs_NewEnum: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconProns {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconProns {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconProns {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconProns {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechLexiconProns {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechLexiconProns").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechLexiconPronunciation(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPType: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPLangId: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPPartOfSpeech: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPPhoneIds: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLPSymbolic: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(5i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconPronunciation {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconPronunciation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconPronunciation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconPronunciation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechLexiconPronunciation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechLexiconPronunciation").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechLexiconWord(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLWLangId: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLWType: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLWWord: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLWPronunciations: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(4i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconWord {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconWord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconWord {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconWord {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechLexiconWord {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechLexiconWord").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechLexiconWords(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLWsCount: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLWsItem: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SLWs_NewEnum: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconWords {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconWords {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconWords {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconWords {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechLexiconWords {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechLexiconWords").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechMMSysAudio(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SMSADeviceId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(300i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SMSALineId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(301i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SMSAMMHandle: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(302i32);
-impl ::core::marker::Copy for DISPID_SpeechMMSysAudio {}
-impl ::core::clone::Clone for DISPID_SpeechMMSysAudio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechMMSysAudio {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechMMSysAudio {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechMMSysAudio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechMMSysAudio").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechMemoryStream(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SMSSetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(100i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SMSGetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(101i32);
-impl ::core::marker::Copy for DISPID_SpeechMemoryStream {}
-impl ::core::clone::Clone for DISPID_SpeechMemoryStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechMemoryStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechMemoryStream {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechMemoryStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechMemoryStream").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechObjectToken(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTDataKey: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTCategory: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTGetDescription: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTSetId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTGetAttribute: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTCreateInstance: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTRemove: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTGetStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTRemoveStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTIsUISupported: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTDisplayUI: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTMatchesAttributes: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(13i32);
-impl ::core::marker::Copy for DISPID_SpeechObjectToken {}
-impl ::core::clone::Clone for DISPID_SpeechObjectToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechObjectToken {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechObjectToken {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechObjectToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechObjectToken").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechObjectTokenCategory(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTCId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTCDefault: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTCSetId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTCGetDataKey: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTCEnumerateTokens: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(5i32);
-impl ::core::marker::Copy for DISPID_SpeechObjectTokenCategory {}
-impl ::core::clone::Clone for DISPID_SpeechObjectTokenCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechObjectTokenCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechObjectTokenCategory {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechObjectTokenCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechObjectTokenCategory").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechObjectTokens(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTsCount: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTsItem: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SOTs_NewEnum: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechObjectTokens {}
-impl ::core::clone::Clone for DISPID_SpeechObjectTokens {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechObjectTokens {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechObjectTokens {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechObjectTokens {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechObjectTokens").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhoneConverter(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPCLangId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPCPhoneToId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPCIdToPhone: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(3i32);
-impl ::core::marker::Copy for DISPID_SpeechPhoneConverter {}
-impl ::core::clone::Clone for DISPID_SpeechPhoneConverter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhoneConverter {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhoneConverter {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhoneConverter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhoneConverter").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseAlternate(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPARecoResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPAStartElementInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPANumberOfElementsInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPAPhraseInfo: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPACommit: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(5i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseAlternate {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseAlternate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseAlternate {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseAlternate {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseAlternate").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseAlternates(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPAsCount: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPAsItem: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPAs_NewEnum: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseAlternates {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseAlternates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseAlternates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseAlternates {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseAlternates").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseBuilder(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPBRestorePhraseFromMemory: DISPID_SpeechPhraseBuilder = DISPID_SpeechPhraseBuilder(1i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseBuilder {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseBuilder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseBuilder {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseBuilder {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseBuilder").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseElement(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEAudioTimeOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEAudioSizeTime: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEAudioStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEAudioSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPERetainedStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPERetainedSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEDisplayText: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPELexicalForm: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEPronunciation: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEDisplayAttributes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPERequiredConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEActualConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEEngineConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(13i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseElement {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseElement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseElement {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseElement").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseElements(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEsCount: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEsItem: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPEs_NewEnum: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseElements {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseElements {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseElements {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseElements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseElements").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseInfo(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPILanguageId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIGrammarId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIStartTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIAudioStreamPosition: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIAudioSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIRetainedSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIAudioSizeTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIRule: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIProperties: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIElements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIReplacements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIEngineId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIEnginePrivateData: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(13i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPISaveToMemory: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(14i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIGetText: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(15i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPIGetDisplayAttributes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(16i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseInfo {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseInfo {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseInfo").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseProperties(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPsCount: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPsItem: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPs_NewEnum: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseProperties {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseProperties {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseProperties").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseProperty(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPName: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPId: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPValue: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPFirstElement: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPNumberOfElements: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPEngineConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPParent: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPPChildren: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(9i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseProperty {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseProperty {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseProperty").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseReplacement(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRDisplayAttributes: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRText: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRFirstElement: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRNumberOfElements: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(4i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseReplacement {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseReplacement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseReplacement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseReplacement {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseReplacement").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseReplacements(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRsCount: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRsItem: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRs_NewEnum: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseReplacements {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseReplacements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseReplacements {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseReplacements {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseReplacements").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseRule(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleName: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleId: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleFirstElement: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleNumberOfElements: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleParent: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleChildren: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRuleEngineConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(8i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseRule {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseRule {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseRule {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseRule").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechPhraseRules(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRulesCount: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRulesItem: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SPRules_NewEnum: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(-4i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseRules {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseRules {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseRules {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechPhraseRules {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechPhraseRules").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechRecoContext(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCRecognizer: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCAudioInInterferenceStatus: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCRequestedUIType: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCVoice: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRAllowVoiceFormatMatchingOnNextSet: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCVoicePurgeEvent: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEventInterests: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCCmdMaxAlternates: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCState: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCRetainedAudio: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCRetainedAudioFormat: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCPause: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCResume: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(13i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCCreateGrammar: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(14i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCCreateResultFromMemory: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(15i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCBookmark: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(16i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCSetAdaptationData: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(17i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoContext {}
-impl ::core::clone::Clone for DISPID_SpeechRecoContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechRecoContext {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechRecoContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechRecoContext").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechRecoContextEvents(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEStartStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEEndStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEBookmark: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCESoundStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCESoundEnd: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEPhraseStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCERecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEHypothesis: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEPropertyNumberChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEPropertyStringChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEFalseRecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEInterference: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCERequestUI: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(13i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCERecognizerStateChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(14i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEAdaptation: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(15i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCERecognitionForOtherContext: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(16i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEAudioLevel: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(17i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCEEnginePrivate: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(18i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoContextEvents {}
-impl ::core::clone::Clone for DISPID_SpeechRecoContextEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoContextEvents {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechRecoContextEvents {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechRecoContextEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechRecoContextEvents").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechRecoResult(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRRecoContext: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRTimes: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRAudioFormat: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRPhraseInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRAlternates: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRSpeakAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRSaveToMemory: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRDiscardResultInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(9i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoResult {}
-impl ::core::clone::Clone for DISPID_SpeechRecoResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechRecoResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechRecoResult").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechRecoResult2(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRSetTextFeedback: DISPID_SpeechRecoResult2 = DISPID_SpeechRecoResult2(12i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoResult2 {}
-impl ::core::clone::Clone for DISPID_SpeechRecoResult2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoResult2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResult2 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechRecoResult2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechRecoResult2").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechRecoResultTimes(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRTStreamTime: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRTLength: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRTTickCount: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRTOffsetFromStart: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(4i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoResultTimes {}
-impl ::core::clone::Clone for DISPID_SpeechRecoResultTimes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoResultTimes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResultTimes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechRecoResultTimes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechRecoResultTimes").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechRecognizer(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRecognizer: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRAllowAudioInputFormatChangesOnNextSet: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRAudioInput: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRAudioInputStream: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRIsShared: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRState: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRStatus: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRProfile: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SREmulateRecognition: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRCreateRecoContext: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGetFormat: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(13i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(14i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(15i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRIsUISupported: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(16i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRDisplayUI: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(17i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRGetRecognizers: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(18i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVGetAudioInputs: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(19i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVGetProfiles: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(20i32);
-impl ::core::marker::Copy for DISPID_SpeechRecognizer {}
-impl ::core::clone::Clone for DISPID_SpeechRecognizer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecognizer {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechRecognizer {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechRecognizer").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechRecognizerStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSAudioStatus: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSCurrentStreamPosition: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSCurrentStreamNumber: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSNumberOfActiveRules: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSClsidEngine: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRSSupportedLanguages: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(6i32);
-impl ::core::marker::Copy for DISPID_SpeechRecognizerStatus {}
-impl ::core::clone::Clone for DISPID_SpeechRecognizerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecognizerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechRecognizerStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechRecognizerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechRecognizerStatus").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechVoice(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVStatus: DISPID_SpeechVoice = DISPID_SpeechVoice(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVVoice: DISPID_SpeechVoice = DISPID_SpeechVoice(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVAudioOutput: DISPID_SpeechVoice = DISPID_SpeechVoice(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVAudioOutputStream: DISPID_SpeechVoice = DISPID_SpeechVoice(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVRate: DISPID_SpeechVoice = DISPID_SpeechVoice(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVVolume: DISPID_SpeechVoice = DISPID_SpeechVoice(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVAllowAudioOuputFormatChangesOnNextSet: DISPID_SpeechVoice = DISPID_SpeechVoice(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEventInterests: DISPID_SpeechVoice = DISPID_SpeechVoice(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVPriority: DISPID_SpeechVoice = DISPID_SpeechVoice(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVAlertBoundary: DISPID_SpeechVoice = DISPID_SpeechVoice(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSyncronousSpeakTimeout: DISPID_SpeechVoice = DISPID_SpeechVoice(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSpeak: DISPID_SpeechVoice = DISPID_SpeechVoice(12i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSpeakStream: DISPID_SpeechVoice = DISPID_SpeechVoice(13i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVPause: DISPID_SpeechVoice = DISPID_SpeechVoice(14i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVResume: DISPID_SpeechVoice = DISPID_SpeechVoice(15i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSkip: DISPID_SpeechVoice = DISPID_SpeechVoice(16i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVGetVoices: DISPID_SpeechVoice = DISPID_SpeechVoice(17i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVGetAudioOutputs: DISPID_SpeechVoice = DISPID_SpeechVoice(18i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVWaitUntilDone: DISPID_SpeechVoice = DISPID_SpeechVoice(19i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSpeakCompleteEvent: DISPID_SpeechVoice = DISPID_SpeechVoice(20i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVIsUISupported: DISPID_SpeechVoice = DISPID_SpeechVoice(21i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVDisplayUI: DISPID_SpeechVoice = DISPID_SpeechVoice(22i32);
-impl ::core::marker::Copy for DISPID_SpeechVoice {}
-impl ::core::clone::Clone for DISPID_SpeechVoice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechVoice {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechVoice {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechVoice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechVoice").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechVoiceEvent(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEStreamStart: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEStreamEnd: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEVoiceChange: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEBookmark: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEWord: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEPhoneme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVESentenceBoundary: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEViseme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEAudioLevel: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVEEnginePrivate: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(10i32);
-impl ::core::marker::Copy for DISPID_SpeechVoiceEvent {}
-impl ::core::clone::Clone for DISPID_SpeechVoiceEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechVoiceEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechVoiceEvent {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechVoiceEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechVoiceEvent").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechVoiceStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSCurrentStreamNumber: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSLastStreamNumberQueued: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSLastResult: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSRunningState: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSInputWordPosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSInputWordLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSInputSentencePosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(7i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSInputSentenceLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(8i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSLastBookmark: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(9i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSLastBookmarkId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSPhonemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(11i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SVSVisemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(12i32);
-impl ::core::marker::Copy for DISPID_SpeechVoiceStatus {}
-impl ::core::clone::Clone for DISPID_SpeechVoiceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechVoiceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechVoiceStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechVoiceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechVoiceStatus").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechWaveFormatEx(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SWFEFormatTag: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(1i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SWFEChannels: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(2i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SWFESamplesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(3i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SWFEAvgBytesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(4i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SWFEBlockAlign: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(5i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SWFEBitsPerSample: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(6i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SWFEExtraData: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(7i32);
-impl ::core::marker::Copy for DISPID_SpeechWaveFormatEx {}
-impl ::core::clone::Clone for DISPID_SpeechWaveFormatEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechWaveFormatEx {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechWaveFormatEx {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechWaveFormatEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechWaveFormatEx").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DISPID_SpeechXMLRecoResult(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRGetXMLResult: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(10i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const DISPID_SRRGetXMLErrorInfo: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(11i32);
-impl ::core::marker::Copy for DISPID_SpeechXMLRecoResult {}
-impl ::core::clone::Clone for DISPID_SpeechXMLRecoResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechXMLRecoResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DISPID_SpeechXMLRecoResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPID_SpeechXMLRecoResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPID_SpeechXMLRecoResult").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct IEnumSpObjectTokens(::windows::core::IUnknown);
 impl IEnumSpObjectTokens {
@@ -14809,6 +12971,2152 @@ pub struct ISpeechXMLRecoResult_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetXMLErrorInfo: usize,
 }
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct _ISpeechRecoContextEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl _ISpeechRecoContextEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_ISpeechRecoContextEvents> for ::windows::core::IUnknown {
+    fn from(value: _ISpeechRecoContextEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _ISpeechRecoContextEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _ISpeechRecoContextEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_ISpeechRecoContextEvents> for ::windows::core::IUnknown {
+    fn from(value: &_ISpeechRecoContextEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_ISpeechRecoContextEvents> for super::super::System::Com::IDispatch {
+    fn from(value: _ISpeechRecoContextEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _ISpeechRecoContextEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _ISpeechRecoContextEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_ISpeechRecoContextEvents> for super::super::System::Com::IDispatch {
+    fn from(value: &_ISpeechRecoContextEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for _ISpeechRecoContextEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for _ISpeechRecoContextEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for _ISpeechRecoContextEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _ISpeechRecoContextEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ISpeechRecoContextEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for _ISpeechRecoContextEvents {
+    type Vtable = _ISpeechRecoContextEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct _ISpeechRecoContextEvents_Vtbl {
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct _ISpeechVoiceEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl _ISpeechVoiceEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_ISpeechVoiceEvents> for ::windows::core::IUnknown {
+    fn from(value: _ISpeechVoiceEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _ISpeechVoiceEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _ISpeechVoiceEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_ISpeechVoiceEvents> for ::windows::core::IUnknown {
+    fn from(value: &_ISpeechVoiceEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_ISpeechVoiceEvents> for super::super::System::Com::IDispatch {
+    fn from(value: _ISpeechVoiceEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _ISpeechVoiceEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _ISpeechVoiceEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_ISpeechVoiceEvents> for super::super::System::Com::IDispatch {
+    fn from(value: &_ISpeechVoiceEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for _ISpeechVoiceEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for _ISpeechVoiceEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for _ISpeechVoiceEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _ISpeechVoiceEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ISpeechVoiceEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for _ISpeechVoiceEvents {
+    type Vtable = _ISpeechVoiceEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct _ISpeechVoiceEvents_Vtbl {
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DEFAULT_WEIGHT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SAPI_ERROR_BASE: u32 = 20480u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPALTERNATESCLSID: &str = "AlternatesCLSID";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_APPLEXICONS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_AUDIOIN: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_AUDIOOUT: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_PHONECONVERTERS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_RECOGNIZERS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_RECOPROFILES: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_TEXTNORMALIZERS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\TextNormalizers";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCAT_VOICES: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCURRENT_USER_LEXICON_TOKEN_ID: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPCURRENT_USER_SHORTCUT_TOKEN_ID: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDICTATION: &str = "*";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_AddRemoveWord: &str = "AddRemoveWord";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_AudioProperties: &str = "AudioProperties";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_AudioVolume: &str = "AudioVolume";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_EngineProperties: &str = "EngineProperties";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_MicTraining: &str = "MicTraining";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_RecoProfileProperties: &str = "RecoProfileProperties";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_ShareData: &str = "ShareData";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_Tutorial: &str = "Tutorial";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_UserEnrollment: &str = "UserEnrollment";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPDUI_UserTraining: &str = "UserTraining";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPINFDICTATION: &str = "*+";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPMMSYS_AUDIO_IN_TOKEN_ID: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_ADAPTATION_ON: &str = "AdaptationOn";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_COMPLEX_RESPONSE_SPEED: &str = "ComplexResponseSpeed";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_HIGH_CONFIDENCE_THRESHOLD: &str = "HighConfidenceThreshold";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_LOW_CONFIDENCE_THRESHOLD: &str = "LowConfidenceThreshold";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_NORMAL_CONFIDENCE_THRESHOLD: &str = "NormalConfidenceThreshold";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_PERSISTED_BACKGROUND_ADAPTATION: &str = "PersistedBackgroundAdaptation";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION: &str = "PersistedLanguageModelAdaptation";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_RESOURCE_USAGE: &str = "ResourceUsage";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_RESPONSE_SPEED: &str = "ResponseSpeed";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPPROP_UX_IS_LISTENING: &str = "UXIsListening";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPRECOEXTENSION: &str = "RecoExtension";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPREG_LOCAL_MACHINE_ROOT: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPREG_SAFE_USER_TOKENS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPREG_USER_ROOT: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPRP_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENKEY_ATTRIBUTES: &str = "Attributes";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: &str = "LatencyTruncateThreshold";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL: &str = "LatencyUpdateInterval";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENKEY_AUDIO_LATENCY_WARNING: &str = "LatencyWarningThreshold";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENKEY_FILES: &str = "Files";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENKEY_RETAINEDAUDIO: &str = "SecondsPerRetainedAudioEvent";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENKEY_UI: &str = "UI";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOKENVALUE_CLSID: &str = "CLSID";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPTOPIC_SPELLING: &str = "Spelling";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPVOICECATEGORY_TTSRATE: &str = "DefaultTTSRate";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPWILDCARD: &str = "...";
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_LOW_CONFIDENCE: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_MAX_LANGIDS: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_MAX_PRON_LENGTH: u32 = 384u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_STREAMPOS_ASAP: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SR_LOCALIZED_DESCRIPTION: &str = "Description";
+pub const SpAudioFormat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ef96870_e160_4792_820d_48cf0649e4ec);
+pub const SpCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90903716_2f42_11d3_9c26_00c04f8ef87c);
+pub const SpCustomStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dbef13f_1948_4aa8_8cf0_048eebed95d8);
+pub const SpFileStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947812b3_2ae1_4644_ba86_9e90ded7ec91);
+pub const SpInProcRecoContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ad6842_ace0_45e8_a4dd_8795881a2c2a);
+pub const SpInprocRecognizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41b89b6b_9399_11d2_9623_00c04f8ee628);
+pub const SpLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0655e396_25d0_11d3_9c26_00c04f8ef87c);
+pub const SpMMAudioEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab1890a0_e91f_11d2_bb91_00c04f8ee6c0);
+pub const SpMMAudioIn: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf3d2e50_53f2_11d2_960c_00c04f8ee628);
+pub const SpMMAudioOut: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8c680eb_3d32_11d2_9ee7_00c04f797396);
+pub const SpMemoryStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb7ef7d_dff4_468a_b6b7_2fcbd188f994);
+pub const SpNotifyTranslator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ae5372_5d40_11d2_960e_00c04f8ee628);
+pub const SpNullPhoneConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x455f24e9_7396_4a16_9715_7c0fdbe3efe3);
+pub const SpObjectToken: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef411752_3736_4cb4_9c8c_8ef4ccb58efe);
+pub const SpObjectTokenCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa910187f_0c7a_45ac_92cc_59edafb77b53);
+pub const SpPhoneConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9185f743_1143_4c28_86b5_bff14f20e5c8);
+pub const SpPhoneticAlphabetConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f414126_dfe3_4629_99ee_797978317ead);
+pub const SpPhraseInfoBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc23fc28d_c55f_4720_8b32_91f73c2bd5d1);
+pub const SpResourceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96749373_3391_11d2_9ee3_00c04f797396);
+pub const SpSharedRecoContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47206204_5eca_11d2_960f_00c04f8ee628);
+pub const SpSharedRecognizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bee4890_4fe9_4a37_8c1e_5e7e12791c1f);
+pub const SpShortcut: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d722f1a_9fcf_4e62_96d8_6df8f01a26aa);
+pub const SpStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x715d9c59_4442_11d2_9605_00c04f8ee628);
+pub const SpStreamFormatConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7013943a_e2ec_11d2_a086_00c04f8ef9b5);
+pub const SpTextSelectionInformation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f92030a_cbfd_4ab8_a164_ff5985547ff6);
+pub const SpUnCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
+pub const SpVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
+pub const SpWaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SpeechAllElements: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const Speech_Default_Weight: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const Speech_Max_Pron_Length: i32 = 384i32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const Speech_Max_Word_Length: i32 = 128i32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const Speech_StreamPos_Asap: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const Speech_StreamPos_RealTime: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPIDSPRG(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGId: DISPIDSPRG = DISPIDSPRG(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGRecoContext: DISPIDSPRG = DISPIDSPRG(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGState: DISPIDSPRG = DISPIDSPRG(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGRules: DISPIDSPRG = DISPIDSPRG(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGReset: DISPIDSPRG = DISPIDSPRG(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCommit: DISPIDSPRG = DISPIDSPRG(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCmdLoadFromFile: DISPIDSPRG = DISPIDSPRG(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCmdLoadFromObject: DISPIDSPRG = DISPIDSPRG(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCmdLoadFromResource: DISPIDSPRG = DISPIDSPRG(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCmdLoadFromMemory: DISPIDSPRG = DISPIDSPRG(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCmdLoadFromProprietaryGrammar: DISPIDSPRG = DISPIDSPRG(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCmdSetRuleState: DISPIDSPRG = DISPIDSPRG(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGCmdSetRuleIdState: DISPIDSPRG = DISPIDSPRG(13i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGDictationLoad: DISPIDSPRG = DISPIDSPRG(14i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGDictationUnload: DISPIDSPRG = DISPIDSPRG(15i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGDictationSetState: DISPIDSPRG = DISPIDSPRG(16i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGSetWordSequenceData: DISPIDSPRG = DISPIDSPRG(17i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGSetTextSelection: DISPIDSPRG = DISPIDSPRG(18i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGIsPronounceable: DISPIDSPRG = DISPIDSPRG(19i32);
+impl ::core::marker::Copy for DISPIDSPRG {}
+impl ::core::clone::Clone for DISPIDSPRG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPIDSPRG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPIDSPRG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPIDSPRG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPIDSPRG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPIDSPTSI(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPIDSPTSI_ActiveOffset: DISPIDSPTSI = DISPIDSPTSI(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPIDSPTSI_ActiveLength: DISPIDSPTSI = DISPIDSPTSI(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPIDSPTSI_SelectionOffset: DISPIDSPTSI = DISPIDSPTSI(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPIDSPTSI_SelectionLength: DISPIDSPTSI = DISPIDSPTSI(4i32);
+impl ::core::marker::Copy for DISPIDSPTSI {}
+impl ::core::clone::Clone for DISPIDSPTSI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPIDSPTSI {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPIDSPTSI {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPIDSPTSI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPIDSPTSI").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechAudio(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SAStatus: DISPID_SpeechAudio = DISPID_SpeechAudio(200i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SABufferInfo: DISPID_SpeechAudio = DISPID_SpeechAudio(201i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SADefaultFormat: DISPID_SpeechAudio = DISPID_SpeechAudio(202i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SAVolume: DISPID_SpeechAudio = DISPID_SpeechAudio(203i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SABufferNotifySize: DISPID_SpeechAudio = DISPID_SpeechAudio(204i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SAEventHandle: DISPID_SpeechAudio = DISPID_SpeechAudio(205i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SASetState: DISPID_SpeechAudio = DISPID_SpeechAudio(206i32);
+impl ::core::marker::Copy for DISPID_SpeechAudio {}
+impl ::core::clone::Clone for DISPID_SpeechAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechAudio {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechAudio {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechAudio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechAudio").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechAudioBufferInfo(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SABIMinNotification: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SABIBufferSize: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SABIEventBias: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(3i32);
+impl ::core::marker::Copy for DISPID_SpeechAudioBufferInfo {}
+impl ::core::clone::Clone for DISPID_SpeechAudioBufferInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechAudioBufferInfo {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechAudioBufferInfo {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechAudioBufferInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechAudioBufferInfo").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechAudioFormat(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SAFType: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SAFGuid: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SAFGetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SAFSetWaveFormatEx: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(4i32);
+impl ::core::marker::Copy for DISPID_SpeechAudioFormat {}
+impl ::core::clone::Clone for DISPID_SpeechAudioFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechAudioFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechAudioFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechAudioFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechAudioFormat").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechAudioStatus(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SASFreeBufferSpace: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SASNonBlockingIO: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SASState: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SASCurrentSeekPosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SASCurrentDevicePosition: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(5i32);
+impl ::core::marker::Copy for DISPID_SpeechAudioStatus {}
+impl ::core::clone::Clone for DISPID_SpeechAudioStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechAudioStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechAudioStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechAudioStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechAudioStatus").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechBaseStream(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SBSFormat: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SBSRead: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SBSWrite: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SBSSeek: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(4i32);
+impl ::core::marker::Copy for DISPID_SpeechBaseStream {}
+impl ::core::clone::Clone for DISPID_SpeechBaseStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechBaseStream {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechBaseStream {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechBaseStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechBaseStream").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechCustomStream(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SCSBaseStream: DISPID_SpeechCustomStream = DISPID_SpeechCustomStream(100i32);
+impl ::core::marker::Copy for DISPID_SpeechCustomStream {}
+impl ::core::clone::Clone for DISPID_SpeechCustomStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechCustomStream {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechCustomStream {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechCustomStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechCustomStream").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechDataKey(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKSetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKGetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKSetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKGetStringValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKSetLongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKGetlongValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKOpenKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKCreateKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKDeleteKey: DISPID_SpeechDataKey = DISPID_SpeechDataKey(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKDeleteValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKEnumKeys: DISPID_SpeechDataKey = DISPID_SpeechDataKey(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SDKEnumValues: DISPID_SpeechDataKey = DISPID_SpeechDataKey(12i32);
+impl ::core::marker::Copy for DISPID_SpeechDataKey {}
+impl ::core::clone::Clone for DISPID_SpeechDataKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechDataKey {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechDataKey {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechDataKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechDataKey").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechFileStream(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SFSOpen: DISPID_SpeechFileStream = DISPID_SpeechFileStream(100i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SFSClose: DISPID_SpeechFileStream = DISPID_SpeechFileStream(101i32);
+impl ::core::marker::Copy for DISPID_SpeechFileStream {}
+impl ::core::clone::Clone for DISPID_SpeechFileStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechFileStream {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechFileStream {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechFileStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechFileStream").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechGrammarRule(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRAttributes: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRInitialState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRName: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRId: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRClear: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRAddResource: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRAddState: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(7i32);
+impl ::core::marker::Copy for DISPID_SpeechGrammarRule {}
+impl ::core::clone::Clone for DISPID_SpeechGrammarRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechGrammarRule {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRule {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechGrammarRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechGrammarRule").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechGrammarRuleState(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSRule: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTransitions: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSAddWordTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSAddRuleTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSAddSpecialTransition: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(5i32);
+impl ::core::marker::Copy for DISPID_SpeechGrammarRuleState {}
+impl ::core::clone::Clone for DISPID_SpeechGrammarRuleState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechGrammarRuleState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechGrammarRuleState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTType: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTText: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTRule: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTWeight: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTPropertyName: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTPropertyId: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTPropertyValue: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTNextState: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(8i32);
+impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransition {}
+impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleStateTransition {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechGrammarRuleStateTransition").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTsCount: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTsItem: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRSTs_NewEnum: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransitions {}
+impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransitions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransitions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleStateTransitions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransitions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechGrammarRuleStateTransitions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechGrammarRules(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRsCount: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRsDynamic: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRsAdd: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRsCommit: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRsCommitAndSave: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRsFindRule: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRsItem: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SGRs_NewEnum: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechGrammarRules {}
+impl ::core::clone::Clone for DISPID_SpeechGrammarRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechGrammarRules {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRules {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechGrammarRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechGrammarRules").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechLexicon(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLGenerationId: DISPID_SpeechLexicon = DISPID_SpeechLexicon(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLGetWords: DISPID_SpeechLexicon = DISPID_SpeechLexicon(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLAddPronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLAddPronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLRemovePronunciation: DISPID_SpeechLexicon = DISPID_SpeechLexicon(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLRemovePronunciationByPhoneIds: DISPID_SpeechLexicon = DISPID_SpeechLexicon(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLGetPronunciations: DISPID_SpeechLexicon = DISPID_SpeechLexicon(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLGetGenerationChange: DISPID_SpeechLexicon = DISPID_SpeechLexicon(8i32);
+impl ::core::marker::Copy for DISPID_SpeechLexicon {}
+impl ::core::clone::Clone for DISPID_SpeechLexicon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechLexicon {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechLexicon {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechLexicon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechLexicon").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechLexiconProns(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPsCount: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPsItem: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPs_NewEnum: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechLexiconProns {}
+impl ::core::clone::Clone for DISPID_SpeechLexiconProns {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechLexiconProns {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconProns {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechLexiconProns {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechLexiconProns").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechLexiconPronunciation(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPType: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPLangId: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPPartOfSpeech: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPPhoneIds: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLPSymbolic: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(5i32);
+impl ::core::marker::Copy for DISPID_SpeechLexiconPronunciation {}
+impl ::core::clone::Clone for DISPID_SpeechLexiconPronunciation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechLexiconPronunciation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconPronunciation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechLexiconPronunciation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechLexiconPronunciation").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechLexiconWord(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLWLangId: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLWType: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLWWord: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLWPronunciations: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(4i32);
+impl ::core::marker::Copy for DISPID_SpeechLexiconWord {}
+impl ::core::clone::Clone for DISPID_SpeechLexiconWord {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechLexiconWord {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconWord {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechLexiconWord {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechLexiconWord").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechLexiconWords(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLWsCount: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLWsItem: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SLWs_NewEnum: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechLexiconWords {}
+impl ::core::clone::Clone for DISPID_SpeechLexiconWords {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechLexiconWords {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconWords {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechLexiconWords {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechLexiconWords").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechMMSysAudio(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SMSADeviceId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(300i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SMSALineId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(301i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SMSAMMHandle: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(302i32);
+impl ::core::marker::Copy for DISPID_SpeechMMSysAudio {}
+impl ::core::clone::Clone for DISPID_SpeechMMSysAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechMMSysAudio {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechMMSysAudio {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechMMSysAudio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechMMSysAudio").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechMemoryStream(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SMSSetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(100i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SMSGetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(101i32);
+impl ::core::marker::Copy for DISPID_SpeechMemoryStream {}
+impl ::core::clone::Clone for DISPID_SpeechMemoryStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechMemoryStream {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechMemoryStream {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechMemoryStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechMemoryStream").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechObjectToken(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTDataKey: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTCategory: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTGetDescription: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTSetId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTGetAttribute: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTCreateInstance: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTRemove: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTGetStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTRemoveStorageFileName: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTIsUISupported: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTDisplayUI: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTMatchesAttributes: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(13i32);
+impl ::core::marker::Copy for DISPID_SpeechObjectToken {}
+impl ::core::clone::Clone for DISPID_SpeechObjectToken {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechObjectToken {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechObjectToken {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechObjectToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechObjectToken").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechObjectTokenCategory(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTCId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTCDefault: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTCSetId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTCGetDataKey: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTCEnumerateTokens: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(5i32);
+impl ::core::marker::Copy for DISPID_SpeechObjectTokenCategory {}
+impl ::core::clone::Clone for DISPID_SpeechObjectTokenCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechObjectTokenCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechObjectTokenCategory {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechObjectTokenCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechObjectTokenCategory").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechObjectTokens(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTsCount: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTsItem: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SOTs_NewEnum: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechObjectTokens {}
+impl ::core::clone::Clone for DISPID_SpeechObjectTokens {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechObjectTokens {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechObjectTokens {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechObjectTokens {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechObjectTokens").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhoneConverter(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPCLangId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPCPhoneToId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPCIdToPhone: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(3i32);
+impl ::core::marker::Copy for DISPID_SpeechPhoneConverter {}
+impl ::core::clone::Clone for DISPID_SpeechPhoneConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhoneConverter {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhoneConverter {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhoneConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhoneConverter").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseAlternate(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPARecoResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPAStartElementInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPANumberOfElementsInResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPAPhraseInfo: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPACommit: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(5i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseAlternate {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseAlternate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseAlternate {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseAlternate {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseAlternate").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseAlternates(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPAsCount: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPAsItem: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPAs_NewEnum: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseAlternates {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseAlternates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseAlternates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseAlternates {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseAlternates").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseBuilder(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPBRestorePhraseFromMemory: DISPID_SpeechPhraseBuilder = DISPID_SpeechPhraseBuilder(1i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseBuilder {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseBuilder {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseBuilder {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseBuilder").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseElement(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEAudioTimeOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEAudioSizeTime: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEAudioStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEAudioSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPERetainedStreamOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPERetainedSizeBytes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEDisplayText: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPELexicalForm: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEPronunciation: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEDisplayAttributes: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPERequiredConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEActualConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEEngineConfidence: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(13i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseElement {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseElement {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseElement {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseElement").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseElements(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEsCount: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEsItem: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPEs_NewEnum: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseElements {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseElements {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseElements {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseElements {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseElements {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseElements").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseInfo(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPILanguageId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIGrammarId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIStartTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIAudioStreamPosition: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIAudioSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIRetainedSizeBytes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIAudioSizeTime: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIRule: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIProperties: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIElements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIReplacements: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIEngineId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIEnginePrivateData: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(13i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPISaveToMemory: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(14i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIGetText: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(15i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPIGetDisplayAttributes: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(16i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseInfo {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseInfo {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseInfo {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseInfo").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseProperties(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPsCount: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPsItem: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPs_NewEnum: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseProperties {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseProperties").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseProperty(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPName: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPId: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPValue: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPFirstElement: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPNumberOfElements: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPEngineConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPConfidence: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPParent: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPPChildren: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(9i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseProperty {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseProperty").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseReplacement(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRDisplayAttributes: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRText: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRFirstElement: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRNumberOfElements: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(4i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseReplacement {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseReplacement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseReplacement {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseReplacement {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseReplacement").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseReplacements(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRsCount: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRsItem: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRs_NewEnum: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseReplacements {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseReplacements {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseReplacements {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseReplacements {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacements {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseReplacements").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseRule(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleName: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleId: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleFirstElement: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleNumberOfElements: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleParent: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleChildren: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRuleEngineConfidence: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(8i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseRule {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseRule {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseRule {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseRule").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechPhraseRules(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRulesCount: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRulesItem: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SPRules_NewEnum: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(-4i32);
+impl ::core::marker::Copy for DISPID_SpeechPhraseRules {}
+impl ::core::clone::Clone for DISPID_SpeechPhraseRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseRules {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseRules {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechPhraseRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechPhraseRules").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechRecoContext(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCRecognizer: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCAudioInInterferenceStatus: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCRequestedUIType: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCVoice: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRAllowVoiceFormatMatchingOnNextSet: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCVoicePurgeEvent: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEventInterests: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCCmdMaxAlternates: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCState: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCRetainedAudio: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCRetainedAudioFormat: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCPause: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCResume: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(13i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCCreateGrammar: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(14i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCCreateResultFromMemory: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(15i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCBookmark: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(16i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCSetAdaptationData: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(17i32);
+impl ::core::marker::Copy for DISPID_SpeechRecoContext {}
+impl ::core::clone::Clone for DISPID_SpeechRecoContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoContext {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechRecoContext {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechRecoContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechRecoContext").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechRecoContextEvents(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEStartStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEEndStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEBookmark: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCESoundStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCESoundEnd: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEPhraseStart: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCERecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEHypothesis: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEPropertyNumberChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEPropertyStringChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEFalseRecognition: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEInterference: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCERequestUI: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(13i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCERecognizerStateChange: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(14i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEAdaptation: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(15i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCERecognitionForOtherContext: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(16i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEAudioLevel: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(17i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCEEnginePrivate: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(18i32);
+impl ::core::marker::Copy for DISPID_SpeechRecoContextEvents {}
+impl ::core::clone::Clone for DISPID_SpeechRecoContextEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoContextEvents {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechRecoContextEvents {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechRecoContextEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechRecoContextEvents").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechRecoResult(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRRecoContext: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRTimes: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRAudioFormat: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRPhraseInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRAlternates: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRSpeakAudio: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRSaveToMemory: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRDiscardResultInfo: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(9i32);
+impl ::core::marker::Copy for DISPID_SpeechRecoResult {}
+impl ::core::clone::Clone for DISPID_SpeechRecoResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechRecoResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechRecoResult").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechRecoResult2(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRSetTextFeedback: DISPID_SpeechRecoResult2 = DISPID_SpeechRecoResult2(12i32);
+impl ::core::marker::Copy for DISPID_SpeechRecoResult2 {}
+impl ::core::clone::Clone for DISPID_SpeechRecoResult2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoResult2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResult2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechRecoResult2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechRecoResult2").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechRecoResultTimes(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRTStreamTime: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRTLength: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRTTickCount: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRTOffsetFromStart: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(4i32);
+impl ::core::marker::Copy for DISPID_SpeechRecoResultTimes {}
+impl ::core::clone::Clone for DISPID_SpeechRecoResultTimes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoResultTimes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResultTimes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechRecoResultTimes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechRecoResultTimes").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechRecognizer(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRecognizer: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRAllowAudioInputFormatChangesOnNextSet: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRAudioInput: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRAudioInputStream: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRIsShared: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRState: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRStatus: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRProfile: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SREmulateRecognition: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRCreateRecoContext: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGetFormat: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGetPropertyNumber: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(13i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(14i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGetPropertyString: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(15i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRIsUISupported: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(16i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRDisplayUI: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(17i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRGetRecognizers: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(18i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVGetAudioInputs: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(19i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVGetProfiles: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(20i32);
+impl ::core::marker::Copy for DISPID_SpeechRecognizer {}
+impl ::core::clone::Clone for DISPID_SpeechRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecognizer {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechRecognizer {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechRecognizer").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechRecognizerStatus(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSAudioStatus: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSCurrentStreamPosition: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSCurrentStreamNumber: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSNumberOfActiveRules: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSClsidEngine: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRSSupportedLanguages: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(6i32);
+impl ::core::marker::Copy for DISPID_SpeechRecognizerStatus {}
+impl ::core::clone::Clone for DISPID_SpeechRecognizerStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecognizerStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechRecognizerStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechRecognizerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechRecognizerStatus").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechVoice(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVStatus: DISPID_SpeechVoice = DISPID_SpeechVoice(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVVoice: DISPID_SpeechVoice = DISPID_SpeechVoice(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVAudioOutput: DISPID_SpeechVoice = DISPID_SpeechVoice(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVAudioOutputStream: DISPID_SpeechVoice = DISPID_SpeechVoice(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVRate: DISPID_SpeechVoice = DISPID_SpeechVoice(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVVolume: DISPID_SpeechVoice = DISPID_SpeechVoice(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVAllowAudioOuputFormatChangesOnNextSet: DISPID_SpeechVoice = DISPID_SpeechVoice(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEventInterests: DISPID_SpeechVoice = DISPID_SpeechVoice(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVPriority: DISPID_SpeechVoice = DISPID_SpeechVoice(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVAlertBoundary: DISPID_SpeechVoice = DISPID_SpeechVoice(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSyncronousSpeakTimeout: DISPID_SpeechVoice = DISPID_SpeechVoice(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSpeak: DISPID_SpeechVoice = DISPID_SpeechVoice(12i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSpeakStream: DISPID_SpeechVoice = DISPID_SpeechVoice(13i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVPause: DISPID_SpeechVoice = DISPID_SpeechVoice(14i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVResume: DISPID_SpeechVoice = DISPID_SpeechVoice(15i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSkip: DISPID_SpeechVoice = DISPID_SpeechVoice(16i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVGetVoices: DISPID_SpeechVoice = DISPID_SpeechVoice(17i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVGetAudioOutputs: DISPID_SpeechVoice = DISPID_SpeechVoice(18i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVWaitUntilDone: DISPID_SpeechVoice = DISPID_SpeechVoice(19i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSpeakCompleteEvent: DISPID_SpeechVoice = DISPID_SpeechVoice(20i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVIsUISupported: DISPID_SpeechVoice = DISPID_SpeechVoice(21i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVDisplayUI: DISPID_SpeechVoice = DISPID_SpeechVoice(22i32);
+impl ::core::marker::Copy for DISPID_SpeechVoice {}
+impl ::core::clone::Clone for DISPID_SpeechVoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechVoice {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechVoice {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechVoice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechVoice").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechVoiceEvent(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEStreamStart: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEStreamEnd: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEVoiceChange: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEBookmark: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEWord: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEPhoneme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVESentenceBoundary: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEViseme: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEAudioLevel: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVEEnginePrivate: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(10i32);
+impl ::core::marker::Copy for DISPID_SpeechVoiceEvent {}
+impl ::core::clone::Clone for DISPID_SpeechVoiceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechVoiceEvent {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechVoiceEvent {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechVoiceEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechVoiceEvent").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechVoiceStatus(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSCurrentStreamNumber: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSLastStreamNumberQueued: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSLastResult: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSRunningState: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSInputWordPosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSInputWordLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSInputSentencePosition: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(7i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSInputSentenceLength: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(8i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSLastBookmark: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(9i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSLastBookmarkId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSPhonemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(11i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SVSVisemeId: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(12i32);
+impl ::core::marker::Copy for DISPID_SpeechVoiceStatus {}
+impl ::core::clone::Clone for DISPID_SpeechVoiceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechVoiceStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechVoiceStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechVoiceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechVoiceStatus").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechWaveFormatEx(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SWFEFormatTag: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(1i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SWFEChannels: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(2i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SWFESamplesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(3i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SWFEAvgBytesPerSec: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(4i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SWFEBlockAlign: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(5i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SWFEBitsPerSample: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(6i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SWFEExtraData: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(7i32);
+impl ::core::marker::Copy for DISPID_SpeechWaveFormatEx {}
+impl ::core::clone::Clone for DISPID_SpeechWaveFormatEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechWaveFormatEx {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechWaveFormatEx {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechWaveFormatEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechWaveFormatEx").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DISPID_SpeechXMLRecoResult(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRGetXMLResult: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(10i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const DISPID_SRRGetXMLErrorInfo: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(11i32);
+impl ::core::marker::Copy for DISPID_SpeechXMLRecoResult {}
+impl ::core::clone::Clone for DISPID_SpeechXMLRecoResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechXMLRecoResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPID_SpeechXMLRecoResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPID_SpeechXMLRecoResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPID_SpeechXMLRecoResult").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14838,8 +15146,6 @@ impl ::core::fmt::Debug for PHONETICALPHABET {
         f.debug_tuple("PHONETICALPHABET").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SAPI_ERROR_BASE: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14907,40 +15213,6 @@ impl ::core::fmt::Debug for SPADAPTATIONSETTINGS {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPALTERNATESCLSID: &str = "AlternatesCLSID";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPAUDIOBUFFERINFO {
-    pub ulMsMinNotification: u32,
-    pub ulMsBufferSize: u32,
-    pub ulMsEventBias: u32,
-}
-impl ::core::marker::Copy for SPAUDIOBUFFERINFO {}
-impl ::core::clone::Clone for SPAUDIOBUFFERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPAUDIOBUFFERINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPAUDIOBUFFERINFO").field("ulMsMinNotification", &self.ulMsMinNotification).field("ulMsBufferSize", &self.ulMsBufferSize).field("ulMsEventBias", &self.ulMsEventBias).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPAUDIOBUFFERINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPAUDIOBUFFERINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPAUDIOBUFFERINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPAUDIOBUFFERINFO {}
-impl ::core::default::Default for SPAUDIOBUFFERINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPAUDIOOPTIONS(pub i32);
@@ -14998,72 +15270,6 @@ impl ::core::fmt::Debug for SPAUDIOSTATE {
         f.debug_tuple("SPAUDIOSTATE").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPAUDIOSTATUS {
-    pub cbFreeBuffSpace: i32,
-    pub cbNonBlockingIO: u32,
-    pub State: SPAUDIOSTATE,
-    pub CurSeekPos: u64,
-    pub CurDevicePos: u64,
-    pub dwAudioLevel: u32,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for SPAUDIOSTATUS {}
-impl ::core::clone::Clone for SPAUDIOSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPAUDIOSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPAUDIOSTATUS").field("cbFreeBuffSpace", &self.cbFreeBuffSpace).field("cbNonBlockingIO", &self.cbNonBlockingIO).field("State", &self.State).field("CurSeekPos", &self.CurSeekPos).field("CurDevicePos", &self.CurDevicePos).field("dwAudioLevel", &self.dwAudioLevel).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPAUDIOSTATUS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPAUDIOSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPAUDIOSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPAUDIOSTATUS {}
-impl ::core::default::Default for SPAUDIOSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPBINARYGRAMMAR {
-    pub ulTotalSerializedSize: u32,
-}
-impl ::core::marker::Copy for SPBINARYGRAMMAR {}
-impl ::core::clone::Clone for SPBINARYGRAMMAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPBINARYGRAMMAR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPBINARYGRAMMAR").field("ulTotalSerializedSize", &self.ulTotalSerializedSize).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPBINARYGRAMMAR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPBINARYGRAMMAR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPBINARYGRAMMAR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPBINARYGRAMMAR {}
-impl ::core::default::Default for SPBINARYGRAMMAR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -15095,22 +15301,6 @@ impl ::core::fmt::Debug for SPBOOKMARKOPTIONS {
         f.debug_tuple("SPBOOKMARKOPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_APPLEXICONS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_AUDIOIN: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_AUDIOOUT: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_PHONECONVERTERS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_RECOGNIZERS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_RECOPROFILES: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_TEXTNORMALIZERS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\TextNormalizers";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCAT_VOICES: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -15209,10 +15399,6 @@ impl ::core::fmt::Debug for SPCONTEXTSTATE {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCURRENT_USER_LEXICON_TOKEN_ID: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPCURRENT_USER_SHORTCUT_TOKEN_ID: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPDATAKEYLOCATION(pub i32);
@@ -15241,71 +15427,6 @@ unsafe impl ::windows::core::Abi for SPDATAKEYLOCATION {
 impl ::core::fmt::Debug for SPDATAKEYLOCATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPDATAKEYLOCATION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDICTATION: &str = "*";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPDISPLAYPHRASE {
-    pub ulNumTokens: u32,
-    pub pTokens: *mut SPDISPLAYTOKEN,
-}
-impl ::core::marker::Copy for SPDISPLAYPHRASE {}
-impl ::core::clone::Clone for SPDISPLAYPHRASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPDISPLAYPHRASE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPDISPLAYPHRASE").field("ulNumTokens", &self.ulNumTokens).field("pTokens", &self.pTokens).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPDISPLAYPHRASE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPDISPLAYPHRASE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPDISPLAYPHRASE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPDISPLAYPHRASE {}
-impl ::core::default::Default for SPDISPLAYPHRASE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPDISPLAYTOKEN {
-    pub pszLexical: ::windows::core::PCWSTR,
-    pub pszDisplay: ::windows::core::PCWSTR,
-    pub bDisplayAttributes: u8,
-}
-impl ::core::marker::Copy for SPDISPLAYTOKEN {}
-impl ::core::clone::Clone for SPDISPLAYTOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPDISPLAYTOKEN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPDISPLAYTOKEN").field("pszLexical", &self.pszLexical).field("pszDisplay", &self.pszDisplay).field("bDisplayAttributes", &self.bDisplayAttributes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPDISPLAYTOKEN {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPDISPLAYTOKEN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPDISPLAYTOKEN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPDISPLAYTOKEN {}
-impl ::core::default::Default for SPDISPLAYTOKEN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -15343,26 +15464,6 @@ impl ::core::fmt::Debug for SPDISPLYATTRIBUTES {
         f.debug_tuple("SPDISPLYATTRIBUTES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_AddRemoveWord: &str = "AddRemoveWord";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_AudioProperties: &str = "AudioProperties";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_AudioVolume: &str = "AudioVolume";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_EngineProperties: &str = "EngineProperties";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_MicTraining: &str = "MicTraining";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_RecoProfileProperties: &str = "RecoProfileProperties";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_ShareData: &str = "ShareData";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_Tutorial: &str = "Tutorial";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_UserEnrollment: &str = "UserEnrollment";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPDUI_UserTraining: &str = "UserTraining";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -15443,48 +15544,6 @@ unsafe impl ::windows::core::Abi for SPENDSRSTREAMFLAGS {
 impl ::core::fmt::Debug for SPENDSRSTREAMFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPENDSRSTREAMFLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SPEVENT {
-    pub _bitfield: i32,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SPEVENT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SPEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SPEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SPEVENT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SPEVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SPEVENT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SPEVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -15590,49 +15649,6 @@ impl ::core::fmt::Debug for SPEVENTENUM {
         f.debug_tuple("SPEVENTENUM").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SPEVENTEX {
-    pub _bitfield: i32,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub wParam: super::super::Foundation::WPARAM,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub ullAudioTimeOffset: u64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SPEVENTEX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SPEVENTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SPEVENTEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPEVENTEX").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).field("ullAudioTimeOffset", &self.ullAudioTimeOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SPEVENTEX {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SPEVENTEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENTEX>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SPEVENTEX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SPEVENTEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -15664,38 +15680,6 @@ unsafe impl ::windows::core::Abi for SPEVENTLPARAMTYPE {
 impl ::core::fmt::Debug for SPEVENTLPARAMTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPEVENTLPARAMTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPEVENTSOURCEINFO {
-    pub ullEventInterest: u64,
-    pub ullQueuedInterest: u64,
-    pub ulCount: u32,
-}
-impl ::core::marker::Copy for SPEVENTSOURCEINFO {}
-impl ::core::clone::Clone for SPEVENTSOURCEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPEVENTSOURCEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPEVENTSOURCEINFO").field("ullEventInterest", &self.ullEventInterest).field("ullQueuedInterest", &self.ullQueuedInterest).field("ulCount", &self.ulCount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPEVENTSOURCEINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPEVENTSOURCEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENTSOURCEINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPEVENTSOURCEINFO {}
-impl ::core::default::Default for SPEVENTSOURCEINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -15840,8 +15824,6 @@ impl ::core::fmt::Debug for SPGRAMMARWORDTYPE {
         f.debug_tuple("SPGRAMMARWORDTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPINFDICTATION: &str = "*+";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -16033,44 +16015,6 @@ impl ::core::fmt::Debug for SPMATCHINGMODE {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPMMSYS_AUDIO_IN_TOKEN_ID: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPNORMALIZATIONLIST {
-    pub ulSize: u32,
-    pub ppszzNormalizedList: *mut *mut u16,
-}
-impl ::core::marker::Copy for SPNORMALIZATIONLIST {}
-impl ::core::clone::Clone for SPNORMALIZATIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPNORMALIZATIONLIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPNORMALIZATIONLIST").field("ulSize", &self.ulSize).field("ppszzNormalizedList", &self.ppszzNormalizedList).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPNORMALIZATIONLIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPNORMALIZATIONLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPNORMALIZATIONLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPNORMALIZATIONLIST {}
-impl ::core::default::Default for SPNORMALIZATIONLIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type SPNOTIFYCALLBACK = ::core::option::Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPPARTOFSPEECH(pub i32);
@@ -16113,227 +16057,6 @@ impl ::core::fmt::Debug for SPPARTOFSPEECH {
         f.debug_tuple("SPPARTOFSPEECH").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct SPPHRASE {
-    pub Base: SPPHRASE_50,
-    pub pSML: ::windows::core::PWSTR,
-    pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for SPPHRASE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for SPPHRASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for SPPHRASE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASE").field("Base", &self.Base).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for SPPHRASE {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPHRASE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPHRASE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for SPPHRASE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPPHRASEELEMENT {
-    pub ulAudioTimeOffset: u32,
-    pub ulAudioSizeTime: u32,
-    pub ulAudioStreamOffset: u32,
-    pub ulAudioSizeBytes: u32,
-    pub ulRetainedStreamOffset: u32,
-    pub ulRetainedSizeBytes: u32,
-    pub pszDisplayText: ::windows::core::PCWSTR,
-    pub pszLexicalForm: ::windows::core::PCWSTR,
-    pub pszPronunciation: *const u16,
-    pub bDisplayAttributes: u8,
-    pub RequiredConfidence: i8,
-    pub ActualConfidence: i8,
-    pub Reserved: u8,
-    pub SREngineConfidence: f32,
-}
-impl ::core::marker::Copy for SPPHRASEELEMENT {}
-impl ::core::clone::Clone for SPPHRASEELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPPHRASEELEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASEELEMENT")
-            .field("ulAudioTimeOffset", &self.ulAudioTimeOffset)
-            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
-            .field("ulAudioStreamOffset", &self.ulAudioStreamOffset)
-            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
-            .field("ulRetainedStreamOffset", &self.ulRetainedStreamOffset)
-            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
-            .field("pszDisplayText", &self.pszDisplayText)
-            .field("pszLexicalForm", &self.pszLexicalForm)
-            .field("pszPronunciation", &self.pszPronunciation)
-            .field("bDisplayAttributes", &self.bDisplayAttributes)
-            .field("RequiredConfidence", &self.RequiredConfidence)
-            .field("ActualConfidence", &self.ActualConfidence)
-            .field("Reserved", &self.Reserved)
-            .field("SREngineConfidence", &self.SREngineConfidence)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPPHRASEELEMENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPPHRASEELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEELEMENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPPHRASEELEMENT {}
-impl ::core::default::Default for SPPHRASEELEMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct SPPHRASEPROPERTY {
-    pub pszName: ::windows::core::PCWSTR,
-    pub Anonymous: SPPHRASEPROPERTY_0,
-    pub pszValue: ::windows::core::PCWSTR,
-    pub vValue: super::super::System::Com::VARIANT,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
-    pub pNextSibling: *const SPPHRASEPROPERTY,
-    pub pFirstChild: *const SPPHRASEPROPERTY,
-    pub SREngineConfidence: f32,
-    pub Confidence: i8,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for SPPHRASEPROPERTY {
-    fn clone(&self) -> Self {
-        Self {
-            pszName: self.pszName,
-            Anonymous: self.Anonymous,
-            pszValue: self.pszValue,
-            vValue: self.vValue.clone(),
-            ulFirstElement: self.ulFirstElement,
-            ulCountOfElements: self.ulCountOfElements,
-            pNextSibling: self.pNextSibling,
-            pFirstChild: self.pFirstChild,
-            SREngineConfidence: self.SREngineConfidence,
-            Confidence: self.Confidence,
-        }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPHRASEPROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.Anonymous == other.Anonymous && self.pszValue == other.pszValue && self.vValue == other.vValue && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements && self.pNextSibling == other.pNextSibling && self.pFirstChild == other.pFirstChild && self.SREngineConfidence == other.SREngineConfidence && self.Confidence == other.Confidence
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPHRASEPROPERTY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for SPPHRASEPROPERTY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub union SPPHRASEPROPERTY_0 {
-    pub ulId: u32,
-    pub Anonymous: SPPHRASEPROPERTY_0_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for SPPHRASEPROPERTY_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for SPPHRASEPROPERTY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPHRASEPROPERTY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEPROPERTY_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPHRASEPROPERTY_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for SPPHRASEPROPERTY_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct SPPHRASEPROPERTY_0_0 {
-    pub bType: u8,
-    pub bReserved: u8,
-    pub usArrayIndex: u16,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for SPPHRASEPROPERTY_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for SPPHRASEPROPERTY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for SPPHRASEPROPERTY_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASEPROPERTY_0_0").field("bType", &self.bType).field("bReserved", &self.bReserved).field("usArrayIndex", &self.usArrayIndex).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0_0 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPHRASEPROPERTY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEPROPERTY_0_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPHRASEPROPERTY_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for SPPHRASEPROPERTY_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -16361,39 +16084,6 @@ impl ::core::fmt::Debug for SPPHRASEPROPERTYUNIONTYPE {
         f.debug_tuple("SPPHRASEPROPERTYUNIONTYPE").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPPHRASEREPLACEMENT {
-    pub bDisplayAttributes: u8,
-    pub pszReplacementText: ::windows::core::PCWSTR,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
-}
-impl ::core::marker::Copy for SPPHRASEREPLACEMENT {}
-impl ::core::clone::Clone for SPPHRASEREPLACEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPPHRASEREPLACEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASEREPLACEMENT").field("bDisplayAttributes", &self.bDisplayAttributes).field("pszReplacementText", &self.pszReplacementText).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPPHRASEREPLACEMENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPPHRASEREPLACEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEREPLACEMENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPPHRASEREPLACEMENT {}
-impl ::core::default::Default for SPPHRASEREPLACEMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -16419,115 +16109,6 @@ impl ::core::fmt::Debug for SPPHRASERNG {
         f.debug_tuple("SPPHRASERNG").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPPHRASERULE {
-    pub pszName: ::windows::core::PCWSTR,
-    pub ulId: u32,
-    pub ulFirstElement: u32,
-    pub ulCountOfElements: u32,
-    pub pNextSibling: *const SPPHRASERULE,
-    pub pFirstChild: *const SPPHRASERULE,
-    pub SREngineConfidence: f32,
-    pub Confidence: i8,
-}
-impl ::core::marker::Copy for SPPHRASERULE {}
-impl ::core::clone::Clone for SPPHRASERULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPPHRASERULE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASERULE").field("pszName", &self.pszName).field("ulId", &self.ulId).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).field("pNextSibling", &self.pNextSibling).field("pFirstChild", &self.pFirstChild).field("SREngineConfidence", &self.SREngineConfidence).field("Confidence", &self.Confidence).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPPHRASERULE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPPHRASERULE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASERULE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPPHRASERULE {}
-impl ::core::default::Default for SPPHRASERULE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct SPPHRASE_50 {
-    pub cbSize: u32,
-    pub LangID: u16,
-    pub wHomophoneGroupId: u16,
-    pub ullGrammarID: u64,
-    pub ftStartTime: u64,
-    pub ullAudioStreamPosition: u64,
-    pub ulAudioSizeBytes: u32,
-    pub ulRetainedSizeBytes: u32,
-    pub ulAudioSizeTime: u32,
-    pub Rule: SPPHRASERULE,
-    pub pProperties: *const SPPHRASEPROPERTY,
-    pub pElements: *const SPPHRASEELEMENT,
-    pub cReplacements: u32,
-    pub pReplacements: *const SPPHRASEREPLACEMENT,
-    pub SREngineID: ::windows::core::GUID,
-    pub ulSREnginePrivateDataSize: u32,
-    pub pSREnginePrivateData: *const u8,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for SPPHRASE_50 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for SPPHRASE_50 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for SPPHRASE_50 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASE_50")
-            .field("cbSize", &self.cbSize)
-            .field("LangID", &self.LangID)
-            .field("wHomophoneGroupId", &self.wHomophoneGroupId)
-            .field("ullGrammarID", &self.ullGrammarID)
-            .field("ftStartTime", &self.ftStartTime)
-            .field("ullAudioStreamPosition", &self.ullAudioStreamPosition)
-            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
-            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
-            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
-            .field("Rule", &self.Rule)
-            .field("pProperties", &self.pProperties)
-            .field("pElements", &self.pElements)
-            .field("cReplacements", &self.cReplacements)
-            .field("pReplacements", &self.pReplacements)
-            .field("SREngineID", &self.SREngineID)
-            .field("ulSREnginePrivateDataSize", &self.ulSREnginePrivateDataSize)
-            .field("pSREnginePrivateData", &self.pSREnginePrivateData)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for SPPHRASE_50 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPHRASE_50 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASE_50>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPHRASE_50 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for SPPHRASE_50 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -16551,92 +16132,6 @@ unsafe impl ::windows::core::Abi for SPPRONUNCIATIONFLAGS {
 impl ::core::fmt::Debug for SPPRONUNCIATIONFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPPRONUNCIATIONFLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct SPPROPERTYINFO {
-    pub pszName: ::windows::core::PCWSTR,
-    pub ulId: u32,
-    pub pszValue: ::windows::core::PCWSTR,
-    pub vValue: super::super::System::Com::VARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for SPPROPERTYINFO {
-    fn clone(&self) -> Self {
-        Self { pszName: self.pszName, ulId: self.ulId, pszValue: self.pszValue, vValue: self.vValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for SPPROPERTYINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPROPERTYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.ulId == other.ulId && self.pszValue == other.pszValue && self.vValue == other.vValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPROPERTYINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for SPPROPERTYINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_ADAPTATION_ON: &str = "AdaptationOn";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_COMPLEX_RESPONSE_SPEED: &str = "ComplexResponseSpeed";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_HIGH_CONFIDENCE_THRESHOLD: &str = "HighConfidenceThreshold";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_LOW_CONFIDENCE_THRESHOLD: &str = "LowConfidenceThreshold";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_NORMAL_CONFIDENCE_THRESHOLD: &str = "NormalConfidenceThreshold";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_PERSISTED_BACKGROUND_ADAPTATION: &str = "PersistedBackgroundAdaptation";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION: &str = "PersistedLanguageModelAdaptation";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_RESOURCE_USAGE: &str = "ResourceUsage";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_RESPONSE_SPEED: &str = "ResponseSpeed";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPPROP_UX_IS_LISTENING: &str = "UXIsListening";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPRECOCONTEXTSTATUS {
-    pub eInterference: SPINTERFERENCE,
-    pub szRequestTypeOfUI: [u16; 255],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for SPRECOCONTEXTSTATUS {}
-impl ::core::clone::Clone for SPRECOCONTEXTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPRECOCONTEXTSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPRECOCONTEXTSTATUS").field("eInterference", &self.eInterference).field("szRequestTypeOfUI", &self.szRequestTypeOfUI).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPRECOCONTEXTSTATUS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPRECOCONTEXTSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECOCONTEXTSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPRECOCONTEXTSTATUS {}
-impl ::core::default::Default for SPRECOCONTEXTSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -16677,86 +16172,6 @@ impl ::core::fmt::Debug for SPRECOEVENTFLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPRECOEXTENSION: &str = "RecoExtension";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPRECOGNIZERSTATUS {
-    pub AudioStatus: SPAUDIOSTATUS,
-    pub ullRecognitionStreamPos: u64,
-    pub ulStreamNumber: u32,
-    pub ulNumActive: u32,
-    pub clsidEngine: ::windows::core::GUID,
-    pub cLangIDs: u32,
-    pub aLangID: [u16; 20],
-    pub ullRecognitionStreamTime: u64,
-}
-impl ::core::marker::Copy for SPRECOGNIZERSTATUS {}
-impl ::core::clone::Clone for SPRECOGNIZERSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPRECOGNIZERSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPRECOGNIZERSTATUS").field("AudioStatus", &self.AudioStatus).field("ullRecognitionStreamPos", &self.ullRecognitionStreamPos).field("ulStreamNumber", &self.ulStreamNumber).field("ulNumActive", &self.ulNumActive).field("clsidEngine", &self.clsidEngine).field("cLangIDs", &self.cLangIDs).field("aLangID", &self.aLangID).field("ullRecognitionStreamTime", &self.ullRecognitionStreamTime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPRECOGNIZERSTATUS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPRECOGNIZERSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECOGNIZERSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPRECOGNIZERSTATUS {}
-impl ::core::default::Default for SPRECOGNIZERSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SPRECORESULTTIMES {
-    pub ftStreamTime: super::super::Foundation::FILETIME,
-    pub ullLength: u64,
-    pub dwTickCount: u32,
-    pub ullStart: u64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SPRECORESULTTIMES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SPRECORESULTTIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SPRECORESULTTIMES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPRECORESULTTIMES").field("ftStreamTime", &self.ftStreamTime).field("ullLength", &self.ullLength).field("dwTickCount", &self.dwTickCount).field("ullStart", &self.ullStart).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SPRECORESULTTIMES {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SPRECORESULTTIMES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECORESULTTIMES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SPRECORESULTTIMES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SPRECORESULTTIMES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPRECOSTATE(pub i32);
@@ -16787,46 +16202,6 @@ unsafe impl ::windows::core::Abi for SPRECOSTATE {
 impl ::core::fmt::Debug for SPRECOSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPRECOSTATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPREG_LOCAL_MACHINE_ROOT: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPREG_SAFE_USER_TOKENS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPREG_USER_ROOT: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPRP_NORMAL: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPRULE {
-    pub pszRuleName: ::windows::core::PCWSTR,
-    pub ulRuleId: u32,
-    pub dwAttributes: u32,
-}
-impl ::core::marker::Copy for SPRULE {}
-impl ::core::clone::Clone for SPRULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPRULE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPRULE").field("pszRuleName", &self.pszRuleName).field("ulRuleId", &self.ulRuleId).field("dwAttributes", &self.dwAttributes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPRULE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPRULE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRULE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPRULE {}
-impl ::core::default::Default for SPRULE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -16887,40 +16262,6 @@ impl ::core::fmt::Debug for SPRUNSTATE {
         f.debug_tuple("SPRUNSTATE").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSEMANTICERRORINFO {
-    pub ulLineNumber: u32,
-    pub pszScriptLine: ::windows::core::PWSTR,
-    pub pszSource: ::windows::core::PWSTR,
-    pub pszDescription: ::windows::core::PWSTR,
-    pub hrResultCode: ::windows::core::HRESULT,
-}
-impl ::core::marker::Copy for SPSEMANTICERRORINFO {}
-impl ::core::clone::Clone for SPSEMANTICERRORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSEMANTICERRORINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSEMANTICERRORINFO").field("ulLineNumber", &self.ulLineNumber).field("pszScriptLine", &self.pszScriptLine).field("pszSource", &self.pszSource).field("pszDescription", &self.pszDescription).field("hrResultCode", &self.hrResultCode).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSEMANTICERRORINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSEMANTICERRORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSEMANTICERRORINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSEMANTICERRORINFO {}
-impl ::core::default::Default for SPSEMANTICERRORINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -16952,200 +16293,6 @@ unsafe impl ::windows::core::Abi for SPSEMANTICFORMAT {
 impl ::core::fmt::Debug for SPSEMANTICFORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPSEMANTICFORMAT").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSERIALIZEDEVENT {
-    pub _bitfield: i32,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub SerializedwParam: u32,
-    pub SerializedlParam: i32,
-}
-impl ::core::marker::Copy for SPSERIALIZEDEVENT {}
-impl ::core::clone::Clone for SPSERIALIZEDEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSERIALIZEDEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSERIALIZEDEVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDEVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSERIALIZEDEVENT {}
-impl ::core::default::Default for SPSERIALIZEDEVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSERIALIZEDEVENT64 {
-    pub _bitfield: i32,
-    pub ulStreamNum: u32,
-    pub ullAudioStreamOffset: u64,
-    pub SerializedwParam: u64,
-    pub SerializedlParam: i64,
-}
-impl ::core::marker::Copy for SPSERIALIZEDEVENT64 {}
-impl ::core::clone::Clone for SPSERIALIZEDEVENT64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSERIALIZEDEVENT64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDEVENT64").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT64 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSERIALIZEDEVENT64 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDEVENT64>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSERIALIZEDEVENT64 {}
-impl ::core::default::Default for SPSERIALIZEDEVENT64 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSERIALIZEDPHRASE {
-    pub ulSerializedSize: u32,
-}
-impl ::core::marker::Copy for SPSERIALIZEDPHRASE {}
-impl ::core::clone::Clone for SPSERIALIZEDPHRASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSERIALIZEDPHRASE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDPHRASE").field("ulSerializedSize", &self.ulSerializedSize).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSERIALIZEDPHRASE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSERIALIZEDPHRASE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDPHRASE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSERIALIZEDPHRASE {}
-impl ::core::default::Default for SPSERIALIZEDPHRASE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSERIALIZEDRESULT {
-    pub ulSerializedSize: u32,
-}
-impl ::core::marker::Copy for SPSERIALIZEDRESULT {}
-impl ::core::clone::Clone for SPSERIALIZEDRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSERIALIZEDRESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDRESULT").field("ulSerializedSize", &self.ulSerializedSize).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSERIALIZEDRESULT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSERIALIZEDRESULT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDRESULT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSERIALIZEDRESULT {}
-impl ::core::default::Default for SPSERIALIZEDRESULT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSHORTCUTPAIR {
-    pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
-    pub LangID: u16,
-    pub shType: SPSHORTCUTTYPE,
-    pub pszDisplay: ::windows::core::PWSTR,
-    pub pszSpoken: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for SPSHORTCUTPAIR {}
-impl ::core::clone::Clone for SPSHORTCUTPAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSHORTCUTPAIR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSHORTCUTPAIR").field("pNextSHORTCUTPAIR", &self.pNextSHORTCUTPAIR).field("LangID", &self.LangID).field("shType", &self.shType).field("pszDisplay", &self.pszDisplay).field("pszSpoken", &self.pszSpoken).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSHORTCUTPAIR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSHORTCUTPAIR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSHORTCUTPAIR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSHORTCUTPAIR {}
-impl ::core::default::Default for SPSHORTCUTPAIR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSHORTCUTPAIRLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
-    pub pFirstShortcutPair: *mut SPSHORTCUTPAIR,
-}
-impl ::core::marker::Copy for SPSHORTCUTPAIRLIST {}
-impl ::core::clone::Clone for SPSHORTCUTPAIRLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSHORTCUTPAIRLIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSHORTCUTPAIRLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstShortcutPair", &self.pFirstShortcutPair).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSHORTCUTPAIRLIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSHORTCUTPAIRLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSHORTCUTPAIRLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSHORTCUTPAIRLIST {}
-impl ::core::default::Default for SPSHORTCUTPAIRLIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -17185,36 +16332,6 @@ unsafe impl ::windows::core::Abi for SPSHORTCUTTYPE {
 impl ::core::fmt::Debug for SPSHORTCUTTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPSHORTCUTTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPSTATEHANDLE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for SPSTATEHANDLE__ {}
-impl ::core::clone::Clone for SPSTATEHANDLE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPSTATEHANDLE__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPSTATEHANDLE__").field("unused", &self.unused).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPSTATEHANDLE__ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPSTATEHANDLE__ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSTATEHANDLE__>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPSTATEHANDLE__ {}
-impl ::core::default::Default for SPSTATEHANDLE__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -17382,57 +16499,6 @@ impl ::core::fmt::Debug for SPSTREAMFORMAT {
         f.debug_tuple("SPSTREAMFORMAT").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPTEXTSELECTIONINFO {
-    pub ulStartActiveOffset: u32,
-    pub cchActiveChars: u32,
-    pub ulStartSelection: u32,
-    pub cchSelection: u32,
-}
-impl ::core::marker::Copy for SPTEXTSELECTIONINFO {}
-impl ::core::clone::Clone for SPTEXTSELECTIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPTEXTSELECTIONINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPTEXTSELECTIONINFO").field("ulStartActiveOffset", &self.ulStartActiveOffset).field("cchActiveChars", &self.cchActiveChars).field("ulStartSelection", &self.ulStartSelection).field("cchSelection", &self.cchSelection).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPTEXTSELECTIONINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPTEXTSELECTIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPTEXTSELECTIONINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPTEXTSELECTIONINFO {}
-impl ::core::default::Default for SPTEXTSELECTIONINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENKEY_ATTRIBUTES: &str = "Attributes";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: &str = "LatencyTruncateThreshold";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL: &str = "LatencyUpdateInterval";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENKEY_AUDIO_LATENCY_WARNING: &str = "LatencyWarningThreshold";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENKEY_FILES: &str = "Files";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENKEY_RETAINEDAUDIO: &str = "SecondsPerRetainedAudioEvent";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENKEY_UI: &str = "UI";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOKENVALUE_CLSID: &str = "CLSID";
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPTOPIC_SPELLING: &str = "Spelling";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -17509,38 +16575,6 @@ unsafe impl ::windows::core::Abi for SPVALUETYPE {
 impl ::core::fmt::Debug for SPVALUETYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPVALUETYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPVCONTEXT {
-    pub pCategory: ::windows::core::PCWSTR,
-    pub pBefore: ::windows::core::PCWSTR,
-    pub pAfter: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for SPVCONTEXT {}
-impl ::core::clone::Clone for SPVCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPVCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPVCONTEXT").field("pCategory", &self.pCategory).field("pBefore", &self.pBefore).field("pAfter", &self.pAfter).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPVCONTEXT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPVCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVCONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPVCONTEXT {}
-impl ::core::default::Default for SPVCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -17669,95 +16703,6 @@ impl ::core::fmt::Debug for SPVLIMITS {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPVOICECATEGORY_TTSRATE: &str = "DefaultTTSRate";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPVOICESTATUS {
-    pub ulCurrentStream: u32,
-    pub ulLastStreamQueued: u32,
-    pub hrLastResult: ::windows::core::HRESULT,
-    pub dwRunningState: u32,
-    pub ulInputWordPos: u32,
-    pub ulInputWordLen: u32,
-    pub ulInputSentPos: u32,
-    pub ulInputSentLen: u32,
-    pub lBookmarkId: i32,
-    pub PhonemeId: u16,
-    pub VisemeId: SPVISEMES,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for SPVOICESTATUS {}
-impl ::core::clone::Clone for SPVOICESTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPVOICESTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPVOICESTATUS")
-            .field("ulCurrentStream", &self.ulCurrentStream)
-            .field("ulLastStreamQueued", &self.ulLastStreamQueued)
-            .field("hrLastResult", &self.hrLastResult)
-            .field("dwRunningState", &self.dwRunningState)
-            .field("ulInputWordPos", &self.ulInputWordPos)
-            .field("ulInputWordLen", &self.ulInputWordLen)
-            .field("ulInputSentPos", &self.ulInputSentPos)
-            .field("ulInputSentLen", &self.ulInputSentLen)
-            .field("lBookmarkId", &self.lBookmarkId)
-            .field("PhonemeId", &self.PhonemeId)
-            .field("VisemeId", &self.VisemeId)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPVOICESTATUS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPVOICESTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVOICESTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPVOICESTATUS {}
-impl ::core::default::Default for SPVOICESTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPVPITCH {
-    pub MiddleAdj: i32,
-    pub RangeAdj: i32,
-}
-impl ::core::marker::Copy for SPVPITCH {}
-impl ::core::clone::Clone for SPVPITCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPVPITCH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPVPITCH").field("MiddleAdj", &self.MiddleAdj).field("RangeAdj", &self.RangeAdj).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPVPITCH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPVPITCH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVPITCH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPVPITCH {}
-impl ::core::default::Default for SPVPITCH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVPRIORITY(pub i32);
@@ -17784,46 +16729,6 @@ unsafe impl ::windows::core::Abi for SPVPRIORITY {
 impl ::core::fmt::Debug for SPVPRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPVPRIORITY").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPVSTATE {
-    pub eAction: SPVACTIONS,
-    pub LangID: u16,
-    pub wReserved: u16,
-    pub EmphAdj: i32,
-    pub RateAdj: i32,
-    pub Volume: u32,
-    pub PitchAdj: SPVPITCH,
-    pub SilenceMSecs: u32,
-    pub pPhoneIds: *mut u16,
-    pub ePartOfSpeech: SPPARTOFSPEECH,
-    pub Context: SPVCONTEXT,
-}
-impl ::core::marker::Copy for SPVSTATE {}
-impl ::core::clone::Clone for SPVSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPVSTATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPVSTATE").field("eAction", &self.eAction).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("EmphAdj", &self.EmphAdj).field("RateAdj", &self.RateAdj).field("Volume", &self.Volume).field("PitchAdj", &self.PitchAdj).field("SilenceMSecs", &self.SilenceMSecs).field("pPhoneIds", &self.pPhoneIds).field("ePartOfSpeech", &self.ePartOfSpeech).field("Context", &self.Context).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPVSTATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPVSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVSTATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPVSTATE {}
-impl ::core::default::Default for SPVSTATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -17854,75 +16759,6 @@ impl ::core::fmt::Debug for SPWAVEFORMATTYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPWILDCARD: &str = "...";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPWORD {
-    pub pNextWord: *mut SPWORD,
-    pub LangID: u16,
-    pub wReserved: u16,
-    pub eWordType: SPWORDTYPE,
-    pub pszWord: ::windows::core::PWSTR,
-    pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
-}
-impl ::core::marker::Copy for SPWORD {}
-impl ::core::clone::Clone for SPWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPWORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPWORD").field("pNextWord", &self.pNextWord).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("eWordType", &self.eWordType).field("pszWord", &self.pszWord).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPWORD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPWORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPWORD {}
-impl ::core::default::Default for SPWORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPWORDLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
-    pub pFirstWord: *mut SPWORD,
-}
-impl ::core::marker::Copy for SPWORDLIST {}
-impl ::core::clone::Clone for SPWORDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPWORDLIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPWORDLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWord", &self.pFirstWord).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPWORDLIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPWORDLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPWORDLIST {}
-impl ::core::default::Default for SPWORDLIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPWORDPRONOUNCEABLE(pub i32);
@@ -17949,73 +16785,6 @@ unsafe impl ::windows::core::Abi for SPWORDPRONOUNCEABLE {
 impl ::core::fmt::Debug for SPWORDPRONOUNCEABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPWORDPRONOUNCEABLE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPWORDPRONUNCIATION {
-    pub pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
-    pub eLexiconType: SPLEXICONTYPE,
-    pub LangID: u16,
-    pub wPronunciationFlags: u16,
-    pub ePartOfSpeech: SPPARTOFSPEECH,
-    pub szPronunciation: [u16; 1],
-}
-impl ::core::marker::Copy for SPWORDPRONUNCIATION {}
-impl ::core::clone::Clone for SPWORDPRONUNCIATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPWORDPRONUNCIATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPWORDPRONUNCIATION").field("pNextWordPronunciation", &self.pNextWordPronunciation).field("eLexiconType", &self.eLexiconType).field("LangID", &self.LangID).field("wPronunciationFlags", &self.wPronunciationFlags).field("ePartOfSpeech", &self.ePartOfSpeech).field("szPronunciation", &self.szPronunciation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPWORDPRONUNCIATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDPRONUNCIATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPWORDPRONUNCIATION {}
-impl ::core::default::Default for SPWORDPRONUNCIATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub struct SPWORDPRONUNCIATIONLIST {
-    pub ulSize: u32,
-    pub pvBuffer: *mut u8,
-    pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
-}
-impl ::core::marker::Copy for SPWORDPRONUNCIATIONLIST {}
-impl ::core::clone::Clone for SPWORDPRONUNCIATIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SPWORDPRONUNCIATIONLIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPWORDPRONUNCIATIONLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATIONLIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SPWORDPRONUNCIATIONLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDPRONUNCIATIONLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SPWORDPRONUNCIATIONLIST {}
-impl ::core::default::Default for SPWORDPRONUNCIATIONLIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -18072,54 +16841,6 @@ impl ::core::fmt::Debug for SPXMLRESULTOPTIONS {
         f.debug_tuple("SPXMLRESULTOPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_LOW_CONFIDENCE: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_MAX_LANGIDS: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_MAX_PRON_LENGTH: u32 = 384u32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_STREAMPOS_ASAP: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SR_LOCALIZED_DESCRIPTION: &str = "Description";
-pub const SpAudioFormat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ef96870_e160_4792_820d_48cf0649e4ec);
-pub const SpCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90903716_2f42_11d3_9c26_00c04f8ef87c);
-pub const SpCustomStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dbef13f_1948_4aa8_8cf0_048eebed95d8);
-pub const SpFileStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947812b3_2ae1_4644_ba86_9e90ded7ec91);
-pub const SpInProcRecoContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ad6842_ace0_45e8_a4dd_8795881a2c2a);
-pub const SpInprocRecognizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41b89b6b_9399_11d2_9623_00c04f8ee628);
-pub const SpLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0655e396_25d0_11d3_9c26_00c04f8ef87c);
-pub const SpMMAudioEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab1890a0_e91f_11d2_bb91_00c04f8ee6c0);
-pub const SpMMAudioIn: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf3d2e50_53f2_11d2_960c_00c04f8ee628);
-pub const SpMMAudioOut: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8c680eb_3d32_11d2_9ee7_00c04f797396);
-pub const SpMemoryStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb7ef7d_dff4_468a_b6b7_2fcbd188f994);
-pub const SpNotifyTranslator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ae5372_5d40_11d2_960e_00c04f8ee628);
-pub const SpNullPhoneConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x455f24e9_7396_4a16_9715_7c0fdbe3efe3);
-pub const SpObjectToken: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef411752_3736_4cb4_9c8c_8ef4ccb58efe);
-pub const SpObjectTokenCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa910187f_0c7a_45ac_92cc_59edafb77b53);
-pub const SpPhoneConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9185f743_1143_4c28_86b5_bff14f20e5c8);
-pub const SpPhoneticAlphabetConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f414126_dfe3_4629_99ee_797978317ead);
-pub const SpPhraseInfoBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc23fc28d_c55f_4720_8b32_91f73c2bd5d1);
-pub const SpResourceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96749373_3391_11d2_9ee3_00c04f797396);
-pub const SpSharedRecoContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47206204_5eca_11d2_960f_00c04f8ee628);
-pub const SpSharedRecognizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bee4890_4fe9_4a37_8c1e_5e7e12791c1f);
-pub const SpShortcut: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d722f1a_9fcf_4e62_96d8_6df8f01a26aa);
-pub const SpStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x715d9c59_4442_11d2_9605_00c04f8ee628);
-pub const SpStreamFormatConverter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7013943a_e2ec_11d2_a086_00c04f8ef9b5);
-pub const SpTextSelectionInformation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f92030a_cbfd_4ab8_a164_ff5985547ff6);
-pub const SpUnCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9e37c15_df92_4727_85d6_72e5eeb6995a);
-pub const SpVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
-pub const SpWaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SpeechAllElements: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -19470,161 +18191,1440 @@ impl ::core::fmt::Debug for SpeechWordType {
         f.debug_tuple("SpeechWordType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const Speech_Default_Weight: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const Speech_Max_Pron_Length: i32 = 384i32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const Speech_Max_Word_Length: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const Speech_StreamPos_Asap: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const Speech_StreamPos_RealTime: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-pub struct _ISpeechRecoContextEvents(::windows::core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl _ISpeechRecoContextEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechRecoContextEvents> for ::windows::core::IUnknown {
-    fn from(value: _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechRecoContextEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechRecoContextEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ISpeechRecoContextEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechRecoContextEvents> for super::super::System::Com::IDispatch {
-    fn from(value: _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechRecoContextEvents> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechRecoContextEvents> for super::super::System::Com::IDispatch {
-    fn from(value: &_ISpeechRecoContextEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ISpeechRecoContextEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ISpeechRecoContextEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ISpeechRecoContextEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ISpeechRecoContextEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ISpeechRecoContextEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for _ISpeechRecoContextEvents {
-    type Vtable = _ISpeechRecoContextEvents_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc(hidden)]
-pub struct _ISpeechRecoContextEvents_Vtbl {
-    pub base__: super::super::System::Com::IDispatch_Vtbl,
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPAUDIOBUFFERINFO {
+    pub ulMsMinNotification: u32,
+    pub ulMsBufferSize: u32,
+    pub ulMsEventBias: u32,
 }
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-pub struct _ISpeechVoiceEvents(::windows::core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl _ISpeechVoiceEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechVoiceEvents> for ::windows::core::IUnknown {
-    fn from(value: _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechVoiceEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechVoiceEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ISpeechVoiceEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechVoiceEvents> for super::super::System::Com::IDispatch {
-    fn from(value: _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechVoiceEvents> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechVoiceEvents> for super::super::System::Com::IDispatch {
-    fn from(value: &_ISpeechVoiceEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ISpeechVoiceEvents {
+impl ::core::marker::Copy for SPAUDIOBUFFERINFO {}
+impl ::core::clone::Clone for SPAUDIOBUFFERINFO {
     fn clone(&self) -> Self {
-        Self(self.0.clone())
+        *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ISpeechVoiceEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ISpeechVoiceEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ISpeechVoiceEvents {
+impl ::core::fmt::Debug for SPAUDIOBUFFERINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ISpeechVoiceEvents").field(&self.0).finish()
+        f.debug_struct("SPAUDIOBUFFERINFO").field("ulMsMinNotification", &self.ulMsMinNotification).field("ulMsBufferSize", &self.ulMsBufferSize).field("ulMsEventBias", &self.ulMsEventBias).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for _ISpeechVoiceEvents {
-    type Vtable = _ISpeechVoiceEvents_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
+unsafe impl ::windows::core::Abi for SPAUDIOBUFFERINFO {
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for SPAUDIOBUFFERINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPAUDIOBUFFERINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPAUDIOBUFFERINFO {}
+impl ::core::default::Default for SPAUDIOBUFFERINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[doc(hidden)]
-pub struct _ISpeechVoiceEvents_Vtbl {
-    pub base__: super::super::System::Com::IDispatch_Vtbl,
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPAUDIOSTATUS {
+    pub cbFreeBuffSpace: i32,
+    pub cbNonBlockingIO: u32,
+    pub State: SPAUDIOSTATE,
+    pub CurSeekPos: u64,
+    pub CurDevicePos: u64,
+    pub dwAudioLevel: u32,
+    pub dwReserved2: u32,
 }
+impl ::core::marker::Copy for SPAUDIOSTATUS {}
+impl ::core::clone::Clone for SPAUDIOSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPAUDIOSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPAUDIOSTATUS").field("cbFreeBuffSpace", &self.cbFreeBuffSpace).field("cbNonBlockingIO", &self.cbNonBlockingIO).field("State", &self.State).field("CurSeekPos", &self.CurSeekPos).field("CurDevicePos", &self.CurDevicePos).field("dwAudioLevel", &self.dwAudioLevel).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPAUDIOSTATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPAUDIOSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPAUDIOSTATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPAUDIOSTATUS {}
+impl ::core::default::Default for SPAUDIOSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPBINARYGRAMMAR {
+    pub ulTotalSerializedSize: u32,
+}
+impl ::core::marker::Copy for SPBINARYGRAMMAR {}
+impl ::core::clone::Clone for SPBINARYGRAMMAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPBINARYGRAMMAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPBINARYGRAMMAR").field("ulTotalSerializedSize", &self.ulTotalSerializedSize).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPBINARYGRAMMAR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPBINARYGRAMMAR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPBINARYGRAMMAR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPBINARYGRAMMAR {}
+impl ::core::default::Default for SPBINARYGRAMMAR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPDISPLAYPHRASE {
+    pub ulNumTokens: u32,
+    pub pTokens: *mut SPDISPLAYTOKEN,
+}
+impl ::core::marker::Copy for SPDISPLAYPHRASE {}
+impl ::core::clone::Clone for SPDISPLAYPHRASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPDISPLAYPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPDISPLAYPHRASE").field("ulNumTokens", &self.ulNumTokens).field("pTokens", &self.pTokens).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPDISPLAYPHRASE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPDISPLAYPHRASE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPDISPLAYPHRASE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPDISPLAYPHRASE {}
+impl ::core::default::Default for SPDISPLAYPHRASE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPDISPLAYTOKEN {
+    pub pszLexical: ::windows::core::PCWSTR,
+    pub pszDisplay: ::windows::core::PCWSTR,
+    pub bDisplayAttributes: u8,
+}
+impl ::core::marker::Copy for SPDISPLAYTOKEN {}
+impl ::core::clone::Clone for SPDISPLAYTOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPDISPLAYTOKEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPDISPLAYTOKEN").field("pszLexical", &self.pszLexical).field("pszDisplay", &self.pszDisplay).field("bDisplayAttributes", &self.bDisplayAttributes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPDISPLAYTOKEN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPDISPLAYTOKEN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPDISPLAYTOKEN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPDISPLAYTOKEN {}
+impl ::core::default::Default for SPDISPLAYTOKEN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SPEVENT {
+    pub _bitfield: i32,
+    pub ulStreamNum: u32,
+    pub ullAudioStreamOffset: u64,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SPEVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SPEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SPEVENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SPEVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SPEVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SPEVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SPEVENTEX {
+    pub _bitfield: i32,
+    pub ulStreamNum: u32,
+    pub ullAudioStreamOffset: u64,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub ullAudioTimeOffset: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SPEVENTEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SPEVENTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPEVENTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENTEX").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).field("ullAudioTimeOffset", &self.ullAudioTimeOffset).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SPEVENTEX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SPEVENTEX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENTEX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SPEVENTEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SPEVENTEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPEVENTSOURCEINFO {
+    pub ullEventInterest: u64,
+    pub ullQueuedInterest: u64,
+    pub ulCount: u32,
+}
+impl ::core::marker::Copy for SPEVENTSOURCEINFO {}
+impl ::core::clone::Clone for SPEVENTSOURCEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPEVENTSOURCEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPEVENTSOURCEINFO").field("ullEventInterest", &self.ullEventInterest).field("ullQueuedInterest", &self.ullQueuedInterest).field("ulCount", &self.ulCount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPEVENTSOURCEINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPEVENTSOURCEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENTSOURCEINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPEVENTSOURCEINFO {}
+impl ::core::default::Default for SPEVENTSOURCEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPNORMALIZATIONLIST {
+    pub ulSize: u32,
+    pub ppszzNormalizedList: *mut *mut u16,
+}
+impl ::core::marker::Copy for SPNORMALIZATIONLIST {}
+impl ::core::clone::Clone for SPNORMALIZATIONLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPNORMALIZATIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPNORMALIZATIONLIST").field("ulSize", &self.ulSize).field("ppszzNormalizedList", &self.ppszzNormalizedList).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPNORMALIZATIONLIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPNORMALIZATIONLIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPNORMALIZATIONLIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPNORMALIZATIONLIST {}
+impl ::core::default::Default for SPNORMALIZATIONLIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct SPPHRASE {
+    pub Base: SPPHRASE_50,
+    pub pSML: ::windows::core::PWSTR,
+    pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for SPPHRASE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for SPPHRASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASE").field("Base", &self.Base).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for SPPHRASE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for SPPHRASE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for SPPHRASE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for SPPHRASE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPPHRASEELEMENT {
+    pub ulAudioTimeOffset: u32,
+    pub ulAudioSizeTime: u32,
+    pub ulAudioStreamOffset: u32,
+    pub ulAudioSizeBytes: u32,
+    pub ulRetainedStreamOffset: u32,
+    pub ulRetainedSizeBytes: u32,
+    pub pszDisplayText: ::windows::core::PCWSTR,
+    pub pszLexicalForm: ::windows::core::PCWSTR,
+    pub pszPronunciation: *const u16,
+    pub bDisplayAttributes: u8,
+    pub RequiredConfidence: i8,
+    pub ActualConfidence: i8,
+    pub Reserved: u8,
+    pub SREngineConfidence: f32,
+}
+impl ::core::marker::Copy for SPPHRASEELEMENT {}
+impl ::core::clone::Clone for SPPHRASEELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPPHRASEELEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEELEMENT")
+            .field("ulAudioTimeOffset", &self.ulAudioTimeOffset)
+            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
+            .field("ulAudioStreamOffset", &self.ulAudioStreamOffset)
+            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
+            .field("ulRetainedStreamOffset", &self.ulRetainedStreamOffset)
+            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
+            .field("pszDisplayText", &self.pszDisplayText)
+            .field("pszLexicalForm", &self.pszLexicalForm)
+            .field("pszPronunciation", &self.pszPronunciation)
+            .field("bDisplayAttributes", &self.bDisplayAttributes)
+            .field("RequiredConfidence", &self.RequiredConfidence)
+            .field("ActualConfidence", &self.ActualConfidence)
+            .field("Reserved", &self.Reserved)
+            .field("SREngineConfidence", &self.SREngineConfidence)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPPHRASEELEMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPPHRASEELEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEELEMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPPHRASEELEMENT {}
+impl ::core::default::Default for SPPHRASEELEMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct SPPHRASEPROPERTY {
+    pub pszName: ::windows::core::PCWSTR,
+    pub Anonymous: SPPHRASEPROPERTY_0,
+    pub pszValue: ::windows::core::PCWSTR,
+    pub vValue: super::super::System::Com::VARIANT,
+    pub ulFirstElement: u32,
+    pub ulCountOfElements: u32,
+    pub pNextSibling: *const SPPHRASEPROPERTY,
+    pub pFirstChild: *const SPPHRASEPROPERTY,
+    pub SREngineConfidence: f32,
+    pub Confidence: i8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for SPPHRASEPROPERTY {
+    fn clone(&self) -> Self {
+        Self {
+            pszName: self.pszName,
+            Anonymous: self.Anonymous,
+            pszValue: self.pszValue,
+            vValue: self.vValue.clone(),
+            ulFirstElement: self.ulFirstElement,
+            ulCountOfElements: self.ulCountOfElements,
+            pNextSibling: self.pNextSibling,
+            pFirstChild: self.pFirstChild,
+            SREngineConfidence: self.SREngineConfidence,
+            Confidence: self.Confidence,
+        }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for SPPHRASEPROPERTY {
+    fn eq(&self, other: &Self) -> bool {
+        self.pszName == other.pszName && self.Anonymous == other.Anonymous && self.pszValue == other.pszValue && self.vValue == other.vValue && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements && self.pNextSibling == other.pNextSibling && self.pFirstChild == other.pFirstChild && self.SREngineConfidence == other.SREngineConfidence && self.Confidence == other.Confidence
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for SPPHRASEPROPERTY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for SPPHRASEPROPERTY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub union SPPHRASEPROPERTY_0 {
+    pub ulId: u32,
+    pub Anonymous: SPPHRASEPROPERTY_0_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for SPPHRASEPROPERTY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for SPPHRASEPROPERTY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for SPPHRASEPROPERTY_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEPROPERTY_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for SPPHRASEPROPERTY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for SPPHRASEPROPERTY_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct SPPHRASEPROPERTY_0_0 {
+    pub bType: u8,
+    pub bReserved: u8,
+    pub usArrayIndex: u16,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for SPPHRASEPROPERTY_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for SPPHRASEPROPERTY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASEPROPERTY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEPROPERTY_0_0").field("bType", &self.bType).field("bReserved", &self.bReserved).field("usArrayIndex", &self.usArrayIndex).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for SPPHRASEPROPERTY_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEPROPERTY_0_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for SPPHRASEPROPERTY_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for SPPHRASEPROPERTY_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPPHRASEREPLACEMENT {
+    pub bDisplayAttributes: u8,
+    pub pszReplacementText: ::windows::core::PCWSTR,
+    pub ulFirstElement: u32,
+    pub ulCountOfElements: u32,
+}
+impl ::core::marker::Copy for SPPHRASEREPLACEMENT {}
+impl ::core::clone::Clone for SPPHRASEREPLACEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPPHRASEREPLACEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASEREPLACEMENT").field("bDisplayAttributes", &self.bDisplayAttributes).field("pszReplacementText", &self.pszReplacementText).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPPHRASEREPLACEMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPPHRASEREPLACEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEREPLACEMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPPHRASEREPLACEMENT {}
+impl ::core::default::Default for SPPHRASEREPLACEMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPPHRASERULE {
+    pub pszName: ::windows::core::PCWSTR,
+    pub ulId: u32,
+    pub ulFirstElement: u32,
+    pub ulCountOfElements: u32,
+    pub pNextSibling: *const SPPHRASERULE,
+    pub pFirstChild: *const SPPHRASERULE,
+    pub SREngineConfidence: f32,
+    pub Confidence: i8,
+}
+impl ::core::marker::Copy for SPPHRASERULE {}
+impl ::core::clone::Clone for SPPHRASERULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPPHRASERULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASERULE").field("pszName", &self.pszName).field("ulId", &self.ulId).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).field("pNextSibling", &self.pNextSibling).field("pFirstChild", &self.pFirstChild).field("SREngineConfidence", &self.SREngineConfidence).field("Confidence", &self.Confidence).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPPHRASERULE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPPHRASERULE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASERULE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPPHRASERULE {}
+impl ::core::default::Default for SPPHRASERULE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct SPPHRASE_50 {
+    pub cbSize: u32,
+    pub LangID: u16,
+    pub wHomophoneGroupId: u16,
+    pub ullGrammarID: u64,
+    pub ftStartTime: u64,
+    pub ullAudioStreamPosition: u64,
+    pub ulAudioSizeBytes: u32,
+    pub ulRetainedSizeBytes: u32,
+    pub ulAudioSizeTime: u32,
+    pub Rule: SPPHRASERULE,
+    pub pProperties: *const SPPHRASEPROPERTY,
+    pub pElements: *const SPPHRASEELEMENT,
+    pub cReplacements: u32,
+    pub pReplacements: *const SPPHRASEREPLACEMENT,
+    pub SREngineID: ::windows::core::GUID,
+    pub ulSREnginePrivateDataSize: u32,
+    pub pSREnginePrivateData: *const u8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for SPPHRASE_50 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for SPPHRASE_50 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPHRASE_50 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPHRASE_50")
+            .field("cbSize", &self.cbSize)
+            .field("LangID", &self.LangID)
+            .field("wHomophoneGroupId", &self.wHomophoneGroupId)
+            .field("ullGrammarID", &self.ullGrammarID)
+            .field("ftStartTime", &self.ftStartTime)
+            .field("ullAudioStreamPosition", &self.ullAudioStreamPosition)
+            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
+            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
+            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
+            .field("Rule", &self.Rule)
+            .field("pProperties", &self.pProperties)
+            .field("pElements", &self.pElements)
+            .field("cReplacements", &self.cReplacements)
+            .field("pReplacements", &self.pReplacements)
+            .field("SREngineID", &self.SREngineID)
+            .field("ulSREnginePrivateDataSize", &self.ulSREnginePrivateDataSize)
+            .field("pSREnginePrivateData", &self.pSREnginePrivateData)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for SPPHRASE_50 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for SPPHRASE_50 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASE_50>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for SPPHRASE_50 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for SPPHRASE_50 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct SPPROPERTYINFO {
+    pub pszName: ::windows::core::PCWSTR,
+    pub ulId: u32,
+    pub pszValue: ::windows::core::PCWSTR,
+    pub vValue: super::super::System::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for SPPROPERTYINFO {
+    fn clone(&self) -> Self {
+        Self { pszName: self.pszName, ulId: self.ulId, pszValue: self.pszValue, vValue: self.vValue.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for SPPROPERTYINFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for SPPROPERTYINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.pszName == other.pszName && self.ulId == other.ulId && self.pszValue == other.pszValue && self.vValue == other.vValue
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for SPPROPERTYINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for SPPROPERTYINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPRECOCONTEXTSTATUS {
+    pub eInterference: SPINTERFERENCE,
+    pub szRequestTypeOfUI: [u16; 255],
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for SPRECOCONTEXTSTATUS {}
+impl ::core::clone::Clone for SPRECOCONTEXTSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPRECOCONTEXTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECOCONTEXTSTATUS").field("eInterference", &self.eInterference).field("szRequestTypeOfUI", &self.szRequestTypeOfUI).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPRECOCONTEXTSTATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPRECOCONTEXTSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECOCONTEXTSTATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPRECOCONTEXTSTATUS {}
+impl ::core::default::Default for SPRECOCONTEXTSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPRECOGNIZERSTATUS {
+    pub AudioStatus: SPAUDIOSTATUS,
+    pub ullRecognitionStreamPos: u64,
+    pub ulStreamNumber: u32,
+    pub ulNumActive: u32,
+    pub clsidEngine: ::windows::core::GUID,
+    pub cLangIDs: u32,
+    pub aLangID: [u16; 20],
+    pub ullRecognitionStreamTime: u64,
+}
+impl ::core::marker::Copy for SPRECOGNIZERSTATUS {}
+impl ::core::clone::Clone for SPRECOGNIZERSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPRECOGNIZERSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECOGNIZERSTATUS").field("AudioStatus", &self.AudioStatus).field("ullRecognitionStreamPos", &self.ullRecognitionStreamPos).field("ulStreamNumber", &self.ulStreamNumber).field("ulNumActive", &self.ulNumActive).field("clsidEngine", &self.clsidEngine).field("cLangIDs", &self.cLangIDs).field("aLangID", &self.aLangID).field("ullRecognitionStreamTime", &self.ullRecognitionStreamTime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPRECOGNIZERSTATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPRECOGNIZERSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECOGNIZERSTATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPRECOGNIZERSTATUS {}
+impl ::core::default::Default for SPRECOGNIZERSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SPRECORESULTTIMES {
+    pub ftStreamTime: super::super::Foundation::FILETIME,
+    pub ullLength: u64,
+    pub dwTickCount: u32,
+    pub ullStart: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SPRECORESULTTIMES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SPRECORESULTTIMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SPRECORESULTTIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRECORESULTTIMES").field("ftStreamTime", &self.ftStreamTime).field("ullLength", &self.ullLength).field("dwTickCount", &self.dwTickCount).field("ullStart", &self.ullStart).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SPRECORESULTTIMES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SPRECORESULTTIMES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECORESULTTIMES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SPRECORESULTTIMES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SPRECORESULTTIMES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPRULE {
+    pub pszRuleName: ::windows::core::PCWSTR,
+    pub ulRuleId: u32,
+    pub dwAttributes: u32,
+}
+impl ::core::marker::Copy for SPRULE {}
+impl ::core::clone::Clone for SPRULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPRULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPRULE").field("pszRuleName", &self.pszRuleName).field("ulRuleId", &self.ulRuleId).field("dwAttributes", &self.dwAttributes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPRULE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPRULE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRULE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPRULE {}
+impl ::core::default::Default for SPRULE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSEMANTICERRORINFO {
+    pub ulLineNumber: u32,
+    pub pszScriptLine: ::windows::core::PWSTR,
+    pub pszSource: ::windows::core::PWSTR,
+    pub pszDescription: ::windows::core::PWSTR,
+    pub hrResultCode: ::windows::core::HRESULT,
+}
+impl ::core::marker::Copy for SPSEMANTICERRORINFO {}
+impl ::core::clone::Clone for SPSEMANTICERRORINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSEMANTICERRORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSEMANTICERRORINFO").field("ulLineNumber", &self.ulLineNumber).field("pszScriptLine", &self.pszScriptLine).field("pszSource", &self.pszSource).field("pszDescription", &self.pszDescription).field("hrResultCode", &self.hrResultCode).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSEMANTICERRORINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSEMANTICERRORINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSEMANTICERRORINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSEMANTICERRORINFO {}
+impl ::core::default::Default for SPSEMANTICERRORINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSERIALIZEDEVENT {
+    pub _bitfield: i32,
+    pub ulStreamNum: u32,
+    pub ullAudioStreamOffset: u64,
+    pub SerializedwParam: u32,
+    pub SerializedlParam: i32,
+}
+impl ::core::marker::Copy for SPSERIALIZEDEVENT {}
+impl ::core::clone::Clone for SPSERIALIZEDEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSERIALIZEDEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSERIALIZEDEVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDEVENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSERIALIZEDEVENT {}
+impl ::core::default::Default for SPSERIALIZEDEVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSERIALIZEDEVENT64 {
+    pub _bitfield: i32,
+    pub ulStreamNum: u32,
+    pub ullAudioStreamOffset: u64,
+    pub SerializedwParam: u64,
+    pub SerializedlParam: i64,
+}
+impl ::core::marker::Copy for SPSERIALIZEDEVENT64 {}
+impl ::core::clone::Clone for SPSERIALIZEDEVENT64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSERIALIZEDEVENT64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDEVENT64").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT64 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSERIALIZEDEVENT64 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDEVENT64>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSERIALIZEDEVENT64 {}
+impl ::core::default::Default for SPSERIALIZEDEVENT64 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSERIALIZEDPHRASE {
+    pub ulSerializedSize: u32,
+}
+impl ::core::marker::Copy for SPSERIALIZEDPHRASE {}
+impl ::core::clone::Clone for SPSERIALIZEDPHRASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSERIALIZEDPHRASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDPHRASE").field("ulSerializedSize", &self.ulSerializedSize).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSERIALIZEDPHRASE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSERIALIZEDPHRASE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDPHRASE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSERIALIZEDPHRASE {}
+impl ::core::default::Default for SPSERIALIZEDPHRASE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSERIALIZEDRESULT {
+    pub ulSerializedSize: u32,
+}
+impl ::core::marker::Copy for SPSERIALIZEDRESULT {}
+impl ::core::clone::Clone for SPSERIALIZEDRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSERIALIZEDRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSERIALIZEDRESULT").field("ulSerializedSize", &self.ulSerializedSize).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSERIALIZEDRESULT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSERIALIZEDRESULT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDRESULT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSERIALIZEDRESULT {}
+impl ::core::default::Default for SPSERIALIZEDRESULT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSHORTCUTPAIR {
+    pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
+    pub LangID: u16,
+    pub shType: SPSHORTCUTTYPE,
+    pub pszDisplay: ::windows::core::PWSTR,
+    pub pszSpoken: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for SPSHORTCUTPAIR {}
+impl ::core::clone::Clone for SPSHORTCUTPAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSHORTCUTPAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSHORTCUTPAIR").field("pNextSHORTCUTPAIR", &self.pNextSHORTCUTPAIR).field("LangID", &self.LangID).field("shType", &self.shType).field("pszDisplay", &self.pszDisplay).field("pszSpoken", &self.pszSpoken).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSHORTCUTPAIR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSHORTCUTPAIR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSHORTCUTPAIR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSHORTCUTPAIR {}
+impl ::core::default::Default for SPSHORTCUTPAIR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSHORTCUTPAIRLIST {
+    pub ulSize: u32,
+    pub pvBuffer: *mut u8,
+    pub pFirstShortcutPair: *mut SPSHORTCUTPAIR,
+}
+impl ::core::marker::Copy for SPSHORTCUTPAIRLIST {}
+impl ::core::clone::Clone for SPSHORTCUTPAIRLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSHORTCUTPAIRLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSHORTCUTPAIRLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstShortcutPair", &self.pFirstShortcutPair).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSHORTCUTPAIRLIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSHORTCUTPAIRLIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSHORTCUTPAIRLIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSHORTCUTPAIRLIST {}
+impl ::core::default::Default for SPSHORTCUTPAIRLIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPSTATEHANDLE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for SPSTATEHANDLE__ {}
+impl ::core::clone::Clone for SPSTATEHANDLE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPSTATEHANDLE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPSTATEHANDLE__").field("unused", &self.unused).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPSTATEHANDLE__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPSTATEHANDLE__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSTATEHANDLE__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPSTATEHANDLE__ {}
+impl ::core::default::Default for SPSTATEHANDLE__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPTEXTSELECTIONINFO {
+    pub ulStartActiveOffset: u32,
+    pub cchActiveChars: u32,
+    pub ulStartSelection: u32,
+    pub cchSelection: u32,
+}
+impl ::core::marker::Copy for SPTEXTSELECTIONINFO {}
+impl ::core::clone::Clone for SPTEXTSELECTIONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPTEXTSELECTIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPTEXTSELECTIONINFO").field("ulStartActiveOffset", &self.ulStartActiveOffset).field("cchActiveChars", &self.cchActiveChars).field("ulStartSelection", &self.ulStartSelection).field("cchSelection", &self.cchSelection).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPTEXTSELECTIONINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPTEXTSELECTIONINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPTEXTSELECTIONINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPTEXTSELECTIONINFO {}
+impl ::core::default::Default for SPTEXTSELECTIONINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPVCONTEXT {
+    pub pCategory: ::windows::core::PCWSTR,
+    pub pBefore: ::windows::core::PCWSTR,
+    pub pAfter: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for SPVCONTEXT {}
+impl ::core::clone::Clone for SPVCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPVCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVCONTEXT").field("pCategory", &self.pCategory).field("pBefore", &self.pBefore).field("pAfter", &self.pAfter).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPVCONTEXT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPVCONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVCONTEXT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPVCONTEXT {}
+impl ::core::default::Default for SPVCONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPVOICESTATUS {
+    pub ulCurrentStream: u32,
+    pub ulLastStreamQueued: u32,
+    pub hrLastResult: ::windows::core::HRESULT,
+    pub dwRunningState: u32,
+    pub ulInputWordPos: u32,
+    pub ulInputWordLen: u32,
+    pub ulInputSentPos: u32,
+    pub ulInputSentLen: u32,
+    pub lBookmarkId: i32,
+    pub PhonemeId: u16,
+    pub VisemeId: SPVISEMES,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for SPVOICESTATUS {}
+impl ::core::clone::Clone for SPVOICESTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPVOICESTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVOICESTATUS")
+            .field("ulCurrentStream", &self.ulCurrentStream)
+            .field("ulLastStreamQueued", &self.ulLastStreamQueued)
+            .field("hrLastResult", &self.hrLastResult)
+            .field("dwRunningState", &self.dwRunningState)
+            .field("ulInputWordPos", &self.ulInputWordPos)
+            .field("ulInputWordLen", &self.ulInputWordLen)
+            .field("ulInputSentPos", &self.ulInputSentPos)
+            .field("ulInputSentLen", &self.ulInputSentLen)
+            .field("lBookmarkId", &self.lBookmarkId)
+            .field("PhonemeId", &self.PhonemeId)
+            .field("VisemeId", &self.VisemeId)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPVOICESTATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPVOICESTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVOICESTATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPVOICESTATUS {}
+impl ::core::default::Default for SPVOICESTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPVPITCH {
+    pub MiddleAdj: i32,
+    pub RangeAdj: i32,
+}
+impl ::core::marker::Copy for SPVPITCH {}
+impl ::core::clone::Clone for SPVPITCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPVPITCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVPITCH").field("MiddleAdj", &self.MiddleAdj).field("RangeAdj", &self.RangeAdj).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPVPITCH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPVPITCH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVPITCH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPVPITCH {}
+impl ::core::default::Default for SPVPITCH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPVSTATE {
+    pub eAction: SPVACTIONS,
+    pub LangID: u16,
+    pub wReserved: u16,
+    pub EmphAdj: i32,
+    pub RateAdj: i32,
+    pub Volume: u32,
+    pub PitchAdj: SPVPITCH,
+    pub SilenceMSecs: u32,
+    pub pPhoneIds: *mut u16,
+    pub ePartOfSpeech: SPPARTOFSPEECH,
+    pub Context: SPVCONTEXT,
+}
+impl ::core::marker::Copy for SPVSTATE {}
+impl ::core::clone::Clone for SPVSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPVSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPVSTATE").field("eAction", &self.eAction).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("EmphAdj", &self.EmphAdj).field("RateAdj", &self.RateAdj).field("Volume", &self.Volume).field("PitchAdj", &self.PitchAdj).field("SilenceMSecs", &self.SilenceMSecs).field("pPhoneIds", &self.pPhoneIds).field("ePartOfSpeech", &self.ePartOfSpeech).field("Context", &self.Context).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPVSTATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPVSTATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVSTATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPVSTATE {}
+impl ::core::default::Default for SPVSTATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPWORD {
+    pub pNextWord: *mut SPWORD,
+    pub LangID: u16,
+    pub wReserved: u16,
+    pub eWordType: SPWORDTYPE,
+    pub pszWord: ::windows::core::PWSTR,
+    pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
+}
+impl ::core::marker::Copy for SPWORD {}
+impl ::core::clone::Clone for SPWORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPWORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORD").field("pNextWord", &self.pNextWord).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("eWordType", &self.eWordType).field("pszWord", &self.pszWord).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPWORD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPWORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPWORD {}
+impl ::core::default::Default for SPWORD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPWORDLIST {
+    pub ulSize: u32,
+    pub pvBuffer: *mut u8,
+    pub pFirstWord: *mut SPWORD,
+}
+impl ::core::marker::Copy for SPWORDLIST {}
+impl ::core::clone::Clone for SPWORDLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPWORDLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWord", &self.pFirstWord).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPWORDLIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPWORDLIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDLIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPWORDLIST {}
+impl ::core::default::Default for SPWORDLIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPWORDPRONUNCIATION {
+    pub pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
+    pub eLexiconType: SPLEXICONTYPE,
+    pub LangID: u16,
+    pub wPronunciationFlags: u16,
+    pub ePartOfSpeech: SPPARTOFSPEECH,
+    pub szPronunciation: [u16; 1],
+}
+impl ::core::marker::Copy for SPWORDPRONUNCIATION {}
+impl ::core::clone::Clone for SPWORDPRONUNCIATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPWORDPRONUNCIATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDPRONUNCIATION").field("pNextWordPronunciation", &self.pNextWordPronunciation).field("eLexiconType", &self.eLexiconType).field("LangID", &self.LangID).field("wPronunciationFlags", &self.wPronunciationFlags).field("ePartOfSpeech", &self.ePartOfSpeech).field("szPronunciation", &self.szPronunciation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPWORDPRONUNCIATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDPRONUNCIATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPWORDPRONUNCIATION {}
+impl ::core::default::Default for SPWORDPRONUNCIATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub struct SPWORDPRONUNCIATIONLIST {
+    pub ulSize: u32,
+    pub pvBuffer: *mut u8,
+    pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
+}
+impl ::core::marker::Copy for SPWORDPRONUNCIATIONLIST {}
+impl ::core::clone::Clone for SPWORDPRONUNCIATIONLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPWORDPRONUNCIATIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPWORDPRONUNCIATIONLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATIONLIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPWORDPRONUNCIATIONLIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDPRONUNCIATIONLIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPWORDPRONUNCIATIONLIST {}
+impl ::core::default::Default for SPWORDPRONUNCIATIONLIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type SPNOTIFYCALLBACK = ::core::option::Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

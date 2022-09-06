@@ -552,40 +552,6 @@ unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintTicketFeatureSelectionType(pub i32);
-impl PrintTicketFeatureSelectionType {
-    pub const PickOne: Self = Self(0i32);
-    pub const PickMany: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PrintTicketFeatureSelectionType {}
-impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTicketFeatureSelectionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintTicketFeatureSelectionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTicketFeatureSelectionType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintTicketFeatureSelectionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-#[repr(transparent)]
 pub struct PrintTicketOption(::windows::core::IUnknown);
 impl PrintTicketOption {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -713,41 +679,6 @@ impl ::core::convert::From<&PrintTicketOption> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintTicketParameterDataType(pub i32);
-impl PrintTicketParameterDataType {
-    pub const Integer: Self = Self(0i32);
-    pub const NumericString: Self = Self(1i32);
-    pub const String: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintTicketParameterDataType {}
-impl ::core::clone::Clone for PrintTicketParameterDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTicketParameterDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintTicketParameterDataType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintTicketParameterDataType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTicketParameterDataType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDataType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 pub struct PrintTicketParameterDefinition(::windows::core::IUnknown);
@@ -1058,41 +989,6 @@ impl ::core::convert::From<&PrintTicketValue> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintTicketValueType(pub i32);
-impl PrintTicketValueType {
-    pub const Integer: Self = Self(0i32);
-    pub const String: Self = Self(1i32);
-    pub const Unknown: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintTicketValueType {}
-impl ::core::clone::Clone for PrintTicketValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTicketValueType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintTicketValueType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintTicketValueType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTicketValueType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintTicketValueType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 pub struct WorkflowPrintTicket(::windows::core::IUnknown);
@@ -1432,5 +1328,109 @@ impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for &::windows:
 }
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}
+#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintTicketFeatureSelectionType(pub i32);
+impl PrintTicketFeatureSelectionType {
+    pub const PickOne: Self = Self(0i32);
+    pub const PickMany: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PrintTicketFeatureSelectionType {}
+impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintTicketFeatureSelectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintTicketFeatureSelectionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketFeatureSelectionType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintTicketFeatureSelectionType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintTicketParameterDataType(pub i32);
+impl PrintTicketParameterDataType {
+    pub const Integer: Self = Self(0i32);
+    pub const NumericString: Self = Self(1i32);
+    pub const String: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PrintTicketParameterDataType {}
+impl ::core::clone::Clone for PrintTicketParameterDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintTicketParameterDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintTicketParameterDataType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintTicketParameterDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketParameterDataType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDataType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintTicketValueType(pub i32);
+impl PrintTicketValueType {
+    pub const Integer: Self = Self(0i32);
+    pub const String: Self = Self(1i32);
+    pub const Unknown: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PrintTicketValueType {}
+impl ::core::clone::Clone for PrintTicketValueType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintTicketValueType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintTicketValueType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintTicketValueType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTicketValueType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintTicketValueType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

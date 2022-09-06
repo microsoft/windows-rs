@@ -1055,6 +1055,11 @@ pub const NA_NameSetByPolicy: &str = "NA_NameSetByPolicy";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NA_NetworkClass: &str = "NA_NetworkClass";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
+pub const NetworkListManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_CONNECTION_COST(pub i32);
@@ -1159,51 +1164,6 @@ impl ::core::fmt::Debug for NLM_CONNECTIVITY {
         f.debug_tuple("NLM_CONNECTIVITY").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct NLM_DATAPLAN_STATUS {
-    pub InterfaceGuid: ::windows::core::GUID,
-    pub UsageData: NLM_USAGE_DATA,
-    pub DataLimitInMegabytes: u32,
-    pub InboundBandwidthInKbps: u32,
-    pub OutboundBandwidthInKbps: u32,
-    pub NextBillingCycle: super::super::Foundation::FILETIME,
-    pub MaxTransferSizeInMegabytes: u32,
-    pub Reserved: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NLM_DATAPLAN_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for NLM_DATAPLAN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NLM_DATAPLAN_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NLM_DATAPLAN_STATUS").field("InterfaceGuid", &self.InterfaceGuid).field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("NextBillingCycle", &self.NextBillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NLM_DATAPLAN_STATUS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NLM_DATAPLAN_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NLM_DATAPLAN_STATUS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NLM_DATAPLAN_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NLM_DATAPLAN_STATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1291,8 +1251,6 @@ impl ::core::fmt::Debug for NLM_INTERNET_CONNECTIVITY {
         f.debug_tuple("NLM_INTERNET_CONNECTIVITY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1385,6 +1343,51 @@ impl ::core::fmt::Debug for NLM_NETWORK_PROPERTY_CHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NLM_DATAPLAN_STATUS {
+    pub InterfaceGuid: ::windows::core::GUID,
+    pub UsageData: NLM_USAGE_DATA,
+    pub DataLimitInMegabytes: u32,
+    pub InboundBandwidthInKbps: u32,
+    pub OutboundBandwidthInKbps: u32,
+    pub NextBillingCycle: super::super::Foundation::FILETIME,
+    pub MaxTransferSizeInMegabytes: u32,
+    pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NLM_DATAPLAN_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NLM_DATAPLAN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NLM_DATAPLAN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NLM_DATAPLAN_STATUS").field("InterfaceGuid", &self.InterfaceGuid).field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("NextBillingCycle", &self.NextBillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NLM_DATAPLAN_STATUS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NLM_DATAPLAN_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NLM_DATAPLAN_STATUS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NLM_DATAPLAN_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for NLM_DATAPLAN_STATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub struct NLM_SIMULATED_PROFILE_INFO {
     pub ProfileName: [u16; 256],
@@ -1447,8 +1450,6 @@ impl ::core::default::Default for NLM_SOCKADDR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1488,6 +1489,5 @@ impl ::core::default::Default for NLM_USAGE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const NetworkListManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -427,45 +427,6 @@ unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VoiceCommandCompletionReason(pub i32);
-impl VoiceCommandCompletionReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const CommunicationFailed: Self = Self(1i32);
-    pub const ResourceLimitsExceeded: Self = Self(2i32);
-    pub const Canceled: Self = Self(3i32);
-    pub const TimeoutExceeded: Self = Self(4i32);
-    pub const AppLaunched: Self = Self(5i32);
-    pub const Completed: Self = Self(6i32);
-}
-impl ::core::marker::Copy for VoiceCommandCompletionReason {}
-impl ::core::clone::Clone for VoiceCommandCompletionReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoiceCommandCompletionReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VoiceCommandCompletionReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VoiceCommandCompletionReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandCompletionReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VoiceCommandCompletionReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-#[repr(transparent)]
 pub struct VoiceCommandConfirmationResult(::windows::core::IUnknown);
 impl VoiceCommandConfirmationResult {
     pub fn Confirmed(&self) -> ::windows::core::Result<bool> {
@@ -711,46 +672,6 @@ impl ::core::convert::From<&VoiceCommandContentTile> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
-#[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VoiceCommandContentTileType(pub i32);
-impl VoiceCommandContentTileType {
-    pub const TitleOnly: Self = Self(0i32);
-    pub const TitleWithText: Self = Self(1i32);
-    pub const TitleWith68x68Icon: Self = Self(2i32);
-    pub const TitleWith68x68IconAndText: Self = Self(3i32);
-    pub const TitleWith68x92Icon: Self = Self(4i32);
-    pub const TitleWith68x92IconAndText: Self = Self(5i32);
-    pub const TitleWith280x140Icon: Self = Self(6i32);
-    pub const TitleWith280x140IconAndText: Self = Self(7i32);
-}
-impl ::core::marker::Copy for VoiceCommandContentTileType {}
-impl ::core::clone::Clone for VoiceCommandContentTileType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoiceCommandContentTileType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VoiceCommandContentTileType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VoiceCommandContentTileType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandContentTileType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTileType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
 #[repr(transparent)]
 pub struct VoiceCommandDefinition(::windows::core::IUnknown);
@@ -1409,5 +1330,84 @@ impl ::core::convert::From<&VoiceCommandUserMessage> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for VoiceCommandUserMessage {}
 unsafe impl ::core::marker::Sync for VoiceCommandUserMessage {}
+#[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VoiceCommandCompletionReason(pub i32);
+impl VoiceCommandCompletionReason {
+    pub const Unknown: Self = Self(0i32);
+    pub const CommunicationFailed: Self = Self(1i32);
+    pub const ResourceLimitsExceeded: Self = Self(2i32);
+    pub const Canceled: Self = Self(3i32);
+    pub const TimeoutExceeded: Self = Self(4i32);
+    pub const AppLaunched: Self = Self(5i32);
+    pub const Completed: Self = Self(6i32);
+}
+impl ::core::marker::Copy for VoiceCommandCompletionReason {}
+impl ::core::clone::Clone for VoiceCommandCompletionReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VoiceCommandCompletionReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VoiceCommandCompletionReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VoiceCommandCompletionReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandCompletionReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VoiceCommandCompletionReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VoiceCommandContentTileType(pub i32);
+impl VoiceCommandContentTileType {
+    pub const TitleOnly: Self = Self(0i32);
+    pub const TitleWithText: Self = Self(1i32);
+    pub const TitleWith68x68Icon: Self = Self(2i32);
+    pub const TitleWith68x68IconAndText: Self = Self(3i32);
+    pub const TitleWith68x92Icon: Self = Self(4i32);
+    pub const TitleWith68x92IconAndText: Self = Self(5i32);
+    pub const TitleWith280x140Icon: Self = Self(6i32);
+    pub const TitleWith280x140IconAndText: Self = Self(7i32);
+}
+impl ::core::marker::Copy for VoiceCommandContentTileType {}
+impl ::core::clone::Clone for VoiceCommandContentTileType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VoiceCommandContentTileType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VoiceCommandContentTileType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VoiceCommandContentTileType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceCommandContentTileType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTileType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

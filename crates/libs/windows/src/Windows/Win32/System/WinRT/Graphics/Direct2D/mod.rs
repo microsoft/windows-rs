@@ -1,50 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GRAPHICS_EFFECT_PROPERTY_MAPPING(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_UNKNOWN: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_DIRECT: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORX: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORY: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORW: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RECT_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RADIANS_TO_DEGREES: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLORMATRIX_ALPHA_MODE: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR3: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(10i32);
-impl ::core::marker::Copy for GRAPHICS_EFFECT_PROPERTY_MAPPING {}
-impl ::core::clone::Clone for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GRAPHICS_EFFECT_PROPERTY_MAPPING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-#[repr(transparent)]
 pub struct IGeometrySource2DInterop(::windows::core::IUnknown);
 impl IGeometrySource2DInterop {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
@@ -197,6 +152,51 @@ pub struct IGraphicsEffectD2D1Interop_Vtbl {
     #[cfg(not(feature = "Graphics_Effects"))]
     GetSource: usize,
     pub GetSourceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GRAPHICS_EFFECT_PROPERTY_MAPPING(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_UNKNOWN: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_DIRECT: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORX: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORY: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORW: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RECT_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RADIANS_TO_DEGREES: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLORMATRIX_ALPHA_MODE: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR3: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(9i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
+pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(10i32);
+impl ::core::marker::Copy for GRAPHICS_EFFECT_PROPERTY_MAPPING {}
+impl ::core::clone::Clone for GRAPHICS_EFFECT_PROPERTY_MAPPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GRAPHICS_EFFECT_PROPERTY_MAPPING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GRAPHICS_EFFECT_PROPERTY_MAPPING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GRAPHICS_EFFECT_PROPERTY_MAPPING").field(&self.0).finish()
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

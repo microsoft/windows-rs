@@ -3261,6 +3261,10 @@ pub struct IMbnVendorSpecificOperation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetVendorSpecific: usize,
 }
+pub const MbnConnectionManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
+pub const MbnConnectionProfileManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
+pub const MbnDeviceServicesManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
+pub const MbnInterfaceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3471,56 +3475,6 @@ impl ::core::fmt::Debug for MBN_CONNECTION_MODE {
         f.debug_tuple("MBN_CONNECTION_MODE").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MBN_CONTEXT {
-    pub contextID: u32,
-    pub contextType: MBN_CONTEXT_TYPE,
-    pub accessString: super::super::Foundation::BSTR,
-    pub userName: super::super::Foundation::BSTR,
-    pub password: super::super::Foundation::BSTR,
-    pub compression: MBN_COMPRESSION,
-    pub authType: MBN_AUTH_PROTOCOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MBN_CONTEXT {
-    fn clone(&self) -> Self {
-        Self {
-            contextID: self.contextID,
-            contextType: self.contextType,
-            accessString: self.accessString.clone(),
-            userName: self.userName.clone(),
-            password: self.password.clone(),
-            compression: self.compression,
-            authType: self.authType,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MBN_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_CONTEXT").field("contextID", &self.contextID).field("contextType", &self.contextType).field("accessString", &self.accessString).field("userName", &self.userName).field("password", &self.password).field("compression", &self.compression).field("authType", &self.authType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MBN_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MBN_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.contextID == other.contextID && self.contextType == other.contextType && self.accessString == other.accessString && self.userName == other.userName && self.password == other.password && self.compression == other.compression && self.authType == other.authType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MBN_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MBN_CONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3687,44 +3641,6 @@ impl ::core::fmt::Debug for MBN_DATA_CLASS {
         f.debug_tuple("MBN_DATA_CLASS").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MBN_DEVICE_SERVICE {
-    pub deviceServiceID: super::super::Foundation::BSTR,
-    pub dataWriteSupported: i16,
-    pub dataReadSupported: i16,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
-    fn clone(&self) -> Self {
-        Self { deviceServiceID: self.deviceServiceID.clone(), dataWriteSupported: self.dataWriteSupported, dataReadSupported: self.dataReadSupported }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MBN_DEVICE_SERVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_DEVICE_SERVICE").field("deviceServiceID", &self.deviceServiceID).field("dataWriteSupported", &self.dataWriteSupported).field("dataReadSupported", &self.dataReadSupported).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MBN_DEVICE_SERVICE {
-    fn eq(&self, other: &Self) -> bool {
-        self.deviceServiceID == other.deviceServiceID && self.dataWriteSupported == other.dataWriteSupported && self.dataReadSupported == other.dataReadSupported
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MBN_DEVICE_SERVICE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MBN_DEVICE_SERVICE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3775,82 +3691,6 @@ unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE_SESSIONS_STATE {
 impl ::core::fmt::Debug for MBN_DEVICE_SERVICE_SESSIONS_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MBN_DEVICE_SERVICE_SESSIONS_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MBN_INTERFACE_CAPS {
-    pub cellularClass: MBN_CELLULAR_CLASS,
-    pub voiceClass: MBN_VOICE_CLASS,
-    pub dataClass: u32,
-    pub customDataClass: super::super::Foundation::BSTR,
-    pub gsmBandClass: u32,
-    pub cdmaBandClass: u32,
-    pub customBandClass: super::super::Foundation::BSTR,
-    pub smsCaps: u32,
-    pub controlCaps: u32,
-    pub deviceID: super::super::Foundation::BSTR,
-    pub manufacturer: super::super::Foundation::BSTR,
-    pub model: super::super::Foundation::BSTR,
-    pub firmwareInfo: super::super::Foundation::BSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
-    fn clone(&self) -> Self {
-        Self {
-            cellularClass: self.cellularClass,
-            voiceClass: self.voiceClass,
-            dataClass: self.dataClass,
-            customDataClass: self.customDataClass.clone(),
-            gsmBandClass: self.gsmBandClass,
-            cdmaBandClass: self.cdmaBandClass,
-            customBandClass: self.customBandClass.clone(),
-            smsCaps: self.smsCaps,
-            controlCaps: self.controlCaps,
-            deviceID: self.deviceID.clone(),
-            manufacturer: self.manufacturer.clone(),
-            model: self.model.clone(),
-            firmwareInfo: self.firmwareInfo.clone(),
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_INTERFACE_CAPS")
-            .field("cellularClass", &self.cellularClass)
-            .field("voiceClass", &self.voiceClass)
-            .field("dataClass", &self.dataClass)
-            .field("customDataClass", &self.customDataClass)
-            .field("gsmBandClass", &self.gsmBandClass)
-            .field("cdmaBandClass", &self.cdmaBandClass)
-            .field("customBandClass", &self.customBandClass)
-            .field("smsCaps", &self.smsCaps)
-            .field("controlCaps", &self.controlCaps)
-            .field("deviceID", &self.deviceID)
-            .field("manufacturer", &self.manufacturer)
-            .field("model", &self.model)
-            .field("firmwareInfo", &self.firmwareInfo)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MBN_INTERFACE_CAPS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MBN_INTERFACE_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cellularClass == other.cellularClass && self.voiceClass == other.voiceClass && self.dataClass == other.dataClass && self.customDataClass == other.customDataClass && self.gsmBandClass == other.gsmBandClass && self.cdmaBandClass == other.cdmaBandClass && self.customBandClass == other.customBandClass && self.smsCaps == other.smsCaps && self.controlCaps == other.controlCaps && self.deviceID == other.deviceID && self.manufacturer == other.manufacturer && self.model == other.model && self.firmwareInfo == other.firmwareInfo
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MBN_INTERFACE_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MBN_INTERFACE_CAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
@@ -3971,38 +3811,6 @@ impl ::core::fmt::Debug for MBN_PIN_FORMAT {
         f.debug_tuple("MBN_PIN_FORMAT").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-pub struct MBN_PIN_INFO {
-    pub pinState: MBN_PIN_STATE,
-    pub pinType: MBN_PIN_TYPE,
-    pub attemptsRemaining: u32,
-}
-impl ::core::marker::Copy for MBN_PIN_INFO {}
-impl ::core::clone::Clone for MBN_PIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MBN_PIN_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_PIN_INFO").field("pinState", &self.pinState).field("pinType", &self.pinType).field("attemptsRemaining", &self.attemptsRemaining).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MBN_PIN_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MBN_PIN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_PIN_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MBN_PIN_INFO {}
-impl ::core::default::Default for MBN_PIN_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4102,84 +3910,6 @@ unsafe impl ::windows::core::Abi for MBN_PIN_TYPE {
 impl ::core::fmt::Debug for MBN_PIN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MBN_PIN_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MBN_PROVIDER {
-    pub providerID: super::super::Foundation::BSTR,
-    pub providerState: u32,
-    pub providerName: super::super::Foundation::BSTR,
-    pub dataClass: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MBN_PROVIDER {
-    fn clone(&self) -> Self {
-        Self { providerID: self.providerID.clone(), providerState: self.providerState, providerName: self.providerName.clone(), dataClass: self.dataClass }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MBN_PROVIDER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_PROVIDER").field("providerID", &self.providerID).field("providerState", &self.providerState).field("providerName", &self.providerName).field("dataClass", &self.dataClass).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MBN_PROVIDER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MBN_PROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.providerID == other.providerID && self.providerState == other.providerState && self.providerName == other.providerName && self.dataClass == other.dataClass
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MBN_PROVIDER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MBN_PROVIDER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MBN_PROVIDER2 {
-    pub provider: MBN_PROVIDER,
-    pub cellularClass: MBN_CELLULAR_CLASS,
-    pub signalStrength: u32,
-    pub signalError: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MBN_PROVIDER2 {
-    fn clone(&self) -> Self {
-        Self { provider: self.provider.clone(), cellularClass: self.cellularClass, signalStrength: self.signalStrength, signalError: self.signalError }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MBN_PROVIDER2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_PROVIDER2").field("provider", &self.provider).field("cellularClass", &self.cellularClass).field("signalStrength", &self.signalStrength).field("signalError", &self.signalError).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MBN_PROVIDER2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MBN_PROVIDER2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.provider == other.provider && self.cellularClass == other.cellularClass && self.signalStrength == other.signalStrength && self.signalError == other.signalError
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MBN_PROVIDER2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MBN_PROVIDER2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
@@ -4553,37 +4283,6 @@ impl ::core::fmt::Debug for MBN_SMS_CDMA_LANG {
         f.debug_tuple("MBN_SMS_CDMA_LANG").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-pub struct MBN_SMS_FILTER {
-    pub flag: MBN_SMS_FLAG,
-    pub messageIndex: u32,
-}
-impl ::core::marker::Copy for MBN_SMS_FILTER {}
-impl ::core::clone::Clone for MBN_SMS_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MBN_SMS_FILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_SMS_FILTER").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MBN_SMS_FILTER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MBN_SMS_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_SMS_FILTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MBN_SMS_FILTER {}
-impl ::core::default::Default for MBN_SMS_FILTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4677,37 +4376,6 @@ impl ::core::fmt::Debug for MBN_SMS_STATUS_FLAG {
         f.debug_tuple("MBN_SMS_STATUS_FLAG").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-pub struct MBN_SMS_STATUS_INFO {
-    pub flag: u32,
-    pub messageIndex: u32,
-}
-impl ::core::marker::Copy for MBN_SMS_STATUS_INFO {}
-impl ::core::clone::Clone for MBN_SMS_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MBN_SMS_STATUS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MBN_SMS_STATUS_INFO").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MBN_SMS_STATUS_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MBN_SMS_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_SMS_STATUS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MBN_SMS_STATUS_INFO {}
-impl ::core::default::Default for MBN_SMS_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4768,10 +4436,6 @@ impl ::core::fmt::Debug for MBN_VOICE_CLASS {
         f.debug_tuple("MBN_VOICE_CLASS").field(&self.0).finish()
     }
 }
-pub const MbnConnectionManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
-pub const MbnConnectionProfileManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
-pub const MbnDeviceServicesManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
-pub const MbnInterfaceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4799,6 +4463,342 @@ unsafe impl ::windows::core::Abi for WWAEXT_SMS_CONSTANTS {
 impl ::core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WWAEXT_SMS_CONSTANTS").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_CONTEXT {
+    pub contextID: u32,
+    pub contextType: MBN_CONTEXT_TYPE,
+    pub accessString: super::super::Foundation::BSTR,
+    pub userName: super::super::Foundation::BSTR,
+    pub password: super::super::Foundation::BSTR,
+    pub compression: MBN_COMPRESSION,
+    pub authType: MBN_AUTH_PROTOCOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_CONTEXT {
+    fn clone(&self) -> Self {
+        Self {
+            contextID: self.contextID,
+            contextType: self.contextType,
+            accessString: self.accessString.clone(),
+            userName: self.userName.clone(),
+            password: self.password.clone(),
+            compression: self.compression,
+            authType: self.authType,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_CONTEXT").field("contextID", &self.contextID).field("contextType", &self.contextType).field("accessString", &self.accessString).field("userName", &self.userName).field("password", &self.password).field("compression", &self.compression).field("authType", &self.authType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MBN_CONTEXT {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MBN_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        self.contextID == other.contextID && self.contextType == other.contextType && self.accessString == other.accessString && self.userName == other.userName && self.password == other.password && self.compression == other.compression && self.authType == other.authType
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MBN_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MBN_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_DEVICE_SERVICE {
+    pub deviceServiceID: super::super::Foundation::BSTR,
+    pub dataWriteSupported: i16,
+    pub dataReadSupported: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
+    fn clone(&self) -> Self {
+        Self { deviceServiceID: self.deviceServiceID.clone(), dataWriteSupported: self.dataWriteSupported, dataReadSupported: self.dataReadSupported }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_DEVICE_SERVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_DEVICE_SERVICE").field("deviceServiceID", &self.deviceServiceID).field("dataWriteSupported", &self.dataWriteSupported).field("dataReadSupported", &self.dataReadSupported).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MBN_DEVICE_SERVICE {
+    fn eq(&self, other: &Self) -> bool {
+        self.deviceServiceID == other.deviceServiceID && self.dataWriteSupported == other.dataWriteSupported && self.dataReadSupported == other.dataReadSupported
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MBN_DEVICE_SERVICE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MBN_DEVICE_SERVICE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_INTERFACE_CAPS {
+    pub cellularClass: MBN_CELLULAR_CLASS,
+    pub voiceClass: MBN_VOICE_CLASS,
+    pub dataClass: u32,
+    pub customDataClass: super::super::Foundation::BSTR,
+    pub gsmBandClass: u32,
+    pub cdmaBandClass: u32,
+    pub customBandClass: super::super::Foundation::BSTR,
+    pub smsCaps: u32,
+    pub controlCaps: u32,
+    pub deviceID: super::super::Foundation::BSTR,
+    pub manufacturer: super::super::Foundation::BSTR,
+    pub model: super::super::Foundation::BSTR,
+    pub firmwareInfo: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
+    fn clone(&self) -> Self {
+        Self {
+            cellularClass: self.cellularClass,
+            voiceClass: self.voiceClass,
+            dataClass: self.dataClass,
+            customDataClass: self.customDataClass.clone(),
+            gsmBandClass: self.gsmBandClass,
+            cdmaBandClass: self.cdmaBandClass,
+            customBandClass: self.customBandClass.clone(),
+            smsCaps: self.smsCaps,
+            controlCaps: self.controlCaps,
+            deviceID: self.deviceID.clone(),
+            manufacturer: self.manufacturer.clone(),
+            model: self.model.clone(),
+            firmwareInfo: self.firmwareInfo.clone(),
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_INTERFACE_CAPS")
+            .field("cellularClass", &self.cellularClass)
+            .field("voiceClass", &self.voiceClass)
+            .field("dataClass", &self.dataClass)
+            .field("customDataClass", &self.customDataClass)
+            .field("gsmBandClass", &self.gsmBandClass)
+            .field("cdmaBandClass", &self.cdmaBandClass)
+            .field("customBandClass", &self.customBandClass)
+            .field("smsCaps", &self.smsCaps)
+            .field("controlCaps", &self.controlCaps)
+            .field("deviceID", &self.deviceID)
+            .field("manufacturer", &self.manufacturer)
+            .field("model", &self.model)
+            .field("firmwareInfo", &self.firmwareInfo)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MBN_INTERFACE_CAPS {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MBN_INTERFACE_CAPS {
+    fn eq(&self, other: &Self) -> bool {
+        self.cellularClass == other.cellularClass && self.voiceClass == other.voiceClass && self.dataClass == other.dataClass && self.customDataClass == other.customDataClass && self.gsmBandClass == other.gsmBandClass && self.cdmaBandClass == other.cdmaBandClass && self.customBandClass == other.customBandClass && self.smsCaps == other.smsCaps && self.controlCaps == other.controlCaps && self.deviceID == other.deviceID && self.manufacturer == other.manufacturer && self.model == other.model && self.firmwareInfo == other.firmwareInfo
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MBN_INTERFACE_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MBN_INTERFACE_CAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
+pub struct MBN_PIN_INFO {
+    pub pinState: MBN_PIN_STATE,
+    pub pinType: MBN_PIN_TYPE,
+    pub attemptsRemaining: u32,
+}
+impl ::core::marker::Copy for MBN_PIN_INFO {}
+impl ::core::clone::Clone for MBN_PIN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MBN_PIN_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PIN_INFO").field("pinState", &self.pinState).field("pinType", &self.pinType).field("attemptsRemaining", &self.attemptsRemaining).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MBN_PIN_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MBN_PIN_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_PIN_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MBN_PIN_INFO {}
+impl ::core::default::Default for MBN_PIN_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_PROVIDER {
+    pub providerID: super::super::Foundation::BSTR,
+    pub providerState: u32,
+    pub providerName: super::super::Foundation::BSTR,
+    pub dataClass: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_PROVIDER {
+    fn clone(&self) -> Self {
+        Self { providerID: self.providerID.clone(), providerState: self.providerState, providerName: self.providerName.clone(), dataClass: self.dataClass }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_PROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PROVIDER").field("providerID", &self.providerID).field("providerState", &self.providerState).field("providerName", &self.providerName).field("dataClass", &self.dataClass).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MBN_PROVIDER {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MBN_PROVIDER {
+    fn eq(&self, other: &Self) -> bool {
+        self.providerID == other.providerID && self.providerState == other.providerState && self.providerName == other.providerName && self.dataClass == other.dataClass
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MBN_PROVIDER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MBN_PROVIDER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_PROVIDER2 {
+    pub provider: MBN_PROVIDER,
+    pub cellularClass: MBN_CELLULAR_CLASS,
+    pub signalStrength: u32,
+    pub signalError: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_PROVIDER2 {
+    fn clone(&self) -> Self {
+        Self { provider: self.provider.clone(), cellularClass: self.cellularClass, signalStrength: self.signalStrength, signalError: self.signalError }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MBN_PROVIDER2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_PROVIDER2").field("provider", &self.provider).field("cellularClass", &self.cellularClass).field("signalStrength", &self.signalStrength).field("signalError", &self.signalError).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MBN_PROVIDER2 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MBN_PROVIDER2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.provider == other.provider && self.cellularClass == other.cellularClass && self.signalStrength == other.signalStrength && self.signalError == other.signalError
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MBN_PROVIDER2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MBN_PROVIDER2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
+pub struct MBN_SMS_FILTER {
+    pub flag: MBN_SMS_FLAG,
+    pub messageIndex: u32,
+}
+impl ::core::marker::Copy for MBN_SMS_FILTER {}
+impl ::core::clone::Clone for MBN_SMS_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MBN_SMS_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_SMS_FILTER").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MBN_SMS_FILTER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MBN_SMS_FILTER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_SMS_FILTER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MBN_SMS_FILTER {}
+impl ::core::default::Default for MBN_SMS_FILTER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
+pub struct MBN_SMS_STATUS_INFO {
+    pub flag: u32,
+    pub messageIndex: u32,
+}
+impl ::core::marker::Copy for MBN_SMS_STATUS_INFO {}
+impl ::core::clone::Clone for MBN_SMS_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MBN_SMS_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MBN_SMS_STATUS_INFO").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MBN_SMS_STATUS_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MBN_SMS_STATUS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_SMS_STATUS_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MBN_SMS_STATUS_INFO {}
+impl ::core::default::Default for MBN_SMS_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

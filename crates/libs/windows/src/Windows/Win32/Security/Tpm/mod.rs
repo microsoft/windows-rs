@@ -397,6 +397,9 @@ pub struct ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
 }
 pub const RemoteTpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
+pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
+pub const TpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);
+#[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TPMVSCMGR_ERROR(pub i32);
@@ -537,8 +540,5 @@ impl ::core::fmt::Debug for TPMVSC_ATTESTATION_TYPE {
         f.debug_tuple("TPMVSC_ATTESTATION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
-pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
-pub const TpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

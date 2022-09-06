@@ -1,555 +1,3 @@
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CachedFileOptions(pub u32);
-impl CachedFileOptions {
-    pub const None: Self = Self(0u32);
-    pub const RequireUpdateOnAccess: Self = Self(1u32);
-    pub const UseCachedFileWhenOffline: Self = Self(2u32);
-    pub const DenyAccessWhenOffline: Self = Self(4u32);
-}
-impl ::core::marker::Copy for CachedFileOptions {}
-impl ::core::clone::Clone for CachedFileOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CachedFileOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CachedFileOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CachedFileOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CachedFileOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CachedFileOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CachedFileOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CachedFileOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CachedFileOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CachedFileTarget(pub i32);
-impl CachedFileTarget {
-    pub const Local: Self = Self(0i32);
-    pub const Remote: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CachedFileTarget {}
-impl ::core::clone::Clone for CachedFileTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CachedFileTarget {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CachedFileTarget {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CachedFileTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileTarget").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-pub struct CachedFileUpdater;
-impl CachedFileUpdater {
-    pub fn SetUpdateInformation<'a, P0, E0>(file: P0, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(contentid), readmode, writemode, options).ok() })
-    }
-    #[doc(hidden)]
-    pub fn ICachedFileUpdaterStatics<R, F: FnOnce(&ICachedFileUpdaterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CachedFileUpdater, ICachedFileUpdaterStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for CachedFileUpdater {
-    const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdater";
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-pub struct CachedFileUpdaterUI(::windows::core::IUnknown);
-impl CachedFileUpdaterUI {
-    pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn UpdateTarget(&self) -> ::windows::core::Result<CachedFileTarget> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateTarget)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CachedFileTarget>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FileUpdateRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FileUpdateRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveFileUpdateRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFileUpdateRequested)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn UIRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UIRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveUIRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUIRequested)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn UIStatus(&self) -> ::windows::core::Result<UIStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UIStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UIStatus>(result__)
-        }
-    }
-    pub fn UpdateRequest(&self) -> ::windows::core::Result<FileUpdateRequest> {
-        let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateRequest)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequest>(result__)
-        }
-    }
-    pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
-        let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequestDeferral>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CachedFileUpdaterUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CachedFileUpdaterUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CachedFileUpdaterUI {}
-impl ::core::fmt::Debug for CachedFileUpdaterUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileUpdaterUI").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterUI {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.CachedFileUpdaterUI;{9e6f41e6-baf2-4a97-b600-9333f5df80fd})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CachedFileUpdaterUI {
-    type Vtable = ICachedFileUpdaterUI_Vtbl;
-    const IID: ::windows::core::GUID = <ICachedFileUpdaterUI as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CachedFileUpdaterUI {
-    const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdaterUI";
-}
-impl ::core::convert::From<CachedFileUpdaterUI> for ::windows::core::IUnknown {
-    fn from(value: CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CachedFileUpdaterUI> for ::windows::core::IInspectable {
-    fn from(value: CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-pub struct FileUpdateRequest(::windows::core::IUnknown);
-impl FileUpdateRequest {
-    pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContentId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn File(&self) -> ::windows::core::Result<super::StorageFile> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::StorageFile>(result__)
-        }
-    }
-    pub fn Status(&self) -> ::windows::core::Result<FileUpdateStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateStatus>(result__)
-        }
-    }
-    pub fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequestDeferral>(result__)
-        }
-    }
-    pub fn UpdateLocalFile<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateLocalFile)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    pub fn UserInputNeededMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UserInputNeededMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetUserInputNeededMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserInputNeededMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for FileUpdateRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileUpdateRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileUpdateRequest {}
-impl ::core::fmt::Debug for FileUpdateRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileUpdateRequest").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileUpdateRequest {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequest;{40c82536-c1fe-4d93-a792-1e736bc70837})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FileUpdateRequest {
-    type Vtable = IFileUpdateRequest_Vtbl;
-    const IID: ::windows::core::GUID = <IFileUpdateRequest as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FileUpdateRequest {
-    const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequest";
-}
-impl ::core::convert::From<FileUpdateRequest> for ::windows::core::IUnknown {
-    fn from(value: FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileUpdateRequest> for ::windows::core::IInspectable {
-    fn from(value: FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-pub struct FileUpdateRequestDeferral(::windows::core::IUnknown);
-impl FileUpdateRequestDeferral {
-    pub fn Complete(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-}
-impl ::core::clone::Clone for FileUpdateRequestDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileUpdateRequestDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileUpdateRequestDeferral {}
-impl ::core::fmt::Debug for FileUpdateRequestDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileUpdateRequestDeferral").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileUpdateRequestDeferral {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestDeferral;{ffcedb2b-8ade-44a5-bb00-164c4e72f13a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FileUpdateRequestDeferral {
-    type Vtable = IFileUpdateRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = <IFileUpdateRequestDeferral as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FileUpdateRequestDeferral {
-    const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestDeferral";
-}
-impl ::core::convert::From<FileUpdateRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileUpdateRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-pub struct FileUpdateRequestedEventArgs(::windows::core::IUnknown);
-impl FileUpdateRequestedEventArgs {
-    pub fn Request(&self) -> ::windows::core::Result<FileUpdateRequest> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequest>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for FileUpdateRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileUpdateRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileUpdateRequestedEventArgs {}
-impl ::core::fmt::Debug for FileUpdateRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileUpdateRequestedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileUpdateRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestedEventArgs;{7b0a9342-3905-438d-aaef-78ae265f8dd2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FileUpdateRequestedEventArgs {
-    type Vtable = IFileUpdateRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IFileUpdateRequestedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FileUpdateRequestedEventArgs {
-    const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestedEventArgs";
-}
-impl ::core::convert::From<FileUpdateRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileUpdateRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FileUpdateStatus(pub i32);
-impl FileUpdateStatus {
-    pub const Incomplete: Self = Self(0i32);
-    pub const Complete: Self = Self(1i32);
-    pub const UserInputNeeded: Self = Self(2i32);
-    pub const CurrentlyUnavailable: Self = Self(3i32);
-    pub const Failed: Self = Self(4i32);
-    pub const CompleteAndRenamed: Self = Self(5i32);
-}
-impl ::core::marker::Copy for FileUpdateStatus {}
-impl ::core::clone::Clone for FileUpdateStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FileUpdateStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FileUpdateStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FileUpdateStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileUpdateStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICachedFileUpdaterStatics(::windows::core::IUnknown);
@@ -1418,37 +866,419 @@ pub struct IStorageProviderUriSource_Vtbl {
     pub GetContentInfoForPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
+pub struct CachedFileUpdater;
+impl CachedFileUpdater {
+    pub fn SetUpdateInformation<'a, P0, E0>(file: P0, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(contentid), readmode, writemode, options).ok() })
+    }
+    #[doc(hidden)]
+    pub fn ICachedFileUpdaterStatics<R, F: FnOnce(&ICachedFileUpdaterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<CachedFileUpdater, ICachedFileUpdaterStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for CachedFileUpdater {
+    const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdater";
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ReadActivationMode(pub i32);
-impl ReadActivationMode {
-    pub const NotNeeded: Self = Self(0i32);
-    pub const BeforeAccess: Self = Self(1i32);
+pub struct CachedFileUpdaterUI(::windows::core::IUnknown);
+impl CachedFileUpdaterUI {
+    pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn UpdateTarget(&self) -> ::windows::core::Result<CachedFileTarget> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UpdateTarget)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CachedFileTarget>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FileUpdateRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FileUpdateRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveFileUpdateRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFileUpdateRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn UIRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UIRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveUIRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUIRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn UIStatus(&self) -> ::windows::core::Result<UIStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UIStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UIStatus>(result__)
+        }
+    }
+    pub fn UpdateRequest(&self) -> ::windows::core::Result<FileUpdateRequest> {
+        let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UpdateRequest)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequest>(result__)
+        }
+    }
+    pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
+        let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequestDeferral>(result__)
+        }
+    }
 }
-impl ::core::marker::Copy for ReadActivationMode {}
-impl ::core::clone::Clone for ReadActivationMode {
+impl ::core::clone::Clone for CachedFileUpdaterUI {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::default::Default for ReadActivationMode {
-    fn default() -> Self {
-        Self(0)
+impl ::core::cmp::PartialEq for CachedFileUpdaterUI {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
     }
 }
-unsafe impl ::windows::core::Abi for ReadActivationMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ReadActivationMode {
+impl ::core::cmp::Eq for CachedFileUpdaterUI {}
+impl ::core::fmt::Debug for CachedFileUpdaterUI {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReadActivationMode").field(&self.0).finish()
+        f.debug_tuple("CachedFileUpdaterUI").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
-    type DefaultType = Self;
+unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterUI {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.CachedFileUpdaterUI;{9e6f41e6-baf2-4a97-b600-9333f5df80fd})");
+    type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CachedFileUpdaterUI {
+    type Vtable = ICachedFileUpdaterUI_Vtbl;
+    const IID: ::windows::core::GUID = <ICachedFileUpdaterUI as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CachedFileUpdaterUI {
+    const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdaterUI";
+}
+impl ::core::convert::From<CachedFileUpdaterUI> for ::windows::core::IUnknown {
+    fn from(value: CachedFileUpdaterUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterUI) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CachedFileUpdaterUI> for ::windows::core::IInspectable {
+    fn from(value: CachedFileUpdaterUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterUI) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+pub struct FileUpdateRequest(::windows::core::IUnknown);
+impl FileUpdateRequest {
+    pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ContentId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn File(&self) -> ::windows::core::Result<super::StorageFile> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::StorageFile>(result__)
+        }
+    }
+    pub fn Status(&self) -> ::windows::core::Result<FileUpdateStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateStatus>(result__)
+        }
+    }
+    pub fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequestDeferral>(result__)
+        }
+    }
+    pub fn UpdateLocalFile<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).UpdateLocalFile)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    pub fn UserInputNeededMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UserInputNeededMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetUserInputNeededMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetUserInputNeededMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+}
+impl ::core::clone::Clone for FileUpdateRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FileUpdateRequest {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FileUpdateRequest {}
+impl ::core::fmt::Debug for FileUpdateRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateRequest").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileUpdateRequest {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequest;{40c82536-c1fe-4d93-a792-1e736bc70837})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FileUpdateRequest {
+    type Vtable = IFileUpdateRequest_Vtbl;
+    const IID: ::windows::core::GUID = <IFileUpdateRequest as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FileUpdateRequest {
+    const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequest";
+}
+impl ::core::convert::From<FileUpdateRequest> for ::windows::core::IUnknown {
+    fn from(value: FileUpdateRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequest) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FileUpdateRequest> for ::windows::core::IInspectable {
+    fn from(value: FileUpdateRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequest) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+pub struct FileUpdateRequestDeferral(::windows::core::IUnknown);
+impl FileUpdateRequestDeferral {
+    pub fn Complete(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+}
+impl ::core::clone::Clone for FileUpdateRequestDeferral {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FileUpdateRequestDeferral {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FileUpdateRequestDeferral {}
+impl ::core::fmt::Debug for FileUpdateRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateRequestDeferral").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileUpdateRequestDeferral {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestDeferral;{ffcedb2b-8ade-44a5-bb00-164c4e72f13a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FileUpdateRequestDeferral {
+    type Vtable = IFileUpdateRequestDeferral_Vtbl;
+    const IID: ::windows::core::GUID = <IFileUpdateRequestDeferral as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FileUpdateRequestDeferral {
+    const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestDeferral";
+}
+impl ::core::convert::From<FileUpdateRequestDeferral> for ::windows::core::IUnknown {
+    fn from(value: FileUpdateRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequestDeferral) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FileUpdateRequestDeferral> for ::windows::core::IInspectable {
+    fn from(value: FileUpdateRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequestDeferral) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+pub struct FileUpdateRequestedEventArgs(::windows::core::IUnknown);
+impl FileUpdateRequestedEventArgs {
+    pub fn Request(&self) -> ::windows::core::Result<FileUpdateRequest> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FileUpdateRequest>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for FileUpdateRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FileUpdateRequestedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FileUpdateRequestedEventArgs {}
+impl ::core::fmt::Debug for FileUpdateRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateRequestedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileUpdateRequestedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestedEventArgs;{7b0a9342-3905-438d-aaef-78ae265f8dd2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FileUpdateRequestedEventArgs {
+    type Vtable = IFileUpdateRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IFileUpdateRequestedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FileUpdateRequestedEventArgs {
+    const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestedEventArgs";
+}
+impl ::core::convert::From<FileUpdateRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: FileUpdateRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FileUpdateRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: FileUpdateRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1998,241 +1828,6 @@ impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for &::wi
 unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorageProviderHardlinkPolicy(pub u32);
-impl StorageProviderHardlinkPolicy {
-    pub const None: Self = Self(0u32);
-    pub const Allowed: Self = Self(1u32);
-}
-impl ::core::marker::Copy for StorageProviderHardlinkPolicy {}
-impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderHardlinkPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorageProviderHardlinkPolicy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for StorageProviderHardlinkPolicy {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for StorageProviderHardlinkPolicy {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for StorageProviderHardlinkPolicy {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for StorageProviderHardlinkPolicy {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for StorageProviderHardlinkPolicy {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorageProviderHydrationPolicy(pub i32);
-impl StorageProviderHydrationPolicy {
-    pub const Partial: Self = Self(0i32);
-    pub const Progressive: Self = Self(1i32);
-    pub const Full: Self = Self(2i32);
-    pub const AlwaysFull: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StorageProviderHydrationPolicy {}
-impl ::core::clone::Clone for StorageProviderHydrationPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderHydrationPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorageProviderHydrationPolicyModifier(pub u32);
-impl StorageProviderHydrationPolicyModifier {
-    pub const None: Self = Self(0u32);
-    pub const ValidationRequired: Self = Self(1u32);
-    pub const StreamingAllowed: Self = Self(2u32);
-    pub const AutoDehydrationAllowed: Self = Self(4u32);
-    pub const AllowFullRestartHydration: Self = Self(8u32);
-}
-impl ::core::marker::Copy for StorageProviderHydrationPolicyModifier {}
-impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderHydrationPolicyModifier {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicyModifier {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for StorageProviderHydrationPolicyModifier {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for StorageProviderHydrationPolicyModifier {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for StorageProviderHydrationPolicyModifier {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for StorageProviderHydrationPolicyModifier {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for StorageProviderHydrationPolicyModifier {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorageProviderInSyncPolicy(pub u32);
-impl StorageProviderInSyncPolicy {
-    pub const Default: Self = Self(0u32);
-    pub const FileCreationTime: Self = Self(1u32);
-    pub const FileReadOnlyAttribute: Self = Self(2u32);
-    pub const FileHiddenAttribute: Self = Self(4u32);
-    pub const FileSystemAttribute: Self = Self(8u32);
-    pub const DirectoryCreationTime: Self = Self(16u32);
-    pub const DirectoryReadOnlyAttribute: Self = Self(32u32);
-    pub const DirectoryHiddenAttribute: Self = Self(64u32);
-    pub const DirectorySystemAttribute: Self = Self(128u32);
-    pub const FileLastWriteTime: Self = Self(256u32);
-    pub const DirectoryLastWriteTime: Self = Self(512u32);
-    pub const PreserveInsyncForSyncEngine: Self = Self(2147483648u32);
-}
-impl ::core::marker::Copy for StorageProviderInSyncPolicy {}
-impl ::core::clone::Clone for StorageProviderInSyncPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderInSyncPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for StorageProviderInSyncPolicy {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for StorageProviderInSyncPolicy {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for StorageProviderInSyncPolicy {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for StorageProviderInSyncPolicy {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for StorageProviderInSyncPolicy {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2461,112 +2056,6 @@ impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for &::window
 }
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorageProviderPopulationPolicy(pub i32);
-impl StorageProviderPopulationPolicy {
-    pub const Full: Self = Self(1i32);
-    pub const AlwaysFull: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StorageProviderPopulationPolicy {}
-impl ::core::clone::Clone for StorageProviderPopulationPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderPopulationPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorageProviderPopulationPolicy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorageProviderProtectionMode(pub i32);
-impl StorageProviderProtectionMode {
-    pub const Unknown: Self = Self(0i32);
-    pub const Personal: Self = Self(1i32);
-}
-impl ::core::marker::Copy for StorageProviderProtectionMode {}
-impl ::core::clone::Clone for StorageProviderProtectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderProtectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorageProviderProtectionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageProviderProtectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorageProviderState(pub i32);
-impl StorageProviderState {
-    pub const InSync: Self = Self(0i32);
-    pub const Syncing: Self = Self(1i32);
-    pub const Paused: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-    pub const Warning: Self = Self(4i32);
-    pub const Offline: Self = Self(5i32);
-}
-impl ::core::marker::Copy for StorageProviderState {}
-impl ::core::clone::Clone for StorageProviderState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorageProviderState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageProviderState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProviderState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorageProviderState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderStatus(::windows::core::IUnknown);
@@ -3022,6 +2511,517 @@ impl StorageProviderSyncRootManager {
 }
 impl ::windows::core::RuntimeName for StorageProviderSyncRootManager {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootManager";
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CachedFileOptions(pub u32);
+impl CachedFileOptions {
+    pub const None: Self = Self(0u32);
+    pub const RequireUpdateOnAccess: Self = Self(1u32);
+    pub const UseCachedFileWhenOffline: Self = Self(2u32);
+    pub const DenyAccessWhenOffline: Self = Self(4u32);
+}
+impl ::core::marker::Copy for CachedFileOptions {}
+impl ::core::clone::Clone for CachedFileOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CachedFileOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CachedFileOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CachedFileOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CachedFileOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CachedFileOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CachedFileOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CachedFileOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CachedFileOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CachedFileTarget(pub i32);
+impl CachedFileTarget {
+    pub const Local: Self = Self(0i32);
+    pub const Remote: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CachedFileTarget {}
+impl ::core::clone::Clone for CachedFileTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CachedFileTarget {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CachedFileTarget {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CachedFileTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileTarget").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FileUpdateStatus(pub i32);
+impl FileUpdateStatus {
+    pub const Incomplete: Self = Self(0i32);
+    pub const Complete: Self = Self(1i32);
+    pub const UserInputNeeded: Self = Self(2i32);
+    pub const CurrentlyUnavailable: Self = Self(3i32);
+    pub const Failed: Self = Self(4i32);
+    pub const CompleteAndRenamed: Self = Self(5i32);
+}
+impl ::core::marker::Copy for FileUpdateStatus {}
+impl ::core::clone::Clone for FileUpdateStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FileUpdateStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FileUpdateStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FileUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileUpdateStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ReadActivationMode(pub i32);
+impl ReadActivationMode {
+    pub const NotNeeded: Self = Self(0i32);
+    pub const BeforeAccess: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ReadActivationMode {}
+impl ::core::clone::Clone for ReadActivationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ReadActivationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ReadActivationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ReadActivationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReadActivationMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderHardlinkPolicy(pub u32);
+impl StorageProviderHardlinkPolicy {
+    pub const None: Self = Self(0u32);
+    pub const Allowed: Self = Self(1u32);
+}
+impl ::core::marker::Copy for StorageProviderHardlinkPolicy {}
+impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderHardlinkPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorageProviderHardlinkPolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for StorageProviderHardlinkPolicy {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for StorageProviderHardlinkPolicy {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for StorageProviderHardlinkPolicy {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for StorageProviderHardlinkPolicy {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for StorageProviderHardlinkPolicy {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderHydrationPolicy(pub i32);
+impl StorageProviderHydrationPolicy {
+    pub const Partial: Self = Self(0i32);
+    pub const Progressive: Self = Self(1i32);
+    pub const Full: Self = Self(2i32);
+    pub const AlwaysFull: Self = Self(3i32);
+}
+impl ::core::marker::Copy for StorageProviderHydrationPolicy {}
+impl ::core::clone::Clone for StorageProviderHydrationPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderHydrationPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderHydrationPolicyModifier(pub u32);
+impl StorageProviderHydrationPolicyModifier {
+    pub const None: Self = Self(0u32);
+    pub const ValidationRequired: Self = Self(1u32);
+    pub const StreamingAllowed: Self = Self(2u32);
+    pub const AutoDehydrationAllowed: Self = Self(4u32);
+    pub const AllowFullRestartHydration: Self = Self(8u32);
+}
+impl ::core::marker::Copy for StorageProviderHydrationPolicyModifier {}
+impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderHydrationPolicyModifier {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicyModifier {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for StorageProviderHydrationPolicyModifier {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for StorageProviderHydrationPolicyModifier {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for StorageProviderHydrationPolicyModifier {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for StorageProviderHydrationPolicyModifier {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for StorageProviderHydrationPolicyModifier {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderInSyncPolicy(pub u32);
+impl StorageProviderInSyncPolicy {
+    pub const Default: Self = Self(0u32);
+    pub const FileCreationTime: Self = Self(1u32);
+    pub const FileReadOnlyAttribute: Self = Self(2u32);
+    pub const FileHiddenAttribute: Self = Self(4u32);
+    pub const FileSystemAttribute: Self = Self(8u32);
+    pub const DirectoryCreationTime: Self = Self(16u32);
+    pub const DirectoryReadOnlyAttribute: Self = Self(32u32);
+    pub const DirectoryHiddenAttribute: Self = Self(64u32);
+    pub const DirectorySystemAttribute: Self = Self(128u32);
+    pub const FileLastWriteTime: Self = Self(256u32);
+    pub const DirectoryLastWriteTime: Self = Self(512u32);
+    pub const PreserveInsyncForSyncEngine: Self = Self(2147483648u32);
+}
+impl ::core::marker::Copy for StorageProviderInSyncPolicy {}
+impl ::core::clone::Clone for StorageProviderInSyncPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderInSyncPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for StorageProviderInSyncPolicy {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for StorageProviderInSyncPolicy {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for StorageProviderInSyncPolicy {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for StorageProviderInSyncPolicy {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for StorageProviderInSyncPolicy {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderPopulationPolicy(pub i32);
+impl StorageProviderPopulationPolicy {
+    pub const Full: Self = Self(1i32);
+    pub const AlwaysFull: Self = Self(2i32);
+}
+impl ::core::marker::Copy for StorageProviderPopulationPolicy {}
+impl ::core::clone::Clone for StorageProviderPopulationPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderPopulationPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorageProviderPopulationPolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderProtectionMode(pub i32);
+impl StorageProviderProtectionMode {
+    pub const Unknown: Self = Self(0i32);
+    pub const Personal: Self = Self(1i32);
+}
+impl ::core::marker::Copy for StorageProviderProtectionMode {}
+impl ::core::clone::Clone for StorageProviderProtectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderProtectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorageProviderProtectionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorageProviderProtectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorageProviderState(pub i32);
+impl StorageProviderState {
+    pub const InSync: Self = Self(0i32);
+    pub const Syncing: Self = Self(1i32);
+    pub const Paused: Self = Self(2i32);
+    pub const Error: Self = Self(3i32);
+    pub const Warning: Self = Self(4i32);
+    pub const Offline: Self = Self(5i32);
+}
+impl ::core::marker::Copy for StorageProviderState {}
+impl ::core::clone::Clone for StorageProviderState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorageProviderState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorageProviderState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorageProviderState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProviderState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorageProviderState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]

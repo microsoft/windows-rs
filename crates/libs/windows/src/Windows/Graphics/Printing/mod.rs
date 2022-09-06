@@ -851,245 +851,6 @@ pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintBinding(pub i32);
-impl PrintBinding {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-    pub const Bale: Self = Self(4i32);
-    pub const BindBottom: Self = Self(5i32);
-    pub const BindLeft: Self = Self(6i32);
-    pub const BindRight: Self = Self(7i32);
-    pub const BindTop: Self = Self(8i32);
-    pub const Booklet: Self = Self(9i32);
-    pub const EdgeStitchBottom: Self = Self(10i32);
-    pub const EdgeStitchLeft: Self = Self(11i32);
-    pub const EdgeStitchRight: Self = Self(12i32);
-    pub const EdgeStitchTop: Self = Self(13i32);
-    pub const Fold: Self = Self(14i32);
-    pub const JogOffset: Self = Self(15i32);
-    pub const Trim: Self = Self(16i32);
-}
-impl ::core::marker::Copy for PrintBinding {}
-impl ::core::clone::Clone for PrintBinding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintBinding {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintBinding {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintBinding").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintBinding {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintBordering(pub i32);
-impl PrintBordering {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Bordered: Self = Self(3i32);
-    pub const Borderless: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintBordering {}
-impl ::core::clone::Clone for PrintBordering {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintBordering {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintBordering {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintBordering {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintBordering").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintBordering {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintCollation(pub i32);
-impl PrintCollation {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Collated: Self = Self(3i32);
-    pub const Uncollated: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintCollation {}
-impl ::core::clone::Clone for PrintCollation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintCollation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintCollation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintCollation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintCollation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintCollation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintColorMode(pub i32);
-impl PrintColorMode {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Color: Self = Self(3i32);
-    pub const Grayscale: Self = Self(4i32);
-    pub const Monochrome: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PrintColorMode {}
-impl ::core::clone::Clone for PrintColorMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintColorMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintColorMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintColorMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintColorMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintColorMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintDuplex(pub i32);
-impl PrintDuplex {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const OneSided: Self = Self(3i32);
-    pub const TwoSidedShortEdge: Self = Self(4i32);
-    pub const TwoSidedLongEdge: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PrintDuplex {}
-impl ::core::clone::Clone for PrintDuplex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintDuplex {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintDuplex {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintDuplex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintDuplex").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintDuplex {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintHolePunch(pub i32);
-impl PrintHolePunch {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-    pub const LeftEdge: Self = Self(4i32);
-    pub const RightEdge: Self = Self(5i32);
-    pub const TopEdge: Self = Self(6i32);
-    pub const BottomEdge: Self = Self(7i32);
-}
-impl ::core::marker::Copy for PrintHolePunch {}
-impl ::core::clone::Clone for PrintHolePunch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintHolePunch {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintHolePunch {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintHolePunch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintHolePunch").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintHolePunch {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
 pub struct PrintManager(::windows::core::IUnknown);
 impl PrintManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1203,363 +964,6 @@ impl ::core::convert::From<&PrintManager> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PrintManager {}
 unsafe impl ::core::marker::Sync for PrintManager {}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintMediaSize(pub i32);
-impl PrintMediaSize {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const BusinessCard: Self = Self(3i32);
-    pub const CreditCard: Self = Self(4i32);
-    pub const IsoA0: Self = Self(5i32);
-    pub const IsoA1: Self = Self(6i32);
-    pub const IsoA10: Self = Self(7i32);
-    pub const IsoA2: Self = Self(8i32);
-    pub const IsoA3: Self = Self(9i32);
-    pub const IsoA3Extra: Self = Self(10i32);
-    pub const IsoA3Rotated: Self = Self(11i32);
-    pub const IsoA4: Self = Self(12i32);
-    pub const IsoA4Extra: Self = Self(13i32);
-    pub const IsoA4Rotated: Self = Self(14i32);
-    pub const IsoA5: Self = Self(15i32);
-    pub const IsoA5Extra: Self = Self(16i32);
-    pub const IsoA5Rotated: Self = Self(17i32);
-    pub const IsoA6: Self = Self(18i32);
-    pub const IsoA6Rotated: Self = Self(19i32);
-    pub const IsoA7: Self = Self(20i32);
-    pub const IsoA8: Self = Self(21i32);
-    pub const IsoA9: Self = Self(22i32);
-    pub const IsoB0: Self = Self(23i32);
-    pub const IsoB1: Self = Self(24i32);
-    pub const IsoB10: Self = Self(25i32);
-    pub const IsoB2: Self = Self(26i32);
-    pub const IsoB3: Self = Self(27i32);
-    pub const IsoB4: Self = Self(28i32);
-    pub const IsoB4Envelope: Self = Self(29i32);
-    pub const IsoB5Envelope: Self = Self(30i32);
-    pub const IsoB5Extra: Self = Self(31i32);
-    pub const IsoB7: Self = Self(32i32);
-    pub const IsoB8: Self = Self(33i32);
-    pub const IsoB9: Self = Self(34i32);
-    pub const IsoC0: Self = Self(35i32);
-    pub const IsoC1: Self = Self(36i32);
-    pub const IsoC10: Self = Self(37i32);
-    pub const IsoC2: Self = Self(38i32);
-    pub const IsoC3: Self = Self(39i32);
-    pub const IsoC3Envelope: Self = Self(40i32);
-    pub const IsoC4: Self = Self(41i32);
-    pub const IsoC4Envelope: Self = Self(42i32);
-    pub const IsoC5: Self = Self(43i32);
-    pub const IsoC5Envelope: Self = Self(44i32);
-    pub const IsoC6: Self = Self(45i32);
-    pub const IsoC6C5Envelope: Self = Self(46i32);
-    pub const IsoC6Envelope: Self = Self(47i32);
-    pub const IsoC7: Self = Self(48i32);
-    pub const IsoC8: Self = Self(49i32);
-    pub const IsoC9: Self = Self(50i32);
-    pub const IsoDLEnvelope: Self = Self(51i32);
-    pub const IsoDLEnvelopeRotated: Self = Self(52i32);
-    pub const IsoSRA3: Self = Self(53i32);
-    pub const Japan2LPhoto: Self = Self(54i32);
-    pub const JapanChou3Envelope: Self = Self(55i32);
-    pub const JapanChou3EnvelopeRotated: Self = Self(56i32);
-    pub const JapanChou4Envelope: Self = Self(57i32);
-    pub const JapanChou4EnvelopeRotated: Self = Self(58i32);
-    pub const JapanDoubleHagakiPostcard: Self = Self(59i32);
-    pub const JapanDoubleHagakiPostcardRotated: Self = Self(60i32);
-    pub const JapanHagakiPostcard: Self = Self(61i32);
-    pub const JapanHagakiPostcardRotated: Self = Self(62i32);
-    pub const JapanKaku2Envelope: Self = Self(63i32);
-    pub const JapanKaku2EnvelopeRotated: Self = Self(64i32);
-    pub const JapanKaku3Envelope: Self = Self(65i32);
-    pub const JapanKaku3EnvelopeRotated: Self = Self(66i32);
-    pub const JapanLPhoto: Self = Self(67i32);
-    pub const JapanQuadrupleHagakiPostcard: Self = Self(68i32);
-    pub const JapanYou1Envelope: Self = Self(69i32);
-    pub const JapanYou2Envelope: Self = Self(70i32);
-    pub const JapanYou3Envelope: Self = Self(71i32);
-    pub const JapanYou4Envelope: Self = Self(72i32);
-    pub const JapanYou4EnvelopeRotated: Self = Self(73i32);
-    pub const JapanYou6Envelope: Self = Self(74i32);
-    pub const JapanYou6EnvelopeRotated: Self = Self(75i32);
-    pub const JisB0: Self = Self(76i32);
-    pub const JisB1: Self = Self(77i32);
-    pub const JisB10: Self = Self(78i32);
-    pub const JisB2: Self = Self(79i32);
-    pub const JisB3: Self = Self(80i32);
-    pub const JisB4: Self = Self(81i32);
-    pub const JisB4Rotated: Self = Self(82i32);
-    pub const JisB5: Self = Self(83i32);
-    pub const JisB5Rotated: Self = Self(84i32);
-    pub const JisB6: Self = Self(85i32);
-    pub const JisB6Rotated: Self = Self(86i32);
-    pub const JisB7: Self = Self(87i32);
-    pub const JisB8: Self = Self(88i32);
-    pub const JisB9: Self = Self(89i32);
-    pub const NorthAmerica10x11: Self = Self(90i32);
-    pub const NorthAmerica10x12: Self = Self(91i32);
-    pub const NorthAmerica10x14: Self = Self(92i32);
-    pub const NorthAmerica11x17: Self = Self(93i32);
-    pub const NorthAmerica14x17: Self = Self(94i32);
-    pub const NorthAmerica4x6: Self = Self(95i32);
-    pub const NorthAmerica4x8: Self = Self(96i32);
-    pub const NorthAmerica5x7: Self = Self(97i32);
-    pub const NorthAmerica8x10: Self = Self(98i32);
-    pub const NorthAmerica9x11: Self = Self(99i32);
-    pub const NorthAmericaArchitectureASheet: Self = Self(100i32);
-    pub const NorthAmericaArchitectureBSheet: Self = Self(101i32);
-    pub const NorthAmericaArchitectureCSheet: Self = Self(102i32);
-    pub const NorthAmericaArchitectureDSheet: Self = Self(103i32);
-    pub const NorthAmericaArchitectureESheet: Self = Self(104i32);
-    pub const NorthAmericaCSheet: Self = Self(105i32);
-    pub const NorthAmericaDSheet: Self = Self(106i32);
-    pub const NorthAmericaESheet: Self = Self(107i32);
-    pub const NorthAmericaExecutive: Self = Self(108i32);
-    pub const NorthAmericaGermanLegalFanfold: Self = Self(109i32);
-    pub const NorthAmericaGermanStandardFanfold: Self = Self(110i32);
-    pub const NorthAmericaLegal: Self = Self(111i32);
-    pub const NorthAmericaLegalExtra: Self = Self(112i32);
-    pub const NorthAmericaLetter: Self = Self(113i32);
-    pub const NorthAmericaLetterExtra: Self = Self(114i32);
-    pub const NorthAmericaLetterPlus: Self = Self(115i32);
-    pub const NorthAmericaLetterRotated: Self = Self(116i32);
-    pub const NorthAmericaMonarchEnvelope: Self = Self(117i32);
-    pub const NorthAmericaNote: Self = Self(118i32);
-    pub const NorthAmericaNumber10Envelope: Self = Self(119i32);
-    pub const NorthAmericaNumber10EnvelopeRotated: Self = Self(120i32);
-    pub const NorthAmericaNumber11Envelope: Self = Self(121i32);
-    pub const NorthAmericaNumber12Envelope: Self = Self(122i32);
-    pub const NorthAmericaNumber14Envelope: Self = Self(123i32);
-    pub const NorthAmericaNumber9Envelope: Self = Self(124i32);
-    pub const NorthAmericaPersonalEnvelope: Self = Self(125i32);
-    pub const NorthAmericaQuarto: Self = Self(126i32);
-    pub const NorthAmericaStatement: Self = Self(127i32);
-    pub const NorthAmericaSuperA: Self = Self(128i32);
-    pub const NorthAmericaSuperB: Self = Self(129i32);
-    pub const NorthAmericaTabloid: Self = Self(130i32);
-    pub const NorthAmericaTabloidExtra: Self = Self(131i32);
-    pub const OtherMetricA3Plus: Self = Self(132i32);
-    pub const OtherMetricA4Plus: Self = Self(133i32);
-    pub const OtherMetricFolio: Self = Self(134i32);
-    pub const OtherMetricInviteEnvelope: Self = Self(135i32);
-    pub const OtherMetricItalianEnvelope: Self = Self(136i32);
-    pub const Prc10Envelope: Self = Self(137i32);
-    pub const Prc10EnvelopeRotated: Self = Self(138i32);
-    pub const Prc16K: Self = Self(139i32);
-    pub const Prc16KRotated: Self = Self(140i32);
-    pub const Prc1Envelope: Self = Self(141i32);
-    pub const Prc1EnvelopeRotated: Self = Self(142i32);
-    pub const Prc2Envelope: Self = Self(143i32);
-    pub const Prc2EnvelopeRotated: Self = Self(144i32);
-    pub const Prc32K: Self = Self(145i32);
-    pub const Prc32KBig: Self = Self(146i32);
-    pub const Prc32KRotated: Self = Self(147i32);
-    pub const Prc3Envelope: Self = Self(148i32);
-    pub const Prc3EnvelopeRotated: Self = Self(149i32);
-    pub const Prc4Envelope: Self = Self(150i32);
-    pub const Prc4EnvelopeRotated: Self = Self(151i32);
-    pub const Prc5Envelope: Self = Self(152i32);
-    pub const Prc5EnvelopeRotated: Self = Self(153i32);
-    pub const Prc6Envelope: Self = Self(154i32);
-    pub const Prc6EnvelopeRotated: Self = Self(155i32);
-    pub const Prc7Envelope: Self = Self(156i32);
-    pub const Prc7EnvelopeRotated: Self = Self(157i32);
-    pub const Prc8Envelope: Self = Self(158i32);
-    pub const Prc8EnvelopeRotated: Self = Self(159i32);
-    pub const Prc9Envelope: Self = Self(160i32);
-    pub const Prc9EnvelopeRotated: Self = Self(161i32);
-    pub const Roll04Inch: Self = Self(162i32);
-    pub const Roll06Inch: Self = Self(163i32);
-    pub const Roll08Inch: Self = Self(164i32);
-    pub const Roll12Inch: Self = Self(165i32);
-    pub const Roll15Inch: Self = Self(166i32);
-    pub const Roll18Inch: Self = Self(167i32);
-    pub const Roll22Inch: Self = Self(168i32);
-    pub const Roll24Inch: Self = Self(169i32);
-    pub const Roll30Inch: Self = Self(170i32);
-    pub const Roll36Inch: Self = Self(171i32);
-    pub const Roll54Inch: Self = Self(172i32);
-}
-impl ::core::marker::Copy for PrintMediaSize {}
-impl ::core::clone::Clone for PrintMediaSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintMediaSize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintMediaSize {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintMediaSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintMediaSize").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintMediaSize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintMediaType(pub i32);
-impl PrintMediaType {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const AutoSelect: Self = Self(3i32);
-    pub const Archival: Self = Self(4i32);
-    pub const BackPrintFilm: Self = Self(5i32);
-    pub const Bond: Self = Self(6i32);
-    pub const CardStock: Self = Self(7i32);
-    pub const Continuous: Self = Self(8i32);
-    pub const EnvelopePlain: Self = Self(9i32);
-    pub const EnvelopeWindow: Self = Self(10i32);
-    pub const Fabric: Self = Self(11i32);
-    pub const HighResolution: Self = Self(12i32);
-    pub const Label: Self = Self(13i32);
-    pub const MultiLayerForm: Self = Self(14i32);
-    pub const MultiPartForm: Self = Self(15i32);
-    pub const Photographic: Self = Self(16i32);
-    pub const PhotographicFilm: Self = Self(17i32);
-    pub const PhotographicGlossy: Self = Self(18i32);
-    pub const PhotographicHighGloss: Self = Self(19i32);
-    pub const PhotographicMatte: Self = Self(20i32);
-    pub const PhotographicSatin: Self = Self(21i32);
-    pub const PhotographicSemiGloss: Self = Self(22i32);
-    pub const Plain: Self = Self(23i32);
-    pub const Screen: Self = Self(24i32);
-    pub const ScreenPaged: Self = Self(25i32);
-    pub const Stationery: Self = Self(26i32);
-    pub const TabStockFull: Self = Self(27i32);
-    pub const TabStockPreCut: Self = Self(28i32);
-    pub const Transparency: Self = Self(29i32);
-    pub const TShirtTransfer: Self = Self(30i32);
-    pub const None: Self = Self(31i32);
-}
-impl ::core::marker::Copy for PrintMediaType {}
-impl ::core::clone::Clone for PrintMediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintMediaType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintMediaType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintMediaType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintMediaType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintMediaType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintOrientation(pub i32);
-impl PrintOrientation {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Portrait: Self = Self(3i32);
-    pub const PortraitFlipped: Self = Self(4i32);
-    pub const Landscape: Self = Self(5i32);
-    pub const LandscapeFlipped: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PrintOrientation {}
-impl ::core::clone::Clone for PrintOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintOrientation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintOrientation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
-#[cfg(feature = "Foundation")]
-pub struct PrintPageDescription {
-    pub PageSize: super::super::Foundation::Size,
-    pub ImageableRect: super::super::Foundation::Rect,
-    pub DpiX: u32,
-    pub DpiY: u32,
-}
-#[cfg(feature = "Foundation")]
-impl ::core::marker::Copy for PrintPageDescription {}
-#[cfg(feature = "Foundation")]
-impl ::core::clone::Clone for PrintPageDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for PrintPageDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PrintPageDescription").field("PageSize", &self.PageSize).field("ImageableRect", &self.ImageableRect).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Abi for PrintPageDescription {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::RuntimeType for PrintPageDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for PrintPageDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrintPageDescription>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for PrintPageDescription {}
-#[cfg(feature = "Foundation")]
-impl ::core::default::Default for PrintPageDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintPageInfo(::windows::core::IUnknown);
@@ -1893,93 +1297,6 @@ unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintQuality(pub i32);
-impl PrintQuality {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const Automatic: Self = Self(3i32);
-    pub const Draft: Self = Self(4i32);
-    pub const Fax: Self = Self(5i32);
-    pub const High: Self = Self(6i32);
-    pub const Normal: Self = Self(7i32);
-    pub const Photographic: Self = Self(8i32);
-    pub const Text: Self = Self(9i32);
-}
-impl ::core::marker::Copy for PrintQuality {}
-impl ::core::clone::Clone for PrintQuality {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintQuality {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintQuality {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintQuality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintQuality").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintQuality {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintStaple(pub i32);
-impl PrintStaple {
-    pub const Default: Self = Self(0i32);
-    pub const NotAvailable: Self = Self(1i32);
-    pub const PrinterCustom: Self = Self(2i32);
-    pub const None: Self = Self(3i32);
-    pub const StapleTopLeft: Self = Self(4i32);
-    pub const StapleTopRight: Self = Self(5i32);
-    pub const StapleBottomLeft: Self = Self(6i32);
-    pub const StapleBottomRight: Self = Self(7i32);
-    pub const StapleDualLeft: Self = Self(8i32);
-    pub const StapleDualRight: Self = Self(9i32);
-    pub const StapleDualTop: Self = Self(10i32);
-    pub const StapleDualBottom: Self = Self(11i32);
-    pub const SaddleStitch: Self = Self(12i32);
-}
-impl ::core::marker::Copy for PrintStaple {}
-impl ::core::clone::Clone for PrintStaple {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintStaple {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintStaple {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintStaple {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintStaple").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintStaple {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
 pub struct PrintTask(::windows::core::IUnknown);
 impl PrintTask {
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
@@ -2247,42 +1564,6 @@ impl ::core::convert::From<&PrintTaskCompletedEventArgs> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintTaskCompletion(pub i32);
-impl PrintTaskCompletion {
-    pub const Abandoned: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-    pub const Submitted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PrintTaskCompletion {}
-impl ::core::clone::Clone for PrintTaskCompletion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTaskCompletion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintTaskCompletion {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintTaskCompletion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskCompletion").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintTaskCompletion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct PrintTaskOptions(::windows::core::IUnknown);
@@ -3074,93 +2355,6 @@ impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for &::windows::co
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedDeferral {}
 unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedDeferral {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-#[repr(transparent)]
-pub struct PrintTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
-impl PrintTaskSourceRequestedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = PrintTaskSourceRequestedHandlerBox::<F> { vtable: &PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0>(&self, args: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTaskSourceRequestedArgs>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), args.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct PrintTaskSourceRequestedHandlerBox<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const PrintTaskSourceRequestedHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PrintTaskSourceRequestedHandlerBox<F> {
-    const VTABLE: PrintTaskSourceRequestedHandler_Vtbl = PrintTaskSourceRequestedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<PrintTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&args)).into()
-    }
-}
-impl ::core::clone::Clone for PrintTaskSourceRequestedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintTaskSourceRequestedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTaskSourceRequestedHandler {}
-impl ::core::fmt::Debug for PrintTaskSourceRequestedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskSourceRequestedHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedHandler {
-    type Vtable = PrintTaskSourceRequestedHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c109fa8_5cb6_4b3a_8663_f39cb02dc9b4);
-}
-unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6c109fa8-5cb6-4b3a-8663-f39cb02dc9b4}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct PrintTaskSourceRequestedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Graphics_Printing\"`*"]
 pub struct StandardPrintTaskOptions;
 impl StandardPrintTaskOptions {
     pub fn MediaSize() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3271,6 +2465,812 @@ impl StandardPrintTaskOptions {
 }
 impl ::windows::core::RuntimeName for StandardPrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.StandardPrintTaskOptions";
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintBinding(pub i32);
+impl PrintBinding {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const None: Self = Self(3i32);
+    pub const Bale: Self = Self(4i32);
+    pub const BindBottom: Self = Self(5i32);
+    pub const BindLeft: Self = Self(6i32);
+    pub const BindRight: Self = Self(7i32);
+    pub const BindTop: Self = Self(8i32);
+    pub const Booklet: Self = Self(9i32);
+    pub const EdgeStitchBottom: Self = Self(10i32);
+    pub const EdgeStitchLeft: Self = Self(11i32);
+    pub const EdgeStitchRight: Self = Self(12i32);
+    pub const EdgeStitchTop: Self = Self(13i32);
+    pub const Fold: Self = Self(14i32);
+    pub const JogOffset: Self = Self(15i32);
+    pub const Trim: Self = Self(16i32);
+}
+impl ::core::marker::Copy for PrintBinding {}
+impl ::core::clone::Clone for PrintBinding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintBinding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintBinding {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintBinding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBinding").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintBinding {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintBordering(pub i32);
+impl PrintBordering {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const Bordered: Self = Self(3i32);
+    pub const Borderless: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PrintBordering {}
+impl ::core::clone::Clone for PrintBordering {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintBordering {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintBordering {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintBordering {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintBordering").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintBordering {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintCollation(pub i32);
+impl PrintCollation {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const Collated: Self = Self(3i32);
+    pub const Uncollated: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PrintCollation {}
+impl ::core::clone::Clone for PrintCollation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintCollation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintCollation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintCollation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintCollation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintCollation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintColorMode(pub i32);
+impl PrintColorMode {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const Color: Self = Self(3i32);
+    pub const Grayscale: Self = Self(4i32);
+    pub const Monochrome: Self = Self(5i32);
+}
+impl ::core::marker::Copy for PrintColorMode {}
+impl ::core::clone::Clone for PrintColorMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintColorMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintColorMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintColorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintColorMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintColorMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintDuplex(pub i32);
+impl PrintDuplex {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const OneSided: Self = Self(3i32);
+    pub const TwoSidedShortEdge: Self = Self(4i32);
+    pub const TwoSidedLongEdge: Self = Self(5i32);
+}
+impl ::core::marker::Copy for PrintDuplex {}
+impl ::core::clone::Clone for PrintDuplex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintDuplex {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintDuplex {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintDuplex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintDuplex").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintDuplex {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintHolePunch(pub i32);
+impl PrintHolePunch {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const None: Self = Self(3i32);
+    pub const LeftEdge: Self = Self(4i32);
+    pub const RightEdge: Self = Self(5i32);
+    pub const TopEdge: Self = Self(6i32);
+    pub const BottomEdge: Self = Self(7i32);
+}
+impl ::core::marker::Copy for PrintHolePunch {}
+impl ::core::clone::Clone for PrintHolePunch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintHolePunch {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintHolePunch {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintHolePunch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintHolePunch").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintHolePunch {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintMediaSize(pub i32);
+impl PrintMediaSize {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const BusinessCard: Self = Self(3i32);
+    pub const CreditCard: Self = Self(4i32);
+    pub const IsoA0: Self = Self(5i32);
+    pub const IsoA1: Self = Self(6i32);
+    pub const IsoA10: Self = Self(7i32);
+    pub const IsoA2: Self = Self(8i32);
+    pub const IsoA3: Self = Self(9i32);
+    pub const IsoA3Extra: Self = Self(10i32);
+    pub const IsoA3Rotated: Self = Self(11i32);
+    pub const IsoA4: Self = Self(12i32);
+    pub const IsoA4Extra: Self = Self(13i32);
+    pub const IsoA4Rotated: Self = Self(14i32);
+    pub const IsoA5: Self = Self(15i32);
+    pub const IsoA5Extra: Self = Self(16i32);
+    pub const IsoA5Rotated: Self = Self(17i32);
+    pub const IsoA6: Self = Self(18i32);
+    pub const IsoA6Rotated: Self = Self(19i32);
+    pub const IsoA7: Self = Self(20i32);
+    pub const IsoA8: Self = Self(21i32);
+    pub const IsoA9: Self = Self(22i32);
+    pub const IsoB0: Self = Self(23i32);
+    pub const IsoB1: Self = Self(24i32);
+    pub const IsoB10: Self = Self(25i32);
+    pub const IsoB2: Self = Self(26i32);
+    pub const IsoB3: Self = Self(27i32);
+    pub const IsoB4: Self = Self(28i32);
+    pub const IsoB4Envelope: Self = Self(29i32);
+    pub const IsoB5Envelope: Self = Self(30i32);
+    pub const IsoB5Extra: Self = Self(31i32);
+    pub const IsoB7: Self = Self(32i32);
+    pub const IsoB8: Self = Self(33i32);
+    pub const IsoB9: Self = Self(34i32);
+    pub const IsoC0: Self = Self(35i32);
+    pub const IsoC1: Self = Self(36i32);
+    pub const IsoC10: Self = Self(37i32);
+    pub const IsoC2: Self = Self(38i32);
+    pub const IsoC3: Self = Self(39i32);
+    pub const IsoC3Envelope: Self = Self(40i32);
+    pub const IsoC4: Self = Self(41i32);
+    pub const IsoC4Envelope: Self = Self(42i32);
+    pub const IsoC5: Self = Self(43i32);
+    pub const IsoC5Envelope: Self = Self(44i32);
+    pub const IsoC6: Self = Self(45i32);
+    pub const IsoC6C5Envelope: Self = Self(46i32);
+    pub const IsoC6Envelope: Self = Self(47i32);
+    pub const IsoC7: Self = Self(48i32);
+    pub const IsoC8: Self = Self(49i32);
+    pub const IsoC9: Self = Self(50i32);
+    pub const IsoDLEnvelope: Self = Self(51i32);
+    pub const IsoDLEnvelopeRotated: Self = Self(52i32);
+    pub const IsoSRA3: Self = Self(53i32);
+    pub const Japan2LPhoto: Self = Self(54i32);
+    pub const JapanChou3Envelope: Self = Self(55i32);
+    pub const JapanChou3EnvelopeRotated: Self = Self(56i32);
+    pub const JapanChou4Envelope: Self = Self(57i32);
+    pub const JapanChou4EnvelopeRotated: Self = Self(58i32);
+    pub const JapanDoubleHagakiPostcard: Self = Self(59i32);
+    pub const JapanDoubleHagakiPostcardRotated: Self = Self(60i32);
+    pub const JapanHagakiPostcard: Self = Self(61i32);
+    pub const JapanHagakiPostcardRotated: Self = Self(62i32);
+    pub const JapanKaku2Envelope: Self = Self(63i32);
+    pub const JapanKaku2EnvelopeRotated: Self = Self(64i32);
+    pub const JapanKaku3Envelope: Self = Self(65i32);
+    pub const JapanKaku3EnvelopeRotated: Self = Self(66i32);
+    pub const JapanLPhoto: Self = Self(67i32);
+    pub const JapanQuadrupleHagakiPostcard: Self = Self(68i32);
+    pub const JapanYou1Envelope: Self = Self(69i32);
+    pub const JapanYou2Envelope: Self = Self(70i32);
+    pub const JapanYou3Envelope: Self = Self(71i32);
+    pub const JapanYou4Envelope: Self = Self(72i32);
+    pub const JapanYou4EnvelopeRotated: Self = Self(73i32);
+    pub const JapanYou6Envelope: Self = Self(74i32);
+    pub const JapanYou6EnvelopeRotated: Self = Self(75i32);
+    pub const JisB0: Self = Self(76i32);
+    pub const JisB1: Self = Self(77i32);
+    pub const JisB10: Self = Self(78i32);
+    pub const JisB2: Self = Self(79i32);
+    pub const JisB3: Self = Self(80i32);
+    pub const JisB4: Self = Self(81i32);
+    pub const JisB4Rotated: Self = Self(82i32);
+    pub const JisB5: Self = Self(83i32);
+    pub const JisB5Rotated: Self = Self(84i32);
+    pub const JisB6: Self = Self(85i32);
+    pub const JisB6Rotated: Self = Self(86i32);
+    pub const JisB7: Self = Self(87i32);
+    pub const JisB8: Self = Self(88i32);
+    pub const JisB9: Self = Self(89i32);
+    pub const NorthAmerica10x11: Self = Self(90i32);
+    pub const NorthAmerica10x12: Self = Self(91i32);
+    pub const NorthAmerica10x14: Self = Self(92i32);
+    pub const NorthAmerica11x17: Self = Self(93i32);
+    pub const NorthAmerica14x17: Self = Self(94i32);
+    pub const NorthAmerica4x6: Self = Self(95i32);
+    pub const NorthAmerica4x8: Self = Self(96i32);
+    pub const NorthAmerica5x7: Self = Self(97i32);
+    pub const NorthAmerica8x10: Self = Self(98i32);
+    pub const NorthAmerica9x11: Self = Self(99i32);
+    pub const NorthAmericaArchitectureASheet: Self = Self(100i32);
+    pub const NorthAmericaArchitectureBSheet: Self = Self(101i32);
+    pub const NorthAmericaArchitectureCSheet: Self = Self(102i32);
+    pub const NorthAmericaArchitectureDSheet: Self = Self(103i32);
+    pub const NorthAmericaArchitectureESheet: Self = Self(104i32);
+    pub const NorthAmericaCSheet: Self = Self(105i32);
+    pub const NorthAmericaDSheet: Self = Self(106i32);
+    pub const NorthAmericaESheet: Self = Self(107i32);
+    pub const NorthAmericaExecutive: Self = Self(108i32);
+    pub const NorthAmericaGermanLegalFanfold: Self = Self(109i32);
+    pub const NorthAmericaGermanStandardFanfold: Self = Self(110i32);
+    pub const NorthAmericaLegal: Self = Self(111i32);
+    pub const NorthAmericaLegalExtra: Self = Self(112i32);
+    pub const NorthAmericaLetter: Self = Self(113i32);
+    pub const NorthAmericaLetterExtra: Self = Self(114i32);
+    pub const NorthAmericaLetterPlus: Self = Self(115i32);
+    pub const NorthAmericaLetterRotated: Self = Self(116i32);
+    pub const NorthAmericaMonarchEnvelope: Self = Self(117i32);
+    pub const NorthAmericaNote: Self = Self(118i32);
+    pub const NorthAmericaNumber10Envelope: Self = Self(119i32);
+    pub const NorthAmericaNumber10EnvelopeRotated: Self = Self(120i32);
+    pub const NorthAmericaNumber11Envelope: Self = Self(121i32);
+    pub const NorthAmericaNumber12Envelope: Self = Self(122i32);
+    pub const NorthAmericaNumber14Envelope: Self = Self(123i32);
+    pub const NorthAmericaNumber9Envelope: Self = Self(124i32);
+    pub const NorthAmericaPersonalEnvelope: Self = Self(125i32);
+    pub const NorthAmericaQuarto: Self = Self(126i32);
+    pub const NorthAmericaStatement: Self = Self(127i32);
+    pub const NorthAmericaSuperA: Self = Self(128i32);
+    pub const NorthAmericaSuperB: Self = Self(129i32);
+    pub const NorthAmericaTabloid: Self = Self(130i32);
+    pub const NorthAmericaTabloidExtra: Self = Self(131i32);
+    pub const OtherMetricA3Plus: Self = Self(132i32);
+    pub const OtherMetricA4Plus: Self = Self(133i32);
+    pub const OtherMetricFolio: Self = Self(134i32);
+    pub const OtherMetricInviteEnvelope: Self = Self(135i32);
+    pub const OtherMetricItalianEnvelope: Self = Self(136i32);
+    pub const Prc10Envelope: Self = Self(137i32);
+    pub const Prc10EnvelopeRotated: Self = Self(138i32);
+    pub const Prc16K: Self = Self(139i32);
+    pub const Prc16KRotated: Self = Self(140i32);
+    pub const Prc1Envelope: Self = Self(141i32);
+    pub const Prc1EnvelopeRotated: Self = Self(142i32);
+    pub const Prc2Envelope: Self = Self(143i32);
+    pub const Prc2EnvelopeRotated: Self = Self(144i32);
+    pub const Prc32K: Self = Self(145i32);
+    pub const Prc32KBig: Self = Self(146i32);
+    pub const Prc32KRotated: Self = Self(147i32);
+    pub const Prc3Envelope: Self = Self(148i32);
+    pub const Prc3EnvelopeRotated: Self = Self(149i32);
+    pub const Prc4Envelope: Self = Self(150i32);
+    pub const Prc4EnvelopeRotated: Self = Self(151i32);
+    pub const Prc5Envelope: Self = Self(152i32);
+    pub const Prc5EnvelopeRotated: Self = Self(153i32);
+    pub const Prc6Envelope: Self = Self(154i32);
+    pub const Prc6EnvelopeRotated: Self = Self(155i32);
+    pub const Prc7Envelope: Self = Self(156i32);
+    pub const Prc7EnvelopeRotated: Self = Self(157i32);
+    pub const Prc8Envelope: Self = Self(158i32);
+    pub const Prc8EnvelopeRotated: Self = Self(159i32);
+    pub const Prc9Envelope: Self = Self(160i32);
+    pub const Prc9EnvelopeRotated: Self = Self(161i32);
+    pub const Roll04Inch: Self = Self(162i32);
+    pub const Roll06Inch: Self = Self(163i32);
+    pub const Roll08Inch: Self = Self(164i32);
+    pub const Roll12Inch: Self = Self(165i32);
+    pub const Roll15Inch: Self = Self(166i32);
+    pub const Roll18Inch: Self = Self(167i32);
+    pub const Roll22Inch: Self = Self(168i32);
+    pub const Roll24Inch: Self = Self(169i32);
+    pub const Roll30Inch: Self = Self(170i32);
+    pub const Roll36Inch: Self = Self(171i32);
+    pub const Roll54Inch: Self = Self(172i32);
+}
+impl ::core::marker::Copy for PrintMediaSize {}
+impl ::core::clone::Clone for PrintMediaSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintMediaSize {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintMediaSize {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintMediaSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaSize").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintMediaSize {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintMediaType(pub i32);
+impl PrintMediaType {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const AutoSelect: Self = Self(3i32);
+    pub const Archival: Self = Self(4i32);
+    pub const BackPrintFilm: Self = Self(5i32);
+    pub const Bond: Self = Self(6i32);
+    pub const CardStock: Self = Self(7i32);
+    pub const Continuous: Self = Self(8i32);
+    pub const EnvelopePlain: Self = Self(9i32);
+    pub const EnvelopeWindow: Self = Self(10i32);
+    pub const Fabric: Self = Self(11i32);
+    pub const HighResolution: Self = Self(12i32);
+    pub const Label: Self = Self(13i32);
+    pub const MultiLayerForm: Self = Self(14i32);
+    pub const MultiPartForm: Self = Self(15i32);
+    pub const Photographic: Self = Self(16i32);
+    pub const PhotographicFilm: Self = Self(17i32);
+    pub const PhotographicGlossy: Self = Self(18i32);
+    pub const PhotographicHighGloss: Self = Self(19i32);
+    pub const PhotographicMatte: Self = Self(20i32);
+    pub const PhotographicSatin: Self = Self(21i32);
+    pub const PhotographicSemiGloss: Self = Self(22i32);
+    pub const Plain: Self = Self(23i32);
+    pub const Screen: Self = Self(24i32);
+    pub const ScreenPaged: Self = Self(25i32);
+    pub const Stationery: Self = Self(26i32);
+    pub const TabStockFull: Self = Self(27i32);
+    pub const TabStockPreCut: Self = Self(28i32);
+    pub const Transparency: Self = Self(29i32);
+    pub const TShirtTransfer: Self = Self(30i32);
+    pub const None: Self = Self(31i32);
+}
+impl ::core::marker::Copy for PrintMediaType {}
+impl ::core::clone::Clone for PrintMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintMediaType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintMediaType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintMediaType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintMediaType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintMediaType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintOrientation(pub i32);
+impl PrintOrientation {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const Portrait: Self = Self(3i32);
+    pub const PortraitFlipped: Self = Self(4i32);
+    pub const Landscape: Self = Self(5i32);
+    pub const LandscapeFlipped: Self = Self(6i32);
+}
+impl ::core::marker::Copy for PrintOrientation {}
+impl ::core::clone::Clone for PrintOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintOrientation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintOrientation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOrientation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintOrientation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintQuality(pub i32);
+impl PrintQuality {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const Automatic: Self = Self(3i32);
+    pub const Draft: Self = Self(4i32);
+    pub const Fax: Self = Self(5i32);
+    pub const High: Self = Self(6i32);
+    pub const Normal: Self = Self(7i32);
+    pub const Photographic: Self = Self(8i32);
+    pub const Text: Self = Self(9i32);
+}
+impl ::core::marker::Copy for PrintQuality {}
+impl ::core::clone::Clone for PrintQuality {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintQuality {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintQuality {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintQuality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintQuality").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintQuality {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintStaple(pub i32);
+impl PrintStaple {
+    pub const Default: Self = Self(0i32);
+    pub const NotAvailable: Self = Self(1i32);
+    pub const PrinterCustom: Self = Self(2i32);
+    pub const None: Self = Self(3i32);
+    pub const StapleTopLeft: Self = Self(4i32);
+    pub const StapleTopRight: Self = Self(5i32);
+    pub const StapleBottomLeft: Self = Self(6i32);
+    pub const StapleBottomRight: Self = Self(7i32);
+    pub const StapleDualLeft: Self = Self(8i32);
+    pub const StapleDualRight: Self = Self(9i32);
+    pub const StapleDualTop: Self = Self(10i32);
+    pub const StapleDualBottom: Self = Self(11i32);
+    pub const SaddleStitch: Self = Self(12i32);
+}
+impl ::core::marker::Copy for PrintStaple {}
+impl ::core::clone::Clone for PrintStaple {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintStaple {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintStaple {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintStaple {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintStaple").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintStaple {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintTaskCompletion(pub i32);
+impl PrintTaskCompletion {
+    pub const Abandoned: Self = Self(0i32);
+    pub const Canceled: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
+    pub const Submitted: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PrintTaskCompletion {}
+impl ::core::clone::Clone for PrintTaskCompletion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintTaskCompletion {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintTaskCompletion {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskCompletion").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintTaskCompletion {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
+#[cfg(feature = "Foundation")]
+pub struct PrintPageDescription {
+    pub PageSize: super::super::Foundation::Size,
+    pub ImageableRect: super::super::Foundation::Rect,
+    pub DpiX: u32,
+    pub DpiY: u32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for PrintPageDescription {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for PrintPageDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for PrintPageDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PrintPageDescription").field("PageSize", &self.PageSize).field("ImageableRect", &self.ImageableRect).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::Abi for PrintPageDescription {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::RuntimeType for PrintPageDescription {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::PartialEq for PrintPageDescription {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrintPageDescription>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::Eq for PrintPageDescription {}
+#[cfg(feature = "Foundation")]
+impl ::core::default::Default for PrintPageDescription {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing\"`*"]
+#[repr(transparent)]
+pub struct PrintTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
+impl PrintTaskSourceRequestedHandler {
+    pub fn new<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = PrintTaskSourceRequestedHandlerBox::<F> { vtable: &PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0>(&self, args: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTaskSourceRequestedArgs>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), args.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct PrintTaskSourceRequestedHandlerBox<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const PrintTaskSourceRequestedHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PrintTaskSourceRequestedHandlerBox<F> {
+    const VTABLE: PrintTaskSourceRequestedHandler_Vtbl = PrintTaskSourceRequestedHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<PrintTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&args)).into()
+    }
+}
+impl ::core::clone::Clone for PrintTaskSourceRequestedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PrintTaskSourceRequestedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PrintTaskSourceRequestedHandler {}
+impl ::core::fmt::Debug for PrintTaskSourceRequestedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintTaskSourceRequestedHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedHandler {
+    type Vtable = PrintTaskSourceRequestedHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c109fa8_5cb6_4b3a_8663_f39cb02dc9b4);
+}
+unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6c109fa8-5cb6-4b3a-8663-f39cb02dc9b4}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct PrintTaskSourceRequestedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

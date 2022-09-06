@@ -100,41 +100,6 @@ pub struct IUserDataStorageItemProtectionInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserDataAvailability(pub i32);
-impl UserDataAvailability {
-    pub const Always: Self = Self(0i32);
-    pub const AfterFirstUnlock: Self = Self(1i32);
-    pub const WhileUnlocked: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserDataAvailability {}
-impl ::core::clone::Clone for UserDataAvailability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAvailability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserDataAvailability {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAvailability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserDataAvailability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_DataProtection\"`*"]
-#[repr(transparent)]
 pub struct UserDataAvailabilityStateChangedEventArgs(::windows::core::IUnknown);
 impl UserDataAvailabilityStateChangedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -292,40 +257,6 @@ impl ::core::convert::From<&UserDataBufferUnprotectResult> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
-#[doc = "*Required features: `\"Security_DataProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserDataBufferUnprotectStatus(pub i32);
-impl UserDataBufferUnprotectStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Unavailable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserDataBufferUnprotectStatus {}
-impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataBufferUnprotectStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserDataBufferUnprotectStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataBufferUnprotectStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
 #[repr(transparent)]
 pub struct UserDataProtectionManager(::windows::core::IUnknown);
@@ -566,6 +497,75 @@ impl ::core::convert::From<&UserDataStorageItemProtectionInfo> for &::windows::c
 }
 unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
+#[doc = "*Required features: `\"Security_DataProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserDataAvailability(pub i32);
+impl UserDataAvailability {
+    pub const Always: Self = Self(0i32);
+    pub const AfterFirstUnlock: Self = Self(1i32);
+    pub const WhileUnlocked: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UserDataAvailability {}
+impl ::core::clone::Clone for UserDataAvailability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserDataAvailability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserDataAvailability {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserDataAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAvailability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserDataAvailability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_DataProtection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserDataBufferUnprotectStatus(pub i32);
+impl UserDataBufferUnprotectStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Unavailable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserDataBufferUnprotectStatus {}
+impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserDataBufferUnprotectStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserDataBufferUnprotectStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataBufferUnprotectStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -1,4 +1,24 @@
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[inline]
+pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MLCreateOperatorRegistry(registry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    MLCreateOperatorRegistry(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMLOperatorRegistry>(result__)
+}
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[inline]
+pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinMLCreateRuntime(runtime: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WinMLCreateRuntime(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLRuntime>(result__)
+}
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 pub struct IMLOperatorAttributes(::windows::core::IUnknown);
 impl IMLOperatorAttributes {
@@ -1177,103 +1197,7 @@ pub struct IWinMLRuntimeFactory_Vtbl {
     pub CreateRuntime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[inline]
-pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MLCreateOperatorRegistry(registry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MLCreateOperatorRegistry(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMLOperatorRegistry>(result__)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub struct MLOperatorAttribute {
-    pub name: ::windows::core::PCSTR,
-    pub r#type: MLOperatorAttributeType,
-    pub required: u8,
-}
-impl ::core::marker::Copy for MLOperatorAttribute {}
-impl ::core::clone::Clone for MLOperatorAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MLOperatorAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MLOperatorAttribute").field("name", &self.name).field("type", &self.r#type).field("required", &self.required).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorAttribute {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MLOperatorAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttribute>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorAttribute {}
-impl ::core::default::Default for MLOperatorAttribute {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub struct MLOperatorAttributeNameValue {
-    pub name: ::windows::core::PCSTR,
-    pub r#type: MLOperatorAttributeType,
-    pub valueCount: u32,
-    pub Anonymous: MLOperatorAttributeNameValue_0,
-}
-impl ::core::marker::Copy for MLOperatorAttributeNameValue {}
-impl ::core::clone::Clone for MLOperatorAttributeNameValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MLOperatorAttributeNameValue {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttributeNameValue>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorAttributeNameValue {}
-impl ::core::default::Default for MLOperatorAttributeNameValue {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub union MLOperatorAttributeNameValue_0 {
-    pub reserved: *const ::core::ffi::c_void,
-    pub ints: *const i64,
-    pub strings: *const *const i8,
-    pub floats: *const f32,
-}
-impl ::core::marker::Copy for MLOperatorAttributeNameValue_0 {}
-impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MLOperatorAttributeNameValue_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttributeNameValue_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorAttributeNameValue_0 {}
-impl ::core::default::Default for MLOperatorAttributeNameValue_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1306,58 +1230,6 @@ impl ::core::fmt::Debug for MLOperatorAttributeType {
         f.debug_tuple("MLOperatorAttributeType").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub struct MLOperatorEdgeDescription {
-    pub edgeType: MLOperatorEdgeType,
-    pub Anonymous: MLOperatorEdgeDescription_0,
-}
-impl ::core::marker::Copy for MLOperatorEdgeDescription {}
-impl ::core::clone::Clone for MLOperatorEdgeDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MLOperatorEdgeDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeDescription>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorEdgeDescription {}
-impl ::core::default::Default for MLOperatorEdgeDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub union MLOperatorEdgeDescription_0 {
-    pub reserved: u64,
-    pub tensorDataType: MLOperatorTensorDataType,
-}
-impl ::core::marker::Copy for MLOperatorEdgeDescription_0 {}
-impl ::core::clone::Clone for MLOperatorEdgeDescription_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MLOperatorEdgeDescription_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeDescription_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorEdgeDescription_0 {}
-impl ::core::default::Default for MLOperatorEdgeDescription_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1383,38 +1255,6 @@ unsafe impl ::windows::core::Abi for MLOperatorEdgeType {
 impl ::core::fmt::Debug for MLOperatorEdgeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorEdgeType").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub struct MLOperatorEdgeTypeConstraint {
-    pub typeLabel: ::windows::core::PCSTR,
-    pub allowedTypes: *const MLOperatorEdgeDescription,
-    pub allowedTypeCount: u32,
-}
-impl ::core::marker::Copy for MLOperatorEdgeTypeConstraint {}
-impl ::core::clone::Clone for MLOperatorEdgeTypeConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MLOperatorEdgeTypeConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MLOperatorEdgeTypeConstraint").field("typeLabel", &self.typeLabel).field("allowedTypes", &self.allowedTypes).field("allowedTypeCount", &self.allowedTypeCount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorEdgeTypeConstraint {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MLOperatorEdgeTypeConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeTypeConstraint>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorEdgeTypeConstraint {}
-impl ::core::default::Default for MLOperatorEdgeTypeConstraint {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
@@ -1443,56 +1283,6 @@ unsafe impl ::windows::core::Abi for MLOperatorExecutionType {
 impl ::core::fmt::Debug for MLOperatorExecutionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorExecutionType").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub struct MLOperatorKernelDescription {
-    pub domain: ::windows::core::PCSTR,
-    pub name: ::windows::core::PCSTR,
-    pub minimumOperatorSetVersion: i32,
-    pub executionType: MLOperatorExecutionType,
-    pub typeConstraints: *const MLOperatorEdgeTypeConstraint,
-    pub typeConstraintCount: u32,
-    pub defaultAttributes: *const MLOperatorAttributeNameValue,
-    pub defaultAttributeCount: u32,
-    pub options: MLOperatorKernelOptions,
-    pub executionOptions: u32,
-}
-impl ::core::marker::Copy for MLOperatorKernelDescription {}
-impl ::core::clone::Clone for MLOperatorKernelDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MLOperatorKernelDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MLOperatorKernelDescription")
-            .field("domain", &self.domain)
-            .field("name", &self.name)
-            .field("minimumOperatorSetVersion", &self.minimumOperatorSetVersion)
-            .field("executionType", &self.executionType)
-            .field("typeConstraints", &self.typeConstraints)
-            .field("typeConstraintCount", &self.typeConstraintCount)
-            .field("defaultAttributes", &self.defaultAttributes)
-            .field("defaultAttributeCount", &self.defaultAttributeCount)
-            .field("options", &self.options)
-            .field("executionOptions", &self.executionOptions)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorKernelDescription {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MLOperatorKernelDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorKernelDescription>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorKernelDescription {}
-impl ::core::default::Default for MLOperatorKernelDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
@@ -1606,6 +1396,444 @@ impl ::core::ops::Not for MLOperatorParameterOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
+impl MLOperatorSchemaEdgeTypeFormat {
+    pub const EdgeDescription: Self = Self(0i32);
+    pub const Label: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MLOperatorSchemaEdgeTypeFormat {}
+impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MLOperatorSchemaEdgeTypeFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeTypeFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MLOperatorSchemaEdgeTypeFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorSchemaEdgeTypeFormat").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MLOperatorTensorDataType(pub u32);
+impl MLOperatorTensorDataType {
+    pub const Undefined: Self = Self(0u32);
+    pub const Float: Self = Self(1u32);
+    pub const UInt8: Self = Self(2u32);
+    pub const Int8: Self = Self(3u32);
+    pub const UInt16: Self = Self(4u32);
+    pub const Int16: Self = Self(5u32);
+    pub const Int32: Self = Self(6u32);
+    pub const Int64: Self = Self(7u32);
+    pub const String: Self = Self(8u32);
+    pub const Bool: Self = Self(9u32);
+    pub const Float16: Self = Self(10u32);
+    pub const Double: Self = Self(11u32);
+    pub const UInt32: Self = Self(12u32);
+    pub const UInt64: Self = Self(13u32);
+    pub const Complex64: Self = Self(14u32);
+    pub const Complex128: Self = Self(15u32);
+}
+impl ::core::marker::Copy for MLOperatorTensorDataType {}
+impl ::core::clone::Clone for MLOperatorTensorDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MLOperatorTensorDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorTensorDataType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MLOperatorTensorDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLOperatorTensorDataType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINML_BINDING_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = WINML_BINDING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(5i32);
+impl ::core::marker::Copy for WINML_BINDING_TYPE {}
+impl ::core::clone::Clone for WINML_BINDING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINML_BINDING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_BINDING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_BINDING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_BINDING_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINML_FEATURE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4i32);
+impl ::core::marker::Copy for WINML_FEATURE_TYPE {}
+impl ::core::clone::Clone for WINML_FEATURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINML_FEATURE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_FEATURE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_FEATURE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_FEATURE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINML_RUNTIME_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
+impl ::core::marker::Copy for WINML_RUNTIME_TYPE {}
+impl ::core::clone::Clone for WINML_RUNTIME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINML_RUNTIME_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_RUNTIME_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_RUNTIME_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_RUNTIME_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINML_TENSOR_DATA_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
+impl ::core::marker::Copy for WINML_TENSOR_DATA_TYPE {}
+impl ::core::clone::Clone for WINML_TENSOR_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINML_TENSOR_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_TENSOR_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_TENSOR_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_TENSOR_DATA_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub struct MLOperatorAttribute {
+    pub name: ::windows::core::PCSTR,
+    pub r#type: MLOperatorAttributeType,
+    pub required: u8,
+}
+impl ::core::marker::Copy for MLOperatorAttribute {}
+impl ::core::clone::Clone for MLOperatorAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MLOperatorAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorAttribute").field("name", &self.name).field("type", &self.r#type).field("required", &self.required).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorAttribute {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MLOperatorAttribute {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttribute>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MLOperatorAttribute {}
+impl ::core::default::Default for MLOperatorAttribute {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub struct MLOperatorAttributeNameValue {
+    pub name: ::windows::core::PCSTR,
+    pub r#type: MLOperatorAttributeType,
+    pub valueCount: u32,
+    pub Anonymous: MLOperatorAttributeNameValue_0,
+}
+impl ::core::marker::Copy for MLOperatorAttributeNameValue {}
+impl ::core::clone::Clone for MLOperatorAttributeNameValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MLOperatorAttributeNameValue {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttributeNameValue>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MLOperatorAttributeNameValue {}
+impl ::core::default::Default for MLOperatorAttributeNameValue {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub union MLOperatorAttributeNameValue_0 {
+    pub reserved: *const ::core::ffi::c_void,
+    pub ints: *const i64,
+    pub strings: *const *const i8,
+    pub floats: *const f32,
+}
+impl ::core::marker::Copy for MLOperatorAttributeNameValue_0 {}
+impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MLOperatorAttributeNameValue_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttributeNameValue_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MLOperatorAttributeNameValue_0 {}
+impl ::core::default::Default for MLOperatorAttributeNameValue_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub struct MLOperatorEdgeDescription {
+    pub edgeType: MLOperatorEdgeType,
+    pub Anonymous: MLOperatorEdgeDescription_0,
+}
+impl ::core::marker::Copy for MLOperatorEdgeDescription {}
+impl ::core::clone::Clone for MLOperatorEdgeDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MLOperatorEdgeDescription {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeDescription>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MLOperatorEdgeDescription {}
+impl ::core::default::Default for MLOperatorEdgeDescription {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub union MLOperatorEdgeDescription_0 {
+    pub reserved: u64,
+    pub tensorDataType: MLOperatorTensorDataType,
+}
+impl ::core::marker::Copy for MLOperatorEdgeDescription_0 {}
+impl ::core::clone::Clone for MLOperatorEdgeDescription_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MLOperatorEdgeDescription_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeDescription_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MLOperatorEdgeDescription_0 {}
+impl ::core::default::Default for MLOperatorEdgeDescription_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub struct MLOperatorEdgeTypeConstraint {
+    pub typeLabel: ::windows::core::PCSTR,
+    pub allowedTypes: *const MLOperatorEdgeDescription,
+    pub allowedTypeCount: u32,
+}
+impl ::core::marker::Copy for MLOperatorEdgeTypeConstraint {}
+impl ::core::clone::Clone for MLOperatorEdgeTypeConstraint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MLOperatorEdgeTypeConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorEdgeTypeConstraint").field("typeLabel", &self.typeLabel).field("allowedTypes", &self.allowedTypes).field("allowedTypeCount", &self.allowedTypeCount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorEdgeTypeConstraint {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MLOperatorEdgeTypeConstraint {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeTypeConstraint>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MLOperatorEdgeTypeConstraint {}
+impl ::core::default::Default for MLOperatorEdgeTypeConstraint {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
+pub struct MLOperatorKernelDescription {
+    pub domain: ::windows::core::PCSTR,
+    pub name: ::windows::core::PCSTR,
+    pub minimumOperatorSetVersion: i32,
+    pub executionType: MLOperatorExecutionType,
+    pub typeConstraints: *const MLOperatorEdgeTypeConstraint,
+    pub typeConstraintCount: u32,
+    pub defaultAttributes: *const MLOperatorAttributeNameValue,
+    pub defaultAttributeCount: u32,
+    pub options: MLOperatorKernelOptions,
+    pub executionOptions: u32,
+}
+impl ::core::marker::Copy for MLOperatorKernelDescription {}
+impl ::core::clone::Clone for MLOperatorKernelDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MLOperatorKernelDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MLOperatorKernelDescription")
+            .field("domain", &self.domain)
+            .field("name", &self.name)
+            .field("minimumOperatorSetVersion", &self.minimumOperatorSetVersion)
+            .field("executionType", &self.executionType)
+            .field("typeConstraints", &self.typeConstraints)
+            .field("typeConstraintCount", &self.typeConstraintCount)
+            .field("defaultAttributes", &self.defaultAttributes)
+            .field("defaultAttributeCount", &self.defaultAttributeCount)
+            .field("options", &self.options)
+            .field("executionOptions", &self.executionOptions)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MLOperatorKernelDescription {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MLOperatorKernelDescription {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorKernelDescription>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MLOperatorKernelDescription {}
+impl ::core::default::Default for MLOperatorKernelDescription {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorSchemaDescription {
@@ -1714,33 +1942,6 @@ impl ::core::default::Default for MLOperatorSchemaEdgeDescription_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
-impl MLOperatorSchemaEdgeTypeFormat {
-    pub const EdgeDescription: Self = Self(0i32);
-    pub const Label: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MLOperatorSchemaEdgeTypeFormat {}
-impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorSchemaEdgeTypeFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeTypeFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MLOperatorSchemaEdgeTypeFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MLOperatorSchemaEdgeTypeFormat").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct MLOperatorSetId {
@@ -1770,47 +1971,6 @@ impl ::core::cmp::Eq for MLOperatorSetId {}
 impl ::core::default::Default for MLOperatorSetId {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MLOperatorTensorDataType(pub u32);
-impl MLOperatorTensorDataType {
-    pub const Undefined: Self = Self(0u32);
-    pub const Float: Self = Self(1u32);
-    pub const UInt8: Self = Self(2u32);
-    pub const Int8: Self = Self(3u32);
-    pub const UInt16: Self = Self(4u32);
-    pub const Int16: Self = Self(5u32);
-    pub const Int32: Self = Self(6u32);
-    pub const Int64: Self = Self(7u32);
-    pub const String: Self = Self(8u32);
-    pub const Bool: Self = Self(9u32);
-    pub const Float16: Self = Self(10u32);
-    pub const Double: Self = Self(11u32);
-    pub const UInt32: Self = Self(12u32);
-    pub const UInt64: Self = Self(13u32);
-    pub const Complex64: Self = Self(14u32);
-    pub const Complex128: Self = Self(15u32);
-}
-impl ::core::marker::Copy for MLOperatorTensorDataType {}
-impl ::core::clone::Clone for MLOperatorTensorDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorTensorDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MLOperatorTensorDataType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MLOperatorTensorDataType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MLOperatorTensorDataType").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -1877,74 +2037,6 @@ impl ::core::cmp::Eq for WINML_BINDING_DESC_0 {}
 impl ::core::default::Default for WINML_BINDING_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WINML_BINDING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = WINML_BINDING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(5i32);
-impl ::core::marker::Copy for WINML_BINDING_TYPE {}
-impl ::core::clone::Clone for WINML_BINDING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_BINDING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WINML_BINDING_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WINML_BINDING_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WINML_BINDING_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WINML_FEATURE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4i32);
-impl ::core::marker::Copy for WINML_FEATURE_TYPE {}
-impl ::core::clone::Clone for WINML_FEATURE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_FEATURE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WINML_FEATURE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WINML_FEATURE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WINML_FEATURE_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -2200,31 +2292,6 @@ impl ::core::default::Default for WINML_RESOURCE_BINDING_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WINML_RUNTIME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
-impl ::core::marker::Copy for WINML_RUNTIME_TYPE {}
-impl ::core::clone::Clone for WINML_RUNTIME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_RUNTIME_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WINML_RUNTIME_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WINML_RUNTIME_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WINML_RUNTIME_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_SEQUENCE_BINDING_DESC {
@@ -2344,63 +2411,6 @@ impl ::core::default::Default for WINML_TENSOR_BINDING_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WINML_TENSOR_DATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
-impl ::core::marker::Copy for WINML_TENSOR_DATA_TYPE {}
-impl ::core::clone::Clone for WINML_TENSOR_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_TENSOR_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WINML_TENSOR_DATA_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WINML_TENSOR_DATA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WINML_TENSOR_DATA_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub struct WINML_TENSOR_VARIABLE_DESC {
@@ -2503,16 +2513,6 @@ impl ::core::default::Default for WINML_VARIABLE_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-#[inline]
-pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WinMLCreateRuntime(runtime: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WinMLCreateRuntime(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLRuntime>(result__)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,24 +1,4 @@
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_DONTSHOWIFZERO: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_ENABLEBYDEFAULT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_ENABLEBYDEFAULT_AUTO: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_HASSETTINGS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_OUTOFDISKSPACE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_REMOVEFROMLIST: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_SETTINGSMODE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IADesktopP2(::windows::core::IUnknown);
 impl IADesktopP2 {
@@ -584,6 +564,26 @@ pub struct IReconcileInitiator_Vtbl {
     pub SetAbortCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkforabort: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetProgressFeedback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_DONTSHOWIFZERO: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_ENABLEBYDEFAULT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_ENABLEBYDEFAULT_AUTO: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_HASSETTINGS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_OUTOFDISKSPACE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_REMOVEFROMLIST: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_SETTINGSMODE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
+pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_E_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217408i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]

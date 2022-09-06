@@ -1,5 +1,72 @@
 #[cfg(feature = "Devices_Adc_Provider")]
 pub mod Provider;
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdcChannel(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdcChannel {
+    type Vtable = IAdcChannel_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdcChannel_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub ReadRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdcController(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdcController {
+    type Vtable = IAdcController_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdcController_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub ResolutionInBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub MinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub MaxValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub ChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdcChannelMode) -> ::windows::core::HRESULT,
+    pub SetChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AdcChannelMode) -> ::windows::core::HRESULT,
+    pub IsChannelModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelmode: AdcChannelMode, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub OpenChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdcControllerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdcControllerStatics {
+    type Vtable = IAdcControllerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdcControllerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
+    pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections")))]
+    GetControllersAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdcControllerStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdcControllerStatics2 {
+    type Vtable = IAdcControllerStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdcControllerStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDefaultAsync: usize,
+}
 #[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
 pub struct AdcChannel(::windows::core::IUnknown);
@@ -116,40 +183,6 @@ impl<'a> ::core::convert::TryFrom<&AdcChannel> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
-#[doc = "*Required features: `\"Devices_Adc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdcChannelMode(pub i32);
-impl AdcChannelMode {
-    pub const SingleEnded: Self = Self(0i32);
-    pub const Differential: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AdcChannelMode {}
-impl ::core::clone::Clone for AdcChannelMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdcChannelMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdcChannelMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdcChannelMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdcChannelMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
 pub struct AdcController(::windows::core::IUnknown);
@@ -300,72 +333,39 @@ impl ::core::convert::From<&AdcController> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for AdcController {}
 unsafe impl ::core::marker::Sync for AdcController {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
-pub struct IAdcChannel(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdcChannel {
-    type Vtable = IAdcChannel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdcChannelMode(pub i32);
+impl AdcChannelMode {
+    pub const SingleEnded: Self = Self(0i32);
+    pub const Differential: Self = Self(1i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdcChannel_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub ReadRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for AdcChannelMode {}
+impl ::core::clone::Clone for AdcChannelMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAdcController(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdcController {
-    type Vtable = IAdcController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
+impl ::core::default::Default for AdcChannelMode {
+    fn default() -> Self {
+        Self(0)
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdcController_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub ResolutionInBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub MinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub MaxValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub ChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdcChannelMode) -> ::windows::core::HRESULT,
-    pub SetChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AdcChannelMode) -> ::windows::core::HRESULT,
-    pub IsChannelModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelmode: AdcChannelMode, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub OpenChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::Abi for AdcChannelMode {
+    type Abi = Self;
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAdcControllerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdcControllerStatics {
-    type Vtable = IAdcControllerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
+impl ::core::fmt::Debug for AdcChannelMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdcChannelMode").field(&self.0).finish()
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdcControllerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
-    pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections")))]
-    GetControllersAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAdcControllerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdcControllerStatics2 {
-    type Vtable = IAdcControllerStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdcControllerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDefaultAsync: usize,
+unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

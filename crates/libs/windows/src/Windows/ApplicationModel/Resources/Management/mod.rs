@@ -296,41 +296,6 @@ impl ::core::convert::From<&IndexedResourceQualifier> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
-#[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IndexedResourceType(pub i32);
-impl IndexedResourceType {
-    pub const String: Self = Self(0i32);
-    pub const Path: Self = Self(1i32);
-    pub const EmbeddedData: Self = Self(2i32);
-}
-impl ::core::marker::Copy for IndexedResourceType {}
-impl ::core::clone::Clone for IndexedResourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IndexedResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IndexedResourceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IndexedResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -474,5 +439,40 @@ impl ::core::convert::From<&ResourceIndexer> for &::windows::core::IInspectable 
 unsafe impl ::core::marker::Send for ResourceIndexer {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for ResourceIndexer {}
+#[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IndexedResourceType(pub i32);
+impl IndexedResourceType {
+    pub const String: Self = Self(0i32);
+    pub const Path: Self = Self(1i32);
+    pub const EmbeddedData: Self = Self(2i32);
+}
+impl ::core::marker::Copy for IndexedResourceType {}
+impl ::core::clone::Clone for IndexedResourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IndexedResourceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IndexedResourceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IndexedResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

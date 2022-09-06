@@ -1,119 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
-impl ::core::marker::Copy for CONFLICT_RESOLUTION_POLICY {}
-impl ::core::clone::Clone for CONFLICT_RESOLUTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONFLICT_RESOLUTION_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CONFLICT_RESOLUTION_POLICY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CONFLICT_RESOLUTION_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONFLICT_RESOLUTION_POLICY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
-impl ::core::marker::Copy for CONSTRAINT_CONFLICT_REASON {}
-impl ::core::clone::Clone for CONSTRAINT_CONFLICT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONSTRAINT_CONFLICT_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CONSTRAINT_CONFLICT_REASON {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CONSTRAINT_CONFLICT_REASON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONSTRAINT_CONFLICT_REASON").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FILTERING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
-impl ::core::marker::Copy for FILTERING_TYPE {}
-impl ::core::clone::Clone for FILTERING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILTERING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FILTERING_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FILTERING_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILTERING_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FILTER_COMBINATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
-impl ::core::marker::Copy for FILTER_COMBINATION_TYPE {}
-impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILTER_COMBINATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FILTER_COMBINATION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FILTER_COMBINATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILTER_COMBINATION_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-#[repr(transparent)]
 pub struct IAsynchronousDataRetriever(::windows::core::IUnknown);
 impl IAsynchronousDataRetriever {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -927,86 +813,6 @@ unsafe impl ::windows::core::Interface for ICustomFilterInfo {
 pub struct ICustomFilterInfo_Vtbl {
     pub base__: ISyncFilterInfo_Vtbl,
     pub GetSyncFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisyncfilter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ID_PARAMETERS {
-    pub dwSize: u32,
-    pub replicaId: ID_PARAMETER_PAIR,
-    pub itemId: ID_PARAMETER_PAIR,
-    pub changeUnitId: ID_PARAMETER_PAIR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ID_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ID_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ID_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ID_PARAMETERS").field("dwSize", &self.dwSize).field("replicaId", &self.replicaId).field("itemId", &self.itemId).field("changeUnitId", &self.changeUnitId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ID_PARAMETERS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ID_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ID_PARAMETERS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ID_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ID_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ID_PARAMETER_PAIR {
-    pub fIsVariable: super::super::Foundation::BOOL,
-    pub cbIdSize: u16,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ID_PARAMETER_PAIR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ID_PARAMETER_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ID_PARAMETER_PAIR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ID_PARAMETER_PAIR").field("fIsVariable", &self.fIsVariable).field("cbIdSize", &self.cbIdSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ID_PARAMETER_PAIR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ID_PARAMETER_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ID_PARAMETER_PAIR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ID_PARAMETER_PAIR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ID_PARAMETER_PAIR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
@@ -6419,37 +6225,6 @@ pub struct ISynchronousDataRetriever_Vtbl {
     GetIdParameters: usize,
     pub LoadChangeData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploadchangecontext: *mut ::core::ffi::c_void, ppunkdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(3i32);
-impl ::core::marker::Copy for KNOWLEDGE_COOKIE_COMPARISON_RESULT {}
-impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KNOWLEDGE_COOKIE_COMPARISON_RESULT").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 5u32 };
@@ -6523,6 +6298,166 @@ pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
+pub const SyncProviderRegistration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
+impl ::core::marker::Copy for CONFLICT_RESOLUTION_POLICY {}
+impl ::core::clone::Clone for CONFLICT_RESOLUTION_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONFLICT_RESOLUTION_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONFLICT_RESOLUTION_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONFLICT_RESOLUTION_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONFLICT_RESOLUTION_POLICY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
+impl ::core::marker::Copy for CONSTRAINT_CONFLICT_REASON {}
+impl ::core::clone::Clone for CONSTRAINT_CONFLICT_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONSTRAINT_CONFLICT_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONSTRAINT_CONFLICT_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONSTRAINT_CONFLICT_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONSTRAINT_CONFLICT_REASON").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILTERING_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
+impl ::core::marker::Copy for FILTERING_TYPE {}
+impl ::core::clone::Clone for FILTERING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILTERING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FILTERING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILTERING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILTERING_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILTER_COMBINATION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
+impl ::core::marker::Copy for FILTER_COMBINATION_TYPE {}
+impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILTER_COMBINATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_COMBINATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILTER_COMBINATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILTER_COMBINATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(3i32);
+impl ::core::marker::Copy for KNOWLEDGE_COOKIE_COMPARISON_RESULT {}
+impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KNOWLEDGE_COOKIE_COMPARISON_RESULT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
@@ -6559,53 +6494,6 @@ impl ::core::fmt::Debug for SYNC_CONSTRAINT_RESOLVE_ACTION {
         f.debug_tuple("SYNC_CONSTRAINT_RESOLVE_ACTION").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SYNC_FILTER_CHANGE {
-    pub fMoveIn: super::super::Foundation::BOOL,
-    pub moveVersion: SYNC_VERSION,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SYNC_FILTER_CHANGE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SYNC_FILTER_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SYNC_FILTER_CHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYNC_FILTER_CHANGE").field("fMoveIn", &self.fMoveIn).field("moveVersion", &self.moveVersion).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYNC_FILTER_CHANGE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SYNC_FILTER_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_FILTER_CHANGE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SYNC_FILTER_CHANGE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SYNC_FILTER_CHANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6689,37 +6577,6 @@ unsafe impl ::windows::core::Abi for SYNC_PROVIDER_ROLE {
 impl ::core::fmt::Debug for SYNC_PROVIDER_ROLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYNC_PROVIDER_ROLE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub struct SYNC_RANGE {
-    pub pbClosedLowerBound: *mut u8,
-    pub pbClosedUpperBound: *mut u8,
-}
-impl ::core::marker::Copy for SYNC_RANGE {}
-impl ::core::clone::Clone for SYNC_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SYNC_RANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYNC_RANGE").field("pbClosedLowerBound", &self.pbClosedLowerBound).field("pbClosedUpperBound", &self.pbClosedUpperBound).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SYNC_RANGE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SYNC_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_RANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SYNC_RANGE {}
-impl ::core::default::Default for SYNC_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
@@ -6824,7 +6681,180 @@ impl ::core::fmt::Debug for SYNC_SERIALIZATION_VERSION {
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYNC_STATISTICS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
+impl ::core::marker::Copy for SYNC_STATISTICS {}
+impl ::core::clone::Clone for SYNC_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYNC_STATISTICS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYNC_STATISTICS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYNC_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYNC_STATISTICS").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ID_PARAMETERS {
+    pub dwSize: u32,
+    pub replicaId: ID_PARAMETER_PAIR,
+    pub itemId: ID_PARAMETER_PAIR,
+    pub changeUnitId: ID_PARAMETER_PAIR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ID_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ID_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ID_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ID_PARAMETERS").field("dwSize", &self.dwSize).field("replicaId", &self.replicaId).field("itemId", &self.itemId).field("changeUnitId", &self.changeUnitId).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ID_PARAMETERS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ID_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ID_PARAMETERS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ID_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ID_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ID_PARAMETER_PAIR {
+    pub fIsVariable: super::super::Foundation::BOOL,
+    pub cbIdSize: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ID_PARAMETER_PAIR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ID_PARAMETER_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ID_PARAMETER_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ID_PARAMETER_PAIR").field("fIsVariable", &self.fIsVariable).field("cbIdSize", &self.cbIdSize).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ID_PARAMETER_PAIR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ID_PARAMETER_PAIR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ID_PARAMETER_PAIR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ID_PARAMETER_PAIR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ID_PARAMETER_PAIR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SYNC_FILTER_CHANGE {
+    pub fMoveIn: super::super::Foundation::BOOL,
+    pub moveVersion: SYNC_VERSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SYNC_FILTER_CHANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYNC_FILTER_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SYNC_FILTER_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNC_FILTER_CHANGE").field("fMoveIn", &self.fMoveIn).field("moveVersion", &self.moveVersion).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SYNC_FILTER_CHANGE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SYNC_FILTER_CHANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_FILTER_CHANGE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SYNC_FILTER_CHANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SYNC_FILTER_CHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub struct SYNC_RANGE {
+    pub pbClosedLowerBound: *mut u8,
+    pub pbClosedUpperBound: *mut u8,
+}
+impl ::core::marker::Copy for SYNC_RANGE {}
+impl ::core::clone::Clone for SYNC_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SYNC_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNC_RANGE").field("pbClosedLowerBound", &self.pbClosedLowerBound).field("pbClosedUpperBound", &self.pbClosedUpperBound).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SYNC_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SYNC_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SYNC_RANGE {}
+impl ::core::default::Default for SYNC_RANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub struct SYNC_SESSION_STATISTICS {
@@ -6854,31 +6884,6 @@ impl ::core::cmp::Eq for SYNC_SESSION_STATISTICS {}
 impl ::core::default::Default for SYNC_SESSION_STATISTICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SYNC_STATISTICS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
-impl ::core::marker::Copy for SYNC_STATISTICS {}
-impl ::core::clone::Clone for SYNC_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_STATISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SYNC_STATISTICS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SYNC_STATISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SYNC_STATISTICS").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -6943,10 +6948,6 @@ impl ::core::default::Default for SYNC_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7027,6 +7028,5 @@ impl ::core::default::Default for SyncProviderConfiguration {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const SyncProviderRegistration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

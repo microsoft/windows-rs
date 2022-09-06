@@ -1,91 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub struct COMDLG_FILTERSPEC {
-    pub pszName: ::windows::core::PCWSTR,
-    pub pszSpec: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for COMDLG_FILTERSPEC {}
-impl ::core::clone::Clone for COMDLG_FILTERSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for COMDLG_FILTERSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMDLG_FILTERSPEC").field("pszName", &self.pszName).field("pszSpec", &self.pszSpec).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for COMDLG_FILTERSPEC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COMDLG_FILTERSPEC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMDLG_FILTERSPEC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COMDLG_FILTERSPEC {}
-impl ::core::default::Default for COMDLG_FILTERSPEC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVICE_SCALE_FACTOR(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_100_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(100i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_120_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(120i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_125_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(125i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_140_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(140i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_150_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(150i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_160_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(160i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_175_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(175i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_180_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(180i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_200_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(200i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_225_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(225i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_250_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(250i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_300_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(300i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_350_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(350i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_400_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(400i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_450_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(450i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const SCALE_500_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(500i32);
-impl ::core::marker::Copy for DEVICE_SCALE_FACTOR {}
-impl ::core::clone::Clone for DEVICE_SCALE_FACTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVICE_SCALE_FACTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DEVICE_SCALE_FACTOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DEVICE_SCALE_FACTOR").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 pub struct IObjectArray(::windows::core::IUnknown);
@@ -237,29 +149,75 @@ pub struct IObjectCollection_Vtbl {
     pub RemoveObjectAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub struct ITEMIDLIST {
-    pub mkid: SHITEMID,
-}
-impl ::core::marker::Copy for ITEMIDLIST {}
-impl ::core::clone::Clone for ITEMIDLIST {
+pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const PERCEIVEDFLAG_SOFTCODED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const PERCEIVEDFLAG_UNDEFINED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const PERCEIVEDFLAG_WMSDK: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const PERCEIVEDFLAG_ZIPFOLDER: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVICE_SCALE_FACTOR(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(0i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_100_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(100i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_120_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(120i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_125_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(125i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_140_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(140i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_150_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(150i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_160_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(160i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_175_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(175i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_180_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(180i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_200_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(200i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_225_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(225i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_250_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(250i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_300_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(300i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_350_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(350i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_400_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(400i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_450_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(450i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const SCALE_500_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(500i32);
+impl ::core::marker::Copy for DEVICE_SCALE_FACTOR {}
+impl ::core::clone::Clone for DEVICE_SCALE_FACTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ITEMIDLIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ITEMIDLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ITEMIDLIST>()) == 0 }
+impl ::core::default::Default for DEVICE_SCALE_FACTOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
-impl ::core::cmp::Eq for ITEMIDLIST {}
-impl ::core::default::Default for ITEMIDLIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+unsafe impl ::windows::core::Abi for DEVICE_SCALE_FACTOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVICE_SCALE_FACTOR").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
@@ -317,20 +275,6 @@ impl ::core::fmt::Debug for PERCEIVED {
         f.debug_tuple("PERCEIVED").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const PERCEIVEDFLAG_SOFTCODED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const PERCEIVEDFLAG_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const PERCEIVEDFLAG_WMSDK: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const PERCEIVEDFLAG_ZIPFOLDER: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -392,6 +336,91 @@ unsafe impl ::windows::core::Abi for SHCOLSTATE {
 impl ::core::fmt::Debug for SHCOLSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHCOLSTATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STRRET_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
+impl ::core::marker::Copy for STRRET_TYPE {}
+impl ::core::clone::Clone for STRRET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STRRET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STRRET_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STRRET_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STRRET_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub struct COMDLG_FILTERSPEC {
+    pub pszName: ::windows::core::PCWSTR,
+    pub pszSpec: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for COMDLG_FILTERSPEC {}
+impl ::core::clone::Clone for COMDLG_FILTERSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for COMDLG_FILTERSPEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMDLG_FILTERSPEC").field("pszName", &self.pszName).field("pszSpec", &self.pszSpec).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COMDLG_FILTERSPEC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMDLG_FILTERSPEC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMDLG_FILTERSPEC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMDLG_FILTERSPEC {}
+impl ::core::default::Default for COMDLG_FILTERSPEC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
+pub struct ITEMIDLIST {
+    pub mkid: SHITEMID,
+}
+impl ::core::marker::Copy for ITEMIDLIST {}
+impl ::core::clone::Clone for ITEMIDLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ITEMIDLIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ITEMIDLIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ITEMIDLIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ITEMIDLIST {}
+impl ::core::default::Default for ITEMIDLIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
@@ -498,35 +527,6 @@ impl ::core::cmp::Eq for STRRET_0 {}
 impl ::core::default::Default for STRRET_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STRRET_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
-impl ::core::marker::Copy for STRRET_TYPE {}
-impl ::core::clone::Clone for STRRET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STRRET_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for STRRET_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for STRRET_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STRRET_TYPE").field(&self.0).finish()
     }
 }
 #[cfg(feature = "implement")]

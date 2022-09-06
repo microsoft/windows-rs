@@ -123,40 +123,6 @@ impl ::windows::core::RuntimeName for LicenseManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LicenseRefreshOption(pub i32);
-impl LicenseRefreshOption {
-    pub const RunningLicenses: Self = Self(0i32);
-    pub const AllLicenses: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LicenseRefreshOption {}
-impl ::core::clone::Clone for LicenseRefreshOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LicenseRefreshOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LicenseRefreshOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LicenseRefreshOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
-#[repr(transparent)]
 pub struct LicenseSatisfactionInfo(::windows::core::IUnknown);
 impl LicenseSatisfactionInfo {
     pub fn SatisfiedByDevice(&self) -> ::windows::core::Result<bool> {
@@ -354,5 +320,39 @@ impl ::core::convert::From<&LicenseSatisfactionResult> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionResult {}
+#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LicenseRefreshOption(pub i32);
+impl LicenseRefreshOption {
+    pub const RunningLicenses: Self = Self(0i32);
+    pub const AllLicenses: Self = Self(1i32);
+}
+impl ::core::marker::Copy for LicenseRefreshOption {}
+impl ::core::clone::Clone for LicenseRefreshOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LicenseRefreshOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LicenseRefreshOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LicenseRefreshOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

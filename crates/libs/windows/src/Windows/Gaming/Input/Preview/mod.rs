@@ -1,3 +1,23 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGameControllerProviderInfoStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGameControllerProviderInfoStatics {
+    type Vtable = IGameControllerProviderInfoStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGameControllerProviderInfoStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Gaming_Input_Custom")]
+    pub GetParentProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Gaming_Input_Custom"))]
+    GetParentProviderId: usize,
+    #[cfg(feature = "Gaming_Input_Custom")]
+    pub GetProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Gaming_Input_Custom"))]
+    GetProviderId: usize,
+}
 #[doc = "*Required features: `\"Gaming_Input_Preview\"`*"]
 pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
@@ -33,26 +53,6 @@ impl GameControllerProviderInfo {
 }
 impl ::windows::core::RuntimeName for GameControllerProviderInfo {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.GameControllerProviderInfo";
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGameControllerProviderInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGameControllerProviderInfoStatics {
-    type Vtable = IGameControllerProviderInfoStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGameControllerProviderInfoStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetParentProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Gaming_Input_Custom"))]
-    GetParentProviderId: usize,
-    #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Gaming_Input_Custom"))]
-    GetProviderId: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

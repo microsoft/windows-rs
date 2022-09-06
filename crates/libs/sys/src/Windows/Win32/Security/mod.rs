@@ -35,919 +35,448 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheck(psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckAndAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckAndAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeAndAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeAndAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultList(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessAllowedAce(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessAllowedAceEx(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessAllowedObjectAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows_sys::core::GUID, inheritedobjecttypeguid: *const ::windows_sys::core::GUID, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessDeniedAce(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessDeniedAceEx(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessDeniedObjectAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows_sys::core::GUID, inheritedobjecttypeguid: *const ::windows_sys::core::GUID, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::core::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAuditAccessAce(pacl: *mut ACL, dwacerevision: u32, dwaccessmask: u32, psid: super::Foundation::PSID, bauditsuccess: super::Foundation::BOOL, bauditfailure: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAuditAccessAceEx(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, dwaccessmask: u32, psid: super::Foundation::PSID, bauditsuccess: super::Foundation::BOOL, bauditfailure: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAuditAccessObjectAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows_sys::core::GUID, inheritedobjecttypeguid: *const ::windows_sys::core::GUID, psid: super::Foundation::PSID, bauditsuccess: super::Foundation::BOOL, bauditfailure: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddConditionalAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, acetype: u8, accessmask: u32, psid: super::Foundation::PSID, conditionstr: ::windows_sys::core::PCWSTR, returnlength: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddMandatoryAce(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, mandatorypolicy: u32, plabelsid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddResourceAttributeAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID, pattributeinfo: *const CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddScopedPolicyIDAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AdjustTokenGroups(tokenhandle: super::Foundation::HANDLE, resettodefault: super::Foundation::BOOL, newstate: *const TOKEN_GROUPS, bufferlength: u32, previousstate: *mut TOKEN_GROUPS, returnlength: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AdjustTokenPrivileges(tokenhandle: super::Foundation::HANDLE, disableallprivileges: super::Foundation::BOOL, newstate: *const TOKEN_PRIVILEGES, bufferlength: u32, previousstate: *mut TOKEN_PRIVILEGES, returnlength: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AllocateAndInitializeSid(pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8, nsubauthority0: u32, nsubauthority1: u32, nsubauthority2: u32, nsubauthority3: u32, nsubauthority4: u32, nsubauthority5: u32, nsubauthority6: u32, nsubauthority7: u32, psid: *mut super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AllocateLocallyUniqueId(luid: *mut super::Foundation::LUID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AreAllAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AreAnyAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckTokenCapability(tokenhandle: super::Foundation::HANDLE, capabilitysidtocheck: super::Foundation::PSID, hascapability: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckTokenMembership(tokenhandle: super::Foundation::HANDLE, sidtocheck: super::Foundation::PSID, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckTokenMembershipEx(tokenhandle: super::Foundation::HANDLE, sidtocheck: super::Foundation::PSID, flags: u32, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, currentsecuritydescriptor: PSECURITY_DESCRIPTOR, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: *const ::windows_sys::core::GUID, isdirectoryobject: super::Foundation::BOOLEAN, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CopySid(ndestinationsidlength: u32, pdestinationsid: super::Foundation::PSID, psourcesid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreatePrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: *mut PSECURITY_DESCRIPTOR, isdirectoryobject: super::Foundation::BOOL, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreatePrivateObjectSecurityEx(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttype: *const ::windows_sys::core::GUID, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttypes: *const *const ::windows_sys::core::GUID, guidcount: u32, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateRestrictedToken(existingtokenhandle: super::Foundation::HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: u32, sidstodisable: *const SID_AND_ATTRIBUTES, deleteprivilegecount: u32, privilegestodelete: *const LUID_AND_ATTRIBUTES, restrictedsidcount: u32, sidstorestrict: *const SID_AND_ATTRIBUTES, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateWellKnownSid(wellknownsidtype: WELL_KNOWN_SID_TYPE, domainsid: super::Foundation::PSID, psid: super::Foundation::PSID, cbsid: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DeriveCapabilitySidsFromName(capname: ::windows_sys::core::PCWSTR, capabilitygroupsids: *mut *mut super::Foundation::PSID, capabilitygroupsidcount: *mut u32, capabilitysids: *mut *mut super::Foundation::PSID, capabilitysidcount: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyPrivateObjectSecurity(objectdescriptor: *const PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DuplicateToken(existingtokenhandle: super::Foundation::HANDLE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DuplicateTokenEx(hexistingtoken: super::Foundation::HANDLE, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: *const SECURITY_ATTRIBUTES, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EqualDomainSid(psid1: super::Foundation::PSID, psid2: super::Foundation::PSID, pfequal: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EqualPrefixSid(psid1: super::Foundation::PSID, psid2: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EqualSid(psid1: super::Foundation::PSID, psid2: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FreeSid(psid: super::Foundation::PSID) -> *mut ::core::ffi::c_void;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcontainerace: *mut *mut ::core::ffi::c_void, appcontaineraceindex: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetCachedSigningLevel(file: super::Foundation::HANDLE, flags: *mut u32, signinglevel: *mut u32, thumbprint: *mut u8, thumbprintsize: *mut u32, thumbprintalgorithm: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetFileSecurityA(lpfilename: ::windows_sys::core::PCSTR, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetFileSecurityW(lpfilename: ::windows_sys::core::PCWSTR, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetKernelObjectSecurity(handle: super::Foundation::HANDLE, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetLengthSid(psid: super::Foundation::PSID) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetPrivateObjectSecurity(objectdescriptor: PSECURITY_DESCRIPTOR, securityinformation: u32, resultantdescriptor: PSECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorControl(psecuritydescriptor: PSECURITY_DESCRIPTOR, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorDacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorGroup(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn GetSecurityDescriptorLength(psecuritydescriptor: PSECURITY_DESCRIPTOR) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorOwner(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn GetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCRIPTOR, rmcontrol: *mut u8) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSecurityDescriptorSacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSidIdentifierAuthority(psid: super::Foundation::PSID) -> *mut SID_IDENTIFIER_AUTHORITY;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSidSubAuthority(psid: super::Foundation::PSID, nsubauthority: u32) -> *mut u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSidSubAuthorityCount(psid: super::Foundation::PSID) -> *mut u8;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *mut ::core::ffi::c_void, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const u32, psid: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowsAccountDomainSid(psid: super::Foundation::PSID, pdomainsid: super::Foundation::PSID, cbdomainsid: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImpersonateAnonymousToken(threadhandle: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImpersonateLoggedOnUser(htoken: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, dwrevision: u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsTokenRestricted(tokenhandle: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsValidSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsValidSid(psid: super::Foundation::PSID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsWellKnownSid(psid: super::Foundation::PSID, wellknownsidtype: WELL_KNOWN_SID_TYPE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LogonUserA(lpszusername: ::windows_sys::core::PCSTR, lpszdomain: ::windows_sys::core::PCSTR, lpszpassword: ::windows_sys::core::PCSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LogonUserExA(lpszusername: ::windows_sys::core::PCSTR, lpszdomain: ::windows_sys::core::PCSTR, lpszpassword: ::windows_sys::core::PCSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::core::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LogonUserExW(lpszusername: ::windows_sys::core::PCWSTR, lpszdomain: ::windows_sys::core::PCWSTR, lpszpassword: ::windows_sys::core::PCWSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::core::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LogonUserW(lpszusername: ::windows_sys::core::PCWSTR, lpszdomain: ::windows_sys::core::PCWSTR, lpszpassword: ::windows_sys::core::PCWSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupAccountNameA(lpsystemname: ::windows_sys::core::PCSTR, lpaccountname: ::windows_sys::core::PCSTR, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows_sys::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupAccountNameW(lpsystemname: ::windows_sys::core::PCWSTR, lpaccountname: ::windows_sys::core::PCWSTR, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows_sys::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupAccountSidA(lpsystemname: ::windows_sys::core::PCSTR, sid: super::Foundation::PSID, name: ::windows_sys::core::PSTR, cchname: *mut u32, referenceddomainname: ::windows_sys::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupAccountSidW(lpsystemname: ::windows_sys::core::PCWSTR, sid: super::Foundation::PSID, name: ::windows_sys::core::PWSTR, cchname: *mut u32, referenceddomainname: ::windows_sys::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupPrivilegeDisplayNameA(lpsystemname: ::windows_sys::core::PCSTR, lpname: ::windows_sys::core::PCSTR, lpdisplayname: ::windows_sys::core::PSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupPrivilegeDisplayNameW(lpsystemname: ::windows_sys::core::PCWSTR, lpname: ::windows_sys::core::PCWSTR, lpdisplayname: ::windows_sys::core::PWSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupPrivilegeNameA(lpsystemname: ::windows_sys::core::PCSTR, lpluid: *const super::Foundation::LUID, lpname: ::windows_sys::core::PSTR, cchname: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupPrivilegeNameW(lpsystemname: ::windows_sys::core::PCWSTR, lpluid: *const super::Foundation::LUID, lpname: ::windows_sys::core::PWSTR, cchname: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupPrivilegeValueA(lpsystemname: ::windows_sys::core::PCSTR, lpname: ::windows_sys::core::PCSTR, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LookupPrivilegeValueW(lpsystemname: ::windows_sys::core::PCWSTR, lpname: ::windows_sys::core::PCWSTR, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: PSECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectCloseAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectCloseAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectDeleteAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectDeleteAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectOpenAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCSTR, objectname: ::windows_sys::core::PCSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectOpenAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, objecttypename: ::windows_sys::core::PCWSTR, objectname: ::windows_sys::core::PCWSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectPrivilegeAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObjectPrivilegeAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrivilegeCheck(clienttoken: super::Foundation::HANDLE, requiredprivileges: *mut PRIVILEGE_SET, pfresult: *mut i32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrivilegedServiceAuditAlarmA(subsystemname: ::windows_sys::core::PCSTR, servicename: ::windows_sys::core::PCSTR, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrivilegedServiceAuditAlarmW(subsystemname: ::windows_sys::core::PCWSTR, servicename: ::windows_sys::core::PCWSTR, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RevertToSelf() -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlConvertSidToUnicodeString(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: super::Foundation::PSID, allocatedestinationstring: super::Foundation::BOOLEAN) -> super::Foundation::NTSTATUS;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: super::Foundation::BOOLEAN) -> super::Foundation::BOOLEAN;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetCachedSigningLevel(sourcefiles: *const super::Foundation::HANDLE, sourcefilecount: u32, flags: u32, targetfile: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetFileSecurityA(lpfilename: ::windows_sys::core::PCSTR, securityinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetFileSecurityW(lpfilename: ::windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetKernelObjectSecurity(handle: super::Foundation::HANDLE, securityinformation: u32, securitydescriptor: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetPrivateObjectSecurity(securityinformation: u32, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetPrivateObjectSecurityEx(securityinformation: u32, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut PSECURITY_DESCRIPTOR, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorControl(psecuritydescriptor: PSECURITY_DESCRIPTOR, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorDacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, bdaclpresent: super::Foundation::BOOL, pdacl: *const ACL, bdacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorGroup(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: super::Foundation::PSID, bgroupdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorOwner(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: super::Foundation::PSID, bownerdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`*"]
     pub fn SetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCRIPTOR, rmcontrol: *const u8) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSecurityDescriptorSacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, bsaclpresent: super::Foundation::BOOL, psacl: *const ACL, bsacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: PSECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
 }
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_ALLOWED_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_ALLOWED_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const CVT_SECONDS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_ALLOWED_CALLBACK_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_ALLOWED_CALLBACK_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const cwcFILENAMESUFFIXMAX: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const cwcHRESULTSTRING: u32 = 40u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_ALLOWED_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_ALLOWED_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_ALLOWED_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const szLBRACE: &str = "{";
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_DENIED_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_DENIED_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const szLPAREN: &str = "(";
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_DENIED_CALLBACK_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_DENIED_CALLBACK_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const szRBRACE: &str = "}";
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const szRPAREN: &str = ")";
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_DENIED_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for ACCESS_DENIED_OBJECT_ACE {}
-impl ::core::clone::Clone for ACCESS_DENIED_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
+pub const wszCERTENROLLSHAREPATH: &str = "CertSrv\\CertEnroll";
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACCESS_REASONS {
-    pub Data: [u32; 32],
-}
-impl ::core::marker::Copy for ACCESS_REASONS {}
-impl ::core::clone::Clone for ACCESS_REASONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const wszFCSAPARM_CERTFILENAMESUFFIX: &str = "%4";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_CONFIGDN: &str = "%6";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_CRLDELTAFILENAMESUFFIX: &str = "%9";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_CRLFILENAMESUFFIX: &str = "%8";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_DOMAINDN: &str = "%5";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_DSCACERTATTRIBUTE: &str = "%11";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_DSCRLATTRIBUTE: &str = "%10";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_DSCROSSCERTPAIRATTRIBUTE: &str = "%14";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_DSKRACERTATTRIBUTE: &str = "%13";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_DSUSERCERTATTRIBUTE: &str = "%12";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_SANITIZEDCANAME: &str = "%3";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_SANITIZEDCANAMEHASH: &str = "%7";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_SERVERDNSNAME: &str = "%1";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszFCSAPARM_SERVERSHORTNAME: &str = "%2";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszLBRACE: &str = "{";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszLPAREN: &str = "(";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszRBRACE: &str = "}";
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const wszRPAREN: &str = ")";
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type ACE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -976,101 +505,24 @@ pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = 4u32;
 pub const INHERIT_ONLY: ACE_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const NO_INHERITANCE: ACE_FLAGS = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACE_HEADER {
-    pub AceType: u8,
-    pub AceFlags: u8,
-    pub AceSize: u16,
-}
-impl ::core::marker::Copy for ACE_HEADER {}
-impl ::core::clone::Clone for ACE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type ACE_REVISION = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ACL_REVISION: ACE_REVISION = 2u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ACL_REVISION_DS: ACE_REVISION = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACL {
-    pub AclRevision: u8,
-    pub Sbz1: u8,
-    pub AclSize: u16,
-    pub AceCount: u16,
-    pub Sbz2: u16,
-}
-impl ::core::marker::Copy for ACL {}
-impl ::core::clone::Clone for ACL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type ACL_INFORMATION_CLASS = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const AclRevisionInformation: ACL_INFORMATION_CLASS = 1i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const AclSizeInformation: ACL_INFORMATION_CLASS = 2i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACL_REVISION_INFORMATION {
-    pub AclRevision: u32,
-}
-impl ::core::marker::Copy for ACL_REVISION_INFORMATION {}
-impl ::core::clone::Clone for ACL_REVISION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct ACL_SIZE_INFORMATION {
-    pub AceCount: u32,
-    pub AclBytesInUse: u32,
-    pub AclBytesFree: u32,
-}
-impl ::core::marker::Copy for ACL_SIZE_INFORMATION {}
-impl ::core::clone::Clone for ACL_SIZE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type AUDIT_EVENT_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = 0i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = 1i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub AttributeCount: u32,
-    pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type CLAIM_SECURITY_ATTRIBUTE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1085,92 +537,6 @@ pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 16u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 32u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    pub Version: u64,
-    pub Name: ::windows_sys::core::PWSTR,
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub pValue: *mut ::core::ffi::c_void,
-    pub ValueLength: u32,
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
-    pub Name: u32,
-    pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
-    pub Reserved: u16,
-    pub Flags: CLAIM_SECURITY_ATTRIBUTE_FLAGS,
-    pub ValueCount: u32,
-    pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
-    pub pInt64: [u32; 1],
-    pub pUint64: [u32; 1],
-    pub ppString: [u32; 1],
-    pub pFqbn: [u32; 1],
-    pub pOctetString: [u32; 1],
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
-    pub Name: ::windows_sys::core::PWSTR,
-    pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub ValueCount: u32,
-    pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
-    pub pInt64: *mut i64,
-    pub pUint64: *mut u64,
-    pub ppString: *mut ::windows_sys::core::PWSTR,
-    pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
-    pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
-}
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = u16;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1198,8 +564,6 @@ pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CVT_SECONDS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type ENUM_PERIOD = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = -1i32;
@@ -1217,55 +581,6 @@ pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = 4i32;
 pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = 5i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = 6i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct GENERIC_MAPPING {
-    pub GenericRead: u32,
-    pub GenericWrite: u32,
-    pub GenericExecute: u32,
-    pub GenericAll: u32,
-}
-impl ::core::marker::Copy for GENERIC_MAPPING {}
-impl ::core::clone::Clone for GENERIC_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub type HDIAGNOSTIC_DATA_QUERY_SESSION = isize;
-pub type HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = isize;
-pub type HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = isize;
-pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = isize;
-pub type HDIAGNOSTIC_RECORD = isize;
-pub type HDIAGNOSTIC_REPORT = isize;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct LLFILETIME {
-    pub Anonymous: LLFILETIME_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LLFILETIME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for LLFILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union LLFILETIME_0 {
-    pub ll: i64,
-    pub ft: super::Foundation::FILETIME,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LLFILETIME_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for LLFILETIME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type LOGON32_LOGON = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1290,21 +605,6 @@ pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = 0u32;
 pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = 3u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct LUID_AND_ATTRIBUTES {
-    pub Luid: super::Foundation::LUID,
-    pub Attributes: TOKEN_PRIVILEGES_ATTRIBUTES,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LUID_AND_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for LUID_AND_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type MANDATORY_LEVEL = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1321,8 +621,6 @@ pub const MandatoryLevelSystem: MANDATORY_LEVEL = 4i32;
 pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = 5i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const MandatoryLevelCount: MANDATORY_LEVEL = 6i32;
-pub type NCRYPT_DESCRIPTOR_HANDLE = isize;
-pub type NCRYPT_STREAM_HANDLE = isize;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type OBJECT_SECURITY_INFORMATION = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1349,73 +647,6 @@ pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 64u32;
 pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 268435456u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct OBJECT_TYPE_LIST {
-    pub Level: u16,
-    pub Sbz: u16,
-    pub ObjectType: *mut ::windows_sys::core::GUID,
-}
-impl ::core::marker::Copy for OBJECT_TYPE_LIST {}
-impl ::core::clone::Clone for OBJECT_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PRIVILEGE_SET {
-    pub PrivilegeCount: u32,
-    pub Control: u32,
-    pub Privilege: [LUID_AND_ATTRIBUTES; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PRIVILEGE_SET {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for PRIVILEGE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub type PSECURITY_DESCRIPTOR = *mut ::core::ffi::c_void;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct QUOTA_LIMITS {
-    pub PagedPoolLimit: usize,
-    pub NonPagedPoolLimit: usize,
-    pub MinimumWorkingSetSize: usize,
-    pub MaximumWorkingSetSize: usize,
-    pub PagefileLimit: usize,
-    pub TimeLimit: i64,
-}
-impl ::core::marker::Copy for QUOTA_LIMITS {}
-impl ::core::clone::Clone for QUOTA_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub type SAFER_LEVEL_HANDLE = isize;
-pub type SC_HANDLE = isize;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SECURITY_ATTRIBUTES {
-    pub nLength: u32,
-    pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
-    pub bInheritHandle: super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SECURITY_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type SECURITY_AUTO_INHERIT_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1440,43 +671,6 @@ pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = 512u32;
 pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = 256u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SECURITY_CAPABILITIES {
-    pub AppContainerSid: super::Foundation::PSID,
-    pub Capabilities: *mut SID_AND_ATTRIBUTES,
-    pub CapabilityCount: u32,
-    pub Reserved: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SECURITY_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SECURITY_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SECURITY_DESCRIPTOR {
-    pub Revision: u8,
-    pub Sbz1: u8,
-    pub Control: u16,
-    pub Owner: super::Foundation::PSID,
-    pub Group: super::Foundation::PSID,
-    pub Sacl: *mut ACL,
-    pub Dacl: *mut ACL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SECURITY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type SECURITY_IMPERSONATION_LEVEL = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1487,163 +681,6 @@ pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = 1i32;
 pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = 2i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = 3i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SECURITY_QUALITY_OF_SERVICE {
-    pub Length: u32,
-    pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
-    pub ContextTrackingMode: u8,
-    pub EffectiveOnly: super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SECURITY_QUALITY_OF_SERVICE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SECURITY_QUALITY_OF_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub type SEC_THREAD_START = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SE_ACCESS_REPLY {
-    pub Size: u32,
-    pub ResultListCount: u32,
-    pub GrantedAccess: *mut u32,
-    pub AccessStatus: *mut u32,
-    pub AccessReason: *mut ACCESS_REASONS,
-    pub Privileges: *mut *mut PRIVILEGE_SET,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SE_ACCESS_REPLY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SE_ACCESS_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SE_ACCESS_REQUEST {
-    pub Size: u32,
-    pub SeSecurityDescriptor: *mut SE_SECURITY_DESCRIPTOR,
-    pub DesiredAccess: u32,
-    pub PreviouslyGrantedAccess: u32,
-    pub PrincipalSelfSid: super::Foundation::PSID,
-    pub GenericMapping: *mut GENERIC_MAPPING,
-    pub ObjectTypeListCount: u32,
-    pub ObjectTypeList: *mut OBJECT_TYPE_LIST,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SE_ACCESS_REQUEST {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SE_ACCESS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SE_IMPERSONATION_STATE {
-    pub Token: *mut ::core::ffi::c_void,
-    pub CopyOnOpen: super::Foundation::BOOLEAN,
-    pub EffectiveOnly: super::Foundation::BOOLEAN,
-    pub Level: SECURITY_IMPERSONATION_LEVEL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SE_IMPERSONATION_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SE_IMPERSONATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SE_SECURITY_DESCRIPTOR {
-    pub Size: u32,
-    pub Flags: u32,
-    pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
-}
-impl ::core::marker::Copy for SE_SECURITY_DESCRIPTOR {}
-impl ::core::clone::Clone for SE_SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub union SE_SID {
-    pub Sid: SID,
-    pub Buffer: [u8; 68],
-}
-impl ::core::marker::Copy for SE_SID {}
-impl ::core::clone::Clone for SE_SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SID {
-    pub Revision: u8,
-    pub SubAuthorityCount: u8,
-    pub IdentifierAuthority: SID_IDENTIFIER_AUTHORITY,
-    pub SubAuthority: [u32; 1],
-}
-impl ::core::marker::Copy for SID {}
-impl ::core::clone::Clone for SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SID_AND_ATTRIBUTES {
-    pub Sid: super::Foundation::PSID,
-    pub Attributes: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SID_AND_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SID_AND_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SID_AND_ATTRIBUTES_HASH {
-    pub SidCount: u32,
-    pub SidAttr: *mut SID_AND_ATTRIBUTES,
-    pub Hash: [usize; 32],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SID_AND_ATTRIBUTES_HASH {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SID_AND_ATTRIBUTES_HASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SID_IDENTIFIER_AUTHORITY {
-    pub Value: [u8; 6],
-}
-impl ::core::marker::Copy for SID_IDENTIFIER_AUTHORITY {}
-impl ::core::clone::Clone for SID_IDENTIFIER_AUTHORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type SID_NAME_USE = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1668,219 +705,12 @@ pub const SidTypeComputer: SID_NAME_USE = 9i32;
 pub const SidTypeLabel: SID_NAME_USE = 10i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SidTypeLogonSession: SID_NAME_USE = 11i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_ACCESS_FILTER_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_ACCESS_FILTER_ACE {}
-impl ::core::clone::Clone for SYSTEM_ACCESS_FILTER_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_ALARM_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_ALARM_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_ALARM_CALLBACK_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_ALARM_CALLBACK_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_ALARM_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: u32,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_ALARM_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_ALARM_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_AUDIT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_AUDIT_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_AUDIT_CALLBACK_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_AUDIT_CALLBACK_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_AUDIT_OBJECT_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: ::windows_sys::core::GUID,
-    pub InheritedObjectType: ::windows_sys::core::GUID,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_AUDIT_OBJECT_ACE {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type SYSTEM_AUDIT_OBJECT_ACE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_MANDATORY_LABEL_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_MANDATORY_LABEL_ACE {}
-impl ::core::clone::Clone for SYSTEM_MANDATORY_LABEL_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
-impl ::core::clone::Clone for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
-impl ::core::clone::Clone for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
-    pub Header: ACE_HEADER,
-    pub Mask: u32,
-    pub SidStart: u32,
-}
-impl ::core::marker::Copy for SYSTEM_SCOPED_POLICY_ID_ACE {}
-impl ::core::clone::Clone for SYSTEM_SCOPED_POLICY_ID_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_ACCESS_INFORMATION {
-    pub SidHash: *mut SID_AND_ATTRIBUTES_HASH,
-    pub RestrictedSidHash: *mut SID_AND_ATTRIBUTES_HASH,
-    pub Privileges: *mut TOKEN_PRIVILEGES,
-    pub AuthenticationId: super::Foundation::LUID,
-    pub TokenType: TOKEN_TYPE,
-    pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
-    pub MandatoryPolicy: TOKEN_MANDATORY_POLICY,
-    pub Flags: u32,
-    pub AppContainerNumber: u32,
-    pub PackageSid: super::Foundation::PSID,
-    pub CapabilitiesHash: *mut SID_AND_ATTRIBUTES_HASH,
-    pub TrustLevelSid: super::Foundation::PSID,
-    pub SecurityAttributes: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_ACCESS_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_ACCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type TOKEN_ACCESS_MASK = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1925,81 +755,6 @@ pub const TOKEN_ACCESS_PSEUDO_HANDLE_WIN8: TOKEN_ACCESS_MASK = 24u32;
 pub const TOKEN_ACCESS_PSEUDO_HANDLE: TOKEN_ACCESS_MASK = 24u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = 983295u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_APPCONTAINER_INFORMATION {
-    pub TokenAppContainer: super::Foundation::PSID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_APPCONTAINER_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_APPCONTAINER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct TOKEN_AUDIT_POLICY {
-    pub PerUserPolicy: [u8; 30],
-}
-impl ::core::marker::Copy for TOKEN_AUDIT_POLICY {}
-impl ::core::clone::Clone for TOKEN_AUDIT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_CONTROL {
-    pub TokenId: super::Foundation::LUID,
-    pub AuthenticationId: super::Foundation::LUID,
-    pub ModifiedId: super::Foundation::LUID,
-    pub TokenSource: TOKEN_SOURCE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_CONTROL {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct TOKEN_DEFAULT_DACL {
-    pub DefaultDacl: *mut ACL,
-}
-impl ::core::marker::Copy for TOKEN_DEFAULT_DACL {}
-impl ::core::clone::Clone for TOKEN_DEFAULT_DACL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct TOKEN_DEVICE_CLAIMS {
-    pub DeviceClaims: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for TOKEN_DEVICE_CLAIMS {}
-impl ::core::clone::Clone for TOKEN_DEVICE_CLAIMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct TOKEN_ELEVATION {
-    pub TokenIsElevated: u32,
-}
-impl ::core::marker::Copy for TOKEN_ELEVATION {}
-impl ::core::clone::Clone for TOKEN_ELEVATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type TOKEN_ELEVATION_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -2008,44 +763,6 @@ pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = 1i32;
 pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = 2i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = 3i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_GROUPS {
-    pub GroupCount: u32,
-    pub Groups: [SID_AND_ATTRIBUTES; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_GROUPS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_GROUPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_GROUPS_AND_PRIVILEGES {
-    pub SidCount: u32,
-    pub SidLength: u32,
-    pub Sids: *mut SID_AND_ATTRIBUTES,
-    pub RestrictedSidCount: u32,
-    pub RestrictedSidLength: u32,
-    pub RestrictedSids: *mut SID_AND_ATTRIBUTES,
-    pub PrivilegeCount: u32,
-    pub PrivilegeLength: u32,
-    pub Privileges: *mut LUID_AND_ATTRIBUTES,
-    pub AuthenticationId: super::Foundation::LUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_GROUPS_AND_PRIVILEGES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_GROUPS_AND_PRIVILEGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type TOKEN_INFORMATION_CLASS = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -2144,45 +861,6 @@ pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = 46i32;
 pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = 47i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 48i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_LINKED_TOKEN {
-    pub LinkedToken: super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_LINKED_TOKEN {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_LINKED_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_MANDATORY_LABEL {
-    pub Label: SID_AND_ATTRIBUTES,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_MANDATORY_LABEL {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_MANDATORY_LABEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct TOKEN_MANDATORY_POLICY {
-    pub Policy: TOKEN_MANDATORY_POLICY_ID,
-}
-impl ::core::marker::Copy for TOKEN_MANDATORY_POLICY {}
-impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type TOKEN_MANDATORY_POLICY_ID = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -2193,63 +871,6 @@ pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = 1u32;
 pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = 2u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = 3u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_ORIGIN {
-    pub OriginatingLogonSession: super::Foundation::LUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_ORIGIN {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_ORIGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_OWNER {
-    pub Owner: super::Foundation::PSID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_OWNER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_OWNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_PRIMARY_GROUP {
-    pub PrimaryGroup: super::Foundation::PSID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_PRIMARY_GROUP {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_PRIMARY_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_PRIVILEGES {
-    pub PrivilegeCount: u32,
-    pub Privileges: [LUID_AND_ATTRIBUTES; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_PRIVILEGES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_PRIVILEGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type TOKEN_PRIVILEGES_ATTRIBUTES = u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -2260,75 +881,12 @@ pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = 1u32;
 pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = 4u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = 2147483648u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_SOURCE {
-    pub SourceName: [super::Foundation::CHAR; 8],
-    pub SourceIdentifier: super::Foundation::LUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_SOURCE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_STATISTICS {
-    pub TokenId: super::Foundation::LUID,
-    pub AuthenticationId: super::Foundation::LUID,
-    pub ExpirationTime: i64,
-    pub TokenType: TOKEN_TYPE,
-    pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
-    pub DynamicCharged: u32,
-    pub DynamicAvailable: u32,
-    pub GroupCount: u32,
-    pub PrivilegeCount: u32,
-    pub ModifiedId: super::Foundation::LUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_STATISTICS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type TOKEN_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TokenPrimary: TOKEN_TYPE = 1i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TokenImpersonation: TOKEN_TYPE = 2i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOKEN_USER {
-    pub User: SID_AND_ATTRIBUTES,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOKEN_USER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOKEN_USER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub struct TOKEN_USER_CLAIMS {
-    pub UserClaims: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for TOKEN_USER_CLAIMS {}
-impl ::core::clone::Clone for TOKEN_USER_CLAIMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type WELL_KNOWN_SID_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -2571,53 +1129,1099 @@ pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = 117i
 pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = 118i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = 119i32;
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const cwcFILENAMESUFFIXMAX: u32 = 20u32;
+pub struct ACCESS_ALLOWED_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_ALLOWED_ACE {}
+impl ::core::clone::Clone for ACCESS_ALLOWED_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const cwcHRESULTSTRING: u32 = 40u32;
+pub struct ACCESS_ALLOWED_CALLBACK_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_ALLOWED_CALLBACK_ACE {}
+impl ::core::clone::Clone for ACCESS_ALLOWED_CALLBACK_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const szLBRACE: &str = "{";
+pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
+impl ::core::clone::Clone for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const szLPAREN: &str = "(";
+pub struct ACCESS_ALLOWED_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_ALLOWED_OBJECT_ACE {}
+impl ::core::clone::Clone for ACCESS_ALLOWED_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const szRBRACE: &str = "}";
+pub struct ACCESS_DENIED_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_DENIED_ACE {}
+impl ::core::clone::Clone for ACCESS_DENIED_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const szRPAREN: &str = ")";
+pub struct ACCESS_DENIED_CALLBACK_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_DENIED_CALLBACK_ACE {}
+impl ::core::clone::Clone for ACCESS_DENIED_CALLBACK_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszCERTENROLLSHAREPATH: &str = "CertSrv\\CertEnroll";
+pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
+impl ::core::clone::Clone for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_CERTFILENAMESUFFIX: &str = "%4";
+pub struct ACCESS_DENIED_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for ACCESS_DENIED_OBJECT_ACE {}
+impl ::core::clone::Clone for ACCESS_DENIED_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_CONFIGDN: &str = "%6";
+pub struct ACCESS_REASONS {
+    pub Data: [u32; 32],
+}
+impl ::core::marker::Copy for ACCESS_REASONS {}
+impl ::core::clone::Clone for ACCESS_REASONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_CRLDELTAFILENAMESUFFIX: &str = "%9";
+pub struct ACE_HEADER {
+    pub AceType: u8,
+    pub AceFlags: u8,
+    pub AceSize: u16,
+}
+impl ::core::marker::Copy for ACE_HEADER {}
+impl ::core::clone::Clone for ACE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_CRLFILENAMESUFFIX: &str = "%8";
+pub struct ACL {
+    pub AclRevision: u8,
+    pub Sbz1: u8,
+    pub AclSize: u16,
+    pub AceCount: u16,
+    pub Sbz2: u16,
+}
+impl ::core::marker::Copy for ACL {}
+impl ::core::clone::Clone for ACL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_DOMAINDN: &str = "%5";
+pub struct ACL_REVISION_INFORMATION {
+    pub AclRevision: u32,
+}
+impl ::core::marker::Copy for ACL_REVISION_INFORMATION {}
+impl ::core::clone::Clone for ACL_REVISION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_DSCACERTATTRIBUTE: &str = "%11";
+pub struct ACL_SIZE_INFORMATION {
+    pub AceCount: u32,
+    pub AclBytesInUse: u32,
+    pub AclBytesFree: u32,
+}
+impl ::core::marker::Copy for ACL_SIZE_INFORMATION {}
+impl ::core::clone::Clone for ACL_SIZE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_DSCRLATTRIBUTE: &str = "%10";
+pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
+    pub Version: u16,
+    pub Reserved: u16,
+    pub AttributeCount: u32,
+    pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_DSCROSSCERTPAIRATTRIBUTE: &str = "%14";
+pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_DSKRACERTATTRIBUTE: &str = "%13";
+pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    pub Version: u64,
+    pub Name: ::windows_sys::core::PWSTR,
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_DSUSERCERTATTRIBUTE: &str = "%12";
+pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    pub pValue: *mut ::core::ffi::c_void,
+    pub ValueLength: u32,
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_SANITIZEDCANAME: &str = "%3";
+pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
+    pub Name: u32,
+    pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
+    pub Reserved: u16,
+    pub Flags: CLAIM_SECURITY_ATTRIBUTE_FLAGS,
+    pub ValueCount: u32,
+    pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_SANITIZEDCANAMEHASH: &str = "%7";
+pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
+    pub pInt64: [u32; 1],
+    pub pUint64: [u32; 1],
+    pub ppString: [u32; 1],
+    pub pFqbn: [u32; 1],
+    pub pOctetString: [u32; 1],
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_SERVERDNSNAME: &str = "%1";
+pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
+    pub Name: ::windows_sys::core::PWSTR,
+    pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
+    pub Reserved: u16,
+    pub Flags: u32,
+    pub ValueCount: u32,
+    pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszFCSAPARM_SERVERSHORTNAME: &str = "%2";
+pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
+    pub pInt64: *mut i64,
+    pub pUint64: *mut u64,
+    pub ppString: *mut ::windows_sys::core::PWSTR,
+    pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
+    pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
+}
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszLBRACE: &str = "{";
+pub struct GENERIC_MAPPING {
+    pub GenericRead: u32,
+    pub GenericWrite: u32,
+    pub GenericExecute: u32,
+    pub GenericAll: u32,
+}
+impl ::core::marker::Copy for GENERIC_MAPPING {}
+impl ::core::clone::Clone for GENERIC_MAPPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub type HDIAGNOSTIC_DATA_QUERY_SESSION = isize;
+pub type HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_RECORD = isize;
+pub type HDIAGNOSTIC_REPORT = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LLFILETIME {
+    pub Anonymous: LLFILETIME_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LLFILETIME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LLFILETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union LLFILETIME_0 {
+    pub ll: i64,
+    pub ft: super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LLFILETIME_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LLFILETIME_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LUID_AND_ATTRIBUTES {
+    pub Luid: super::Foundation::LUID,
+    pub Attributes: TOKEN_PRIVILEGES_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LUID_AND_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LUID_AND_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub type NCRYPT_DESCRIPTOR_HANDLE = isize;
+pub type NCRYPT_STREAM_HANDLE = isize;
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszLPAREN: &str = "(";
+pub struct OBJECT_TYPE_LIST {
+    pub Level: u16,
+    pub Sbz: u16,
+    pub ObjectType: *mut ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for OBJECT_TYPE_LIST {}
+impl ::core::clone::Clone for OBJECT_TYPE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRIVILEGE_SET {
+    pub PrivilegeCount: u32,
+    pub Control: u32,
+    pub Privilege: [LUID_AND_ATTRIBUTES; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRIVILEGE_SET {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRIVILEGE_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub type PSECURITY_DESCRIPTOR = *mut ::core::ffi::c_void;
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszRBRACE: &str = "}";
+pub struct QUOTA_LIMITS {
+    pub PagedPoolLimit: usize,
+    pub NonPagedPoolLimit: usize,
+    pub MinimumWorkingSetSize: usize,
+    pub MaximumWorkingSetSize: usize,
+    pub PagefileLimit: usize,
+    pub TimeLimit: i64,
+}
+impl ::core::marker::Copy for QUOTA_LIMITS {}
+impl ::core::clone::Clone for QUOTA_LIMITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub type SAFER_LEVEL_HANDLE = isize;
+pub type SC_HANDLE = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SECURITY_ATTRIBUTES {
+    pub nLength: u32,
+    pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub bInheritHandle: super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECURITY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SECURITY_CAPABILITIES {
+    pub AppContainerSid: super::Foundation::PSID,
+    pub Capabilities: *mut SID_AND_ATTRIBUTES,
+    pub CapabilityCount: u32,
+    pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECURITY_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECURITY_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SECURITY_DESCRIPTOR {
+    pub Revision: u8,
+    pub Sbz1: u8,
+    pub Control: u16,
+    pub Owner: super::Foundation::PSID,
+    pub Group: super::Foundation::PSID,
+    pub Sacl: *mut ACL,
+    pub Dacl: *mut ACL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECURITY_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECURITY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SECURITY_QUALITY_OF_SERVICE {
+    pub Length: u32,
+    pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
+    pub ContextTrackingMode: u8,
+    pub EffectiveOnly: super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECURITY_QUALITY_OF_SERVICE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECURITY_QUALITY_OF_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SE_ACCESS_REPLY {
+    pub Size: u32,
+    pub ResultListCount: u32,
+    pub GrantedAccess: *mut u32,
+    pub AccessStatus: *mut u32,
+    pub AccessReason: *mut ACCESS_REASONS,
+    pub Privileges: *mut *mut PRIVILEGE_SET,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SE_ACCESS_REPLY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SE_ACCESS_REPLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SE_ACCESS_REQUEST {
+    pub Size: u32,
+    pub SeSecurityDescriptor: *mut SE_SECURITY_DESCRIPTOR,
+    pub DesiredAccess: u32,
+    pub PreviouslyGrantedAccess: u32,
+    pub PrincipalSelfSid: super::Foundation::PSID,
+    pub GenericMapping: *mut GENERIC_MAPPING,
+    pub ObjectTypeListCount: u32,
+    pub ObjectTypeList: *mut OBJECT_TYPE_LIST,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SE_ACCESS_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SE_ACCESS_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SE_IMPERSONATION_STATE {
+    pub Token: *mut ::core::ffi::c_void,
+    pub CopyOnOpen: super::Foundation::BOOLEAN,
+    pub EffectiveOnly: super::Foundation::BOOLEAN,
+    pub Level: SECURITY_IMPERSONATION_LEVEL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SE_IMPERSONATION_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SE_IMPERSONATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const wszRPAREN: &str = ")";
+pub struct SE_SECURITY_DESCRIPTOR {
+    pub Size: u32,
+    pub Flags: u32,
+    pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
+}
+impl ::core::marker::Copy for SE_SECURITY_DESCRIPTOR {}
+impl ::core::clone::Clone for SE_SECURITY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub union SE_SID {
+    pub Sid: SID,
+    pub Buffer: [u8; 68],
+}
+impl ::core::marker::Copy for SE_SID {}
+impl ::core::clone::Clone for SE_SID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SID {
+    pub Revision: u8,
+    pub SubAuthorityCount: u8,
+    pub IdentifierAuthority: SID_IDENTIFIER_AUTHORITY,
+    pub SubAuthority: [u32; 1],
+}
+impl ::core::marker::Copy for SID {}
+impl ::core::clone::Clone for SID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SID_AND_ATTRIBUTES {
+    pub Sid: super::Foundation::PSID,
+    pub Attributes: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SID_AND_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SID_AND_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SID_AND_ATTRIBUTES_HASH {
+    pub SidCount: u32,
+    pub SidAttr: *mut SID_AND_ATTRIBUTES,
+    pub Hash: [usize; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SID_AND_ATTRIBUTES_HASH {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SID_AND_ATTRIBUTES_HASH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SID_IDENTIFIER_AUTHORITY {
+    pub Value: [u8; 6],
+}
+impl ::core::marker::Copy for SID_IDENTIFIER_AUTHORITY {}
+impl ::core::clone::Clone for SID_IDENTIFIER_AUTHORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_ACCESS_FILTER_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_ACCESS_FILTER_ACE {}
+impl ::core::clone::Clone for SYSTEM_ACCESS_FILTER_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_ALARM_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_ALARM_ACE {}
+impl ::core::clone::Clone for SYSTEM_ALARM_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_ALARM_CALLBACK_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_ALARM_CALLBACK_ACE {}
+impl ::core::clone::Clone for SYSTEM_ALARM_CALLBACK_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
+impl ::core::clone::Clone for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_ALARM_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: u32,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_ALARM_OBJECT_ACE {}
+impl ::core::clone::Clone for SYSTEM_ALARM_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_AUDIT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_AUDIT_ACE {}
+impl ::core::clone::Clone for SYSTEM_AUDIT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_AUDIT_CALLBACK_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_AUDIT_CALLBACK_ACE {}
+impl ::core::clone::Clone for SYSTEM_AUDIT_CALLBACK_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
+impl ::core::clone::Clone for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_AUDIT_OBJECT_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub Flags: SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: ::windows_sys::core::GUID,
+    pub InheritedObjectType: ::windows_sys::core::GUID,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_AUDIT_OBJECT_ACE {}
+impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_MANDATORY_LABEL_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_MANDATORY_LABEL_ACE {}
+impl ::core::clone::Clone for SYSTEM_MANDATORY_LABEL_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
+impl ::core::clone::Clone for SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
+impl ::core::clone::Clone for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl ::core::marker::Copy for SYSTEM_SCOPED_POLICY_ID_ACE {}
+impl ::core::clone::Clone for SYSTEM_SCOPED_POLICY_ID_ACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_ACCESS_INFORMATION {
+    pub SidHash: *mut SID_AND_ATTRIBUTES_HASH,
+    pub RestrictedSidHash: *mut SID_AND_ATTRIBUTES_HASH,
+    pub Privileges: *mut TOKEN_PRIVILEGES,
+    pub AuthenticationId: super::Foundation::LUID,
+    pub TokenType: TOKEN_TYPE,
+    pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
+    pub MandatoryPolicy: TOKEN_MANDATORY_POLICY,
+    pub Flags: u32,
+    pub AppContainerNumber: u32,
+    pub PackageSid: super::Foundation::PSID,
+    pub CapabilitiesHash: *mut SID_AND_ATTRIBUTES_HASH,
+    pub TrustLevelSid: super::Foundation::PSID,
+    pub SecurityAttributes: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_ACCESS_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_ACCESS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_APPCONTAINER_INFORMATION {
+    pub TokenAppContainer: super::Foundation::PSID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_APPCONTAINER_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_APPCONTAINER_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct TOKEN_AUDIT_POLICY {
+    pub PerUserPolicy: [u8; 30],
+}
+impl ::core::marker::Copy for TOKEN_AUDIT_POLICY {}
+impl ::core::clone::Clone for TOKEN_AUDIT_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_CONTROL {
+    pub TokenId: super::Foundation::LUID,
+    pub AuthenticationId: super::Foundation::LUID,
+    pub ModifiedId: super::Foundation::LUID,
+    pub TokenSource: TOKEN_SOURCE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_CONTROL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct TOKEN_DEFAULT_DACL {
+    pub DefaultDacl: *mut ACL,
+}
+impl ::core::marker::Copy for TOKEN_DEFAULT_DACL {}
+impl ::core::clone::Clone for TOKEN_DEFAULT_DACL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct TOKEN_DEVICE_CLAIMS {
+    pub DeviceClaims: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for TOKEN_DEVICE_CLAIMS {}
+impl ::core::clone::Clone for TOKEN_DEVICE_CLAIMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct TOKEN_ELEVATION {
+    pub TokenIsElevated: u32,
+}
+impl ::core::marker::Copy for TOKEN_ELEVATION {}
+impl ::core::clone::Clone for TOKEN_ELEVATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_GROUPS {
+    pub GroupCount: u32,
+    pub Groups: [SID_AND_ATTRIBUTES; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_GROUPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_GROUPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_GROUPS_AND_PRIVILEGES {
+    pub SidCount: u32,
+    pub SidLength: u32,
+    pub Sids: *mut SID_AND_ATTRIBUTES,
+    pub RestrictedSidCount: u32,
+    pub RestrictedSidLength: u32,
+    pub RestrictedSids: *mut SID_AND_ATTRIBUTES,
+    pub PrivilegeCount: u32,
+    pub PrivilegeLength: u32,
+    pub Privileges: *mut LUID_AND_ATTRIBUTES,
+    pub AuthenticationId: super::Foundation::LUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_GROUPS_AND_PRIVILEGES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_GROUPS_AND_PRIVILEGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_LINKED_TOKEN {
+    pub LinkedToken: super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_LINKED_TOKEN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_LINKED_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_MANDATORY_LABEL {
+    pub Label: SID_AND_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_MANDATORY_LABEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_MANDATORY_LABEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct TOKEN_MANDATORY_POLICY {
+    pub Policy: TOKEN_MANDATORY_POLICY_ID,
+}
+impl ::core::marker::Copy for TOKEN_MANDATORY_POLICY {}
+impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_ORIGIN {
+    pub OriginatingLogonSession: super::Foundation::LUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_ORIGIN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_OWNER {
+    pub Owner: super::Foundation::PSID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_OWNER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_OWNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_PRIMARY_GROUP {
+    pub PrimaryGroup: super::Foundation::PSID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_PRIMARY_GROUP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_PRIMARY_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_PRIVILEGES {
+    pub PrivilegeCount: u32,
+    pub Privileges: [LUID_AND_ATTRIBUTES; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_PRIVILEGES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_PRIVILEGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_SOURCE {
+    pub SourceName: [super::Foundation::CHAR; 8],
+    pub SourceIdentifier: super::Foundation::LUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_SOURCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_STATISTICS {
+    pub TokenId: super::Foundation::LUID,
+    pub AuthenticationId: super::Foundation::LUID,
+    pub ExpirationTime: i64,
+    pub TokenType: TOKEN_TYPE,
+    pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
+    pub DynamicCharged: u32,
+    pub DynamicAvailable: u32,
+    pub GroupCount: u32,
+    pub PrivilegeCount: u32,
+    pub ModifiedId: super::Foundation::LUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_STATISTICS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_USER {
+    pub User: SID_AND_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_USER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_USER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct TOKEN_USER_CLAIMS {
+    pub UserClaims: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for TOKEN_USER_CLAIMS {}
+impl ::core::clone::Clone for TOKEN_USER_CLAIMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub type SEC_THREAD_START = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;

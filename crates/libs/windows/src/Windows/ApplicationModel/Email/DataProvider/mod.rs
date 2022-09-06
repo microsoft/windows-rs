@@ -1,3 +1,772 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailDataProviderConnection(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailDataProviderConnection {
+    type Vtable = IEmailDataProviderConnection_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailDataProviderConnection_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub MailboxSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MailboxSyncRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveMailboxSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveMailboxSyncRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub DownloadMessageRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DownloadMessageRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDownloadMessageRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDownloadMessageRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub DownloadAttachmentRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DownloadAttachmentRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDownloadAttachmentRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDownloadAttachmentRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub CreateFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveCreateFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveCreateFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub DeleteFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DeleteFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDeleteFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDeleteFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub EmptyFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    EmptyFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveEmptyFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveEmptyFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub MoveFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MoveFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveMoveFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveMoveFolderRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub UpdateMeetingResponseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    UpdateMeetingResponseRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveUpdateMeetingResponseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveUpdateMeetingResponseRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub ForwardMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ForwardMeetingRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveForwardMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveForwardMeetingRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub ProposeNewTimeForMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ProposeNewTimeForMeetingRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveProposeNewTimeForMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveProposeNewTimeForMeetingRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetAutoReplySettingsRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveSetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveSetAutoReplySettingsRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetAutoReplySettingsRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveGetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveGetAutoReplySettingsRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub ResolveRecipientsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ResolveRecipientsRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveResolveRecipientsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveResolveRecipientsRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub ValidateCertificatesRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ValidateCertificatesRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveValidateCertificatesRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveValidateCertificatesRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub ServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ServerSearchReadBatchRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveServerSearchReadBatchRequested: usize,
+    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailDataProviderTriggerDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailDataProviderTriggerDetails {
+    type Vtable = IEmailDataProviderTriggerDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f3e4e50_341e_45f3_bba0_84a005e1319a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailDataProviderTriggerDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxCreateFolderRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxCreateFolderRequest {
+    type Vtable = IEmailMailboxCreateFolderRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x184d3775_c921_4c39_a309_e16c9f22b04b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxCreateFolderRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ParentFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: super::EmailMailboxCreateFolderStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxCreateFolderRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxCreateFolderRequestEventArgs {
+    type Vtable = IEmailMailboxCreateFolderRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxCreateFolderRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxDeleteFolderRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxDeleteFolderRequest {
+    type Vtable = IEmailMailboxDeleteFolderRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9469e88a_a931_4779_923d_09a3ea292e29);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxDeleteFolderRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: super::EmailMailboxDeleteFolderStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxDeleteFolderRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxDeleteFolderRequestEventArgs {
+    type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4d32d06_2332_4678_8378_28b579336846);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxDeleteFolderRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxDownloadAttachmentRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxDownloadAttachmentRequest {
+    type Vtable = IEmailMailboxDownloadAttachmentRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxDownloadAttachmentRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailAttachmentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxDownloadAttachmentRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxDownloadAttachmentRequestEventArgs {
+    type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxDownloadMessageRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxDownloadMessageRequest {
+    type Vtable = IEmailMailboxDownloadMessageRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497b4187_5b4d_4b23_816c_f3842beb753e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxDownloadMessageRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxDownloadMessageRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxDownloadMessageRequestEventArgs {
+    type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470409ad_d0a0_4a5b_bb2a_37621039c53e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxDownloadMessageRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxEmptyFolderRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxEmptyFolderRequest {
+    type Vtable = IEmailMailboxEmptyFolderRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxEmptyFolderRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: super::EmailMailboxEmptyFolderStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxEmptyFolderRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxEmptyFolderRequestEventArgs {
+    type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxEmptyFolderRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxForwardMeetingRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxForwardMeetingRequest {
+    type Vtable = IEmailMailboxForwardMeetingRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616d6af1_70d4_4832_b869_b80542ae9be8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxForwardMeetingRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Recipients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Recipients: usize,
+    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ForwardHeaderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMessageBodyKind) -> ::windows::core::HRESULT,
+    pub ForwardHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxForwardMeetingRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxForwardMeetingRequestEventArgs {
+    type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxForwardMeetingRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxGetAutoReplySettingsRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxGetAutoReplySettingsRequest {
+    type Vtable = IEmailMailboxGetAutoReplySettingsRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxGetAutoReplySettingsRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub RequestedFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoreplysettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
+    type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd79f55c2_fd45_4004_8a91_9bacf38b7022);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxMoveFolderRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxMoveFolderRequest {
+    type Vtable = IEmailMailboxMoveFolderRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ba2856_4a95_4068_91cc_67cc7acf454f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxMoveFolderRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub NewParentFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub NewFolderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxMoveFolderRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxMoveFolderRequestEventArgs {
+    type Vtable = IEmailMailboxMoveFolderRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38623020_14ba_4c88_8698_7239e3c8aaa7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxMoveFolderRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxProposeNewTimeForMeetingRequest {
+    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aeff152_9799_4f9f_a399_ff07f3eef04e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub NewStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    NewStartTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub NewDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    NewDuration: usize,
+    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
+    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb480b98_33ad_4a67_8251_0f9c249b6a20);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxResolveRecipientsRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxResolveRecipientsRequest {
+    type Vtable = IEmailMailboxResolveRecipientsRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxResolveRecipientsRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Recipients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Recipients: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolutionresults: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxResolveRecipientsRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxResolveRecipientsRequestEventArgs {
+    type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxServerSearchReadBatchRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxServerSearchReadBatchRequest {
+    type Vtable = IEmailMailboxServerSearchReadBatchRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxServerSearchReadBatchRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SuggestedBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SaveMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SaveMessageAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchstatus: super::EmailBatchStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxServerSearchReadBatchRequestEventArgs {
+    type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxSetAutoReplySettingsRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxSetAutoReplySettingsRequest {
+    type Vtable = IEmailMailboxSetAutoReplySettingsRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a422d0_a88e_4e54_8dc7_c243186b774e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxSetAutoReplySettingsRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AutoReplySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
+    type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09da11ad_d7ca_4087_ac86_53fa67f76246);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxSyncManagerSyncRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxSyncManagerSyncRequest {
+    type Vtable = IEmailMailboxSyncManagerSyncRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e10e8e4_7e67_405a_b673_dc60c91090fc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxSyncManagerSyncRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxSyncManagerSyncRequestEventArgs {
+    type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxUpdateMeetingResponseRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxUpdateMeetingResponseRequest {
+    type Vtable = IEmailMailboxUpdateMeetingResponseRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxUpdateMeetingResponseRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Response: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMeetingResponseType) -> ::windows::core::HRESULT,
+    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SendUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
+    type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6898d761_56c9_4f17_be31_66fda94ba159);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxValidateCertificatesRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxValidateCertificatesRequest {
+    type Vtable = IEmailMailboxValidateCertificatesRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94d3931_e11a_4f97_b81a_187a70a8f41a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxValidateCertificatesRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    Certificates: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, validationstatuses: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEmailMailboxValidateCertificatesRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEmailMailboxValidateCertificatesRequestEventArgs {
+    type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2583bf17_02ff_49fe_a73c_03f37566c691);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailDataProviderConnection(::windows::core::IUnknown);
@@ -3312,774 +4081,5 @@ impl ::core::convert::From<&EmailMailboxValidateCertificatesRequestEventArgs> fo
 }
 unsafe impl ::core::marker::Send for EmailMailboxValidateCertificatesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequestEventArgs {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailDataProviderConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailDataProviderConnection {
-    type Vtable = IEmailDataProviderConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailDataProviderConnection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub MailboxSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MailboxSyncRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveMailboxSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMailboxSyncRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub DownloadMessageRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DownloadMessageRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDownloadMessageRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDownloadMessageRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub DownloadAttachmentRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DownloadAttachmentRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDownloadAttachmentRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDownloadAttachmentRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub CreateFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveCreateFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCreateFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub DeleteFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DeleteFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDeleteFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDeleteFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub EmptyFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EmptyFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveEmptyFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveEmptyFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub MoveFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MoveFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveMoveFolderRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMoveFolderRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub UpdateMeetingResponseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UpdateMeetingResponseRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveUpdateMeetingResponseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveUpdateMeetingResponseRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub ForwardMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ForwardMeetingRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveForwardMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveForwardMeetingRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub ProposeNewTimeForMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ProposeNewTimeForMeetingRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveProposeNewTimeForMeetingRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveProposeNewTimeForMeetingRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetAutoReplySettingsRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveSetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSetAutoReplySettingsRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetAutoReplySettingsRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveGetAutoReplySettingsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveGetAutoReplySettingsRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub ResolveRecipientsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ResolveRecipientsRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveResolveRecipientsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveResolveRecipientsRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub ValidateCertificatesRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidateCertificatesRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveValidateCertificatesRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveValidateCertificatesRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub ServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ServerSearchReadBatchRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveServerSearchReadBatchRequested: usize,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailDataProviderTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailDataProviderTriggerDetails {
-    type Vtable = IEmailDataProviderTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f3e4e50_341e_45f3_bba0_84a005e1319a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailDataProviderTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxCreateFolderRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxCreateFolderRequest {
-    type Vtable = IEmailMailboxCreateFolderRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x184d3775_c921_4c39_a309_e16c9f22b04b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxCreateFolderRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ParentFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: super::EmailMailboxCreateFolderStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxCreateFolderRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxCreateFolderRequestEventArgs {
-    type Vtable = IEmailMailboxCreateFolderRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxCreateFolderRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxDeleteFolderRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxDeleteFolderRequest {
-    type Vtable = IEmailMailboxDeleteFolderRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9469e88a_a931_4779_923d_09a3ea292e29);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxDeleteFolderRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: super::EmailMailboxDeleteFolderStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxDeleteFolderRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxDeleteFolderRequestEventArgs {
-    type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4d32d06_2332_4678_8378_28b579336846);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxDeleteFolderRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxDownloadAttachmentRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxDownloadAttachmentRequest {
-    type Vtable = IEmailMailboxDownloadAttachmentRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxDownloadAttachmentRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailAttachmentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxDownloadAttachmentRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxDownloadAttachmentRequestEventArgs {
-    type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxDownloadMessageRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxDownloadMessageRequest {
-    type Vtable = IEmailMailboxDownloadMessageRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497b4187_5b4d_4b23_816c_f3842beb753e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxDownloadMessageRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxDownloadMessageRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxDownloadMessageRequestEventArgs {
-    type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470409ad_d0a0_4a5b_bb2a_37621039c53e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxDownloadMessageRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxEmptyFolderRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxEmptyFolderRequest {
-    type Vtable = IEmailMailboxEmptyFolderRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxEmptyFolderRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: super::EmailMailboxEmptyFolderStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxEmptyFolderRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxEmptyFolderRequestEventArgs {
-    type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxEmptyFolderRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxForwardMeetingRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxForwardMeetingRequest {
-    type Vtable = IEmailMailboxForwardMeetingRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616d6af1_70d4_4832_b869_b80542ae9be8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxForwardMeetingRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Recipients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Recipients: usize,
-    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ForwardHeaderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMessageBodyKind) -> ::windows::core::HRESULT,
-    pub ForwardHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxForwardMeetingRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxForwardMeetingRequestEventArgs {
-    type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxForwardMeetingRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxGetAutoReplySettingsRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxGetAutoReplySettingsRequest {
-    type Vtable = IEmailMailboxGetAutoReplySettingsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxGetAutoReplySettingsRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub RequestedFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoreplysettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
-    type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd79f55c2_fd45_4004_8a91_9bacf38b7022);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxMoveFolderRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxMoveFolderRequest {
-    type Vtable = IEmailMailboxMoveFolderRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ba2856_4a95_4068_91cc_67cc7acf454f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxMoveFolderRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub NewParentFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub NewFolderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxMoveFolderRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxMoveFolderRequestEventArgs {
-    type Vtable = IEmailMailboxMoveFolderRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38623020_14ba_4c88_8698_7239e3c8aaa7);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxMoveFolderRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxProposeNewTimeForMeetingRequest {
-    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aeff152_9799_4f9f_a399_ff07f3eef04e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub NewStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    NewStartTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub NewDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    NewDuration: usize,
-    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb480b98_33ad_4a67_8251_0f9c249b6a20);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxResolveRecipientsRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxResolveRecipientsRequest {
-    type Vtable = IEmailMailboxResolveRecipientsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxResolveRecipientsRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Recipients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Recipients: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolutionresults: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxResolveRecipientsRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxResolveRecipientsRequestEventArgs {
-    type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxServerSearchReadBatchRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxServerSearchReadBatchRequest {
-    type Vtable = IEmailMailboxServerSearchReadBatchRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxServerSearchReadBatchRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SuggestedBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SaveMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SaveMessageAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchstatus: super::EmailBatchStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxServerSearchReadBatchRequestEventArgs {
-    type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxSetAutoReplySettingsRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxSetAutoReplySettingsRequest {
-    type Vtable = IEmailMailboxSetAutoReplySettingsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a422d0_a88e_4e54_8dc7_c243186b774e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxSetAutoReplySettingsRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AutoReplySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
-    type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09da11ad_d7ca_4087_ac86_53fa67f76246);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxSyncManagerSyncRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxSyncManagerSyncRequest {
-    type Vtable = IEmailMailboxSyncManagerSyncRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e10e8e4_7e67_405a_b673_dc60c91090fc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxSyncManagerSyncRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxSyncManagerSyncRequestEventArgs {
-    type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxUpdateMeetingResponseRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxUpdateMeetingResponseRequest {
-    type Vtable = IEmailMailboxUpdateMeetingResponseRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxUpdateMeetingResponseRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Response: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMeetingResponseType) -> ::windows::core::HRESULT,
-    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SendUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
-    type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6898d761_56c9_4f17_be31_66fda94ba159);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxValidateCertificatesRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxValidateCertificatesRequest {
-    type Vtable = IEmailMailboxValidateCertificatesRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94d3931_e11a_4f97_b81a_187a70a8f41a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxValidateCertificatesRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
-    Certificates: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, validationstatuses: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEmailMailboxValidateCertificatesRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEmailMailboxValidateCertificatesRequestEventArgs {
-    type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2583bf17_02ff_49fe_a73c_03f37566c691);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

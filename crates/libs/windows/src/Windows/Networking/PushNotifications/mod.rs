@@ -736,43 +736,6 @@ unsafe impl ::core::marker::Send for PushNotificationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PushNotificationType(pub i32);
-impl PushNotificationType {
-    pub const Toast: Self = Self(0i32);
-    pub const Tile: Self = Self(1i32);
-    pub const Badge: Self = Self(2i32);
-    pub const Raw: Self = Self(3i32);
-    pub const TileFlyout: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PushNotificationType {}
-impl ::core::clone::Clone for PushNotificationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PushNotificationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PushNotificationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PushNotificationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PushNotificationType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PushNotificationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
-#[repr(transparent)]
 pub struct RawNotification(::windows::core::IUnknown);
 impl RawNotification {
     pub fn Content(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -870,5 +833,42 @@ impl ::core::convert::From<&RawNotification> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for RawNotification {}
 unsafe impl ::core::marker::Sync for RawNotification {}
+#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PushNotificationType(pub i32);
+impl PushNotificationType {
+    pub const Toast: Self = Self(0i32);
+    pub const Tile: Self = Self(1i32);
+    pub const Badge: Self = Self(2i32);
+    pub const Raw: Self = Self(3i32);
+    pub const TileFlyout: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PushNotificationType {}
+impl ::core::clone::Clone for PushNotificationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PushNotificationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PushNotificationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PushNotificationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PushNotificationType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PushNotificationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

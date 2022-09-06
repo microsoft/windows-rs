@@ -2548,6 +2548,16 @@ pub const UIAnimationTransitionFactory2: ::windows::core::GUID = ::windows::core
 pub const UIAnimationTransitionLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
 pub const UIAnimationTransitionLibrary2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
+pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
+pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
+pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2i32;
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
+pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
+pub const UI_ANIMATION_SECONDS_INFINITE: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_DEPENDENCIES(pub u32);
@@ -2635,33 +2645,6 @@ impl ::core::fmt::Debug for UI_ANIMATION_IDLE_BEHAVIOR {
         f.debug_tuple("UI_ANIMATION_IDLE_BEHAVIOR").field(&self.0).finish()
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UI_ANIMATION_KEYFRAME(pub isize);
-impl ::core::default::Default for UI_ANIMATION_KEYFRAME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for UI_ANIMATION_KEYFRAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for UI_ANIMATION_KEYFRAME {}
-impl ::core::fmt::Debug for UI_ANIMATION_KEYFRAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_KEYFRAME").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<UI_ANIMATION_KEYFRAME>> for UI_ANIMATION_KEYFRAME {
-    fn from(optional: ::core::option::Option<UI_ANIMATION_KEYFRAME>) -> UI_ANIMATION_KEYFRAME {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {
-    type Abi = Self;
-}
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2745,12 +2728,6 @@ impl ::core::fmt::Debug for UI_ANIMATION_PRIORITY_EFFECT {
         f.debug_tuple("UI_ANIMATION_PRIORITY_EFFECT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2840,10 +2817,6 @@ impl ::core::fmt::Debug for UI_ANIMATION_SCHEDULING_RESULT {
         f.debug_tuple("UI_ANIMATION_SCHEDULING_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-pub const UI_ANIMATION_SECONDS_INFINITE: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2963,6 +2936,33 @@ impl ::core::fmt::Debug for UI_ANIMATION_UPDATE_RESULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UI_ANIMATION_UPDATE_RESULT").field(&self.0).finish()
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UI_ANIMATION_KEYFRAME(pub isize);
+impl ::core::default::Default for UI_ANIMATION_KEYFRAME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for UI_ANIMATION_KEYFRAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for UI_ANIMATION_KEYFRAME {}
+impl ::core::fmt::Debug for UI_ANIMATION_KEYFRAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_KEYFRAME").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<UI_ANIMATION_KEYFRAME>> for UI_ANIMATION_KEYFRAME {
+    fn from(optional: ::core::option::Option<UI_ANIMATION_KEYFRAME>) -> UI_ANIMATION_KEYFRAME {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {
+    type Abi = Self;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

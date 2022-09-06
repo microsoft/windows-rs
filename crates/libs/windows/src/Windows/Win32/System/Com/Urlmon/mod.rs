@@ -1,724 +1,4 @@
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHENTICATEF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = AUTHENTICATEF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = AUTHENTICATEF(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = AUTHENTICATEF(4i32);
-impl ::core::marker::Copy for AUTHENTICATEF {}
-impl ::core::clone::Clone for AUTHENTICATEF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHENTICATEF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHENTICATEF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHENTICATEF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHENTICATEF").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_ASYNCHRONOUS: BINDF = BINDF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_ASYNCSTORAGE: BINDF = BINDF(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_NOPROGRESSIVERENDERING: BINDF = BINDF(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_OFFLINEOPERATION: BINDF = BINDF(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_GETNEWESTVERSION: BINDF = BINDF(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_NOWRITECACHE: BINDF = BINDF(32i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_NEEDFILE: BINDF = BINDF(64i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_PULLDATA: BINDF = BINDF(128i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_IGNORESECURITYPROBLEM: BINDF = BINDF(256i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESYNCHRONIZE: BINDF = BINDF(512i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_HYPERLINK: BINDF = BINDF(1024i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_NO_UI: BINDF = BINDF(2048i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_SILENTOPERATION: BINDF = BINDF(4096i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_PRAGMA_NO_CACHE: BINDF = BINDF(8192i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_GETCLASSOBJECT: BINDF = BINDF(16384i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_1: BINDF = BINDF(32768i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_FREE_THREADED: BINDF = BINDF(65536i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_DIRECT_READ: BINDF = BINDF(131072i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_FORMS_SUBMIT: BINDF = BINDF(262144i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_GETFROMCACHE_IF_NET_FAIL: BINDF = BINDF(524288i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_FROMURLMON: BINDF = BINDF(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_FWD_BACK: BINDF = BINDF(2097152i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_PREFERDEFAULTHANDLER: BINDF = BINDF(4194304i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_ENFORCERESTRICTED: BINDF = BINDF(8388608i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_2: BINDF = BINDF(-2147483648i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_3: BINDF = BINDF(16777216i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_4: BINDF = BINDF(33554432i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_5: BINDF = BINDF(67108864i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_6: BINDF = BINDF(134217728i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_7: BINDF = BINDF(1073741824i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF_RESERVED_8: BINDF = BINDF(536870912i32);
-impl ::core::marker::Copy for BINDF {}
-impl ::core::clone::Clone for BINDF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDF").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDF2(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_DISABLEBASICOVERHTTP: BINDF2 = BINDF2(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_DISABLEAUTOCOOKIEHANDLING: BINDF2 = BINDF2(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_READ_DATA_GREATER_THAN_4GB: BINDF2 = BINDF2(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_DISABLE_HTTP_REDIRECT_XSECURITYID: BINDF2 = BINDF2(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_SETDOWNLOADMODE: BINDF2 = BINDF2(32i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_DISABLE_HTTP_REDIRECT_CACHING: BINDF2 = BINDF2(64i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_KEEP_CALLBACK_MODULE_LOADED: BINDF2 = BINDF2(128i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_ALLOW_PROXY_CRED_PROMPT: BINDF2 = BINDF2(256i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_17: BINDF2 = BINDF2(512i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_16: BINDF2 = BINDF2(1024i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_15: BINDF2 = BINDF2(2048i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_14: BINDF2 = BINDF2(4096i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_13: BINDF2 = BINDF2(8192i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_12: BINDF2 = BINDF2(16384i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_11: BINDF2 = BINDF2(32768i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_10: BINDF2 = BINDF2(65536i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_F: BINDF2 = BINDF2(131072i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_E: BINDF2 = BINDF2(262144i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_D: BINDF2 = BINDF2(524288i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_C: BINDF2 = BINDF2(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_B: BINDF2 = BINDF2(2097152i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_A: BINDF2 = BINDF2(4194304i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_9: BINDF2 = BINDF2(8388608i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_8: BINDF2 = BINDF2(16777216i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_7: BINDF2 = BINDF2(33554432i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_6: BINDF2 = BINDF2(67108864i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_5: BINDF2 = BINDF2(134217728i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_4: BINDF2 = BINDF2(268435456i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_3: BINDF2 = BINDF2(536870912i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_2: BINDF2 = BINDF2(1073741824i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDF2_RESERVED_1: BINDF2 = BINDF2(-2147483648i32);
-impl ::core::marker::Copy for BINDF2 {}
-impl ::core::clone::Clone for BINDF2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDF2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDF2 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDF2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDF2").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDHANDLETYPES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = BINDHANDLETYPES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDHANDLETYPES_DEPENDENCY: BINDHANDLETYPES = BINDHANDLETYPES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDHANDLETYPES_COUNT: BINDHANDLETYPES = BINDHANDLETYPES(2i32);
-impl ::core::marker::Copy for BINDHANDLETYPES {}
-impl ::core::clone::Clone for BINDHANDLETYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDHANDLETYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDHANDLETYPES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDHANDLETYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDHANDLETYPES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDINFO_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_WININETFLAG: BINDINFO_OPTIONS = BINDINFO_OPTIONS(65536i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_ENABLE_UTF8: BINDINFO_OPTIONS = BINDINFO_OPTIONS(131072i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_DISABLE_UTF8: BINDINFO_OPTIONS = BINDINFO_OPTIONS(262144i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_USE_IE_ENCODING: BINDINFO_OPTIONS = BINDINFO_OPTIONS(524288i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_BINDTOOBJECT: BINDINFO_OPTIONS = BINDINFO_OPTIONS(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_SECURITYOPTOUT: BINDINFO_OPTIONS = BINDINFO_OPTIONS(2097152i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_IGNOREMIMETEXTPLAIN: BINDINFO_OPTIONS = BINDINFO_OPTIONS(4194304i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_USEBINDSTRINGCREDS: BINDINFO_OPTIONS = BINDINFO_OPTIONS(8388608i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_IGNOREHTTPHTTPSREDIRECTS: BINDINFO_OPTIONS = BINDINFO_OPTIONS(16777216i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_IGNORE_SSLERRORS_ONCE: BINDINFO_OPTIONS = BINDINFO_OPTIONS(33554432i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_WPC_DOWNLOADBLOCKED: BINDINFO_OPTIONS = BINDINFO_OPTIONS(134217728i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_WPC_LOGGING_ENABLED: BINDINFO_OPTIONS = BINDINFO_OPTIONS(268435456i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_ALLOWCONNECTDATA: BINDINFO_OPTIONS = BINDINFO_OPTIONS(536870912i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_DISABLEAUTOREDIRECTS: BINDINFO_OPTIONS = BINDINFO_OPTIONS(1073741824i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDINFO_OPTIONS_SHDOCVW_NAVIGATE: BINDINFO_OPTIONS = BINDINFO_OPTIONS(-2147483648i32);
-impl ::core::marker::Copy for BINDINFO_OPTIONS {}
-impl ::core::clone::Clone for BINDINFO_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDINFO_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDINFO_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDINFO_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDINFO_OPTIONS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDSTATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_FINDINGRESOURCE: BINDSTATUS = BINDSTATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CONNECTING: BINDSTATUS = BINDSTATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_REDIRECTING: BINDSTATUS = BINDSTATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_BEGINDOWNLOADDATA: BINDSTATUS = BINDSTATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_DOWNLOADINGDATA: BINDSTATUS = BINDSTATUS(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_ENDDOWNLOADDATA: BINDSTATUS = BINDSTATUS(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_BEGINDOWNLOADCOMPONENTS: BINDSTATUS = BINDSTATUS(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_INSTALLINGCOMPONENTS: BINDSTATUS = BINDSTATUS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_ENDDOWNLOADCOMPONENTS: BINDSTATUS = BINDSTATUS(9i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_USINGCACHEDCOPY: BINDSTATUS = BINDSTATUS(10i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_SENDINGREQUEST: BINDSTATUS = BINDSTATUS(11i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CLASSIDAVAILABLE: BINDSTATUS = BINDSTATUS(12i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_MIMETYPEAVAILABLE: BINDSTATUS = BINDSTATUS(13i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CACHEFILENAMEAVAILABLE: BINDSTATUS = BINDSTATUS(14i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_BEGINSYNCOPERATION: BINDSTATUS = BINDSTATUS(15i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_ENDSYNCOPERATION: BINDSTATUS = BINDSTATUS(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_BEGINUPLOADDATA: BINDSTATUS = BINDSTATUS(17i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_UPLOADINGDATA: BINDSTATUS = BINDSTATUS(18i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_ENDUPLOADDATA: BINDSTATUS = BINDSTATUS(19i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_PROTOCOLCLASSID: BINDSTATUS = BINDSTATUS(20i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_ENCODING: BINDSTATUS = BINDSTATUS(21i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_VERIFIEDMIMETYPEAVAILABLE: BINDSTATUS = BINDSTATUS(22i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CLASSINSTALLLOCATION: BINDSTATUS = BINDSTATUS(23i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_DECODING: BINDSTATUS = BINDSTATUS(24i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_LOADINGMIMEHANDLER: BINDSTATUS = BINDSTATUS(25i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CONTENTDISPOSITIONATTACH: BINDSTATUS = BINDSTATUS(26i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_FILTERREPORTMIMETYPE: BINDSTATUS = BINDSTATUS(27i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CLSIDCANINSTANTIATE: BINDSTATUS = BINDSTATUS(28i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_IUNKNOWNAVAILABLE: BINDSTATUS = BINDSTATUS(29i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_DIRECTBIND: BINDSTATUS = BINDSTATUS(30i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RAWMIMETYPE: BINDSTATUS = BINDSTATUS(31i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_PROXYDETECTING: BINDSTATUS = BINDSTATUS(32i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_ACCEPTRANGES: BINDSTATUS = BINDSTATUS(33i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_SENT: BINDSTATUS = BINDSTATUS(34i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COMPACT_POLICY_RECEIVED: BINDSTATUS = BINDSTATUS(35i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_SUPPRESSED: BINDSTATUS = BINDSTATUS(36i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_STATE_UNKNOWN: BINDSTATUS = BINDSTATUS(37i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_STATE_ACCEPT: BINDSTATUS = BINDSTATUS(38i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_STATE_REJECT: BINDSTATUS = BINDSTATUS(39i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_STATE_PROMPT: BINDSTATUS = BINDSTATUS(40i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_STATE_LEASH: BINDSTATUS = BINDSTATUS(41i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_COOKIE_STATE_DOWNGRADE: BINDSTATUS = BINDSTATUS(42i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_POLICY_HREF: BINDSTATUS = BINDSTATUS(43i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_P3P_HEADER: BINDSTATUS = BINDSTATUS(44i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_SESSION_COOKIE_RECEIVED: BINDSTATUS = BINDSTATUS(45i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_PERSISTENT_COOKIE_RECEIVED: BINDSTATUS = BINDSTATUS(46i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_SESSION_COOKIES_ALLOWED: BINDSTATUS = BINDSTATUS(47i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CACHECONTROL: BINDSTATUS = BINDSTATUS(48i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_CONTENTDISPOSITIONFILENAME: BINDSTATUS = BINDSTATUS(49i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_MIMETEXTPLAINMISMATCH: BINDSTATUS = BINDSTATUS(50i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_PUBLISHERAVAILABLE: BINDSTATUS = BINDSTATUS(51i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_DISPLAYNAMEAVAILABLE: BINDSTATUS = BINDSTATUS(52i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_SSLUX_NAVBLOCKED: BINDSTATUS = BINDSTATUS(53i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_SERVER_MIMETYPEAVAILABLE: BINDSTATUS = BINDSTATUS(54i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_SNIFFED_CLASSIDAVAILABLE: BINDSTATUS = BINDSTATUS(55i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_64BIT_PROGRESS: BINDSTATUS = BINDSTATUS(56i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_LAST: BINDSTATUS = BINDSTATUS(56i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_0: BINDSTATUS = BINDSTATUS(57i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_1: BINDSTATUS = BINDSTATUS(58i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_2: BINDSTATUS = BINDSTATUS(59i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_3: BINDSTATUS = BINDSTATUS(60i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_4: BINDSTATUS = BINDSTATUS(61i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_5: BINDSTATUS = BINDSTATUS(62i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_6: BINDSTATUS = BINDSTATUS(63i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_7: BINDSTATUS = BINDSTATUS(64i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_8: BINDSTATUS = BINDSTATUS(65i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_9: BINDSTATUS = BINDSTATUS(66i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_A: BINDSTATUS = BINDSTATUS(67i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_B: BINDSTATUS = BINDSTATUS(68i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_C: BINDSTATUS = BINDSTATUS(69i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_D: BINDSTATUS = BINDSTATUS(70i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_E: BINDSTATUS = BINDSTATUS(71i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_F: BINDSTATUS = BINDSTATUS(72i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_10: BINDSTATUS = BINDSTATUS(73i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_11: BINDSTATUS = BINDSTATUS(74i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_12: BINDSTATUS = BINDSTATUS(75i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_13: BINDSTATUS = BINDSTATUS(76i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_RESERVED_14: BINDSTATUS = BINDSTATUS(77i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTATUS_LAST_PRIVATE: BINDSTATUS = BINDSTATUS(77i32);
-impl ::core::marker::Copy for BINDSTATUS {}
-impl ::core::clone::Clone for BINDSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDSTATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDSTATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDSTRING(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_HEADERS: BINDSTRING = BINDSTRING(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_ACCEPT_MIMES: BINDSTRING = BINDSTRING(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_EXTRA_URL: BINDSTRING = BINDSTRING(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_LANGUAGE: BINDSTRING = BINDSTRING(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_USERNAME: BINDSTRING = BINDSTRING(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_PASSWORD: BINDSTRING = BINDSTRING(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_UA_PIXELS: BINDSTRING = BINDSTRING(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_UA_COLOR: BINDSTRING = BINDSTRING(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_OS: BINDSTRING = BINDSTRING(9i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_USER_AGENT: BINDSTRING = BINDSTRING(10i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_ACCEPT_ENCODINGS: BINDSTRING = BINDSTRING(11i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_POST_COOKIE: BINDSTRING = BINDSTRING(12i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_POST_DATA_MIME: BINDSTRING = BINDSTRING(13i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_URL: BINDSTRING = BINDSTRING(14i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_IID: BINDSTRING = BINDSTRING(15i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_FLAG_BIND_TO_OBJECT: BINDSTRING = BINDSTRING(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_PTR_BIND_CONTEXT: BINDSTRING = BINDSTRING(17i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_XDR_ORIGIN: BINDSTRING = BINDSTRING(18i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_DOWNLOADPATH: BINDSTRING = BINDSTRING(19i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_ROOTDOC_URL: BINDSTRING = BINDSTRING(20i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_INITIAL_FILENAME: BINDSTRING = BINDSTRING(21i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_PROXY_USERNAME: BINDSTRING = BINDSTRING(22i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_PROXY_PASSWORD: BINDSTRING = BINDSTRING(23i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_ENTERPRISE_ID: BINDSTRING = BINDSTRING(24i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_DOC_URL: BINDSTRING = BINDSTRING(25i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDSTRING_SAMESITE_COOKIE_LEVEL: BINDSTRING = BINDSTRING(26i32);
-impl ::core::marker::Copy for BINDSTRING {}
-impl ::core::clone::Clone for BINDSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDSTRING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDSTRING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDSTRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDSTRING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDVERB(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDVERB_GET: BINDVERB = BINDVERB(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDVERB_POST: BINDVERB = BINDVERB(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDVERB_PUT: BINDVERB = BINDVERB(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDVERB_CUSTOM: BINDVERB = BINDVERB(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BINDVERB_RESERVED1: BINDVERB = BINDVERB(4i32);
-impl ::core::marker::Copy for BINDVERB {}
-impl ::core::clone::Clone for BINDVERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDVERB {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDVERB {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDVERB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDVERB").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BSCF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BSCF_FIRSTDATANOTIFICATION: BSCF = BSCF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BSCF_INTERMEDIATEDATANOTIFICATION: BSCF = BSCF(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BSCF_LASTDATANOTIFICATION: BSCF = BSCF(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BSCF_DATAFULLYAVAILABLE: BSCF = BSCF(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BSCF_AVAILABLEDATASIZEUNKNOWN: BSCF = BSCF(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BSCF_SKIPDRAINDATAFORFILEURLS: BSCF = BSCF(32i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const BSCF_64BITLENGTHDOWNLOAD: BSCF = BSCF(64i32);
-impl ::core::marker::Copy for BSCF {}
-impl ::core::clone::Clone for BSCF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BSCF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BSCF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BSCF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BSCF").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CF_NULL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CIP_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_DISK_FULL: CIP_STATUS = CIP_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_ACCESS_DENIED: CIP_STATUS = CIP_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_NEWER_VERSION_EXISTS: CIP_STATUS = CIP_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_OLDER_VERSION_EXISTS: CIP_STATUS = CIP_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_NAME_CONFLICT: CIP_STATUS = CIP_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = CIP_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_EXE_SELF_REGISTERATION_TIMEOUT: CIP_STATUS = CIP_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = CIP_STATUS(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_NEED_REBOOT: CIP_STATUS = CIP_STATUS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CIP_NEED_REBOOT_UI_PERMISSION: CIP_STATUS = CIP_STATUS(9i32);
-impl ::core::marker::Copy for CIP_STATUS {}
-impl ::core::clone::Clone for CIP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CIP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CIP_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CIP_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CIP_STATUS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct CODEBASEHOLD {
-    pub cbSize: u32,
-    pub szDistUnit: ::windows::core::PWSTR,
-    pub szCodeBase: ::windows::core::PWSTR,
-    pub dwVersionMS: u32,
-    pub dwVersionLS: u32,
-    pub dwStyle: u32,
-}
-impl ::core::marker::Copy for CODEBASEHOLD {}
-impl ::core::clone::Clone for CODEBASEHOLD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CODEBASEHOLD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CODEBASEHOLD").field("cbSize", &self.cbSize).field("szDistUnit", &self.szDistUnit).field("szCodeBase", &self.szCodeBase).field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).field("dwStyle", &self.dwStyle).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CODEBASEHOLD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CODEBASEHOLD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CODEBASEHOLD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CODEBASEHOLD {}
-impl ::core::default::Default for CODEBASEHOLD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct CONFIRMSAFETY {
-    pub clsid: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub dwFlags: u32,
-}
-impl ::core::clone::Clone for CONFIRMSAFETY {
-    fn clone(&self) -> Self {
-        Self { clsid: self.clsid, pUnk: self.pUnk.clone(), dwFlags: self.dwFlags }
-    }
-}
-impl ::core::fmt::Debug for CONFIRMSAFETY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONFIRMSAFETY").field("clsid", &self.clsid).field("pUnk", &self.pUnk).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONFIRMSAFETY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for CONFIRMSAFETY {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsid == other.clsid && self.pUnk == other.pUnk && self.dwFlags == other.dwFlags
-    }
-}
-impl ::core::cmp::Eq for CONFIRMSAFETY {}
-impl ::core::default::Default for CONFIRMSAFETY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoGetClassObjectFromURL<'a, P0, P1, P2>(rclassid: &::windows::core::GUID, szcode: P0, dwfileversionms: u32, dwfileversionls: u32, sztype: P1, pbindctx: P2, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -1069,67 +349,6 @@ where
     }
     CreateURLMonikerEx2(pmkctx.into().abi(), puri.into().abi(), ::core::mem::transmute(ppmk), dwflags).ok()
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct DATAINFO {
-    pub ulTotalSize: u32,
-    pub ulavrPacketSize: u32,
-    pub ulConnectSpeed: u32,
-    pub ulProcessorSpeed: u32,
-}
-impl ::core::marker::Copy for DATAINFO {}
-impl ::core::clone::Clone for DATAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DATAINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DATAINFO").field("ulTotalSize", &self.ulTotalSize).field("ulavrPacketSize", &self.ulavrPacketSize).field("ulConnectSpeed", &self.ulConnectSpeed).field("ulProcessorSpeed", &self.ulProcessorSpeed).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DATAINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DATAINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATAINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DATAINFO {}
-impl ::core::default::Default for DATAINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const E_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147483638i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FIEF_FLAG_FORCE_JITUI: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FIEF_FLAG_PEEK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FIEF_FLAG_RESERVED_0: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FIEF_FLAG_SKIP_INSTALLED_VERSION_CHECK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_ENABLEMIMESNIFFING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_IGNOREMIMETEXTPLAIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_RESERVED_1: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_RESERVED_2: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_RESPECTTEXTPLAIN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_RETURNUPDATEDIMGMIMES: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_SERVERMIME: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FMFD_URLASFILENAME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1184,22 +403,6 @@ where
     FindMimeFromData(pbc.into().abi(), pwzurl.into(), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), pwzmimeproposed.into(), dwmimeflags, ::core::mem::transmute(ppwzmimeout), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_PROCESS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_REGISTRY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_THREAD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_THREAD_INTERNET: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_THREAD_INTRANET: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn GetClassFileOrMime<'a, P0, P1, P2>(pbc: P0, szfilename: P1, pbuffer: ::core::option::Option<&[u8]>, szmime: P2, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID>
 where
@@ -1249,48 +452,6 @@ where
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetSoftwareUpdateInfo(szdistunit.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SOFTDISTINFO>(result__)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct HIT_LOGGING_INFO {
-    pub dwStructSize: u32,
-    pub lpszLoggedUrlName: ::windows::core::PSTR,
-    pub StartTime: super::super::super::Foundation::SYSTEMTIME,
-    pub EndTime: super::super::super::Foundation::SYSTEMTIME,
-    pub lpszExtendedInfo: ::windows::core::PSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HIT_LOGGING_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HIT_LOGGING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIT_LOGGING_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIT_LOGGING_INFO").field("dwStructSize", &self.dwStructSize).field("lpszLoggedUrlName", &self.lpszLoggedUrlName).field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("lpszExtendedInfo", &self.lpszExtendedInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIT_LOGGING_INFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIT_LOGGING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIT_LOGGING_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIT_LOGGING_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HIT_LOGGING_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -1375,6 +536,376 @@ where
         fn HlinkSimpleNavigateToString(sztarget: ::windows::core::PCWSTR, szlocation: ::windows::core::PCWSTR, sztargetframename: ::windows::core::PCWSTR, punk: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, param5: *mut ::core::ffi::c_void, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
     HlinkSimpleNavigateToString(sztarget.into(), szlocation.into(), sztargetframename.into(), punk.into().abi(), pbc.into().abi(), param5.into().abi(), grfhlnf, dwreserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR;
+    }
+    IEGetUserPrivateNamespaceName()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn IEInstallScope() -> ::windows::core::Result<u32> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IEInstallScope(pdwscope: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    IEInstallScope(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn IsAsyncMoniker<'a, P0>(pmk: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsAsyncMoniker(pmk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    IsAsyncMoniker(pmk.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsLoggingEnabledA<'a, P0>(pszurl: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsLoggingEnabledA(pszurl: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
+    }
+    IsLoggingEnabledA(pszurl.into())
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsLoggingEnabledW<'a, P0>(pwszurl: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsLoggingEnabledW(pwszurl: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
+    }
+    IsLoggingEnabledW(pwszurl.into())
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn IsValidURL<'a, P0, P1>(pbc: P0, szurl: P1, dwreserved: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsValidURL(pbc: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
+    }
+    IsValidURL(pbc.into().abi(), szurl.into(), dwreserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn MkParseDisplayNameEx<'a, P0, P1>(pbc: P0, szdisplayname: P1, pcheaten: &mut u32, ppmk: &mut ::core::option::Option<super::IMoniker>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MkParseDisplayNameEx(pbc: *mut ::core::ffi::c_void, szdisplayname: ::windows::core::PCWSTR, pcheaten: *mut u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    MkParseDisplayNameEx(pbc.into().abi(), szdisplayname.into(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmk)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PSTR, cbsize: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PSTR, cbsize: *mut u32) -> ::windows::core::HRESULT;
+    }
+    ObtainUserAgentString(dwoption, ::core::mem::transmute(pszuaout), ::core::mem::transmute(cbsize)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn RegisterBindStatusCallback<'a, P0, P1>(pbc: P0, pbscb: P1, ppbscbprev: &mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void, ppbscbprev: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
+    }
+    RegisterBindStatusCallback(pbc.into().abi(), pbscb.into().abi(), ::core::mem::transmute(ppbscbprev), dwreserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn RegisterFormatEnumerator<'a, P0, P1>(pbc: P0, pefetc: P1, reserved: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void, reserved: u32) -> ::windows::core::HRESULT;
+    }
+    RegisterFormatEnumerator(pbc.into().abi(), pefetc.into().abi(), reserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn RegisterMediaTypeClass<'a, P0>(pbc: P0, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterMediaTypeClass(pbc: *mut ::core::ffi::c_void, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
+    }
+    RegisterMediaTypeClass(pbc.into().abi(), ::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgclsid), reserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
+    }
+    RegisterMediaTypes(::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgcftypes)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn ReleaseBindInfo(pbindinfo: &mut super::BINDINFO) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
+    }
+    ReleaseBindInfo(::core::mem::transmute(pbindinfo))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn RevokeBindStatusCallback<'a, P0, P1>(pbc: P0, pbscb: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevokeBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    RevokeBindStatusCallback(pbc.into().abi(), pbscb.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn RevokeFormatEnumerator<'a, P0, P1>(pbc: P0, pefetc: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevokeFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    RevokeFormatEnumerator(pbc.into().abi(), pefetc.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetAccessForIEAppContainer<'a, P0>(hobject: P0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::HRESULT;
+    }
+    SetAccessForIEAppContainer(hobject.into(), ieobjecttype, dwaccessmask).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, P0>(szdistunit: P0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSoftwareUpdateAdvertisementState(szdistunit: ::windows::core::PCWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::HRESULT;
+    }
+    SetSoftwareUpdateAdvertisementState(szdistunit.into(), dwadstate, dwadvertisedversionms, dwadvertisedversionls).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLDownloadToCacheFileA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u8], param4: u32, param5: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToCacheFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLDownloadToCacheFileA(param0.into().abi(), param1.into(), ::core::mem::transmute(param2.as_ptr()), param2.len() as _, param4, param5.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLDownloadToCacheFileW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u16], param4: u32, param5: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToCacheFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PWSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLDownloadToCacheFileW(param0.into().abi(), param1.into(), ::core::mem::transmute(param2.as_ptr()), param2.len() as _, param4, param5.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLDownloadToFileA<'a, P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLDownloadToFileA(param0.into().abi(), param1.into(), param2.into(), param3, param4.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLDownloadToFileW<'a, P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLDownloadToFileW(param0.into().abi(), param1.into(), param2.into(), param3, param4.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLOpenBlockingStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenBlockingStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLOpenBlockingStreamA(param0.into().abi(), param1.into(), ::core::mem::transmute(param2), param3, param4.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLOpenBlockingStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenBlockingStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLOpenBlockingStreamW(param0.into().abi(), param1.into(), ::core::mem::transmute(param2), param3, param4.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLOpenPullStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenPullStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLOpenPullStreamA(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLOpenPullStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenPullStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLOpenPullStreamW(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLOpenStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLOpenStreamA(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn URLOpenStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    URLOpenStreamW(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<&mut [u8]>, pdwbufferlengthout: &mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
+    }
+    UrlMkGetSessionOption(dwoption, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwbufferlengthout), dwreserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[inline]
+pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<&[u8]>, dwreserved: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT;
+    }
+    UrlMkSetSessionOption(dwoption, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), dwreserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WriteHitLogging(lplogginginfo: &HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL;
+    }
+    WriteHitLogging(::core::mem::transmute(lplogginginfo))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
@@ -1717,64 +1248,6 @@ pub struct IDataFilter_Vtbl {
     pub DoEncode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT,
     pub DoDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT,
     pub SetEncodingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenclevel: u32) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR;
-    }
-    IEGetUserPrivateNamespaceName()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn IEInstallScope() -> ::windows::core::Result<u32> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IEInstallScope(pdwscope: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IEInstallScope(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IEObjectType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_EVENT: IEObjectType = IEObjectType(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_MUTEX: IEObjectType = IEObjectType(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_SEMAPHORE: IEObjectType = IEObjectType(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_SHARED_MEMORY: IEObjectType = IEObjectType(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_WAITABLE_TIMER: IEObjectType = IEObjectType(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_FILE: IEObjectType = IEObjectType(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_NAMED_PIPE: IEObjectType = IEObjectType(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const IE_EPM_OBJECT_REGISTRY: IEObjectType = IEObjectType(7i32);
-impl ::core::marker::Copy for IEObjectType {}
-impl ::core::clone::Clone for IEObjectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IEObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IEObjectType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IEObjectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEObjectType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
@@ -4021,214 +3494,6 @@ pub struct IMonikerProp_Vtbl {
     pub PutProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mkp: MONIKERPROPERTY, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_AUTHENTICATION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697207i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695930i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695931i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_BLOCKED_REDIRECT_XSECURITYID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697189i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697212i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CANNOT_INSTANTIATE_OBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697200i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CANNOT_LOAD_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697201i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CANNOT_LOCK_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697194i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CANNOT_REPLACE_SFP_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696448i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CODE_DOWNLOAD_DECLINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696960i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_ARM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695932i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_BITNESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695929i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695936i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695934i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CODE_INSTALL_SUPPRESSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696192i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_CONNECTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697205i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_DATA_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697209i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_DEFAULT_ACTION: i32 = -2146697199i32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_DOMINJECTIONVALIDATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697188i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_DOWNLOAD_BLOCKED_BY_CSP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695928i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695935i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_DOWNLOAD_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697208i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_ERROR_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_ERROR_LAST: i32 = -2146695928i32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_FORBIDFRAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695933i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_HSTS_CERTIFICATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697186i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_INVALID_CERTIFICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697191i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_INVALID_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697204i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_INVALID_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_NO_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697213i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_NO_VALID_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697206i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_OBJECT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697210i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_QUERYOPTION_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697197i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_REDIRECTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_REDIRECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_REDIRECT_TO_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697195i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_RESERVED_1: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697190i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_RESERVED_2: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697185i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_RESERVED_3: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697184i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_RESERVED_4: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697183i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_RESERVED_5: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697182i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_RESOURCE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697211i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_RESULT_DISPATCHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696704i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_SECURITY_PROBLEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697202i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_TERMINATED_BIND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697192i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_UNKNOWN_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697203i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697199i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_USE_DEFAULT_SETTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697198i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_USE_EXTEND_BINDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697193i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697187i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INET_ZONE_MANAGER_CONSTANTS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const MAX_ZONE_PATH: INET_ZONE_MANAGER_CONSTANTS = INET_ZONE_MANAGER_CONSTANTS(260i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const MAX_ZONE_DESCRIPTION: INET_ZONE_MANAGER_CONSTANTS = INET_ZONE_MANAGER_CONSTANTS(200i32);
-impl ::core::marker::Copy for INET_ZONE_MANAGER_CONSTANTS {}
-impl ::core::clone::Clone for INET_ZONE_MANAGER_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INET_ZONE_MANAGER_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INET_ZONE_MANAGER_CONSTANTS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INET_ZONE_MANAGER_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INET_ZONE_MANAGER_CONSTANTS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INTERNETFEATURELIST(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_OBJECT_CACHING: INTERNETFEATURELIST = INTERNETFEATURELIST(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_ZONE_ELEVATION: INTERNETFEATURELIST = INTERNETFEATURELIST(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_MIME_HANDLING: INTERNETFEATURELIST = INTERNETFEATURELIST(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_MIME_SNIFFING: INTERNETFEATURELIST = INTERNETFEATURELIST(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_WINDOW_RESTRICTIONS: INTERNETFEATURELIST = INTERNETFEATURELIST(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_WEBOC_POPUPMANAGEMENT: INTERNETFEATURELIST = INTERNETFEATURELIST(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_BEHAVIORS: INTERNETFEATURELIST = INTERNETFEATURELIST(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_DISABLE_MK_PROTOCOL: INTERNETFEATURELIST = INTERNETFEATURELIST(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_LOCALMACHINE_LOCKDOWN: INTERNETFEATURELIST = INTERNETFEATURELIST(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_SECURITYBAND: INTERNETFEATURELIST = INTERNETFEATURELIST(9i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_RESTRICT_ACTIVEXINSTALL: INTERNETFEATURELIST = INTERNETFEATURELIST(10i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_VALIDATE_NAVIGATE_URL: INTERNETFEATURELIST = INTERNETFEATURELIST(11i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_RESTRICT_FILEDOWNLOAD: INTERNETFEATURELIST = INTERNETFEATURELIST(12i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_ADDON_MANAGEMENT: INTERNETFEATURELIST = INTERNETFEATURELIST(13i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_PROTOCOL_LOCKDOWN: INTERNETFEATURELIST = INTERNETFEATURELIST(14i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_HTTP_USERNAME_PASSWORD_DISABLE: INTERNETFEATURELIST = INTERNETFEATURELIST(15i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_SAFE_BINDTOOBJECT: INTERNETFEATURELIST = INTERNETFEATURELIST(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_UNC_SAVEDFILECHECK: INTERNETFEATURELIST = INTERNETFEATURELIST(17i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_GET_URL_DOM_FILEPATH_UNENCODED: INTERNETFEATURELIST = INTERNETFEATURELIST(18i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_TABBED_BROWSING: INTERNETFEATURELIST = INTERNETFEATURELIST(19i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_SSLUX: INTERNETFEATURELIST = INTERNETFEATURELIST(20i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_DISABLE_NAVIGATION_SOUNDS: INTERNETFEATURELIST = INTERNETFEATURELIST(21i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_DISABLE_LEGACY_COMPRESSION: INTERNETFEATURELIST = INTERNETFEATURELIST(22i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_FORCE_ADDR_AND_STATUS: INTERNETFEATURELIST = INTERNETFEATURELIST(23i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_XMLHTTP: INTERNETFEATURELIST = INTERNETFEATURELIST(24i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_DISABLE_TELNET_PROTOCOL: INTERNETFEATURELIST = INTERNETFEATURELIST(25i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_FEEDS: INTERNETFEATURELIST = INTERNETFEATURELIST(26i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_BLOCK_INPUT_PROMPTS: INTERNETFEATURELIST = INTERNETFEATURELIST(27i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const FEATURE_ENTRY_COUNT: INTERNETFEATURELIST = INTERNETFEATURELIST(28i32);
-impl ::core::marker::Copy for INTERNETFEATURELIST {}
-impl ::core::clone::Clone for INTERNETFEATURELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNETFEATURELIST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INTERNETFEATURELIST {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INTERNETFEATURELIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INTERNETFEATURELIST").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
 pub struct IPersistMoniker(::windows::core::IUnknown);
 impl IPersistMoniker {
@@ -5106,95 +4371,159 @@ pub struct IZoneIdentifier2_Vtbl {
     pub RemoveAppZoneId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn IsAsyncMoniker<'a, P0>(pmk: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsAsyncMoniker(pmk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    IsAsyncMoniker(pmk.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsLoggingEnabledA<'a, P0>(pszurl: P0) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsLoggingEnabledA(pszurl: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
-    }
-    IsLoggingEnabledA(pszurl.into())
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsLoggingEnabledW<'a, P0>(pwszurl: P0) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsLoggingEnabledW(pwszurl: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
-    }
-    IsLoggingEnabledW(pwszurl.into())
-}
+pub const CF_NULL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn IsValidURL<'a, P0, P1>(pbc: P0, szurl: P1, dwreserved: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsValidURL(pbc: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
-    }
-    IsValidURL(pbc.into().abi(), szurl.into(), dwreserved).ok()
-}
+pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const E_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147483638i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FIEF_FLAG_FORCE_JITUI: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FIEF_FLAG_PEEK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FIEF_FLAG_RESERVED_0: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FIEF_FLAG_SKIP_INSTALLED_VERSION_CHECK: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_ENABLEMIMESNIFFING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_IGNOREMIMETEXTPLAIN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_RESERVED_1: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_RESERVED_2: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_RESPECTTEXTPLAIN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_RETURNUPDATEDIMGMIMES: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_SERVERMIME: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FMFD_URLASFILENAME: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_PROCESS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_REGISTRY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_THREAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_THREAD_INTERNET: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_THREAD_INTRANET: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_AUTHENTICATION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697207i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695930i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695931i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_BLOCKED_REDIRECT_XSECURITYID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697189i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697212i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CANNOT_INSTANTIATE_OBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697200i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CANNOT_LOAD_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697201i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CANNOT_LOCK_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697194i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CANNOT_REPLACE_SFP_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696448i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CODE_DOWNLOAD_DECLINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696960i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CODE_INSTALL_BLOCKED_ARM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695932i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CODE_INSTALL_BLOCKED_BITNESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695929i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695936i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695934i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CODE_INSTALL_SUPPRESSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696192i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_CONNECTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697205i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_DATA_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697209i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_DEFAULT_ACTION: i32 = -2146697199i32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_DOMINJECTIONVALIDATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697188i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_DOWNLOAD_BLOCKED_BY_CSP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695928i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695935i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_DOWNLOAD_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697208i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_ERROR_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_ERROR_LAST: i32 = -2146695928i32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_FORBIDFRAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695933i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_HSTS_CERTIFICATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697186i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_INVALID_CERTIFICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697191i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_INVALID_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697204i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_INVALID_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_NO_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697213i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_NO_VALID_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697206i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_OBJECT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697210i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_QUERYOPTION_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697197i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_REDIRECTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_REDIRECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_REDIRECT_TO_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697195i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_RESERVED_1: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697190i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_RESERVED_2: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697185i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_RESERVED_3: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697184i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_RESERVED_4: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697183i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_RESERVED_5: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697182i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_RESOURCE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697211i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_RESULT_DISPATCHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696704i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_SECURITY_PROBLEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697202i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_TERMINATED_BIND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697192i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_UNKNOWN_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697203i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697199i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_USE_DEFAULT_SETTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697198i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_USE_EXTEND_BINDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697193i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697187i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MKSYS_URLMONIKER: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MK_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(262632i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MONIKERPROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const MIMETYPEPROP: MONIKERPROPERTY = MONIKERPROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const USE_SRC_URL: MONIKERPROPERTY = MONIKERPROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const CLASSIDPROP: MONIKERPROPERTY = MONIKERPROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = MONIKERPROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const POPUPLEVELPROP: MONIKERPROPERTY = MONIKERPROPERTY(4i32);
-impl ::core::marker::Copy for MONIKERPROPERTY {}
-impl ::core::clone::Clone for MONIKERPROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MONIKERPROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MONIKERPROPERTY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MONIKERPROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MONIKERPROPERTY").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MUTZ_ACCEPT_WILDCARD_SCHEME: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
@@ -5216,680 +4545,7 @@ pub const MUTZ_REQUIRESAVEDFILECHECK: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MUTZ_RESERVED: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn MkParseDisplayNameEx<'a, P0, P1>(pbc: P0, szdisplayname: P1, pcheaten: &mut u32, ppmk: &mut ::core::option::Option<super::IMoniker>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MkParseDisplayNameEx(pbc: *mut ::core::ffi::c_void, szdisplayname: ::windows::core::PCWSTR, pcheaten: *mut u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    MkParseDisplayNameEx(pbc.into().abi(), szdisplayname.into(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmk)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OIBDG_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const OIBDG_APARTMENTTHREADED: OIBDG_FLAGS = OIBDG_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const OIBDG_DATAONLY: OIBDG_FLAGS = OIBDG_FLAGS(4096i32);
-impl ::core::marker::Copy for OIBDG_FLAGS {}
-impl ::core::clone::Clone for OIBDG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OIBDG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OIBDG_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OIBDG_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OIBDG_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PSTR, cbsize: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PSTR, cbsize: *mut u32) -> ::windows::core::HRESULT;
-    }
-    ObtainUserAgentString(dwoption, ::core::mem::transmute(pszuaout), ::core::mem::transmute(cbsize)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PARSEACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_CANONICALIZE: PARSEACTION = PARSEACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_FRIENDLY: PARSEACTION = PARSEACTION(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_SECURITY_URL: PARSEACTION = PARSEACTION(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_ROOTDOCUMENT: PARSEACTION = PARSEACTION(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_DOCUMENT: PARSEACTION = PARSEACTION(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_ANCHOR: PARSEACTION = PARSEACTION(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_ENCODE_IS_UNESCAPE: PARSEACTION = PARSEACTION(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_DECODE_IS_ESCAPE: PARSEACTION = PARSEACTION(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_PATH_FROM_URL: PARSEACTION = PARSEACTION(9i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_URL_FROM_PATH: PARSEACTION = PARSEACTION(10i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_MIME: PARSEACTION = PARSEACTION(11i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_SERVER: PARSEACTION = PARSEACTION(12i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_SCHEMA: PARSEACTION = PARSEACTION(13i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_SITE: PARSEACTION = PARSEACTION(14i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_DOMAIN: PARSEACTION = PARSEACTION(15i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_LOCATION: PARSEACTION = PARSEACTION(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_SECURITY_DOMAIN: PARSEACTION = PARSEACTION(17i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_ESCAPE: PARSEACTION = PARSEACTION(18i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PARSE_UNESCAPE: PARSEACTION = PARSEACTION(19i32);
-impl ::core::marker::Copy for PARSEACTION {}
-impl ::core::clone::Clone for PARSEACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PARSEACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PARSEACTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PARSEACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PARSEACTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PI_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_PARSE_URL: PI_FLAGS = PI_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_FILTER_MODE: PI_FLAGS = PI_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_FORCE_ASYNC: PI_FLAGS = PI_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_USE_WORKERTHREAD: PI_FLAGS = PI_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_MIMEVERIFICATION: PI_FLAGS = PI_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_CLSIDLOOKUP: PI_FLAGS = PI_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_DATAPROGRESS: PI_FLAGS = PI_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_SYNCHRONOUS: PI_FLAGS = PI_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_APARTMENTTHREADED: PI_FLAGS = PI_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_CLASSINSTALL: PI_FLAGS = PI_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_PASSONBINDCTX: PI_FLAGS = PI_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_NOMIMEHANDLER: PI_FLAGS = PI_FLAGS(32768i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_LOADAPPDIRECT: PI_FLAGS = PI_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PD_FORCE_SWITCH: PI_FLAGS = PI_FLAGS(65536i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PI_PREFERDEFAULTHANDLER: PI_FLAGS = PI_FLAGS(131072i32);
-impl ::core::marker::Copy for PI_FLAGS {}
-impl ::core::clone::Clone for PI_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PI_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PI_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PI_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PI_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct PROTOCOLDATA {
-    pub grfFlags: u32,
-    pub dwState: u32,
-    pub pData: *mut ::core::ffi::c_void,
-    pub cbData: u32,
-}
-impl ::core::marker::Copy for PROTOCOLDATA {}
-impl ::core::clone::Clone for PROTOCOLDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for PROTOCOLDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROTOCOLDATA").field("grfFlags", &self.grfFlags).field("dwState", &self.dwState).field("pData", &self.pData).field("cbData", &self.cbData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PROTOCOLDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PROTOCOLDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTOCOLDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PROTOCOLDATA {}
-impl ::core::default::Default for PROTOCOLDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct PROTOCOLFILTERDATA {
-    pub cbSize: u32,
-    pub pProtocolSink: ::core::option::Option<IInternetProtocolSink>,
-    pub pProtocol: ::core::option::Option<IInternetProtocol>,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub dwFilterFlags: u32,
-}
-impl ::core::clone::Clone for PROTOCOLFILTERDATA {
-    fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            pProtocolSink: self.pProtocolSink.clone(),
-            pProtocol: self.pProtocol.clone(),
-            pUnk: self.pUnk.clone(),
-            dwFilterFlags: self.dwFilterFlags,
-        }
-    }
-}
-impl ::core::fmt::Debug for PROTOCOLFILTERDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROTOCOLFILTERDATA").field("cbSize", &self.cbSize).field("pProtocolSink", &self.pProtocolSink).field("pProtocol", &self.pProtocol).field("pUnk", &self.pUnk).field("dwFilterFlags", &self.dwFilterFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PROTOCOLFILTERDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for PROTOCOLFILTERDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pProtocolSink == other.pProtocolSink && self.pProtocol == other.pProtocol && self.pUnk == other.pUnk && self.dwFilterFlags == other.dwFilterFlags
-    }
-}
-impl ::core::cmp::Eq for PROTOCOLFILTERDATA {}
-impl ::core::default::Default for PROTOCOLFILTERDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct PROTOCOL_ARGUMENT {
-    pub szMethod: ::windows::core::PCWSTR,
-    pub szTargetUrl: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for PROTOCOL_ARGUMENT {}
-impl ::core::clone::Clone for PROTOCOL_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for PROTOCOL_ARGUMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROTOCOL_ARGUMENT").field("szMethod", &self.szMethod).field("szTargetUrl", &self.szTargetUrl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PROTOCOL_ARGUMENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PROTOCOL_ARGUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTOCOL_ARGUMENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PROTOCOL_ARGUMENT {}
-impl ::core::default::Default for PROTOCOL_ARGUMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PSUACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PSU_DEFAULT: PSUACTION = PSUACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PSU_SECURITY_URL_ONLY: PSUACTION = PSUACTION(2i32);
-impl ::core::marker::Copy for PSUACTION {}
-impl ::core::clone::Clone for PSUACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSUACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PSUACTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PSUACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PSUACTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PUAF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_DEFAULT: PUAF = PUAF(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_NOUI: PUAF = PUAF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_ISFILE: PUAF = PUAF(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_WARN_IF_DENIED: PUAF = PUAF(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_FORCEUI_FOREGROUND: PUAF = PUAF(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_CHECK_TIFS: PUAF = PUAF(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_DONTCHECKBOXINDIALOG: PUAF = PUAF(32i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_TRUSTED: PUAF = PUAF(64i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_ACCEPT_WILDCARD_SCHEME: PUAF = PUAF(128i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_ENFORCERESTRICTED: PUAF = PUAF(256i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_NOSAVEDFILECHECK: PUAF = PUAF(512i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_REQUIRESAVEDFILECHECK: PUAF = PUAF(1024i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_DONT_USE_CACHE: PUAF = PUAF(4096i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_RESERVED1: PUAF = PUAF(8192i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_RESERVED2: PUAF = PUAF(16384i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_LMZ_UNLOCKED: PUAF = PUAF(65536i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_LMZ_LOCKED: PUAF = PUAF(131072i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_DEFAULTZONEPOL: PUAF = PUAF(262144i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_NPL_USE_LOCKED_IF_RESTRICTED: PUAF = PUAF(524288i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_NOUIIFLOCKED: PUAF = PUAF(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAF_DRAGPROTOCOLCHECK: PUAF = PUAF(2097152i32);
-impl ::core::marker::Copy for PUAF {}
-impl ::core::clone::Clone for PUAF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PUAF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PUAF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PUAF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PUAF").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PUAFOUT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAFOUT_DEFAULT: PUAFOUT = PUAFOUT(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const PUAFOUT_ISLOCKZONEPOLICY: PUAFOUT = PUAFOUT(1i32);
-impl ::core::marker::Copy for PUAFOUT {}
-impl ::core::clone::Clone for PUAFOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PUAFOUT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PUAFOUT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PUAFOUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PUAFOUT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct QUERYOPTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_EXPIRATION_DATE: QUERYOPTION = QUERYOPTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_TIME_OF_LAST_CHANGE: QUERYOPTION = QUERYOPTION(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_CONTENT_ENCODING: QUERYOPTION = QUERYOPTION(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_CONTENT_TYPE: QUERYOPTION = QUERYOPTION(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_REFRESH: QUERYOPTION = QUERYOPTION(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_RECOMBINE: QUERYOPTION = QUERYOPTION(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_CAN_NAVIGATE: QUERYOPTION = QUERYOPTION(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_USES_NETWORK: QUERYOPTION = QUERYOPTION(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_IS_CACHED: QUERYOPTION = QUERYOPTION(9i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_IS_INSTALLEDENTRY: QUERYOPTION = QUERYOPTION(10i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_IS_CACHED_OR_MAPPED: QUERYOPTION = QUERYOPTION(11i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_USES_CACHE: QUERYOPTION = QUERYOPTION(12i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_IS_SECURE: QUERYOPTION = QUERYOPTION(13i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_IS_SAFE: QUERYOPTION = QUERYOPTION(14i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = QUERYOPTION(15i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const QUERY_IS_CACHED_AND_USABLE_OFFLINE: QUERYOPTION = QUERYOPTION(16i32);
-impl ::core::marker::Copy for QUERYOPTION {}
-impl ::core::clone::Clone for QUERYOPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QUERYOPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for QUERYOPTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for QUERYOPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QUERYOPTION").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct REMSECURITY_ATTRIBUTES {
-    pub nLength: u32,
-    pub lpSecurityDescriptor: u32,
-    pub bInheritHandle: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for REMSECURITY_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for REMSECURITY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for REMSECURITY_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REMSECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for REMSECURITY_ATTRIBUTES {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for REMSECURITY_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REMSECURITY_ATTRIBUTES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for REMSECURITY_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for REMSECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn RegisterBindStatusCallback<'a, P0, P1>(pbc: P0, pbscb: P1, ppbscbprev: &mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void, ppbscbprev: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
-    }
-    RegisterBindStatusCallback(pbc.into().abi(), pbscb.into().abi(), ::core::mem::transmute(ppbscbprev), dwreserved).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn RegisterFormatEnumerator<'a, P0, P1>(pbc: P0, pefetc: P1, reserved: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void, reserved: u32) -> ::windows::core::HRESULT;
-    }
-    RegisterFormatEnumerator(pbc.into().abi(), pefetc.into().abi(), reserved).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn RegisterMediaTypeClass<'a, P0>(pbc: P0, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterMediaTypeClass(pbc: *mut ::core::ffi::c_void, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
-    }
-    RegisterMediaTypeClass(pbc.into().abi(), ::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgclsid), reserved).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
-    }
-    RegisterMediaTypes(::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgcftypes)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn ReleaseBindInfo(pbindinfo: &mut super::BINDINFO) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
-    }
-    ReleaseBindInfo(::core::mem::transmute(pbindinfo))
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct RemBINDINFO {
-    pub cbSize: u32,
-    pub szExtraInfo: ::windows::core::PWSTR,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
-    pub szCustomVerb: ::windows::core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
-    pub securityAttributes: REMSECURITY_ATTRIBUTES,
-    pub iid: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub dwReserved: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RemBINDINFO {
-    fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            szExtraInfo: self.szExtraInfo,
-            grfBindInfoF: self.grfBindInfoF,
-            dwBindVerb: self.dwBindVerb,
-            szCustomVerb: self.szCustomVerb,
-            cbstgmedData: self.cbstgmedData,
-            dwOptions: self.dwOptions,
-            dwOptionsFlags: self.dwOptionsFlags,
-            dwCodePage: self.dwCodePage,
-            securityAttributes: self.securityAttributes,
-            iid: self.iid,
-            pUnk: self.pUnk.clone(),
-            dwReserved: self.dwReserved,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RemBINDINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RemBINDINFO")
-            .field("cbSize", &self.cbSize)
-            .field("szExtraInfo", &self.szExtraInfo)
-            .field("grfBindInfoF", &self.grfBindInfoF)
-            .field("dwBindVerb", &self.dwBindVerb)
-            .field("szCustomVerb", &self.szCustomVerb)
-            .field("cbstgmedData", &self.cbstgmedData)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwOptionsFlags", &self.dwOptionsFlags)
-            .field("dwCodePage", &self.dwCodePage)
-            .field("securityAttributes", &self.securityAttributes)
-            .field("iid", &self.iid)
-            .field("pUnk", &self.pUnk)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RemBINDINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RemBINDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.szExtraInfo == other.szExtraInfo && self.grfBindInfoF == other.grfBindInfoF && self.dwBindVerb == other.dwBindVerb && self.szCustomVerb == other.szCustomVerb && self.cbstgmedData == other.cbstgmedData && self.dwOptions == other.dwOptions && self.dwOptionsFlags == other.dwOptionsFlags && self.dwCodePage == other.dwCodePage && self.securityAttributes == other.securityAttributes && self.iid == other.iid && self.pUnk == other.pUnk && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RemBINDINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RemBINDINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct RemFORMATETC {
-    pub cfFormat: u32,
-    pub ptd: u32,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
-}
-impl ::core::marker::Copy for RemFORMATETC {}
-impl ::core::clone::Clone for RemFORMATETC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RemFORMATETC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RemFORMATETC").field("cfFormat", &self.cfFormat).field("ptd", &self.ptd).field("dwAspect", &self.dwAspect).field("lindex", &self.lindex).field("tymed", &self.tymed).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RemFORMATETC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RemFORMATETC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemFORMATETC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RemFORMATETC {}
-impl ::core::default::Default for RemFORMATETC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn RevokeBindStatusCallback<'a, P0, P1>(pbc: P0, pbscb: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RevokeBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    RevokeBindStatusCallback(pbc.into().abi(), pbscb.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn RevokeFormatEnumerator<'a, P0, P1>(pbc: P0, pefetc: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IEnumFORMATETC>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RevokeFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    RevokeFormatEnumerator(pbc.into().abi(), pefetc.into().abi()).ok()
-}
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const SECURITY_IE_STATE_GREEN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
@@ -5910,62 +4566,6 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct SOFTDISTINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwAdState: u32,
-    pub szTitle: ::windows::core::PWSTR,
-    pub szAbstract: ::windows::core::PWSTR,
-    pub szHREF: ::windows::core::PWSTR,
-    pub dwInstalledVersionMS: u32,
-    pub dwInstalledVersionLS: u32,
-    pub dwUpdateVersionMS: u32,
-    pub dwUpdateVersionLS: u32,
-    pub dwAdvertisedVersionMS: u32,
-    pub dwAdvertisedVersionLS: u32,
-    pub dwReserved: u32,
-}
-impl ::core::marker::Copy for SOFTDISTINFO {}
-impl ::core::clone::Clone for SOFTDISTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SOFTDISTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SOFTDISTINFO")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwAdState", &self.dwAdState)
-            .field("szTitle", &self.szTitle)
-            .field("szAbstract", &self.szAbstract)
-            .field("szHREF", &self.szHREF)
-            .field("dwInstalledVersionMS", &self.dwInstalledVersionMS)
-            .field("dwInstalledVersionLS", &self.dwInstalledVersionLS)
-            .field("dwUpdateVersionMS", &self.dwUpdateVersionMS)
-            .field("dwUpdateVersionLS", &self.dwUpdateVersionLS)
-            .field("dwAdvertisedVersionMS", &self.dwAdvertisedVersionMS)
-            .field("dwAdvertisedVersionLS", &self.dwAdvertisedVersionLS)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SOFTDISTINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SOFTDISTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOFTDISTINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SOFTDISTINFO {}
-impl ::core::default::Default for SOFTDISTINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
@@ -5983,90 +4583,7 @@ pub const SOFTDIST_FLAG_USAGE_EMAIL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const SOFTDIST_FLAG_USAGE_PRECACHE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SZM_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const SZM_CREATE: SZM_FLAGS = SZM_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const SZM_DELETE: SZM_FLAGS = SZM_FLAGS(1i32);
-impl ::core::marker::Copy for SZM_FLAGS {}
-impl ::core::clone::Clone for SZM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SZM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SZM_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SZM_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SZM_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetAccessForIEAppContainer<'a, P0>(hobject: P0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::HRESULT;
-    }
-    SetAccessForIEAppContainer(hobject.into(), ieobjecttype, dwaccessmask).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, P0>(szdistunit: P0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetSoftwareUpdateAdvertisementState(szdistunit: ::windows::core::PCWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::HRESULT;
-    }
-    SetSoftwareUpdateAdvertisementState(szdistunit.into(), dwadstate, dwadvertisedversionms, dwadvertisedversionls).ok()
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub struct StartParam {
-    pub iid: ::windows::core::GUID,
-    pub pIBindCtx: ::core::option::Option<super::IBindCtx>,
-    pub pItf: ::core::option::Option<::windows::core::IUnknown>,
-}
-impl ::core::clone::Clone for StartParam {
-    fn clone(&self) -> Self {
-        Self { iid: self.iid, pIBindCtx: self.pIBindCtx.clone(), pItf: self.pItf.clone() }
-    }
-}
-impl ::core::fmt::Debug for StartParam {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("StartParam").field("iid", &self.iid).field("pIBindCtx", &self.pIBindCtx).field("pItf", &self.pItf).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for StartParam {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for StartParam {
-    fn eq(&self, other: &Self) -> bool {
-        self.iid == other.iid && self.pIBindCtx == other.pIBindCtx && self.pItf == other.pItf
-    }
-}
-impl ::core::cmp::Eq for StartParam {}
-impl ::core::default::Default for StartParam {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const UAS_EXACTLEGACY: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
@@ -6354,64 +4871,6 @@ pub const URLACTION_WINFX_SETUP: u32 = 9728u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLACTION_XPS_DOCUMENTS: u32 = 9217u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLDownloadToCacheFileA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u8], param4: u32, param5: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLDownloadToCacheFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLDownloadToCacheFileA(param0.into().abi(), param1.into(), ::core::mem::transmute(param2.as_ptr()), param2.len() as _, param4, param5.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLDownloadToCacheFileW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut [u16], param4: u32, param5: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLDownloadToCacheFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PWSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLDownloadToCacheFileW(param0.into().abi(), param1.into(), ::core::mem::transmute(param2.as_ptr()), param2.len() as _, param4, param5.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLDownloadToFileA<'a, P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLDownloadToFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLDownloadToFileA(param0.into().abi(), param1.into(), param2.into(), param3, param4.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLDownloadToFileW<'a, P0, P1, P2, P3>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P3) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLDownloadToFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLDownloadToFileW(param0.into().abi(), param1.into(), param2.into(), param3, param4.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLMON_OPTION_URL_ENCODING: u32 = 268435460u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLMON_OPTION_USERAGENT: u32 = 268435457u32;
@@ -6427,90 +4886,6 @@ pub const URLOSTRM_GETNEWESTVERSION: u32 = 3u32;
 pub const URLOSTRM_USECACHEDCOPY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLOSTRM_USECACHEDCOPY_ONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLOpenBlockingStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLOpenBlockingStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLOpenBlockingStreamA(param0.into().abi(), param1.into(), ::core::mem::transmute(param2), param3, param4.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLOpenBlockingStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: &mut ::core::option::Option<super::IStream>, param3: u32, param4: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLOpenBlockingStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLOpenBlockingStreamW(param0.into().abi(), param1.into(), ::core::mem::transmute(param2), param3, param4.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLOpenPullStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLOpenPullStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLOpenPullStreamA(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLOpenPullStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLOpenPullStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLOpenPullStreamW(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLOpenStreamA<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLOpenStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLOpenStreamA(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn URLOpenStreamW<'a, P0, P1, P2>(param0: P0, param1: P1, param2: u32, param3: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindStatusCallback>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn URLOpenStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    URLOpenStreamW(param0.into().abi(), param1.into(), param2, param3.into().abi()).ok()
-}
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLPOLICY_ACTIVEX_CHECK_LIST: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
@@ -6563,6 +4938,1212 @@ pub const URLPOLICY_NOTIFY_ON_ALLOW: u32 = 16u32;
 pub const URLPOLICY_NOTIFY_ON_DISALLOW: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLPOLICY_QUERY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const URLZONE_ESC_FLAG: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const URL_MK_LEGACY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const URL_MK_NO_CANONICALIZE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const URL_MK_UNIFORM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const UriBuilder_USE_ORIGINAL_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_DISPLAY_IDN_HOST: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_DISPLAY_NO_FRAGMENT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_DISPLAY_NO_PUNYCODE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_ENCODING_HOST_IS_IDN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_CP: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_UTF8: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_CP: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_PERCENT_ENCODED_UTF8: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_CP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_PERCENT_ENCODED_UTF8: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHENTICATEF(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = AUTHENTICATEF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = AUTHENTICATEF(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = AUTHENTICATEF(4i32);
+impl ::core::marker::Copy for AUTHENTICATEF {}
+impl ::core::clone::Clone for AUTHENTICATEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHENTICATEF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHENTICATEF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHENTICATEF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHENTICATEF").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDF(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_ASYNCHRONOUS: BINDF = BINDF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_ASYNCSTORAGE: BINDF = BINDF(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_NOPROGRESSIVERENDERING: BINDF = BINDF(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_OFFLINEOPERATION: BINDF = BINDF(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_GETNEWESTVERSION: BINDF = BINDF(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_NOWRITECACHE: BINDF = BINDF(32i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_NEEDFILE: BINDF = BINDF(64i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_PULLDATA: BINDF = BINDF(128i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_IGNORESECURITYPROBLEM: BINDF = BINDF(256i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESYNCHRONIZE: BINDF = BINDF(512i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_HYPERLINK: BINDF = BINDF(1024i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_NO_UI: BINDF = BINDF(2048i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_SILENTOPERATION: BINDF = BINDF(4096i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_PRAGMA_NO_CACHE: BINDF = BINDF(8192i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_GETCLASSOBJECT: BINDF = BINDF(16384i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_1: BINDF = BINDF(32768i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_FREE_THREADED: BINDF = BINDF(65536i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_DIRECT_READ: BINDF = BINDF(131072i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_FORMS_SUBMIT: BINDF = BINDF(262144i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_GETFROMCACHE_IF_NET_FAIL: BINDF = BINDF(524288i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_FROMURLMON: BINDF = BINDF(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_FWD_BACK: BINDF = BINDF(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_PREFERDEFAULTHANDLER: BINDF = BINDF(4194304i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_ENFORCERESTRICTED: BINDF = BINDF(8388608i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_2: BINDF = BINDF(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_3: BINDF = BINDF(16777216i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_4: BINDF = BINDF(33554432i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_5: BINDF = BINDF(67108864i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_6: BINDF = BINDF(134217728i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_7: BINDF = BINDF(1073741824i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF_RESERVED_8: BINDF = BINDF(536870912i32);
+impl ::core::marker::Copy for BINDF {}
+impl ::core::clone::Clone for BINDF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDF").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDF2(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_DISABLEBASICOVERHTTP: BINDF2 = BINDF2(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_DISABLEAUTOCOOKIEHANDLING: BINDF2 = BINDF2(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_READ_DATA_GREATER_THAN_4GB: BINDF2 = BINDF2(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_DISABLE_HTTP_REDIRECT_XSECURITYID: BINDF2 = BINDF2(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_SETDOWNLOADMODE: BINDF2 = BINDF2(32i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_DISABLE_HTTP_REDIRECT_CACHING: BINDF2 = BINDF2(64i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_KEEP_CALLBACK_MODULE_LOADED: BINDF2 = BINDF2(128i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_ALLOW_PROXY_CRED_PROMPT: BINDF2 = BINDF2(256i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_17: BINDF2 = BINDF2(512i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_16: BINDF2 = BINDF2(1024i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_15: BINDF2 = BINDF2(2048i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_14: BINDF2 = BINDF2(4096i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_13: BINDF2 = BINDF2(8192i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_12: BINDF2 = BINDF2(16384i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_11: BINDF2 = BINDF2(32768i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_10: BINDF2 = BINDF2(65536i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_F: BINDF2 = BINDF2(131072i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_E: BINDF2 = BINDF2(262144i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_D: BINDF2 = BINDF2(524288i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_C: BINDF2 = BINDF2(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_B: BINDF2 = BINDF2(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_A: BINDF2 = BINDF2(4194304i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_9: BINDF2 = BINDF2(8388608i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_8: BINDF2 = BINDF2(16777216i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_7: BINDF2 = BINDF2(33554432i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_6: BINDF2 = BINDF2(67108864i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_5: BINDF2 = BINDF2(134217728i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_4: BINDF2 = BINDF2(268435456i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_3: BINDF2 = BINDF2(536870912i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_2: BINDF2 = BINDF2(1073741824i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDF2_RESERVED_1: BINDF2 = BINDF2(-2147483648i32);
+impl ::core::marker::Copy for BINDF2 {}
+impl ::core::clone::Clone for BINDF2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDF2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDF2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDF2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDF2").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDHANDLETYPES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = BINDHANDLETYPES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDHANDLETYPES_DEPENDENCY: BINDHANDLETYPES = BINDHANDLETYPES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDHANDLETYPES_COUNT: BINDHANDLETYPES = BINDHANDLETYPES(2i32);
+impl ::core::marker::Copy for BINDHANDLETYPES {}
+impl ::core::clone::Clone for BINDHANDLETYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDHANDLETYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDHANDLETYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDHANDLETYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDHANDLETYPES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDINFO_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_WININETFLAG: BINDINFO_OPTIONS = BINDINFO_OPTIONS(65536i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_ENABLE_UTF8: BINDINFO_OPTIONS = BINDINFO_OPTIONS(131072i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_DISABLE_UTF8: BINDINFO_OPTIONS = BINDINFO_OPTIONS(262144i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_USE_IE_ENCODING: BINDINFO_OPTIONS = BINDINFO_OPTIONS(524288i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_BINDTOOBJECT: BINDINFO_OPTIONS = BINDINFO_OPTIONS(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_SECURITYOPTOUT: BINDINFO_OPTIONS = BINDINFO_OPTIONS(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_IGNOREMIMETEXTPLAIN: BINDINFO_OPTIONS = BINDINFO_OPTIONS(4194304i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_USEBINDSTRINGCREDS: BINDINFO_OPTIONS = BINDINFO_OPTIONS(8388608i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_IGNOREHTTPHTTPSREDIRECTS: BINDINFO_OPTIONS = BINDINFO_OPTIONS(16777216i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_IGNORE_SSLERRORS_ONCE: BINDINFO_OPTIONS = BINDINFO_OPTIONS(33554432i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_WPC_DOWNLOADBLOCKED: BINDINFO_OPTIONS = BINDINFO_OPTIONS(134217728i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_WPC_LOGGING_ENABLED: BINDINFO_OPTIONS = BINDINFO_OPTIONS(268435456i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_ALLOWCONNECTDATA: BINDINFO_OPTIONS = BINDINFO_OPTIONS(536870912i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_DISABLEAUTOREDIRECTS: BINDINFO_OPTIONS = BINDINFO_OPTIONS(1073741824i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDINFO_OPTIONS_SHDOCVW_NAVIGATE: BINDINFO_OPTIONS = BINDINFO_OPTIONS(-2147483648i32);
+impl ::core::marker::Copy for BINDINFO_OPTIONS {}
+impl ::core::clone::Clone for BINDINFO_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDINFO_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDINFO_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDINFO_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDINFO_OPTIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDSTATUS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_FINDINGRESOURCE: BINDSTATUS = BINDSTATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CONNECTING: BINDSTATUS = BINDSTATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_REDIRECTING: BINDSTATUS = BINDSTATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_BEGINDOWNLOADDATA: BINDSTATUS = BINDSTATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_DOWNLOADINGDATA: BINDSTATUS = BINDSTATUS(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_ENDDOWNLOADDATA: BINDSTATUS = BINDSTATUS(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_BEGINDOWNLOADCOMPONENTS: BINDSTATUS = BINDSTATUS(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_INSTALLINGCOMPONENTS: BINDSTATUS = BINDSTATUS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_ENDDOWNLOADCOMPONENTS: BINDSTATUS = BINDSTATUS(9i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_USINGCACHEDCOPY: BINDSTATUS = BINDSTATUS(10i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_SENDINGREQUEST: BINDSTATUS = BINDSTATUS(11i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CLASSIDAVAILABLE: BINDSTATUS = BINDSTATUS(12i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_MIMETYPEAVAILABLE: BINDSTATUS = BINDSTATUS(13i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CACHEFILENAMEAVAILABLE: BINDSTATUS = BINDSTATUS(14i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_BEGINSYNCOPERATION: BINDSTATUS = BINDSTATUS(15i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_ENDSYNCOPERATION: BINDSTATUS = BINDSTATUS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_BEGINUPLOADDATA: BINDSTATUS = BINDSTATUS(17i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_UPLOADINGDATA: BINDSTATUS = BINDSTATUS(18i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_ENDUPLOADDATA: BINDSTATUS = BINDSTATUS(19i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_PROTOCOLCLASSID: BINDSTATUS = BINDSTATUS(20i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_ENCODING: BINDSTATUS = BINDSTATUS(21i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_VERIFIEDMIMETYPEAVAILABLE: BINDSTATUS = BINDSTATUS(22i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CLASSINSTALLLOCATION: BINDSTATUS = BINDSTATUS(23i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_DECODING: BINDSTATUS = BINDSTATUS(24i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_LOADINGMIMEHANDLER: BINDSTATUS = BINDSTATUS(25i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CONTENTDISPOSITIONATTACH: BINDSTATUS = BINDSTATUS(26i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_FILTERREPORTMIMETYPE: BINDSTATUS = BINDSTATUS(27i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CLSIDCANINSTANTIATE: BINDSTATUS = BINDSTATUS(28i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_IUNKNOWNAVAILABLE: BINDSTATUS = BINDSTATUS(29i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_DIRECTBIND: BINDSTATUS = BINDSTATUS(30i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RAWMIMETYPE: BINDSTATUS = BINDSTATUS(31i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_PROXYDETECTING: BINDSTATUS = BINDSTATUS(32i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_ACCEPTRANGES: BINDSTATUS = BINDSTATUS(33i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_SENT: BINDSTATUS = BINDSTATUS(34i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COMPACT_POLICY_RECEIVED: BINDSTATUS = BINDSTATUS(35i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_SUPPRESSED: BINDSTATUS = BINDSTATUS(36i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_STATE_UNKNOWN: BINDSTATUS = BINDSTATUS(37i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_STATE_ACCEPT: BINDSTATUS = BINDSTATUS(38i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_STATE_REJECT: BINDSTATUS = BINDSTATUS(39i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_STATE_PROMPT: BINDSTATUS = BINDSTATUS(40i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_STATE_LEASH: BINDSTATUS = BINDSTATUS(41i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_COOKIE_STATE_DOWNGRADE: BINDSTATUS = BINDSTATUS(42i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_POLICY_HREF: BINDSTATUS = BINDSTATUS(43i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_P3P_HEADER: BINDSTATUS = BINDSTATUS(44i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_SESSION_COOKIE_RECEIVED: BINDSTATUS = BINDSTATUS(45i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_PERSISTENT_COOKIE_RECEIVED: BINDSTATUS = BINDSTATUS(46i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_SESSION_COOKIES_ALLOWED: BINDSTATUS = BINDSTATUS(47i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CACHECONTROL: BINDSTATUS = BINDSTATUS(48i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_CONTENTDISPOSITIONFILENAME: BINDSTATUS = BINDSTATUS(49i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_MIMETEXTPLAINMISMATCH: BINDSTATUS = BINDSTATUS(50i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_PUBLISHERAVAILABLE: BINDSTATUS = BINDSTATUS(51i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_DISPLAYNAMEAVAILABLE: BINDSTATUS = BINDSTATUS(52i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_SSLUX_NAVBLOCKED: BINDSTATUS = BINDSTATUS(53i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_SERVER_MIMETYPEAVAILABLE: BINDSTATUS = BINDSTATUS(54i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_SNIFFED_CLASSIDAVAILABLE: BINDSTATUS = BINDSTATUS(55i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_64BIT_PROGRESS: BINDSTATUS = BINDSTATUS(56i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_LAST: BINDSTATUS = BINDSTATUS(56i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_0: BINDSTATUS = BINDSTATUS(57i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_1: BINDSTATUS = BINDSTATUS(58i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_2: BINDSTATUS = BINDSTATUS(59i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_3: BINDSTATUS = BINDSTATUS(60i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_4: BINDSTATUS = BINDSTATUS(61i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_5: BINDSTATUS = BINDSTATUS(62i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_6: BINDSTATUS = BINDSTATUS(63i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_7: BINDSTATUS = BINDSTATUS(64i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_8: BINDSTATUS = BINDSTATUS(65i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_9: BINDSTATUS = BINDSTATUS(66i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_A: BINDSTATUS = BINDSTATUS(67i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_B: BINDSTATUS = BINDSTATUS(68i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_C: BINDSTATUS = BINDSTATUS(69i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_D: BINDSTATUS = BINDSTATUS(70i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_E: BINDSTATUS = BINDSTATUS(71i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_F: BINDSTATUS = BINDSTATUS(72i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_10: BINDSTATUS = BINDSTATUS(73i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_11: BINDSTATUS = BINDSTATUS(74i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_12: BINDSTATUS = BINDSTATUS(75i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_13: BINDSTATUS = BINDSTATUS(76i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_RESERVED_14: BINDSTATUS = BINDSTATUS(77i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTATUS_LAST_PRIVATE: BINDSTATUS = BINDSTATUS(77i32);
+impl ::core::marker::Copy for BINDSTATUS {}
+impl ::core::clone::Clone for BINDSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDSTATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDSTATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDSTRING(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_HEADERS: BINDSTRING = BINDSTRING(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_ACCEPT_MIMES: BINDSTRING = BINDSTRING(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_EXTRA_URL: BINDSTRING = BINDSTRING(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_LANGUAGE: BINDSTRING = BINDSTRING(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_USERNAME: BINDSTRING = BINDSTRING(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_PASSWORD: BINDSTRING = BINDSTRING(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_UA_PIXELS: BINDSTRING = BINDSTRING(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_UA_COLOR: BINDSTRING = BINDSTRING(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_OS: BINDSTRING = BINDSTRING(9i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_USER_AGENT: BINDSTRING = BINDSTRING(10i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_ACCEPT_ENCODINGS: BINDSTRING = BINDSTRING(11i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_POST_COOKIE: BINDSTRING = BINDSTRING(12i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_POST_DATA_MIME: BINDSTRING = BINDSTRING(13i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_URL: BINDSTRING = BINDSTRING(14i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_IID: BINDSTRING = BINDSTRING(15i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_FLAG_BIND_TO_OBJECT: BINDSTRING = BINDSTRING(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_PTR_BIND_CONTEXT: BINDSTRING = BINDSTRING(17i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_XDR_ORIGIN: BINDSTRING = BINDSTRING(18i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_DOWNLOADPATH: BINDSTRING = BINDSTRING(19i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_ROOTDOC_URL: BINDSTRING = BINDSTRING(20i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_INITIAL_FILENAME: BINDSTRING = BINDSTRING(21i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_PROXY_USERNAME: BINDSTRING = BINDSTRING(22i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_PROXY_PASSWORD: BINDSTRING = BINDSTRING(23i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_ENTERPRISE_ID: BINDSTRING = BINDSTRING(24i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_DOC_URL: BINDSTRING = BINDSTRING(25i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDSTRING_SAMESITE_COOKIE_LEVEL: BINDSTRING = BINDSTRING(26i32);
+impl ::core::marker::Copy for BINDSTRING {}
+impl ::core::clone::Clone for BINDSTRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDSTRING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDSTRING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDSTRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDSTRING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDVERB(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDVERB_GET: BINDVERB = BINDVERB(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDVERB_POST: BINDVERB = BINDVERB(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDVERB_PUT: BINDVERB = BINDVERB(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDVERB_CUSTOM: BINDVERB = BINDVERB(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BINDVERB_RESERVED1: BINDVERB = BINDVERB(4i32);
+impl ::core::marker::Copy for BINDVERB {}
+impl ::core::clone::Clone for BINDVERB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDVERB {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDVERB {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDVERB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDVERB").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BSCF(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BSCF_FIRSTDATANOTIFICATION: BSCF = BSCF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BSCF_INTERMEDIATEDATANOTIFICATION: BSCF = BSCF(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BSCF_LASTDATANOTIFICATION: BSCF = BSCF(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BSCF_DATAFULLYAVAILABLE: BSCF = BSCF(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BSCF_AVAILABLEDATASIZEUNKNOWN: BSCF = BSCF(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BSCF_SKIPDRAINDATAFORFILEURLS: BSCF = BSCF(32i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const BSCF_64BITLENGTHDOWNLOAD: BSCF = BSCF(64i32);
+impl ::core::marker::Copy for BSCF {}
+impl ::core::clone::Clone for BSCF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BSCF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BSCF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BSCF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BSCF").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CIP_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_DISK_FULL: CIP_STATUS = CIP_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_ACCESS_DENIED: CIP_STATUS = CIP_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_NEWER_VERSION_EXISTS: CIP_STATUS = CIP_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_OLDER_VERSION_EXISTS: CIP_STATUS = CIP_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_NAME_CONFLICT: CIP_STATUS = CIP_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = CIP_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_EXE_SELF_REGISTERATION_TIMEOUT: CIP_STATUS = CIP_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = CIP_STATUS(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_NEED_REBOOT: CIP_STATUS = CIP_STATUS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CIP_NEED_REBOOT_UI_PERMISSION: CIP_STATUS = CIP_STATUS(9i32);
+impl ::core::marker::Copy for CIP_STATUS {}
+impl ::core::clone::Clone for CIP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CIP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CIP_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CIP_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CIP_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IEObjectType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_EVENT: IEObjectType = IEObjectType(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_MUTEX: IEObjectType = IEObjectType(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_SEMAPHORE: IEObjectType = IEObjectType(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_SHARED_MEMORY: IEObjectType = IEObjectType(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_WAITABLE_TIMER: IEObjectType = IEObjectType(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_FILE: IEObjectType = IEObjectType(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_NAMED_PIPE: IEObjectType = IEObjectType(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const IE_EPM_OBJECT_REGISTRY: IEObjectType = IEObjectType(7i32);
+impl ::core::marker::Copy for IEObjectType {}
+impl ::core::clone::Clone for IEObjectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IEObjectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IEObjectType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IEObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEObjectType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INET_ZONE_MANAGER_CONSTANTS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const MAX_ZONE_PATH: INET_ZONE_MANAGER_CONSTANTS = INET_ZONE_MANAGER_CONSTANTS(260i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const MAX_ZONE_DESCRIPTION: INET_ZONE_MANAGER_CONSTANTS = INET_ZONE_MANAGER_CONSTANTS(200i32);
+impl ::core::marker::Copy for INET_ZONE_MANAGER_CONSTANTS {}
+impl ::core::clone::Clone for INET_ZONE_MANAGER_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INET_ZONE_MANAGER_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INET_ZONE_MANAGER_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INET_ZONE_MANAGER_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INET_ZONE_MANAGER_CONSTANTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INTERNETFEATURELIST(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_OBJECT_CACHING: INTERNETFEATURELIST = INTERNETFEATURELIST(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_ZONE_ELEVATION: INTERNETFEATURELIST = INTERNETFEATURELIST(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_MIME_HANDLING: INTERNETFEATURELIST = INTERNETFEATURELIST(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_MIME_SNIFFING: INTERNETFEATURELIST = INTERNETFEATURELIST(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_WINDOW_RESTRICTIONS: INTERNETFEATURELIST = INTERNETFEATURELIST(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_WEBOC_POPUPMANAGEMENT: INTERNETFEATURELIST = INTERNETFEATURELIST(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_BEHAVIORS: INTERNETFEATURELIST = INTERNETFEATURELIST(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_DISABLE_MK_PROTOCOL: INTERNETFEATURELIST = INTERNETFEATURELIST(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_LOCALMACHINE_LOCKDOWN: INTERNETFEATURELIST = INTERNETFEATURELIST(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_SECURITYBAND: INTERNETFEATURELIST = INTERNETFEATURELIST(9i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_RESTRICT_ACTIVEXINSTALL: INTERNETFEATURELIST = INTERNETFEATURELIST(10i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_VALIDATE_NAVIGATE_URL: INTERNETFEATURELIST = INTERNETFEATURELIST(11i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_RESTRICT_FILEDOWNLOAD: INTERNETFEATURELIST = INTERNETFEATURELIST(12i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_ADDON_MANAGEMENT: INTERNETFEATURELIST = INTERNETFEATURELIST(13i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_PROTOCOL_LOCKDOWN: INTERNETFEATURELIST = INTERNETFEATURELIST(14i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_HTTP_USERNAME_PASSWORD_DISABLE: INTERNETFEATURELIST = INTERNETFEATURELIST(15i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_SAFE_BINDTOOBJECT: INTERNETFEATURELIST = INTERNETFEATURELIST(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_UNC_SAVEDFILECHECK: INTERNETFEATURELIST = INTERNETFEATURELIST(17i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_GET_URL_DOM_FILEPATH_UNENCODED: INTERNETFEATURELIST = INTERNETFEATURELIST(18i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_TABBED_BROWSING: INTERNETFEATURELIST = INTERNETFEATURELIST(19i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_SSLUX: INTERNETFEATURELIST = INTERNETFEATURELIST(20i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_DISABLE_NAVIGATION_SOUNDS: INTERNETFEATURELIST = INTERNETFEATURELIST(21i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_DISABLE_LEGACY_COMPRESSION: INTERNETFEATURELIST = INTERNETFEATURELIST(22i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_FORCE_ADDR_AND_STATUS: INTERNETFEATURELIST = INTERNETFEATURELIST(23i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_XMLHTTP: INTERNETFEATURELIST = INTERNETFEATURELIST(24i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_DISABLE_TELNET_PROTOCOL: INTERNETFEATURELIST = INTERNETFEATURELIST(25i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_FEEDS: INTERNETFEATURELIST = INTERNETFEATURELIST(26i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_BLOCK_INPUT_PROMPTS: INTERNETFEATURELIST = INTERNETFEATURELIST(27i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const FEATURE_ENTRY_COUNT: INTERNETFEATURELIST = INTERNETFEATURELIST(28i32);
+impl ::core::marker::Copy for INTERNETFEATURELIST {}
+impl ::core::clone::Clone for INTERNETFEATURELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNETFEATURELIST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNETFEATURELIST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNETFEATURELIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNETFEATURELIST").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MONIKERPROPERTY(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const MIMETYPEPROP: MONIKERPROPERTY = MONIKERPROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const USE_SRC_URL: MONIKERPROPERTY = MONIKERPROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const CLASSIDPROP: MONIKERPROPERTY = MONIKERPROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = MONIKERPROPERTY(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const POPUPLEVELPROP: MONIKERPROPERTY = MONIKERPROPERTY(4i32);
+impl ::core::marker::Copy for MONIKERPROPERTY {}
+impl ::core::clone::Clone for MONIKERPROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MONIKERPROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MONIKERPROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MONIKERPROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MONIKERPROPERTY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OIBDG_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const OIBDG_APARTMENTTHREADED: OIBDG_FLAGS = OIBDG_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const OIBDG_DATAONLY: OIBDG_FLAGS = OIBDG_FLAGS(4096i32);
+impl ::core::marker::Copy for OIBDG_FLAGS {}
+impl ::core::clone::Clone for OIBDG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OIBDG_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OIBDG_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OIBDG_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OIBDG_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PARSEACTION(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_CANONICALIZE: PARSEACTION = PARSEACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_FRIENDLY: PARSEACTION = PARSEACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_SECURITY_URL: PARSEACTION = PARSEACTION(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_ROOTDOCUMENT: PARSEACTION = PARSEACTION(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_DOCUMENT: PARSEACTION = PARSEACTION(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_ANCHOR: PARSEACTION = PARSEACTION(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_ENCODE_IS_UNESCAPE: PARSEACTION = PARSEACTION(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_DECODE_IS_ESCAPE: PARSEACTION = PARSEACTION(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_PATH_FROM_URL: PARSEACTION = PARSEACTION(9i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_URL_FROM_PATH: PARSEACTION = PARSEACTION(10i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_MIME: PARSEACTION = PARSEACTION(11i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_SERVER: PARSEACTION = PARSEACTION(12i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_SCHEMA: PARSEACTION = PARSEACTION(13i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_SITE: PARSEACTION = PARSEACTION(14i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_DOMAIN: PARSEACTION = PARSEACTION(15i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_LOCATION: PARSEACTION = PARSEACTION(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_SECURITY_DOMAIN: PARSEACTION = PARSEACTION(17i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_ESCAPE: PARSEACTION = PARSEACTION(18i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PARSE_UNESCAPE: PARSEACTION = PARSEACTION(19i32);
+impl ::core::marker::Copy for PARSEACTION {}
+impl ::core::clone::Clone for PARSEACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PARSEACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PARSEACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PARSEACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PARSEACTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PI_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_PARSE_URL: PI_FLAGS = PI_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_FILTER_MODE: PI_FLAGS = PI_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_FORCE_ASYNC: PI_FLAGS = PI_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_USE_WORKERTHREAD: PI_FLAGS = PI_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_MIMEVERIFICATION: PI_FLAGS = PI_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_CLSIDLOOKUP: PI_FLAGS = PI_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_DATAPROGRESS: PI_FLAGS = PI_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_SYNCHRONOUS: PI_FLAGS = PI_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_APARTMENTTHREADED: PI_FLAGS = PI_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_CLASSINSTALL: PI_FLAGS = PI_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_PASSONBINDCTX: PI_FLAGS = PI_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_NOMIMEHANDLER: PI_FLAGS = PI_FLAGS(32768i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_LOADAPPDIRECT: PI_FLAGS = PI_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PD_FORCE_SWITCH: PI_FLAGS = PI_FLAGS(65536i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PI_PREFERDEFAULTHANDLER: PI_FLAGS = PI_FLAGS(131072i32);
+impl ::core::marker::Copy for PI_FLAGS {}
+impl ::core::clone::Clone for PI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PI_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PI_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PI_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PI_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PSUACTION(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PSU_DEFAULT: PSUACTION = PSUACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PSU_SECURITY_URL_ONLY: PSUACTION = PSUACTION(2i32);
+impl ::core::marker::Copy for PSUACTION {}
+impl ::core::clone::Clone for PSUACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PSUACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PSUACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PSUACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSUACTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PUAF(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_DEFAULT: PUAF = PUAF(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_NOUI: PUAF = PUAF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_ISFILE: PUAF = PUAF(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_WARN_IF_DENIED: PUAF = PUAF(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_FORCEUI_FOREGROUND: PUAF = PUAF(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_CHECK_TIFS: PUAF = PUAF(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_DONTCHECKBOXINDIALOG: PUAF = PUAF(32i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_TRUSTED: PUAF = PUAF(64i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_ACCEPT_WILDCARD_SCHEME: PUAF = PUAF(128i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_ENFORCERESTRICTED: PUAF = PUAF(256i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_NOSAVEDFILECHECK: PUAF = PUAF(512i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_REQUIRESAVEDFILECHECK: PUAF = PUAF(1024i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_DONT_USE_CACHE: PUAF = PUAF(4096i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_RESERVED1: PUAF = PUAF(8192i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_RESERVED2: PUAF = PUAF(16384i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_LMZ_UNLOCKED: PUAF = PUAF(65536i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_LMZ_LOCKED: PUAF = PUAF(131072i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_DEFAULTZONEPOL: PUAF = PUAF(262144i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_NPL_USE_LOCKED_IF_RESTRICTED: PUAF = PUAF(524288i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_NOUIIFLOCKED: PUAF = PUAF(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAF_DRAGPROTOCOLCHECK: PUAF = PUAF(2097152i32);
+impl ::core::marker::Copy for PUAF {}
+impl ::core::clone::Clone for PUAF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PUAF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PUAF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PUAF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PUAF").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PUAFOUT(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAFOUT_DEFAULT: PUAFOUT = PUAFOUT(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const PUAFOUT_ISLOCKZONEPOLICY: PUAFOUT = PUAFOUT(1i32);
+impl ::core::marker::Copy for PUAFOUT {}
+impl ::core::clone::Clone for PUAFOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PUAFOUT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PUAFOUT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PUAFOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PUAFOUT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct QUERYOPTION(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_EXPIRATION_DATE: QUERYOPTION = QUERYOPTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_TIME_OF_LAST_CHANGE: QUERYOPTION = QUERYOPTION(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_CONTENT_ENCODING: QUERYOPTION = QUERYOPTION(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_CONTENT_TYPE: QUERYOPTION = QUERYOPTION(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_REFRESH: QUERYOPTION = QUERYOPTION(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_RECOMBINE: QUERYOPTION = QUERYOPTION(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_CAN_NAVIGATE: QUERYOPTION = QUERYOPTION(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_USES_NETWORK: QUERYOPTION = QUERYOPTION(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_IS_CACHED: QUERYOPTION = QUERYOPTION(9i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_IS_INSTALLEDENTRY: QUERYOPTION = QUERYOPTION(10i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_IS_CACHED_OR_MAPPED: QUERYOPTION = QUERYOPTION(11i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_USES_CACHE: QUERYOPTION = QUERYOPTION(12i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_IS_SECURE: QUERYOPTION = QUERYOPTION(13i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_IS_SAFE: QUERYOPTION = QUERYOPTION(14i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = QUERYOPTION(15i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const QUERY_IS_CACHED_AND_USABLE_OFFLINE: QUERYOPTION = QUERYOPTION(16i32);
+impl ::core::marker::Copy for QUERYOPTION {}
+impl ::core::clone::Clone for QUERYOPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for QUERYOPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for QUERYOPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for QUERYOPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QUERYOPTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SZM_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const SZM_CREATE: SZM_FLAGS = SZM_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub const SZM_DELETE: SZM_FLAGS = SZM_FLAGS(1i32);
+impl ::core::marker::Copy for SZM_FLAGS {}
+impl ::core::clone::Clone for SZM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SZM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SZM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SZM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SZM_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6675,8 +6256,6 @@ impl ::core::fmt::Debug for URLZONEREG {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const URLZONE_ESC_FLAG: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URL_ENCODING(pub i32);
@@ -6705,34 +6284,6 @@ impl ::core::fmt::Debug for URL_ENCODING {
         f.debug_tuple("URL_ENCODING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const URL_MK_LEGACY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const URL_MK_NO_CANONICALIZE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const URL_MK_UNIFORM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const UriBuilder_USE_ORIGINAL_FLAGS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_DISPLAY_IDN_HOST: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_DISPLAY_NO_FRAGMENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_DISPLAY_NO_PUNYCODE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_ENCODING_HOST_IS_IDN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_CP: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_ENCODING_HOST_IS_PERCENT_ENCODED_UTF8: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_CP: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_PERCENT_ENCODED_UTF8: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_CP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_PERCENT_ENCODED_UTF8: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6765,38 +6316,6 @@ impl ::core::fmt::Debug for Uri_HOST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Uri_HOST_TYPE").field(&self.0).finish()
     }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<&mut [u8]>, pdwbufferlengthout: &mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
-    }
-    UrlMkGetSessionOption(dwoption, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwbufferlengthout), dwreserved).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-#[inline]
-pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<&[u8]>, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT;
-    }
-    UrlMkSetSessionOption(dwoption, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), dwreserved).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WriteHitLogging(lplogginginfo: &HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL;
-    }
-    WriteHitLogging(::core::mem::transmute(lplogginginfo))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
@@ -6843,6 +6362,487 @@ unsafe impl ::windows::core::Abi for ZAFLAGS {
 impl ::core::fmt::Debug for ZAFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ZAFLAGS").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct CODEBASEHOLD {
+    pub cbSize: u32,
+    pub szDistUnit: ::windows::core::PWSTR,
+    pub szCodeBase: ::windows::core::PWSTR,
+    pub dwVersionMS: u32,
+    pub dwVersionLS: u32,
+    pub dwStyle: u32,
+}
+impl ::core::marker::Copy for CODEBASEHOLD {}
+impl ::core::clone::Clone for CODEBASEHOLD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CODEBASEHOLD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CODEBASEHOLD").field("cbSize", &self.cbSize).field("szDistUnit", &self.szDistUnit).field("szCodeBase", &self.szCodeBase).field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).field("dwStyle", &self.dwStyle).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CODEBASEHOLD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CODEBASEHOLD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CODEBASEHOLD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CODEBASEHOLD {}
+impl ::core::default::Default for CODEBASEHOLD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct CONFIRMSAFETY {
+    pub clsid: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub dwFlags: u32,
+}
+impl ::core::clone::Clone for CONFIRMSAFETY {
+    fn clone(&self) -> Self {
+        Self { clsid: self.clsid, pUnk: self.pUnk.clone(), dwFlags: self.dwFlags }
+    }
+}
+impl ::core::fmt::Debug for CONFIRMSAFETY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFIRMSAFETY").field("clsid", &self.clsid).field("pUnk", &self.pUnk).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CONFIRMSAFETY {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for CONFIRMSAFETY {
+    fn eq(&self, other: &Self) -> bool {
+        self.clsid == other.clsid && self.pUnk == other.pUnk && self.dwFlags == other.dwFlags
+    }
+}
+impl ::core::cmp::Eq for CONFIRMSAFETY {}
+impl ::core::default::Default for CONFIRMSAFETY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct DATAINFO {
+    pub ulTotalSize: u32,
+    pub ulavrPacketSize: u32,
+    pub ulConnectSpeed: u32,
+    pub ulProcessorSpeed: u32,
+}
+impl ::core::marker::Copy for DATAINFO {}
+impl ::core::clone::Clone for DATAINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DATAINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DATAINFO").field("ulTotalSize", &self.ulTotalSize).field("ulavrPacketSize", &self.ulavrPacketSize).field("ulConnectSpeed", &self.ulConnectSpeed).field("ulProcessorSpeed", &self.ulProcessorSpeed).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DATAINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DATAINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATAINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DATAINFO {}
+impl ::core::default::Default for DATAINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIT_LOGGING_INFO {
+    pub dwStructSize: u32,
+    pub lpszLoggedUrlName: ::windows::core::PSTR,
+    pub StartTime: super::super::super::Foundation::SYSTEMTIME,
+    pub EndTime: super::super::super::Foundation::SYSTEMTIME,
+    pub lpszExtendedInfo: ::windows::core::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIT_LOGGING_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIT_LOGGING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HIT_LOGGING_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIT_LOGGING_INFO").field("dwStructSize", &self.dwStructSize).field("lpszLoggedUrlName", &self.lpszLoggedUrlName).field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("lpszExtendedInfo", &self.lpszExtendedInfo).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIT_LOGGING_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIT_LOGGING_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIT_LOGGING_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIT_LOGGING_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HIT_LOGGING_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct PROTOCOLDATA {
+    pub grfFlags: u32,
+    pub dwState: u32,
+    pub pData: *mut ::core::ffi::c_void,
+    pub cbData: u32,
+}
+impl ::core::marker::Copy for PROTOCOLDATA {}
+impl ::core::clone::Clone for PROTOCOLDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PROTOCOLDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROTOCOLDATA").field("grfFlags", &self.grfFlags).field("dwState", &self.dwState).field("pData", &self.pData).field("cbData", &self.cbData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PROTOCOLDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROTOCOLDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTOCOLDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROTOCOLDATA {}
+impl ::core::default::Default for PROTOCOLDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct PROTOCOLFILTERDATA {
+    pub cbSize: u32,
+    pub pProtocolSink: ::core::option::Option<IInternetProtocolSink>,
+    pub pProtocol: ::core::option::Option<IInternetProtocol>,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub dwFilterFlags: u32,
+}
+impl ::core::clone::Clone for PROTOCOLFILTERDATA {
+    fn clone(&self) -> Self {
+        Self {
+            cbSize: self.cbSize,
+            pProtocolSink: self.pProtocolSink.clone(),
+            pProtocol: self.pProtocol.clone(),
+            pUnk: self.pUnk.clone(),
+            dwFilterFlags: self.dwFilterFlags,
+        }
+    }
+}
+impl ::core::fmt::Debug for PROTOCOLFILTERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROTOCOLFILTERDATA").field("cbSize", &self.cbSize).field("pProtocolSink", &self.pProtocolSink).field("pProtocol", &self.pProtocol).field("pUnk", &self.pUnk).field("dwFilterFlags", &self.dwFilterFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PROTOCOLFILTERDATA {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for PROTOCOLFILTERDATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.pProtocolSink == other.pProtocolSink && self.pProtocol == other.pProtocol && self.pUnk == other.pUnk && self.dwFilterFlags == other.dwFilterFlags
+    }
+}
+impl ::core::cmp::Eq for PROTOCOLFILTERDATA {}
+impl ::core::default::Default for PROTOCOLFILTERDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct PROTOCOL_ARGUMENT {
+    pub szMethod: ::windows::core::PCWSTR,
+    pub szTargetUrl: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for PROTOCOL_ARGUMENT {}
+impl ::core::clone::Clone for PROTOCOL_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PROTOCOL_ARGUMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROTOCOL_ARGUMENT").field("szMethod", &self.szMethod).field("szTargetUrl", &self.szTargetUrl).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PROTOCOL_ARGUMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROTOCOL_ARGUMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTOCOL_ARGUMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROTOCOL_ARGUMENT {}
+impl ::core::default::Default for PROTOCOL_ARGUMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct REMSECURITY_ATTRIBUTES {
+    pub nLength: u32,
+    pub lpSecurityDescriptor: u32,
+    pub bInheritHandle: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REMSECURITY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REMSECURITY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for REMSECURITY_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REMSECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for REMSECURITY_ATTRIBUTES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for REMSECURITY_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REMSECURITY_ATTRIBUTES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for REMSECURITY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for REMSECURITY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RemBINDINFO {
+    pub cbSize: u32,
+    pub szExtraInfo: ::windows::core::PWSTR,
+    pub grfBindInfoF: u32,
+    pub dwBindVerb: u32,
+    pub szCustomVerb: ::windows::core::PWSTR,
+    pub cbstgmedData: u32,
+    pub dwOptions: u32,
+    pub dwOptionsFlags: u32,
+    pub dwCodePage: u32,
+    pub securityAttributes: REMSECURITY_ATTRIBUTES,
+    pub iid: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RemBINDINFO {
+    fn clone(&self) -> Self {
+        Self {
+            cbSize: self.cbSize,
+            szExtraInfo: self.szExtraInfo,
+            grfBindInfoF: self.grfBindInfoF,
+            dwBindVerb: self.dwBindVerb,
+            szCustomVerb: self.szCustomVerb,
+            cbstgmedData: self.cbstgmedData,
+            dwOptions: self.dwOptions,
+            dwOptionsFlags: self.dwOptionsFlags,
+            dwCodePage: self.dwCodePage,
+            securityAttributes: self.securityAttributes,
+            iid: self.iid,
+            pUnk: self.pUnk.clone(),
+            dwReserved: self.dwReserved,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RemBINDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RemBINDINFO")
+            .field("cbSize", &self.cbSize)
+            .field("szExtraInfo", &self.szExtraInfo)
+            .field("grfBindInfoF", &self.grfBindInfoF)
+            .field("dwBindVerb", &self.dwBindVerb)
+            .field("szCustomVerb", &self.szCustomVerb)
+            .field("cbstgmedData", &self.cbstgmedData)
+            .field("dwOptions", &self.dwOptions)
+            .field("dwOptionsFlags", &self.dwOptionsFlags)
+            .field("dwCodePage", &self.dwCodePage)
+            .field("securityAttributes", &self.securityAttributes)
+            .field("iid", &self.iid)
+            .field("pUnk", &self.pUnk)
+            .field("dwReserved", &self.dwReserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RemBINDINFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RemBINDINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.szExtraInfo == other.szExtraInfo && self.grfBindInfoF == other.grfBindInfoF && self.dwBindVerb == other.dwBindVerb && self.szCustomVerb == other.szCustomVerb && self.cbstgmedData == other.cbstgmedData && self.dwOptions == other.dwOptions && self.dwOptionsFlags == other.dwOptionsFlags && self.dwCodePage == other.dwCodePage && self.securityAttributes == other.securityAttributes && self.iid == other.iid && self.pUnk == other.pUnk && self.dwReserved == other.dwReserved
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RemBINDINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RemBINDINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct RemFORMATETC {
+    pub cfFormat: u32,
+    pub ptd: u32,
+    pub dwAspect: u32,
+    pub lindex: i32,
+    pub tymed: u32,
+}
+impl ::core::marker::Copy for RemFORMATETC {}
+impl ::core::clone::Clone for RemFORMATETC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RemFORMATETC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RemFORMATETC").field("cfFormat", &self.cfFormat).field("ptd", &self.ptd).field("dwAspect", &self.dwAspect).field("lindex", &self.lindex).field("tymed", &self.tymed).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RemFORMATETC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RemFORMATETC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemFORMATETC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RemFORMATETC {}
+impl ::core::default::Default for RemFORMATETC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct SOFTDISTINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwAdState: u32,
+    pub szTitle: ::windows::core::PWSTR,
+    pub szAbstract: ::windows::core::PWSTR,
+    pub szHREF: ::windows::core::PWSTR,
+    pub dwInstalledVersionMS: u32,
+    pub dwInstalledVersionLS: u32,
+    pub dwUpdateVersionMS: u32,
+    pub dwUpdateVersionLS: u32,
+    pub dwAdvertisedVersionMS: u32,
+    pub dwAdvertisedVersionLS: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for SOFTDISTINFO {}
+impl ::core::clone::Clone for SOFTDISTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SOFTDISTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOFTDISTINFO")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwAdState", &self.dwAdState)
+            .field("szTitle", &self.szTitle)
+            .field("szAbstract", &self.szAbstract)
+            .field("szHREF", &self.szHREF)
+            .field("dwInstalledVersionMS", &self.dwInstalledVersionMS)
+            .field("dwInstalledVersionLS", &self.dwInstalledVersionLS)
+            .field("dwUpdateVersionMS", &self.dwUpdateVersionMS)
+            .field("dwUpdateVersionLS", &self.dwUpdateVersionLS)
+            .field("dwAdvertisedVersionMS", &self.dwAdvertisedVersionMS)
+            .field("dwAdvertisedVersionLS", &self.dwAdvertisedVersionLS)
+            .field("dwReserved", &self.dwReserved)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SOFTDISTINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOFTDISTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOFTDISTINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOFTDISTINFO {}
+impl ::core::default::Default for SOFTDISTINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
+pub struct StartParam {
+    pub iid: ::windows::core::GUID,
+    pub pIBindCtx: ::core::option::Option<super::IBindCtx>,
+    pub pItf: ::core::option::Option<::windows::core::IUnknown>,
+}
+impl ::core::clone::Clone for StartParam {
+    fn clone(&self) -> Self {
+        Self { iid: self.iid, pIBindCtx: self.pIBindCtx.clone(), pItf: self.pItf.clone() }
+    }
+}
+impl ::core::fmt::Debug for StartParam {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("StartParam").field("iid", &self.iid).field("pIBindCtx", &self.pIBindCtx).field("pItf", &self.pItf).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for StartParam {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for StartParam {
+    fn eq(&self, other: &Self) -> bool {
+        self.iid == other.iid && self.pIBindCtx == other.pIBindCtx && self.pItf == other.pItf
+    }
+}
+impl ::core::cmp::Eq for StartParam {}
+impl ::core::default::Default for StartParam {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

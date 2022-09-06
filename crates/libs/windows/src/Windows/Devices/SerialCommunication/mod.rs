@@ -1,77 +1,3 @@
-#[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-#[repr(transparent)]
-pub struct ErrorReceivedEventArgs(::windows::core::IUnknown);
-impl ErrorReceivedEventArgs {
-    pub fn Error(&self) -> ::windows::core::Result<SerialError> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SerialError>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ErrorReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ErrorReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ErrorReceivedEventArgs {}
-impl ::core::fmt::Debug for ErrorReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ErrorReceivedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ErrorReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.ErrorReceivedEventArgs;{fcc6bf59-1283-4d8a-bfdf-566b33ddb28f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ErrorReceivedEventArgs {
-    type Vtable = IErrorReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IErrorReceivedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ErrorReceivedEventArgs {
-    const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
-}
-impl ::core::convert::From<ErrorReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ErrorReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ErrorReceivedEventArgs {}
-unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IErrorReceivedEventArgs(::windows::core::IUnknown);
@@ -192,6 +118,80 @@ pub struct ISerialDeviceStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     FromIdAsync: usize,
 }
+#[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
+#[repr(transparent)]
+pub struct ErrorReceivedEventArgs(::windows::core::IUnknown);
+impl ErrorReceivedEventArgs {
+    pub fn Error(&self) -> ::windows::core::Result<SerialError> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SerialError>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ErrorReceivedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ErrorReceivedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ErrorReceivedEventArgs {}
+impl ::core::fmt::Debug for ErrorReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorReceivedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ErrorReceivedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.ErrorReceivedEventArgs;{fcc6bf59-1283-4d8a-bfdf-566b33ddb28f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ErrorReceivedEventArgs {
+    type Vtable = IErrorReceivedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IErrorReceivedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ErrorReceivedEventArgs {
+    const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
+}
+impl ::core::convert::From<ErrorReceivedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ErrorReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ErrorReceivedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ErrorReceivedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ErrorReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ErrorReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ErrorReceivedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ErrorReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ErrorReceivedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ErrorReceivedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ErrorReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ErrorReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ErrorReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
 pub struct PinChangedEventArgs(::windows::core::IUnknown);

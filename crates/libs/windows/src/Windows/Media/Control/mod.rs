@@ -1,3 +1,339 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICurrentSessionChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICurrentSessionChangedEventArgs {
+    type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICurrentSessionChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalSystemMediaTransportControlsSession(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSession {
+    type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalSystemMediaTransportControlsSession_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SourceAppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub TryGetMediaPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryGetMediaPropertiesAsync: usize,
+    pub GetTimelineProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPlaybackInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub TryPlayAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryPlayAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryPauseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryPauseAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryStopAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryStopAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryRecordAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryRecordAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryFastForwardAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryFastForwardAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryRewindAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryRewindAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TrySkipNextAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TrySkipNextAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TrySkipPreviousAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TrySkipPreviousAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryChangeChannelUpAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryChangeChannelUpAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryChangeChannelDownAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryChangeChannelDownAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryTogglePlayPauseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryTogglePlayPauseAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryChangeAutoRepeatModeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryChangeAutoRepeatModeAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryChangePlaybackRateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedplaybackrate: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryChangePlaybackRateAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryChangeShuffleActiveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedshufflestate: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryChangeShuffleActiveAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TryChangePlaybackPositionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedplaybackposition: i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryChangePlaybackPositionAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub TimelinePropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TimelinePropertiesChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveTimelinePropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveTimelinePropertiesChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub PlaybackInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PlaybackInfoChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePlaybackInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePlaybackInfoChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub MediaPropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MediaPropertiesChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveMediaPropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveMediaPropertiesChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalSystemMediaTransportControlsSessionManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionManager {
+    type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetCurrentSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSessions: usize,
+    #[cfg(feature = "Foundation")]
+    pub CurrentSessionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CurrentSessionChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveCurrentSessionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveCurrentSessionChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub SessionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SessionsChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveSessionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveSessionsChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
+    type Vtable = IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2050c4ee_11a0_57de_aed7_c97c70338245);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub RequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
+    type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68856cf6_adb4_54b2_ac16_05837907acb6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Subtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AlbumArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Artist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AlbumTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Genres: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Genres: usize,
+    pub AlbumTrackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub PlaybackType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PlaybackType: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Thumbnail: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
+    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsPlayEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsPauseEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsStopEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsRecordEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsFastForwardEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsRewindEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsNextEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsPreviousEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsChannelUpEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsChannelDownEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsPlayPauseToggleEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsShuffleEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsRepeatEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsPlaybackRateEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsPlaybackPositionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
+    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Controls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlaybackStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GlobalSystemMediaTransportControlsSessionPlaybackStatus) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub PlaybackType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PlaybackType: usize,
+    #[cfg(feature = "Foundation")]
+    pub AutoRepeatMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AutoRepeatMode: usize,
+    #[cfg(feature = "Foundation")]
+    pub PlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PlaybackRate: usize,
+    #[cfg(feature = "Foundation")]
+    pub IsShuffleActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsShuffleActive: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
+    type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    StartTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub EndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    EndTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub MinSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MinSeekTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub MaxSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MaxSeekTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Position: usize,
+    #[cfg(feature = "Foundation")]
+    pub LastUpdatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    LastUpdatedTime: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IMediaPropertiesChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IMediaPropertiesChangedEventArgs {
+    type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMediaPropertiesChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPlaybackInfoChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPlaybackInfoChangedEventArgs {
+    type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786756c2_bc0d_50a5_8807_054291fef139);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPlaybackInfoChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISessionsChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISessionsChangedEventArgs {
+    type Vtable = ISessionsChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISessionsChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ITimelinePropertiesChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ITimelinePropertiesChangedEventArgs {
+    type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29033a2f_c923_5a77_bcaf_055ff415ad32);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
 pub struct CurrentSessionChangedEventArgs(::windows::core::IUnknown);
@@ -916,44 +1252,6 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPl
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
-impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    pub const Closed: Self = Self(0i32);
-    pub const Opened: Self = Self(1i32);
-    pub const Changing: Self = Self(2i32);
-    pub const Stopped: Self = Self(3i32);
-    pub const Playing: Self = Self(4i32);
-    pub const Paused: Self = Self(5i32);
-}
-impl ::core::marker::Copy for GlobalSystemMediaTransportControlsSessionPlaybackStatus {}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Control\"`*"]
-#[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1073,342 +1371,6 @@ impl ::core::convert::From<&GlobalSystemMediaTransportControlsSessionTimelinePro
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICurrentSessionChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICurrentSessionChangedEventArgs {
-    type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICurrentSessionChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalSystemMediaTransportControlsSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSession {
-    type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalSystemMediaTransportControlsSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SourceAppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub TryGetMediaPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryGetMediaPropertiesAsync: usize,
-    pub GetTimelineProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetPlaybackInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub TryPlayAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryPlayAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryPauseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryPauseAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryStopAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryStopAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryRecordAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryRecordAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryFastForwardAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryFastForwardAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryRewindAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryRewindAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TrySkipNextAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TrySkipNextAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TrySkipPreviousAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TrySkipPreviousAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryChangeChannelUpAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryChangeChannelUpAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryChangeChannelDownAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryChangeChannelDownAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryTogglePlayPauseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryTogglePlayPauseAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryChangeAutoRepeatModeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryChangeAutoRepeatModeAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryChangePlaybackRateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedplaybackrate: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryChangePlaybackRateAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryChangeShuffleActiveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedshufflestate: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryChangeShuffleActiveAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TryChangePlaybackPositionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedplaybackposition: i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryChangePlaybackPositionAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub TimelinePropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TimelinePropertiesChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveTimelinePropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveTimelinePropertiesChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub PlaybackInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PlaybackInfoChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePlaybackInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePlaybackInfoChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub MediaPropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MediaPropertiesChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveMediaPropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveMediaPropertiesChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalSystemMediaTransportControlsSessionManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionManager {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetCurrentSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSessions: usize,
-    #[cfg(feature = "Foundation")]
-    pub CurrentSessionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CurrentSessionChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveCurrentSessionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCurrentSessionChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub SessionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SessionsChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveSessionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSessionsChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2050c4ee_11a0_57de_aed7_c97c70338245);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub RequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68856cf6_adb4_54b2_ac16_05837907acb6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Subtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AlbumArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Artist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AlbumTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub TrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Genres: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Genres: usize,
-    pub AlbumTrackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub PlaybackType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PlaybackType: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Thumbnail: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsPlayEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsPauseEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsStopEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsRecordEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsFastForwardEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsRewindEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsNextEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsPreviousEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsChannelUpEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsChannelDownEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsPlayPauseToggleEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsShuffleEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsRepeatEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsPlaybackRateEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsPlaybackPositionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Controls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PlaybackStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GlobalSystemMediaTransportControlsSessionPlaybackStatus) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub PlaybackType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PlaybackType: usize,
-    #[cfg(feature = "Foundation")]
-    pub AutoRepeatMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AutoRepeatMode: usize,
-    #[cfg(feature = "Foundation")]
-    pub PlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PlaybackRate: usize,
-    #[cfg(feature = "Foundation")]
-    pub IsShuffleActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsShuffleActive: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub EndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EndTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub MinSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MinSeekTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub MaxSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxSeekTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Position: usize,
-    #[cfg(feature = "Foundation")]
-    pub LastUpdatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LastUpdatedTime: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IMediaPropertiesChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMediaPropertiesChangedEventArgs {
-    type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IMediaPropertiesChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IPlaybackInfoChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPlaybackInfoChangedEventArgs {
-    type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786756c2_bc0d_50a5_8807_054291fef139);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPlaybackInfoChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISessionsChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISessionsChangedEventArgs {
-    type Vtable = ISessionsChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISessionsChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ITimelinePropertiesChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITimelinePropertiesChangedEventArgs {
-    type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29033a2f_c923_5a77_bcaf_055ff415ad32);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
 pub struct MediaPropertiesChangedEventArgs(::windows::core::IUnknown);
@@ -1673,5 +1635,43 @@ impl ::core::convert::From<&TimelinePropertiesChangedEventArgs> for &::windows::
 }
 unsafe impl ::core::marker::Send for TimelinePropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimelinePropertiesChangedEventArgs {}
+#[doc = "*Required features: `\"Media_Control\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
+impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    pub const Closed: Self = Self(0i32);
+    pub const Opened: Self = Self(1i32);
+    pub const Changing: Self = Self(2i32);
+    pub const Stopped: Self = Self(3i32);
+    pub const Playing: Self = Self(4i32);
+    pub const Paused: Self = Self(5i32);
+}
+impl ::core::marker::Copy for GlobalSystemMediaTransportControlsSessionPlaybackStatus {}
+impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

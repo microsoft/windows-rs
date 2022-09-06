@@ -1,124 +1,3 @@
-pub const AdSyncTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ae64751_b728_4d6b_97a0_b2da2e7d2a3b);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdrClientDisplayFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientDisplayFlags_ShowDeviceTroubleshooting: AdrClientDisplayFlags = AdrClientDisplayFlags(2i32);
-impl ::core::marker::Copy for AdrClientDisplayFlags {}
-impl ::core::clone::Clone for AdrClientDisplayFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrClientDisplayFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdrClientDisplayFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdrClientDisplayFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdrClientDisplayFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdrClientErrorType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientErrorType_Unknown: AdrClientErrorType = AdrClientErrorType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientErrorType_AccessDenied: AdrClientErrorType = AdrClientErrorType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientErrorType_FileNotFound: AdrClientErrorType = AdrClientErrorType(2i32);
-impl ::core::marker::Copy for AdrClientErrorType {}
-impl ::core::clone::Clone for AdrClientErrorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrClientErrorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdrClientErrorType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdrClientErrorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdrClientErrorType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdrClientFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientFlags_None: AdrClientFlags = AdrClientFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientFlags_FailForLocalPaths: AdrClientFlags = AdrClientFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientFlags_FailIfNotSupportedByServer: AdrClientFlags = AdrClientFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrClientFlags_FailIfNotDomainJoined: AdrClientFlags = AdrClientFlags(4i32);
-impl ::core::marker::Copy for AdrClientFlags {}
-impl ::core::clone::Clone for AdrClientFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrClientFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdrClientFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdrClientFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdrClientFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdrEmailFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrEmailFlags_PutDataOwnerOnToLine: AdrEmailFlags = AdrEmailFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrEmailFlags_PutAdminOnToLine: AdrEmailFlags = AdrEmailFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrEmailFlags_IncludeDeviceClaims: AdrEmailFlags = AdrEmailFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrEmailFlags_IncludeUserInfo: AdrEmailFlags = AdrEmailFlags(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const AdrEmailFlags_GenerateEventLog: AdrEmailFlags = AdrEmailFlags(16i32);
-impl ::core::marker::Copy for AdrEmailFlags {}
-impl ::core::clone::Clone for AdrEmailFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrEmailFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdrEmailFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdrEmailFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdrEmailFlags").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -191,1561 +70,6 @@ unsafe impl ::windows::core::Interface for DIFsrmClassificationEvents {
 #[doc(hidden)]
 pub struct DIFsrmClassificationEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_FEATURE_MASK: u32 = 251658240u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_FEATURE_PIPELINE: u32 = 100663296u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_FEATURE_QUOTA: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_FEATURE_REPORTS: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_INTERFACE_A_MASK: u32 = 15728640u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_INTERFACE_B_MASK: u32 = 983040u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_INTERFACE_C_MASK: u32 = 61440u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_INTERFACE_D_MASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_IS_PROPERTY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_DISPID_METHOD_NUM_MASK: u32 = 127u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_ADR_MAX_EMAILS_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200130i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_ADR_NOT_DOMAIN_JOINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200110i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_ADR_PATH_IS_LOCAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200111i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_ADR_SRV_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200112i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200253i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_AUTO_QUOTA: ::windows::core::HRESULT = ::windows::core::HRESULT(283419i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CACHE_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200187i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CACHE_MODULE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200186i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_AGGREGATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200201i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_ALLOW_REPARSE_POINT_TAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200170i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_CHANGE_PROPERTY_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200197i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_CREATE_TEMP_COPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200132i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_DELETE_SYSTEM_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200135i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_REMOVE_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200109i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_RENAME_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200198i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_STORE_PROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200171i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_USE_DELETED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200143i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CANNOT_USE_DEPRECATED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200145i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CLASSIFICATION_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200195i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CLASSIFICATION_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200141i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CLASSIFICATION_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200194i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CLASSIFICATION_PARTIAL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200136i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CLASSIFICATION_SCAN_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200148i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CLASSIFICATION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200137i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CLUSTER_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200210i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_CSC_PATH_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200106i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_DIFFERENT_CLUSTER_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200207i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_DRIVER_NOT_READY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200237i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_DUPLICATE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200240i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_EMAIL_NOT_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200228i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_ENUM_PROPERTIES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200173i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_ERROR_NOT_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200133i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_EXPIRATION_PATH_NOT_WRITEABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200105i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_EXPIRATION_PATH_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200104i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_EXPIRATION_VOLUME_NOT_NTFS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200103i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FAIL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200247i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_ENCRYPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200156i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200134i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_ACTION_GET_EXITCODE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200152i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_ACTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200153i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_EXPIRATION_DIR_IN_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200185i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200184i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200193i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_CUSTOM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200191i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_DEPRECATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200102i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_EXPIRATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200192i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_INVALID_CONTINUOUS_CONFIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200108i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_MAX_FILE_CONDITIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200146i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_NOTIFICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200190i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_NOT_LEGACY_ACCESSIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200147i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_MANAGEMENT_JOB_RMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200120i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_OPEN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200189i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_FILE_SYSTEM_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200225i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INCOMPATIBLE_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200157i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INPROC_MODULE_BLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200174i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INSECURE_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200233i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INSUFFICIENT_DISK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200236i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_AD_CLAIM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200142i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_COMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200241i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_DATASCREEN_DEFINITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200220i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_EMAIL_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200226i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_FILEGROUP_DEFINITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200223i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_FILENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200214i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_FOLDER_PROPERTY_STORE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200140i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_IMPORT_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200245i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200249i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200248i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200250i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_REPORT_DESC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200215i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_REPORT_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200216i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_SCHEDULER_ARGUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200254i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_SMTP_SERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200232i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200246i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_INVALID_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200251i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_LAST_ACCESS_UPDATE_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200176i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_LEGACY_SCHEDULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200107i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_LOADING_DISABLED_MODULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200202i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_LONG_CMDLINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200224i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_MAX_PROPERTY_DEFINITIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200196i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_MESSAGE_LIMIT_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200200i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_MODULE_INITIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200150i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_MODULE_INVALID_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200151i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_MODULE_SESSION_INITIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200149i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_MODULE_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200101i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_NOT_CLUSTER_VOLUME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200208i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200255i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200239i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_NO_EMAIL_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200131i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_NO_PROPERTY_VALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200175i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_OBJECT_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200199i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200243i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PARTIAL_CLASSIFICATION_PROPERTY_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200169i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PATH_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200252i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PATH_NOT_IN_NAMESPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200129i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PERSIST_PROPERTIES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200155i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PERSIST_PROPERTIES_FAILED_ENCRYPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200166i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PROPERTY_DELETED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200183i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FILES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200138i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FOLDERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200124i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PROPERTY_MUST_BE_GLOBAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200122i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_PROPERTY_MUST_BE_SECURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200123i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_REBUILDING_FODLER_TYPE_INDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200139i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_REPORT_GENERATION_ERR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200204i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_REPORT_JOB_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200205i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_REPORT_TASK_TRIGGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200203i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_REPORT_TYPE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200206i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_REQD_PARAM_MISSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200242i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_RMS_NO_PROTECTORS_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200126i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_RMS_NO_PROTECTOR_INSTALLED_FOR_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200125i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_RMS_TEMPLATE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200128i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_SECURE_PROPERTIES_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200127i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_SET_PROPERTY_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200172i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_SHADOW_COPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200212i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_STORE_NOT_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200209i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_SYNC_TASK_HAD_ERRORS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200119i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_SYNC_TASK_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200144i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_TEXTREADER_FILENAME_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200158i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_TEXTREADER_IFILTER_CLSID_MALFORMED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200160i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_TEXTREADER_IFILTER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200167i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_TEXTREADER_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200168i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_TEXTREADER_STREAM_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200159i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200234i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_UNSECURE_LINK_TO_HOSTED_MODULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200188i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_VOLUME_OFFLINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200154i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_VOLUME_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200235i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_WMI_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200121i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_E_XML_CORRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200211i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows::core::HRESULT = ::windows::core::HRESULT(283398i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_S_PARTIAL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(283396i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(283397i32);
-pub const FsrmAccessDeniedRemediationClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x100b4fc8_74c1_470f_b1b7_dd7b6bae79bd);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmAccountType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmAccountType_Unknown: FsrmAccountType = FsrmAccountType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmAccountType_NetworkService: FsrmAccountType = FsrmAccountType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmAccountType_LocalService: FsrmAccountType = FsrmAccountType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmAccountType_LocalSystem: FsrmAccountType = FsrmAccountType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmAccountType_InProc: FsrmAccountType = FsrmAccountType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmAccountType_External: FsrmAccountType = FsrmAccountType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmAccountType_Automatic: FsrmAccountType = FsrmAccountType(500i32);
-impl ::core::marker::Copy for FsrmAccountType {}
-impl ::core::clone::Clone for FsrmAccountType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmAccountType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmAccountType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmAccountType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmAccountType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmActionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmActionType_Unknown: FsrmActionType = FsrmActionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmActionType_EventLog: FsrmActionType = FsrmActionType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmActionType_Email: FsrmActionType = FsrmActionType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmActionType_Command: FsrmActionType = FsrmActionType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmActionType_Report: FsrmActionType = FsrmActionType(4i32);
-impl ::core::marker::Copy for FsrmActionType {}
-impl ::core::clone::Clone for FsrmActionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmActionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmActionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmActionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmActionType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmClassificationLoggingFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmClassificationLoggingFlags_None: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(8i32);
-impl ::core::marker::Copy for FsrmClassificationLoggingFlags {}
-impl ::core::clone::Clone for FsrmClassificationLoggingFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmClassificationLoggingFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmClassificationLoggingFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmClassificationLoggingFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmClassificationLoggingFlags").field(&self.0).finish()
-    }
-}
-pub const FsrmClassificationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15c0e47_c391_45b9_95c8_eb596c853f3a);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmCollectionState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmCollectionState_Fetching: FsrmCollectionState = FsrmCollectionState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmCollectionState_Committing: FsrmCollectionState = FsrmCollectionState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmCollectionState_Complete: FsrmCollectionState = FsrmCollectionState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmCollectionState_Cancelled: FsrmCollectionState = FsrmCollectionState(4i32);
-impl ::core::marker::Copy for FsrmCollectionState {}
-impl ::core::clone::Clone for FsrmCollectionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmCollectionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmCollectionState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmCollectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmCollectionState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmCommitOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmCommitOptions_None: FsrmCommitOptions = FsrmCommitOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmCommitOptions_Asynchronous: FsrmCommitOptions = FsrmCommitOptions(1i32);
-impl ::core::marker::Copy for FsrmCommitOptions {}
-impl ::core::clone::Clone for FsrmCommitOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmCommitOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmCommitOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmCommitOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmCommitOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmDaysNotSpecified: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmEnumOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEnumOptions_None: FsrmEnumOptions = FsrmEnumOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEnumOptions_Asynchronous: FsrmEnumOptions = FsrmEnumOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEnumOptions_CheckRecycleBin: FsrmEnumOptions = FsrmEnumOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEnumOptions_IncludeClusterNodes: FsrmEnumOptions = FsrmEnumOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEnumOptions_IncludeDeprecatedObjects: FsrmEnumOptions = FsrmEnumOptions(8i32);
-impl ::core::marker::Copy for FsrmEnumOptions {}
-impl ::core::clone::Clone for FsrmEnumOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmEnumOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmEnumOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmEnumOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmEnumOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmEventType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEventType_Unknown: FsrmEventType = FsrmEventType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEventType_Information: FsrmEventType = FsrmEventType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEventType_Warning: FsrmEventType = FsrmEventType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmEventType_Error: FsrmEventType = FsrmEventType(3i32);
-impl ::core::marker::Copy for FsrmEventType {}
-impl ::core::clone::Clone for FsrmEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmEventType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmEventType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmEventType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmExecutionOption(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmExecutionOption_Unknown: FsrmExecutionOption = FsrmExecutionOption(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmExecutionOption_EvaluateUnset: FsrmExecutionOption = FsrmExecutionOption(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmExecutionOption_ReEvaluate_ConsiderExistingValue: FsrmExecutionOption = FsrmExecutionOption(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmExecutionOption_ReEvaluate_IgnoreExistingValue: FsrmExecutionOption = FsrmExecutionOption(3i32);
-impl ::core::marker::Copy for FsrmExecutionOption {}
-impl ::core::clone::Clone for FsrmExecutionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmExecutionOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmExecutionOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmExecutionOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmExecutionOption").field(&self.0).finish()
-    }
-}
-pub const FsrmExportImport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1482dc37_fae9_4787_9025_8ce4e024ab56);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmFileConditionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileConditionType_Property: FsrmFileConditionType = FsrmFileConditionType(1i32);
-impl ::core::marker::Copy for FsrmFileConditionType {}
-impl ::core::clone::Clone for FsrmFileConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileConditionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmFileConditionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmFileConditionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmFileConditionType").field(&self.0).finish()
-    }
-}
-pub const FsrmFileGroupManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1363f6_656f_4496_9226_13aecbd7718f);
-pub const FsrmFileManagementJobManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb18f9b2_4c3a_4321_b203_205120cff614);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmFileManagementLoggingFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementLoggingFlags_Error: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementLoggingFlags_Information: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementLoggingFlags_Audit: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(4i32);
-impl ::core::marker::Copy for FsrmFileManagementLoggingFlags {}
-impl ::core::clone::Clone for FsrmFileManagementLoggingFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileManagementLoggingFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmFileManagementLoggingFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmFileManagementLoggingFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmFileManagementLoggingFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmFileManagementType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementType_Unknown: FsrmFileManagementType = FsrmFileManagementType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementType_Expiration: FsrmFileManagementType = FsrmFileManagementType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementType_Custom: FsrmFileManagementType = FsrmFileManagementType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileManagementType_Rms: FsrmFileManagementType = FsrmFileManagementType(3i32);
-impl ::core::marker::Copy for FsrmFileManagementType {}
-impl ::core::clone::Clone for FsrmFileManagementType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileManagementType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmFileManagementType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmFileManagementType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmFileManagementType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmFileScreenFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = FsrmFileScreenFlags(1i32);
-impl ::core::marker::Copy for FsrmFileScreenFlags {}
-impl ::core::clone::Clone for FsrmFileScreenFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileScreenFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmFileScreenFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmFileScreenFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmFileScreenFlags").field(&self.0).finish()
-    }
-}
-pub const FsrmFileScreenManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95941183_db53_4c5f_b37b_7d0921cf9dc7);
-pub const FsrmFileScreenTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x243111df_e474_46aa_a054_eaa33edc292a);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmFileStreamingInterfaceType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileStreamingInterfaceType_ILockBytes: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileStreamingInterfaceType_IStream: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(2i32);
-impl ::core::marker::Copy for FsrmFileStreamingInterfaceType {}
-impl ::core::clone::Clone for FsrmFileStreamingInterfaceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileStreamingInterfaceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmFileStreamingInterfaceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmFileStreamingInterfaceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmFileStreamingInterfaceType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmFileStreamingMode(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileStreamingMode_Unknown: FsrmFileStreamingMode = FsrmFileStreamingMode(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileStreamingMode_Read: FsrmFileStreamingMode = FsrmFileStreamingMode(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileStreamingMode_Write: FsrmFileStreamingMode = FsrmFileStreamingMode(2i32);
-impl ::core::marker::Copy for FsrmFileStreamingMode {}
-impl ::core::clone::Clone for FsrmFileStreamingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileStreamingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmFileStreamingMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmFileStreamingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmFileStreamingMode").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmFileSystemPropertyId(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileSystemPropertyId_Undefined: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileSystemPropertyId_FileName: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileSystemPropertyId_DateCreated: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileSystemPropertyId_DateLastAccessed: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileSystemPropertyId_DateLastModified: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmFileSystemPropertyId_DateNow: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(5i32);
-impl ::core::marker::Copy for FsrmFileSystemPropertyId {}
-impl ::core::clone::Clone for FsrmFileSystemPropertyId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileSystemPropertyId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmFileSystemPropertyId {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmFileSystemPropertyId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmFileSystemPropertyId").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmGetFilePropertyOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmGetFilePropertyOptions_None: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmGetFilePropertyOptions_NoRuleEvaluation: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmGetFilePropertyOptions_Persistent: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmGetFilePropertyOptions_SkipOrphaned: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(8i32);
-impl ::core::marker::Copy for FsrmGetFilePropertyOptions {}
-impl ::core::clone::Clone for FsrmGetFilePropertyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmGetFilePropertyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmGetFilePropertyOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmGetFilePropertyOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmGetFilePropertyOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmMaxExcludeFolders: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmMaxNumberThresholds: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmMaxThresholdValue: u32 = 250u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmMinQuotaLimit: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmMinThresholdValue: u32 = 1u32;
-pub const FsrmPathMapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3be42bd_8ac2_409e_bbd8_faf9b6b41feb);
-pub const FsrmPipelineModuleConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7643375_1eb5_44de_a062_623547d933bc);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPipelineModuleType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPipelineModuleType_Storage: FsrmPipelineModuleType = FsrmPipelineModuleType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPipelineModuleType_Classifier: FsrmPipelineModuleType = FsrmPipelineModuleType(2i32);
-impl ::core::marker::Copy for FsrmPipelineModuleType {}
-impl ::core::clone::Clone for FsrmPipelineModuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPipelineModuleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPipelineModuleType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPipelineModuleType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPipelineModuleType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyBagField(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyBagField_AccessVolume: FsrmPropertyBagField = FsrmPropertyBagField(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyBagField_VolumeGuidName: FsrmPropertyBagField = FsrmPropertyBagField(1i32);
-impl ::core::marker::Copy for FsrmPropertyBagField {}
-impl ::core::clone::Clone for FsrmPropertyBagField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyBagField {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyBagField {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyBagField {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyBagField").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyBagFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyBagFlags_UpdatedByClassifier: FsrmPropertyBagFlags = FsrmPropertyBagFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyBagFlags_FailedLoadingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyBagFlags_FailedSavingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyBagFlags_FailedClassifyingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(8i32);
-impl ::core::marker::Copy for FsrmPropertyBagFlags {}
-impl ::core::clone::Clone for FsrmPropertyBagFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyBagFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyBagFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyBagFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyBagFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyConditionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_Unknown: FsrmPropertyConditionType = FsrmPropertyConditionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_Equal: FsrmPropertyConditionType = FsrmPropertyConditionType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_NotEqual: FsrmPropertyConditionType = FsrmPropertyConditionType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_GreaterThan: FsrmPropertyConditionType = FsrmPropertyConditionType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_LessThan: FsrmPropertyConditionType = FsrmPropertyConditionType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_Contain: FsrmPropertyConditionType = FsrmPropertyConditionType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_Exist: FsrmPropertyConditionType = FsrmPropertyConditionType(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_NotExist: FsrmPropertyConditionType = FsrmPropertyConditionType(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_StartWith: FsrmPropertyConditionType = FsrmPropertyConditionType(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_EndWith: FsrmPropertyConditionType = FsrmPropertyConditionType(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_ContainedIn: FsrmPropertyConditionType = FsrmPropertyConditionType(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_PrefixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_SuffixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyConditionType_MatchesPattern: FsrmPropertyConditionType = FsrmPropertyConditionType(13i32);
-impl ::core::marker::Copy for FsrmPropertyConditionType {}
-impl ::core::clone::Clone for FsrmPropertyConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyConditionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyConditionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyConditionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyConditionType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionAppliesTo_Files: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionAppliesTo_Folders: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(2i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionAppliesTo {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionAppliesTo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyDefinitionAppliesTo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionAppliesTo {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyDefinitionAppliesTo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyDefinitionAppliesTo").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyDefinitionFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionFlags_Global: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionFlags_Deprecated: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionFlags_Secure: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(4i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionFlags {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyDefinitionFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyDefinitionFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyDefinitionFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyDefinitionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_Unknown: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_OrderedList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_MultiChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_SingleChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_String: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_MultiString: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_Int: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_Bool: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyDefinitionType_Date: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(8i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionType {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyDefinitionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyDefinitionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyDefinitionType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_None: FsrmPropertyFlags = FsrmPropertyFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_Orphaned: FsrmPropertyFlags = FsrmPropertyFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_RetrievedFromCache: FsrmPropertyFlags = FsrmPropertyFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_RetrievedFromStorage: FsrmPropertyFlags = FsrmPropertyFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_SetByClassifier: FsrmPropertyFlags = FsrmPropertyFlags(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_Deleted: FsrmPropertyFlags = FsrmPropertyFlags(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_Reclassified: FsrmPropertyFlags = FsrmPropertyFlags(32i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_AggregationFailed: FsrmPropertyFlags = FsrmPropertyFlags(64i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_Existing: FsrmPropertyFlags = FsrmPropertyFlags(128i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_FailedLoadingProperties: FsrmPropertyFlags = FsrmPropertyFlags(256i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_FailedClassifyingProperties: FsrmPropertyFlags = FsrmPropertyFlags(512i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_FailedSavingProperties: FsrmPropertyFlags = FsrmPropertyFlags(1024i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_Secure: FsrmPropertyFlags = FsrmPropertyFlags(2048i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_PolicyDerived: FsrmPropertyFlags = FsrmPropertyFlags(4096i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_Inherited: FsrmPropertyFlags = FsrmPropertyFlags(8192i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_Manual: FsrmPropertyFlags = FsrmPropertyFlags(16384i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_ExplicitValueDeleted: FsrmPropertyFlags = FsrmPropertyFlags(32768i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_PropertyDeletedFromClear: FsrmPropertyFlags = FsrmPropertyFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_PropertySourceMask: FsrmPropertyFlags = FsrmPropertyFlags(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyFlags_PersistentMask: FsrmPropertyFlags = FsrmPropertyFlags(20480i32);
-impl ::core::marker::Copy for FsrmPropertyFlags {}
-impl ::core::clone::Clone for FsrmPropertyFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmPropertyValueType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyValueType_Undefined: FsrmPropertyValueType = FsrmPropertyValueType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyValueType_Literal: FsrmPropertyValueType = FsrmPropertyValueType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmPropertyValueType_DateOffset: FsrmPropertyValueType = FsrmPropertyValueType(2i32);
-impl ::core::marker::Copy for FsrmPropertyValueType {}
-impl ::core::clone::Clone for FsrmPropertyValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyValueType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmPropertyValueType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmPropertyValueType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmPropertyValueType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmQuotaFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmQuotaFlags_Enforce: FsrmQuotaFlags = FsrmQuotaFlags(256i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmQuotaFlags_Disable: FsrmQuotaFlags = FsrmQuotaFlags(512i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmQuotaFlags_StatusIncomplete: FsrmQuotaFlags = FsrmQuotaFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmQuotaFlags_StatusRebuilding: FsrmQuotaFlags = FsrmQuotaFlags(131072i32);
-impl ::core::marker::Copy for FsrmQuotaFlags {}
-impl ::core::clone::Clone for FsrmQuotaFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmQuotaFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmQuotaFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmQuotaFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmQuotaFlags").field(&self.0).finish()
-    }
-}
-pub const FsrmQuotaManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90dcab7f_347c_4bfc_b543_540326305fbe);
-pub const FsrmQuotaTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97d3d443_251c_4337_81e7_b32e8f4ee65e);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmReportFilter(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_MinAgeDays: FsrmReportFilter = FsrmReportFilter(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_MaxAgeDays: FsrmReportFilter = FsrmReportFilter(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_MinQuotaUsage: FsrmReportFilter = FsrmReportFilter(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_FileGroups: FsrmReportFilter = FsrmReportFilter(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_Owners: FsrmReportFilter = FsrmReportFilter(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_NamePattern: FsrmReportFilter = FsrmReportFilter(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFilter_Property: FsrmReportFilter = FsrmReportFilter(8i32);
-impl ::core::marker::Copy for FsrmReportFilter {}
-impl ::core::clone::Clone for FsrmReportFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportFilter {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmReportFilter {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmReportFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmReportFilter").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmReportFormat(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFormat_Unknown: FsrmReportFormat = FsrmReportFormat(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFormat_DHtml: FsrmReportFormat = FsrmReportFormat(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFormat_Html: FsrmReportFormat = FsrmReportFormat(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFormat_Txt: FsrmReportFormat = FsrmReportFormat(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFormat_Csv: FsrmReportFormat = FsrmReportFormat(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportFormat_Xml: FsrmReportFormat = FsrmReportFormat(5i32);
-impl ::core::marker::Copy for FsrmReportFormat {}
-impl ::core::clone::Clone for FsrmReportFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmReportFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmReportFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmReportFormat").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmReportGenerationContext(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportGenerationContext_Undefined: FsrmReportGenerationContext = FsrmReportGenerationContext(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportGenerationContext_ScheduledReport: FsrmReportGenerationContext = FsrmReportGenerationContext(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportGenerationContext_InteractiveReport: FsrmReportGenerationContext = FsrmReportGenerationContext(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportGenerationContext_IncidentReport: FsrmReportGenerationContext = FsrmReportGenerationContext(4i32);
-impl ::core::marker::Copy for FsrmReportGenerationContext {}
-impl ::core::clone::Clone for FsrmReportGenerationContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportGenerationContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmReportGenerationContext {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmReportGenerationContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmReportGenerationContext").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmReportLimit(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFiles: FsrmReportLimit = FsrmReportLimit(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFileGroups: FsrmReportLimit = FsrmReportLimit(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxOwners: FsrmReportLimit = FsrmReportLimit(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFilesPerFileGroup: FsrmReportLimit = FsrmReportLimit(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFilesPerOwner: FsrmReportLimit = FsrmReportLimit(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFilesPerDuplGroup: FsrmReportLimit = FsrmReportLimit(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxDuplicateGroups: FsrmReportLimit = FsrmReportLimit(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxQuotas: FsrmReportLimit = FsrmReportLimit(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFileScreenEvents: FsrmReportLimit = FsrmReportLimit(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxPropertyValues: FsrmReportLimit = FsrmReportLimit(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFilesPerPropertyValue: FsrmReportLimit = FsrmReportLimit(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportLimit_MaxFolders: FsrmReportLimit = FsrmReportLimit(12i32);
-impl ::core::marker::Copy for FsrmReportLimit {}
-impl ::core::clone::Clone for FsrmReportLimit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportLimit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmReportLimit {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmReportLimit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmReportLimit").field(&self.0).finish()
-    }
-}
-pub const FsrmReportManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0058ef37_aa66_4c48_bd5b_2fce432ab0c8);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmReportRunningStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportRunningStatus_NotRunning: FsrmReportRunningStatus = FsrmReportRunningStatus(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportRunningStatus_Queued: FsrmReportRunningStatus = FsrmReportRunningStatus(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportRunningStatus_Running: FsrmReportRunningStatus = FsrmReportRunningStatus(3i32);
-impl ::core::marker::Copy for FsrmReportRunningStatus {}
-impl ::core::clone::Clone for FsrmReportRunningStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportRunningStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmReportRunningStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmReportRunningStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmReportRunningStatus").field(&self.0).finish()
-    }
-}
-pub const FsrmReportScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea25f1b8_1b8d_4290_8ee8_e17c12c2fe20);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmReportType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_Unknown: FsrmReportType = FsrmReportType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_LargeFiles: FsrmReportType = FsrmReportType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_FilesByType: FsrmReportType = FsrmReportType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_LeastRecentlyAccessed: FsrmReportType = FsrmReportType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_MostRecentlyAccessed: FsrmReportType = FsrmReportType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_QuotaUsage: FsrmReportType = FsrmReportType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_FilesByOwner: FsrmReportType = FsrmReportType(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_ExportReport: FsrmReportType = FsrmReportType(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_DuplicateFiles: FsrmReportType = FsrmReportType(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_FileScreenAudit: FsrmReportType = FsrmReportType(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_FilesByProperty: FsrmReportType = FsrmReportType(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_AutomaticClassification: FsrmReportType = FsrmReportType(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_Expiration: FsrmReportType = FsrmReportType(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmReportType_FoldersByProperty: FsrmReportType = FsrmReportType(13i32);
-impl ::core::marker::Copy for FsrmReportType {}
-impl ::core::clone::Clone for FsrmReportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmReportType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmReportType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmReportType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmRuleFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmRuleFlags_Disabled: FsrmRuleFlags = FsrmRuleFlags(256i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmRuleFlags_ClearAutomaticallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(1024i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmRuleFlags_ClearManuallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(2048i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmRuleFlags_Invalid: FsrmRuleFlags = FsrmRuleFlags(4096i32);
-impl ::core::marker::Copy for FsrmRuleFlags {}
-impl ::core::clone::Clone for FsrmRuleFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmRuleFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmRuleFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmRuleFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmRuleFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmRuleType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmRuleType_Unknown: FsrmRuleType = FsrmRuleType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmRuleType_Classification: FsrmRuleType = FsrmRuleType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmRuleType_Generic: FsrmRuleType = FsrmRuleType(2i32);
-impl ::core::marker::Copy for FsrmRuleType {}
-impl ::core::clone::Clone for FsrmRuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmRuleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmRuleType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmRuleType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmRuleType").field(&self.0).finish()
-    }
-}
-pub const FsrmSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf556d708_6d4d_4594_9c61_7dbb0dae2a46);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmStorageModuleCaps(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleCaps_CanGet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleCaps_CanSet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleCaps_CanHandleDirectories: FsrmStorageModuleCaps = FsrmStorageModuleCaps(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleCaps_CanHandleFiles: FsrmStorageModuleCaps = FsrmStorageModuleCaps(8i32);
-impl ::core::marker::Copy for FsrmStorageModuleCaps {}
-impl ::core::clone::Clone for FsrmStorageModuleCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmStorageModuleCaps {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmStorageModuleCaps {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmStorageModuleCaps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmStorageModuleCaps").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmStorageModuleType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleType_Unknown: FsrmStorageModuleType = FsrmStorageModuleType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleType_Cache: FsrmStorageModuleType = FsrmStorageModuleType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleType_InFile: FsrmStorageModuleType = FsrmStorageModuleType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleType_Database: FsrmStorageModuleType = FsrmStorageModuleType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmStorageModuleType_System: FsrmStorageModuleType = FsrmStorageModuleType(100i32);
-impl ::core::marker::Copy for FsrmStorageModuleType {}
-impl ::core::clone::Clone for FsrmStorageModuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmStorageModuleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmStorageModuleType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmStorageModuleType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmStorageModuleType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FsrmTemplateApplyOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(2i32);
-impl ::core::marker::Copy for FsrmTemplateApplyOptions {}
-impl ::core::clone::Clone for FsrmTemplateApplyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmTemplateApplyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FsrmTemplateApplyOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FsrmTemplateApplyOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FsrmTemplateApplyOptions").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -13073,7 +11397,1683 @@ pub struct IFsrmStorageModuleImplementation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SaveProperties: usize,
 }
+pub const AdSyncTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ae64751_b728_4d6b_97a0_b2da2e7d2a3b);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_FEATURE_MASK: u32 = 251658240u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_FEATURE_PIPELINE: u32 = 100663296u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_FEATURE_QUOTA: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_FEATURE_REPORTS: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_INTERFACE_A_MASK: u32 = 15728640u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_INTERFACE_B_MASK: u32 = 983040u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_INTERFACE_C_MASK: u32 = 61440u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_INTERFACE_D_MASK: u32 = 3840u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_IS_PROPERTY: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_DISPID_METHOD_NUM_MASK: u32 = 127u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_ADR_MAX_EMAILS_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200130i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_ADR_NOT_DOMAIN_JOINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200110i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_ADR_PATH_IS_LOCAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200111i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_ADR_SRV_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200112i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200253i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_AUTO_QUOTA: ::windows::core::HRESULT = ::windows::core::HRESULT(283419i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CACHE_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200187i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CACHE_MODULE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200186i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_AGGREGATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200201i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_ALLOW_REPARSE_POINT_TAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200170i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_CHANGE_PROPERTY_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200197i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_CREATE_TEMP_COPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200132i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_DELETE_SYSTEM_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200135i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_REMOVE_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200109i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_RENAME_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200198i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_STORE_PROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200171i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_USE_DELETED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200143i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CANNOT_USE_DEPRECATED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200145i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CLASSIFICATION_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200195i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CLASSIFICATION_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200141i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CLASSIFICATION_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200194i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CLASSIFICATION_PARTIAL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200136i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CLASSIFICATION_SCAN_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200148i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CLASSIFICATION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200137i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CLUSTER_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200210i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_CSC_PATH_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200106i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_DIFFERENT_CLUSTER_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200207i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_DRIVER_NOT_READY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200237i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_DUPLICATE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200240i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_EMAIL_NOT_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200228i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_ENUM_PROPERTIES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200173i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_ERROR_NOT_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200133i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_EXPIRATION_PATH_NOT_WRITEABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200105i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_EXPIRATION_PATH_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200104i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_EXPIRATION_VOLUME_NOT_NTFS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200103i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FAIL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200247i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_ENCRYPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200156i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200134i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_ACTION_GET_EXITCODE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200152i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_ACTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200153i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_EXPIRATION_DIR_IN_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200185i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200184i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200193i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_CUSTOM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200191i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_DEPRECATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200102i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_EXPIRATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200192i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_INVALID_CONTINUOUS_CONFIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200108i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_MAX_FILE_CONDITIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200146i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_NOTIFICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200190i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_NOT_LEGACY_ACCESSIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200147i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_MANAGEMENT_JOB_RMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200120i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_OPEN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200189i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_FILE_SYSTEM_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200225i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INCOMPATIBLE_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200157i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INPROC_MODULE_BLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200174i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INSECURE_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200233i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INSUFFICIENT_DISK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200236i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_AD_CLAIM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200142i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_COMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200241i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_DATASCREEN_DEFINITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200220i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_EMAIL_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200226i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_FILEGROUP_DEFINITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200223i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_FILENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200214i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_FOLDER_PROPERTY_STORE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200140i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_IMPORT_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200245i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200249i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200248i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200250i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_REPORT_DESC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200215i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_REPORT_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200216i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_SCHEDULER_ARGUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200254i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_SMTP_SERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200232i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200246i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_INVALID_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200251i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_LAST_ACCESS_UPDATE_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200176i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_LEGACY_SCHEDULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200107i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_LOADING_DISABLED_MODULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200202i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_LONG_CMDLINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200224i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_MAX_PROPERTY_DEFINITIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200196i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_MESSAGE_LIMIT_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200200i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_MODULE_INITIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200150i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_MODULE_INVALID_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200151i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_MODULE_SESSION_INITIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200149i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_MODULE_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200101i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_NOT_CLUSTER_VOLUME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200208i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200255i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200239i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_NO_EMAIL_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200131i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_NO_PROPERTY_VALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200175i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_OBJECT_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200199i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200243i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PARTIAL_CLASSIFICATION_PROPERTY_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200169i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PATH_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200252i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PATH_NOT_IN_NAMESPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200129i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PERSIST_PROPERTIES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200155i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PERSIST_PROPERTIES_FAILED_ENCRYPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200166i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PROPERTY_DELETED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200183i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FILES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200138i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FOLDERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200124i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PROPERTY_MUST_BE_GLOBAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200122i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_PROPERTY_MUST_BE_SECURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200123i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_REBUILDING_FODLER_TYPE_INDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200139i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_REPORT_GENERATION_ERR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200204i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_REPORT_JOB_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200205i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_REPORT_TASK_TRIGGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200203i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_REPORT_TYPE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200206i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_REQD_PARAM_MISSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200242i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_RMS_NO_PROTECTORS_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200126i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_RMS_NO_PROTECTOR_INSTALLED_FOR_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200125i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_RMS_TEMPLATE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200128i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_SECURE_PROPERTIES_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200127i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_SET_PROPERTY_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200172i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_SHADOW_COPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200212i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_STORE_NOT_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200209i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_SYNC_TASK_HAD_ERRORS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200119i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_SYNC_TASK_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200144i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_TEXTREADER_FILENAME_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200158i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_TEXTREADER_IFILTER_CLSID_MALFORMED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200160i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_TEXTREADER_IFILTER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200167i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_TEXTREADER_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200168i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_TEXTREADER_STREAM_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200159i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200234i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_UNSECURE_LINK_TO_HOSTED_MODULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200188i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_VOLUME_OFFLINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200154i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_VOLUME_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200235i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_WMI_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200121i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_E_XML_CORRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200211i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows::core::HRESULT = ::windows::core::HRESULT(283398i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_S_PARTIAL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(283396i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(283397i32);
+pub const FsrmAccessDeniedRemediationClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x100b4fc8_74c1_470f_b1b7_dd7b6bae79bd);
+pub const FsrmClassificationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15c0e47_c391_45b9_95c8_eb596c853f3a);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmDaysNotSpecified: i32 = -1i32;
+pub const FsrmExportImport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1482dc37_fae9_4787_9025_8ce4e024ab56);
+pub const FsrmFileGroupManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1363f6_656f_4496_9226_13aecbd7718f);
+pub const FsrmFileManagementJobManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb18f9b2_4c3a_4321_b203_205120cff614);
+pub const FsrmFileScreenManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95941183_db53_4c5f_b37b_7d0921cf9dc7);
+pub const FsrmFileScreenTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x243111df_e474_46aa_a054_eaa33edc292a);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmMaxExcludeFolders: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmMaxNumberThresholds: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmMaxThresholdValue: u32 = 250u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmMinQuotaLimit: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmMinThresholdValue: u32 = 1u32;
+pub const FsrmPathMapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3be42bd_8ac2_409e_bbd8_faf9b6b41feb);
+pub const FsrmPipelineModuleConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7643375_1eb5_44de_a062_623547d933bc);
+pub const FsrmQuotaManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90dcab7f_347c_4bfc_b543_540326305fbe);
+pub const FsrmQuotaTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97d3d443_251c_4337_81e7_b32e8f4ee65e);
+pub const FsrmReportManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0058ef37_aa66_4c48_bd5b_2fce432ab0c8);
+pub const FsrmReportScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea25f1b8_1b8d_4290_8ee8_e17c12c2fe20);
+pub const FsrmSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf556d708_6d4d_4594_9c61_7dbb0dae2a46);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const MessageSizeLimit: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdrClientDisplayFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientDisplayFlags_ShowDeviceTroubleshooting: AdrClientDisplayFlags = AdrClientDisplayFlags(2i32);
+impl ::core::marker::Copy for AdrClientDisplayFlags {}
+impl ::core::clone::Clone for AdrClientDisplayFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AdrClientDisplayFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AdrClientDisplayFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AdrClientDisplayFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdrClientDisplayFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdrClientErrorType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientErrorType_Unknown: AdrClientErrorType = AdrClientErrorType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientErrorType_AccessDenied: AdrClientErrorType = AdrClientErrorType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientErrorType_FileNotFound: AdrClientErrorType = AdrClientErrorType(2i32);
+impl ::core::marker::Copy for AdrClientErrorType {}
+impl ::core::clone::Clone for AdrClientErrorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AdrClientErrorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AdrClientErrorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AdrClientErrorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdrClientErrorType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdrClientFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientFlags_None: AdrClientFlags = AdrClientFlags(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientFlags_FailForLocalPaths: AdrClientFlags = AdrClientFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientFlags_FailIfNotSupportedByServer: AdrClientFlags = AdrClientFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrClientFlags_FailIfNotDomainJoined: AdrClientFlags = AdrClientFlags(4i32);
+impl ::core::marker::Copy for AdrClientFlags {}
+impl ::core::clone::Clone for AdrClientFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AdrClientFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AdrClientFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AdrClientFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdrClientFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdrEmailFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrEmailFlags_PutDataOwnerOnToLine: AdrEmailFlags = AdrEmailFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrEmailFlags_PutAdminOnToLine: AdrEmailFlags = AdrEmailFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrEmailFlags_IncludeDeviceClaims: AdrEmailFlags = AdrEmailFlags(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrEmailFlags_IncludeUserInfo: AdrEmailFlags = AdrEmailFlags(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const AdrEmailFlags_GenerateEventLog: AdrEmailFlags = AdrEmailFlags(16i32);
+impl ::core::marker::Copy for AdrEmailFlags {}
+impl ::core::clone::Clone for AdrEmailFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AdrEmailFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AdrEmailFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AdrEmailFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdrEmailFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmAccountType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmAccountType_Unknown: FsrmAccountType = FsrmAccountType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmAccountType_NetworkService: FsrmAccountType = FsrmAccountType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmAccountType_LocalService: FsrmAccountType = FsrmAccountType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmAccountType_LocalSystem: FsrmAccountType = FsrmAccountType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmAccountType_InProc: FsrmAccountType = FsrmAccountType(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmAccountType_External: FsrmAccountType = FsrmAccountType(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmAccountType_Automatic: FsrmAccountType = FsrmAccountType(500i32);
+impl ::core::marker::Copy for FsrmAccountType {}
+impl ::core::clone::Clone for FsrmAccountType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmAccountType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmAccountType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmAccountType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmAccountType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmActionType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmActionType_Unknown: FsrmActionType = FsrmActionType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmActionType_EventLog: FsrmActionType = FsrmActionType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmActionType_Email: FsrmActionType = FsrmActionType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmActionType_Command: FsrmActionType = FsrmActionType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmActionType_Report: FsrmActionType = FsrmActionType(4i32);
+impl ::core::marker::Copy for FsrmActionType {}
+impl ::core::clone::Clone for FsrmActionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmActionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmActionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmActionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmActionType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmClassificationLoggingFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmClassificationLoggingFlags_None: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(8i32);
+impl ::core::marker::Copy for FsrmClassificationLoggingFlags {}
+impl ::core::clone::Clone for FsrmClassificationLoggingFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmClassificationLoggingFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmClassificationLoggingFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmClassificationLoggingFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmClassificationLoggingFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmCollectionState(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmCollectionState_Fetching: FsrmCollectionState = FsrmCollectionState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmCollectionState_Committing: FsrmCollectionState = FsrmCollectionState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmCollectionState_Complete: FsrmCollectionState = FsrmCollectionState(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmCollectionState_Cancelled: FsrmCollectionState = FsrmCollectionState(4i32);
+impl ::core::marker::Copy for FsrmCollectionState {}
+impl ::core::clone::Clone for FsrmCollectionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmCollectionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmCollectionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmCollectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmCollectionState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmCommitOptions(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmCommitOptions_None: FsrmCommitOptions = FsrmCommitOptions(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmCommitOptions_Asynchronous: FsrmCommitOptions = FsrmCommitOptions(1i32);
+impl ::core::marker::Copy for FsrmCommitOptions {}
+impl ::core::clone::Clone for FsrmCommitOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmCommitOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmCommitOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmCommitOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmCommitOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmEnumOptions(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEnumOptions_None: FsrmEnumOptions = FsrmEnumOptions(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEnumOptions_Asynchronous: FsrmEnumOptions = FsrmEnumOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEnumOptions_CheckRecycleBin: FsrmEnumOptions = FsrmEnumOptions(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEnumOptions_IncludeClusterNodes: FsrmEnumOptions = FsrmEnumOptions(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEnumOptions_IncludeDeprecatedObjects: FsrmEnumOptions = FsrmEnumOptions(8i32);
+impl ::core::marker::Copy for FsrmEnumOptions {}
+impl ::core::clone::Clone for FsrmEnumOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmEnumOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmEnumOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmEnumOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmEnumOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmEventType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEventType_Unknown: FsrmEventType = FsrmEventType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEventType_Information: FsrmEventType = FsrmEventType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEventType_Warning: FsrmEventType = FsrmEventType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmEventType_Error: FsrmEventType = FsrmEventType(3i32);
+impl ::core::marker::Copy for FsrmEventType {}
+impl ::core::clone::Clone for FsrmEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmEventType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmEventType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmExecutionOption(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmExecutionOption_Unknown: FsrmExecutionOption = FsrmExecutionOption(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmExecutionOption_EvaluateUnset: FsrmExecutionOption = FsrmExecutionOption(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmExecutionOption_ReEvaluate_ConsiderExistingValue: FsrmExecutionOption = FsrmExecutionOption(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmExecutionOption_ReEvaluate_IgnoreExistingValue: FsrmExecutionOption = FsrmExecutionOption(3i32);
+impl ::core::marker::Copy for FsrmExecutionOption {}
+impl ::core::clone::Clone for FsrmExecutionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmExecutionOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmExecutionOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmExecutionOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmExecutionOption").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmFileConditionType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileConditionType_Property: FsrmFileConditionType = FsrmFileConditionType(1i32);
+impl ::core::marker::Copy for FsrmFileConditionType {}
+impl ::core::clone::Clone for FsrmFileConditionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmFileConditionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmFileConditionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmFileConditionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmFileConditionType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmFileManagementLoggingFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementLoggingFlags_Error: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementLoggingFlags_Information: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementLoggingFlags_Audit: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(4i32);
+impl ::core::marker::Copy for FsrmFileManagementLoggingFlags {}
+impl ::core::clone::Clone for FsrmFileManagementLoggingFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmFileManagementLoggingFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmFileManagementLoggingFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmFileManagementLoggingFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmFileManagementLoggingFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmFileManagementType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementType_Unknown: FsrmFileManagementType = FsrmFileManagementType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementType_Expiration: FsrmFileManagementType = FsrmFileManagementType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementType_Custom: FsrmFileManagementType = FsrmFileManagementType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileManagementType_Rms: FsrmFileManagementType = FsrmFileManagementType(3i32);
+impl ::core::marker::Copy for FsrmFileManagementType {}
+impl ::core::clone::Clone for FsrmFileManagementType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmFileManagementType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmFileManagementType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmFileManagementType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmFileManagementType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmFileScreenFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = FsrmFileScreenFlags(1i32);
+impl ::core::marker::Copy for FsrmFileScreenFlags {}
+impl ::core::clone::Clone for FsrmFileScreenFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmFileScreenFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmFileScreenFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmFileScreenFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmFileScreenFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmFileStreamingInterfaceType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileStreamingInterfaceType_ILockBytes: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileStreamingInterfaceType_IStream: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(2i32);
+impl ::core::marker::Copy for FsrmFileStreamingInterfaceType {}
+impl ::core::clone::Clone for FsrmFileStreamingInterfaceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmFileStreamingInterfaceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmFileStreamingInterfaceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmFileStreamingInterfaceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmFileStreamingInterfaceType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmFileStreamingMode(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileStreamingMode_Unknown: FsrmFileStreamingMode = FsrmFileStreamingMode(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileStreamingMode_Read: FsrmFileStreamingMode = FsrmFileStreamingMode(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileStreamingMode_Write: FsrmFileStreamingMode = FsrmFileStreamingMode(2i32);
+impl ::core::marker::Copy for FsrmFileStreamingMode {}
+impl ::core::clone::Clone for FsrmFileStreamingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmFileStreamingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmFileStreamingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmFileStreamingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmFileStreamingMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmFileSystemPropertyId(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileSystemPropertyId_Undefined: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileSystemPropertyId_FileName: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileSystemPropertyId_DateCreated: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileSystemPropertyId_DateLastAccessed: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileSystemPropertyId_DateLastModified: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmFileSystemPropertyId_DateNow: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(5i32);
+impl ::core::marker::Copy for FsrmFileSystemPropertyId {}
+impl ::core::clone::Clone for FsrmFileSystemPropertyId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmFileSystemPropertyId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmFileSystemPropertyId {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmFileSystemPropertyId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmFileSystemPropertyId").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmGetFilePropertyOptions(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmGetFilePropertyOptions_None: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmGetFilePropertyOptions_NoRuleEvaluation: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmGetFilePropertyOptions_Persistent: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmGetFilePropertyOptions_SkipOrphaned: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(8i32);
+impl ::core::marker::Copy for FsrmGetFilePropertyOptions {}
+impl ::core::clone::Clone for FsrmGetFilePropertyOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmGetFilePropertyOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmGetFilePropertyOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmGetFilePropertyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmGetFilePropertyOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPipelineModuleType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPipelineModuleType_Storage: FsrmPipelineModuleType = FsrmPipelineModuleType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPipelineModuleType_Classifier: FsrmPipelineModuleType = FsrmPipelineModuleType(2i32);
+impl ::core::marker::Copy for FsrmPipelineModuleType {}
+impl ::core::clone::Clone for FsrmPipelineModuleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPipelineModuleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPipelineModuleType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPipelineModuleType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPipelineModuleType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyBagField(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyBagField_AccessVolume: FsrmPropertyBagField = FsrmPropertyBagField(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyBagField_VolumeGuidName: FsrmPropertyBagField = FsrmPropertyBagField(1i32);
+impl ::core::marker::Copy for FsrmPropertyBagField {}
+impl ::core::clone::Clone for FsrmPropertyBagField {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyBagField {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyBagField {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyBagField {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyBagField").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyBagFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyBagFlags_UpdatedByClassifier: FsrmPropertyBagFlags = FsrmPropertyBagFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyBagFlags_FailedLoadingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyBagFlags_FailedSavingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyBagFlags_FailedClassifyingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(8i32);
+impl ::core::marker::Copy for FsrmPropertyBagFlags {}
+impl ::core::clone::Clone for FsrmPropertyBagFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyBagFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyBagFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyBagFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyBagFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyConditionType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_Unknown: FsrmPropertyConditionType = FsrmPropertyConditionType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_Equal: FsrmPropertyConditionType = FsrmPropertyConditionType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_NotEqual: FsrmPropertyConditionType = FsrmPropertyConditionType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_GreaterThan: FsrmPropertyConditionType = FsrmPropertyConditionType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_LessThan: FsrmPropertyConditionType = FsrmPropertyConditionType(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_Contain: FsrmPropertyConditionType = FsrmPropertyConditionType(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_Exist: FsrmPropertyConditionType = FsrmPropertyConditionType(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_NotExist: FsrmPropertyConditionType = FsrmPropertyConditionType(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_StartWith: FsrmPropertyConditionType = FsrmPropertyConditionType(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_EndWith: FsrmPropertyConditionType = FsrmPropertyConditionType(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_ContainedIn: FsrmPropertyConditionType = FsrmPropertyConditionType(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_PrefixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(11i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_SuffixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(12i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyConditionType_MatchesPattern: FsrmPropertyConditionType = FsrmPropertyConditionType(13i32);
+impl ::core::marker::Copy for FsrmPropertyConditionType {}
+impl ::core::clone::Clone for FsrmPropertyConditionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyConditionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyConditionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyConditionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyConditionType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionAppliesTo_Files: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionAppliesTo_Folders: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(2i32);
+impl ::core::marker::Copy for FsrmPropertyDefinitionAppliesTo {}
+impl ::core::clone::Clone for FsrmPropertyDefinitionAppliesTo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyDefinitionAppliesTo {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionAppliesTo {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyDefinitionAppliesTo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyDefinitionAppliesTo").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyDefinitionFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionFlags_Global: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionFlags_Deprecated: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionFlags_Secure: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(4i32);
+impl ::core::marker::Copy for FsrmPropertyDefinitionFlags {}
+impl ::core::clone::Clone for FsrmPropertyDefinitionFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyDefinitionFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyDefinitionFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyDefinitionFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyDefinitionType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_Unknown: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_OrderedList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_MultiChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_SingleChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_String: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_MultiString: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_Int: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_Bool: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyDefinitionType_Date: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(8i32);
+impl ::core::marker::Copy for FsrmPropertyDefinitionType {}
+impl ::core::clone::Clone for FsrmPropertyDefinitionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyDefinitionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyDefinitionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyDefinitionType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_None: FsrmPropertyFlags = FsrmPropertyFlags(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_Orphaned: FsrmPropertyFlags = FsrmPropertyFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_RetrievedFromCache: FsrmPropertyFlags = FsrmPropertyFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_RetrievedFromStorage: FsrmPropertyFlags = FsrmPropertyFlags(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_SetByClassifier: FsrmPropertyFlags = FsrmPropertyFlags(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_Deleted: FsrmPropertyFlags = FsrmPropertyFlags(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_Reclassified: FsrmPropertyFlags = FsrmPropertyFlags(32i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_AggregationFailed: FsrmPropertyFlags = FsrmPropertyFlags(64i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_Existing: FsrmPropertyFlags = FsrmPropertyFlags(128i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_FailedLoadingProperties: FsrmPropertyFlags = FsrmPropertyFlags(256i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_FailedClassifyingProperties: FsrmPropertyFlags = FsrmPropertyFlags(512i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_FailedSavingProperties: FsrmPropertyFlags = FsrmPropertyFlags(1024i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_Secure: FsrmPropertyFlags = FsrmPropertyFlags(2048i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_PolicyDerived: FsrmPropertyFlags = FsrmPropertyFlags(4096i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_Inherited: FsrmPropertyFlags = FsrmPropertyFlags(8192i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_Manual: FsrmPropertyFlags = FsrmPropertyFlags(16384i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_ExplicitValueDeleted: FsrmPropertyFlags = FsrmPropertyFlags(32768i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_PropertyDeletedFromClear: FsrmPropertyFlags = FsrmPropertyFlags(65536i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_PropertySourceMask: FsrmPropertyFlags = FsrmPropertyFlags(14i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyFlags_PersistentMask: FsrmPropertyFlags = FsrmPropertyFlags(20480i32);
+impl ::core::marker::Copy for FsrmPropertyFlags {}
+impl ::core::clone::Clone for FsrmPropertyFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmPropertyValueType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyValueType_Undefined: FsrmPropertyValueType = FsrmPropertyValueType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyValueType_Literal: FsrmPropertyValueType = FsrmPropertyValueType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmPropertyValueType_DateOffset: FsrmPropertyValueType = FsrmPropertyValueType(2i32);
+impl ::core::marker::Copy for FsrmPropertyValueType {}
+impl ::core::clone::Clone for FsrmPropertyValueType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyValueType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmPropertyValueType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmPropertyValueType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmPropertyValueType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmQuotaFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmQuotaFlags_Enforce: FsrmQuotaFlags = FsrmQuotaFlags(256i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmQuotaFlags_Disable: FsrmQuotaFlags = FsrmQuotaFlags(512i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmQuotaFlags_StatusIncomplete: FsrmQuotaFlags = FsrmQuotaFlags(65536i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmQuotaFlags_StatusRebuilding: FsrmQuotaFlags = FsrmQuotaFlags(131072i32);
+impl ::core::marker::Copy for FsrmQuotaFlags {}
+impl ::core::clone::Clone for FsrmQuotaFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmQuotaFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmQuotaFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmQuotaFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmQuotaFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmReportFilter(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_MinAgeDays: FsrmReportFilter = FsrmReportFilter(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_MaxAgeDays: FsrmReportFilter = FsrmReportFilter(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_MinQuotaUsage: FsrmReportFilter = FsrmReportFilter(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_FileGroups: FsrmReportFilter = FsrmReportFilter(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_Owners: FsrmReportFilter = FsrmReportFilter(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_NamePattern: FsrmReportFilter = FsrmReportFilter(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFilter_Property: FsrmReportFilter = FsrmReportFilter(8i32);
+impl ::core::marker::Copy for FsrmReportFilter {}
+impl ::core::clone::Clone for FsrmReportFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmReportFilter {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmReportFilter {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmReportFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmReportFilter").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmReportFormat(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFormat_Unknown: FsrmReportFormat = FsrmReportFormat(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFormat_DHtml: FsrmReportFormat = FsrmReportFormat(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFormat_Html: FsrmReportFormat = FsrmReportFormat(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFormat_Txt: FsrmReportFormat = FsrmReportFormat(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFormat_Csv: FsrmReportFormat = FsrmReportFormat(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportFormat_Xml: FsrmReportFormat = FsrmReportFormat(5i32);
+impl ::core::marker::Copy for FsrmReportFormat {}
+impl ::core::clone::Clone for FsrmReportFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmReportFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmReportFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmReportFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmReportFormat").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmReportGenerationContext(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportGenerationContext_Undefined: FsrmReportGenerationContext = FsrmReportGenerationContext(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportGenerationContext_ScheduledReport: FsrmReportGenerationContext = FsrmReportGenerationContext(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportGenerationContext_InteractiveReport: FsrmReportGenerationContext = FsrmReportGenerationContext(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportGenerationContext_IncidentReport: FsrmReportGenerationContext = FsrmReportGenerationContext(4i32);
+impl ::core::marker::Copy for FsrmReportGenerationContext {}
+impl ::core::clone::Clone for FsrmReportGenerationContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmReportGenerationContext {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmReportGenerationContext {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmReportGenerationContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmReportGenerationContext").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmReportLimit(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFiles: FsrmReportLimit = FsrmReportLimit(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFileGroups: FsrmReportLimit = FsrmReportLimit(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxOwners: FsrmReportLimit = FsrmReportLimit(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFilesPerFileGroup: FsrmReportLimit = FsrmReportLimit(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFilesPerOwner: FsrmReportLimit = FsrmReportLimit(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFilesPerDuplGroup: FsrmReportLimit = FsrmReportLimit(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxDuplicateGroups: FsrmReportLimit = FsrmReportLimit(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxQuotas: FsrmReportLimit = FsrmReportLimit(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFileScreenEvents: FsrmReportLimit = FsrmReportLimit(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxPropertyValues: FsrmReportLimit = FsrmReportLimit(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFilesPerPropertyValue: FsrmReportLimit = FsrmReportLimit(11i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportLimit_MaxFolders: FsrmReportLimit = FsrmReportLimit(12i32);
+impl ::core::marker::Copy for FsrmReportLimit {}
+impl ::core::clone::Clone for FsrmReportLimit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmReportLimit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmReportLimit {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmReportLimit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmReportLimit").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmReportRunningStatus(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportRunningStatus_NotRunning: FsrmReportRunningStatus = FsrmReportRunningStatus(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportRunningStatus_Queued: FsrmReportRunningStatus = FsrmReportRunningStatus(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportRunningStatus_Running: FsrmReportRunningStatus = FsrmReportRunningStatus(3i32);
+impl ::core::marker::Copy for FsrmReportRunningStatus {}
+impl ::core::clone::Clone for FsrmReportRunningStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmReportRunningStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmReportRunningStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmReportRunningStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmReportRunningStatus").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmReportType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_Unknown: FsrmReportType = FsrmReportType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_LargeFiles: FsrmReportType = FsrmReportType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_FilesByType: FsrmReportType = FsrmReportType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_LeastRecentlyAccessed: FsrmReportType = FsrmReportType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_MostRecentlyAccessed: FsrmReportType = FsrmReportType(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_QuotaUsage: FsrmReportType = FsrmReportType(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_FilesByOwner: FsrmReportType = FsrmReportType(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_ExportReport: FsrmReportType = FsrmReportType(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_DuplicateFiles: FsrmReportType = FsrmReportType(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_FileScreenAudit: FsrmReportType = FsrmReportType(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_FilesByProperty: FsrmReportType = FsrmReportType(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_AutomaticClassification: FsrmReportType = FsrmReportType(11i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_Expiration: FsrmReportType = FsrmReportType(12i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmReportType_FoldersByProperty: FsrmReportType = FsrmReportType(13i32);
+impl ::core::marker::Copy for FsrmReportType {}
+impl ::core::clone::Clone for FsrmReportType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmReportType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmReportType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmReportType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmReportType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmRuleFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmRuleFlags_Disabled: FsrmRuleFlags = FsrmRuleFlags(256i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmRuleFlags_ClearAutomaticallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(1024i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmRuleFlags_ClearManuallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(2048i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmRuleFlags_Invalid: FsrmRuleFlags = FsrmRuleFlags(4096i32);
+impl ::core::marker::Copy for FsrmRuleFlags {}
+impl ::core::clone::Clone for FsrmRuleFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmRuleFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmRuleFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmRuleFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmRuleFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmRuleType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmRuleType_Unknown: FsrmRuleType = FsrmRuleType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmRuleType_Classification: FsrmRuleType = FsrmRuleType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmRuleType_Generic: FsrmRuleType = FsrmRuleType(2i32);
+impl ::core::marker::Copy for FsrmRuleType {}
+impl ::core::clone::Clone for FsrmRuleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmRuleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmRuleType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmRuleType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmRuleType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmStorageModuleCaps(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleCaps_CanGet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleCaps_CanSet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleCaps_CanHandleDirectories: FsrmStorageModuleCaps = FsrmStorageModuleCaps(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleCaps_CanHandleFiles: FsrmStorageModuleCaps = FsrmStorageModuleCaps(8i32);
+impl ::core::marker::Copy for FsrmStorageModuleCaps {}
+impl ::core::clone::Clone for FsrmStorageModuleCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmStorageModuleCaps {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmStorageModuleCaps {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmStorageModuleCaps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmStorageModuleCaps").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmStorageModuleType(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleType_Unknown: FsrmStorageModuleType = FsrmStorageModuleType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleType_Cache: FsrmStorageModuleType = FsrmStorageModuleType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleType_InFile: FsrmStorageModuleType = FsrmStorageModuleType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleType_Database: FsrmStorageModuleType = FsrmStorageModuleType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmStorageModuleType_System: FsrmStorageModuleType = FsrmStorageModuleType(100i32);
+impl ::core::marker::Copy for FsrmStorageModuleType {}
+impl ::core::clone::Clone for FsrmStorageModuleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmStorageModuleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmStorageModuleType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmStorageModuleType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmStorageModuleType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FsrmTemplateApplyOptions(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
+pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(2i32);
+impl ::core::marker::Copy for FsrmTemplateApplyOptions {}
+impl ::core::clone::Clone for FsrmTemplateApplyOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FsrmTemplateApplyOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FsrmTemplateApplyOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FsrmTemplateApplyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FsrmTemplateApplyOptions").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

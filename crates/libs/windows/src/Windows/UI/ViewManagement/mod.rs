@@ -1,1625 +1,5 @@
 #[cfg(feature = "UI_ViewManagement_Core")]
 pub mod Core;
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-pub struct AccessibilitySettings(::windows::core::IUnknown);
-impl AccessibilitySettings {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AccessibilitySettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn HighContrast(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HighContrast)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn HighContrastScheme(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HighContrastScheme)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn HighContrastChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AccessibilitySettings, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HighContrastChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveHighContrastChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHighContrastChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
-    }
-}
-impl ::core::clone::Clone for AccessibilitySettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccessibilitySettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccessibilitySettings {}
-impl ::core::fmt::Debug for AccessibilitySettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessibilitySettings").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AccessibilitySettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.AccessibilitySettings;{fe0e8147-c4c0-4562-b962-1327b52ad5b9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AccessibilitySettings {
-    type Vtable = IAccessibilitySettings_Vtbl;
-    const IID: ::windows::core::GUID = <IAccessibilitySettings as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AccessibilitySettings {
-    const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
-}
-impl ::core::convert::From<AccessibilitySettings> for ::windows::core::IUnknown {
-    fn from(value: AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for ::windows::core::IUnknown {
-    fn from(value: &AccessibilitySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for &::windows::core::IUnknown {
-    fn from(value: &AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccessibilitySettings> for ::windows::core::IInspectable {
-    fn from(value: AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for ::windows::core::IInspectable {
-    fn from(value: &AccessibilitySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for &::windows::core::IInspectable {
-    fn from(value: &AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AccessibilitySettings {}
-unsafe impl ::core::marker::Sync for AccessibilitySettings {}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-pub struct ActivationViewSwitcher(::windows::core::IUnknown);
-impl ActivationViewSwitcher {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ShowAsStandaloneAsync(&self, viewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ShowAsStandaloneAsync)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewid: i32, sizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    pub fn IsViewPresentedOnActivationVirtualDesktop(&self, viewid: i32) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsViewPresentedOnActivationVirtualDesktop)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ActivationViewSwitcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivationViewSwitcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationViewSwitcher {}
-impl ::core::fmt::Debug for ActivationViewSwitcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationViewSwitcher").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationViewSwitcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ActivationViewSwitcher;{dca71bb6-7350-492b-aac7-c8a13d7224ad})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ActivationViewSwitcher {
-    type Vtable = IActivationViewSwitcher_Vtbl;
-    const IID: ::windows::core::GUID = <IActivationViewSwitcher as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ActivationViewSwitcher {
-    const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
-}
-impl ::core::convert::From<ActivationViewSwitcher> for ::windows::core::IUnknown {
-    fn from(value: ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for ::windows::core::IUnknown {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for &::windows::core::IUnknown {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivationViewSwitcher> for ::windows::core::IInspectable {
-    fn from(value: ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for ::windows::core::IInspectable {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for &::windows::core::IInspectable {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ActivationViewSwitcher {}
-unsafe impl ::core::marker::Sync for ActivationViewSwitcher {}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-pub struct ApplicationView(::windows::core::IUnknown);
-impl ApplicationView {
-    pub fn Orientation(&self) -> ::windows::core::Result<ApplicationViewOrientation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewOrientation>(result__)
-        }
-    }
-    pub fn AdjacentToLeftDisplayEdge(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AdjacentToLeftDisplayEdge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn AdjacentToRightDisplayEdge(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AdjacentToRightDisplayEdge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn IsFullScreen(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsFullScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn IsOnLockScreen(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsOnLockScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn IsScreenCaptureEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsScreenCaptureEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsScreenCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsScreenCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn Id(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Consolidated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Consolidated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveConsolidated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveConsolidated)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn SuppressSystemOverlays(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SuppressSystemOverlays)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn SetSuppressSystemOverlays(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuppressSystemOverlays)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn VisibleBounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VisibleBounds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn VisibleBoundsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ApplicationView, ::windows::core::IInspectable>>>,
-    {
-        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VisibleBoundsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveVisibleBoundsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVisibleBoundsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn SetDesiredBoundsMode(&self, boundsmode: ApplicationViewBoundsMode) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetDesiredBoundsMode)(::windows::core::Interface::as_raw(this), boundsmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn DesiredBoundsMode(&self) -> ::windows::core::Result<ApplicationViewBoundsMode> {
-        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredBoundsMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewBoundsMode>(result__)
-        }
-    }
-    pub fn TitleBar(&self) -> ::windows::core::Result<ApplicationViewTitleBar> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TitleBar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewTitleBar>(result__)
-        }
-    }
-    pub fn FullScreenSystemOverlayMode(&self) -> ::windows::core::Result<FullScreenSystemOverlayMode> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FullScreenSystemOverlayMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FullScreenSystemOverlayMode>(result__)
-        }
-    }
-    pub fn SetFullScreenSystemOverlayMode(&self, value: FullScreenSystemOverlayMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFullScreenSystemOverlayMode)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsFullScreenMode(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsFullScreenMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn TryEnterFullScreenMode(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryEnterFullScreenMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn ExitFullScreenMode(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ExitFullScreenMode)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn ShowStandardSystemOverlays(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ShowStandardSystemOverlays)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryResizeView(&self, value: super::super::Foundation::Size) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryResizeView)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetPreferredMinSize(&self, minsize: super::super::Foundation::Size) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredMinSize)(::windows::core::Interface::as_raw(this), minsize).ok() }
-    }
-    pub fn ViewMode(&self) -> ::windows::core::Result<ApplicationViewMode> {
-        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ViewMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewMode>(result__)
-        }
-    }
-    pub fn IsViewModeSupported(&self, viewmode: ApplicationViewMode) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsViewModeSupported)(::windows::core::Interface::as_raw(this), viewmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryEnterViewModeAsync(&self, viewmode: ApplicationViewMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryEnterViewModeAsync)(::windows::core::Interface::as_raw(this), viewmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryEnterViewModeWithPreferencesAsync<'a, P0>(&self, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
-    {
-        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewmode, viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryConsolidateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryConsolidateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        }
-    }
-    pub fn PersistedStateId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IApplicationView7>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PersistedStateId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetPersistedStateId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IApplicationView7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPersistedStateId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    #[cfg(feature = "UI_WindowManagement")]
-    pub fn WindowingEnvironment(&self) -> ::windows::core::Result<super::WindowManagement::WindowingEnvironment> {
-        let this = &::windows::core::Interface::cast::<IApplicationView9>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WindowingEnvironment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::WindowManagement::WindowingEnvironment>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"UI_WindowManagement\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
-    pub fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>> {
-        let this = &::windows::core::Interface::cast::<IApplicationView9>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDisplayRegions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn TryUnsnapToFullscreen() -> ::windows::core::Result<bool> {
-        Self::IApplicationViewFullscreenStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryUnsnapToFullscreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
-    #[cfg(feature = "UI_Core")]
-    pub fn GetApplicationViewIdForWindow<'a, P0, E0>(window: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::ICoreWindow>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IApplicationViewInteropStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetApplicationViewIdForWindow)(::windows::core::Interface::as_raw(this), window.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn Value() -> ::windows::core::Result<ApplicationViewState> {
-        Self::IApplicationViewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewState>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn TryUnsnap() -> ::windows::core::Result<bool> {
-        Self::IApplicationViewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryUnsnap)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    pub fn GetForCurrentView() -> ::windows::core::Result<ApplicationView> {
-        Self::IApplicationViewStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationView>(result__)
-        })
-    }
-    pub fn TerminateAppOnFinalViewClose() -> ::windows::core::Result<bool> {
-        Self::IApplicationViewStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TerminateAppOnFinalViewClose)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    pub fn SetTerminateAppOnFinalViewClose(value: bool) -> ::windows::core::Result<()> {
-        Self::IApplicationViewStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetTerminateAppOnFinalViewClose)(::windows::core::Interface::as_raw(this), value).ok() })
-    }
-    pub fn PreferredLaunchWindowingMode() -> ::windows::core::Result<ApplicationViewWindowingMode> {
-        Self::IApplicationViewStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreferredLaunchWindowingMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewWindowingMode>(result__)
-        })
-    }
-    pub fn SetPreferredLaunchWindowingMode(value: ApplicationViewWindowingMode) -> ::windows::core::Result<()> {
-        Self::IApplicationViewStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredLaunchWindowingMode)(::windows::core::Interface::as_raw(this), value).ok() })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PreferredLaunchViewSize() -> ::windows::core::Result<super::super::Foundation::Size> {
-        Self::IApplicationViewStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreferredLaunchViewSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetPreferredLaunchViewSize(value: super::super::Foundation::Size) -> ::windows::core::Result<()> {
-        Self::IApplicationViewStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredLaunchViewSize)(::windows::core::Interface::as_raw(this), value).ok() })
-    }
-    pub fn ClearAllPersistedState() -> ::windows::core::Result<()> {
-        Self::IApplicationViewStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).ClearAllPersistedState)(::windows::core::Interface::as_raw(this)).ok() })
-    }
-    pub fn ClearPersistedState(key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        Self::IApplicationViewStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).ClearPersistedState)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() })
-    }
-    pub fn UIContext(&self) -> ::windows::core::Result<super::UIContext> {
-        let this = &::windows::core::Interface::cast::<IApplicationViewWithContext>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UIContext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIContext>(result__)
-        }
-    }
-    #[doc(hidden)]
-    #[cfg(feature = "deprecated")]
-    pub fn IApplicationViewFullscreenStatics<R, F: FnOnce(&IApplicationViewFullscreenStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewFullscreenStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewInteropStatics<R, F: FnOnce(&IApplicationViewInteropStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewInteropStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    #[cfg(feature = "deprecated")]
-    pub fn IApplicationViewStatics<R, F: FnOnce(&IApplicationViewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewStatics2<R, F: FnOnce(&IApplicationViewStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewStatics3<R, F: FnOnce(&IApplicationViewStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics3> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewStatics4<R, F: FnOnce(&IApplicationViewStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics4> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ApplicationView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationView {}
-impl ::core::fmt::Debug for ApplicationView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationView").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationView;{d222d519-4361-451e-96c4-60f4f9742db0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ApplicationView {
-    type Vtable = IApplicationView_Vtbl;
-    const IID: ::windows::core::GUID = <IApplicationView as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ApplicationView {
-    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
-}
-impl ::core::convert::From<ApplicationView> for ::windows::core::IUnknown {
-    fn from(value: ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationView> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationView> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationView> for ::windows::core::IInspectable {
-    fn from(value: ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationView> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationView> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ApplicationView {}
-unsafe impl ::core::marker::Sync for ApplicationView {}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationViewBoundsMode(pub i32);
-impl ApplicationViewBoundsMode {
-    pub const UseVisible: Self = Self(0i32);
-    pub const UseCoreWindow: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ApplicationViewBoundsMode {}
-impl ::core::clone::Clone for ApplicationViewBoundsMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewBoundsMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationViewBoundsMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewBoundsMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewBoundsMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewBoundsMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-pub struct ApplicationViewConsolidatedEventArgs(::windows::core::IUnknown);
-impl ApplicationViewConsolidatedEventArgs {
-    pub fn IsUserInitiated(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsUserInitiated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn IsAppInitiated(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IApplicationViewConsolidatedEventArgs2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsAppInitiated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ApplicationViewConsolidatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationViewConsolidatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewConsolidatedEventArgs {}
-impl ::core::fmt::Debug for ApplicationViewConsolidatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewConsolidatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewConsolidatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs;{514449ec-7ea2-4de7-a6a6-7dfbaaebb6fb})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ApplicationViewConsolidatedEventArgs {
-    type Vtable = IApplicationViewConsolidatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IApplicationViewConsolidatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ApplicationViewConsolidatedEventArgs {
-    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
-}
-impl ::core::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
-unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationViewMode(pub i32);
-impl ApplicationViewMode {
-    pub const Default: Self = Self(0i32);
-    pub const CompactOverlay: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ApplicationViewMode {}
-impl ::core::clone::Clone for ApplicationViewMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationViewMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationViewOrientation(pub i32);
-impl ApplicationViewOrientation {
-    pub const Landscape: Self = Self(0i32);
-    pub const Portrait: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ApplicationViewOrientation {}
-impl ::core::clone::Clone for ApplicationViewOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationViewOrientation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewOrientation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-pub struct ApplicationViewScaling(::windows::core::IUnknown);
-impl ApplicationViewScaling {
-    pub fn DisableLayoutScaling() -> ::windows::core::Result<bool> {
-        Self::IApplicationViewScalingStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisableLayoutScaling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    pub fn TrySetDisableLayoutScaling(disablelayoutscaling: bool) -> ::windows::core::Result<bool> {
-        Self::IApplicationViewScalingStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetDisableLayoutScaling)(::windows::core::Interface::as_raw(this), disablelayoutscaling, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewScalingStatics<R, F: FnOnce(&IApplicationViewScalingStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewScaling, IApplicationViewScalingStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ApplicationViewScaling {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationViewScaling {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewScaling {}
-impl ::core::fmt::Debug for ApplicationViewScaling {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewScaling").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewScaling {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewScaling;{1d0ddc23-23f3-4b2d-84fe-74bf37b48b66})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ApplicationViewScaling {
-    type Vtable = IApplicationViewScaling_Vtbl;
-    const IID: ::windows::core::GUID = <IApplicationViewScaling as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ApplicationViewScaling {
-    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewScaling";
-}
-impl ::core::convert::From<ApplicationViewScaling> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewScaling> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationViewState(pub i32);
-#[cfg(feature = "deprecated")]
-impl ApplicationViewState {
-    pub const FullScreenLandscape: Self = Self(0i32);
-    pub const Filled: Self = Self(1i32);
-    pub const Snapped: Self = Self(2i32);
-    pub const FullScreenPortrait: Self = Self(3i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for ApplicationViewState {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for ApplicationViewState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for ApplicationViewState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for ApplicationViewState {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for ApplicationViewState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for ApplicationViewState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-pub struct ApplicationViewSwitcher;
-impl ApplicationViewSwitcher {
-    pub fn DisableShowingMainViewOnActivation() -> ::windows::core::Result<()> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DisableShowingMainViewOnActivation)(::windows::core::Interface::as_raw(this)).ok() })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryShowAsStandaloneAsync(viewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsStandaloneAsync)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryShowAsStandaloneWithSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference, anchorviewid: i32, anchorsizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, anchorviewid, anchorsizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SwitchAsync(viewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SwitchAsync)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SwitchFromViewAsync(toviewid: i32, fromviewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SwitchFromViewAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SwitchFromViewWithOptionsAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SwitchFromViewWithOptionsAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PrepareForCustomAnimatedSwitchAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::IApplicationViewSwitcherStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareForCustomAnimatedSwitchAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        })
-    }
-    pub fn DisableSystemViewActivationPolicy() -> ::windows::core::Result<()> {
-        Self::IApplicationViewSwitcherStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableSystemViewActivationPolicy)(::windows::core::Interface::as_raw(this)).ok() })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryShowAsViewModeAsync(viewid: i32, viewmode: ApplicationViewMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::IApplicationViewSwitcherStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsViewModeAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TryShowAsViewModeWithPreferencesAsync<'a, P0>(viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
-    {
-        Self::IApplicationViewSwitcherStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode, viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewSwitcherStatics<R, F: FnOnce(&IApplicationViewSwitcherStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewSwitcherStatics2<R, F: FnOnce(&IApplicationViewSwitcherStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewSwitcherStatics3<R, F: FnOnce(&IApplicationViewSwitcherStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics3> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for ApplicationViewSwitcher {
-    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewSwitcher";
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationViewSwitchingOptions(pub u32);
-impl ApplicationViewSwitchingOptions {
-    pub const Default: Self = Self(0u32);
-    pub const SkipAnimation: Self = Self(1u32);
-    pub const ConsolidateViews: Self = Self(2u32);
-}
-impl ::core::marker::Copy for ApplicationViewSwitchingOptions {}
-impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewSwitchingOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationViewSwitchingOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewSwitchingOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewSwitchingOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ApplicationViewSwitchingOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ApplicationViewSwitchingOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ApplicationViewSwitchingOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ApplicationViewSwitchingOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ApplicationViewSwitchingOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewSwitchingOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewSwitchingOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-pub struct ApplicationViewTitleBar(::windows::core::IUnknown);
-impl ApplicationViewTitleBar {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonHoverForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonHoverForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonHoverForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonHoverBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonHoverBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonHoverBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonPressedForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonPressedForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonPressedForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonPressedBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonPressedBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonPressedBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetInactiveForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn InactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InactiveForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetInactiveBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn InactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InactiveBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonInactiveForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonInactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonInactiveForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetButtonInactiveBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ButtonInactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ApplicationViewTitleBar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationViewTitleBar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewTitleBar {}
-impl ::core::fmt::Debug for ApplicationViewTitleBar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewTitleBar").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewTitleBar {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTitleBar;{00924ac0-932b-4a6b-9c4b-dc38c82478ce})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ApplicationViewTitleBar {
-    type Vtable = IApplicationViewTitleBar_Vtbl;
-    const IID: ::windows::core::GUID = <IApplicationViewTitleBar as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ApplicationViewTitleBar {
-    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
-}
-impl ::core::convert::From<ApplicationViewTitleBar> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewTitleBar> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ApplicationViewTitleBar {}
-unsafe impl ::core::marker::Sync for ApplicationViewTitleBar {}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-pub struct ApplicationViewTransferContext(::windows::core::IUnknown);
-impl ApplicationViewTransferContext {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewTransferContext, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn ViewId(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetViewId(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewId)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn DataPackageFormatId() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IApplicationViewTransferContextStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DataPackageFormatId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IApplicationViewTransferContextStatics<R, F: FnOnce(&IApplicationViewTransferContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ApplicationViewTransferContext, IApplicationViewTransferContextStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ApplicationViewTransferContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationViewTransferContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewTransferContext {}
-impl ::core::fmt::Debug for ApplicationViewTransferContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewTransferContext").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewTransferContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTransferContext;{8574bc63-3c17-408e-9408-8a1a9ea81bfa})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ApplicationViewTransferContext {
-    type Vtable = IApplicationViewTransferContext_Vtbl;
-    const IID: ::windows::core::GUID = <IApplicationViewTransferContext as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ApplicationViewTransferContext {
-    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
-}
-impl ::core::convert::From<ApplicationViewTransferContext> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewTransferContext> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationViewWindowingMode(pub i32);
-impl ApplicationViewWindowingMode {
-    pub const Auto: Self = Self(0i32);
-    pub const PreferredLaunchViewSize: Self = Self(1i32);
-    pub const FullScreen: Self = Self(2i32);
-    pub const CompactOverlay: Self = Self(3i32);
-    pub const Maximized: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ApplicationViewWindowingMode {}
-impl ::core::clone::Clone for ApplicationViewWindowingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewWindowingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationViewWindowingMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewWindowingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewWindowingMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationViewWindowingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FullScreenSystemOverlayMode(pub i32);
-impl FullScreenSystemOverlayMode {
-    pub const Standard: Self = Self(0i32);
-    pub const Minimal: Self = Self(1i32);
-}
-impl ::core::marker::Copy for FullScreenSystemOverlayMode {}
-impl ::core::clone::Clone for FullScreenSystemOverlayMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FullScreenSystemOverlayMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FullScreenSystemOverlayMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FullScreenSystemOverlayMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FullScreenSystemOverlayMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HandPreference(pub i32);
-impl HandPreference {
-    pub const LeftHanded: Self = Self(0i32);
-    pub const RightHanded: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HandPreference {}
-impl ::core::clone::Clone for HandPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HandPreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HandPreference {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HandPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandPreference").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HandPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccessibilitySettings(::windows::core::IUnknown);
@@ -2712,6 +1092,1312 @@ pub struct IViewModePreferencesStatics_Vtbl {
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
+pub struct AccessibilitySettings(::windows::core::IUnknown);
+impl AccessibilitySettings {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AccessibilitySettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn HighContrast(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HighContrast)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn HighContrastScheme(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HighContrastScheme)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn HighContrastChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AccessibilitySettings, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HighContrastChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveHighContrastChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHighContrastChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
+    }
+}
+impl ::core::clone::Clone for AccessibilitySettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AccessibilitySettings {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AccessibilitySettings {}
+impl ::core::fmt::Debug for AccessibilitySettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessibilitySettings").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AccessibilitySettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.AccessibilitySettings;{fe0e8147-c4c0-4562-b962-1327b52ad5b9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AccessibilitySettings {
+    type Vtable = IAccessibilitySettings_Vtbl;
+    const IID: ::windows::core::GUID = <IAccessibilitySettings as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AccessibilitySettings {
+    const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
+}
+impl ::core::convert::From<AccessibilitySettings> for ::windows::core::IUnknown {
+    fn from(value: AccessibilitySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccessibilitySettings> for ::windows::core::IUnknown {
+    fn from(value: &AccessibilitySettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccessibilitySettings> for &::windows::core::IUnknown {
+    fn from(value: &AccessibilitySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AccessibilitySettings> for ::windows::core::IInspectable {
+    fn from(value: AccessibilitySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccessibilitySettings> for ::windows::core::IInspectable {
+    fn from(value: &AccessibilitySettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccessibilitySettings> for &::windows::core::IInspectable {
+    fn from(value: &AccessibilitySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AccessibilitySettings {}
+unsafe impl ::core::marker::Sync for AccessibilitySettings {}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+pub struct ActivationViewSwitcher(::windows::core::IUnknown);
+impl ActivationViewSwitcher {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ShowAsStandaloneAsync(&self, viewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ShowAsStandaloneAsync)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewid: i32, sizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    pub fn IsViewPresentedOnActivationVirtualDesktop(&self, viewid: i32) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsViewPresentedOnActivationVirtualDesktop)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ActivationViewSwitcher {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ActivationViewSwitcher {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ActivationViewSwitcher {}
+impl ::core::fmt::Debug for ActivationViewSwitcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationViewSwitcher").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationViewSwitcher {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ActivationViewSwitcher;{dca71bb6-7350-492b-aac7-c8a13d7224ad})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ActivationViewSwitcher {
+    type Vtable = IActivationViewSwitcher_Vtbl;
+    const IID: ::windows::core::GUID = <IActivationViewSwitcher as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ActivationViewSwitcher {
+    const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
+}
+impl ::core::convert::From<ActivationViewSwitcher> for ::windows::core::IUnknown {
+    fn from(value: ActivationViewSwitcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivationViewSwitcher> for ::windows::core::IUnknown {
+    fn from(value: &ActivationViewSwitcher) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivationViewSwitcher> for &::windows::core::IUnknown {
+    fn from(value: &ActivationViewSwitcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ActivationViewSwitcher> for ::windows::core::IInspectable {
+    fn from(value: ActivationViewSwitcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivationViewSwitcher> for ::windows::core::IInspectable {
+    fn from(value: &ActivationViewSwitcher) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivationViewSwitcher> for &::windows::core::IInspectable {
+    fn from(value: &ActivationViewSwitcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ActivationViewSwitcher {}
+unsafe impl ::core::marker::Sync for ActivationViewSwitcher {}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+pub struct ApplicationView(::windows::core::IUnknown);
+impl ApplicationView {
+    pub fn Orientation(&self) -> ::windows::core::Result<ApplicationViewOrientation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewOrientation>(result__)
+        }
+    }
+    pub fn AdjacentToLeftDisplayEdge(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AdjacentToLeftDisplayEdge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn AdjacentToRightDisplayEdge(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AdjacentToRightDisplayEdge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn IsFullScreen(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsFullScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn IsOnLockScreen(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsOnLockScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn IsScreenCaptureEnabled(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsScreenCaptureEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetIsScreenCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsScreenCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn Id(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Consolidated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Consolidated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveConsolidated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConsolidated)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn SuppressSystemOverlays(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SuppressSystemOverlays)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn SetSuppressSystemOverlays(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSuppressSystemOverlays)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn VisibleBounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
+        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VisibleBounds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn VisibleBoundsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ApplicationView, ::windows::core::IInspectable>>>,
+    {
+        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VisibleBoundsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveVisibleBoundsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVisibleBoundsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetDesiredBoundsMode(&self, boundsmode: ApplicationViewBoundsMode) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetDesiredBoundsMode)(::windows::core::Interface::as_raw(this), boundsmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn DesiredBoundsMode(&self) -> ::windows::core::Result<ApplicationViewBoundsMode> {
+        let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DesiredBoundsMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewBoundsMode>(result__)
+        }
+    }
+    pub fn TitleBar(&self) -> ::windows::core::Result<ApplicationViewTitleBar> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TitleBar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewTitleBar>(result__)
+        }
+    }
+    pub fn FullScreenSystemOverlayMode(&self) -> ::windows::core::Result<FullScreenSystemOverlayMode> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FullScreenSystemOverlayMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FullScreenSystemOverlayMode>(result__)
+        }
+    }
+    pub fn SetFullScreenSystemOverlayMode(&self, value: FullScreenSystemOverlayMode) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetFullScreenSystemOverlayMode)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsFullScreenMode(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsFullScreenMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn TryEnterFullScreenMode(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryEnterFullScreenMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn ExitFullScreenMode(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).ExitFullScreenMode)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn ShowStandardSystemOverlays(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).ShowStandardSystemOverlays)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryResizeView(&self, value: super::super::Foundation::Size) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryResizeView)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetPreferredMinSize(&self, minsize: super::super::Foundation::Size) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredMinSize)(::windows::core::Interface::as_raw(this), minsize).ok() }
+    }
+    pub fn ViewMode(&self) -> ::windows::core::Result<ApplicationViewMode> {
+        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ViewMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewMode>(result__)
+        }
+    }
+    pub fn IsViewModeSupported(&self, viewmode: ApplicationViewMode) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsViewModeSupported)(::windows::core::Interface::as_raw(this), viewmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryEnterViewModeAsync(&self, viewmode: ApplicationViewMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryEnterViewModeAsync)(::windows::core::Interface::as_raw(this), viewmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryEnterViewModeWithPreferencesAsync<'a, P0>(&self, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
+    {
+        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewmode, viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryConsolidateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryConsolidateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        }
+    }
+    pub fn PersistedStateId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IApplicationView7>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PersistedStateId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetPersistedStateId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IApplicationView7>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPersistedStateId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
+    #[cfg(feature = "UI_WindowManagement")]
+    pub fn WindowingEnvironment(&self) -> ::windows::core::Result<super::WindowManagement::WindowingEnvironment> {
+        let this = &::windows::core::Interface::cast::<IApplicationView9>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).WindowingEnvironment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::WindowManagement::WindowingEnvironment>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"UI_WindowManagement\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
+    pub fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>> {
+        let this = &::windows::core::Interface::cast::<IApplicationView9>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDisplayRegions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn TryUnsnapToFullscreen() -> ::windows::core::Result<bool> {
+        Self::IApplicationViewFullscreenStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryUnsnapToFullscreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"UI_Core\"`*"]
+    #[cfg(feature = "UI_Core")]
+    pub fn GetApplicationViewIdForWindow<'a, P0, E0>(window: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::ICoreWindow>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IApplicationViewInteropStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetApplicationViewIdForWindow)(::windows::core::Interface::as_raw(this), window.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn Value() -> ::windows::core::Result<ApplicationViewState> {
+        Self::IApplicationViewStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewState>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn TryUnsnap() -> ::windows::core::Result<bool> {
+        Self::IApplicationViewStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryUnsnap)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    pub fn GetForCurrentView() -> ::windows::core::Result<ApplicationView> {
+        Self::IApplicationViewStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationView>(result__)
+        })
+    }
+    pub fn TerminateAppOnFinalViewClose() -> ::windows::core::Result<bool> {
+        Self::IApplicationViewStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TerminateAppOnFinalViewClose)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    pub fn SetTerminateAppOnFinalViewClose(value: bool) -> ::windows::core::Result<()> {
+        Self::IApplicationViewStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetTerminateAppOnFinalViewClose)(::windows::core::Interface::as_raw(this), value).ok() })
+    }
+    pub fn PreferredLaunchWindowingMode() -> ::windows::core::Result<ApplicationViewWindowingMode> {
+        Self::IApplicationViewStatics3(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreferredLaunchWindowingMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationViewWindowingMode>(result__)
+        })
+    }
+    pub fn SetPreferredLaunchWindowingMode(value: ApplicationViewWindowingMode) -> ::windows::core::Result<()> {
+        Self::IApplicationViewStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredLaunchWindowingMode)(::windows::core::Interface::as_raw(this), value).ok() })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PreferredLaunchViewSize() -> ::windows::core::Result<super::super::Foundation::Size> {
+        Self::IApplicationViewStatics3(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreferredLaunchViewSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetPreferredLaunchViewSize(value: super::super::Foundation::Size) -> ::windows::core::Result<()> {
+        Self::IApplicationViewStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredLaunchViewSize)(::windows::core::Interface::as_raw(this), value).ok() })
+    }
+    pub fn ClearAllPersistedState() -> ::windows::core::Result<()> {
+        Self::IApplicationViewStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).ClearAllPersistedState)(::windows::core::Interface::as_raw(this)).ok() })
+    }
+    pub fn ClearPersistedState(key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        Self::IApplicationViewStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).ClearPersistedState)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() })
+    }
+    pub fn UIContext(&self) -> ::windows::core::Result<super::UIContext> {
+        let this = &::windows::core::Interface::cast::<IApplicationViewWithContext>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UIContext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIContext>(result__)
+        }
+    }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
+    pub fn IApplicationViewFullscreenStatics<R, F: FnOnce(&IApplicationViewFullscreenStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewFullscreenStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewInteropStatics<R, F: FnOnce(&IApplicationViewInteropStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewInteropStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
+    pub fn IApplicationViewStatics<R, F: FnOnce(&IApplicationViewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewStatics2<R, F: FnOnce(&IApplicationViewStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewStatics3<R, F: FnOnce(&IApplicationViewStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics3> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewStatics4<R, F: FnOnce(&IApplicationViewStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationView, IApplicationViewStatics4> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for ApplicationView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ApplicationView {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationView {}
+impl ::core::fmt::Debug for ApplicationView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationView").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationView {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationView;{d222d519-4361-451e-96c4-60f4f9742db0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ApplicationView {
+    type Vtable = IApplicationView_Vtbl;
+    const IID: ::windows::core::GUID = <IApplicationView as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ApplicationView {
+    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
+}
+impl ::core::convert::From<ApplicationView> for ::windows::core::IUnknown {
+    fn from(value: ApplicationView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationView> for ::windows::core::IUnknown {
+    fn from(value: &ApplicationView) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationView> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ApplicationView> for ::windows::core::IInspectable {
+    fn from(value: ApplicationView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationView> for ::windows::core::IInspectable {
+    fn from(value: &ApplicationView) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationView> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ApplicationView {}
+unsafe impl ::core::marker::Sync for ApplicationView {}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+pub struct ApplicationViewConsolidatedEventArgs(::windows::core::IUnknown);
+impl ApplicationViewConsolidatedEventArgs {
+    pub fn IsUserInitiated(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsUserInitiated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn IsAppInitiated(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IApplicationViewConsolidatedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsAppInitiated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ApplicationViewConsolidatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ApplicationViewConsolidatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationViewConsolidatedEventArgs {}
+impl ::core::fmt::Debug for ApplicationViewConsolidatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewConsolidatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewConsolidatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs;{514449ec-7ea2-4de7-a6a6-7dfbaaebb6fb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ApplicationViewConsolidatedEventArgs {
+    type Vtable = IApplicationViewConsolidatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IApplicationViewConsolidatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ApplicationViewConsolidatedEventArgs {
+    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
+}
+impl ::core::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
+unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+pub struct ApplicationViewScaling(::windows::core::IUnknown);
+impl ApplicationViewScaling {
+    pub fn DisableLayoutScaling() -> ::windows::core::Result<bool> {
+        Self::IApplicationViewScalingStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DisableLayoutScaling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    pub fn TrySetDisableLayoutScaling(disablelayoutscaling: bool) -> ::windows::core::Result<bool> {
+        Self::IApplicationViewScalingStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TrySetDisableLayoutScaling)(::windows::core::Interface::as_raw(this), disablelayoutscaling, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewScalingStatics<R, F: FnOnce(&IApplicationViewScalingStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationViewScaling, IApplicationViewScalingStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for ApplicationViewScaling {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ApplicationViewScaling {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationViewScaling {}
+impl ::core::fmt::Debug for ApplicationViewScaling {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewScaling").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewScaling {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewScaling;{1d0ddc23-23f3-4b2d-84fe-74bf37b48b66})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ApplicationViewScaling {
+    type Vtable = IApplicationViewScaling_Vtbl;
+    const IID: ::windows::core::GUID = <IApplicationViewScaling as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ApplicationViewScaling {
+    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewScaling";
+}
+impl ::core::convert::From<ApplicationViewScaling> for ::windows::core::IUnknown {
+    fn from(value: ApplicationViewScaling) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewScaling> for ::windows::core::IUnknown {
+    fn from(value: &ApplicationViewScaling) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewScaling> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationViewScaling) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ApplicationViewScaling> for ::windows::core::IInspectable {
+    fn from(value: ApplicationViewScaling) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewScaling> for ::windows::core::IInspectable {
+    fn from(value: &ApplicationViewScaling) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewScaling> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationViewScaling) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+pub struct ApplicationViewSwitcher;
+impl ApplicationViewSwitcher {
+    pub fn DisableShowingMainViewOnActivation() -> ::windows::core::Result<()> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DisableShowingMainViewOnActivation)(::windows::core::Interface::as_raw(this)).ok() })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryShowAsStandaloneAsync(viewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryShowAsStandaloneAsync)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryShowAsStandaloneWithSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference, anchorviewid: i32, anchorsizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, anchorviewid, anchorsizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SwitchAsync(viewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SwitchAsync)(::windows::core::Interface::as_raw(this), viewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SwitchFromViewAsync(toviewid: i32, fromviewid: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SwitchFromViewAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SwitchFromViewWithOptionsAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SwitchFromViewWithOptionsAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PrepareForCustomAnimatedSwitchAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        Self::IApplicationViewSwitcherStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PrepareForCustomAnimatedSwitchAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        })
+    }
+    pub fn DisableSystemViewActivationPolicy() -> ::windows::core::Result<()> {
+        Self::IApplicationViewSwitcherStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableSystemViewActivationPolicy)(::windows::core::Interface::as_raw(this)).ok() })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryShowAsViewModeAsync(viewid: i32, viewmode: ApplicationViewMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        Self::IApplicationViewSwitcherStatics3(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryShowAsViewModeAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryShowAsViewModeWithPreferencesAsync<'a, P0>(viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
+    {
+        Self::IApplicationViewSwitcherStatics3(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode, viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewSwitcherStatics<R, F: FnOnce(&IApplicationViewSwitcherStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewSwitcherStatics2<R, F: FnOnce(&IApplicationViewSwitcherStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewSwitcherStatics3<R, F: FnOnce(&IApplicationViewSwitcherStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics3> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for ApplicationViewSwitcher {
+    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewSwitcher";
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+pub struct ApplicationViewTitleBar(::windows::core::IUnknown);
+impl ApplicationViewTitleBar {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonHoverForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonHoverForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonHoverForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonHoverBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonHoverBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonHoverBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonPressedForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonPressedForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonPressedForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonPressedBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonPressedBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonPressedBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetInactiveForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn InactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).InactiveForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetInactiveBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn InactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).InactiveBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonInactiveForegroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonInactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonInactiveForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetButtonInactiveBackgroundColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ButtonInactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ButtonInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ApplicationViewTitleBar {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ApplicationViewTitleBar {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationViewTitleBar {}
+impl ::core::fmt::Debug for ApplicationViewTitleBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewTitleBar").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewTitleBar {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTitleBar;{00924ac0-932b-4a6b-9c4b-dc38c82478ce})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ApplicationViewTitleBar {
+    type Vtable = IApplicationViewTitleBar_Vtbl;
+    const IID: ::windows::core::GUID = <IApplicationViewTitleBar as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ApplicationViewTitleBar {
+    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
+}
+impl ::core::convert::From<ApplicationViewTitleBar> for ::windows::core::IUnknown {
+    fn from(value: ApplicationViewTitleBar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewTitleBar> for ::windows::core::IUnknown {
+    fn from(value: &ApplicationViewTitleBar) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewTitleBar> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationViewTitleBar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ApplicationViewTitleBar> for ::windows::core::IInspectable {
+    fn from(value: ApplicationViewTitleBar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewTitleBar> for ::windows::core::IInspectable {
+    fn from(value: &ApplicationViewTitleBar) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewTitleBar> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationViewTitleBar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ApplicationViewTitleBar {}
+unsafe impl ::core::marker::Sync for ApplicationViewTitleBar {}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+pub struct ApplicationViewTransferContext(::windows::core::IUnknown);
+impl ApplicationViewTransferContext {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationViewTransferContext, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn ViewId(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn SetViewId(&self, value: i32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetViewId)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DataPackageFormatId() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IApplicationViewTransferContextStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DataPackageFormatId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IApplicationViewTransferContextStatics<R, F: FnOnce(&IApplicationViewTransferContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ApplicationViewTransferContext, IApplicationViewTransferContextStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for ApplicationViewTransferContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ApplicationViewTransferContext {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationViewTransferContext {}
+impl ::core::fmt::Debug for ApplicationViewTransferContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewTransferContext").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewTransferContext {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTransferContext;{8574bc63-3c17-408e-9408-8a1a9ea81bfa})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ApplicationViewTransferContext {
+    type Vtable = IApplicationViewTransferContext_Vtbl;
+    const IID: ::windows::core::GUID = <IApplicationViewTransferContext as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ApplicationViewTransferContext {
+    const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
+}
+impl ::core::convert::From<ApplicationViewTransferContext> for ::windows::core::IUnknown {
+    fn from(value: ApplicationViewTransferContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewTransferContext> for ::windows::core::IUnknown {
+    fn from(value: &ApplicationViewTransferContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewTransferContext> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationViewTransferContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ApplicationViewTransferContext> for ::windows::core::IInspectable {
+    fn from(value: ApplicationViewTransferContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ApplicationViewTransferContext> for ::windows::core::IInspectable {
+    fn from(value: &ApplicationViewTransferContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ApplicationViewTransferContext> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationViewTransferContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
 pub struct InputPane(::windows::core::IUnknown);
 impl InputPane {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3365,106 +3051,6 @@ unsafe impl ::core::marker::Send for StatusBarProgressIndicator {}
 unsafe impl ::core::marker::Sync for StatusBarProgressIndicator {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UIColorType(pub i32);
-impl UIColorType {
-    pub const Background: Self = Self(0i32);
-    pub const Foreground: Self = Self(1i32);
-    pub const AccentDark3: Self = Self(2i32);
-    pub const AccentDark2: Self = Self(3i32);
-    pub const AccentDark1: Self = Self(4i32);
-    pub const Accent: Self = Self(5i32);
-    pub const AccentLight1: Self = Self(6i32);
-    pub const AccentLight2: Self = Self(7i32);
-    pub const AccentLight3: Self = Self(8i32);
-    pub const Complement: Self = Self(9i32);
-}
-impl ::core::marker::Copy for UIColorType {}
-impl ::core::clone::Clone for UIColorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UIColorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UIColorType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UIColorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIColorType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UIColorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UIElementType(pub i32);
-impl UIElementType {
-    pub const ActiveCaption: Self = Self(0i32);
-    pub const Background: Self = Self(1i32);
-    pub const ButtonFace: Self = Self(2i32);
-    pub const ButtonText: Self = Self(3i32);
-    pub const CaptionText: Self = Self(4i32);
-    pub const GrayText: Self = Self(5i32);
-    pub const Highlight: Self = Self(6i32);
-    pub const HighlightText: Self = Self(7i32);
-    pub const Hotlight: Self = Self(8i32);
-    pub const InactiveCaption: Self = Self(9i32);
-    pub const InactiveCaptionText: Self = Self(10i32);
-    pub const Window: Self = Self(11i32);
-    pub const WindowText: Self = Self(12i32);
-    pub const AccentColor: Self = Self(1000i32);
-    pub const TextHigh: Self = Self(1001i32);
-    pub const TextMedium: Self = Self(1002i32);
-    pub const TextLow: Self = Self(1003i32);
-    pub const TextContrastWithHigh: Self = Self(1004i32);
-    pub const NonTextHigh: Self = Self(1005i32);
-    pub const NonTextMediumHigh: Self = Self(1006i32);
-    pub const NonTextMedium: Self = Self(1007i32);
-    pub const NonTextMediumLow: Self = Self(1008i32);
-    pub const NonTextLow: Self = Self(1009i32);
-    pub const PageBackground: Self = Self(1010i32);
-    pub const PopupBackground: Self = Self(1011i32);
-    pub const OverlayOutsidePopup: Self = Self(1012i32);
-}
-impl ::core::marker::Copy for UIElementType {}
-impl ::core::clone::Clone for UIElementType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UIElementType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UIElementType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UIElementType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIElementType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UIElementType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
 pub struct UISettings(::windows::core::IUnknown);
 impl UISettings {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -4057,40 +3643,6 @@ unsafe impl ::core::marker::Send for UIViewSettings {}
 unsafe impl ::core::marker::Sync for UIViewSettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserInteractionMode(pub i32);
-impl UserInteractionMode {
-    pub const Mouse: Self = Self(0i32);
-    pub const Touch: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserInteractionMode {}
-impl ::core::clone::Clone for UserInteractionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserInteractionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserInteractionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserInteractionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserInteractionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserInteractionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-#[repr(transparent)]
 pub struct ViewModePreferences(::windows::core::IUnknown);
 impl ViewModePreferences {
     pub fn ViewSizePreference(&self) -> ::windows::core::Result<ViewSizePreference> {
@@ -4189,6 +3741,454 @@ impl ::core::convert::From<&ViewModePreferences> for ::windows::core::IInspectab
 impl ::core::convert::From<&ViewModePreferences> for &::windows::core::IInspectable {
     fn from(value: &ViewModePreferences) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationViewBoundsMode(pub i32);
+impl ApplicationViewBoundsMode {
+    pub const UseVisible: Self = Self(0i32);
+    pub const UseCoreWindow: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ApplicationViewBoundsMode {}
+impl ::core::clone::Clone for ApplicationViewBoundsMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ApplicationViewBoundsMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationViewBoundsMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ApplicationViewBoundsMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewBoundsMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewBoundsMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationViewMode(pub i32);
+impl ApplicationViewMode {
+    pub const Default: Self = Self(0i32);
+    pub const CompactOverlay: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ApplicationViewMode {}
+impl ::core::clone::Clone for ApplicationViewMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ApplicationViewMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationViewMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ApplicationViewMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationViewOrientation(pub i32);
+impl ApplicationViewOrientation {
+    pub const Landscape: Self = Self(0i32);
+    pub const Portrait: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ApplicationViewOrientation {}
+impl ::core::clone::Clone for ApplicationViewOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ApplicationViewOrientation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationViewOrientation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ApplicationViewOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewOrientation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewOrientation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationViewState(pub i32);
+#[cfg(feature = "deprecated")]
+impl ApplicationViewState {
+    pub const FullScreenLandscape: Self = Self(0i32);
+    pub const Filled: Self = Self(1i32);
+    pub const Snapped: Self = Self(2i32);
+    pub const FullScreenPortrait: Self = Self(3i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for ApplicationViewState {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for ApplicationViewState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for ApplicationViewState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for ApplicationViewState {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ApplicationViewState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for ApplicationViewState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationViewSwitchingOptions(pub u32);
+impl ApplicationViewSwitchingOptions {
+    pub const Default: Self = Self(0u32);
+    pub const SkipAnimation: Self = Self(1u32);
+    pub const ConsolidateViews: Self = Self(2u32);
+}
+impl ::core::marker::Copy for ApplicationViewSwitchingOptions {}
+impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ApplicationViewSwitchingOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationViewSwitchingOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ApplicationViewSwitchingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewSwitchingOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ApplicationViewSwitchingOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ApplicationViewSwitchingOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ApplicationViewSwitchingOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ApplicationViewSwitchingOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ApplicationViewSwitchingOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewSwitchingOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewSwitchingOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationViewWindowingMode(pub i32);
+impl ApplicationViewWindowingMode {
+    pub const Auto: Self = Self(0i32);
+    pub const PreferredLaunchViewSize: Self = Self(1i32);
+    pub const FullScreen: Self = Self(2i32);
+    pub const CompactOverlay: Self = Self(3i32);
+    pub const Maximized: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ApplicationViewWindowingMode {}
+impl ::core::clone::Clone for ApplicationViewWindowingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ApplicationViewWindowingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationViewWindowingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ApplicationViewWindowingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewWindowingMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationViewWindowingMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FullScreenSystemOverlayMode(pub i32);
+impl FullScreenSystemOverlayMode {
+    pub const Standard: Self = Self(0i32);
+    pub const Minimal: Self = Self(1i32);
+}
+impl ::core::marker::Copy for FullScreenSystemOverlayMode {}
+impl ::core::clone::Clone for FullScreenSystemOverlayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FullScreenSystemOverlayMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FullScreenSystemOverlayMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FullScreenSystemOverlayMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FullScreenSystemOverlayMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HandPreference(pub i32);
+impl HandPreference {
+    pub const LeftHanded: Self = Self(0i32);
+    pub const RightHanded: Self = Self(1i32);
+}
+impl ::core::marker::Copy for HandPreference {}
+impl ::core::clone::Clone for HandPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HandPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HandPreference {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HandPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandPreference").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HandPreference {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIColorType(pub i32);
+impl UIColorType {
+    pub const Background: Self = Self(0i32);
+    pub const Foreground: Self = Self(1i32);
+    pub const AccentDark3: Self = Self(2i32);
+    pub const AccentDark2: Self = Self(3i32);
+    pub const AccentDark1: Self = Self(4i32);
+    pub const Accent: Self = Self(5i32);
+    pub const AccentLight1: Self = Self(6i32);
+    pub const AccentLight2: Self = Self(7i32);
+    pub const AccentLight3: Self = Self(8i32);
+    pub const Complement: Self = Self(9i32);
+}
+impl ::core::marker::Copy for UIColorType {}
+impl ::core::clone::Clone for UIColorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIColorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIColorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIColorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIColorType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UIColorType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIElementType(pub i32);
+impl UIElementType {
+    pub const ActiveCaption: Self = Self(0i32);
+    pub const Background: Self = Self(1i32);
+    pub const ButtonFace: Self = Self(2i32);
+    pub const ButtonText: Self = Self(3i32);
+    pub const CaptionText: Self = Self(4i32);
+    pub const GrayText: Self = Self(5i32);
+    pub const Highlight: Self = Self(6i32);
+    pub const HighlightText: Self = Self(7i32);
+    pub const Hotlight: Self = Self(8i32);
+    pub const InactiveCaption: Self = Self(9i32);
+    pub const InactiveCaptionText: Self = Self(10i32);
+    pub const Window: Self = Self(11i32);
+    pub const WindowText: Self = Self(12i32);
+    pub const AccentColor: Self = Self(1000i32);
+    pub const TextHigh: Self = Self(1001i32);
+    pub const TextMedium: Self = Self(1002i32);
+    pub const TextLow: Self = Self(1003i32);
+    pub const TextContrastWithHigh: Self = Self(1004i32);
+    pub const NonTextHigh: Self = Self(1005i32);
+    pub const NonTextMediumHigh: Self = Self(1006i32);
+    pub const NonTextMedium: Self = Self(1007i32);
+    pub const NonTextMediumLow: Self = Self(1008i32);
+    pub const NonTextLow: Self = Self(1009i32);
+    pub const PageBackground: Self = Self(1010i32);
+    pub const PopupBackground: Self = Self(1011i32);
+    pub const OverlayOutsidePopup: Self = Self(1012i32);
+}
+impl ::core::marker::Copy for UIElementType {}
+impl ::core::clone::Clone for UIElementType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIElementType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIElementType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIElementType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIElementType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UIElementType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserInteractionMode(pub i32);
+impl UserInteractionMode {
+    pub const Mouse: Self = Self(0i32);
+    pub const Touch: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserInteractionMode {}
+impl ::core::clone::Clone for UserInteractionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserInteractionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserInteractionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserInteractionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserInteractionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserInteractionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]

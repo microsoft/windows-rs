@@ -318,40 +318,6 @@ pub struct IProviderI2cConnectionSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ProviderI2cBusSpeed(pub i32);
-impl ProviderI2cBusSpeed {
-    pub const StandardMode: Self = Self(0i32);
-    pub const FastMode: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderI2cBusSpeed {}
-impl ::core::clone::Clone for ProviderI2cBusSpeed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderI2cBusSpeed {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ProviderI2cBusSpeed {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderI2cBusSpeed {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cBusSpeed").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
-#[repr(transparent)]
 pub struct ProviderI2cConnectionSettings(::windows::core::IUnknown);
 impl ProviderI2cConnectionSettings {
     pub fn SlaveAddress(&self) -> ::windows::core::Result<i32> {
@@ -453,6 +419,40 @@ unsafe impl ::core::marker::Sync for ProviderI2cConnectionSettings {}
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ProviderI2cBusSpeed(pub i32);
+impl ProviderI2cBusSpeed {
+    pub const StandardMode: Self = Self(0i32);
+    pub const FastMode: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ProviderI2cBusSpeed {}
+impl ::core::clone::Clone for ProviderI2cBusSpeed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ProviderI2cBusSpeed {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ProviderI2cBusSpeed {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ProviderI2cBusSpeed {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cBusSpeed").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderI2cSharingMode(pub i32);
 impl ProviderI2cSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -479,6 +479,41 @@ impl ::core::fmt::Debug for ProviderI2cSharingMode {
 }
 unsafe impl ::windows::core::RuntimeType for ProviderI2cSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cSharingMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ProviderI2cTransferStatus(pub i32);
+impl ProviderI2cTransferStatus {
+    pub const FullTransfer: Self = Self(0i32);
+    pub const PartialTransfer: Self = Self(1i32);
+    pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ProviderI2cTransferStatus {}
+impl ::core::clone::Clone for ProviderI2cTransferStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ProviderI2cTransferStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ProviderI2cTransferStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ProviderI2cTransferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cTransferStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
@@ -520,41 +555,6 @@ impl ::core::cmp::Eq for ProviderI2cTransferResult {}
 impl ::core::default::Default for ProviderI2cTransferResult {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ProviderI2cTransferStatus(pub i32);
-impl ProviderI2cTransferStatus {
-    pub const FullTransfer: Self = Self(0i32);
-    pub const PartialTransfer: Self = Self(1i32);
-    pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ProviderI2cTransferStatus {}
-impl ::core::clone::Clone for ProviderI2cTransferStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderI2cTransferStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ProviderI2cTransferStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderI2cTransferStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cTransferStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

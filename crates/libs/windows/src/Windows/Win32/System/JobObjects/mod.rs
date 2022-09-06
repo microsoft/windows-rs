@@ -73,6 +73,117 @@ where
     }
     IsProcessInJob(processhandle.into(), jobhandle.into(), ::core::mem::transmute(result))
 }
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenJobObjectA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenJobObjectA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into(), lpname.into());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenJobObjectW<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenJobObjectW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    }
+    let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.into());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QueryInformationJobObject<'a, P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: &mut [u8], lpreturnlength: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation.as_ptr()), lpjobobjectinformation.len() as _, ::core::mem::transmute(lpreturnlength))
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QueryIoRateControlInformationJobObject<'a, P0, P1>(hjob: P0, volumename: P1, infoblocks: &mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, volumename: ::windows::core::PCWSTR, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32;
+    }
+    QueryIoRateControlInformationJobObject(hjob.into(), volumename.into(), ::core::mem::transmute(infoblocks), ::core::mem::transmute(infoblockcount))
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetInformationJobObject<'a, P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: &[u8]) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const ::core::ffi::c_void, cbjobobjectinformationlength: u32) -> super::super::Foundation::BOOL;
+    }
+    SetInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation.as_ptr()), lpjobobjectinformation.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetIoRateControlInformationJobObject<'a, P0>(hjob: P0, ioratecontrolinfo: &JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32;
+    }
+    SetIoRateControlInformationJobObject(hjob.into(), ::core::mem::transmute(ioratecontrolinfo))
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TerminateJobObject<'a, P0>(hjob: P0, uexitcode: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TerminateJobObject(hjob: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
+    }
+    TerminateJobObject(hjob.into(), uexitcode)
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UserHandleGrantAccess<'a, P0, P1, P2>(huserhandle: P0, hjob: P1, bgrant: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UserHandleGrantAccess(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    UserHandleGrantAccess(huserhandle.into(), hjob.into(), bgrant.into())
+}
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -190,6 +301,510 @@ unsafe impl ::windows::core::Abi for JOBOBJECTINFOCLASS {
 impl ::core::fmt::Debug for JOBOBJECTINFOCLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JOBOBJECTINFOCLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(3i32);
+impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {}
+impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const ToleranceLow: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(1i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(2i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const ToleranceHigh: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(3i32);
+impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE {}
+impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOBOBJECT_RATE_CONTROL_TOLERANCE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(1i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const ToleranceIntervalMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(2i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const ToleranceIntervalLong: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(3i32);
+impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {}
+impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(1u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(2u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(4u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(8u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(16u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(31u32);
+impl ::core::marker::Copy for JOB_OBJECT_CPU_RATE_CONTROL {}
+impl ::core::clone::Clone for JOB_OBJECT_CPU_RATE_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_CPU_RATE_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOB_OBJECT_CPU_RATE_CONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOB_OBJECT_CPU_RATE_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOB_OBJECT_CPU_RATE_CONTROL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for JOB_OBJECT_CPU_RATE_CONTROL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for JOB_OBJECT_CPU_RATE_CONTROL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for JOB_OBJECT_CPU_RATE_CONTROL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for JOB_OBJECT_CPU_RATE_CONTROL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(15i32);
+impl ::core::marker::Copy for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {}
+impl ::core::clone::Clone for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOB_OBJECT_IO_RATE_CONTROL_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOB_OBJECT_LIMIT(pub u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_WORKINGSET: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_PROCESS_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_JOB_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(4u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_ACTIVE_PROCESS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(8u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_AFFINITY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(16u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_PRIORITY_CLASS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(64u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_SCHEDULING_CLASS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(128u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_PROCESS_MEMORY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(256u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(512u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(512u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1024u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_BREAKAWAY_OK: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2048u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(4096u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(8192u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_SUBSET_AFFINITY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(16384u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY_LOW: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32768u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_JOB_READ_BYTES: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(65536u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_JOB_WRITE_BYTES: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(131072u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(262144u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_CPU_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(262144u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_IO_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(524288u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_NET_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1048576u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(524287u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(255u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32767u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2064900u32);
+impl ::core::marker::Copy for JOB_OBJECT_LIMIT {}
+impl ::core::clone::Clone for JOB_OBJECT_LIMIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_LIMIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOB_OBJECT_LIMIT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOB_OBJECT_LIMIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOB_OBJECT_LIMIT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for JOB_OBJECT_LIMIT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for JOB_OBJECT_LIMIT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for JOB_OBJECT_LIMIT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for JOB_OBJECT_LIMIT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for JOB_OBJECT_LIMIT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(7u32);
+impl ::core::marker::Copy for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {}
+impl ::core::clone::Clone for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOB_OBJECT_NET_RATE_CONTROL_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOB_OBJECT_SECURITY(pub u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_SECURITY_NO_ADMIN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(1u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_SECURITY_RESTRICTED_TOKEN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(2u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_SECURITY_ONLY_TOKEN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(4u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_SECURITY_FILTER_TOKENS: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(8u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_SECURITY_VALID_FLAGS: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(15u32);
+impl ::core::marker::Copy for JOB_OBJECT_SECURITY {}
+impl ::core::clone::Clone for JOB_OBJECT_SECURITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_SECURITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOB_OBJECT_SECURITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOB_OBJECT_SECURITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOB_OBJECT_SECURITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for JOB_OBJECT_SECURITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for JOB_OBJECT_SECURITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for JOB_OBJECT_SECURITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for JOB_OBJECT_SECURITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for JOB_OBJECT_SECURITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(0u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_POST_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(1u32);
+impl ::core::marker::Copy for JOB_OBJECT_TERMINATE_AT_END_ACTION {}
+impl ::core::clone::Clone for JOB_OBJECT_TERMINATE_AT_END_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_TERMINATE_AT_END_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOB_OBJECT_TERMINATE_AT_END_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOB_OBJECT_TERMINATE_AT_END_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOB_OBJECT_TERMINATE_AT_END_ACTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JOB_OBJECT_UILIMIT(pub u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_NONE: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(0u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_HANDLES: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(1u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_READCLIPBOARD: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(2u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(4u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_SYSTEMPARAMETERS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(8u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_DISPLAYSETTINGS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(16u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_GLOBALATOMS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(32u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_DESKTOP: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(64u32);
+#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
+pub const JOB_OBJECT_UILIMIT_EXITWINDOWS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(128u32);
+impl ::core::marker::Copy for JOB_OBJECT_UILIMIT {}
+impl ::core::clone::Clone for JOB_OBJECT_UILIMIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_UILIMIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JOB_OBJECT_UILIMIT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JOB_OBJECT_UILIMIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JOB_OBJECT_UILIMIT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for JOB_OBJECT_UILIMIT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for JOB_OBJECT_UILIMIT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for JOB_OBJECT_UILIMIT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for JOB_OBJECT_UILIMIT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for JOB_OBJECT_UILIMIT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -581,35 +1196,6 @@ impl ::core::cmp::Eq for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
 impl ::core::default::Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(3i32);
-impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -1257,64 +1843,6 @@ impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const ToleranceLow: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(1i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(2i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const ToleranceHigh: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(3i32);
-impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE {}
-impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOBOBJECT_RATE_CONTROL_TOLERANCE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(1i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const ToleranceIntervalMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(2i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const ToleranceIntervalLong: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(3i32);
-impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {}
-impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1357,423 +1885,6 @@ impl ::core::default::Default for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(1u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(2u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(4u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(8u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(16u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(31u32);
-impl ::core::marker::Copy for JOB_OBJECT_CPU_RATE_CONTROL {}
-impl ::core::clone::Clone for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOB_OBJECT_CPU_RATE_CONTROL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOB_OBJECT_CPU_RATE_CONTROL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for JOB_OBJECT_CPU_RATE_CONTROL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for JOB_OBJECT_CPU_RATE_CONTROL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(15i32);
-impl ::core::marker::Copy for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOB_OBJECT_IO_RATE_CONTROL_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOB_OBJECT_LIMIT(pub u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_WORKINGSET: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_PROCESS_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_JOB_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(4u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_ACTIVE_PROCESS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(8u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_AFFINITY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(16u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_PRIORITY_CLASS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(64u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_SCHEDULING_CLASS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(128u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_PROCESS_MEMORY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(256u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(512u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(512u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1024u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_BREAKAWAY_OK: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2048u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(4096u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(8192u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_SUBSET_AFFINITY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(16384u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY_LOW: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32768u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_JOB_READ_BYTES: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(65536u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_JOB_WRITE_BYTES: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(131072u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(262144u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_CPU_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(262144u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_IO_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(524288u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_NET_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1048576u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(524287u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(255u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32767u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2064900u32);
-impl ::core::marker::Copy for JOB_OBJECT_LIMIT {}
-impl ::core::clone::Clone for JOB_OBJECT_LIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_LIMIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOB_OBJECT_LIMIT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOB_OBJECT_LIMIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOB_OBJECT_LIMIT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for JOB_OBJECT_LIMIT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for JOB_OBJECT_LIMIT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for JOB_OBJECT_LIMIT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for JOB_OBJECT_LIMIT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for JOB_OBJECT_LIMIT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(7u32);
-impl ::core::marker::Copy for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOB_OBJECT_NET_RATE_CONTROL_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOB_OBJECT_SECURITY(pub u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_SECURITY_NO_ADMIN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(1u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_SECURITY_RESTRICTED_TOKEN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(2u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_SECURITY_ONLY_TOKEN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(4u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_SECURITY_FILTER_TOKENS: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(8u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_SECURITY_VALID_FLAGS: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(15u32);
-impl ::core::marker::Copy for JOB_OBJECT_SECURITY {}
-impl ::core::clone::Clone for JOB_OBJECT_SECURITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_SECURITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOB_OBJECT_SECURITY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOB_OBJECT_SECURITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOB_OBJECT_SECURITY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for JOB_OBJECT_SECURITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for JOB_OBJECT_SECURITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for JOB_OBJECT_SECURITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for JOB_OBJECT_SECURITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for JOB_OBJECT_SECURITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(0u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_POST_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(1u32);
-impl ::core::marker::Copy for JOB_OBJECT_TERMINATE_AT_END_ACTION {}
-impl ::core::clone::Clone for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOB_OBJECT_TERMINATE_AT_END_ACTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JOB_OBJECT_UILIMIT(pub u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_NONE: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(0u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_HANDLES: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(1u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_READCLIPBOARD: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(2u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(4u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_SYSTEMPARAMETERS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(8u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_DISPLAYSETTINGS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(16u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_GLOBALATOMS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(32u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_DESKTOP: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(64u32);
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub const JOB_OBJECT_UILIMIT_EXITWINDOWS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(128u32);
-impl ::core::marker::Copy for JOB_OBJECT_UILIMIT {}
-impl ::core::clone::Clone for JOB_OBJECT_UILIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_UILIMIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JOB_OBJECT_UILIMIT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JOB_OBJECT_UILIMIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JOB_OBJECT_UILIMIT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for JOB_OBJECT_UILIMIT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for JOB_OBJECT_UILIMIT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for JOB_OBJECT_UILIMIT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for JOB_OBJECT_UILIMIT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for JOB_OBJECT_UILIMIT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1813,117 +1924,6 @@ impl ::core::default::Default for JOB_SET_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenJobObjectA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenJobObjectA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into(), lpname.into());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenJobObjectW<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenJobObjectW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-    }
-    let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.into());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn QueryInformationJobObject<'a, P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: &mut [u8], lpreturnlength: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation.as_ptr()), lpjobobjectinformation.len() as _, ::core::mem::transmute(lpreturnlength))
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn QueryIoRateControlInformationJobObject<'a, P0, P1>(hjob: P0, volumename: P1, infoblocks: &mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, volumename: ::windows::core::PCWSTR, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32;
-    }
-    QueryIoRateControlInformationJobObject(hjob.into(), volumename.into(), ::core::mem::transmute(infoblocks), ::core::mem::transmute(infoblockcount))
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetInformationJobObject<'a, P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: &[u8]) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const ::core::ffi::c_void, cbjobobjectinformationlength: u32) -> super::super::Foundation::BOOL;
-    }
-    SetInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation.as_ptr()), lpjobobjectinformation.len() as _)
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetIoRateControlInformationJobObject<'a, P0>(hjob: P0, ioratecontrolinfo: &JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32;
-    }
-    SetIoRateControlInformationJobObject(hjob.into(), ::core::mem::transmute(ioratecontrolinfo))
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TerminateJobObject<'a, P0>(hjob: P0, uexitcode: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TerminateJobObject(hjob: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
-    }
-    TerminateJobObject(hjob.into(), uexitcode)
-}
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UserHandleGrantAccess<'a, P0, P1, P2>(huserhandle: P0, hjob: P1, bgrant: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UserHandleGrantAccess(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    UserHandleGrantAccess(huserhandle.into(), hjob.into(), bgrant.into())
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

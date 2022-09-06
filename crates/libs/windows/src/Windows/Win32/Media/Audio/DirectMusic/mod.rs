@@ -1,1953 +1,3 @@
-pub const CLSID_DirectMusic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x636b9f10_0c7d_11d1_95b2_0020afdc7421);
-pub const CLSID_DirectMusicCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480ff4b0_28b2_11d1_bef7_00c04fbf8fef);
-pub const CLSID_DirectMusicSynth: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58c2b4d0_46e7_11d1_89ac_00a0c9054129);
-pub const CLSID_DirectMusicSynthSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec17ce3_a514_11d1_afa6_00aa0024d8b6);
-pub const CLSID_DirectSoundPrivate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11ab3ec0_25ec_11d1_a4d8_00c04fc28aca);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct CONNECTION {
-    pub usSource: u16,
-    pub usControl: u16,
-    pub usDestination: u16,
-    pub usTransform: u16,
-    pub lScale: i32,
-}
-impl ::core::marker::Copy for CONNECTION {}
-impl ::core::clone::Clone for CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CONNECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONNECTION").field("usSource", &self.usSource).field("usControl", &self.usControl).field("usDestination", &self.usDestination).field("usTransform", &self.usTransform).field("lScale", &self.lScale).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONNECTION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONNECTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONNECTION {}
-impl ::core::default::Default for CONNECTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct CONNECTIONLIST {
-    pub cbSize: u32,
-    pub cConnections: u32,
-}
-impl ::core::marker::Copy for CONNECTIONLIST {}
-impl ::core::clone::Clone for CONNECTIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CONNECTIONLIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONNECTIONLIST").field("cbSize", &self.cbSize).field("cConnections", &self.cConnections).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONNECTIONLIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONNECTIONLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTIONLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONNECTIONLIST {}
-impl ::core::default::Default for CONNECTIONLIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_ATTENUATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_CENTER: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_CHORUS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG1_ATTACKTIME: u32 = 518u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG1_DECAYTIME: u32 = 519u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG1_DELAYTIME: u32 = 523u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG1_HOLDTIME: u32 = 524u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG1_RELEASETIME: u32 = 521u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG1_SHUTDOWNTIME: u32 = 525u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG1_SUSTAINLEVEL: u32 = 522u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG2_ATTACKTIME: u32 = 778u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG2_DECAYTIME: u32 = 779u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG2_DELAYTIME: u32 = 783u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG2_HOLDTIME: u32 = 784u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG2_RELEASETIME: u32 = 781u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_EG2_SUSTAINLEVEL: u32 = 782u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_FILTER_CUTOFF: u32 = 1280u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_FILTER_Q: u32 = 1281u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_GAIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_KEYNUMBER: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_LEFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_LEFTREAR: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_LFE_CHANNEL: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_LFO_FREQUENCY: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_LFO_STARTDELAY: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_PAN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_PITCH: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_REVERB: u32 = 129u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_RIGHT: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_RIGHTREAR: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_VIB_FREQUENCY: u32 = 276u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_DST_VIB_STARTDELAY: u32 = 277u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_CC1: u32 = 129u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_CC10: u32 = 138u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_CC11: u32 = 139u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_CC7: u32 = 135u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_CC91: u32 = 219u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_CC93: u32 = 221u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_CHANNELPRESSURE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_EG1: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_EG2: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_KEYNUMBER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_KEYONVELOCITY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_LFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_MONOPRESSURE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_PITCHWHEEL: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_POLYPRESSURE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_SRC_VIBRATO: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_TRN_CONCAVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_TRN_CONVEX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_TRN_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const CONN_TRN_SWITCH: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN10_VOICE_PRIORITY_OFFSET: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN11_VOICE_PRIORITY_OFFSET: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN12_VOICE_PRIORITY_OFFSET: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN13_VOICE_PRIORITY_OFFSET: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN14_VOICE_PRIORITY_OFFSET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN15_VOICE_PRIORITY_OFFSET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN16_VOICE_PRIORITY_OFFSET: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN1_VOICE_PRIORITY_OFFSET: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN2_VOICE_PRIORITY_OFFSET: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN3_VOICE_PRIORITY_OFFSET: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN4_VOICE_PRIORITY_OFFSET: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN5_VOICE_PRIORITY_OFFSET: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN6_VOICE_PRIORITY_OFFSET: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN7_VOICE_PRIORITY_OFFSET: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN8_VOICE_PRIORITY_OFFSET: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CHAN9_VOICE_PRIORITY_OFFSET: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_CRITICAL_VOICE_PRIORITY: u32 = 4026531840u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1i32);
-impl ::core::marker::Copy for DIRECTSOUNDDEVICE_DATAFLOW {}
-impl ::core::clone::Clone for DIRECTSOUNDDEVICE_DATAFLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTSOUNDDEVICE_DATAFLOW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_DATAFLOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DIRECTSOUNDDEVICE_DATAFLOW").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(2i32);
-impl ::core::marker::Copy for DIRECTSOUNDDEVICE_TYPE {}
-impl ::core::clone::Clone for DIRECTSOUNDDEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTSOUNDDEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DIRECTSOUNDDEVICE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DLSHEADER {
-    pub cInstruments: u32,
-}
-impl ::core::marker::Copy for DLSHEADER {}
-impl ::core::clone::Clone for DLSHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DLSHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DLSHEADER").field("cInstruments", &self.cInstruments).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DLSHEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DLSHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSHEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DLSHEADER {}
-impl ::core::default::Default for DLSHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DLSID {
-    pub ulData1: u32,
-    pub usData2: u16,
-    pub usData3: u16,
-    pub abData4: [u8; 8],
-}
-impl ::core::marker::Copy for DLSID {}
-impl ::core::clone::Clone for DLSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DLSID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DLSID").field("ulData1", &self.ulData1).field("usData2", &self.usData2).field("usData3", &self.usData3).field("abData4", &self.abData4).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DLSID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DLSID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DLSID {}
-impl ::core::default::Default for DLSID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const DLSID_GMInHardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
-pub const DLSID_GSInHardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
-pub const DLSID_ManufacturersID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb03e1181_8095_11d2_a1ef_00600833dbd8);
-pub const DLSID_ProductID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb03e1182_8095_11d2_a1ef_00600833dbd8);
-pub const DLSID_SampleMemorySize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
-pub const DLSID_SamplePlaybackRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a91f713_a4bf_11d2_bbdf_00600833dbd8);
-pub const DLSID_SupportsDLS1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f27_c364_11d1_a760_0000f875ac12);
-pub const DLSID_SupportsDLS2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf14599e5_4689_11d2_afa6_00aa0024d8b6);
-pub const DLSID_XGInHardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f26_c364_11d1_a760_0000f875ac12);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DLSVERSION {
-    pub dwVersionMS: u32,
-    pub dwVersionLS: u32,
-}
-impl ::core::marker::Copy for DLSVERSION {}
-impl ::core::clone::Clone for DLSVERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DLSVERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DLSVERSION").field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DLSVERSION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DLSVERSION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSVERSION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DLSVERSION {}
-impl ::core::default::Default for DLSVERSION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_ADD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_AND: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_CONST: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_DIVIDE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_EQ: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_GE: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_GT: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_LE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_LOGICAL_AND: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_LOGICAL_OR: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_LT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_MULTIPLY: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_NOT: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_OR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_QUERY: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_QUERYSUPPORTED: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_SUBTRACT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DLS_CDL_XOR: u32 = 3u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_ARTICPARAMS {
-    pub LFO: DMUS_LFOPARAMS,
-    pub VolEG: DMUS_VEGPARAMS,
-    pub PitchEG: DMUS_PEGPARAMS,
-    pub Misc: DMUS_MSCPARAMS,
-}
-impl ::core::marker::Copy for DMUS_ARTICPARAMS {}
-impl ::core::clone::Clone for DMUS_ARTICPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_ARTICPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_ARTICPARAMS").field("LFO", &self.LFO).field("VolEG", &self.VolEG).field("PitchEG", &self.PitchEG).field("Misc", &self.Misc).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_ARTICPARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_ARTICPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_ARTICPARAMS {}
-impl ::core::default::Default for DMUS_ARTICPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_ARTICULATION {
-    pub ulArt1Idx: u32,
-    pub ulFirstExtCkIdx: u32,
-}
-impl ::core::marker::Copy for DMUS_ARTICULATION {}
-impl ::core::clone::Clone for DMUS_ARTICULATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_ARTICULATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_ARTICULATION").field("ulArt1Idx", &self.ulArt1Idx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_ARTICULATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_ARTICULATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICULATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_ARTICULATION {}
-impl ::core::default::Default for DMUS_ARTICULATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_ARTICULATION2 {
-    pub ulArtIdx: u32,
-    pub ulFirstExtCkIdx: u32,
-    pub ulNextArtIdx: u32,
-}
-impl ::core::marker::Copy for DMUS_ARTICULATION2 {}
-impl ::core::clone::Clone for DMUS_ARTICULATION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_ARTICULATION2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_ARTICULATION2").field("ulArtIdx", &self.ulArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulNextArtIdx", &self.ulNextArtIdx).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_ARTICULATION2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_ARTICULATION2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICULATION2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_ARTICULATION2 {}
-impl ::core::default::Default for DMUS_ARTICULATION2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_BUFFERDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub guidBufferFormat: ::windows::core::GUID,
-    pub cbBuffer: u32,
-}
-impl ::core::marker::Copy for DMUS_BUFFERDESC {}
-impl ::core::clone::Clone for DMUS_BUFFERDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_BUFFERDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_BUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidBufferFormat", &self.guidBufferFormat).field("cbBuffer", &self.cbBuffer).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_BUFFERDESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_BUFFERDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_BUFFERDESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_BUFFERDESC {}
-impl ::core::default::Default for DMUS_BUFFERDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_CLOCKINFO7 {
-    pub dwSize: u32,
-    pub ctType: DMUS_CLOCKTYPE,
-    pub guidClock: ::windows::core::GUID,
-    pub wszDescription: [u16; 128],
-}
-impl ::core::marker::Copy for DMUS_CLOCKINFO7 {}
-impl ::core::clone::Clone for DMUS_CLOCKINFO7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_CLOCKINFO7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_CLOCKINFO7").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO7 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_CLOCKINFO7 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_CLOCKINFO7>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_CLOCKINFO7 {}
-impl ::core::default::Default for DMUS_CLOCKINFO7 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_CLOCKINFO8 {
-    pub dwSize: u32,
-    pub ctType: DMUS_CLOCKTYPE,
-    pub guidClock: ::windows::core::GUID,
-    pub wszDescription: [u16; 128],
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for DMUS_CLOCKINFO8 {}
-impl ::core::clone::Clone for DMUS_CLOCKINFO8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_CLOCKINFO8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_CLOCKINFO8").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO8 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_CLOCKINFO8 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_CLOCKINFO8>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_CLOCKINFO8 {}
-impl ::core::default::Default for DMUS_CLOCKINFO8 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DMUS_CLOCKTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(1i32);
-impl ::core::marker::Copy for DMUS_CLOCKTYPE {}
-impl ::core::clone::Clone for DMUS_CLOCKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DMUS_CLOCKTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_CLOCKTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DMUS_CLOCKTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DMUS_CLOCKTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_COPYRIGHT {
-    pub cbSize: u32,
-    pub byCopyright: [u8; 4],
-}
-impl ::core::marker::Copy for DMUS_COPYRIGHT {}
-impl ::core::clone::Clone for DMUS_COPYRIGHT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_COPYRIGHT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_COPYRIGHT").field("cbSize", &self.cbSize).field("byCopyright", &self.byCopyright).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_COPYRIGHT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_COPYRIGHT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_COPYRIGHT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_COPYRIGHT {}
-impl ::core::default::Default for DMUS_COPYRIGHT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_DOWNLOADINFO {
-    pub dwDLType: u32,
-    pub dwDLId: u32,
-    pub dwNumOffsetTableEntries: u32,
-    pub cbSize: u32,
-}
-impl ::core::marker::Copy for DMUS_DOWNLOADINFO {}
-impl ::core::clone::Clone for DMUS_DOWNLOADINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_DOWNLOADINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_DOWNLOADINFO").field("dwDLType", &self.dwDLType).field("dwDLId", &self.dwDLId).field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries).field("cbSize", &self.cbSize).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_DOWNLOADINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_DOWNLOADINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_DOWNLOADINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_DOWNLOADINFO {}
-impl ::core::default::Default for DMUS_DOWNLOADINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_DOWNLOADINFO_INSTRUMENT2: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_DOWNLOADINFO_ONESHOTWAVE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_DOWNLOADINFO_STREAMINGWAVE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_DOWNLOADINFO_WAVE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_DOWNLOADINFO_WAVEARTICULATION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_EFFECT_CHORUS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_EFFECT_DELAY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_EFFECT_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_EFFECT_REVERB: u32 = 1u32;
-#[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_EVENTHEADER {
-    pub cbEvent: u32,
-    pub dwChannelGroup: u32,
-    pub rtDelta: i64,
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for DMUS_EVENTHEADER {}
-impl ::core::clone::Clone for DMUS_EVENTHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_EVENTHEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_EVENTHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_EVENTHEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_EVENTHEADER {}
-impl ::core::default::Default for DMUS_EVENTHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_EXTENSIONCHUNK {
-    pub cbSize: u32,
-    pub ulNextExtCkIdx: u32,
-    pub ExtCkID: u32,
-    pub byExtCk: [u8; 4],
-}
-impl ::core::marker::Copy for DMUS_EXTENSIONCHUNK {}
-impl ::core::clone::Clone for DMUS_EXTENSIONCHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_EXTENSIONCHUNK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_EXTENSIONCHUNK").field("cbSize", &self.cbSize).field("ulNextExtCkIdx", &self.ulNextExtCkIdx).field("ExtCkID", &self.ExtCkID).field("byExtCk", &self.byExtCk).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_EXTENSIONCHUNK {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_EXTENSIONCHUNK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_EXTENSIONCHUNK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_EXTENSIONCHUNK {}
-impl ::core::default::Default for DMUS_EXTENSIONCHUNK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_INSTRUMENT {
-    pub ulPatch: u32,
-    pub ulFirstRegionIdx: u32,
-    pub ulGlobalArtIdx: u32,
-    pub ulFirstExtCkIdx: u32,
-    pub ulCopyrightIdx: u32,
-    pub ulFlags: u32,
-}
-impl ::core::marker::Copy for DMUS_INSTRUMENT {}
-impl ::core::clone::Clone for DMUS_INSTRUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_INSTRUMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_INSTRUMENT").field("ulPatch", &self.ulPatch).field("ulFirstRegionIdx", &self.ulFirstRegionIdx).field("ulGlobalArtIdx", &self.ulGlobalArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulFlags", &self.ulFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_INSTRUMENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_INSTRUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_INSTRUMENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_INSTRUMENT {}
-impl ::core::default::Default for DMUS_INSTRUMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_LFOPARAMS {
-    pub pcFrequency: i32,
-    pub tcDelay: i32,
-    pub gcVolumeScale: i32,
-    pub pcPitchScale: i32,
-    pub gcMWToVolume: i32,
-    pub pcMWToPitch: i32,
-}
-impl ::core::marker::Copy for DMUS_LFOPARAMS {}
-impl ::core::clone::Clone for DMUS_LFOPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_LFOPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_LFOPARAMS").field("pcFrequency", &self.pcFrequency).field("tcDelay", &self.tcDelay).field("gcVolumeScale", &self.gcVolumeScale).field("pcPitchScale", &self.pcPitchScale).field("gcMWToVolume", &self.gcMWToVolume).field("pcMWToPitch", &self.pcMWToPitch).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_LFOPARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_LFOPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_LFOPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_LFOPARAMS {}
-impl ::core::default::Default for DMUS_LFOPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_MAX_DRIVER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_MIN_DATA_SIZE: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_MSCPARAMS {
-    pub ptDefaultPan: i32,
-}
-impl ::core::marker::Copy for DMUS_MSCPARAMS {}
-impl ::core::clone::Clone for DMUS_MSCPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_MSCPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_MSCPARAMS").field("ptDefaultPan", &self.ptDefaultPan).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_MSCPARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_MSCPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_MSCPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_MSCPARAMS {}
-impl ::core::default::Default for DMUS_MSCPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_NOTERANGE {
-    pub dwLowNote: u32,
-    pub dwHighNote: u32,
-}
-impl ::core::marker::Copy for DMUS_NOTERANGE {}
-impl ::core::clone::Clone for DMUS_NOTERANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_NOTERANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_NOTERANGE").field("dwLowNote", &self.dwLowNote).field("dwHighNote", &self.dwHighNote).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_NOTERANGE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_NOTERANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_NOTERANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_NOTERANGE {}
-impl ::core::default::Default for DMUS_NOTERANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_OFFSETTABLE {
-    pub ulOffsetTable: [u32; 1],
-}
-impl ::core::marker::Copy for DMUS_OFFSETTABLE {}
-impl ::core::clone::Clone for DMUS_OFFSETTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_OFFSETTABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_OFFSETTABLE").field("ulOffsetTable", &self.ulOffsetTable).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_OFFSETTABLE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_OFFSETTABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_OFFSETTABLE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_OFFSETTABLE {}
-impl ::core::default::Default for DMUS_OFFSETTABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_DIRECTSOUND: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_DLS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_DLS2: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_EXTERNAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_GMINHARDWARE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_GSINHARDWARE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_INPUTCLASS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_MEMORYSIZEFIXED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_OUTPUTCLASS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_SHAREABLE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_SOFTWARESYNTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_SYSTEMMEMORY: u32 = 2147483647u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_WAVE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PC_XGINHARDWARE: u32 = 64u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_PEGPARAMS {
-    pub tcAttack: i32,
-    pub tcDecay: i32,
-    pub ptSustain: i32,
-    pub tcRelease: i32,
-    pub tcVel2Attack: i32,
-    pub tcKey2Decay: i32,
-    pub pcRange: i32,
-}
-impl ::core::marker::Copy for DMUS_PEGPARAMS {}
-impl ::core::clone::Clone for DMUS_PEGPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_PEGPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_PEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).field("pcRange", &self.pcRange).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_PEGPARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_PEGPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PEGPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_PEGPARAMS {}
-impl ::core::default::Default for DMUS_PEGPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_PORTCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub guidPort: ::windows::core::GUID,
-    pub dwClass: u32,
-    pub dwType: u32,
-    pub dwMemorySize: u32,
-    pub dwMaxChannelGroups: u32,
-    pub dwMaxVoices: u32,
-    pub dwMaxAudioChannels: u32,
-    pub dwEffectFlags: u32,
-    pub wszDescription: [u16; 128],
-}
-impl ::core::marker::Copy for DMUS_PORTCAPS {}
-impl ::core::clone::Clone for DMUS_PORTCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_PORTCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_PORTCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidPort", &self.guidPort).field("dwClass", &self.dwClass).field("dwType", &self.dwType).field("dwMemorySize", &self.dwMemorySize).field("dwMaxChannelGroups", &self.dwMaxChannelGroups).field("dwMaxVoices", &self.dwMaxVoices).field("dwMaxAudioChannels", &self.dwMaxAudioChannels).field("dwEffectFlags", &self.dwEffectFlags).field("wszDescription", &self.wszDescription).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_PORTCAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_PORTCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_PORTCAPS {}
-impl ::core::default::Default for DMUS_PORTCAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DMUS_PORTPARAMS8 {
-    pub dwSize: u32,
-    pub dwValidParams: u32,
-    pub dwVoices: u32,
-    pub dwChannelGroups: u32,
-    pub dwAudioChannels: u32,
-    pub dwSampleRate: u32,
-    pub dwEffectFlags: u32,
-    pub fShare: super::super::super::Foundation::BOOL,
-    pub dwFeatures: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DMUS_PORTPARAMS8 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DMUS_PORTPARAMS8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DMUS_PORTPARAMS8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_PORTPARAMS8").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).field("dwFeatures", &self.dwFeatures).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS8 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DMUS_PORTPARAMS8 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTPARAMS8>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DMUS_PORTPARAMS8 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DMUS_PORTPARAMS8 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORTPARAMS_CHANNELGROUPS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORTPARAMS_EFFECTS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORTPARAMS_FEATURES: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORTPARAMS_SAMPLERATE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORTPARAMS_SHARE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORTPARAMS_VOICES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORT_FEATURE_AUDIOPATH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORT_FEATURE_STREAMING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORT_KERNEL_MODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORT_USER_MODE_SYNTH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_PORT_WINMM_DRIVER: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_REGION {
-    pub RangeKey: RGNRANGE,
-    pub RangeVelocity: RGNRANGE,
-    pub fusOptions: u16,
-    pub usKeyGroup: u16,
-    pub ulRegionArtIdx: u32,
-    pub ulNextRegionIdx: u32,
-    pub ulFirstExtCkIdx: u32,
-    pub WaveLink: WAVELINK,
-    pub WSMP: _rwsmp,
-    pub WLOOP: [_rloop; 1],
-}
-impl ::core::marker::Copy for DMUS_REGION {}
-impl ::core::clone::Clone for DMUS_REGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_REGION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_REGION").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).field("ulRegionArtIdx", &self.ulRegionArtIdx).field("ulNextRegionIdx", &self.ulNextRegionIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("WaveLink", &self.WaveLink).field("WSMP", &self.WSMP).field("WLOOP", &self.WLOOP).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_REGION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_REGION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_REGION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_REGION {}
-impl ::core::default::Default for DMUS_REGION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_SYNTHSTATS {
-    pub dwSize: u32,
-    pub dwValidStats: u32,
-    pub dwVoices: u32,
-    pub dwTotalCPU: u32,
-    pub dwCPUPerVoice: u32,
-    pub dwLostNotes: u32,
-    pub dwFreeMemory: u32,
-    pub lPeakVolume: i32,
-}
-impl ::core::marker::Copy for DMUS_SYNTHSTATS {}
-impl ::core::clone::Clone for DMUS_SYNTHSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_SYNTHSTATS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_SYNTHSTATS").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_SYNTHSTATS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_SYNTHSTATS {}
-impl ::core::default::Default for DMUS_SYNTHSTATS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_SYNTHSTATS8 {
-    pub dwSize: u32,
-    pub dwValidStats: u32,
-    pub dwVoices: u32,
-    pub dwTotalCPU: u32,
-    pub dwCPUPerVoice: u32,
-    pub dwLostNotes: u32,
-    pub dwFreeMemory: u32,
-    pub lPeakVolume: i32,
-    pub dwSynthMemUse: u32,
-}
-impl ::core::marker::Copy for DMUS_SYNTHSTATS8 {}
-impl ::core::clone::Clone for DMUS_SYNTHSTATS8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_SYNTHSTATS8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_SYNTHSTATS8").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).field("dwSynthMemUse", &self.dwSynthMemUse).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS8 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS8 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_SYNTHSTATS8>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_SYNTHSTATS8 {}
-impl ::core::default::Default for DMUS_SYNTHSTATS8 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_SYNTHSTATS_FREE_MEMORY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_SYNTHSTATS_LOST_NOTES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_SYNTHSTATS_PEAK_VOLUME: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_SYNTHSTATS_SYSTEMMEMORY: u32 = 2147483647u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_SYNTHSTATS_TOTAL_CPU: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_SYNTHSTATS_VOICES: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_VEGPARAMS {
-    pub tcAttack: i32,
-    pub tcDecay: i32,
-    pub ptSustain: i32,
-    pub tcRelease: i32,
-    pub tcVel2Attack: i32,
-    pub tcKey2Decay: i32,
-}
-impl ::core::marker::Copy for DMUS_VEGPARAMS {}
-impl ::core::clone::Clone for DMUS_VEGPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_VEGPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_VEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_VEGPARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_VEGPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_VEGPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_VEGPARAMS {}
-impl ::core::default::Default for DMUS_VEGPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DMUS_VOICE_STATE {
-    pub bExists: super::super::super::Foundation::BOOL,
-    pub spPosition: u64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DMUS_VOICE_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DMUS_VOICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DMUS_VOICE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_VOICE_STATE").field("bExists", &self.bExists).field("spPosition", &self.spPosition).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_VOICE_STATE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DMUS_VOICE_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_VOICE_STATE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DMUS_VOICE_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DMUS_VOICE_STATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_VOLUME_MAX: u32 = 2000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_VOLUME_MIN: i32 = -20000i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_WAVE {
-    pub ulFirstExtCkIdx: u32,
-    pub ulCopyrightIdx: u32,
-    pub ulWaveDataIdx: u32,
-    pub WaveformatEx: super::WAVEFORMATEX,
-}
-impl ::core::marker::Copy for DMUS_WAVE {}
-impl ::core::clone::Clone for DMUS_WAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_WAVE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_WAVE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_WAVE {}
-impl ::core::default::Default for DMUS_WAVE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_WAVEARTDL {
-    pub ulDownloadIdIdx: u32,
-    pub ulBus: u32,
-    pub ulBuffers: u32,
-    pub ulMasterDLId: u32,
-    pub usOptions: u16,
-}
-impl ::core::marker::Copy for DMUS_WAVEARTDL {}
-impl ::core::clone::Clone for DMUS_WAVEARTDL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_WAVEARTDL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_WAVEARTDL").field("ulDownloadIdIdx", &self.ulDownloadIdIdx).field("ulBus", &self.ulBus).field("ulBuffers", &self.ulBuffers).field("ulMasterDLId", &self.ulMasterDLId).field("usOptions", &self.usOptions).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_WAVEARTDL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_WAVEARTDL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEARTDL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_WAVEARTDL {}
-impl ::core::default::Default for DMUS_WAVEARTDL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_WAVEDATA {
-    pub cbSize: u32,
-    pub byData: [u8; 4],
-}
-impl ::core::marker::Copy for DMUS_WAVEDATA {}
-impl ::core::clone::Clone for DMUS_WAVEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_WAVEDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_WAVEDATA").field("cbSize", &self.cbSize).field("byData", &self.byData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_WAVEDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_WAVEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_WAVEDATA {}
-impl ::core::default::Default for DMUS_WAVEDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_WAVEDL {
-    pub cbWaveData: u32,
-}
-impl ::core::marker::Copy for DMUS_WAVEDL {}
-impl ::core::clone::Clone for DMUS_WAVEDL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_WAVEDL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_WAVEDL").field("cbWaveData", &self.cbWaveData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_WAVEDL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_WAVEDL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEDL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_WAVEDL {}
-impl ::core::default::Default for DMUS_WAVEDL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DMUS_WAVES_REVERB_PARAMS {
-    pub fInGain: f32,
-    pub fReverbMix: f32,
-    pub fReverbTime: f32,
-    pub fHighFreqRTRatio: f32,
-}
-impl ::core::marker::Copy for DMUS_WAVES_REVERB_PARAMS {}
-impl ::core::clone::Clone for DMUS_WAVES_REVERB_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMUS_WAVES_REVERB_PARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMUS_WAVES_REVERB_PARAMS").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMUS_WAVES_REVERB_PARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMUS_WAVES_REVERB_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVES_REVERB_PARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_WAVES_REVERB_PARAMS {}
-impl ::core::default::Default for DMUS_WAVES_REVERB_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_BACK_CENTER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_BACK_LEFT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_BACK_RIGHT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_CHORUS_SEND: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_DYNAMIC_0: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_FIRST_SPKR_LOC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_FRONT_CENTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_FRONT_LEFT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_FRONT_LEFT_OF_CENTER: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_FRONT_RIGHT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_FRONT_RIGHT_OF_CENTER: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_LAST_SPKR_LOC: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_LEFT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_LOW_FREQUENCY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_NULL: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_REVERB_SEND: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_RIGHT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_SIDE_LEFT: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_SIDE_RIGHT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_TOP_BACK_CENTER: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_TOP_BACK_LEFT: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_TOP_BACK_RIGHT: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_TOP_CENTER: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE {}
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DSPROPERTY_DIRECTSOUNDDEVICE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    pub DeviceId: ::windows::core::GUID,
-    pub DescriptionA: [super::super::super::Foundation::CHAR; 256],
-    pub DescriptionW: [u16; 256],
-    pub ModuleA: [super::super::super::Foundation::CHAR; 260],
-    pub ModuleW: [u16; 260],
-    pub Type: DIRECTSOUNDDEVICE_TYPE,
-    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
-    pub WaveDeviceId: u32,
-    pub Devnode: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA").field("DeviceId", &self.DeviceId).field("DescriptionA", &self.DescriptionA).field("DescriptionW", &self.DescriptionW).field("ModuleA", &self.ModuleA).field("ModuleW", &self.ModuleW).field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("WaveDeviceId", &self.WaveDeviceId).field("Devnode", &self.Devnode).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    pub Type: DIRECTSOUNDDEVICE_TYPE,
-    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
-    pub DeviceId: ::windows::core::GUID,
-    pub Description: ::windows::core::PSTR,
-    pub Module: ::windows::core::PSTR,
-    pub Interface: ::windows::core::PSTR,
-    pub WaveDeviceId: u32,
-}
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    pub Type: DIRECTSOUNDDEVICE_TYPE,
-    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
-    pub DeviceId: ::windows::core::GUID,
-    pub Description: ::windows::core::PWSTR,
-    pub Module: ::windows::core::PWSTR,
-    pub Interface: ::windows::core::PWSTR,
-    pub WaveDeviceId: u32,
-}
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1,
-    pub Context: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA,
-    pub Context: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW,
-    pub Context: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    pub DeviceName: ::windows::core::PSTR,
-    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
-    pub DeviceId: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    pub DeviceName: ::windows::core::PWSTR,
-    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
-    pub DeviceId: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const DSPROPSETID_DirectSoundDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84624f82_25ec_11d1_a4d8_00c04fc28aca);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_AUDIOMODE: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_AUDIOQU: u32 = 117440512u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_AUDIOSMP: u32 = 939524096u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_CAP_AUD12Bits: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_CAP_AUD16Bits: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_DVSD_NTSC_FRAMESIZE: i32 = 120000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_DVSD_PAL_FRAMESIZE: i32 = 144000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_HD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_NTSC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_NTSCPAL: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_PAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_SD: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_SL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_SMCHN: u32 = 57344u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DV_STYPE: u32 = 2031616u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const F_RGN_OPTION_SELFNONEXCLUSIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const F_WAVELINK_MULTICHANNEL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
-pub const GUID_DMUS_PROP_DLS1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f27_c364_11d1_a760_0000f875ac12);
-pub const GUID_DMUS_PROP_DLS2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf14599e5_4689_11d2_afa6_00aa0024d8b6);
-pub const GUID_DMUS_PROP_Effects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcda8d611_684a_11d2_871e_00600893b1bd);
-pub const GUID_DMUS_PROP_GM_Hardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
-pub const GUID_DMUS_PROP_GS_Capable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6496aba2_61b0_11d2_afa6_00aa0024d8b6);
-pub const GUID_DMUS_PROP_GS_Hardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
-pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x865fd372_9f67_11d2_872a_00600893b1bd);
-pub const GUID_DMUS_PROP_LegacyCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa7cdc2_00a1_11d2_aad5_0000f875ac12);
-pub const GUID_DMUS_PROP_MemorySize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
-pub const GUID_DMUS_PROP_SampleMemorySize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
-pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a91f713_a4bf_11d2_bbdf_00600833dbd8);
-pub const GUID_DMUS_PROP_SetSynthSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3a5ba5_37b6_11d2_b9f9_0000f875ac12);
-pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe208857_8952_11d2_ba1c_0000f875ac12);
-pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa97844_c877_11d1_870c_00600893b1bd);
-pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa97845_c877_11d1_870c_00600893b1bd);
-pub const GUID_DMUS_PROP_Volume: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfedfae25_e46e_11d1_aace_0000f875ac12);
-pub const GUID_DMUS_PROP_WavesReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04cb5622_32e5_11d2_afa6_00aa0024d8b6);
-pub const GUID_DMUS_PROP_WriteLatency: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x268a0fa0_60f2_11d2_afa6_00aa0024d8b6);
-pub const GUID_DMUS_PROP_WritePeriod: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x268a0fa1_60f2_11d2_afa6_00aa0024d8b6);
-pub const GUID_DMUS_PROP_XG_Capable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6496aba1_61b0_11d2_afa6_00aa0024d8b6);
-pub const GUID_DMUS_PROP_XG_Hardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f26_c364_11d1_a760_0000f875ac12);
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
 pub struct IDirectMusic(::windows::core::IUnknown);
@@ -3161,6 +1211,1972 @@ pub struct IDirectMusicThru_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ThruChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+pub const CLSID_DirectMusic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x636b9f10_0c7d_11d1_95b2_0020afdc7421);
+pub const CLSID_DirectMusicCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480ff4b0_28b2_11d1_bef7_00c04fbf8fef);
+pub const CLSID_DirectMusicSynth: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58c2b4d0_46e7_11d1_89ac_00a0c9054129);
+pub const CLSID_DirectMusicSynthSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec17ce3_a514_11d1_afa6_00aa0024d8b6);
+pub const CLSID_DirectSoundPrivate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11ab3ec0_25ec_11d1_a4d8_00c04fc28aca);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_ATTENUATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_CENTER: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_CHORUS: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG1_ATTACKTIME: u32 = 518u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG1_DECAYTIME: u32 = 519u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG1_DELAYTIME: u32 = 523u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG1_HOLDTIME: u32 = 524u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG1_RELEASETIME: u32 = 521u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG1_SHUTDOWNTIME: u32 = 525u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG1_SUSTAINLEVEL: u32 = 522u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG2_ATTACKTIME: u32 = 778u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG2_DECAYTIME: u32 = 779u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG2_DELAYTIME: u32 = 783u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG2_HOLDTIME: u32 = 784u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG2_RELEASETIME: u32 = 781u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_EG2_SUSTAINLEVEL: u32 = 782u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_FILTER_CUTOFF: u32 = 1280u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_FILTER_Q: u32 = 1281u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_GAIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_KEYNUMBER: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_LEFT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_LEFTREAR: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_LFE_CHANNEL: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_LFO_FREQUENCY: u32 = 260u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_LFO_STARTDELAY: u32 = 261u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_PAN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_PITCH: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_REVERB: u32 = 129u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_RIGHT: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_RIGHTREAR: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_VIB_FREQUENCY: u32 = 276u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_DST_VIB_STARTDELAY: u32 = 277u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_CC1: u32 = 129u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_CC10: u32 = 138u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_CC11: u32 = 139u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_CC7: u32 = 135u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_CC91: u32 = 219u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_CC93: u32 = 221u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_CHANNELPRESSURE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_EG1: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_EG2: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_KEYNUMBER: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_KEYONVELOCITY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_LFO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_MONOPRESSURE: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_PITCHWHEEL: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_POLYPRESSURE: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_SRC_VIBRATO: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_TRN_CONCAVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_TRN_CONVEX: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_TRN_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const CONN_TRN_SWITCH: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN10_VOICE_PRIORITY_OFFSET: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN11_VOICE_PRIORITY_OFFSET: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN12_VOICE_PRIORITY_OFFSET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN13_VOICE_PRIORITY_OFFSET: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN14_VOICE_PRIORITY_OFFSET: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN15_VOICE_PRIORITY_OFFSET: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN16_VOICE_PRIORITY_OFFSET: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN1_VOICE_PRIORITY_OFFSET: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN2_VOICE_PRIORITY_OFFSET: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN3_VOICE_PRIORITY_OFFSET: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN4_VOICE_PRIORITY_OFFSET: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN5_VOICE_PRIORITY_OFFSET: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN6_VOICE_PRIORITY_OFFSET: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN7_VOICE_PRIORITY_OFFSET: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN8_VOICE_PRIORITY_OFFSET: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CHAN9_VOICE_PRIORITY_OFFSET: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_CRITICAL_VOICE_PRIORITY: u32 = 4026531840u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
+pub const DLSID_GMInHardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
+pub const DLSID_GSInHardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
+pub const DLSID_ManufacturersID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb03e1181_8095_11d2_a1ef_00600833dbd8);
+pub const DLSID_ProductID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb03e1182_8095_11d2_a1ef_00600833dbd8);
+pub const DLSID_SampleMemorySize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
+pub const DLSID_SamplePlaybackRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a91f713_a4bf_11d2_bbdf_00600833dbd8);
+pub const DLSID_SupportsDLS1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f27_c364_11d1_a760_0000f875ac12);
+pub const DLSID_SupportsDLS2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf14599e5_4689_11d2_afa6_00aa0024d8b6);
+pub const DLSID_XGInHardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f26_c364_11d1_a760_0000f875ac12);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_ADD: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_AND: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_CONST: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_DIVIDE: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_EQ: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_GE: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_GT: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_LE: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_LOGICAL_AND: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_LOGICAL_OR: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_LT: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_MULTIPLY: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_NOT: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_OR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_QUERY: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_QUERYSUPPORTED: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_SUBTRACT: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DLS_CDL_XOR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_DOWNLOADINFO_INSTRUMENT2: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_DOWNLOADINFO_ONESHOTWAVE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_DOWNLOADINFO_STREAMINGWAVE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_DOWNLOADINFO_WAVE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_DOWNLOADINFO_WAVEARTICULATION: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_EFFECT_CHORUS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_EFFECT_DELAY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_EFFECT_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_EFFECT_REVERB: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_MAX_DRIVER: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_MIN_DATA_SIZE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_DIRECTSOUND: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_DLS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_DLS2: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_EXTERNAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_GMINHARDWARE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_GSINHARDWARE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_INPUTCLASS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_MEMORYSIZEFIXED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_OUTPUTCLASS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_SHAREABLE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_SOFTWARESYNTH: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_SYSTEMMEMORY: u32 = 2147483647u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_WAVE: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PC_XGINHARDWARE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORTPARAMS_CHANNELGROUPS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORTPARAMS_EFFECTS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORTPARAMS_FEATURES: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORTPARAMS_SAMPLERATE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORTPARAMS_SHARE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORTPARAMS_VOICES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORT_FEATURE_AUDIOPATH: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORT_FEATURE_STREAMING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORT_KERNEL_MODE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORT_USER_MODE_SYNTH: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_PORT_WINMM_DRIVER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_SYNTHSTATS_FREE_MEMORY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_SYNTHSTATS_LOST_NOTES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_SYNTHSTATS_PEAK_VOLUME: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_SYNTHSTATS_SYSTEMMEMORY: u32 = 2147483647u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_SYNTHSTATS_TOTAL_CPU: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_SYNTHSTATS_VOICES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_VOLUME_MAX: u32 = 2000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_VOLUME_MIN: i32 = -20000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_BACK_CENTER: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_BACK_LEFT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_BACK_RIGHT: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_CHORUS_SEND: u32 = 65u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_DYNAMIC_0: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_FIRST_SPKR_LOC: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_FRONT_CENTER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_FRONT_LEFT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_FRONT_LEFT_OF_CENTER: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_FRONT_RIGHT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_FRONT_RIGHT_OF_CENTER: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_LAST_SPKR_LOC: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_LEFT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_LOW_FREQUENCY: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_NULL: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_REVERB_SEND: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_RIGHT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_SIDE_LEFT: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_SIDE_RIGHT: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_TOP_BACK_CENTER: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_TOP_BACK_LEFT: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_TOP_BACK_RIGHT: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_TOP_CENTER: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
+pub const DSPROPSETID_DirectSoundDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84624f82_25ec_11d1_a4d8_00c04fc28aca);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_AUDIOMODE: u32 = 3840u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_AUDIOQU: u32 = 117440512u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_AUDIOSMP: u32 = 939524096u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_CAP_AUD12Bits: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_CAP_AUD16Bits: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_DVSD_NTSC_FRAMESIZE: i32 = 120000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_DVSD_PAL_FRAMESIZE: i32 = 144000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_HD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_NTSC: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_NTSCPAL: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_PAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_SD: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_SL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_SMCHN: u32 = 57344u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DV_STYPE: u32 = 2031616u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const F_RGN_OPTION_SELFNONEXCLUSIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const F_WAVELINK_MULTICHANNEL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
+pub const GUID_DMUS_PROP_DLS1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f27_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_DLS2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf14599e5_4689_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_Effects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcda8d611_684a_11d2_871e_00600893b1bd);
+pub const GUID_DMUS_PROP_GM_Hardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_GS_Capable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6496aba2_61b0_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_GS_Hardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x865fd372_9f67_11d2_872a_00600893b1bd);
+pub const GUID_DMUS_PROP_LegacyCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa7cdc2_00a1_11d2_aad5_0000f875ac12);
+pub const GUID_DMUS_PROP_MemorySize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_SampleMemorySize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f28_c364_11d1_a760_0000f875ac12);
+pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a91f713_a4bf_11d2_bbdf_00600833dbd8);
+pub const GUID_DMUS_PROP_SetSynthSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3a5ba5_37b6_11d2_b9f9_0000f875ac12);
+pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe208857_8952_11d2_ba1c_0000f875ac12);
+pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa97844_c877_11d1_870c_00600893b1bd);
+pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa97845_c877_11d1_870c_00600893b1bd);
+pub const GUID_DMUS_PROP_Volume: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfedfae25_e46e_11d1_aace_0000f875ac12);
+pub const GUID_DMUS_PROP_WavesReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04cb5622_32e5_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_WriteLatency: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x268a0fa0_60f2_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_WritePeriod: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x268a0fa1_60f2_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_XG_Capable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6496aba1_61b0_11d2_afa6_00aa0024d8b6);
+pub const GUID_DMUS_PROP_XG_Hardware: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178f2f26_c364_11d1_a760_0000f875ac12);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const POOL_CUE_NULL: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const REGSTR_PATH_SOFTWARESYNTHS: &str = "Software\\Microsoft\\DirectMusic\\SoftwareSynths";
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const SIZE_DVINFO: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1i32);
+impl ::core::marker::Copy for DIRECTSOUNDDEVICE_DATAFLOW {}
+impl ::core::clone::Clone for DIRECTSOUNDDEVICE_DATAFLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIRECTSOUNDDEVICE_DATAFLOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_DATAFLOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIRECTSOUNDDEVICE_DATAFLOW").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(2i32);
+impl ::core::marker::Copy for DIRECTSOUNDDEVICE_TYPE {}
+impl ::core::clone::Clone for DIRECTSOUNDDEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIRECTSOUNDDEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIRECTSOUNDDEVICE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DMUS_CLOCKTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(1i32);
+impl ::core::marker::Copy for DMUS_CLOCKTYPE {}
+impl ::core::clone::Clone for DMUS_CLOCKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DMUS_CLOCKTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_CLOCKTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DMUS_CLOCKTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DMUS_CLOCKTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE {}
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSPROPERTY_DIRECTSOUNDDEVICE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct CONNECTION {
+    pub usSource: u16,
+    pub usControl: u16,
+    pub usDestination: u16,
+    pub usTransform: u16,
+    pub lScale: i32,
+}
+impl ::core::marker::Copy for CONNECTION {}
+impl ::core::clone::Clone for CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONNECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONNECTION").field("usSource", &self.usSource).field("usControl", &self.usControl).field("usDestination", &self.usDestination).field("usTransform", &self.usTransform).field("lScale", &self.lScale).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONNECTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONNECTION {}
+impl ::core::default::Default for CONNECTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct CONNECTIONLIST {
+    pub cbSize: u32,
+    pub cConnections: u32,
+}
+impl ::core::marker::Copy for CONNECTIONLIST {}
+impl ::core::clone::Clone for CONNECTIONLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONNECTIONLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONNECTIONLIST").field("cbSize", &self.cbSize).field("cConnections", &self.cConnections).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTIONLIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONNECTIONLIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTIONLIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONNECTIONLIST {}
+impl ::core::default::Default for CONNECTIONLIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DLSHEADER {
+    pub cInstruments: u32,
+}
+impl ::core::marker::Copy for DLSHEADER {}
+impl ::core::clone::Clone for DLSHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DLSHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLSHEADER").field("cInstruments", &self.cInstruments).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DLSHEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DLSHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSHEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DLSHEADER {}
+impl ::core::default::Default for DLSHEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DLSID {
+    pub ulData1: u32,
+    pub usData2: u16,
+    pub usData3: u16,
+    pub abData4: [u8; 8],
+}
+impl ::core::marker::Copy for DLSID {}
+impl ::core::clone::Clone for DLSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DLSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLSID").field("ulData1", &self.ulData1).field("usData2", &self.usData2).field("usData3", &self.usData3).field("abData4", &self.abData4).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DLSID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DLSID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DLSID {}
+impl ::core::default::Default for DLSID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DLSVERSION {
+    pub dwVersionMS: u32,
+    pub dwVersionLS: u32,
+}
+impl ::core::marker::Copy for DLSVERSION {}
+impl ::core::clone::Clone for DLSVERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DLSVERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DLSVERSION").field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DLSVERSION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DLSVERSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSVERSION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DLSVERSION {}
+impl ::core::default::Default for DLSVERSION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_ARTICPARAMS {
+    pub LFO: DMUS_LFOPARAMS,
+    pub VolEG: DMUS_VEGPARAMS,
+    pub PitchEG: DMUS_PEGPARAMS,
+    pub Misc: DMUS_MSCPARAMS,
+}
+impl ::core::marker::Copy for DMUS_ARTICPARAMS {}
+impl ::core::clone::Clone for DMUS_ARTICPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_ARTICPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_ARTICPARAMS").field("LFO", &self.LFO).field("VolEG", &self.VolEG).field("PitchEG", &self.PitchEG).field("Misc", &self.Misc).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_ARTICPARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_ARTICPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICPARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_ARTICPARAMS {}
+impl ::core::default::Default for DMUS_ARTICPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_ARTICULATION {
+    pub ulArt1Idx: u32,
+    pub ulFirstExtCkIdx: u32,
+}
+impl ::core::marker::Copy for DMUS_ARTICULATION {}
+impl ::core::clone::Clone for DMUS_ARTICULATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_ARTICULATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_ARTICULATION").field("ulArt1Idx", &self.ulArt1Idx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_ARTICULATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_ARTICULATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICULATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_ARTICULATION {}
+impl ::core::default::Default for DMUS_ARTICULATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_ARTICULATION2 {
+    pub ulArtIdx: u32,
+    pub ulFirstExtCkIdx: u32,
+    pub ulNextArtIdx: u32,
+}
+impl ::core::marker::Copy for DMUS_ARTICULATION2 {}
+impl ::core::clone::Clone for DMUS_ARTICULATION2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_ARTICULATION2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_ARTICULATION2").field("ulArtIdx", &self.ulArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulNextArtIdx", &self.ulNextArtIdx).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_ARTICULATION2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_ARTICULATION2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICULATION2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_ARTICULATION2 {}
+impl ::core::default::Default for DMUS_ARTICULATION2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_BUFFERDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub guidBufferFormat: ::windows::core::GUID,
+    pub cbBuffer: u32,
+}
+impl ::core::marker::Copy for DMUS_BUFFERDESC {}
+impl ::core::clone::Clone for DMUS_BUFFERDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_BUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_BUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidBufferFormat", &self.guidBufferFormat).field("cbBuffer", &self.cbBuffer).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_BUFFERDESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_BUFFERDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_BUFFERDESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_BUFFERDESC {}
+impl ::core::default::Default for DMUS_BUFFERDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_CLOCKINFO7 {
+    pub dwSize: u32,
+    pub ctType: DMUS_CLOCKTYPE,
+    pub guidClock: ::windows::core::GUID,
+    pub wszDescription: [u16; 128],
+}
+impl ::core::marker::Copy for DMUS_CLOCKINFO7 {}
+impl ::core::clone::Clone for DMUS_CLOCKINFO7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_CLOCKINFO7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_CLOCKINFO7").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO7 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_CLOCKINFO7 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_CLOCKINFO7>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_CLOCKINFO7 {}
+impl ::core::default::Default for DMUS_CLOCKINFO7 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_CLOCKINFO8 {
+    pub dwSize: u32,
+    pub ctType: DMUS_CLOCKTYPE,
+    pub guidClock: ::windows::core::GUID,
+    pub wszDescription: [u16; 128],
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for DMUS_CLOCKINFO8 {}
+impl ::core::clone::Clone for DMUS_CLOCKINFO8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_CLOCKINFO8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_CLOCKINFO8").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO8 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_CLOCKINFO8 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_CLOCKINFO8>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_CLOCKINFO8 {}
+impl ::core::default::Default for DMUS_CLOCKINFO8 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_COPYRIGHT {
+    pub cbSize: u32,
+    pub byCopyright: [u8; 4],
+}
+impl ::core::marker::Copy for DMUS_COPYRIGHT {}
+impl ::core::clone::Clone for DMUS_COPYRIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_COPYRIGHT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_COPYRIGHT").field("cbSize", &self.cbSize).field("byCopyright", &self.byCopyright).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_COPYRIGHT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_COPYRIGHT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_COPYRIGHT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_COPYRIGHT {}
+impl ::core::default::Default for DMUS_COPYRIGHT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_DOWNLOADINFO {
+    pub dwDLType: u32,
+    pub dwDLId: u32,
+    pub dwNumOffsetTableEntries: u32,
+    pub cbSize: u32,
+}
+impl ::core::marker::Copy for DMUS_DOWNLOADINFO {}
+impl ::core::clone::Clone for DMUS_DOWNLOADINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_DOWNLOADINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_DOWNLOADINFO").field("dwDLType", &self.dwDLType).field("dwDLId", &self.dwDLId).field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries).field("cbSize", &self.cbSize).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_DOWNLOADINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_DOWNLOADINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_DOWNLOADINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_DOWNLOADINFO {}
+impl ::core::default::Default for DMUS_DOWNLOADINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_EVENTHEADER {
+    pub cbEvent: u32,
+    pub dwChannelGroup: u32,
+    pub rtDelta: i64,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for DMUS_EVENTHEADER {}
+impl ::core::clone::Clone for DMUS_EVENTHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_EVENTHEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_EVENTHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_EVENTHEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_EVENTHEADER {}
+impl ::core::default::Default for DMUS_EVENTHEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_EXTENSIONCHUNK {
+    pub cbSize: u32,
+    pub ulNextExtCkIdx: u32,
+    pub ExtCkID: u32,
+    pub byExtCk: [u8; 4],
+}
+impl ::core::marker::Copy for DMUS_EXTENSIONCHUNK {}
+impl ::core::clone::Clone for DMUS_EXTENSIONCHUNK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_EXTENSIONCHUNK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_EXTENSIONCHUNK").field("cbSize", &self.cbSize).field("ulNextExtCkIdx", &self.ulNextExtCkIdx).field("ExtCkID", &self.ExtCkID).field("byExtCk", &self.byExtCk).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_EXTENSIONCHUNK {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_EXTENSIONCHUNK {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_EXTENSIONCHUNK>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_EXTENSIONCHUNK {}
+impl ::core::default::Default for DMUS_EXTENSIONCHUNK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_INSTRUMENT {
+    pub ulPatch: u32,
+    pub ulFirstRegionIdx: u32,
+    pub ulGlobalArtIdx: u32,
+    pub ulFirstExtCkIdx: u32,
+    pub ulCopyrightIdx: u32,
+    pub ulFlags: u32,
+}
+impl ::core::marker::Copy for DMUS_INSTRUMENT {}
+impl ::core::clone::Clone for DMUS_INSTRUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_INSTRUMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_INSTRUMENT").field("ulPatch", &self.ulPatch).field("ulFirstRegionIdx", &self.ulFirstRegionIdx).field("ulGlobalArtIdx", &self.ulGlobalArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulFlags", &self.ulFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_INSTRUMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_INSTRUMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_INSTRUMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_INSTRUMENT {}
+impl ::core::default::Default for DMUS_INSTRUMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_LFOPARAMS {
+    pub pcFrequency: i32,
+    pub tcDelay: i32,
+    pub gcVolumeScale: i32,
+    pub pcPitchScale: i32,
+    pub gcMWToVolume: i32,
+    pub pcMWToPitch: i32,
+}
+impl ::core::marker::Copy for DMUS_LFOPARAMS {}
+impl ::core::clone::Clone for DMUS_LFOPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_LFOPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_LFOPARAMS").field("pcFrequency", &self.pcFrequency).field("tcDelay", &self.tcDelay).field("gcVolumeScale", &self.gcVolumeScale).field("pcPitchScale", &self.pcPitchScale).field("gcMWToVolume", &self.gcMWToVolume).field("pcMWToPitch", &self.pcMWToPitch).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_LFOPARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_LFOPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_LFOPARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_LFOPARAMS {}
+impl ::core::default::Default for DMUS_LFOPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_MSCPARAMS {
+    pub ptDefaultPan: i32,
+}
+impl ::core::marker::Copy for DMUS_MSCPARAMS {}
+impl ::core::clone::Clone for DMUS_MSCPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_MSCPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_MSCPARAMS").field("ptDefaultPan", &self.ptDefaultPan).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_MSCPARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_MSCPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_MSCPARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_MSCPARAMS {}
+impl ::core::default::Default for DMUS_MSCPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_NOTERANGE {
+    pub dwLowNote: u32,
+    pub dwHighNote: u32,
+}
+impl ::core::marker::Copy for DMUS_NOTERANGE {}
+impl ::core::clone::Clone for DMUS_NOTERANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_NOTERANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_NOTERANGE").field("dwLowNote", &self.dwLowNote).field("dwHighNote", &self.dwHighNote).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_NOTERANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_NOTERANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_NOTERANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_NOTERANGE {}
+impl ::core::default::Default for DMUS_NOTERANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_OFFSETTABLE {
+    pub ulOffsetTable: [u32; 1],
+}
+impl ::core::marker::Copy for DMUS_OFFSETTABLE {}
+impl ::core::clone::Clone for DMUS_OFFSETTABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_OFFSETTABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_OFFSETTABLE").field("ulOffsetTable", &self.ulOffsetTable).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_OFFSETTABLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_OFFSETTABLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_OFFSETTABLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_OFFSETTABLE {}
+impl ::core::default::Default for DMUS_OFFSETTABLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_PEGPARAMS {
+    pub tcAttack: i32,
+    pub tcDecay: i32,
+    pub ptSustain: i32,
+    pub tcRelease: i32,
+    pub tcVel2Attack: i32,
+    pub tcKey2Decay: i32,
+    pub pcRange: i32,
+}
+impl ::core::marker::Copy for DMUS_PEGPARAMS {}
+impl ::core::clone::Clone for DMUS_PEGPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_PEGPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_PEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).field("pcRange", &self.pcRange).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_PEGPARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_PEGPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PEGPARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_PEGPARAMS {}
+impl ::core::default::Default for DMUS_PEGPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_PORTCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub guidPort: ::windows::core::GUID,
+    pub dwClass: u32,
+    pub dwType: u32,
+    pub dwMemorySize: u32,
+    pub dwMaxChannelGroups: u32,
+    pub dwMaxVoices: u32,
+    pub dwMaxAudioChannels: u32,
+    pub dwEffectFlags: u32,
+    pub wszDescription: [u16; 128],
+}
+impl ::core::marker::Copy for DMUS_PORTCAPS {}
+impl ::core::clone::Clone for DMUS_PORTCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_PORTCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_PORTCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidPort", &self.guidPort).field("dwClass", &self.dwClass).field("dwType", &self.dwType).field("dwMemorySize", &self.dwMemorySize).field("dwMaxChannelGroups", &self.dwMaxChannelGroups).field("dwMaxVoices", &self.dwMaxVoices).field("dwMaxAudioChannels", &self.dwMaxAudioChannels).field("dwEffectFlags", &self.dwEffectFlags).field("wszDescription", &self.wszDescription).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_PORTCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_PORTCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_PORTCAPS {}
+impl ::core::default::Default for DMUS_PORTCAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DMUS_PORTPARAMS8 {
+    pub dwSize: u32,
+    pub dwValidParams: u32,
+    pub dwVoices: u32,
+    pub dwChannelGroups: u32,
+    pub dwAudioChannels: u32,
+    pub dwSampleRate: u32,
+    pub dwEffectFlags: u32,
+    pub fShare: super::super::super::Foundation::BOOL,
+    pub dwFeatures: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DMUS_PORTPARAMS8 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DMUS_PORTPARAMS8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMUS_PORTPARAMS8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_PORTPARAMS8").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).field("dwFeatures", &self.dwFeatures).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS8 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DMUS_PORTPARAMS8 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTPARAMS8>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DMUS_PORTPARAMS8 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DMUS_PORTPARAMS8 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_REGION {
+    pub RangeKey: RGNRANGE,
+    pub RangeVelocity: RGNRANGE,
+    pub fusOptions: u16,
+    pub usKeyGroup: u16,
+    pub ulRegionArtIdx: u32,
+    pub ulNextRegionIdx: u32,
+    pub ulFirstExtCkIdx: u32,
+    pub WaveLink: WAVELINK,
+    pub WSMP: _rwsmp,
+    pub WLOOP: [_rloop; 1],
+}
+impl ::core::marker::Copy for DMUS_REGION {}
+impl ::core::clone::Clone for DMUS_REGION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_REGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_REGION").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).field("ulRegionArtIdx", &self.ulRegionArtIdx).field("ulNextRegionIdx", &self.ulNextRegionIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("WaveLink", &self.WaveLink).field("WSMP", &self.WSMP).field("WLOOP", &self.WLOOP).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_REGION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_REGION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_REGION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_REGION {}
+impl ::core::default::Default for DMUS_REGION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_SYNTHSTATS {
+    pub dwSize: u32,
+    pub dwValidStats: u32,
+    pub dwVoices: u32,
+    pub dwTotalCPU: u32,
+    pub dwCPUPerVoice: u32,
+    pub dwLostNotes: u32,
+    pub dwFreeMemory: u32,
+    pub lPeakVolume: i32,
+}
+impl ::core::marker::Copy for DMUS_SYNTHSTATS {}
+impl ::core::clone::Clone for DMUS_SYNTHSTATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_SYNTHSTATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_SYNTHSTATS").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_SYNTHSTATS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_SYNTHSTATS {}
+impl ::core::default::Default for DMUS_SYNTHSTATS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_SYNTHSTATS8 {
+    pub dwSize: u32,
+    pub dwValidStats: u32,
+    pub dwVoices: u32,
+    pub dwTotalCPU: u32,
+    pub dwCPUPerVoice: u32,
+    pub dwLostNotes: u32,
+    pub dwFreeMemory: u32,
+    pub lPeakVolume: i32,
+    pub dwSynthMemUse: u32,
+}
+impl ::core::marker::Copy for DMUS_SYNTHSTATS8 {}
+impl ::core::clone::Clone for DMUS_SYNTHSTATS8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_SYNTHSTATS8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_SYNTHSTATS8").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).field("dwSynthMemUse", &self.dwSynthMemUse).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS8 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS8 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_SYNTHSTATS8>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_SYNTHSTATS8 {}
+impl ::core::default::Default for DMUS_SYNTHSTATS8 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_VEGPARAMS {
+    pub tcAttack: i32,
+    pub tcDecay: i32,
+    pub ptSustain: i32,
+    pub tcRelease: i32,
+    pub tcVel2Attack: i32,
+    pub tcKey2Decay: i32,
+}
+impl ::core::marker::Copy for DMUS_VEGPARAMS {}
+impl ::core::clone::Clone for DMUS_VEGPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_VEGPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_VEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_VEGPARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_VEGPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_VEGPARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_VEGPARAMS {}
+impl ::core::default::Default for DMUS_VEGPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DMUS_VOICE_STATE {
+    pub bExists: super::super::super::Foundation::BOOL,
+    pub spPosition: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DMUS_VOICE_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DMUS_VOICE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMUS_VOICE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_VOICE_STATE").field("bExists", &self.bExists).field("spPosition", &self.spPosition).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DMUS_VOICE_STATE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DMUS_VOICE_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_VOICE_STATE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DMUS_VOICE_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DMUS_VOICE_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_WAVE {
+    pub ulFirstExtCkIdx: u32,
+    pub ulCopyrightIdx: u32,
+    pub ulWaveDataIdx: u32,
+    pub WaveformatEx: super::WAVEFORMATEX,
+}
+impl ::core::marker::Copy for DMUS_WAVE {}
+impl ::core::clone::Clone for DMUS_WAVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_WAVE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_WAVE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_WAVE {}
+impl ::core::default::Default for DMUS_WAVE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_WAVEARTDL {
+    pub ulDownloadIdIdx: u32,
+    pub ulBus: u32,
+    pub ulBuffers: u32,
+    pub ulMasterDLId: u32,
+    pub usOptions: u16,
+}
+impl ::core::marker::Copy for DMUS_WAVEARTDL {}
+impl ::core::clone::Clone for DMUS_WAVEARTDL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_WAVEARTDL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVEARTDL").field("ulDownloadIdIdx", &self.ulDownloadIdIdx).field("ulBus", &self.ulBus).field("ulBuffers", &self.ulBuffers).field("ulMasterDLId", &self.ulMasterDLId).field("usOptions", &self.usOptions).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_WAVEARTDL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_WAVEARTDL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEARTDL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_WAVEARTDL {}
+impl ::core::default::Default for DMUS_WAVEARTDL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_WAVEDATA {
+    pub cbSize: u32,
+    pub byData: [u8; 4],
+}
+impl ::core::marker::Copy for DMUS_WAVEDATA {}
+impl ::core::clone::Clone for DMUS_WAVEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_WAVEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVEDATA").field("cbSize", &self.cbSize).field("byData", &self.byData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_WAVEDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_WAVEDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_WAVEDATA {}
+impl ::core::default::Default for DMUS_WAVEDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_WAVEDL {
+    pub cbWaveData: u32,
+}
+impl ::core::marker::Copy for DMUS_WAVEDL {}
+impl ::core::clone::Clone for DMUS_WAVEDL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_WAVEDL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVEDL").field("cbWaveData", &self.cbWaveData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_WAVEDL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_WAVEDL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEDL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_WAVEDL {}
+impl ::core::default::Default for DMUS_WAVEDL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DMUS_WAVES_REVERB_PARAMS {
+    pub fInGain: f32,
+    pub fReverbMix: f32,
+    pub fReverbTime: f32,
+    pub fHighFreqRTRatio: f32,
+}
+impl ::core::marker::Copy for DMUS_WAVES_REVERB_PARAMS {}
+impl ::core::clone::Clone for DMUS_WAVES_REVERB_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMUS_WAVES_REVERB_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_WAVES_REVERB_PARAMS").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMUS_WAVES_REVERB_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMUS_WAVES_REVERB_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVES_REVERB_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMUS_WAVES_REVERB_PARAMS {}
+impl ::core::default::Default for DMUS_WAVES_REVERB_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    pub DeviceId: ::windows::core::GUID,
+    pub DescriptionA: [super::super::super::Foundation::CHAR; 256],
+    pub DescriptionW: [u16; 256],
+    pub ModuleA: [super::super::super::Foundation::CHAR; 260],
+    pub ModuleW: [u16; 260],
+    pub Type: DIRECTSOUNDDEVICE_TYPE,
+    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
+    pub WaveDeviceId: u32,
+    pub Devnode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA").field("DeviceId", &self.DeviceId).field("DescriptionA", &self.DescriptionA).field("DescriptionW", &self.DescriptionW).field("ModuleA", &self.ModuleA).field("ModuleW", &self.ModuleW).field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("WaveDeviceId", &self.WaveDeviceId).field("Devnode", &self.Devnode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    pub Type: DIRECTSOUNDDEVICE_TYPE,
+    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
+    pub DeviceId: ::windows::core::GUID,
+    pub Description: ::windows::core::PSTR,
+    pub Module: ::windows::core::PSTR,
+    pub Interface: ::windows::core::PSTR,
+    pub WaveDeviceId: u32,
+}
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    pub Type: DIRECTSOUNDDEVICE_TYPE,
+    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
+    pub DeviceId: ::windows::core::GUID,
+    pub Description: ::windows::core::PWSTR,
+    pub Module: ::windows::core::PWSTR,
+    pub Interface: ::windows::core::PWSTR,
+    pub WaveDeviceId: u32,
+}
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1,
+    pub Context: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA,
+    pub Context: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW,
+    pub Context: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    pub DeviceName: ::windows::core::PSTR,
+    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
+    pub DeviceId: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    pub DeviceName: ::windows::core::PWSTR,
+    pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
+    pub DeviceId: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
+impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct INSTHEADER {
@@ -3192,15 +3208,6 @@ impl ::core::default::Default for INSTHEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct MDEVICECAPSEX {
@@ -3356,12 +3363,6 @@ impl ::core::default::Default for POOLTABLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const POOL_CUE_NULL: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const REGSTR_PATH_SOFTWARESYNTHS: &str = "Software\\Microsoft\\DirectMusic\\SoftwareSynths";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct RGNHEADER {
@@ -3426,8 +3427,6 @@ impl ::core::default::Default for RGNRANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const SIZE_DVINFO: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct Tag_DVAudInfo {
@@ -3497,14 +3496,6 @@ impl ::core::default::Default for WAVELINK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3618,5 +3609,14 @@ impl ::core::default::Default for _rwsmp {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

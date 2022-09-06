@@ -25,224 +25,6 @@ where
     }
     AreDpiAwarenessContextsEqual(dpicontexta.into(), dpicontextb.into())
 }
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0u32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1u32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DISABLE_RELAYOUT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(2u32);
-impl ::core::marker::Copy for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {}
-impl ::core::clone::Clone for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DEFAULT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(0u32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_ALL: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(1u32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_RESIZE: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(2u32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_CONTROL_RELAYOUT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(4u32);
-impl ::core::marker::Copy for DIALOG_DPI_CHANGE_BEHAVIORS {}
-impl ::core::clone::Clone for DIALOG_DPI_CHANGE_BEHAVIORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIALOG_DPI_CHANGE_BEHAVIORS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DIALOG_DPI_CHANGE_BEHAVIORS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DIALOG_DPI_CHANGE_BEHAVIORS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DIALOG_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DIALOG_DPI_CHANGE_BEHAVIORS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DIALOG_DPI_CHANGE_BEHAVIORS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DIALOG_DPI_CHANGE_BEHAVIORS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DIALOG_DPI_CHANGE_BEHAVIORS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DPI_AWARENESS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_INVALID: DPI_AWARENESS = DPI_AWARENESS(-1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_UNAWARE: DPI_AWARENESS = DPI_AWARENESS(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_SYSTEM_AWARE: DPI_AWARENESS = DPI_AWARENESS(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_PER_MONITOR_AWARE: DPI_AWARENESS = DPI_AWARENESS(2i32);
-impl ::core::marker::Copy for DPI_AWARENESS {}
-impl ::core::clone::Clone for DPI_AWARENESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DPI_AWARENESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DPI_AWARENESS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DPI_AWARENESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DPI_AWARENESS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DPI_AWARENESS_CONTEXT(pub isize);
-impl DPI_AWARENESS_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for DPI_AWARENESS_CONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for DPI_AWARENESS_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for DPI_AWARENESS_CONTEXT {}
-impl ::core::fmt::Debug for DPI_AWARENESS_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DPI_AWARENESS_CONTEXT").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<DPI_AWARENESS_CONTEXT>> for DPI_AWARENESS_CONTEXT {
-    fn from(optional: ::core::option::Option<DPI_AWARENESS_CONTEXT>) -> DPI_AWARENESS_CONTEXT {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for DPI_AWARENESS_CONTEXT {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i32 as _);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-2i32 as _);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-1i32 as _);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-5i32 as _);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DPI_HOSTING_BEHAVIOR(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_HOSTING_BEHAVIOR_INVALID: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(-1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_HOSTING_BEHAVIOR_DEFAULT: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_HOSTING_BEHAVIOR_MIXED: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(1i32);
-impl ::core::marker::Copy for DPI_HOSTING_BEHAVIOR {}
-impl ::core::clone::Clone for DPI_HOSTING_BEHAVIOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DPI_HOSTING_BEHAVIOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DPI_HOSTING_BEHAVIOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DPI_HOSTING_BEHAVIOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DPI_HOSTING_BEHAVIOR").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -460,37 +242,6 @@ where
     }
     LogicalToPhysicalPointForPerMonitorDPI(hwnd.into(), ::core::mem::transmute(lppoint))
 }
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MONITOR_DPI_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_EFFECTIVE_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_ANGULAR_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_RAW_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_DEFAULT: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
-impl ::core::marker::Copy for MONITOR_DPI_TYPE {}
-impl ::core::clone::Clone for MONITOR_DPI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MONITOR_DPI_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MONITOR_DPI_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MONITOR_DPI_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MONITOR_DPI_TYPE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -504,35 +255,6 @@ where
         fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows::core::PCWSTR, dpi: u32) -> isize;
     }
     OpenThemeDataForDpi(hwnd.into(), pszclasslist.into(), dpi)
-}
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROCESS_DPI_AWARENESS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const PROCESS_DPI_UNAWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const PROCESS_PER_MONITOR_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(2i32);
-impl ::core::marker::Copy for PROCESS_DPI_AWARENESS {}
-impl ::core::clone::Clone for PROCESS_DPI_AWARENESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROCESS_DPI_AWARENESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_DPI_AWARENESS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PROCESS_DPI_AWARENESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROCESS_DPI_AWARENESS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -625,6 +347,284 @@ pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *
         fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL;
     }
     SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam), fwinini, dpi)
+}
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i32 as _);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-2i32 as _);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-1i32 as _);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-5i32 as _);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0u32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1u32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DCDC_DISABLE_RELAYOUT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(2u32);
+impl ::core::marker::Copy for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {}
+impl ::core::clone::Clone for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DEFAULT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(0u32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DISABLE_ALL: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(1u32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DISABLE_RESIZE: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(2u32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DISABLE_CONTROL_RELAYOUT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(4u32);
+impl ::core::marker::Copy for DIALOG_DPI_CHANGE_BEHAVIORS {}
+impl ::core::clone::Clone for DIALOG_DPI_CHANGE_BEHAVIORS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIALOG_DPI_CHANGE_BEHAVIORS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DIALOG_DPI_CHANGE_BEHAVIORS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DIALOG_DPI_CHANGE_BEHAVIORS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIALOG_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DIALOG_DPI_CHANGE_BEHAVIORS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIALOG_DPI_CHANGE_BEHAVIORS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIALOG_DPI_CHANGE_BEHAVIORS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIALOG_DPI_CHANGE_BEHAVIORS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DPI_AWARENESS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_INVALID: DPI_AWARENESS = DPI_AWARENESS(-1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_UNAWARE: DPI_AWARENESS = DPI_AWARENESS(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_SYSTEM_AWARE: DPI_AWARENESS = DPI_AWARENESS(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_PER_MONITOR_AWARE: DPI_AWARENESS = DPI_AWARENESS(2i32);
+impl ::core::marker::Copy for DPI_AWARENESS {}
+impl ::core::clone::Clone for DPI_AWARENESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DPI_AWARENESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DPI_AWARENESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DPI_AWARENESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DPI_AWARENESS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DPI_HOSTING_BEHAVIOR(pub i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_HOSTING_BEHAVIOR_INVALID: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(-1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_HOSTING_BEHAVIOR_DEFAULT: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_HOSTING_BEHAVIOR_MIXED: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(1i32);
+impl ::core::marker::Copy for DPI_HOSTING_BEHAVIOR {}
+impl ::core::clone::Clone for DPI_HOSTING_BEHAVIOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DPI_HOSTING_BEHAVIOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DPI_HOSTING_BEHAVIOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DPI_HOSTING_BEHAVIOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DPI_HOSTING_BEHAVIOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MONITOR_DPI_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_EFFECTIVE_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_ANGULAR_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_RAW_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_DEFAULT: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
+impl ::core::marker::Copy for MONITOR_DPI_TYPE {}
+impl ::core::clone::Clone for MONITOR_DPI_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MONITOR_DPI_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MONITOR_DPI_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MONITOR_DPI_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MONITOR_DPI_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PROCESS_DPI_AWARENESS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const PROCESS_DPI_UNAWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const PROCESS_PER_MONITOR_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(2i32);
+impl ::core::marker::Copy for PROCESS_DPI_AWARENESS {}
+impl ::core::clone::Clone for PROCESS_DPI_AWARENESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROCESS_DPI_AWARENESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_DPI_AWARENESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROCESS_DPI_AWARENESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROCESS_DPI_AWARENESS").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DPI_AWARENESS_CONTEXT(pub isize);
+impl DPI_AWARENESS_CONTEXT {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for DPI_AWARENESS_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for DPI_AWARENESS_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for DPI_AWARENESS_CONTEXT {}
+impl ::core::fmt::Debug for DPI_AWARENESS_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DPI_AWARENESS_CONTEXT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<DPI_AWARENESS_CONTEXT>> for DPI_AWARENESS_CONTEXT {
+    fn from(optional: ::core::option::Option<DPI_AWARENESS_CONTEXT>) -> DPI_AWARENESS_CONTEXT {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for DPI_AWARENESS_CONTEXT {
+    type Abi = Self;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

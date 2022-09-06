@@ -1,294 +1,5 @@
 #[cfg(feature = "System_Profile_SystemManufacturers")]
 pub mod SystemManufacturers;
-#[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct AnalyticsInfo;
-impl AnalyticsInfo {
-    pub fn VersionInfo() -> ::windows::core::Result<AnalyticsVersionInfo> {
-        Self::IAnalyticsInfoStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VersionInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AnalyticsVersionInfo>(result__)
-        })
-    }
-    pub fn DeviceForm() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IAnalyticsInfoStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceForm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemPropertiesAsync<'a, P0, E0>(attributenames: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IAnalyticsInfoStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows::core::Interface::as_raw(this), attributenames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for AnalyticsInfo {
-    const NAME: &'static str = "Windows.System.Profile.AnalyticsInfo";
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-#[repr(transparent)]
-pub struct AnalyticsVersionInfo(::windows::core::IUnknown);
-impl AnalyticsVersionInfo {
-    pub fn DeviceFamily(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceFamily)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn DeviceFamilyVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceFamilyVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAnalyticsVersionInfo2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProductName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AnalyticsVersionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AnalyticsVersionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnalyticsVersionInfo {}
-impl ::core::fmt::Debug for AnalyticsVersionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnalyticsVersionInfo").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
-    type Vtable = IAnalyticsVersionInfo_Vtbl;
-    const IID: ::windows::core::GUID = <IAnalyticsVersionInfo as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AnalyticsVersionInfo {
-    const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
-}
-impl ::core::convert::From<AnalyticsVersionInfo> for ::windows::core::IUnknown {
-    fn from(value: AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IUnknown {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IUnknown {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AnalyticsVersionInfo> for ::windows::core::IInspectable {
-    fn from(value: AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IInspectable {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IInspectable {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
-unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct AppApplicability;
-impl AppApplicability {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUnsupportedAppRequirements<'a, P0, E0>(capabilities: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IAppApplicabilityStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows::core::Interface::as_raw(this), capabilities.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppApplicability, IAppApplicabilityStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for AppApplicability {
-    const NAME: &'static str = "Windows.System.Profile.AppApplicability";
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct EducationSettings;
-impl EducationSettings {
-    pub fn IsEducationEnvironment() -> ::windows::core::Result<bool> {
-        Self::IEducationSettingsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsEducationEnvironment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EducationSettings, IEducationSettingsStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for EducationSettings {
-    const NAME: &'static str = "Windows.System.Profile.EducationSettings";
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct HardwareIdentification;
-impl HardwareIdentification {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn GetPackageSpecificToken<'a, P0, E0>(nonce: P0) -> ::windows::core::Result<HardwareToken>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IHardwareIdentificationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetPackageSpecificToken)(::windows::core::Interface::as_raw(this), nonce.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<HardwareToken>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HardwareIdentification, IHardwareIdentificationStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for HardwareIdentification {
-    const NAME: &'static str = "Windows.System.Profile.HardwareIdentification";
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-#[repr(transparent)]
-pub struct HardwareToken(::windows::core::IUnknown);
-impl HardwareToken {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Signature(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Signature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Certificate(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Certificate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for HardwareToken {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HardwareToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HardwareToken {}
-impl ::core::fmt::Debug for HardwareToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HardwareToken").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HardwareToken {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.HardwareToken;{28f6d4c0-fb12-40a4-8167-7f4e03d2724c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HardwareToken {
-    type Vtable = IHardwareToken_Vtbl;
-    const IID: ::windows::core::GUID = <IHardwareToken as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HardwareToken {
-    const NAME: &'static str = "Windows.System.Profile.HardwareToken";
-}
-impl ::core::convert::From<HardwareToken> for ::windows::core::IUnknown {
-    fn from(value: HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HardwareToken> for ::windows::core::IUnknown {
-    fn from(value: &HardwareToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HardwareToken> for &::windows::core::IUnknown {
-    fn from(value: &HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HardwareToken> for ::windows::core::IInspectable {
-    fn from(value: HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HardwareToken> for ::windows::core::IInspectable {
-    fn from(value: &HardwareToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HardwareToken> for &::windows::core::IInspectable {
-    fn from(value: &HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for HardwareToken {}
-unsafe impl ::core::marker::Sync for HardwareToken {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnalyticsInfoStatics(::windows::core::IUnknown);
@@ -605,6 +316,295 @@ pub struct IWindowsIntegrityPolicyStatics_Vtbl {
     RemovePolicyChanged: usize,
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
+pub struct AnalyticsInfo;
+impl AnalyticsInfo {
+    pub fn VersionInfo() -> ::windows::core::Result<AnalyticsVersionInfo> {
+        Self::IAnalyticsInfoStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VersionInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AnalyticsVersionInfo>(result__)
+        })
+    }
+    pub fn DeviceForm() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IAnalyticsInfoStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceForm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetSystemPropertiesAsync<'a, P0, E0>(attributenames: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IAnalyticsInfoStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows::core::Interface::as_raw(this), attributenames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for AnalyticsInfo {
+    const NAME: &'static str = "Windows.System.Profile.AnalyticsInfo";
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+#[repr(transparent)]
+pub struct AnalyticsVersionInfo(::windows::core::IUnknown);
+impl AnalyticsVersionInfo {
+    pub fn DeviceFamily(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceFamily)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn DeviceFamilyVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceFamilyVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAnalyticsVersionInfo2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProductName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AnalyticsVersionInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AnalyticsVersionInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AnalyticsVersionInfo {}
+impl ::core::fmt::Debug for AnalyticsVersionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnalyticsVersionInfo").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
+    type Vtable = IAnalyticsVersionInfo_Vtbl;
+    const IID: ::windows::core::GUID = <IAnalyticsVersionInfo as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AnalyticsVersionInfo {
+    const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
+}
+impl ::core::convert::From<AnalyticsVersionInfo> for ::windows::core::IUnknown {
+    fn from(value: AnalyticsVersionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IUnknown {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IUnknown {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AnalyticsVersionInfo> for ::windows::core::IInspectable {
+    fn from(value: AnalyticsVersionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IInspectable {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IInspectable {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
+unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+pub struct AppApplicability;
+impl AppApplicability {
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetUnsupportedAppRequirements<'a, P0, E0>(capabilities: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IAppApplicabilityStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows::core::Interface::as_raw(this), capabilities.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AppApplicability, IAppApplicabilityStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for AppApplicability {
+    const NAME: &'static str = "Windows.System.Profile.AppApplicability";
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+pub struct EducationSettings;
+impl EducationSettings {
+    pub fn IsEducationEnvironment() -> ::windows::core::Result<bool> {
+        Self::IEducationSettingsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsEducationEnvironment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<EducationSettings, IEducationSettingsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for EducationSettings {
+    const NAME: &'static str = "Windows.System.Profile.EducationSettings";
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+pub struct HardwareIdentification;
+impl HardwareIdentification {
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetPackageSpecificToken<'a, P0, E0>(nonce: P0) -> ::windows::core::Result<HardwareToken>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IHardwareIdentificationStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetPackageSpecificToken)(::windows::core::Interface::as_raw(this), nonce.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<HardwareToken>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<HardwareIdentification, IHardwareIdentificationStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for HardwareIdentification {
+    const NAME: &'static str = "Windows.System.Profile.HardwareIdentification";
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+#[repr(transparent)]
+pub struct HardwareToken(::windows::core::IUnknown);
+impl HardwareToken {
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Signature(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Signature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Certificate(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Certificate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for HardwareToken {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HardwareToken {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HardwareToken {}
+impl ::core::fmt::Debug for HardwareToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HardwareToken").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HardwareToken {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.HardwareToken;{28f6d4c0-fb12-40a4-8167-7f4e03d2724c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HardwareToken {
+    type Vtable = IHardwareToken_Vtbl;
+    const IID: ::windows::core::GUID = <IHardwareToken as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HardwareToken {
+    const NAME: &'static str = "Windows.System.Profile.HardwareToken";
+}
+impl ::core::convert::From<HardwareToken> for ::windows::core::IUnknown {
+    fn from(value: HardwareToken) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HardwareToken> for ::windows::core::IUnknown {
+    fn from(value: &HardwareToken) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HardwareToken> for &::windows::core::IUnknown {
+    fn from(value: &HardwareToken) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HardwareToken> for ::windows::core::IInspectable {
+    fn from(value: HardwareToken) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HardwareToken> for ::windows::core::IInspectable {
+    fn from(value: &HardwareToken) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HardwareToken> for &::windows::core::IInspectable {
+    fn from(value: &HardwareToken) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for HardwareToken {}
+unsafe impl ::core::marker::Sync for HardwareToken {}
+#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct KnownRetailInfoProperties;
 impl KnownRetailInfoProperties {
     pub fn RetailAccessCode() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -747,42 +747,6 @@ impl KnownRetailInfoProperties {
 }
 impl ::windows::core::RuntimeName for KnownRetailInfoProperties {
     const NAME: &'static str = "Windows.System.Profile.KnownRetailInfoProperties";
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PlatformDataCollectionLevel(pub i32);
-impl PlatformDataCollectionLevel {
-    pub const Security: Self = Self(0i32);
-    pub const Basic: Self = Self(1i32);
-    pub const Enhanced: Self = Self(2i32);
-    pub const Full: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PlatformDataCollectionLevel {}
-impl ::core::clone::Clone for PlatformDataCollectionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PlatformDataCollectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PlatformDataCollectionLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PlatformDataCollectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDataCollectionLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct PlatformDiagnosticsAndUsageDataSettings;
@@ -990,77 +954,6 @@ impl ::core::convert::From<&SystemIdentificationInfo> for &::windows::core::IIns
 unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SystemIdentificationSource(pub i32);
-impl SystemIdentificationSource {
-    pub const None: Self = Self(0i32);
-    pub const Tpm: Self = Self(1i32);
-    pub const Uefi: Self = Self(2i32);
-    pub const Registry: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SystemIdentificationSource {}
-impl ::core::clone::Clone for SystemIdentificationSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemIdentificationSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SystemIdentificationSource {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemIdentificationSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemIdentificationSource").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SystemOutOfBoxExperienceState(pub i32);
-impl SystemOutOfBoxExperienceState {
-    pub const NotStarted: Self = Self(0i32);
-    pub const InProgress: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SystemOutOfBoxExperienceState {}
-impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemOutOfBoxExperienceState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SystemOutOfBoxExperienceState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemOutOfBoxExperienceState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct SystemSetupInfo;
 impl SystemSetupInfo {
     pub fn OutOfBoxExperienceState() -> ::windows::core::Result<SystemOutOfBoxExperienceState> {
@@ -1176,6 +1069,165 @@ impl ::core::convert::From<&UnsupportedAppRequirement> for &::windows::core::IIn
 unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
+pub struct WindowsIntegrityPolicy;
+impl WindowsIntegrityPolicy {
+    pub fn IsEnabled() -> ::windows::core::Result<bool> {
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    pub fn IsEnabledForTrial() -> ::windows::core::Result<bool> {
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsEnabledForTrial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    pub fn CanDisable() -> ::windows::core::Result<bool> {
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CanDisable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    pub fn IsDisableSupported() -> ::windows::core::Result<bool> {
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsDisableSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PolicyChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PolicyChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePolicyChanged)(::windows::core::Interface::as_raw(this), token).ok() })
+    }
+    #[doc(hidden)]
+    pub fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for WindowsIntegrityPolicy {
+    const NAME: &'static str = "Windows.System.Profile.WindowsIntegrityPolicy";
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PlatformDataCollectionLevel(pub i32);
+impl PlatformDataCollectionLevel {
+    pub const Security: Self = Self(0i32);
+    pub const Basic: Self = Self(1i32);
+    pub const Enhanced: Self = Self(2i32);
+    pub const Full: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PlatformDataCollectionLevel {}
+impl ::core::clone::Clone for PlatformDataCollectionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PlatformDataCollectionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PlatformDataCollectionLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PlatformDataCollectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDataCollectionLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SystemIdentificationSource(pub i32);
+impl SystemIdentificationSource {
+    pub const None: Self = Self(0i32);
+    pub const Tpm: Self = Self(1i32);
+    pub const Uefi: Self = Self(2i32);
+    pub const Registry: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SystemIdentificationSource {}
+impl ::core::clone::Clone for SystemIdentificationSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SystemIdentificationSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SystemIdentificationSource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SystemIdentificationSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemIdentificationSource").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SystemOutOfBoxExperienceState(pub i32);
+impl SystemOutOfBoxExperienceState {
+    pub const NotStarted: Self = Self(0i32);
+    pub const InProgress: Self = Self(1i32);
+    pub const Completed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SystemOutOfBoxExperienceState {}
+impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SystemOutOfBoxExperienceState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SystemOutOfBoxExperienceState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemOutOfBoxExperienceState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
@@ -1236,58 +1288,6 @@ unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct WindowsIntegrityPolicy;
-impl WindowsIntegrityPolicy {
-    pub fn IsEnabled() -> ::windows::core::Result<bool> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    pub fn IsEnabledForTrial() -> ::windows::core::Result<bool> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledForTrial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    pub fn CanDisable() -> ::windows::core::Result<bool> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CanDisable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    pub fn IsDisableSupported() -> ::windows::core::Result<bool> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsDisableSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PolicyChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PolicyChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePolicyChanged)(::windows::core::Interface::as_raw(this), token).ok() })
-    }
-    #[doc(hidden)]
-    pub fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for WindowsIntegrityPolicy {
-    const NAME: &'static str = "Windows.System.Profile.WindowsIntegrityPolicy";
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

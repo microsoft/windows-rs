@@ -1,6 +1,4 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSourceNative(::windows::core::IUnknown);
 impl IDesktopWindowXamlSourceNative {
@@ -1148,6 +1146,35 @@ pub struct IVirtualSurfaceUpdatesCallbackNative_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub UpdatesNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(1i32);
+impl ::core::marker::Copy for XAML_REFERENCETRACKER_DISCONNECT {}
+impl ::core::clone::Clone for XAML_REFERENCETRACKER_DISCONNECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XAML_REFERENCETRACKER_DISCONNECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XAML_REFERENCETRACKER_DISCONNECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XAML_REFERENCETRACKER_DISCONNECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XAML_REFERENCETRACKER_DISCONNECT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub struct TrackerHandle__ {
@@ -1176,33 +1203,6 @@ impl ::core::cmp::Eq for TrackerHandle__ {}
 impl ::core::default::Default for TrackerHandle__ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(1i32);
-impl ::core::marker::Copy for XAML_REFERENCETRACKER_DISCONNECT {}
-impl ::core::clone::Clone for XAML_REFERENCETRACKER_DISCONNECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XAML_REFERENCETRACKER_DISCONNECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XAML_REFERENCETRACKER_DISCONNECT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XAML_REFERENCETRACKER_DISCONNECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XAML_REFERENCETRACKER_DISCONNECT").field(&self.0).finish()
     }
 }
 #[cfg(feature = "implement")]

@@ -1,45 +1,375 @@
-#[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdvertisingManagerForUser(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdvertisingManagerForUser {
+    type Vtable = IAdvertisingManagerForUser_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdvertisingManagerForUser_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AdvertisingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdvertisingManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics {
+    type Vtable = IAdvertisingManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd3468c_a273_48cb_b346_3544522d5581);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdvertisingManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AdvertisingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdvertisingManagerStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics2 {
+    type Vtable = IAdvertisingManagerStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdvertisingManagerStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAssignedAccessSettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAssignedAccessSettings {
+    type Vtable = IAssignedAccessSettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAssignedAccessSettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsSingleAppKioskMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAssignedAccessSettingsStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAssignedAccessSettingsStatics {
+    type Vtable = IAssignedAccessSettingsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAssignedAccessSettingsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDiagnosticsSettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDiagnosticsSettings {
+    type Vtable = IDiagnosticsSettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDiagnosticsSettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CanUseDiagnosticsToTailorExperiences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDiagnosticsSettingsStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDiagnosticsSettingsStatics {
+    type Vtable = IDiagnosticsSettingsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDiagnosticsSettingsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFirstSignInSettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IFirstSignInSettings {
+    type Vtable = IFirstSignInSettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFirstSignInSettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFirstSignInSettingsStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IFirstSignInSettingsStatics {
+    type Vtable = IFirstSignInSettingsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFirstSignInSettingsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalizationPreferencesForUser(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesForUser {
+    type Vtable = IGlobalizationPreferencesForUser_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalizationPreferencesForUser_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Calendars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Calendars: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Clocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Clocks: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Currencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Currencies: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Languages: usize,
+    pub HomeGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Globalization")]
+    pub WeekStartsOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Globalization::DayOfWeek) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Globalization"))]
+    WeekStartsOn: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalizationPreferencesStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics {
+    type Vtable = IGlobalizationPreferencesStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalizationPreferencesStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Calendars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Calendars: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Clocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Clocks: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Currencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Currencies: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Languages: usize,
+    pub HomeGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Globalization")]
+    pub WeekStartsOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Globalization::DayOfWeek) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Globalization"))]
+    WeekStartsOn: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalizationPreferencesStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics2 {
+    type Vtable = IGlobalizationPreferencesStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalizationPreferencesStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub TrySetHomeGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, region: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub TrySetLanguages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetags: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    TrySetLanguages: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGlobalizationPreferencesStatics3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics3 {
+    type Vtable = IGlobalizationPreferencesStatics3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGlobalizationPreferencesStatics3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ILockScreenImageFeedStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ILockScreenImageFeedStatics {
+    type Vtable = ILockScreenImageFeedStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILockScreenImageFeedStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub RequestSetImageFeedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syndicationfeeduri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestSetImageFeedAsync: usize,
+    pub TryRemoveImageFeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ILockScreenStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ILockScreenStatics {
+    type Vtable = ILockScreenStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ee9d3ad_b607_40ae_b426_7631d9821269);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILockScreenStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub OriginalImageFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    OriginalImageFile: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetImageStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetImageStream: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub SetImageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    SetImageFileAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub SetImageStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    SetImageStreamAsync: usize,
+}
+#[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AccountPictureKind(pub i32);
+pub struct IUserInformationStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-impl AccountPictureKind {
-    pub const SmallImage: Self = Self(0i32);
-    pub const LargeImage: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
+unsafe impl ::windows::core::Interface for IUserInformationStatics {
+    type Vtable = IUserInformationStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77f3a910_48fa_489c_934e_2ae85ba8f772);
 }
 #[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for AccountPictureKind {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for AccountPictureKind {
-    fn clone(&self) -> Self {
-        *self
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUserInformationStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub AccountPictureChangeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    AccountPictureChangeEnabled: usize,
+    #[cfg(feature = "deprecated")]
+    pub NameAccessAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    NameAccessAllowed: usize,
+    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    pub GetAccountPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: AccountPictureKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
+    GetAccountPicture: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
+    pub SetAccountPictureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))]
+    SetAccountPictureAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
+    pub SetAccountPicturesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smallimage: *mut ::core::ffi::c_void, largeimage: *mut ::core::ffi::c_void, video: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))]
+    SetAccountPicturesAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
+    pub SetAccountPictureFromStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
+    SetAccountPictureFromStreamAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
+    pub SetAccountPicturesFromStreamsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smallimage: *mut ::core::ffi::c_void, largeimage: *mut ::core::ffi::c_void, video: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
+    SetAccountPicturesFromStreamsAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub AccountPictureChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changehandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    AccountPictureChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveAccountPictureChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveAccountPictureChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetDisplayNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetDisplayNameAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetFirstNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetFirstNameAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetLastNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetLastNameAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetPrincipalNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetPrincipalNameAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetSessionInitiationProtocolUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetSessionInitiationProtocolUriAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetDomainNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetDomainNameAsync: usize,
 }
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for AccountPictureKind {
-    fn default() -> Self {
-        Self(0)
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IUserProfilePersonalizationSettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettings {
+    type Vtable = IUserProfilePersonalizationSettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 }
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for AccountPictureKind {
-    type Abi = Self;
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUserProfilePersonalizationSettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub TrySetLockScreenImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    TrySetLockScreenImageAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub TrySetWallpaperImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    TrySetWallpaperImageAsync: usize,
 }
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for AccountPictureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccountPictureKind").field(&self.0).finish()
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IUserProfilePersonalizationSettingsStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettingsStatics {
+    type Vtable = IUserProfilePersonalizationSettingsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91acb841_5037_454b_9883_bb772d08dd16);
 }
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for AccountPictureKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 pub struct AdvertisingManager;
@@ -764,379 +1094,6 @@ impl ::core::convert::From<&GlobalizationPreferencesForUser> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for GlobalizationPreferencesForUser {}
 unsafe impl ::core::marker::Sync for GlobalizationPreferencesForUser {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAdvertisingManagerForUser(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdvertisingManagerForUser {
-    type Vtable = IAdvertisingManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdvertisingManagerForUser_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AdvertisingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAdvertisingManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics {
-    type Vtable = IAdvertisingManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd3468c_a273_48cb_b346_3544522d5581);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdvertisingManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AdvertisingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAdvertisingManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics2 {
-    type Vtable = IAdvertisingManagerStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdvertisingManagerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAssignedAccessSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAssignedAccessSettings {
-    type Vtable = IAssignedAccessSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAssignedAccessSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsSingleAppKioskMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAssignedAccessSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAssignedAccessSettingsStatics {
-    type Vtable = IAssignedAccessSettingsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAssignedAccessSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDiagnosticsSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDiagnosticsSettings {
-    type Vtable = IDiagnosticsSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDiagnosticsSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CanUseDiagnosticsToTailorExperiences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDiagnosticsSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDiagnosticsSettingsStatics {
-    type Vtable = IDiagnosticsSettingsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDiagnosticsSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IFirstSignInSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFirstSignInSettings {
-    type Vtable = IFirstSignInSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFirstSignInSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IFirstSignInSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFirstSignInSettingsStatics {
-    type Vtable = IFirstSignInSettingsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFirstSignInSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalizationPreferencesForUser(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesForUser {
-    type Vtable = IGlobalizationPreferencesForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalizationPreferencesForUser_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Calendars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Calendars: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Clocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Clocks: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Currencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Currencies: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
-    pub HomeGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Globalization")]
-    pub WeekStartsOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Globalization::DayOfWeek) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Globalization"))]
-    WeekStartsOn: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalizationPreferencesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics {
-    type Vtable = IGlobalizationPreferencesStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Calendars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Calendars: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Clocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Clocks: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Currencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Currencies: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Languages: usize,
-    pub HomeGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Globalization")]
-    pub WeekStartsOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Globalization::DayOfWeek) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Globalization"))]
-    WeekStartsOn: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalizationPreferencesStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics2 {
-    type Vtable = IGlobalizationPreferencesStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub TrySetHomeGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, region: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub TrySetLanguages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetags: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    TrySetLanguages: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGlobalizationPreferencesStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics3 {
-    type Vtable = IGlobalizationPreferencesStatics3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ILockScreenImageFeedStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockScreenImageFeedStatics {
-    type Vtable = ILockScreenImageFeedStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ILockScreenImageFeedStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub RequestSetImageFeedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syndicationfeeduri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestSetImageFeedAsync: usize,
-    pub TryRemoveImageFeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ILockScreenStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockScreenStatics {
-    type Vtable = ILockScreenStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ee9d3ad_b607_40ae_b426_7631d9821269);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ILockScreenStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub OriginalImageFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OriginalImageFile: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetImageStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetImageStream: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub SetImageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
-    SetImageFileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub SetImageStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    SetImageStreamAsync: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct IUserInformationStatics(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IUserInformationStatics {
-    type Vtable = IUserInformationStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77f3a910_48fa_489c_934e_2ae85ba8f772);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct IUserInformationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub AccountPictureChangeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AccountPictureChangeEnabled: usize,
-    #[cfg(feature = "deprecated")]
-    pub NameAccessAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    NameAccessAllowed: usize,
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
-    pub GetAccountPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: AccountPictureKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
-    GetAccountPicture: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub SetAccountPictureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))]
-    SetAccountPictureAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub SetAccountPicturesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smallimage: *mut ::core::ffi::c_void, largeimage: *mut ::core::ffi::c_void, video: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))]
-    SetAccountPicturesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetAccountPictureFromStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
-    SetAccountPictureFromStreamAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetAccountPicturesFromStreamsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smallimage: *mut ::core::ffi::c_void, largeimage: *mut ::core::ffi::c_void, video: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
-    SetAccountPicturesFromStreamsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub AccountPictureChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changehandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    AccountPictureChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveAccountPictureChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveAccountPictureChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetDisplayNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetDisplayNameAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetFirstNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetFirstNameAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetLastNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetLastNameAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetPrincipalNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetPrincipalNameAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetSessionInitiationProtocolUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetSessionInitiationProtocolUriAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetDomainNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetDomainNameAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IUserProfilePersonalizationSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettings {
-    type Vtable = IUserProfilePersonalizationSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IUserProfilePersonalizationSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub TrySetLockScreenImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
-    TrySetLockScreenImageAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub TrySetWallpaperImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
-    TrySetWallpaperImageAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IUserProfilePersonalizationSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettingsStatics {
-    type Vtable = IUserProfilePersonalizationSettingsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91acb841_5037_454b_9883_bb772d08dd16);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 pub struct LockScreen;
 impl LockScreen {
@@ -1210,87 +1167,6 @@ impl LockScreen {
 }
 impl ::windows::core::RuntimeName for LockScreen {
     const NAME: &'static str = "Windows.System.UserProfile.LockScreen";
-}
-#[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SetAccountPictureResult(pub i32);
-#[cfg(feature = "deprecated")]
-impl SetAccountPictureResult {
-    pub const Success: Self = Self(0i32);
-    pub const ChangeDisabled: Self = Self(1i32);
-    pub const LargeOrDynamicError: Self = Self(2i32);
-    pub const VideoFrameSizeError: Self = Self(3i32);
-    pub const FileSizeError: Self = Self(4i32);
-    pub const Failure: Self = Self(5i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SetAccountPictureResult {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SetAccountPictureResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SetAccountPictureResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for SetAccountPictureResult {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SetAccountPictureResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetAccountPictureResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_UserProfile\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SetImageFeedResult(pub i32);
-impl SetImageFeedResult {
-    pub const Success: Self = Self(0i32);
-    pub const ChangeDisabled: Self = Self(1i32);
-    pub const UserCanceled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SetImageFeedResult {}
-impl ::core::clone::Clone for SetImageFeedResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SetImageFeedResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SetImageFeedResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SetImageFeedResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetImageFeedResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SetImageFeedResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -1560,5 +1436,129 @@ impl ::core::convert::From<&UserProfilePersonalizationSettings> for &::windows::
 }
 unsafe impl ::core::marker::Send for UserProfilePersonalizationSettings {}
 unsafe impl ::core::marker::Sync for UserProfilePersonalizationSettings {}
+#[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AccountPictureKind(pub i32);
+#[cfg(feature = "deprecated")]
+impl AccountPictureKind {
+    pub const SmallImage: Self = Self(0i32);
+    pub const LargeImage: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for AccountPictureKind {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for AccountPictureKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for AccountPictureKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for AccountPictureKind {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for AccountPictureKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccountPictureKind").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for AccountPictureKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SetAccountPictureResult(pub i32);
+#[cfg(feature = "deprecated")]
+impl SetAccountPictureResult {
+    pub const Success: Self = Self(0i32);
+    pub const ChangeDisabled: Self = Self(1i32);
+    pub const LargeOrDynamicError: Self = Self(2i32);
+    pub const VideoFrameSizeError: Self = Self(3i32);
+    pub const FileSizeError: Self = Self(4i32);
+    pub const Failure: Self = Self(5i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for SetAccountPictureResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for SetAccountPictureResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SetAccountPictureResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for SetAccountPictureResult {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SetAccountPictureResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetAccountPictureResult").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_UserProfile\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SetImageFeedResult(pub i32);
+impl SetImageFeedResult {
+    pub const Success: Self = Self(0i32);
+    pub const ChangeDisabled: Self = Self(1i32);
+    pub const UserCanceled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SetImageFeedResult {}
+impl ::core::clone::Clone for SetImageFeedResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SetImageFeedResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SetImageFeedResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SetImageFeedResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetImageFeedResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SetImageFeedResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

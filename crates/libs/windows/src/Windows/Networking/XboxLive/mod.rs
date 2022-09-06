@@ -664,68 +664,6 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
-impl XboxLiveEndpointPairCreationBehaviors {
-    pub const None: Self = Self(0u32);
-    pub const ReevaluatePath: Self = Self(1u32);
-}
-impl ::core::marker::Copy for XboxLiveEndpointPairCreationBehaviors {}
-impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveEndpointPairCreationBehaviors {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationBehaviors {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XboxLiveEndpointPairCreationBehaviors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairCreationBehaviors").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for XboxLiveEndpointPairCreationBehaviors {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for XboxLiveEndpointPairCreationBehaviors {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for XboxLiveEndpointPairCreationBehaviors {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for XboxLiveEndpointPairCreationBehaviors {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for XboxLiveEndpointPairCreationBehaviors {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationBehaviors {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-#[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationResult(::windows::core::IUnknown);
 impl XboxLiveEndpointPairCreationResult {
     pub fn DeviceAddress(&self) -> ::windows::core::Result<XboxLiveDeviceAddress> {
@@ -819,86 +757,6 @@ impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for &::windows::
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
-#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XboxLiveEndpointPairCreationStatus(pub i32);
-impl XboxLiveEndpointPairCreationStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const NoLocalNetworks: Self = Self(1i32);
-    pub const NoCompatibleNetworkPaths: Self = Self(2i32);
-    pub const LocalSystemNotAuthorized: Self = Self(3i32);
-    pub const Canceled: Self = Self(4i32);
-    pub const TimedOut: Self = Self(5i32);
-    pub const RemoteSystemNotAuthorized: Self = Self(6i32);
-    pub const RefusedDueToConfiguration: Self = Self(7i32);
-    pub const UnexpectedInternalError: Self = Self(8i32);
-}
-impl ::core::marker::Copy for XboxLiveEndpointPairCreationStatus {}
-impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveEndpointPairCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XboxLiveEndpointPairCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairCreationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XboxLiveEndpointPairState(pub i32);
-impl XboxLiveEndpointPairState {
-    pub const Invalid: Self = Self(0i32);
-    pub const CreatingOutbound: Self = Self(1i32);
-    pub const CreatingInbound: Self = Self(2i32);
-    pub const Ready: Self = Self(3i32);
-    pub const DeletingLocally: Self = Self(4i32);
-    pub const RemoteEndpointTerminating: Self = Self(5i32);
-    pub const Deleted: Self = Self(6i32);
-}
-impl ::core::marker::Copy for XboxLiveEndpointPairState {}
-impl ::core::clone::Clone for XboxLiveEndpointPairState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveEndpointPairState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XboxLiveEndpointPairState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XboxLiveEndpointPairState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(::windows::core::IUnknown);
@@ -1259,41 +1117,6 @@ unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs
 unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XboxLiveNetworkAccessKind(pub i32);
-impl XboxLiveNetworkAccessKind {
-    pub const Open: Self = Self(0i32);
-    pub const Moderate: Self = Self(1i32);
-    pub const Strict: Self = Self(2i32);
-}
-impl ::core::marker::Copy for XboxLiveNetworkAccessKind {}
-impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveNetworkAccessKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XboxLiveNetworkAccessKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XboxLiveNetworkAccessKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveNetworkAccessKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for XboxLiveNetworkAccessKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-#[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurement(::windows::core::IUnknown);
 impl XboxLiveQualityOfServiceMeasurement {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1555,91 +1378,6 @@ unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
-impl XboxLiveQualityOfServiceMeasurementStatus {
-    pub const NotStarted: Self = Self(0i32);
-    pub const InProgress: Self = Self(1i32);
-    pub const InProgressWithProvisionalResults: Self = Self(2i32);
-    pub const Succeeded: Self = Self(3i32);
-    pub const NoLocalNetworks: Self = Self(4i32);
-    pub const NoCompatibleNetworkPaths: Self = Self(5i32);
-    pub const LocalSystemNotAuthorized: Self = Self(6i32);
-    pub const Canceled: Self = Self(7i32);
-    pub const TimedOut: Self = Self(8i32);
-    pub const RemoteSystemNotAuthorized: Self = Self(9i32);
-    pub const RefusedDueToConfiguration: Self = Self(10i32);
-    pub const UnexpectedInternalError: Self = Self(11i32);
-}
-impl ::core::marker::Copy for XboxLiveQualityOfServiceMeasurementStatus {}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveQualityOfServiceMeasurementStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMeasurementStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurementStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveQualityOfServiceMeasurementStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XboxLiveQualityOfServiceMetric(pub i32);
-impl XboxLiveQualityOfServiceMetric {
-    pub const AverageLatencyInMilliseconds: Self = Self(0i32);
-    pub const MinLatencyInMilliseconds: Self = Self(1i32);
-    pub const MaxLatencyInMilliseconds: Self = Self(2i32);
-    pub const AverageOutboundBitsPerSecond: Self = Self(3i32);
-    pub const MinOutboundBitsPerSecond: Self = Self(4i32);
-    pub const MaxOutboundBitsPerSecond: Self = Self(5i32);
-    pub const AverageInboundBitsPerSecond: Self = Self(6i32);
-    pub const MinInboundBitsPerSecond: Self = Self(7i32);
-    pub const MaxInboundBitsPerSecond: Self = Self(8i32);
-}
-impl ::core::marker::Copy for XboxLiveQualityOfServiceMetric {}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveQualityOfServiceMetric {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMetric {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetric {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveQualityOfServiceMetric").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetric {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-#[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetricResult(::windows::core::IUnknown);
 impl XboxLiveQualityOfServiceMetricResult {
     pub fn Status(&self) -> ::windows::core::Result<XboxLiveQualityOfServiceMeasurementStatus> {
@@ -1823,6 +1561,268 @@ impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for &:
 }
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
+#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
+impl XboxLiveEndpointPairCreationBehaviors {
+    pub const None: Self = Self(0u32);
+    pub const ReevaluatePath: Self = Self(1u32);
+}
+impl ::core::marker::Copy for XboxLiveEndpointPairCreationBehaviors {}
+impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XboxLiveEndpointPairCreationBehaviors {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationBehaviors {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XboxLiveEndpointPairCreationBehaviors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairCreationBehaviors").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for XboxLiveEndpointPairCreationBehaviors {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for XboxLiveEndpointPairCreationBehaviors {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for XboxLiveEndpointPairCreationBehaviors {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for XboxLiveEndpointPairCreationBehaviors {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for XboxLiveEndpointPairCreationBehaviors {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationBehaviors {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XboxLiveEndpointPairCreationStatus(pub i32);
+impl XboxLiveEndpointPairCreationStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const NoLocalNetworks: Self = Self(1i32);
+    pub const NoCompatibleNetworkPaths: Self = Self(2i32);
+    pub const LocalSystemNotAuthorized: Self = Self(3i32);
+    pub const Canceled: Self = Self(4i32);
+    pub const TimedOut: Self = Self(5i32);
+    pub const RemoteSystemNotAuthorized: Self = Self(6i32);
+    pub const RefusedDueToConfiguration: Self = Self(7i32);
+    pub const UnexpectedInternalError: Self = Self(8i32);
+}
+impl ::core::marker::Copy for XboxLiveEndpointPairCreationStatus {}
+impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XboxLiveEndpointPairCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XboxLiveEndpointPairCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairCreationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XboxLiveEndpointPairState(pub i32);
+impl XboxLiveEndpointPairState {
+    pub const Invalid: Self = Self(0i32);
+    pub const CreatingOutbound: Self = Self(1i32);
+    pub const CreatingInbound: Self = Self(2i32);
+    pub const Ready: Self = Self(3i32);
+    pub const DeletingLocally: Self = Self(4i32);
+    pub const RemoteEndpointTerminating: Self = Self(5i32);
+    pub const Deleted: Self = Self(6i32);
+}
+impl ::core::marker::Copy for XboxLiveEndpointPairState {}
+impl ::core::clone::Clone for XboxLiveEndpointPairState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XboxLiveEndpointPairState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XboxLiveEndpointPairState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XboxLiveEndpointPairState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XboxLiveNetworkAccessKind(pub i32);
+impl XboxLiveNetworkAccessKind {
+    pub const Open: Self = Self(0i32);
+    pub const Moderate: Self = Self(1i32);
+    pub const Strict: Self = Self(2i32);
+}
+impl ::core::marker::Copy for XboxLiveNetworkAccessKind {}
+impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XboxLiveNetworkAccessKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XboxLiveNetworkAccessKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XboxLiveNetworkAccessKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveNetworkAccessKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for XboxLiveNetworkAccessKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
+impl XboxLiveQualityOfServiceMeasurementStatus {
+    pub const NotStarted: Self = Self(0i32);
+    pub const InProgress: Self = Self(1i32);
+    pub const InProgressWithProvisionalResults: Self = Self(2i32);
+    pub const Succeeded: Self = Self(3i32);
+    pub const NoLocalNetworks: Self = Self(4i32);
+    pub const NoCompatibleNetworkPaths: Self = Self(5i32);
+    pub const LocalSystemNotAuthorized: Self = Self(6i32);
+    pub const Canceled: Self = Self(7i32);
+    pub const TimedOut: Self = Self(8i32);
+    pub const RemoteSystemNotAuthorized: Self = Self(9i32);
+    pub const RefusedDueToConfiguration: Self = Self(10i32);
+    pub const UnexpectedInternalError: Self = Self(11i32);
+}
+impl ::core::marker::Copy for XboxLiveQualityOfServiceMeasurementStatus {}
+impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XboxLiveQualityOfServiceMeasurementStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMeasurementStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurementStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMeasurementStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_XboxLive\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XboxLiveQualityOfServiceMetric(pub i32);
+impl XboxLiveQualityOfServiceMetric {
+    pub const AverageLatencyInMilliseconds: Self = Self(0i32);
+    pub const MinLatencyInMilliseconds: Self = Self(1i32);
+    pub const MaxLatencyInMilliseconds: Self = Self(2i32);
+    pub const AverageOutboundBitsPerSecond: Self = Self(3i32);
+    pub const MinOutboundBitsPerSecond: Self = Self(4i32);
+    pub const MaxOutboundBitsPerSecond: Self = Self(5i32);
+    pub const AverageInboundBitsPerSecond: Self = Self(6i32);
+    pub const MinInboundBitsPerSecond: Self = Self(7i32);
+    pub const MaxInboundBitsPerSecond: Self = Self(8i32);
+}
+impl ::core::marker::Copy for XboxLiveQualityOfServiceMetric {}
+impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XboxLiveQualityOfServiceMetric {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMetric {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetric {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMetric").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetric {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

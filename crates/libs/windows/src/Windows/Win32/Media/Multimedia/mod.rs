@@ -1,231 +1,125 @@
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACMDM_BASE: u32 = 24576u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_COPYRIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_DUALCHANNEL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_ID_MPEG1: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_JOINTSTEREO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_LAYER1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_LAYER2: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_LAYER3: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_ORIGINALHOME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_PRIVATEBIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_PROTECTIONBIT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_SINGLECHANNEL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const ACM_MPEG_STEREO: u32 = 1u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct ADPCMCOEFSET {
-    pub iCoef1: i16,
-    pub iCoef2: i16,
-}
-impl ::core::marker::Copy for ADPCMCOEFSET {}
-impl ::core::clone::Clone for ADPCMCOEFSET {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AVISaveA<'a, P0, P1>(szfile: P0, pclsidhandler: ::core::option::Option<&::windows::core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: &AVICOMPRESSOPTIONS) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn AVISaveA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
+    AVISaveA(szfile.into(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), nstreams, pfile.into().abi(), ::core::mem::transmute(lpoptions)).ok()
 }
-unsafe impl ::windows::core::Abi for ADPCMCOEFSET {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADPCMCOEFSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMCOEFSET>()) == 0 }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AVISaveW<'a, P0, P1>(szfile: P0, pclsidhandler: ::core::option::Option<&::windows::core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: &AVICOMPRESSOPTIONS) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn AVISaveW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
+    AVISaveW(szfile.into(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), nstreams, pfile.into().abi(), ::core::mem::transmute(lpoptions)).ok()
 }
-impl ::core::cmp::Eq for ADPCMCOEFSET {}
-impl ::core::default::Default for ADPCMCOEFSET {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICCompress<'a, P0>(hic: P0, dwflags: u32, lpbioutput: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: ::core::option::Option<&mut u32>, lpdwflags: ::core::option::Option<&mut u32>, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpprev: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
     }
+    ICCompress(hic.into(), dwflags, ::core::mem::transmute(lpbioutput), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbiinput), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpckid), ::core::mem::transmute(lpdwflags), lframenum, dwframesize, dwquality, ::core::mem::transmute(lpbiprev), ::core::mem::transmute(lpprev))
 }
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct ADPCMEWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for ADPCMEWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for ADPCMEWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICDecompress<'a, P0>(hic: P0, dwflags: u32, lpbiformat: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32;
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for ADPCMEWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for ADPCMEWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMEWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for ADPCMEWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for ADPCMEWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct ADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-    pub wNumCoef: u16,
-    pub aCoef: [ADPCMCOEFSET; 1],
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for ADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for ADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for ADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct APTXWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for APTXWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for APTXWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for APTXWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for APTXWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APTXWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for APTXWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for APTXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct AUDIOFILE_AF10WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for AUDIOFILE_AF10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for AUDIOFILE_AF10WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for AUDIOFILE_AF10WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for AUDIOFILE_AF10WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIOFILE_AF10WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for AUDIOFILE_AF10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for AUDIOFILE_AF10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct AUDIOFILE_AF36WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for AUDIOFILE_AF36WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for AUDIOFILE_AF36WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for AUDIOFILE_AF36WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for AUDIOFILE_AF36WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIOFILE_AF36WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for AUDIOFILE_AF36WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for AUDIOFILE_AF36WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    ICDecompress(hic.into(), dwflags, ::core::mem::transmute(lpbiformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AUXDM_GETDEVCAPS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AUXDM_GETNUMDEVS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AUXDM_GETVOLUME: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AUXDM_SETVOLUME: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AUXM_INIT: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AUXM_INIT_EX: u32 = 104u32;
+#[inline]
+pub unsafe fn ICDraw<'a, P0>(hic: P0, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: ::core::option::Option<&[u8]>, ltime: i32) -> u32
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
+    }
+    ICDraw(hic.into(), dwflags, ::core::mem::transmute(lpformat), ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _), ltime)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ICDrawBegin<'a, P0, P1, P2, P3>(hic: P0, dwflags: u32, hpal: P1, hwnd: P2, hdc: P3, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: &super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32
+where
+    P0: ::std::convert::Into<HIC>,
+    P1: ::std::convert::Into<super::super::Graphics::Gdi::HPALETTE>,
+    P2: ::std::convert::Into<super::super::Foundation::HWND>,
+    P3: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
+    }
+    ICDrawBegin(hic.into(), dwflags, hpal.into(), hwnd.into(), hdc.into(), xdst, ydst, dxdst, dydst, ::core::mem::transmute(lpbi), xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn MCIWndCreateA<'a, P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn MCIWndCreateA(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::HWND;
+    }
+    MCIWndCreateA(hwndparent.into(), hinstance.into(), dwstyle, szfile.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn MCIWndCreateW<'a, P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn MCIWndCreateW(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::HWND;
+    }
+    MCIWndCreateW(hwndparent.into(), hinstance.into(), dwstyle, szfile.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
+    }
+    MCIWndRegisterClass()
+}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -253,54 +147,6 @@ where
     AVIBuildFilterW(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len() as _, fsaving.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVICOMPRESSF_DATARATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVICOMPRESSF_INTERLEAVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVICOMPRESSF_KEYFRAMES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVICOMPRESSF_VALID: u32 = 8u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct AVICOMPRESSOPTIONS {
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwKeyFrameEvery: u32,
-    pub dwQuality: u32,
-    pub dwBytesPerSecond: u32,
-    pub dwFlags: u32,
-    pub lpFormat: *mut ::core::ffi::c_void,
-    pub cbFormat: u32,
-    pub lpParms: *mut ::core::ffi::c_void,
-    pub cbParms: u32,
-    pub dwInterleaveEvery: u32,
-}
-impl ::core::marker::Copy for AVICOMPRESSOPTIONS {}
-impl ::core::clone::Clone for AVICOMPRESSOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AVICOMPRESSOPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVICOMPRESSOPTIONS").field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwKeyFrameEvery", &self.dwKeyFrameEvery).field("dwQuality", &self.dwQuality).field("dwBytesPerSecond", &self.dwBytesPerSecond).field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("cbFormat", &self.cbFormat).field("lpParms", &self.lpParms).field("cbParms", &self.cbParms).field("dwInterleaveEvery", &self.dwInterleaveEvery).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AVICOMPRESSOPTIONS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AVICOMPRESSOPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVICOMPRESSOPTIONS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AVICOMPRESSOPTIONS {}
-impl ::core::default::Default for AVICOMPRESSOPTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIClearClipboard() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -309,148 +155,6 @@ pub unsafe fn AVIClearClipboard() -> ::windows::core::Result<()> {
     }
     AVIClearClipboard().ok()
 }
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIERR_OK: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILECAPS_ALLKEYFRAMES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILECAPS_CANREAD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILECAPS_CANWRITE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILECAPS_NOCOMPRESSION: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEHANDLER_CANACCEPTNONRGB: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEHANDLER_CANREAD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEHANDLER_CANWRITE: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct AVIFILEINFOA {
-    pub dwMaxBytesPerSec: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub dwStreams: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwLength: u32,
-    pub dwEditCount: u32,
-    pub szFileType: [super::super::Foundation::CHAR; 64],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AVIFILEINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AVIFILEINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AVIFILEINFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVIFILEINFOA")
-            .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwStreams", &self.dwStreams)
-            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwScale", &self.dwScale)
-            .field("dwRate", &self.dwRate)
-            .field("dwLength", &self.dwLength)
-            .field("dwEditCount", &self.dwEditCount)
-            .field("szFileType", &self.szFileType)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AVIFILEINFOA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AVIFILEINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVIFILEINFOA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AVIFILEINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AVIFILEINFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct AVIFILEINFOW {
-    pub dwMaxBytesPerSec: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub dwStreams: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwLength: u32,
-    pub dwEditCount: u32,
-    pub szFileType: [u16; 64],
-}
-impl ::core::marker::Copy for AVIFILEINFOW {}
-impl ::core::clone::Clone for AVIFILEINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AVIFILEINFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVIFILEINFOW")
-            .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwStreams", &self.dwStreams)
-            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwScale", &self.dwScale)
-            .field("dwRate", &self.dwRate)
-            .field("dwLength", &self.dwLength)
-            .field("dwEditCount", &self.dwEditCount)
-            .field("szFileType", &self.szFileType)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AVIFILEINFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AVIFILEINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVIFILEINFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AVIFILEINFOW {}
-impl ::core::default::Default for AVIFILEINFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEINFO_COPYRIGHTED: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEINFO_HASINDEX: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEINFO_ISINTERLEAVED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEINFO_MUSTUSEINDEX: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileAddRef<'a, P0>(pfile: P0) -> u32
@@ -617,8 +321,6 @@ where
     AVIFileWriteData(pfile.into().abi(), ckid, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -628,10 +330,6 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     AVIGetFromClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIFile>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIIF_CONTROLFRAME: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVIIF_TWOCC: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIMakeCompressedStream<'a, P0>(ppscompressed: &mut ::core::option::Option<IAVIStream>, ppssource: P0, lpoptions: &AVICOMPRESSOPTIONS, pclsidhandler: ::core::option::Option<&::windows::core::GUID>) -> ::windows::core::Result<()>
@@ -681,177 +379,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type AVISAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct AVISTREAMINFOA {
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub wPriority: u16,
-    pub wLanguage: u16,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwStart: u32,
-    pub dwLength: u32,
-    pub dwInitialFrames: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwQuality: u32,
-    pub dwSampleSize: u32,
-    pub rcFrame: super::super::Foundation::RECT,
-    pub dwEditCount: u32,
-    pub dwFormatChangeCount: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AVISTREAMINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AVISTREAMINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AVISTREAMINFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVISTREAMINFOA")
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwCaps", &self.dwCaps)
-            .field("wPriority", &self.wPriority)
-            .field("wLanguage", &self.wLanguage)
-            .field("dwScale", &self.dwScale)
-            .field("dwRate", &self.dwRate)
-            .field("dwStart", &self.dwStart)
-            .field("dwLength", &self.dwLength)
-            .field("dwInitialFrames", &self.dwInitialFrames)
-            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
-            .field("dwQuality", &self.dwQuality)
-            .field("dwSampleSize", &self.dwSampleSize)
-            .field("rcFrame", &self.rcFrame)
-            .field("dwEditCount", &self.dwEditCount)
-            .field("dwFormatChangeCount", &self.dwFormatChangeCount)
-            .field("szName", &self.szName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AVISTREAMINFOA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AVISTREAMINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVISTREAMINFOA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AVISTREAMINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AVISTREAMINFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct AVISTREAMINFOW {
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwFlags: u32,
-    pub dwCaps: u32,
-    pub wPriority: u16,
-    pub wLanguage: u16,
-    pub dwScale: u32,
-    pub dwRate: u32,
-    pub dwStart: u32,
-    pub dwLength: u32,
-    pub dwInitialFrames: u32,
-    pub dwSuggestedBufferSize: u32,
-    pub dwQuality: u32,
-    pub dwSampleSize: u32,
-    pub rcFrame: super::super::Foundation::RECT,
-    pub dwEditCount: u32,
-    pub dwFormatChangeCount: u32,
-    pub szName: [u16; 64],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AVISTREAMINFOW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AVISTREAMINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AVISTREAMINFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVISTREAMINFOW")
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwCaps", &self.dwCaps)
-            .field("wPriority", &self.wPriority)
-            .field("wLanguage", &self.wLanguage)
-            .field("dwScale", &self.dwScale)
-            .field("dwRate", &self.dwRate)
-            .field("dwStart", &self.dwStart)
-            .field("dwLength", &self.dwLength)
-            .field("dwInitialFrames", &self.dwInitialFrames)
-            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
-            .field("dwQuality", &self.dwQuality)
-            .field("dwSampleSize", &self.dwSampleSize)
-            .field("rcFrame", &self.rcFrame)
-            .field("dwEditCount", &self.dwEditCount)
-            .field("dwFormatChangeCount", &self.dwFormatChangeCount)
-            .field("szName", &self.szName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AVISTREAMINFOW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AVISTREAMINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVISTREAMINFOW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AVISTREAMINFOW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AVISTREAMINFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVISTREAMINFO_DISABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn AVISaveA<'a, P0, P1>(szfile: P0, pclsidhandler: ::core::option::Option<&::windows::core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: &AVICOMPRESSOPTIONS) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn AVISaveA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
-    }
-    AVISaveA(szfile.into(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), nstreams, pfile.into().abi(), ::core::mem::transmute(lpoptions)).ok()
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveOptions<'a, P0>(hwnd: P0, uiflags: u32, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize
 where
@@ -897,20 +424,6 @@ where
         fn AVISaveVW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
     AVISaveVW(szfile.into(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn AVISaveW<'a, P0, P1>(szfile: P0, pclsidhandler: ::core::option::Option<&::windows::core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: &AVICOMPRESSOPTIONS) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn AVISaveW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
-    }
-    AVISaveW(szfile.into(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), nstreams, pfile.into().abi(), ::core::mem::transmute(lpoptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -1188,601 +701,6 @@ where
     }
     AVIStreamWriteData(pavi.into().abi(), fcc, ::core::mem::transmute(lp.as_ptr()), lp.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const AVSTREAMMASTER_NONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const BI_1632: u32 = 842217009u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPCONTROLCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CAPDRIVERCAPS {
-    pub wDeviceIndex: u32,
-    pub fHasOverlay: super::super::Foundation::BOOL,
-    pub fHasDlgVideoSource: super::super::Foundation::BOOL,
-    pub fHasDlgVideoFormat: super::super::Foundation::BOOL,
-    pub fHasDlgVideoDisplay: super::super::Foundation::BOOL,
-    pub fCaptureInitialized: super::super::Foundation::BOOL,
-    pub fDriverSuppliesPalettes: super::super::Foundation::BOOL,
-    pub hVideoIn: super::super::Foundation::HANDLE,
-    pub hVideoOut: super::super::Foundation::HANDLE,
-    pub hVideoExtIn: super::super::Foundation::HANDLE,
-    pub hVideoExtOut: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CAPDRIVERCAPS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CAPDRIVERCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CAPDRIVERCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAPDRIVERCAPS")
-            .field("wDeviceIndex", &self.wDeviceIndex)
-            .field("fHasOverlay", &self.fHasOverlay)
-            .field("fHasDlgVideoSource", &self.fHasDlgVideoSource)
-            .field("fHasDlgVideoFormat", &self.fHasDlgVideoFormat)
-            .field("fHasDlgVideoDisplay", &self.fHasDlgVideoDisplay)
-            .field("fCaptureInitialized", &self.fCaptureInitialized)
-            .field("fDriverSuppliesPalettes", &self.fDriverSuppliesPalettes)
-            .field("hVideoIn", &self.hVideoIn)
-            .field("hVideoOut", &self.hVideoOut)
-            .field("hVideoExtIn", &self.hVideoExtIn)
-            .field("hVideoExtOut", &self.hVideoExtOut)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAPDRIVERCAPS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CAPDRIVERCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPDRIVERCAPS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CAPDRIVERCAPS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CAPDRIVERCAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCWSTR) -> super::super::Foundation::LRESULT>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct CAPINFOCHUNK {
-    pub fccInfoID: u32,
-    pub lpData: *mut ::core::ffi::c_void,
-    pub cbData: i32,
-}
-impl ::core::marker::Copy for CAPINFOCHUNK {}
-impl ::core::clone::Clone for CAPINFOCHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAPINFOCHUNK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAPINFOCHUNK").field("fccInfoID", &self.fccInfoID).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAPINFOCHUNK {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAPINFOCHUNK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPINFOCHUNK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAPINFOCHUNK {}
-impl ::core::default::Default for CAPINFOCHUNK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct CAPSTATUS {
-    pub uiImageWidth: u32,
-    pub uiImageHeight: u32,
-    pub fLiveWindow: super::super::Foundation::BOOL,
-    pub fOverlayWindow: super::super::Foundation::BOOL,
-    pub fScale: super::super::Foundation::BOOL,
-    pub ptScroll: super::super::Foundation::POINT,
-    pub fUsingDefaultPalette: super::super::Foundation::BOOL,
-    pub fAudioHardware: super::super::Foundation::BOOL,
-    pub fCapFileExists: super::super::Foundation::BOOL,
-    pub dwCurrentVideoFrame: u32,
-    pub dwCurrentVideoFramesDropped: u32,
-    pub dwCurrentWaveSamples: u32,
-    pub dwCurrentTimeElapsedMS: u32,
-    pub hPalCurrent: super::super::Graphics::Gdi::HPALETTE,
-    pub fCapturingNow: super::super::Foundation::BOOL,
-    pub dwReturn: u32,
-    pub wNumVideoAllocated: u32,
-    pub wNumAudioAllocated: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for CAPSTATUS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for CAPSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for CAPSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAPSTATUS")
-            .field("uiImageWidth", &self.uiImageWidth)
-            .field("uiImageHeight", &self.uiImageHeight)
-            .field("fLiveWindow", &self.fLiveWindow)
-            .field("fOverlayWindow", &self.fOverlayWindow)
-            .field("fScale", &self.fScale)
-            .field("ptScroll", &self.ptScroll)
-            .field("fUsingDefaultPalette", &self.fUsingDefaultPalette)
-            .field("fAudioHardware", &self.fAudioHardware)
-            .field("fCapFileExists", &self.fCapFileExists)
-            .field("dwCurrentVideoFrame", &self.dwCurrentVideoFrame)
-            .field("dwCurrentVideoFramesDropped", &self.dwCurrentVideoFramesDropped)
-            .field("dwCurrentWaveSamples", &self.dwCurrentWaveSamples)
-            .field("dwCurrentTimeElapsedMS", &self.dwCurrentTimeElapsedMS)
-            .field("hPalCurrent", &self.hPalCurrent)
-            .field("fCapturingNow", &self.fCapturingNow)
-            .field("dwReturn", &self.dwReturn)
-            .field("wNumVideoAllocated", &self.wNumVideoAllocated)
-            .field("wNumAudioAllocated", &self.wNumAudioAllocated)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CAPSTATUS {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CAPSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPSTATUS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CAPSTATUS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CAPSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCWSTR) -> super::super::Foundation::LRESULT>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CAPTUREPARMS {
-    pub dwRequestMicroSecPerFrame: u32,
-    pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
-    pub wPercentDropForError: u32,
-    pub fYield: super::super::Foundation::BOOL,
-    pub dwIndexSize: u32,
-    pub wChunkGranularity: u32,
-    pub fUsingDOSMemory: super::super::Foundation::BOOL,
-    pub wNumVideoRequested: u32,
-    pub fCaptureAudio: super::super::Foundation::BOOL,
-    pub wNumAudioRequested: u32,
-    pub vKeyAbort: u32,
-    pub fAbortLeftMouse: super::super::Foundation::BOOL,
-    pub fAbortRightMouse: super::super::Foundation::BOOL,
-    pub fLimitEnabled: super::super::Foundation::BOOL,
-    pub wTimeLimit: u32,
-    pub fMCIControl: super::super::Foundation::BOOL,
-    pub fStepMCIDevice: super::super::Foundation::BOOL,
-    pub dwMCIStartTime: u32,
-    pub dwMCIStopTime: u32,
-    pub fStepCaptureAt2x: super::super::Foundation::BOOL,
-    pub wStepCaptureAverageFrames: u32,
-    pub dwAudioBufferSize: u32,
-    pub fDisableWriteCache: super::super::Foundation::BOOL,
-    pub AVStreamMaster: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CAPTUREPARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CAPTUREPARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CAPTUREPARMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAPTUREPARMS")
-            .field("dwRequestMicroSecPerFrame", &self.dwRequestMicroSecPerFrame)
-            .field("fMakeUserHitOKToCapture", &self.fMakeUserHitOKToCapture)
-            .field("wPercentDropForError", &self.wPercentDropForError)
-            .field("fYield", &self.fYield)
-            .field("dwIndexSize", &self.dwIndexSize)
-            .field("wChunkGranularity", &self.wChunkGranularity)
-            .field("fUsingDOSMemory", &self.fUsingDOSMemory)
-            .field("wNumVideoRequested", &self.wNumVideoRequested)
-            .field("fCaptureAudio", &self.fCaptureAudio)
-            .field("wNumAudioRequested", &self.wNumAudioRequested)
-            .field("vKeyAbort", &self.vKeyAbort)
-            .field("fAbortLeftMouse", &self.fAbortLeftMouse)
-            .field("fAbortRightMouse", &self.fAbortRightMouse)
-            .field("fLimitEnabled", &self.fLimitEnabled)
-            .field("wTimeLimit", &self.wTimeLimit)
-            .field("fMCIControl", &self.fMCIControl)
-            .field("fStepMCIDevice", &self.fStepMCIDevice)
-            .field("dwMCIStartTime", &self.dwMCIStartTime)
-            .field("dwMCIStopTime", &self.dwMCIStopTime)
-            .field("fStepCaptureAt2x", &self.fStepCaptureAt2x)
-            .field("wStepCaptureAverageFrames", &self.wStepCaptureAverageFrames)
-            .field("dwAudioBufferSize", &self.dwAudioBufferSize)
-            .field("fDisableWriteCache", &self.fDisableWriteCache)
-            .field("AVStreamMaster", &self.AVStreamMaster)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAPTUREPARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CAPTUREPARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPTUREPARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CAPTUREPARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CAPTUREPARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
-pub type CAPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPYIELDCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct CHANNEL_CAPS {
-    pub dwFlags: u32,
-    pub dwSrcRectXMod: u32,
-    pub dwSrcRectYMod: u32,
-    pub dwSrcRectWidthMod: u32,
-    pub dwSrcRectHeightMod: u32,
-    pub dwDstRectXMod: u32,
-    pub dwDstRectYMod: u32,
-    pub dwDstRectWidthMod: u32,
-    pub dwDstRectHeightMod: u32,
-}
-impl ::core::marker::Copy for CHANNEL_CAPS {}
-impl ::core::clone::Clone for CHANNEL_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CHANNEL_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHANNEL_CAPS").field("dwFlags", &self.dwFlags).field("dwSrcRectXMod", &self.dwSrcRectXMod).field("dwSrcRectYMod", &self.dwSrcRectYMod).field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod).field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod).field("dwDstRectXMod", &self.dwDstRectXMod).field("dwDstRectYMod", &self.dwDstRectYMod).field("dwDstRectWidthMod", &self.dwDstRectWidthMod).field("dwDstRectHeightMod", &self.dwDstRectHeightMod).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CHANNEL_CAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CHANNEL_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_CAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CHANNEL_CAPS {}
-impl ::core::default::Default for CHANNEL_CAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const CLSID_AVIFile: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020000_0000_0000_c000_000000000046);
-pub const CLSID_AVISimpleUnMarshal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020009_0000_0000_c000_000000000046);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub struct COMPVARS {
-    pub cbSize: i32,
-    pub dwFlags: u32,
-    pub hic: HIC,
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFO,
-    pub lpbiOut: *mut super::super::Graphics::Gdi::BITMAPINFO,
-    pub lpBitsOut: *mut ::core::ffi::c_void,
-    pub lpBitsPrev: *mut ::core::ffi::c_void,
-    pub lFrame: i32,
-    pub lKey: i32,
-    pub lDataRate: i32,
-    pub lQ: i32,
-    pub lKeyCount: i32,
-    pub lpState: *mut ::core::ffi::c_void,
-    pub cbState: i32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for COMPVARS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for COMPVARS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for COMPVARS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMPVARS")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hic", &self.hic)
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("lpbiIn", &self.lpbiIn)
-            .field("lpbiOut", &self.lpbiOut)
-            .field("lpBitsOut", &self.lpBitsOut)
-            .field("lpBitsPrev", &self.lpBitsPrev)
-            .field("lFrame", &self.lFrame)
-            .field("lKey", &self.lKey)
-            .field("lDataRate", &self.lDataRate)
-            .field("lQ", &self.lQ)
-            .field("lKeyCount", &self.lKeyCount)
-            .field("lpState", &self.lpState)
-            .field("cbState", &self.cbState)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for COMPVARS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for COMPVARS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPVARS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for COMPVARS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for COMPVARS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct CONTRESCR10WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for CONTRESCR10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for CONTRESCR10WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CONTRESCR10WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CONTRESCR10WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTRESCR10WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CONTRESCR10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for CONTRESCR10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct CONTRESVQLPCWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for CONTRESVQLPCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for CONTRESVQLPCWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CONTRESVQLPCWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CONTRESVQLPCWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTRESVQLPCWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CONTRESVQLPCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for CONTRESVQLPCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const CONTROLCALLBACK_PREROLL: u32 = 1u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct CREATIVEADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for CREATIVEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for CREATIVEADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CREATIVEADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CREATIVEADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CREATIVEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for CREATIVEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for CREATIVEFASTSPEECH10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for CREATIVEFASTSPEECH10WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH10WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH10WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEFASTSPEECH10WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CREATIVEFASTSPEECH10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for CREATIVEFASTSPEECH8WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for CREATIVEFASTSPEECH8WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH8WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEFASTSPEECH8WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CREATIVEFASTSPEECH8WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct CSIMAADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for CSIMAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for CSIMAADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CSIMAADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CSIMAADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSIMAADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CSIMAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1810,631 +728,6 @@ where
     }
     CreateEditableStream(::core::mem::transmute(ppseditable), pssource.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DCB_EVENT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DCB_FUNCTION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DCB_NOSWITCH: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DCB_NULL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DCB_TASK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DCB_TYPEMASK: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DCB_WINDOW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_0001: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_2000: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_ANIMATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_BACKGROUNDPAL: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_BUFFER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_DONTDRAW: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_FULLSCREEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_HALFTONE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_HURRYUP: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_JUSTDRAWIT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_NOTKEYFRAME: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_PREROLL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_SAME_DIB: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_SAME_DRAW: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_SAME_HDC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_SAME_SIZE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DDF_UPDATE: u32 = 2u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DIALOGICOKIADPCMWAVEFORMAT {
-    pub ewf: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DIALOGICOKIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DIALOGICOKIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIALOGICOKIADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIALOGICOKIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIALOGICOKIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIALOGICOKIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DIGIADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DIGIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DIGIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGIADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DIGIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DIGIFIXWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DIGIFIXWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DIGIFIXWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGIFIXWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGIFIXWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIFIXWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGIFIXWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DIGIFIXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DIGIREALWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DIGIREALWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DIGIREALWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGIREALWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGIREALWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIREALWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGIREALWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DIGIREALWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DIGISTDWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DIGISTDWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DIGISTDWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGISTDWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGISTDWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGISTDWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGISTDWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DIGISTDWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DOLBYAC2WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub nAuxBitsCode: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DOLBYAC2WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DOLBYAC2WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DOLBYAC2WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DOLBYAC2WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOLBYAC2WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DOLBYAC2WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DOLBYAC2WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct DRAWDIBTIME {
-    pub timeCount: i32,
-    pub timeDraw: i32,
-    pub timeDecompress: i32,
-    pub timeDither: i32,
-    pub timeStretch: i32,
-    pub timeBlt: i32,
-    pub timeSetDIBits: i32,
-}
-impl ::core::marker::Copy for DRAWDIBTIME {}
-impl ::core::clone::Clone for DRAWDIBTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DRAWDIBTIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRAWDIBTIME").field("timeCount", &self.timeCount).field("timeDraw", &self.timeDraw).field("timeDecompress", &self.timeDecompress).field("timeDither", &self.timeDither).field("timeStretch", &self.timeStretch).field("timeBlt", &self.timeBlt).field("timeSetDIBits", &self.timeSetDIBits).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DRAWDIBTIME {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRAWDIBTIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRAWDIBTIME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRAWDIBTIME {}
-impl ::core::default::Default for DRAWDIBTIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub type DRIVERMSGPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRIVERS_SECTION: &str = "DRIVERS32";
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DRMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wReserved: u16,
-    pub ulContentId: u32,
-    pub wfxSecure: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DRMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DRMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DRMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DRMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DRMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DRMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVCNF_CANCEL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVCNF_OK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVCNF_RESTART: u32 = 2u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct DRVCONFIGINFO {
-    pub dwDCISize: u32,
-    pub lpszDCISectionName: ::windows::core::PCWSTR,
-    pub lpszDCIAliasName: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for DRVCONFIGINFO {}
-impl ::core::clone::Clone for DRVCONFIGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DRVCONFIGINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRVCONFIGINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVCONFIGINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRVCONFIGINFO {}
-impl ::core::default::Default for DRVCONFIGINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct DRVCONFIGINFOEX {
-    pub dwDCISize: u32,
-    pub lpszDCISectionName: ::windows::core::PCWSTR,
-    pub lpszDCIAliasName: ::windows::core::PCWSTR,
-    pub dnDevNode: u32,
-}
-impl ::core::marker::Copy for DRVCONFIGINFOEX {}
-impl ::core::clone::Clone for DRVCONFIGINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DRVCONFIGINFOEX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRVCONFIGINFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVCONFIGINFOEX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRVCONFIGINFOEX {}
-impl ::core::default::Default for DRVCONFIGINFOEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_ADD_THRU: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_DISABLE: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_ENABLE: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_EXIT: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_INIT: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_INIT_EX: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_IOCTL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_IOCTL_CMD_SYSTEM: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_IOCTL_CMD_USER: i32 = 0i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct DRVM_IOCTL_DATA {
-    pub dwSize: u32,
-    pub dwCmd: u32,
-}
-impl ::core::marker::Copy for DRVM_IOCTL_DATA {}
-impl ::core::clone::Clone for DRVM_IOCTL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DRVM_IOCTL_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRVM_IOCTL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVM_IOCTL_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRVM_IOCTL_DATA {}
-impl ::core::default::Default for DRVM_IOCTL_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_IOCTL_LAST: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_MAPPER_CONSOLEVOICECOM_GET: u32 = 8215u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_MAPPER_PREFERRED_FLAGS_PREFERREDONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_MAPPER_PREFERRED_GET: u32 = 8213u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_MAPPER_RECONFIGURE: u32 = 8193u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_REMOVE_THRU: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRVM_USER: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_CANCEL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_CLOSE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_CONFIGURE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_DISABLE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_ENABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_EXITSESSION: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_FREE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_INSTALL: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_LOAD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_MCI_FIRST: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_MCI_LAST: u32 = 6143u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_OK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_OPEN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_PNPINSTALL: u32 = 2059u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_POWER: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYCONFIGURE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYDEVICEINTERFACE: u32 = 2060u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYDEVICEINTERFACESIZE: u32 = 2061u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYDEVNODE: u32 = 2050u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYFUNCTIONINSTANCEID: u32 = 2065u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYFUNCTIONINSTANCEIDSIZE: u32 = 2066u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYIDFROMSTRINGID: u32 = 2064u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYMAPPABLE: u32 = 2053u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYMODULE: u32 = 2057u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYSTRINGID: u32 = 2062u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_QUERYSTRINGIDSIZE: u32 = 2063u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_REMOVE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_RESERVED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_RESTART: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRV_USER: u32 = 16384u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct DVIADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for DVIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for DVIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DVIADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DVIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DVIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for DVIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_CONFIGURE_END: u32 = 8191u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_CONFIGURE_START: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_DST_RECT: u32 = 4101u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_FORMAT: u32 = 4098u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_PALETTE: u32 = 4097u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_PALETTERGB555: u32 = 4099u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_SRC_RECT: u32 = 4100u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DVM_USER: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_13: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_ALLOCATED: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_BADDEVICEID: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_BADERRNUM: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_BADFORMAT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_BADINSTALL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_BASE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_CONFIG1: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_CONFIG2: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_CREATEPALETTE: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_DMA_CONFLICT: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_FLAGS: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_INT_CONFLICT: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_INVALHANDLE: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_IO_CONFLICT: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_LASTERROR: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_MEM_CONFLICT: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_NOMEM: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_NONSPECIFIC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_NOTDETECTED: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_NOTSUPPORTED: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_NO_BUFFERS: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_PARAM1: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_PARAM2: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_PROTECT_ONLY: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_SIZEFIELD: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_STILLPLAYING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_SYNC: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_TOOMANYCHANNELS: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_UNPREPARED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_ERR_USER_MSG: u32 = 1001u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_VM_CLOSE: u32 = 977u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_VM_DATA: u32 = 978u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_VM_ERROR: u32 = 979u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DV_VM_OPEN: u32 = 976u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2628,71 +921,6 @@ where
     }
     DrvGetModuleHandle(hdriver.into())
 }
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct ECHOSC1WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for ECHOSC1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for ECHOSC1WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for ECHOSC1WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for ECHOSC1WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ECHOSC1WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for ECHOSC1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for ECHOSC1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub struct EXBMINFOHEADER {
-    pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub biExtDataOffset: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EXBMINFOHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EXBMINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for EXBMINFOHEADER {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for EXBMINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXBMINFOHEADER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for EXBMINFOHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for EXBMINFOHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn EditStreamClone<'a, P0>(pavi: P0) -> ::windows::core::Result<IAVIStream>
@@ -2795,171 +1023,6 @@ where
     }
     EditStreamSetNameW(pavi.into().abi(), lpszname.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FACILITY_NS: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FACILITY_NS_WIN32: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_ANY: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_DIR: i32 = 15i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_FORMAT: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_FROM_START: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_INDEX: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_KEY: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_LENGTH: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_NEXT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_OFFSET: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_POS: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_PREV: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_RET: i32 = 61440i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_SIZE: i32 = 12288i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const FIND_TYPE: i32 = 240i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct FMTOWNS_SND_WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for FMTOWNS_SND_WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for FMTOWNS_SND_WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for FMTOWNS_SND_WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for FMTOWNS_SND_WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FMTOWNS_SND_WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for FMTOWNS_SND_WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for FMTOWNS_SND_WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct G721_ADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub nAuxBlockSize: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for G721_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for G721_ADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for G721_ADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for G721_ADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<G721_ADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for G721_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for G721_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct G723_ADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub cbExtraSize: u16,
-    pub nAuxBlockSize: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for G723_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for G723_ADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for G723_ADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for G723_ADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<G723_ADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for G723_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for G723_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct GSM610WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for GSM610WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for GSM610WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for GSM610WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for GSM610WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GSM610WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for GSM610WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for GSM610WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3013,133 +1076,909 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: &mut super::super::UI::Controls::Di
     }
     GetSaveFileNamePreviewW(::core::mem::transmute(lpofn))
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDRVR(pub isize);
-impl HDRVR {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ICClose<'a, P0>(hic: P0) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT;
     }
+    ICClose(hic.into())
 }
-impl ::core::default::Default for HDRVR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ICCompressorChoose<'a, P0, P1>(hwnd: P0, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: &mut COMPVARS, lpsztitle: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
+    ICCompressorChoose(hwnd.into(), uiflags, ::core::mem::transmute(pvin), ::core::mem::transmute(lpdata), ::core::mem::transmute(pc), lpsztitle.into())
 }
-impl ::core::clone::Clone for HDRVR {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICCompressorFree(pc: &COMPVARS) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICCompressorFree(pc: *const COMPVARS);
     }
+    ICCompressorFree(::core::mem::transmute(pc))
 }
-impl ::core::marker::Copy for HDRVR {}
-impl ::core::fmt::Debug for HDRVR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDRVR").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICGetDisplayFormat<'a, P0>(hic: P0, lpbiin: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: &mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICGetDisplayFormat(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
     }
+    ICGetDisplayFormat(hic.into(), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), bitdepth, dx, dy)
 }
-impl ::core::convert::From<::core::option::Option<HDRVR>> for HDRVR {
-    fn from(optional: ::core::option::Option<HDRVR>) -> HDRVR {
-        optional.unwrap_or_default()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ICGetInfo<'a, P0>(hic: P0, picinfo: &mut [u8]) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
     }
+    ICGetInfo(hic.into(), ::core::mem::transmute(picinfo.as_ptr()), picinfo.len() as _)
 }
-unsafe impl ::windows::core::Abi for HDRVR {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HIC(pub isize);
-impl HIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ICImageCompress<'a, P0>(hic: P0, uiflags: u32, lpbiin: &super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFO>, lquality: i32, plsize: ::core::option::Option<&mut i32>) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
     }
+    ICImageCompress(hic.into(), uiflags, ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout), lquality, ::core::mem::transmute(plsize))
 }
-impl ::core::default::Default for HIC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ICImageDecompress<'a, P0>(hic: P0, uiflags: u32, lpbiin: &super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFO>) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
     }
+    ICImageDecompress(hic.into(), uiflags, ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout))
 }
-impl ::core::clone::Clone for HIC {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: &mut ICINFO) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL;
     }
+    ICInfo(fcctype, fcchandler, ::core::mem::transmute(lpicinfo))
 }
-impl ::core::marker::Copy for HIC {}
-impl ::core::fmt::Debug for HIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HIC").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ICInstall<'a, P0, P1>(fcctype: u32, fcchandler: u32, lparam: P0, szdesc: P1, wflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICInstall(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: ::windows::core::PCSTR, wflags: u32) -> super::super::Foundation::BOOL;
     }
+    ICInstall(fcctype, fcchandler, lparam.into(), szdesc.into(), wflags)
 }
-impl ::core::convert::From<::core::option::Option<HIC>> for HIC {
-    fn from(optional: ::core::option::Option<HIC>) -> HIC {
-        optional.unwrap_or_default()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFOHEADER>, wflags: u16) -> HIC {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
     }
+    ICLocate(fcctype, fcchandler, ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), wflags)
 }
-unsafe impl ::windows::core::Abi for HIC {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HMMIO(pub isize);
-impl HMMIO {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
     }
+    ICOpen(fcctype, fcchandler, wmode)
 }
-impl ::core::default::Default for HMMIO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: *mut ::core::ffi::c_void) -> HIC;
     }
+    ICOpenFunction(fcctype, fcchandler, wmode, ::core::mem::transmute(lpfnhandler))
 }
-impl ::core::clone::Clone for HMMIO {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
     }
+    ICRemove(fcctype, fcchandler, wflags)
 }
-impl ::core::marker::Copy for HMMIO {}
-impl ::core::fmt::Debug for HMMIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HMMIO").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ICSendMessage<'a, P0>(hic: P0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<HIC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
     }
+    ICSendMessage(hic.into(), msg, dw1, dw2)
 }
-impl ::core::convert::From<::core::option::Option<HMMIO>> for HMMIO {
-    fn from(optional: ::core::option::Option<HMMIO>) -> HMMIO {
-        optional.unwrap_or_default()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ICSeqCompressFrame(pc: &COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: &mut super::super::Foundation::BOOL, plsize: ::core::option::Option<&mut i32>) -> *mut ::core::ffi::c_void {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void;
     }
+    ICSeqCompressFrame(::core::mem::transmute(pc), uiflags, ::core::mem::transmute(lpbits), ::core::mem::transmute(pfkey), ::core::mem::transmute(plsize))
 }
-unsafe impl ::windows::core::Abi for HMMIO {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HVIDEO(pub isize);
-impl HVIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICSeqCompressFrameEnd(pc: &COMPVARS) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
     }
+    ICSeqCompressFrameEnd(::core::mem::transmute(pc))
 }
-impl ::core::default::Default for HVIDEO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ICSeqCompressFrameStart(pc: &COMPVARS, lpbiin: &super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL;
     }
+    ICSeqCompressFrameStart(::core::mem::transmute(pc), ::core::mem::transmute(lpbiin))
 }
-impl ::core::clone::Clone for HVIDEO {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenDriver<'a, P0, P1, P2>(szdrivername: P0, szsectionname: P1, lparam2: P2) -> HDRVR
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenDriver(szdrivername: ::windows::core::PCWSTR, szsectionname: ::windows::core::PCWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
     }
+    OpenDriver(szdrivername.into(), szsectionname.into(), lparam2.into())
 }
-impl ::core::marker::Copy for HVIDEO {}
-impl ::core::fmt::Debug for HVIDEO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HVIDEO").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SendDriverMessage<'a, P0, P1, P2>(hdriver: P0, message: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<HDRVR>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
+    SendDriverMessage(hdriver.into(), message, lparam1.into(), lparam2.into())
 }
-impl ::core::convert::From<::core::option::Option<HVIDEO>> for HVIDEO {
-    fn from(optional: ::core::option::Option<HVIDEO>) -> HVIDEO {
-        optional.unwrap_or_default()
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn VideoForWindowsVersion() -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VideoForWindowsVersion() -> u32;
     }
+    VideoForWindowsVersion()
 }
-unsafe impl ::windows::core::Abi for HVIDEO {
-    type Abi = Self;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn capCreateCaptureWindowA<'a, P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capCreateCaptureWindowA(lpszwindowname: ::windows::core::PCSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
+    }
+    capCreateCaptureWindowA(lpszwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), nid)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn capCreateCaptureWindowW<'a, P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capCreateCaptureWindowW(lpszwindowname: ::windows::core::PCWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
+    }
+    capCreateCaptureWindowW(lpszwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), nid)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: ::windows::core::PSTR, cbname: i32, lpszver: ::windows::core::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
+    }
+    capGetDriverDescriptionA(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: ::windows::core::PWSTR, cbname: i32, lpszver: ::windows::core::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
+    }
+    capGetDriverDescriptionW(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: &mut [u8]) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
+    }
+    joyGetDevCapsA(ujoyid, ::core::mem::transmute(pjc.as_ptr()), pjc.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: &mut [u8]) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
+    }
+    joyGetDevCapsW(ujoyid, ::core::mem::transmute(pjc.as_ptr()), pjc.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn joyGetNumDevs() -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetNumDevs() -> u32;
+    }
+    joyGetNumDevs()
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn joyGetPos(ujoyid: u32, pji: &mut JOYINFO) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
+    }
+    joyGetPos(ujoyid, ::core::mem::transmute(pji))
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn joyGetPosEx(ujoyid: u32, pji: &mut JOYINFOEX) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
+    }
+    joyGetPosEx(ujoyid, ::core::mem::transmute(pji))
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: &mut u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
+    }
+    joyGetThreshold(ujoyid, ::core::mem::transmute(puthreshold))
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyReleaseCapture(ujoyid: u32) -> u32;
+    }
+    joyReleaseCapture(ujoyid)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn joySetCapture<'a, P0, P1>(hwnd: P0, ujoyid: u32, uperiod: u32, fchanged: P1) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: super::super::Foundation::BOOL) -> u32;
+    }
+    joySetCapture(hwnd.into(), ujoyid, uperiod, fchanged.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
+    }
+    joySetThreshold(ujoyid, uthreshold)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciDriverNotify<'a, P0>(hwndcallback: P0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL;
+    }
+    mciDriverNotify(hwndcallback.into(), wdeviceid, ustatus)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciDriverYield(wdeviceid: u32) -> u32;
+    }
+    mciDriverYield(wdeviceid)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL;
+    }
+    mciFreeCommandResource(wtable)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetCreatorTask(mciid: u32) -> super::HTASK;
+    }
+    mciGetCreatorTask(mciid)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciGetDeviceIDA<'a, P0>(pszdevice: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDA(pszdevice: ::windows::core::PCSTR) -> u32;
+    }
+    mciGetDeviceIDA(pszdevice.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciGetDeviceIDFromElementIDA<'a, P0>(dwelementid: u32, lpstrtype: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDFromElementIDA(dwelementid: u32, lpstrtype: ::windows::core::PCSTR) -> u32;
+    }
+    mciGetDeviceIDFromElementIDA(dwelementid, lpstrtype.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciGetDeviceIDFromElementIDW<'a, P0>(dwelementid: u32, lpstrtype: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDFromElementIDW(dwelementid: u32, lpstrtype: ::windows::core::PCWSTR) -> u32;
+    }
+    mciGetDeviceIDFromElementIDW(dwelementid, lpstrtype.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciGetDeviceIDW<'a, P0>(pszdevice: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDW(pszdevice: ::windows::core::PCWSTR) -> u32;
+    }
+    mciGetDeviceIDW(pszdevice.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDriverData(wdeviceid: u32) -> usize;
+    }
+    mciGetDriverData(wdeviceid)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetErrorStringA(mcierr: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
+    }
+    mciGetErrorStringA(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetErrorStringW(mcierr: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
+    }
+    mciGetErrorStringW(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: &u32) -> YIELDPROC {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
+    }
+    mciGetYieldProc(mciid, ::core::mem::transmute(pdwyielddata))
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciLoadCommandResource<'a, P0, P1>(hinstance: P0, lpresname: P1, wtype: u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: ::windows::core::PCWSTR, wtype: u32) -> u32;
+    }
+    mciLoadCommandResource(hinstance.into(), lpresname.into(), wtype)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
+    }
+    mciSendCommandA(mciid, umsg, dwparam1, dwparam2)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
+    }
+    mciSendCommandW(mciid, umsg, dwparam1, dwparam2)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciSendStringA<'a, P0, P1>(lpstrcommand: P0, lpstrreturnstring: ::core::option::Option<&mut [u8]>, hwndcallback: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendStringA(lpstrcommand: ::windows::core::PCSTR, lpstrreturnstring: ::windows::core::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
+    }
+    mciSendStringA(lpstrcommand.into(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciSendStringW<'a, P0, P1>(lpstrcommand: P0, lpstrreturnstring: ::core::option::Option<&mut [u16]>, hwndcallback: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendStringW(lpstrcommand: ::windows::core::PCWSTR, lpstrreturnstring: ::windows::core::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
+    }
+    mciSendStringW(lpstrcommand.into(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
+    }
+    mciSetDriverData(wdeviceid, dwdata)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSetYieldProc(mciid: u32, fpyieldproc: *mut ::core::ffi::c_void, dwyielddata: u32) -> super::super::Foundation::BOOL;
+    }
+    mciSetYieldProc(mciid, ::core::mem::transmute(fpyieldproc), dwyielddata)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmDrvInstall<'a, P0, P1>(hdriver: P0, wszdrventry: P1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32
+where
+    P0: ::std::convert::Into<HDRVR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmDrvInstall(hdriver: HDRVR, wszdrventry: ::windows::core::PCWSTR, drvmessage: *mut ::core::ffi::c_void, wflags: u32) -> u32;
+    }
+    mmDrvInstall(hdriver.into(), wszdrventry.into(), ::core::mem::transmute(drvmessage), wflags)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmGetCurrentTask() -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmGetCurrentTask() -> u32;
+    }
+    mmGetCurrentTask()
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmTaskBlock(h: u32) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskBlock(h: u32);
+    }
+    mmTaskBlock(h)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: &mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskCreate(lpfn: *mut ::core::ffi::c_void, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
+    }
+    mmTaskCreate(::core::mem::transmute(lpfn), ::core::mem::transmute(lph), dwinst)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
+    }
+    mmTaskSignal(h)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmTaskYield() {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskYield();
+    }
+    mmTaskYield()
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioAdvance<'a, P0>(hmmio: P0, pmmioinfo: ::core::option::Option<&MMIOINFO>, fuadvance: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
+    }
+    mmioAdvance(hmmio.into(), ::core::mem::transmute(pmmioinfo), fuadvance)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioAscend<'a, P0>(hmmio: P0, pmmcki: &MMCKINFO, fuascend: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
+    }
+    mmioAscend(hmmio.into(), ::core::mem::transmute(pmmcki), fuascend)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioClose<'a, P0>(hmmio: P0, fuclose: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
+    }
+    mmioClose(hmmio.into(), fuclose)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioCreateChunk<'a, P0>(hmmio: P0, pmmcki: &MMCKINFO, fucreate: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
+    }
+    mmioCreateChunk(hmmio.into(), ::core::mem::transmute(pmmcki), fucreate)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioDescend<'a, P0>(hmmio: P0, pmmcki: &mut MMCKINFO, pmmckiparent: ::core::option::Option<&MMCKINFO>, fudescend: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
+    }
+    mmioDescend(hmmio.into(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(pmmckiparent), fudescend)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioFlush<'a, P0>(hmmio: P0, fuflush: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
+    }
+    mmioFlush(hmmio.into(), fuflush)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioGetInfo<'a, P0>(hmmio: P0, pmmioinfo: &mut MMIOINFO, fuinfo: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
+    }
+    mmioGetInfo(hmmio.into(), ::core::mem::transmute(pmmioinfo), fuinfo)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioInstallIOProcA(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
+    }
+    mmioInstallIOProcA(fccioproc, ::core::mem::transmute(pioproc), dwflags)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioInstallIOProcW(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
+    }
+    mmioInstallIOProcW(fccioproc, ::core::mem::transmute(pioproc), dwflags)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioOpenA(pszfilename: ::core::option::Option<&mut [u8; 128]>, pmmioinfo: ::core::option::Option<&mut MMIOINFO>, fdwopen: u32) -> HMMIO {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioOpenA(pszfilename: ::windows::core::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
+    }
+    mmioOpenA(::core::mem::transmute(pszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pmmioinfo), fdwopen)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioOpenW(pszfilename: ::core::option::Option<&mut [u16; 128]>, pmmioinfo: ::core::option::Option<&mut MMIOINFO>, fdwopen: u32) -> HMMIO {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioOpenW(pszfilename: ::windows::core::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
+    }
+    mmioOpenW(::core::mem::transmute(pszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pmmioinfo), fdwopen)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioRead<'a, P0>(hmmio: P0, pch: &mut [u8]) -> i32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
+    }
+    mmioRead(hmmio.into(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioRenameA<'a, P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: ::core::option::Option<&MMIOINFO>, fdwrename: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioRenameA(pszfilename: ::windows::core::PCSTR, psznewfilename: ::windows::core::PCSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
+    }
+    mmioRenameA(pszfilename.into(), psznewfilename.into(), ::core::mem::transmute(pmmioinfo), fdwrename)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioRenameW<'a, P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: ::core::option::Option<&MMIOINFO>, fdwrename: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioRenameW(pszfilename: ::windows::core::PCWSTR, psznewfilename: ::windows::core::PCWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
+    }
+    mmioRenameW(pszfilename.into(), psznewfilename.into(), ::core::mem::transmute(pmmioinfo), fdwrename)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioSeek<'a, P0>(hmmio: P0, loffset: i32, iorigin: i32) -> i32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
+    }
+    mmioSeek(hmmio.into(), loffset, iorigin)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioSendMessage<'a, P0, P1, P2>(hmmio: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<HMMIO>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    }
+    mmioSendMessage(hmmio.into(), umsg, lparam1.into(), lparam2.into())
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioSetBuffer<'a, P0>(hmmio: P0, pchbuffer: ::core::option::Option<&mut [u8]>, fubuffer: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: ::windows::core::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
+    }
+    mmioSetBuffer(hmmio.into(), ::core::mem::transmute(pchbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len() as _), fubuffer)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn mmioSetInfo<'a, P0>(hmmio: P0, pmmioinfo: &MMIOINFO, fuinfo: u32) -> u32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
+    }
+    mmioSetInfo(hmmio.into(), ::core::mem::transmute(pmmioinfo), fuinfo)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioStringToFOURCCA<'a, P0>(sz: P0, uflags: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioStringToFOURCCA(sz: ::windows::core::PCSTR, uflags: u32) -> u32;
+    }
+    mmioStringToFOURCCA(sz.into(), uflags)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioStringToFOURCCW<'a, P0>(sz: P0, uflags: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioStringToFOURCCW(sz: ::windows::core::PCWSTR, uflags: u32) -> u32;
+    }
+    mmioStringToFOURCCW(sz.into(), uflags)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[inline]
+pub unsafe fn mmioWrite<'a, P0>(hmmio: P0, pch: &[u8]) -> i32
+where
+    P0: ::std::convert::Into<HMMIO>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioWrite(hmmio: HMMIO, pch: ::windows::core::PCSTR, cch: i32) -> i32;
+    }
+    mmioWrite(hmmio.into(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
+}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn sndOpenSound<'a, P0, P1>(eventname: P0, appname: P1, flags: i32, filehandle: &mut super::super::Foundation::HANDLE) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn sndOpenSound(eventname: ::windows::core::PCWSTR, appname: ::windows::core::PCWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
+    }
+    sndOpenSound(eventname.into(), appname.into(), flags, ::core::mem::transmute(filehandle))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[repr(transparent)]
@@ -3592,272 +2431,446 @@ pub struct IAVIStreaming_Vtbl {
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub struct ICCOMPRESS {
-    pub dwFlags: u32,
-    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpOutput: *mut ::core::ffi::c_void,
-    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpInput: *mut ::core::ffi::c_void,
-    pub lpckid: *mut u32,
-    pub lpdwFlags: *mut u32,
-    pub lFrameNum: i32,
-    pub dwFrameSize: u32,
-    pub dwQuality: u32,
-    pub lpbiPrev: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpPrev: *mut ::core::ffi::c_void,
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+#[repr(transparent)]
+pub struct IGetFrame(::windows::core::IUnknown);
+impl IGetFrame {
+    pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void {
+        (::windows::core::Interface::vtable(self).GetFrame)(::windows::core::Interface::as_raw(self), lpos)
+    }
+    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), lstart, lend, lrate).ok()
+    }
+    pub unsafe fn End(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn SetFormat(&self, lpbi: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), x, y, dx, dy).ok()
+    }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for ICCOMPRESS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for ICCOMPRESS {
+impl ::core::convert::From<IGetFrame> for ::windows::core::IUnknown {
+    fn from(value: IGetFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IGetFrame> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IGetFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGetFrame> for ::windows::core::IUnknown {
+    fn from(value: &IGetFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for IGetFrame {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for ICCOMPRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICCOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpckid", &self.lpckid).field("lpdwFlags", &self.lpdwFlags).field("lFrameNum", &self.lFrameNum).field("dwFrameSize", &self.dwFrameSize).field("dwQuality", &self.dwQuality).field("lpbiPrev", &self.lpbiPrev).field("lpPrev", &self.lpPrev).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICCOMPRESS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for ICCOMPRESS {
+impl ::core::cmp::PartialEq for IGetFrame {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICCOMPRESS>()) == 0 }
+        self.0 == other.0
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for ICCOMPRESS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for ICCOMPRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::cmp::Eq for IGetFrame {}
+impl ::core::fmt::Debug for IGetFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetFrame").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IGetFrame {
+    type Vtable = IGetFrame_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct ICCOMPRESSFRAMES {
-    pub dwFlags: u32,
-    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lOutput: super::super::Foundation::LPARAM,
-    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lInput: super::super::Foundation::LPARAM,
-    pub lStartFrame: i32,
-    pub lFrameCount: i32,
-    pub lQuality: i32,
-    pub lDataRate: i32,
-    pub lKeyRate: i32,
-    pub dwRate: u32,
-    pub dwScale: u32,
-    pub dwOverheadPerFrame: u32,
-    pub dwReserved2: u32,
-    pub GetData: isize,
-    pub PutData: isize,
+#[doc(hidden)]
+pub struct IGetFrame_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub GetFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void,
+    pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
+    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    SetFormat: usize,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for ICCOMPRESSFRAMES {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for ICCOMPRESSFRAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for ICCOMPRESSFRAMES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICCOMPRESSFRAMES")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpbiOutput", &self.lpbiOutput)
-            .field("lOutput", &self.lOutput)
-            .field("lpbiInput", &self.lpbiInput)
-            .field("lInput", &self.lInput)
-            .field("lStartFrame", &self.lStartFrame)
-            .field("lFrameCount", &self.lFrameCount)
-            .field("lQuality", &self.lQuality)
-            .field("lDataRate", &self.lDataRate)
-            .field("lKeyRate", &self.lKeyRate)
-            .field("dwRate", &self.dwRate)
-            .field("dwScale", &self.dwScale)
-            .field("dwOverheadPerFrame", &self.dwOverheadPerFrame)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("GetData", &self.GetData)
-            .field("PutData", &self.PutData)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICCOMPRESSFRAMES {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for ICCOMPRESSFRAMES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICCOMPRESSFRAMES>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for ICCOMPRESSFRAMES {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for ICCOMPRESSFRAMES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACMDM_BASE: u32 = 24576u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_COPYRIGHT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_DUALCHANNEL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_ID_MPEG1: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_JOINTSTEREO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_LAYER1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_LAYER2: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_LAYER3: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_ORIGINALHOME: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_PRIVATEBIT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_PROTECTIONBIT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_SINGLECHANNEL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const ACM_MPEG_STEREO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AUXDM_GETDEVCAPS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AUXDM_GETNUMDEVS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AUXDM_GETVOLUME: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AUXDM_SETVOLUME: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AUXM_INIT: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AUXM_INIT_EX: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVICOMPRESSF_DATARATE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVICOMPRESSF_INTERLEAVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVICOMPRESSF_KEYFRAMES: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVICOMPRESSF_VALID: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIERR_OK: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILECAPS_ALLKEYFRAMES: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILECAPS_CANREAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILECAPS_CANWRITE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILECAPS_NOCOMPRESSION: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEHANDLER_CANACCEPTNONRGB: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEHANDLER_CANREAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEHANDLER_CANWRITE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEINFO_COPYRIGHTED: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEINFO_HASINDEX: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEINFO_ISINTERLEAVED: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEINFO_MUSTUSEINDEX: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIIF_CONTROLFRAME: i32 = 512i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVIIF_TWOCC: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVISTREAMINFO_DISABLED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const AVSTREAMMASTER_NONE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const BI_1632: u32 = 842217009u32;
+pub const CLSID_AVIFile: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020000_0000_0000_c000_000000000046);
+pub const CLSID_AVISimpleUnMarshal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020009_0000_0000_c000_000000000046);
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const CONTROLCALLBACK_PREROLL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DCB_EVENT: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DCB_FUNCTION: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DCB_NOSWITCH: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DCB_NULL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DCB_TASK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DCB_TYPEMASK: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DCB_WINDOW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_0001: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_2000: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_ANIMATE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_BACKGROUNDPAL: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_BUFFER: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_DONTDRAW: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_FULLSCREEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_HALFTONE: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_HURRYUP: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_JUSTDRAWIT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_NOTKEYFRAME: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_PREROLL: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_SAME_DIB: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_SAME_DRAW: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_SAME_HDC: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_SAME_SIZE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DDF_UPDATE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRIVERS_SECTION: &str = "DRIVERS32";
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVCNF_CANCEL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVCNF_OK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVCNF_RESTART: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_ADD_THRU: u32 = 257u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_DISABLE: u32 = 102u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_ENABLE: u32 = 103u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_EXIT: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_INIT: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_INIT_EX: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_IOCTL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_IOCTL_CMD_SYSTEM: i32 = -2147483648i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_IOCTL_CMD_USER: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_IOCTL_LAST: u32 = 261u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_MAPPER_CONSOLEVOICECOM_GET: u32 = 8215u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_MAPPER_PREFERRED_FLAGS_PREFERREDONLY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_MAPPER_PREFERRED_GET: u32 = 8213u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_MAPPER_RECONFIGURE: u32 = 8193u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_REMOVE_THRU: u32 = 258u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRVM_USER: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_CANCEL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_CLOSE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_CONFIGURE: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_DISABLE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_ENABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_EXITSESSION: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_FREE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_INSTALL: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_LOAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_MCI_FIRST: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_MCI_LAST: u32 = 6143u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_OK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_OPEN: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_PNPINSTALL: u32 = 2059u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_POWER: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYCONFIGURE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYDEVICEINTERFACE: u32 = 2060u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYDEVICEINTERFACESIZE: u32 = 2061u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYDEVNODE: u32 = 2050u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYFUNCTIONINSTANCEID: u32 = 2065u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYFUNCTIONINSTANCEIDSIZE: u32 = 2066u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYIDFROMSTRINGID: u32 = 2064u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYMAPPABLE: u32 = 2053u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYMODULE: u32 = 2057u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYSTRINGID: u32 = 2062u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_QUERYSTRINGIDSIZE: u32 = 2063u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_REMOVE: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_RESERVED: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_RESTART: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DRV_USER: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_CONFIGURE_END: u32 = 8191u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_CONFIGURE_START: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_DST_RECT: u32 = 4101u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_FORMAT: u32 = 4098u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_PALETTE: u32 = 4097u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_PALETTERGB555: u32 = 4099u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_SRC_RECT: u32 = 4100u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DVM_USER: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_13: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_ALLOCATED: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_BADDEVICEID: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_BADERRNUM: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_BADFORMAT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_BADINSTALL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_BASE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_CONFIG1: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_CONFIG2: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_CREATEPALETTE: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_DMA_CONFLICT: u32 = 26u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_FLAGS: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_INT_CONFLICT: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_INVALHANDLE: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_IO_CONFLICT: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_LASTERROR: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_MEM_CONFLICT: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_NOMEM: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_NONSPECIFIC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_NOTDETECTED: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_NOTSUPPORTED: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_NO_BUFFERS: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_OK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_PARAM1: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_PARAM2: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_PROTECT_ONLY: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_SIZEFIELD: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_STILLPLAYING: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_SYNC: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_TOOMANYCHANNELS: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_UNPREPARED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_ERR_USER_MSG: u32 = 1001u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_VM_CLOSE: u32 = 977u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_VM_DATA: u32 = 978u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_VM_ERROR: u32 = 979u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const DV_VM_OPEN: u32 = 976u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FACILITY_NS: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FACILITY_NS_WIN32: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_ANY: i32 = 32i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_DIR: i32 = 15i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_FORMAT: i32 = 64i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_FROM_START: i32 = 8i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_INDEX: i32 = 16384i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_KEY: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_LENGTH: i32 = 4096i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_NEXT: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_OFFSET: i32 = 8192i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_POS: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_PREV: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_RET: i32 = 61440i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_SIZE: i32 = 12288i32;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub const FIND_TYPE: i32 = 240i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICCOMPRESSFRAMES_PADDING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICCOMPRESS_KEYFRAME: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ICClose<'a, P0>(hic: P0) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT;
-    }
-    ICClose(hic.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn ICCompress<'a, P0>(hic: P0, dwflags: u32, lpbioutput: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: ::core::option::Option<&mut u32>, lpdwflags: ::core::option::Option<&mut u32>, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpprev: *const ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
-    }
-    ICCompress(hic.into(), dwflags, ::core::mem::transmute(lpbioutput), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbiinput), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpckid), ::core::mem::transmute(lpdwflags), lframenum, dwframesize, dwquality, ::core::mem::transmute(lpbiprev), ::core::mem::transmute(lpprev))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ICCompressorChoose<'a, P0, P1>(hwnd: P0, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: &mut COMPVARS, lpsztitle: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    ICCompressorChoose(hwnd.into(), uiflags, ::core::mem::transmute(pvin), ::core::mem::transmute(lpdata), ::core::mem::transmute(pc), lpsztitle.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn ICCompressorFree(pc: &COMPVARS) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICCompressorFree(pc: *const COMPVARS);
-    }
-    ICCompressorFree(::core::mem::transmute(pc))
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub struct ICDECOMPRESS {
-    pub dwFlags: u32,
-    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpInput: *mut ::core::ffi::c_void,
-    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpOutput: *mut ::core::ffi::c_void,
-    pub ckid: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for ICDECOMPRESS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for ICDECOMPRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for ICDECOMPRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICDECOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("ckid", &self.ckid).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICDECOMPRESS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for ICDECOMPRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDECOMPRESS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for ICDECOMPRESS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for ICDECOMPRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub struct ICDECOMPRESSEX {
-    pub dwFlags: u32,
-    pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpSrc: *mut ::core::ffi::c_void,
-    pub lpbiDst: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpDst: *mut ::core::ffi::c_void,
-    pub xDst: i32,
-    pub yDst: i32,
-    pub dxDst: i32,
-    pub dyDst: i32,
-    pub xSrc: i32,
-    pub ySrc: i32,
-    pub dxSrc: i32,
-    pub dySrc: i32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for ICDECOMPRESSEX {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for ICDECOMPRESSEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for ICDECOMPRESSEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICDECOMPRESSEX").field("dwFlags", &self.dwFlags).field("lpbiSrc", &self.lpbiSrc).field("lpSrc", &self.lpSrc).field("lpbiDst", &self.lpbiDst).field("lpDst", &self.lpDst).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICDECOMPRESSEX {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for ICDECOMPRESSEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDECOMPRESSEX>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for ICDECOMPRESSEX {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for ICDECOMPRESSEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICDECOMPRESS_HURRYUP: i32 = -2147483648i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -3868,136 +2881,6 @@ pub const ICDECOMPRESS_NULLFRAME: i32 = 268435456i32;
 pub const ICDECOMPRESS_PREROLL: i32 = 536870912i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICDECOMPRESS_UPDATE: i32 = 1073741824i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct ICDRAW {
-    pub dwFlags: u32,
-    pub lpFormat: *mut ::core::ffi::c_void,
-    pub lpData: *mut ::core::ffi::c_void,
-    pub cbData: u32,
-    pub lTime: i32,
-}
-impl ::core::marker::Copy for ICDRAW {}
-impl ::core::clone::Clone for ICDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ICDRAW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICDRAW").field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("lpData", &self.lpData).field("cbData", &self.cbData).field("lTime", &self.lTime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ICDRAW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ICDRAW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ICDRAW {}
-impl ::core::default::Default for ICDRAW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct ICDRAWBEGIN {
-    pub dwFlags: u32,
-    pub hpal: super::super::Graphics::Gdi::HPALETTE,
-    pub hwnd: super::super::Foundation::HWND,
-    pub hdc: super::super::Graphics::Gdi::HDC,
-    pub xDst: i32,
-    pub yDst: i32,
-    pub dxDst: i32,
-    pub dyDst: i32,
-    pub lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub xSrc: i32,
-    pub ySrc: i32,
-    pub dxSrc: i32,
-    pub dySrc: i32,
-    pub dwRate: u32,
-    pub dwScale: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for ICDRAWBEGIN {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for ICDRAWBEGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for ICDRAWBEGIN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICDRAWBEGIN").field("dwFlags", &self.dwFlags).field("hpal", &self.hpal).field("hwnd", &self.hwnd).field("hdc", &self.hdc).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("lpbi", &self.lpbi).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dwRate", &self.dwRate).field("dwScale", &self.dwScale).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICDRAWBEGIN {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for ICDRAWBEGIN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAWBEGIN>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for ICDRAWBEGIN {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for ICDRAWBEGIN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub struct ICDRAWSUGGEST {
-    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpbiSuggest: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub dxSrc: i32,
-    pub dySrc: i32,
-    pub dxDst: i32,
-    pub dyDst: i32,
-    pub hicDecompressor: HIC,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for ICDRAWSUGGEST {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for ICDRAWSUGGEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for ICDRAWSUGGEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICDRAWSUGGEST").field("lpbiIn", &self.lpbiIn).field("lpbiSuggest", &self.lpbiSuggest).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("hicDecompressor", &self.hicDecompressor).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICDRAWSUGGEST {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for ICDRAWSUGGEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAWSUGGEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for ICDRAWSUGGEST {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for ICDRAWSUGGEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICDRAW_ANIMATE: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4026,47 +2909,6 @@ pub const ICDRAW_RENDER: i32 = 128i32;
 pub const ICDRAW_UPDATE: i32 = 1073741824i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICDRAW_UPDATING: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn ICDecompress<'a, P0>(hic: P0, dwflags: u32, lpbiformat: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32;
-    }
-    ICDecompress(hic.into(), dwflags, ::core::mem::transmute(lpbiformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn ICDraw<'a, P0>(hic: P0, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: ::core::option::Option<&[u8]>, ltime: i32) -> u32
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
-    }
-    ICDraw(hic.into(), dwflags, ::core::mem::transmute(lpformat), ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _), ltime)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ICDrawBegin<'a, P0, P1, P2, P3>(hic: P0, dwflags: u32, hpal: P1, hwnd: P2, hdc: P3, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: &super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32
-where
-    P0: ::std::convert::Into<HIC>,
-    P1: ::std::convert::Into<super::super::Graphics::Gdi::HPALETTE>,
-    P2: ::std::convert::Into<super::super::Foundation::HWND>,
-    P3: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
-    }
-    ICDrawBegin(hic.into(), dwflags, hpal.into(), hwnd.into(), hdc.into(), xdst, ydst, dxdst, dydst, ::core::mem::transmute(lpbi), xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale)
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICERR_ABORT: i32 = -10i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4105,70 +2947,6 @@ pub const ICERR_OK: i32 = 0i32;
 pub const ICERR_STOPDRAWING: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICERR_UNSUPPORTED: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn ICGetDisplayFormat<'a, P0>(hic: P0, lpbiin: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: &mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICGetDisplayFormat(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
-    }
-    ICGetDisplayFormat(hic.into(), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), bitdepth, dx, dy)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ICGetInfo<'a, P0>(hic: P0, picinfo: &mut [u8]) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
-    }
-    ICGetInfo(hic.into(), ::core::mem::transmute(picinfo.as_ptr()), picinfo.len() as _)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct ICINFO {
-    pub dwSize: u32,
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwFlags: u32,
-    pub dwVersion: u32,
-    pub dwVersionICM: u32,
-    pub szName: [u16; 16],
-    pub szDescription: [u16; 128],
-    pub szDriver: [u16; 128],
-}
-impl ::core::marker::Copy for ICINFO {}
-impl ::core::clone::Clone for ICINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ICINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICINFO").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwFlags", &self.dwFlags).field("dwVersion", &self.dwVersion).field("dwVersionICM", &self.dwVersionICM).field("szName", &self.szName).field("szDescription", &self.szDescription).field("szDriver", &self.szDriver).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ICINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ICINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ICINFO {}
-impl ::core::default::Default for ICINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICINSTALL_DRIVER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4179,66 +2957,6 @@ pub const ICINSTALL_FUNCTION: u32 = 1u32;
 pub const ICINSTALL_HDRV: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICINSTALL_UNICODE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ICImageCompress<'a, P0>(hic: P0, uiflags: u32, lpbiin: &super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFO>, lquality: i32, plsize: ::core::option::Option<&mut i32>) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
-    }
-    ICImageCompress(hic.into(), uiflags, ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout), lquality, ::core::mem::transmute(plsize))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ICImageDecompress<'a, P0>(hic: P0, uiflags: u32, lpbiin: &super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFO>) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
-    }
-    ICImageDecompress(hic.into(), uiflags, ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: &mut ICINFO) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL;
-    }
-    ICInfo(fcctype, fcchandler, ::core::mem::transmute(lpicinfo))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ICInstall<'a, P0, P1>(fcctype: u32, fcchandler: u32, lparam: P0, szdesc: P1, wflags: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICInstall(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: ::windows::core::PCSTR, wflags: u32) -> super::super::Foundation::BOOL;
-    }
-    ICInstall(fcctype, fcchandler, lparam.into(), szdesc.into(), wflags)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: ::core::option::Option<&super::super::Graphics::Gdi::BITMAPINFOHEADER>, wflags: u16) -> HIC {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
-    }
-    ICLocate(fcctype, fcchandler, ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), wflags)
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICMF_ABOUT_QUERY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4387,168 +3105,12 @@ pub const ICM_SETSTATE: u32 = 20481u32;
 pub const ICM_SET_STATUS_PROC: u32 = 16456u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICM_USER: u32 = 16384u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ICOPEN {
-    pub dwSize: u32,
-    pub fccType: u32,
-    pub fccHandler: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: super::super::Foundation::LRESULT,
-    pub pV1Reserved: *mut ::core::ffi::c_void,
-    pub pV2Reserved: *mut ::core::ffi::c_void,
-    pub dnDevNode: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ICOPEN {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ICOPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ICOPEN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICOPEN").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("dwError", &self.dwError).field("pV1Reserved", &self.pV1Reserved).field("pV2Reserved", &self.pV2Reserved).field("dnDevNode", &self.dnDevNode).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ICOPEN {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ICOPEN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICOPEN>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ICOPEN {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ICOPEN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
-    }
-    ICOpen(fcctype, fcchandler, wmode)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: *mut ::core::ffi::c_void) -> HIC;
-    }
-    ICOpenFunction(fcctype, fcchandler, wmode, ::core::mem::transmute(lpfnhandler))
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub struct ICPALETTE {
-    pub dwFlags: u32,
-    pub iStart: i32,
-    pub iLen: i32,
-    pub lppe: *mut super::super::Graphics::Gdi::PALETTEENTRY,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for ICPALETTE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for ICPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for ICPALETTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICPALETTE").field("dwFlags", &self.dwFlags).field("iStart", &self.iStart).field("iLen", &self.iLen).field("lppe", &self.lppe).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICPALETTE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for ICPALETTE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICPALETTE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for ICPALETTE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for ICPALETTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICQUALITY_DEFAULT: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICQUALITY_HIGH: u32 = 10000u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICQUALITY_LOW: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
-    }
-    ICRemove(fcctype, fcchandler, wflags)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ICSETSTATUSPROC {
-    pub dwFlags: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub Status: isize,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ICSETSTATUSPROC {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ICSETSTATUSPROC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ICSETSTATUSPROC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ICSETSTATUSPROC").field("dwFlags", &self.dwFlags).field("lParam", &self.lParam).field("Status", &self.Status).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ICSETSTATUSPROC {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ICSETSTATUSPROC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICSETSTATUSPROC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ICSETSTATUSPROC {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ICSETSTATUSPROC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICSTATUS_END: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4559,49 +3121,6 @@ pub const ICSTATUS_START: u32 = 0u32;
 pub const ICSTATUS_STATUS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICSTATUS_YIELD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ICSendMessage<'a, P0>(hic: P0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<HIC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
-    }
-    ICSendMessage(hic.into(), msg, dw1, dw2)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ICSeqCompressFrame(pc: &COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: &mut super::super::Foundation::BOOL, plsize: ::core::option::Option<&mut i32>) -> *mut ::core::ffi::c_void {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void;
-    }
-    ICSeqCompressFrame(::core::mem::transmute(pc), uiflags, ::core::mem::transmute(lpbits), ::core::mem::transmute(pfkey), ::core::mem::transmute(plsize))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn ICSeqCompressFrameEnd(pc: &COMPVARS) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
-    }
-    ICSeqCompressFrameEnd(::core::mem::transmute(pc))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ICSeqCompressFrameStart(pc: &COMPVARS, lpbiin: &super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL;
-    }
-    ICSeqCompressFrameStart(::core::mem::transmute(pc), ::core::mem::transmute(lpbiin))
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICVERSION: u32 = 260u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4745,105 +3264,6 @@ pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[repr(transparent)]
-pub struct IGetFrame(::windows::core::IUnknown);
-impl IGetFrame {
-    pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void {
-        (::windows::core::Interface::vtable(self).GetFrame)(::windows::core::Interface::as_raw(self), lpos)
-    }
-    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), lstart, lend, lrate).ok()
-    }
-    pub unsafe fn End(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetFormat(&self, lpbi: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), x, y, dx, dy).ok()
-    }
-}
-impl ::core::convert::From<IGetFrame> for ::windows::core::IUnknown {
-    fn from(value: IGetFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGetFrame> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGetFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGetFrame> for ::windows::core::IUnknown {
-    fn from(value: &IGetFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for IGetFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IGetFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetFrame {}
-impl ::core::fmt::Debug for IGetFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetFrame").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IGetFrame {
-    type Vtable = IGetFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGetFrame_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub GetFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void,
-    pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
-    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
-    SetFormat: usize,
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct IMAADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for IMAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for IMAADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for IMAADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for IMAADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for IMAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for IMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JDD_CONFIGCHANGED: u32 = 2307u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JDD_GETDEVCAPS: u32 = 2050u32;
@@ -4973,218 +3393,6 @@ pub const JIFMK_SOI: u32 = 65496u32;
 pub const JIFMK_SOS: u32 = 65498u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JIFMK_TEM: u32 = 65281u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct JOYCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [super::super::Foundation::CHAR; 32],
-    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
-    pub ManufacturerGuid: ::windows::core::GUID,
-    pub ProductGuid: ::windows::core::GUID,
-    pub NameGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for JOYCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for JOYCAPS2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JOYCAPS2A {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JOYCAPS2A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPS2A>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JOYCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for JOYCAPS2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct JOYCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [u16; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [u16; 32],
-    pub szOEMVxD: [u16; 260],
-    pub ManufacturerGuid: ::windows::core::GUID,
-    pub ProductGuid: ::windows::core::GUID,
-    pub NameGuid: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for JOYCAPS2W {}
-impl ::core::clone::Clone for JOYCAPS2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for JOYCAPS2W {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for JOYCAPS2W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPS2W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYCAPS2W {}
-impl ::core::default::Default for JOYCAPS2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct JOYCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [super::super::Foundation::CHAR; 32],
-    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for JOYCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for JOYCAPSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JOYCAPSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JOYCAPSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JOYCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for JOYCAPSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct JOYCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub szPname: [u16; 32],
-    pub wXmin: u32,
-    pub wXmax: u32,
-    pub wYmin: u32,
-    pub wYmax: u32,
-    pub wZmin: u32,
-    pub wZmax: u32,
-    pub wNumButtons: u32,
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-    pub wRmin: u32,
-    pub wRmax: u32,
-    pub wUmin: u32,
-    pub wUmax: u32,
-    pub wVmin: u32,
-    pub wVmax: u32,
-    pub wCaps: u32,
-    pub wMaxAxes: u32,
-    pub wNumAxes: u32,
-    pub wMaxButtons: u32,
-    pub szRegKey: [u16; 32],
-    pub szOEMVxD: [u16; 260],
-}
-impl ::core::marker::Copy for JOYCAPSW {}
-impl ::core::clone::Clone for JOYCAPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for JOYCAPSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for JOYCAPSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYCAPSW {}
-impl ::core::default::Default for JOYCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JOYCAPS_HASPOV: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -5207,71 +3415,6 @@ pub const JOYERR_NOERROR: u32 = 0u32;
 pub const JOYERR_PARMS: u32 = 165u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JOYERR_UNPLUGGED: u32 = 167u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct JOYINFO {
-    pub wXpos: u32,
-    pub wYpos: u32,
-    pub wZpos: u32,
-    pub wButtons: u32,
-}
-impl ::core::marker::Copy for JOYINFO {}
-impl ::core::clone::Clone for JOYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for JOYINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for JOYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYINFO {}
-impl ::core::default::Default for JOYINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct JOYINFOEX {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwXpos: u32,
-    pub dwYpos: u32,
-    pub dwZpos: u32,
-    pub dwRpos: u32,
-    pub dwUpos: u32,
-    pub dwVpos: u32,
-    pub dwButtons: u32,
-    pub dwButtonNumber: u32,
-    pub dwPOV: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for JOYINFOEX {}
-impl ::core::clone::Clone for JOYINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for JOYINFOEX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for JOYINFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYINFOEX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYINFOEX {}
-impl ::core::default::Default for JOYINFOEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JOYSTICKID1: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -5406,36 +3549,6 @@ pub const JOY_RETURNY: i32 = 2i32;
 pub const JOY_RETURNZ: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JOY_USEDEADZONE: i32 = 2048i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct JPEGINFOHEADER {
-    pub JPEGSize: u32,
-    pub JPEGProcess: u32,
-    pub JPEGColorSpaceID: u32,
-    pub JPEGBitsPerSample: u32,
-    pub JPEGHSubSampling: u32,
-    pub JPEGVSubSampling: u32,
-}
-impl ::core::marker::Copy for JPEGINFOHEADER {}
-impl ::core::clone::Clone for JPEGINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for JPEGINFOHEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for JPEGINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JPEGINFOHEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JPEGINFOHEADER {}
-impl ::core::default::Default for JPEGINFOHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -5445,14 +3558,6 @@ pub const JPEG_Y: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JPEG_YCbCr: u32 = 2u32;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFNEXTDEVIO = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMMIOPROC = ::core::option::Option<unsafe extern "system" fn(lpmmioinfo: ::windows::core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize)>;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -5841,46 +3946,6 @@ pub const MCIWND_END: i32 = -2i32;
 pub const MCIWND_START: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCIWND_WINDOW_CLASS: &str = "MCIWndClass";
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MCIWndCreateA<'a, P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn MCIWndCreateA(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::HWND;
-    }
-    MCIWndCreateA(hwndparent.into(), hinstance.into(), dwstyle, szfile.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MCIWndCreateW<'a, P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn MCIWndCreateW(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::HWND;
-    }
-    MCIWndCreateW(hwndparent.into(), hinstance.into(), dwstyle, szfile.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
-    }
-    MCIWndRegisterClass()
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_GETDEVCAPS_CAN_REVERSE: i32 = 16385i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -5901,114 +3966,10 @@ pub const MCI_ANIM_INFO_TEXT: i32 = 65536i32;
 pub const MCI_ANIM_OPEN_NOSTATIC: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_OPEN_PARENT: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_ANIM_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCSTR,
-    pub lpstrElementName: ::windows::core::PCSTR,
-    pub lpstrAlias: ::windows::core::PCSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_ANIM_OPEN_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_OPEN_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_ANIM_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_ANIM_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCWSTR,
-    pub lpstrElementName: ::windows::core::PCWSTR,
-    pub lpstrAlias: ::windows::core::PCWSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_ANIM_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_OPEN_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_ANIM_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_OPEN_WS: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_PLAY_FAST: i32 = 262144i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_ANIM_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub dwSpeed: u32,
-}
-impl ::core::marker::Copy for MCI_ANIM_PLAY_PARMS {}
-impl ::core::clone::Clone for MCI_ANIM_PLAY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_ANIM_PLAY_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_ANIM_PLAY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_PLAY_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_ANIM_PLAY_PARMS {}
-impl ::core::default::Default for MCI_ANIM_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_PLAY_REVERSE: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6027,39 +3988,6 @@ pub const MCI_ANIM_REALIZE_BKGD: i32 = 131072i32;
 pub const MCI_ANIM_REALIZE_NORM: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_RECT: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_ANIM_RECT_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_ANIM_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_ANIM_RECT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_RECT_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_RECT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_RECT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_ANIM_RECT_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_STATUS_FORWARD: i32 = 16386i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6072,70 +4000,10 @@ pub const MCI_ANIM_STATUS_SPEED: i32 = 16385i32;
 pub const MCI_ANIM_STATUS_STRETCH: i32 = 16389i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_STEP_FRAMES: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_ANIM_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
-}
-impl ::core::marker::Copy for MCI_ANIM_STEP_PARMS {}
-impl ::core::clone::Clone for MCI_ANIM_STEP_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_ANIM_STEP_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_ANIM_STEP_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_STEP_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_ANIM_STEP_PARMS {}
-impl ::core::default::Default for MCI_ANIM_STEP_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_STEP_REVERSE: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_UPDATE_HDC: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct MCI_ANIM_UPDATE_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-    pub hDC: super::super::Graphics::Gdi::HDC,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for MCI_ANIM_UPDATE_PARMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for MCI_ANIM_UPDATE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for MCI_ANIM_UPDATE_PARMS {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MCI_ANIM_UPDATE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_UPDATE_PARMS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MCI_ANIM_UPDATE_PARMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for MCI_ANIM_UPDATE_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_WHERE_DESTINATION: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6148,76 +4016,6 @@ pub const MCI_ANIM_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
 pub const MCI_ANIM_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_WINDOW_HWND: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_ANIM_WINDOW_PARMSA {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: ::windows::core::PCSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_ANIM_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_WINDOW_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_ANIM_WINDOW_PARMSW {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: ::windows::core::PCWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_ANIM_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_WINDOW_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_WINDOW_STATE: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6242,40 +4040,6 @@ pub const MCI_BREAK_HWND: i32 = 512i32;
 pub const MCI_BREAK_KEY: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_BREAK_OFF: i32 = 1024i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_BREAK_PARMS {
-    pub dwCallback: usize,
-    pub nVirtKey: i32,
-    pub hwndBreak: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_BREAK_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_BREAK_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_BREAK_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_BREAK_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_BREAK_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_BREAK_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_BREAK_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_CAPTURE: u32 = 2160u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6338,115 +4102,10 @@ pub const MCI_DEVTYPE_WAVEFORM_AUDIO: u32 = 522u32;
 pub const MCI_DGV_CAPTURE_AS: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_CAPTURE_AT: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_CAPTURE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrFileName: ::windows::core::PSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_CAPTURE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CAPTURE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_CAPTURE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrFileName: ::windows::core::PWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_CAPTURE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CAPTURE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_COPY_AT: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_COPY_AUDIO_STREAM: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_COPY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_COPY_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_COPY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_COPY_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_COPY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_COPY_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_COPY_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_COPY_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_COPY_VIDEO_STREAM: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6455,116 +4114,16 @@ pub const MCI_DGV_CUE_INPUT: i32 = 65536i32;
 pub const MCI_DGV_CUE_NOSHOW: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_CUE_OUTPUT: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_CUE_PARMS {
-    pub dwCallback: usize,
-    pub dwTo: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_CUE_PARMS {}
-impl ::core::clone::Clone for MCI_DGV_CUE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_CUE_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_CUE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CUE_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_CUE_PARMS {}
-impl ::core::default::Default for MCI_DGV_CUE_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_CUT_AT: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_CUT_AUDIO_STREAM: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_CUT_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_CUT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_CUT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_CUT_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_CUT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CUT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_CUT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_CUT_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_CUT_VIDEO_STREAM: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_DELETE_AT: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_DELETE_AUDIO_STREAM: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_DELETE_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_DELETE_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_DELETE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_DELETE_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_DELETE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_DELETE_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_DELETE_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_DELETE_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_DELETE_VIDEO_STREAM: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6633,62 +4192,6 @@ pub const MCI_DGV_INFO_AUDIO_ALG: i32 = 16388i32;
 pub const MCI_DGV_INFO_AUDIO_QUALITY: i32 = 16385i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_INFO_ITEM: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_INFO_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PSTR,
-    pub dwRetSize: u32,
-    pub dwItem: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_INFO_PARMSA {}
-impl ::core::clone::Clone for MCI_DGV_INFO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_INFO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSA {}
-impl ::core::default::Default for MCI_DGV_INFO_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_INFO_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PWSTR,
-    pub dwRetSize: u32,
-    pub dwItem: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_INFO_PARMSW {}
-impl ::core::clone::Clone for MCI_DGV_INFO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_INFO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSW {}
-impl ::core::default::Default for MCI_DGV_INFO_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_INFO_STILL_ALG: i32 = 16389i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6717,66 +4220,6 @@ pub const MCI_DGV_LIST_COUNT: i32 = 131072i32;
 pub const MCI_DGV_LIST_ITEM: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_LIST_NUMBER: i32 = 262144i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_LIST_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PSTR,
-    pub dwLength: u32,
-    pub dwNumber: u32,
-    pub dwItem: u32,
-    pub lpstrAlgorithm: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for MCI_DGV_LIST_PARMSA {}
-impl ::core::clone::Clone for MCI_DGV_LIST_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_LIST_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSA {}
-impl ::core::default::Default for MCI_DGV_LIST_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_LIST_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PWSTR,
-    pub dwLength: u32,
-    pub dwNumber: u32,
-    pub dwItem: u32,
-    pub lpstrAlgorithm: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MCI_DGV_LIST_PARMSW {}
-impl ::core::clone::Clone for MCI_DGV_LIST_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_LIST_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSW {}
-impl ::core::default::Default for MCI_DGV_LIST_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_LIST_STILL_ALG: i32 = 16387i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6801,33 +4244,6 @@ pub const MCI_DGV_MONITOR_FILE: i32 = 16385i32;
 pub const MCI_DGV_MONITOR_INPUT: i32 = 16384i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_MONITOR_METHOD: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_MONITOR_PARMS {
-    pub dwCallback: usize,
-    pub dwSource: u32,
-    pub dwMethod: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_MONITOR_PARMS {}
-impl ::core::clone::Clone for MCI_DGV_MONITOR_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_MONITOR_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_MONITOR_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_MONITOR_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_MONITOR_PARMS {}
-impl ::core::default::Default for MCI_DGV_MONITOR_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_MONITOR_SOURCE: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6838,82 +4254,6 @@ pub const MCI_DGV_OPEN_32BIT: i32 = 1048576i32;
 pub const MCI_DGV_OPEN_NOSTATIC: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_OPEN_PARENT: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PSTR,
-    pub lpstrElementName: ::windows::core::PSTR,
-    pub lpstrAlias: ::windows::core::PSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_OPEN_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_OPEN_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PWSTR,
-    pub lpstrElementName: ::windows::core::PWSTR,
-    pub lpstrAlias: ::windows::core::PWSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_OPEN_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_OPEN_WS: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6924,42 +4264,6 @@ pub const MCI_DGV_PASTE_AUDIO_STREAM: i32 = 131072i32;
 pub const MCI_DGV_PASTE_INSERT: i32 = 524288i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_PASTE_OVERWRITE: i32 = 1048576i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_PASTE_PARMS {
-    pub dwCallback: usize,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_PASTE_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_PASTE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_PASTE_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_PASTE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_PASTE_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_PASTE_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_PASTE_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_PASTE_VIDEO_STREAM: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -6978,64 +4282,6 @@ pub const MCI_DGV_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_DGV_PUT_VIDEO: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_PUT_WINDOW: i32 = 2097152i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_QUALITY_PARMSA {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub lpstrName: ::windows::core::PSTR,
-    pub lpstrAlgorithm: u32,
-    pub dwHandle: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_QUALITY_PARMSA {}
-impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_QUALITY_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSA {}
-impl ::core::default::Default for MCI_DGV_QUALITY_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_QUALITY_PARMSW {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub lpstrName: ::windows::core::PWSTR,
-    pub lpstrAlgorithm: u32,
-    pub dwHandle: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_QUALITY_PARMSW {}
-impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_QUALITY_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSW {}
-impl ::core::default::Default for MCI_DGV_QUALITY_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_REALIZE_BKGD: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7044,282 +4290,22 @@ pub const MCI_DGV_REALIZE_NORM: i32 = 65536i32;
 pub const MCI_DGV_RECORD_AUDIO_STREAM: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_RECORD_HOLD: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_RECORD_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub rc: super::super::Foundation::RECT,
-    pub dwAudioStream: u32,
-    pub dwVideoStream: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_RECORD_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_RECORD_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RECORD_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RECORD_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RECORD_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RECORD_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_RECORD_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_RECORD_VIDEO_STREAM: i32 = 524288i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_RECT: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_RECT_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_RECT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RECT_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RECT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RECT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_RECT_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_RESERVE_IN: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_RESERVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrPath: ::windows::core::PSTR,
-    pub dwSize: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_RESERVE_PARMSA {}
-impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESERVE_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSA {}
-impl ::core::default::Default for MCI_DGV_RESERVE_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_RESERVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrPath: ::windows::core::PWSTR,
-    pub dwSize: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_RESERVE_PARMSW {}
-impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESERVE_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSW {}
-impl ::core::default::Default for MCI_DGV_RESERVE_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_RESERVE_SIZE: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_RESTORE_AT: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_RESTORE_FROM: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_RESTORE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrFileName: ::windows::core::PSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_RESTORE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESTORE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_RESTORE_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_RESTORE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrFileName: ::windows::core::PWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_RESTORE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESTORE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_RESTORE_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SAVE_ABORT: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SAVE_KEEPRESERVE: i32 = 262144i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_SAVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrFileName: ::windows::core::PSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_SAVE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SAVE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_SAVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrFileName: ::windows::core::PWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_SAVE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SAVE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SETAUDIO_ALG: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7342,66 +4328,6 @@ pub const MCI_DGV_SETAUDIO_LEFT: i32 = 2097152i32;
 pub const MCI_DGV_SETAUDIO_OUTPUT: i32 = 67108864i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SETAUDIO_OVER: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_SETAUDIO_PARMSA {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: ::windows::core::PSTR,
-    pub lpstrQuality: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for MCI_DGV_SETAUDIO_PARMSA {}
-impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETAUDIO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSA {}
-impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_SETAUDIO_PARMSW {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: ::windows::core::PWSTR,
-    pub lpstrQuality: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MCI_DGV_SETAUDIO_PARMSW {}
-impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETAUDIO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSW {}
-impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SETAUDIO_QUALITY: i32 = 524288i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7466,68 +4392,6 @@ pub const MCI_DGV_SETVIDEO_OUTPUT: i32 = 67108864i32;
 pub const MCI_DGV_SETVIDEO_OVER: i32 = 2097152i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SETVIDEO_PALHANDLE: i32 = 16391i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_SETVIDEO_PARMSA {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: ::windows::core::PSTR,
-    pub lpstrQuality: ::windows::core::PSTR,
-    pub dwSourceNumber: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_SETVIDEO_PARMSA {}
-impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETVIDEO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSA {}
-impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_SETVIDEO_PARMSW {
-    pub dwCallback: usize,
-    pub dwItem: u32,
-    pub dwValue: u32,
-    pub dwOver: u32,
-    pub lpstrAlgorithm: ::windows::core::PWSTR,
-    pub lpstrQuality: ::windows::core::PWSTR,
-    pub dwSourceNumber: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_SETVIDEO_PARMSW {}
-impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETVIDEO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSW {}
-impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SETVIDEO_QUALITY: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7572,35 +4436,6 @@ pub const MCI_DGV_SETVIDEO_TINT: i32 = 16387i32;
 pub const MCI_DGV_SETVIDEO_VALUE: i32 = 16777216i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SET_FILEFORMAT: i32 = 524288i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub dwFileFormat: u32,
-    pub dwSpeed: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_SET_PARMS {}
-impl ::core::clone::Clone for MCI_DGV_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_SET_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SET_PARMS {}
-impl ::core::default::Default for MCI_DGV_SET_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SET_SEEK_EXACTLY: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7613,34 +4448,6 @@ pub const MCI_DGV_SIGNAL_AT: i32 = 65536i32;
 pub const MCI_DGV_SIGNAL_CANCEL: i32 = 524288i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SIGNAL_EVERY: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_SIGNAL_PARMS {
-    pub dwCallback: usize,
-    pub dwPosition: u32,
-    pub dwPeriod: u32,
-    pub dwUserParm: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_SIGNAL_PARMS {}
-impl ::core::clone::Clone for MCI_DGV_SIGNAL_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_SIGNAL_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_SIGNAL_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SIGNAL_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SIGNAL_PARMS {}
-impl ::core::default::Default for MCI_DGV_SIGNAL_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_SIGNAL_POSITION: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7705,66 +4512,6 @@ pub const MCI_DGV_STATUS_MONITOR_METHOD: i32 = 16396i32;
 pub const MCI_DGV_STATUS_NOMINAL: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_STATUS_OUTPUT: i32 = 8388608i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_STATUS_PARMSA {
-    pub dwCallback: usize,
-    pub dwReturn: usize,
-    pub dwItem: u32,
-    pub dwTrack: u32,
-    pub lpstrDrive: ::windows::core::PSTR,
-    pub dwReference: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_STATUS_PARMSA {}
-impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STATUS_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSA {}
-impl ::core::default::Default for MCI_DGV_STATUS_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_STATUS_PARMSW {
-    pub dwCallback: usize,
-    pub dwReturn: usize,
-    pub dwItem: u32,
-    pub dwTrack: u32,
-    pub lpstrDrive: ::windows::core::PWSTR,
-    pub dwReference: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_STATUS_PARMSW {}
-impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STATUS_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSW {}
-impl ::core::default::Default for MCI_DGV_STATUS_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_STATUS_PAUSE_MODE: i32 = 16422i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7813,32 +4560,6 @@ pub const MCI_DGV_STATUS_WINDOW_MINIMIZED: i32 = 16418i32;
 pub const MCI_DGV_STATUS_WINDOW_VISIBLE: i32 = 16417i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_STEP_FRAMES: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_DGV_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
-}
-impl ::core::marker::Copy for MCI_DGV_STEP_PARMS {}
-impl ::core::clone::Clone for MCI_DGV_STEP_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_DGV_STEP_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_DGV_STEP_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STEP_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_STEP_PARMS {}
-impl ::core::default::Default for MCI_DGV_STEP_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_STEP_REVERSE: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7847,40 +4568,6 @@ pub const MCI_DGV_STOP_HOLD: i32 = 65536i32;
 pub const MCI_DGV_UPDATE_HDC: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_UPDATE_PAINT: i32 = 262144i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct MCI_DGV_UPDATE_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-    pub hDC: super::super::Graphics::Gdi::HDC,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for MCI_DGV_UPDATE_PARMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for MCI_DGV_UPDATE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for MCI_DGV_UPDATE_PARMS {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MCI_DGV_UPDATE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_UPDATE_PARMS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MCI_DGV_UPDATE_PARMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for MCI_DGV_UPDATE_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_WHERE_DESTINATION: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -7897,76 +4584,6 @@ pub const MCI_DGV_WHERE_WINDOW: i32 = 2097152i32;
 pub const MCI_DGV_WINDOW_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_WINDOW_HWND: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_WINDOW_PARMSA {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: ::windows::core::PSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_WINDOW_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_DGV_WINDOW_PARMSW {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_DGV_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_WINDOW_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_DGV_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_DGV_WINDOW_STATE: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8033,31 +4650,6 @@ pub const MCI_FORMAT_TMSF_S: u32 = 543u32;
 pub const MCI_FREEZE: u32 = 2116u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_FROM: i32 = 4i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_GENERIC_PARMS {
-    pub dwCallback: usize,
-}
-impl ::core::marker::Copy for MCI_GENERIC_PARMS {}
-impl ::core::clone::Clone for MCI_GENERIC_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_GENERIC_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_GENERIC_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_GENERIC_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_GENERIC_PARMS {}
-impl ::core::default::Default for MCI_GENERIC_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_GETDEVCAPS: u32 = 2059u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8078,33 +4670,6 @@ pub const MCI_GETDEVCAPS_HAS_AUDIO: i32 = 2i32;
 pub const MCI_GETDEVCAPS_HAS_VIDEO: i32 = 3i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_GETDEVCAPS_ITEM: i32 = 256i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_GETDEVCAPS_PARMS {
-    pub dwCallback: usize,
-    pub dwReturn: u32,
-    pub dwItem: u32,
-}
-impl ::core::marker::Copy for MCI_GETDEVCAPS_PARMS {}
-impl ::core::clone::Clone for MCI_GETDEVCAPS_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_GETDEVCAPS_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_GETDEVCAPS_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_GETDEVCAPS_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_GETDEVCAPS_PARMS {}
-impl ::core::default::Default for MCI_GETDEVCAPS_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_GETDEVCAPS_USES_FILES: i32 = 5i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8125,60 +4690,6 @@ pub const MCI_INFO_MEDIA_IDENTITY: i32 = 2048i32;
 pub const MCI_INFO_MEDIA_UPC: i32 = 1024i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_INFO_NAME: i32 = 4096i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_INFO_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PSTR,
-    pub dwRetSize: u32,
-}
-impl ::core::marker::Copy for MCI_INFO_PARMSA {}
-impl ::core::clone::Clone for MCI_INFO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_INFO_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_INFO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_INFO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_INFO_PARMSA {}
-impl ::core::default::Default for MCI_INFO_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_INFO_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PWSTR,
-    pub dwRetSize: u32,
-}
-impl ::core::marker::Copy for MCI_INFO_PARMSW {}
-impl ::core::clone::Clone for MCI_INFO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_INFO_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_INFO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_INFO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_INFO_PARMSW {}
-impl ::core::default::Default for MCI_INFO_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_INFO_PRODUCT: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8197,58 +4708,6 @@ pub const MCI_LIST: u32 = 2168u32;
 pub const MCI_LOAD: u32 = 2128u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_LOAD_FILE: i32 = 256i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_LOAD_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCSTR,
-}
-impl ::core::marker::Copy for MCI_LOAD_PARMSA {}
-impl ::core::clone::Clone for MCI_LOAD_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_LOAD_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_LOAD_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_LOAD_PARMSA {}
-impl ::core::default::Default for MCI_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_LOAD_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for MCI_LOAD_PARMSW {}
-impl ::core::clone::Clone for MCI_LOAD_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_LOAD_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_LOAD_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_LOAD_PARMSW {}
-impl ::core::default::Default for MCI_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_MAX_DEVICE_TYPE_LENGTH: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8297,96 +4756,10 @@ pub const MCI_OPEN: u32 = 2051u32;
 pub const MCI_OPEN_ALIAS: i32 = 1024i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OPEN_DRIVER: u32 = 2049u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_OPEN_DRIVER_PARMS {
-    pub wDeviceID: u32,
-    pub lpstrParams: ::windows::core::PCWSTR,
-    pub wCustomCommandTable: u32,
-    pub wType: u32,
-}
-impl ::core::marker::Copy for MCI_OPEN_DRIVER_PARMS {}
-impl ::core::clone::Clone for MCI_OPEN_DRIVER_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_OPEN_DRIVER_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_OPEN_DRIVER_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_DRIVER_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_OPEN_DRIVER_PARMS {}
-impl ::core::default::Default for MCI_OPEN_DRIVER_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OPEN_ELEMENT: i32 = 512i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OPEN_ELEMENT_ID: i32 = 2048i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCSTR,
-    pub lpstrElementName: ::windows::core::PCSTR,
-    pub lpstrAlias: ::windows::core::PCSTR,
-}
-impl ::core::marker::Copy for MCI_OPEN_PARMSA {}
-impl ::core::clone::Clone for MCI_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_OPEN_PARMSA {}
-impl ::core::default::Default for MCI_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCWSTR,
-    pub lpstrElementName: ::windows::core::PCWSTR,
-    pub lpstrAlias: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for MCI_OPEN_PARMSW {}
-impl ::core::clone::Clone for MCI_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_OPEN_PARMSW {}
-impl ::core::default::Default for MCI_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OPEN_SHAREABLE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8401,152 +4774,8 @@ pub const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: i32 = 16385i32;
 pub const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: i32 = 16387i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OVLY_INFO_TEXT: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_LOAD_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_LOAD_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_LOAD_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_LOAD_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_LOAD_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_LOAD_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OVLY_OPEN_PARENT: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCSTR,
-    pub lpstrElementName: ::windows::core::PCSTR,
-    pub lpstrAlias: ::windows::core::PCSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_OPEN_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_OPEN_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCWSTR,
-    pub lpstrElementName: ::windows::core::PCWSTR,
-    pub lpstrAlias: ::windows::core::PCWSTR,
-    pub dwStyle: u32,
-    pub hWndParent: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_OPEN_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OVLY_OPEN_WS: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8559,107 +4788,6 @@ pub const MCI_OVLY_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_OVLY_PUT_VIDEO: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OVLY_RECT: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_RECT_PARMS {
-    pub dwCallback: usize,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_RECT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_RECT_PARMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_RECT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_RECT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_RECT_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_SAVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_SAVE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_SAVE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_SAVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCWSTR,
-    pub rc: super::super::Foundation::RECT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_SAVE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_SAVE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OVLY_STATUS_HWND: i32 = 16385i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8680,76 +4808,6 @@ pub const MCI_OVLY_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
 pub const MCI_OVLY_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OVLY_WINDOW_HWND: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_WINDOW_PARMSA {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: ::windows::core::PCSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_WINDOW_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MCI_OVLY_WINDOW_PARMSW {
-    pub dwCallback: usize,
-    pub hWnd: super::super::Foundation::HWND,
-    pub nCmdShow: u32,
-    pub lpstrText: ::windows::core::PCWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MCI_OVLY_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_WINDOW_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_OVLY_WINDOW_STATE: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8760,33 +4818,6 @@ pub const MCI_PASTE: u32 = 2131u32;
 pub const MCI_PAUSE: u32 = 2057u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_PLAY: u32 = 2054u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-}
-impl ::core::marker::Copy for MCI_PLAY_PARMS {}
-impl ::core::clone::Clone for MCI_PLAY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_PLAY_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_PLAY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_PLAY_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_PLAY_PARMS {}
-impl ::core::default::Default for MCI_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_PUT: u32 = 2114u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8815,33 +4846,6 @@ pub const MCI_RECORD: u32 = 2063u32;
 pub const MCI_RECORD_INSERT: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_RECORD_OVERWRITE: i32 = 512i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_RECORD_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-}
-impl ::core::marker::Copy for MCI_RECORD_PARMS {}
-impl ::core::clone::Clone for MCI_RECORD_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_RECORD_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_RECORD_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_RECORD_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_RECORD_PARMS {}
-impl ::core::default::Default for MCI_RECORD_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_RECT: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8860,88 +4864,10 @@ pub const MCI_RETURN: u32 = 4u32;
 pub const MCI_SAVE: u32 = 2067u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SAVE_FILE: i32 = 256i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_SAVE_PARMSA {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCSTR,
-}
-impl ::core::marker::Copy for MCI_SAVE_PARMSA {}
-impl ::core::clone::Clone for MCI_SAVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_SAVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SAVE_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SAVE_PARMSA {}
-impl ::core::default::Default for MCI_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_SAVE_PARMSW {
-    pub dwCallback: usize,
-    pub lpfilename: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for MCI_SAVE_PARMSW {}
-impl ::core::clone::Clone for MCI_SAVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_SAVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SAVE_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SAVE_PARMSW {}
-impl ::core::default::Default for MCI_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SECTION: &str = "MCI32";
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SEEK: u32 = 2055u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_SEEK_PARMS {
-    pub dwCallback: usize,
-    pub dwTo: u32,
-}
-impl ::core::marker::Copy for MCI_SEEK_PARMS {}
-impl ::core::clone::Clone for MCI_SEEK_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_SEEK_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_SEEK_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SEEK_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SEEK_PARMS {}
-impl ::core::default::Default for MCI_SEEK_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SEEK_TO_END: i32 = 512i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -8970,38 +4896,6 @@ pub const MCI_SEQ_NONE_S: u32 = 1226u32;
 pub const MCI_SEQ_SET_MASTER: i32 = 524288i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SEQ_SET_OFFSET: i32 = 16777216i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_SEQ_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub dwTempo: u32,
-    pub dwPort: u32,
-    pub dwSlave: u32,
-    pub dwMaster: u32,
-    pub dwOffset: u32,
-}
-impl ::core::marker::Copy for MCI_SEQ_SET_PARMS {}
-impl ::core::clone::Clone for MCI_SEQ_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_SEQ_SET_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_SEQ_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SEQ_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SEQ_SET_PARMS {}
-impl ::core::default::Default for MCI_SEQ_SET_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SEQ_SET_PORT: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9050,33 +4944,6 @@ pub const MCI_SET_DOOR_OPEN: i32 = 256i32;
 pub const MCI_SET_OFF: i32 = 16384i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SET_ON: i32 = 8192i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-}
-impl ::core::marker::Copy for MCI_SET_PARMS {}
-impl ::core::clone::Clone for MCI_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_SET_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SET_PARMS {}
-impl ::core::default::Default for MCI_SET_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SET_TIME_FORMAT: i32 = 1024i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9099,34 +4966,6 @@ pub const MCI_STATUS_MEDIA_PRESENT: i32 = 5i32;
 pub const MCI_STATUS_MODE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_STATUS_NUMBER_OF_TRACKS: i32 = 3i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_STATUS_PARMS {
-    pub dwCallback: usize,
-    pub dwReturn: usize,
-    pub dwItem: u32,
-    pub dwTrack: u32,
-}
-impl ::core::marker::Copy for MCI_STATUS_PARMS {}
-impl ::core::clone::Clone for MCI_STATUS_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_STATUS_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_STATUS_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_STATUS_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_STATUS_PARMS {}
-impl ::core::default::Default for MCI_STATUS_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_STATUS_POSITION: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9149,64 +4988,6 @@ pub const MCI_SYSINFO_INSTALLNAME: i32 = 2048i32;
 pub const MCI_SYSINFO_NAME: i32 = 1024i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SYSINFO_OPEN: i32 = 512i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_SYSINFO_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PSTR,
-    pub dwRetSize: u32,
-    pub dwNumber: u32,
-    pub wDeviceType: u32,
-}
-impl ::core::marker::Copy for MCI_SYSINFO_PARMSA {}
-impl ::core::clone::Clone for MCI_SYSINFO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SYSINFO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SYSINFO_PARMSA {}
-impl ::core::default::Default for MCI_SYSINFO_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_SYSINFO_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrReturn: ::windows::core::PWSTR,
-    pub dwRetSize: u32,
-    pub dwNumber: u32,
-    pub wDeviceType: u32,
-}
-impl ::core::marker::Copy for MCI_SYSINFO_PARMSW {}
-impl ::core::clone::Clone for MCI_SYSINFO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SYSINFO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SYSINFO_PARMSW {}
-impl ::core::default::Default for MCI_SYSINFO_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SYSINFO_QUANTITY: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9225,58 +5006,6 @@ pub const MCI_UNFREEZE: u32 = 2117u32;
 pub const MCI_UPDATE: u32 = 2132u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_USER_MESSAGES: u32 = 3072u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_VD_ESCAPE_PARMSA {
-    pub dwCallback: usize,
-    pub lpstrCommand: ::windows::core::PCSTR,
-}
-impl ::core::marker::Copy for MCI_VD_ESCAPE_PARMSA {}
-impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_ESCAPE_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSA {}
-impl ::core::default::Default for MCI_VD_ESCAPE_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_VD_ESCAPE_PARMSW {
-    pub dwCallback: usize,
-    pub lpstrCommand: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for MCI_VD_ESCAPE_PARMSW {}
-impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_ESCAPE_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSW {}
-impl ::core::default::Default for MCI_VD_ESCAPE_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_VD_ESCAPE_STRING: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9305,34 +5034,6 @@ pub const MCI_VD_MEDIA_OTHER: u32 = 1028u32;
 pub const MCI_VD_MODE_PARK: u32 = 1025u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_VD_PLAY_FAST: i32 = 131072i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_VD_PLAY_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-    pub dwSpeed: u32,
-}
-impl ::core::marker::Copy for MCI_VD_PLAY_PARMS {}
-impl ::core::clone::Clone for MCI_VD_PLAY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_VD_PLAY_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_VD_PLAY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_PLAY_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_PLAY_PARMS {}
-impl ::core::default::Default for MCI_VD_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_VD_PLAY_REVERSE: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9359,63 +5060,10 @@ pub const MCI_VD_STATUS_SIDE: i32 = 16389i32;
 pub const MCI_VD_STATUS_SPEED: i32 = 16386i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_VD_STEP_FRAMES: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_VD_STEP_PARMS {
-    pub dwCallback: usize,
-    pub dwFrames: u32,
-}
-impl ::core::marker::Copy for MCI_VD_STEP_PARMS {}
-impl ::core::clone::Clone for MCI_VD_STEP_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_VD_STEP_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_VD_STEP_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_STEP_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_STEP_PARMS {}
-impl ::core::default::Default for MCI_VD_STEP_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_VD_STEP_REVERSE: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_WAIT: i32 = 2i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_WAVE_DELETE_PARMS {
-    pub dwCallback: usize,
-    pub dwFrom: u32,
-    pub dwTo: u32,
-}
-impl ::core::marker::Copy for MCI_WAVE_DELETE_PARMS {}
-impl ::core::clone::Clone for MCI_WAVE_DELETE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_WAVE_DELETE_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_WAVE_DELETE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_DELETE_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_DELETE_PARMS {}
-impl ::core::default::Default for MCI_WAVE_DELETE_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_WAVE_GETDEVCAPS_INPUTS: i32 = 16385i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9426,66 +5074,6 @@ pub const MCI_WAVE_INPUT: i32 = 4194304i32;
 pub const MCI_WAVE_MAPPER: u32 = 1153u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_WAVE_OPEN_BUFFER: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_WAVE_OPEN_PARMSA {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCSTR,
-    pub lpstrElementName: ::windows::core::PCSTR,
-    pub lpstrAlias: ::windows::core::PCSTR,
-    pub dwBufferSeconds: u32,
-}
-impl ::core::marker::Copy for MCI_WAVE_OPEN_PARMSA {}
-impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_OPEN_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSA {}
-impl ::core::default::Default for MCI_WAVE_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_WAVE_OPEN_PARMSW {
-    pub dwCallback: usize,
-    pub wDeviceID: u32,
-    pub lpstrDeviceType: ::windows::core::PCWSTR,
-    pub lpstrElementName: ::windows::core::PCWSTR,
-    pub lpstrAlias: ::windows::core::PCWSTR,
-    pub dwBufferSeconds: u32,
-}
-impl ::core::marker::Copy for MCI_WAVE_OPEN_PARMSW {}
-impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_OPEN_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSW {}
-impl ::core::default::Default for MCI_WAVE_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_WAVE_OUTPUT: i32 = 8388608i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9504,45 +5092,6 @@ pub const MCI_WAVE_SET_BLOCKALIGN: i32 = 1048576i32;
 pub const MCI_WAVE_SET_CHANNELS: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_WAVE_SET_FORMATTAG: i32 = 65536i32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MCI_WAVE_SET_PARMS {
-    pub dwCallback: usize,
-    pub dwTimeFormat: u32,
-    pub dwAudio: u32,
-    pub wInput: u32,
-    pub wOutput: u32,
-    pub wFormatTag: u16,
-    pub wReserved2: u16,
-    pub nChannels: u16,
-    pub wReserved3: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-    pub wReserved4: u16,
-    pub wBitsPerSample: u16,
-    pub wReserved5: u16,
-}
-impl ::core::marker::Copy for MCI_WAVE_SET_PARMS {}
-impl ::core::clone::Clone for MCI_WAVE_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MCI_WAVE_SET_PARMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCI_WAVE_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_SET_PARMS {}
-impl ::core::default::Default for MCI_WAVE_SET_PARMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_WAVE_SET_SAMPLESPERSEC: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9567,67 +5116,8 @@ pub const MCI_WINDOW: u32 = 2113u32;
 pub const MCMADM_E_REGKEY_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072889750i32);
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCMADM_I_NO_EVENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(1074593897i32);
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct MEDIASPACEADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for MEDIASPACEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for MEDIASPACEADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for MEDIASPACEADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for MEDIASPACEADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEDIASPACEADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for MEDIASPACEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for MEDIASPACEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MIDIMAPPER_S: u32 = 1227u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MIDIOPENSTRMID {
-    pub dwStreamID: u32,
-    pub uDeviceID: u32,
-}
-impl ::core::marker::Copy for MIDIOPENSTRMID {}
-impl ::core::clone::Clone for MIDIOPENSTRMID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MIDIOPENSTRMID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MIDIOPENSTRMID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDIOPENSTRMID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIDIOPENSTRMID {}
-impl ::core::default::Default for MIDIOPENSTRMID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MIDI_IO_COOKED: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9666,71 +5156,6 @@ pub const MIXERCONTROL_CONTROLTYPE_SRS_MTS: u32 = 536936454u32;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_ONOFF: u32 = 536936455u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MIXERCONTROL_CONTROLTYPE_SRS_SYNTHSELECT: u32 = 536936456u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct MIXEROPENDESC {
-    pub hmx: super::Audio::HMIXER,
-    pub pReserved0: *mut ::core::ffi::c_void,
-    pub dwCallback: usize,
-    pub dwInstance: usize,
-    pub dnDevNode: usize,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for MIXEROPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for MIXEROPENDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for MIXEROPENDESC {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for MIXEROPENDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIXEROPENDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for MIXEROPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for MIXEROPENDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct MMCKINFO {
-    pub ckid: u32,
-    pub cksize: u32,
-    pub fccType: u32,
-    pub dwDataOffset: u32,
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for MMCKINFO {}
-impl ::core::clone::Clone for MMCKINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MMCKINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMCKINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMCKINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMCKINFO {}
-impl ::core::default::Default for MMCKINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MMIOERR_ACCESSDENIED: u32 = 268u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -9765,53 +5190,6 @@ pub const MMIOERR_SHARINGVIOLATION: u32 = 269u32;
 pub const MMIOERR_TOOMANYOPENFILES: u32 = 271u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MMIOERR_UNBUFFERED: u32 = 266u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MMIOINFO {
-    pub dwFlags: u32,
-    pub fccIOProc: u32,
-    pub pIOProc: LPMMIOPROC,
-    pub wErrorRet: u32,
-    pub htask: super::HTASK,
-    pub cchBuffer: i32,
-    pub pchBuffer: *mut i8,
-    pub pchNext: *mut i8,
-    pub pchEndRead: *mut i8,
-    pub pchEndWrite: *mut i8,
-    pub lBufOffset: i32,
-    pub lDiskOffset: i32,
-    pub adwInfo: [u32; 3],
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub hmmio: HMMIO,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MMIOINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MMIOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MMIOINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MMIOINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMIOINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MMIOINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MMIOINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MMIOM_CLOSE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -12966,40 +8344,6 @@ pub const MPEGLAYER3_ID_MPEG: u32 = 1u32;
 pub const MPEGLAYER3_ID_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: u32 = 12u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct MSAUDIO1WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-    pub wEncodeOptions: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for MSAUDIO1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for MSAUDIO1WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for MSAUDIO1WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for MSAUDIO1WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSAUDIO1WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for MSAUDIO1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for MSAUDIO1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MSAUDIO1_BITS_PER_SAMPLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -13028,39 +8372,6 @@ pub const MXDM_OPEN: u32 = 3u32;
 pub const MXDM_SETCONTROLDETAILS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MXDM_USER: u32 = 16384u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct NMS_VBXADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for NMS_VBXADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for NMS_VBXADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for NMS_VBXADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for NMS_VBXADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NMS_VBXADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for NMS_VBXADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for NMS_VBXADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072879730i32);
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -15471,181 +10782,6 @@ pub const NS_W_FILE_BANDWIDTH_LIMIT: ::windows::core::HRESULT = ::windows::core:
 pub const NS_W_SERVER_BANDWIDTH_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146631677i32);
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const NS_W_UNKNOWN_EVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146631584i32);
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct OLIADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for OLIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for OLIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLIADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for OLIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct OLICELPWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for OLICELPWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for OLICELPWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLICELPWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLICELPWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLICELPWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLICELPWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for OLICELPWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct OLIGSMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for OLIGSMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for OLIGSMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLIGSMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLIGSMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIGSMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLIGSMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for OLIGSMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct OLIOPRWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for OLIOPRWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for OLIOPRWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLIOPRWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLIOPRWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIOPRWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLIOPRWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for OLIOPRWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct OLISBCWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for OLISBCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for OLISBCWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLISBCWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLISBCWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLISBCWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLISBCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for OLISBCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenDriver<'a, P0, P1, P2>(szdrivername: P0, szsectionname: P1, lparam2: P2) -> HDRVR
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenDriver(szdrivername: ::windows::core::PCWSTR, szsectionname: ::windows::core::PCWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
-    }
-    OpenDriver(szdrivername.into(), szsectionname.into(), lparam2.into())
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const PD_CAN_DRAW_DIB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -15696,87 +10832,6 @@ pub const SEEK_CUR: u32 = 1u32;
 pub const SEEK_END: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const SEEK_SET: u32 = 0u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct SIERRAADPCMWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for SIERRAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for SIERRAADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for SIERRAADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for SIERRAADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIERRAADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for SIERRAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for SIERRAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct SONARCWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wCompType: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for SONARCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for SONARCWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for SONARCWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for SONARCWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SONARCWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for SONARCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for SONARCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SendDriverMessage<'a, P0, P1, P2>(hdriver: P0, message: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<HDRVR>,
-    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-    }
-    SendDriverMessage(hdriver.into(), message, lparam1.into(), lparam2.into())
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const TARGET_DEVICE_FRIENDLY_NAME: &str = "TargetDeviceFriendlyName";
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -15797,71 +10852,6 @@ pub const TDD_GETSYSTEMTIME: u32 = 2056u32;
 pub const TDD_KILLTIMEREVENT: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const TDD_SETTIMEREVENT: u32 = 2052u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct TIMEREVENT {
-    pub wDelay: u16,
-    pub wResolution: u16,
-    pub lpFunction: super::LPTIMECALLBACK,
-    pub dwUser: u32,
-    pub wFlags: u16,
-    pub wReserved1: u16,
-}
-impl ::core::marker::Copy for TIMEREVENT {}
-impl ::core::clone::Clone for TIMEREVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for TIMEREVENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TIMEREVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMEREVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TIMEREVENT {}
-impl ::core::default::Default for TIMEREVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct TRUESPEECHWAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wRevision: u16,
-    pub nSamplesPerBlock: u16,
-    pub abReserved: [u8; 28],
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for TRUESPEECHWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for TRUESPEECHWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for TRUESPEECHWAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for TRUESPEECHWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUESPEECHWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for TRUESPEECHWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for TRUESPEECHWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const VADMAD_Device_ID: u32 = 1092u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -15872,9 +10862,6 @@ pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-pub type VFWWDMExtensionProc = ::core::option::Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -15913,42 +10900,6 @@ pub const VIDCF_FASTTEMPORALD: u32 = 128u32;
 pub const VIDCF_QUALITY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const VIDCF_TEMPORAL: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub struct VIDEOHDR {
-    pub lpData: *mut u8,
-    pub dwBufferLength: u32,
-    pub dwBytesUsed: u32,
-    pub dwTimeCaptured: u32,
-    pub dwUser: usize,
-    pub dwFlags: u32,
-    pub dwReserved: [usize; 4],
-}
-impl ::core::marker::Copy for VIDEOHDR {}
-impl ::core::clone::Clone for VIDEOHDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for VIDEOHDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VIDEOHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesUsed", &self.dwBytesUsed).field("dwTimeCaptured", &self.dwTimeCaptured).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for VIDEOHDR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VIDEOHDR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOHDR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIDEOHDR {}
-impl ::core::default::Default for VIDEOHDR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const VIDEO_CONFIGURE_CURRENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -16051,52 +11002,6 @@ pub const VP_TV_STANDARD_SECAM_L: u32 = 16384u32;
 pub const VP_TV_STANDARD_SECAM_L1: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const VP_TV_STANDARD_WIN_VGA: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn VideoForWindowsVersion() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VideoForWindowsVersion() -> u32;
-    }
-    VideoForWindowsVersion()
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct WAVEOPENDESC {
-    pub hWave: super::Audio::HWAVE,
-    pub lpFormat: *mut super::Audio::WAVEFORMAT,
-    pub dwCallback: usize,
-    pub dwInstance: usize,
-    pub uMappedDeviceID: u32,
-    pub dnDevNode: usize,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for WAVEOPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for WAVEOPENDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for WAVEOPENDESC {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for WAVEOPENDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WAVEOPENDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for WAVEOPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for WAVEOPENDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const WAVE_FILTER_DEVELOPMENT: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -16671,83 +11576,10 @@ pub const WIDM_START: u32 = 57u32;
 pub const WIDM_STOP: u32 = 58u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const WIDM_UNPREPARE: u32 = 55u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct WMAUDIO2WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub dwSamplesPerBlock: u32,
-    pub wEncodeOptions: u16,
-    pub dwSuperBlockAlign: u32,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for WMAUDIO2WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for WMAUDIO2WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for WMAUDIO2WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for WMAUDIO2WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMAUDIO2WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for WMAUDIO2WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for WMAUDIO2WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const WMAUDIO2_MAX_CHANNELS: u32 = 2u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
-#[cfg(feature = "Win32_Media_Audio")]
-pub struct WMAUDIO3WAVEFORMAT {
-    pub wfx: super::Audio::WAVEFORMATEX,
-    pub wValidBitsPerSample: u16,
-    pub dwChannelMask: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub wEncodeOptions: u16,
-    pub wReserved3: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::marker::Copy for WMAUDIO3WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::clone::Clone for WMAUDIO3WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for WMAUDIO3WAVEFORMAT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for WMAUDIO3WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMAUDIO3WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for WMAUDIO3WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::default::Default for WMAUDIO3WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const WMAUDIO_BITS_PER_SAMPLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -16961,6 +11793,5801 @@ pub const WODM_UNPREPARE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const WODM_WRITE: u32 = 9u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct ADPCMCOEFSET {
+    pub iCoef1: i16,
+    pub iCoef2: i16,
+}
+impl ::core::marker::Copy for ADPCMCOEFSET {}
+impl ::core::clone::Clone for ADPCMCOEFSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ADPCMCOEFSET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADPCMCOEFSET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMCOEFSET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADPCMCOEFSET {}
+impl ::core::default::Default for ADPCMCOEFSET {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct ADPCMEWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for ADPCMEWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for ADPCMEWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for ADPCMEWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for ADPCMEWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMEWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for ADPCMEWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for ADPCMEWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct ADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+    pub wNumCoef: u16,
+    pub aCoef: [ADPCMCOEFSET; 1],
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for ADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for ADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for ADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for ADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct APTXWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for APTXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for APTXWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for APTXWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for APTXWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APTXWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for APTXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for APTXWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct AUDIOFILE_AF10WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for AUDIOFILE_AF10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for AUDIOFILE_AF10WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for AUDIOFILE_AF10WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for AUDIOFILE_AF10WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIOFILE_AF10WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for AUDIOFILE_AF10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for AUDIOFILE_AF10WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct AUDIOFILE_AF36WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for AUDIOFILE_AF36WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for AUDIOFILE_AF36WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for AUDIOFILE_AF36WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for AUDIOFILE_AF36WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIOFILE_AF36WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for AUDIOFILE_AF36WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for AUDIOFILE_AF36WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct AVICOMPRESSOPTIONS {
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwKeyFrameEvery: u32,
+    pub dwQuality: u32,
+    pub dwBytesPerSecond: u32,
+    pub dwFlags: u32,
+    pub lpFormat: *mut ::core::ffi::c_void,
+    pub cbFormat: u32,
+    pub lpParms: *mut ::core::ffi::c_void,
+    pub cbParms: u32,
+    pub dwInterleaveEvery: u32,
+}
+impl ::core::marker::Copy for AVICOMPRESSOPTIONS {}
+impl ::core::clone::Clone for AVICOMPRESSOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AVICOMPRESSOPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVICOMPRESSOPTIONS").field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwKeyFrameEvery", &self.dwKeyFrameEvery).field("dwQuality", &self.dwQuality).field("dwBytesPerSecond", &self.dwBytesPerSecond).field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("cbFormat", &self.cbFormat).field("lpParms", &self.lpParms).field("cbParms", &self.cbParms).field("dwInterleaveEvery", &self.dwInterleaveEvery).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AVICOMPRESSOPTIONS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AVICOMPRESSOPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVICOMPRESSOPTIONS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AVICOMPRESSOPTIONS {}
+impl ::core::default::Default for AVICOMPRESSOPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AVIFILEINFOA {
+    pub dwMaxBytesPerSec: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub dwStreams: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwLength: u32,
+    pub dwEditCount: u32,
+    pub szFileType: [super::super::Foundation::CHAR; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AVIFILEINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AVIFILEINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AVIFILEINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVIFILEINFOA")
+            .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwStreams", &self.dwStreams)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwWidth", &self.dwWidth)
+            .field("dwHeight", &self.dwHeight)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwLength", &self.dwLength)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("szFileType", &self.szFileType)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AVIFILEINFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AVIFILEINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVIFILEINFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AVIFILEINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AVIFILEINFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct AVIFILEINFOW {
+    pub dwMaxBytesPerSec: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub dwStreams: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwLength: u32,
+    pub dwEditCount: u32,
+    pub szFileType: [u16; 64],
+}
+impl ::core::marker::Copy for AVIFILEINFOW {}
+impl ::core::clone::Clone for AVIFILEINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AVIFILEINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVIFILEINFOW")
+            .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("dwStreams", &self.dwStreams)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwWidth", &self.dwWidth)
+            .field("dwHeight", &self.dwHeight)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwLength", &self.dwLength)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("szFileType", &self.szFileType)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AVIFILEINFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AVIFILEINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVIFILEINFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AVIFILEINFOW {}
+impl ::core::default::Default for AVIFILEINFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AVISTREAMINFOA {
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub wPriority: u16,
+    pub wLanguage: u16,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwStart: u32,
+    pub dwLength: u32,
+    pub dwInitialFrames: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwQuality: u32,
+    pub dwSampleSize: u32,
+    pub rcFrame: super::super::Foundation::RECT,
+    pub dwEditCount: u32,
+    pub dwFormatChangeCount: u32,
+    pub szName: [super::super::Foundation::CHAR; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AVISTREAMINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AVISTREAMINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AVISTREAMINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVISTREAMINFOA")
+            .field("fccType", &self.fccType)
+            .field("fccHandler", &self.fccHandler)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("wPriority", &self.wPriority)
+            .field("wLanguage", &self.wLanguage)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwStart", &self.dwStart)
+            .field("dwLength", &self.dwLength)
+            .field("dwInitialFrames", &self.dwInitialFrames)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwQuality", &self.dwQuality)
+            .field("dwSampleSize", &self.dwSampleSize)
+            .field("rcFrame", &self.rcFrame)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("dwFormatChangeCount", &self.dwFormatChangeCount)
+            .field("szName", &self.szName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AVISTREAMINFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AVISTREAMINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVISTREAMINFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AVISTREAMINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AVISTREAMINFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AVISTREAMINFOW {
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwFlags: u32,
+    pub dwCaps: u32,
+    pub wPriority: u16,
+    pub wLanguage: u16,
+    pub dwScale: u32,
+    pub dwRate: u32,
+    pub dwStart: u32,
+    pub dwLength: u32,
+    pub dwInitialFrames: u32,
+    pub dwSuggestedBufferSize: u32,
+    pub dwQuality: u32,
+    pub dwSampleSize: u32,
+    pub rcFrame: super::super::Foundation::RECT,
+    pub dwEditCount: u32,
+    pub dwFormatChangeCount: u32,
+    pub szName: [u16; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AVISTREAMINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AVISTREAMINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AVISTREAMINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVISTREAMINFOW")
+            .field("fccType", &self.fccType)
+            .field("fccHandler", &self.fccHandler)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwCaps", &self.dwCaps)
+            .field("wPriority", &self.wPriority)
+            .field("wLanguage", &self.wLanguage)
+            .field("dwScale", &self.dwScale)
+            .field("dwRate", &self.dwRate)
+            .field("dwStart", &self.dwStart)
+            .field("dwLength", &self.dwLength)
+            .field("dwInitialFrames", &self.dwInitialFrames)
+            .field("dwSuggestedBufferSize", &self.dwSuggestedBufferSize)
+            .field("dwQuality", &self.dwQuality)
+            .field("dwSampleSize", &self.dwSampleSize)
+            .field("rcFrame", &self.rcFrame)
+            .field("dwEditCount", &self.dwEditCount)
+            .field("dwFormatChangeCount", &self.dwFormatChangeCount)
+            .field("szName", &self.szName)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AVISTREAMINFOW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AVISTREAMINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVISTREAMINFOW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AVISTREAMINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AVISTREAMINFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CAPDRIVERCAPS {
+    pub wDeviceIndex: u32,
+    pub fHasOverlay: super::super::Foundation::BOOL,
+    pub fHasDlgVideoSource: super::super::Foundation::BOOL,
+    pub fHasDlgVideoFormat: super::super::Foundation::BOOL,
+    pub fHasDlgVideoDisplay: super::super::Foundation::BOOL,
+    pub fCaptureInitialized: super::super::Foundation::BOOL,
+    pub fDriverSuppliesPalettes: super::super::Foundation::BOOL,
+    pub hVideoIn: super::super::Foundation::HANDLE,
+    pub hVideoOut: super::super::Foundation::HANDLE,
+    pub hVideoExtIn: super::super::Foundation::HANDLE,
+    pub hVideoExtOut: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CAPDRIVERCAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CAPDRIVERCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAPDRIVERCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPDRIVERCAPS")
+            .field("wDeviceIndex", &self.wDeviceIndex)
+            .field("fHasOverlay", &self.fHasOverlay)
+            .field("fHasDlgVideoSource", &self.fHasDlgVideoSource)
+            .field("fHasDlgVideoFormat", &self.fHasDlgVideoFormat)
+            .field("fHasDlgVideoDisplay", &self.fHasDlgVideoDisplay)
+            .field("fCaptureInitialized", &self.fCaptureInitialized)
+            .field("fDriverSuppliesPalettes", &self.fDriverSuppliesPalettes)
+            .field("hVideoIn", &self.hVideoIn)
+            .field("hVideoOut", &self.hVideoOut)
+            .field("hVideoExtIn", &self.hVideoExtIn)
+            .field("hVideoExtOut", &self.hVideoExtOut)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CAPDRIVERCAPS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CAPDRIVERCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPDRIVERCAPS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CAPDRIVERCAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CAPDRIVERCAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct CAPINFOCHUNK {
+    pub fccInfoID: u32,
+    pub lpData: *mut ::core::ffi::c_void,
+    pub cbData: i32,
+}
+impl ::core::marker::Copy for CAPINFOCHUNK {}
+impl ::core::clone::Clone for CAPINFOCHUNK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAPINFOCHUNK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPINFOCHUNK").field("fccInfoID", &self.fccInfoID).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAPINFOCHUNK {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAPINFOCHUNK {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPINFOCHUNK>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAPINFOCHUNK {}
+impl ::core::default::Default for CAPINFOCHUNK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct CAPSTATUS {
+    pub uiImageWidth: u32,
+    pub uiImageHeight: u32,
+    pub fLiveWindow: super::super::Foundation::BOOL,
+    pub fOverlayWindow: super::super::Foundation::BOOL,
+    pub fScale: super::super::Foundation::BOOL,
+    pub ptScroll: super::super::Foundation::POINT,
+    pub fUsingDefaultPalette: super::super::Foundation::BOOL,
+    pub fAudioHardware: super::super::Foundation::BOOL,
+    pub fCapFileExists: super::super::Foundation::BOOL,
+    pub dwCurrentVideoFrame: u32,
+    pub dwCurrentVideoFramesDropped: u32,
+    pub dwCurrentWaveSamples: u32,
+    pub dwCurrentTimeElapsedMS: u32,
+    pub hPalCurrent: super::super::Graphics::Gdi::HPALETTE,
+    pub fCapturingNow: super::super::Foundation::BOOL,
+    pub dwReturn: u32,
+    pub wNumVideoAllocated: u32,
+    pub wNumAudioAllocated: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for CAPSTATUS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for CAPSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for CAPSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPSTATUS")
+            .field("uiImageWidth", &self.uiImageWidth)
+            .field("uiImageHeight", &self.uiImageHeight)
+            .field("fLiveWindow", &self.fLiveWindow)
+            .field("fOverlayWindow", &self.fOverlayWindow)
+            .field("fScale", &self.fScale)
+            .field("ptScroll", &self.ptScroll)
+            .field("fUsingDefaultPalette", &self.fUsingDefaultPalette)
+            .field("fAudioHardware", &self.fAudioHardware)
+            .field("fCapFileExists", &self.fCapFileExists)
+            .field("dwCurrentVideoFrame", &self.dwCurrentVideoFrame)
+            .field("dwCurrentVideoFramesDropped", &self.dwCurrentVideoFramesDropped)
+            .field("dwCurrentWaveSamples", &self.dwCurrentWaveSamples)
+            .field("dwCurrentTimeElapsedMS", &self.dwCurrentTimeElapsedMS)
+            .field("hPalCurrent", &self.hPalCurrent)
+            .field("fCapturingNow", &self.fCapturingNow)
+            .field("dwReturn", &self.dwReturn)
+            .field("wNumVideoAllocated", &self.wNumVideoAllocated)
+            .field("wNumAudioAllocated", &self.wNumAudioAllocated)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for CAPSTATUS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for CAPSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPSTATUS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for CAPSTATUS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for CAPSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CAPTUREPARMS {
+    pub dwRequestMicroSecPerFrame: u32,
+    pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
+    pub wPercentDropForError: u32,
+    pub fYield: super::super::Foundation::BOOL,
+    pub dwIndexSize: u32,
+    pub wChunkGranularity: u32,
+    pub fUsingDOSMemory: super::super::Foundation::BOOL,
+    pub wNumVideoRequested: u32,
+    pub fCaptureAudio: super::super::Foundation::BOOL,
+    pub wNumAudioRequested: u32,
+    pub vKeyAbort: u32,
+    pub fAbortLeftMouse: super::super::Foundation::BOOL,
+    pub fAbortRightMouse: super::super::Foundation::BOOL,
+    pub fLimitEnabled: super::super::Foundation::BOOL,
+    pub wTimeLimit: u32,
+    pub fMCIControl: super::super::Foundation::BOOL,
+    pub fStepMCIDevice: super::super::Foundation::BOOL,
+    pub dwMCIStartTime: u32,
+    pub dwMCIStopTime: u32,
+    pub fStepCaptureAt2x: super::super::Foundation::BOOL,
+    pub wStepCaptureAverageFrames: u32,
+    pub dwAudioBufferSize: u32,
+    pub fDisableWriteCache: super::super::Foundation::BOOL,
+    pub AVStreamMaster: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CAPTUREPARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CAPTUREPARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAPTUREPARMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPTUREPARMS")
+            .field("dwRequestMicroSecPerFrame", &self.dwRequestMicroSecPerFrame)
+            .field("fMakeUserHitOKToCapture", &self.fMakeUserHitOKToCapture)
+            .field("wPercentDropForError", &self.wPercentDropForError)
+            .field("fYield", &self.fYield)
+            .field("dwIndexSize", &self.dwIndexSize)
+            .field("wChunkGranularity", &self.wChunkGranularity)
+            .field("fUsingDOSMemory", &self.fUsingDOSMemory)
+            .field("wNumVideoRequested", &self.wNumVideoRequested)
+            .field("fCaptureAudio", &self.fCaptureAudio)
+            .field("wNumAudioRequested", &self.wNumAudioRequested)
+            .field("vKeyAbort", &self.vKeyAbort)
+            .field("fAbortLeftMouse", &self.fAbortLeftMouse)
+            .field("fAbortRightMouse", &self.fAbortRightMouse)
+            .field("fLimitEnabled", &self.fLimitEnabled)
+            .field("wTimeLimit", &self.wTimeLimit)
+            .field("fMCIControl", &self.fMCIControl)
+            .field("fStepMCIDevice", &self.fStepMCIDevice)
+            .field("dwMCIStartTime", &self.dwMCIStartTime)
+            .field("dwMCIStopTime", &self.dwMCIStopTime)
+            .field("fStepCaptureAt2x", &self.fStepCaptureAt2x)
+            .field("wStepCaptureAverageFrames", &self.wStepCaptureAverageFrames)
+            .field("dwAudioBufferSize", &self.dwAudioBufferSize)
+            .field("fDisableWriteCache", &self.fDisableWriteCache)
+            .field("AVStreamMaster", &self.AVStreamMaster)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CAPTUREPARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CAPTUREPARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPTUREPARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CAPTUREPARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CAPTUREPARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct CHANNEL_CAPS {
+    pub dwFlags: u32,
+    pub dwSrcRectXMod: u32,
+    pub dwSrcRectYMod: u32,
+    pub dwSrcRectWidthMod: u32,
+    pub dwSrcRectHeightMod: u32,
+    pub dwDstRectXMod: u32,
+    pub dwDstRectYMod: u32,
+    pub dwDstRectWidthMod: u32,
+    pub dwDstRectHeightMod: u32,
+}
+impl ::core::marker::Copy for CHANNEL_CAPS {}
+impl ::core::clone::Clone for CHANNEL_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CHANNEL_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_CAPS").field("dwFlags", &self.dwFlags).field("dwSrcRectXMod", &self.dwSrcRectXMod).field("dwSrcRectYMod", &self.dwSrcRectYMod).field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod).field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod).field("dwDstRectXMod", &self.dwDstRectXMod).field("dwDstRectYMod", &self.dwDstRectYMod).field("dwDstRectWidthMod", &self.dwDstRectWidthMod).field("dwDstRectHeightMod", &self.dwDstRectHeightMod).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CHANNEL_CAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CHANNEL_CAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_CAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CHANNEL_CAPS {}
+impl ::core::default::Default for CHANNEL_CAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct COMPVARS {
+    pub cbSize: i32,
+    pub dwFlags: u32,
+    pub hic: HIC,
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFO,
+    pub lpbiOut: *mut super::super::Graphics::Gdi::BITMAPINFO,
+    pub lpBitsOut: *mut ::core::ffi::c_void,
+    pub lpBitsPrev: *mut ::core::ffi::c_void,
+    pub lFrame: i32,
+    pub lKey: i32,
+    pub lDataRate: i32,
+    pub lQ: i32,
+    pub lKeyCount: i32,
+    pub lpState: *mut ::core::ffi::c_void,
+    pub cbState: i32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for COMPVARS {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for COMPVARS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for COMPVARS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPVARS")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("hic", &self.hic)
+            .field("fccType", &self.fccType)
+            .field("fccHandler", &self.fccHandler)
+            .field("lpbiIn", &self.lpbiIn)
+            .field("lpbiOut", &self.lpbiOut)
+            .field("lpBitsOut", &self.lpBitsOut)
+            .field("lpBitsPrev", &self.lpBitsPrev)
+            .field("lFrame", &self.lFrame)
+            .field("lKey", &self.lKey)
+            .field("lDataRate", &self.lDataRate)
+            .field("lQ", &self.lQ)
+            .field("lKeyCount", &self.lKeyCount)
+            .field("lpState", &self.lpState)
+            .field("cbState", &self.cbState)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for COMPVARS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for COMPVARS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPVARS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for COMPVARS {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::default::Default for COMPVARS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct CONTRESCR10WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for CONTRESCR10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for CONTRESCR10WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for CONTRESCR10WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for CONTRESCR10WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTRESCR10WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for CONTRESCR10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for CONTRESCR10WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct CONTRESVQLPCWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for CONTRESVQLPCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for CONTRESVQLPCWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for CONTRESVQLPCWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for CONTRESVQLPCWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTRESVQLPCWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for CONTRESVQLPCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for CONTRESVQLPCWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct CREATIVEADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for CREATIVEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for CREATIVEADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for CREATIVEADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for CREATIVEADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for CREATIVEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for CREATIVEADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for CREATIVEFASTSPEECH10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for CREATIVEFASTSPEECH10WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH10WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH10WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEFASTSPEECH10WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for CREATIVEFASTSPEECH10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for CREATIVEFASTSPEECH8WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for CREATIVEFASTSPEECH8WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH8WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEFASTSPEECH8WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for CREATIVEFASTSPEECH8WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct CSIMAADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for CSIMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for CSIMAADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for CSIMAADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for CSIMAADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSIMAADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for CSIMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DIALOGICOKIADPCMWAVEFORMAT {
+    pub ewf: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DIALOGICOKIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DIALOGICOKIADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DIALOGICOKIADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DIALOGICOKIADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIALOGICOKIADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DIALOGICOKIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DIGIADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DIGIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DIGIADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DIGIADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DIGIADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DIGIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DIGIADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DIGIFIXWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DIGIFIXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DIGIFIXWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DIGIFIXWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DIGIFIXWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIFIXWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DIGIFIXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DIGIFIXWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DIGIREALWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DIGIREALWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DIGIREALWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DIGIREALWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DIGIREALWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIREALWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DIGIREALWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DIGIREALWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DIGISTDWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DIGISTDWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DIGISTDWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DIGISTDWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DIGISTDWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGISTDWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DIGISTDWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DIGISTDWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DOLBYAC2WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub nAuxBitsCode: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DOLBYAC2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DOLBYAC2WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DOLBYAC2WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DOLBYAC2WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOLBYAC2WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DOLBYAC2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DOLBYAC2WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct DRAWDIBTIME {
+    pub timeCount: i32,
+    pub timeDraw: i32,
+    pub timeDecompress: i32,
+    pub timeDither: i32,
+    pub timeStretch: i32,
+    pub timeBlt: i32,
+    pub timeSetDIBits: i32,
+}
+impl ::core::marker::Copy for DRAWDIBTIME {}
+impl ::core::clone::Clone for DRAWDIBTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRAWDIBTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRAWDIBTIME").field("timeCount", &self.timeCount).field("timeDraw", &self.timeDraw).field("timeDecompress", &self.timeDecompress).field("timeDither", &self.timeDither).field("timeStretch", &self.timeStretch).field("timeBlt", &self.timeBlt).field("timeSetDIBits", &self.timeSetDIBits).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRAWDIBTIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRAWDIBTIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRAWDIBTIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRAWDIBTIME {}
+impl ::core::default::Default for DRAWDIBTIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DRMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wReserved: u16,
+    pub ulContentId: u32,
+    pub wfxSecure: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DRMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DRMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DRMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DRMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DRMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DRMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct DRVCONFIGINFO {
+    pub dwDCISize: u32,
+    pub lpszDCISectionName: ::windows::core::PCWSTR,
+    pub lpszDCIAliasName: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for DRVCONFIGINFO {}
+impl ::core::clone::Clone for DRVCONFIGINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRVCONFIGINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRVCONFIGINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVCONFIGINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRVCONFIGINFO {}
+impl ::core::default::Default for DRVCONFIGINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct DRVCONFIGINFOEX {
+    pub dwDCISize: u32,
+    pub lpszDCISectionName: ::windows::core::PCWSTR,
+    pub lpszDCIAliasName: ::windows::core::PCWSTR,
+    pub dnDevNode: u32,
+}
+impl ::core::marker::Copy for DRVCONFIGINFOEX {}
+impl ::core::clone::Clone for DRVCONFIGINFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRVCONFIGINFOEX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRVCONFIGINFOEX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVCONFIGINFOEX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRVCONFIGINFOEX {}
+impl ::core::default::Default for DRVCONFIGINFOEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct DRVM_IOCTL_DATA {
+    pub dwSize: u32,
+    pub dwCmd: u32,
+}
+impl ::core::marker::Copy for DRVM_IOCTL_DATA {}
+impl ::core::clone::Clone for DRVM_IOCTL_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRVM_IOCTL_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRVM_IOCTL_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVM_IOCTL_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRVM_IOCTL_DATA {}
+impl ::core::default::Default for DRVM_IOCTL_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct DVIADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for DVIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for DVIADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for DVIADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for DVIADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVIADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for DVIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for DVIADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct ECHOSC1WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for ECHOSC1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for ECHOSC1WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for ECHOSC1WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for ECHOSC1WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ECHOSC1WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for ECHOSC1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for ECHOSC1WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct EXBMINFOHEADER {
+    pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub biExtDataOffset: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for EXBMINFOHEADER {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for EXBMINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for EXBMINFOHEADER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for EXBMINFOHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXBMINFOHEADER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for EXBMINFOHEADER {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::default::Default for EXBMINFOHEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct FMTOWNS_SND_WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for FMTOWNS_SND_WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for FMTOWNS_SND_WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for FMTOWNS_SND_WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for FMTOWNS_SND_WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FMTOWNS_SND_WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for FMTOWNS_SND_WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for FMTOWNS_SND_WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct G721_ADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub nAuxBlockSize: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for G721_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for G721_ADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for G721_ADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for G721_ADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<G721_ADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for G721_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for G721_ADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct G723_ADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub cbExtraSize: u16,
+    pub nAuxBlockSize: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for G723_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for G723_ADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for G723_ADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for G723_ADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<G723_ADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for G723_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for G723_ADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct GSM610WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for GSM610WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for GSM610WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for GSM610WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for GSM610WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GSM610WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for GSM610WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for GSM610WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDRVR(pub isize);
+impl HDRVR {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HDRVR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDRVR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDRVR {}
+impl ::core::fmt::Debug for HDRVR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDRVR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HDRVR>> for HDRVR {
+    fn from(optional: ::core::option::Option<HDRVR>) -> HDRVR {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HDRVR {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HIC(pub isize);
+impl HIC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HIC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HIC {}
+impl ::core::fmt::Debug for HIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIC").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HIC>> for HIC {
+    fn from(optional: ::core::option::Option<HIC>) -> HIC {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HIC {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HMMIO(pub isize);
+impl HMMIO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HMMIO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HMMIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HMMIO {}
+impl ::core::fmt::Debug for HMMIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HMMIO").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HMMIO>> for HMMIO {
+    fn from(optional: ::core::option::Option<HMMIO>) -> HMMIO {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HMMIO {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HVIDEO(pub isize);
+impl HVIDEO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HVIDEO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HVIDEO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HVIDEO {}
+impl ::core::fmt::Debug for HVIDEO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HVIDEO").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HVIDEO>> for HVIDEO {
+    fn from(optional: ::core::option::Option<HVIDEO>) -> HVIDEO {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HVIDEO {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct ICCOMPRESS {
+    pub dwFlags: u32,
+    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpOutput: *mut ::core::ffi::c_void,
+    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpInput: *mut ::core::ffi::c_void,
+    pub lpckid: *mut u32,
+    pub lpdwFlags: *mut u32,
+    pub lFrameNum: i32,
+    pub dwFrameSize: u32,
+    pub dwQuality: u32,
+    pub lpbiPrev: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpPrev: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for ICCOMPRESS {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for ICCOMPRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICCOMPRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICCOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpckid", &self.lpckid).field("lpdwFlags", &self.lpdwFlags).field("lFrameNum", &self.lFrameNum).field("dwFrameSize", &self.dwFrameSize).field("dwQuality", &self.dwQuality).field("lpbiPrev", &self.lpbiPrev).field("lpPrev", &self.lpPrev).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for ICCOMPRESS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for ICCOMPRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICCOMPRESS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for ICCOMPRESS {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::default::Default for ICCOMPRESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct ICCOMPRESSFRAMES {
+    pub dwFlags: u32,
+    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lOutput: super::super::Foundation::LPARAM,
+    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lInput: super::super::Foundation::LPARAM,
+    pub lStartFrame: i32,
+    pub lFrameCount: i32,
+    pub lQuality: i32,
+    pub lDataRate: i32,
+    pub lKeyRate: i32,
+    pub dwRate: u32,
+    pub dwScale: u32,
+    pub dwOverheadPerFrame: u32,
+    pub dwReserved2: u32,
+    pub GetData: isize,
+    pub PutData: isize,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for ICCOMPRESSFRAMES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for ICCOMPRESSFRAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICCOMPRESSFRAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICCOMPRESSFRAMES")
+            .field("dwFlags", &self.dwFlags)
+            .field("lpbiOutput", &self.lpbiOutput)
+            .field("lOutput", &self.lOutput)
+            .field("lpbiInput", &self.lpbiInput)
+            .field("lInput", &self.lInput)
+            .field("lStartFrame", &self.lStartFrame)
+            .field("lFrameCount", &self.lFrameCount)
+            .field("lQuality", &self.lQuality)
+            .field("lDataRate", &self.lDataRate)
+            .field("lKeyRate", &self.lKeyRate)
+            .field("dwRate", &self.dwRate)
+            .field("dwScale", &self.dwScale)
+            .field("dwOverheadPerFrame", &self.dwOverheadPerFrame)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("GetData", &self.GetData)
+            .field("PutData", &self.PutData)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for ICCOMPRESSFRAMES {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for ICCOMPRESSFRAMES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICCOMPRESSFRAMES>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for ICCOMPRESSFRAMES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for ICCOMPRESSFRAMES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct ICDECOMPRESS {
+    pub dwFlags: u32,
+    pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpInput: *mut ::core::ffi::c_void,
+    pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpOutput: *mut ::core::ffi::c_void,
+    pub ckid: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for ICDECOMPRESS {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for ICDECOMPRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICDECOMPRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDECOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("ckid", &self.ckid).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for ICDECOMPRESS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for ICDECOMPRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDECOMPRESS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for ICDECOMPRESS {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::default::Default for ICDECOMPRESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct ICDECOMPRESSEX {
+    pub dwFlags: u32,
+    pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpSrc: *mut ::core::ffi::c_void,
+    pub lpbiDst: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpDst: *mut ::core::ffi::c_void,
+    pub xDst: i32,
+    pub yDst: i32,
+    pub dxDst: i32,
+    pub dyDst: i32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub dxSrc: i32,
+    pub dySrc: i32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for ICDECOMPRESSEX {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for ICDECOMPRESSEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICDECOMPRESSEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDECOMPRESSEX").field("dwFlags", &self.dwFlags).field("lpbiSrc", &self.lpbiSrc).field("lpSrc", &self.lpSrc).field("lpbiDst", &self.lpbiDst).field("lpDst", &self.lpDst).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for ICDECOMPRESSEX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for ICDECOMPRESSEX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDECOMPRESSEX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for ICDECOMPRESSEX {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::default::Default for ICDECOMPRESSEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct ICDRAW {
+    pub dwFlags: u32,
+    pub lpFormat: *mut ::core::ffi::c_void,
+    pub lpData: *mut ::core::ffi::c_void,
+    pub cbData: u32,
+    pub lTime: i32,
+}
+impl ::core::marker::Copy for ICDRAW {}
+impl ::core::clone::Clone for ICDRAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ICDRAW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDRAW").field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("lpData", &self.lpData).field("cbData", &self.cbData).field("lTime", &self.lTime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ICDRAW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ICDRAW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ICDRAW {}
+impl ::core::default::Default for ICDRAW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct ICDRAWBEGIN {
+    pub dwFlags: u32,
+    pub hpal: super::super::Graphics::Gdi::HPALETTE,
+    pub hwnd: super::super::Foundation::HWND,
+    pub hdc: super::super::Graphics::Gdi::HDC,
+    pub xDst: i32,
+    pub yDst: i32,
+    pub dxDst: i32,
+    pub dyDst: i32,
+    pub lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub dxSrc: i32,
+    pub dySrc: i32,
+    pub dwRate: u32,
+    pub dwScale: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for ICDRAWBEGIN {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for ICDRAWBEGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for ICDRAWBEGIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDRAWBEGIN").field("dwFlags", &self.dwFlags).field("hpal", &self.hpal).field("hwnd", &self.hwnd).field("hdc", &self.hdc).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("lpbi", &self.lpbi).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dwRate", &self.dwRate).field("dwScale", &self.dwScale).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for ICDRAWBEGIN {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for ICDRAWBEGIN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAWBEGIN>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for ICDRAWBEGIN {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for ICDRAWBEGIN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct ICDRAWSUGGEST {
+    pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub lpbiSuggest: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    pub dxSrc: i32,
+    pub dySrc: i32,
+    pub dxDst: i32,
+    pub dyDst: i32,
+    pub hicDecompressor: HIC,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for ICDRAWSUGGEST {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for ICDRAWSUGGEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICDRAWSUGGEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICDRAWSUGGEST").field("lpbiIn", &self.lpbiIn).field("lpbiSuggest", &self.lpbiSuggest).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("hicDecompressor", &self.hicDecompressor).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for ICDRAWSUGGEST {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for ICDRAWSUGGEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAWSUGGEST>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for ICDRAWSUGGEST {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::default::Default for ICDRAWSUGGEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct ICINFO {
+    pub dwSize: u32,
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwFlags: u32,
+    pub dwVersion: u32,
+    pub dwVersionICM: u32,
+    pub szName: [u16; 16],
+    pub szDescription: [u16; 128],
+    pub szDriver: [u16; 128],
+}
+impl ::core::marker::Copy for ICINFO {}
+impl ::core::clone::Clone for ICINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ICINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICINFO").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwFlags", &self.dwFlags).field("dwVersion", &self.dwVersion).field("dwVersionICM", &self.dwVersionICM).field("szName", &self.szName).field("szDescription", &self.szDescription).field("szDriver", &self.szDriver).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ICINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ICINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ICINFO {}
+impl ::core::default::Default for ICINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ICOPEN {
+    pub dwSize: u32,
+    pub fccType: u32,
+    pub fccHandler: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: super::super::Foundation::LRESULT,
+    pub pV1Reserved: *mut ::core::ffi::c_void,
+    pub pV2Reserved: *mut ::core::ffi::c_void,
+    pub dnDevNode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ICOPEN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ICOPEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ICOPEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICOPEN").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("dwError", &self.dwError).field("pV1Reserved", &self.pV1Reserved).field("pV2Reserved", &self.pV2Reserved).field("dnDevNode", &self.dnDevNode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ICOPEN {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ICOPEN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICOPEN>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ICOPEN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ICOPEN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct ICPALETTE {
+    pub dwFlags: u32,
+    pub iStart: i32,
+    pub iLen: i32,
+    pub lppe: *mut super::super::Graphics::Gdi::PALETTEENTRY,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for ICPALETTE {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for ICPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::fmt::Debug for ICPALETTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICPALETTE").field("dwFlags", &self.dwFlags).field("iStart", &self.iStart).field("iLen", &self.iLen).field("lppe", &self.lppe).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for ICPALETTE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for ICPALETTE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICPALETTE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for ICPALETTE {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::default::Default for ICPALETTE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ICSETSTATUSPROC {
+    pub dwFlags: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub Status: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ICSETSTATUSPROC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ICSETSTATUSPROC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ICSETSTATUSPROC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICSETSTATUSPROC").field("dwFlags", &self.dwFlags).field("lParam", &self.lParam).field("Status", &self.Status).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ICSETSTATUSPROC {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ICSETSTATUSPROC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICSETSTATUSPROC>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ICSETSTATUSPROC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ICSETSTATUSPROC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct IMAADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for IMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for IMAADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for IMAADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for IMAADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for IMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for IMAADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct JOYCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [super::super::Foundation::CHAR; 32],
+    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
+    pub ManufacturerGuid: ::windows::core::GUID,
+    pub ProductGuid: ::windows::core::GUID,
+    pub NameGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JOYCAPS2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for JOYCAPS2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for JOYCAPS2A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for JOYCAPS2A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPS2A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for JOYCAPS2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for JOYCAPS2A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct JOYCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [u16; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [u16; 32],
+    pub szOEMVxD: [u16; 260],
+    pub ManufacturerGuid: ::windows::core::GUID,
+    pub ProductGuid: ::windows::core::GUID,
+    pub NameGuid: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for JOYCAPS2W {}
+impl ::core::clone::Clone for JOYCAPS2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYCAPS2W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYCAPS2W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPS2W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYCAPS2W {}
+impl ::core::default::Default for JOYCAPS2W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct JOYCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [super::super::Foundation::CHAR; 32],
+    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JOYCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for JOYCAPSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for JOYCAPSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for JOYCAPSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for JOYCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for JOYCAPSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct JOYCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub szPname: [u16; 32],
+    pub wXmin: u32,
+    pub wXmax: u32,
+    pub wYmin: u32,
+    pub wYmax: u32,
+    pub wZmin: u32,
+    pub wZmax: u32,
+    pub wNumButtons: u32,
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+    pub wRmin: u32,
+    pub wRmax: u32,
+    pub wUmin: u32,
+    pub wUmax: u32,
+    pub wVmin: u32,
+    pub wVmax: u32,
+    pub wCaps: u32,
+    pub wMaxAxes: u32,
+    pub wNumAxes: u32,
+    pub wMaxButtons: u32,
+    pub szRegKey: [u16; 32],
+    pub szOEMVxD: [u16; 260],
+}
+impl ::core::marker::Copy for JOYCAPSW {}
+impl ::core::clone::Clone for JOYCAPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYCAPSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYCAPSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYCAPSW {}
+impl ::core::default::Default for JOYCAPSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct JOYINFO {
+    pub wXpos: u32,
+    pub wYpos: u32,
+    pub wZpos: u32,
+    pub wButtons: u32,
+}
+impl ::core::marker::Copy for JOYINFO {}
+impl ::core::clone::Clone for JOYINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYINFO {}
+impl ::core::default::Default for JOYINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct JOYINFOEX {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwXpos: u32,
+    pub dwYpos: u32,
+    pub dwZpos: u32,
+    pub dwRpos: u32,
+    pub dwUpos: u32,
+    pub dwVpos: u32,
+    pub dwButtons: u32,
+    pub dwButtonNumber: u32,
+    pub dwPOV: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for JOYINFOEX {}
+impl ::core::clone::Clone for JOYINFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYINFOEX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYINFOEX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYINFOEX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYINFOEX {}
+impl ::core::default::Default for JOYINFOEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct JPEGINFOHEADER {
+    pub JPEGSize: u32,
+    pub JPEGProcess: u32,
+    pub JPEGColorSpaceID: u32,
+    pub JPEGBitsPerSample: u32,
+    pub JPEGHSubSampling: u32,
+    pub JPEGVSubSampling: u32,
+}
+impl ::core::marker::Copy for JPEGINFOHEADER {}
+impl ::core::clone::Clone for JPEGINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JPEGINFOHEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JPEGINFOHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JPEGINFOHEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JPEGINFOHEADER {}
+impl ::core::default::Default for JPEGINFOHEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_ANIM_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCSTR,
+    pub lpstrElementName: ::windows::core::PCSTR,
+    pub lpstrAlias: ::windows::core::PCSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_ANIM_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_OPEN_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_ANIM_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCWSTR,
+    pub lpstrElementName: ::windows::core::PCWSTR,
+    pub lpstrAlias: ::windows::core::PCWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_ANIM_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_OPEN_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_ANIM_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub dwSpeed: u32,
+}
+impl ::core::marker::Copy for MCI_ANIM_PLAY_PARMS {}
+impl ::core::clone::Clone for MCI_ANIM_PLAY_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_ANIM_PLAY_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_ANIM_PLAY_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_PLAY_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_ANIM_PLAY_PARMS {}
+impl ::core::default::Default for MCI_ANIM_PLAY_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_ANIM_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_ANIM_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_ANIM_RECT_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_ANIM_RECT_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_RECT_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_RECT_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_RECT_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_ANIM_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+impl ::core::marker::Copy for MCI_ANIM_STEP_PARMS {}
+impl ::core::clone::Clone for MCI_ANIM_STEP_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_ANIM_STEP_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_ANIM_STEP_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_STEP_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_ANIM_STEP_PARMS {}
+impl ::core::default::Default for MCI_ANIM_STEP_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct MCI_ANIM_UPDATE_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MCI_ANIM_UPDATE_PARMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MCI_ANIM_UPDATE_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for MCI_ANIM_UPDATE_PARMS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for MCI_ANIM_UPDATE_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_UPDATE_PARMS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for MCI_ANIM_UPDATE_PARMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for MCI_ANIM_UPDATE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_ANIM_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: ::windows::core::PCSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_ANIM_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_WINDOW_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_ANIM_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: ::windows::core::PCWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_ANIM_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_WINDOW_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_BREAK_PARMS {
+    pub dwCallback: usize,
+    pub nVirtKey: i32,
+    pub hwndBreak: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_BREAK_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_BREAK_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_BREAK_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_BREAK_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_BREAK_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_BREAK_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_BREAK_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_CAPTURE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrFileName: ::windows::core::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_CAPTURE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CAPTURE_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_CAPTURE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrFileName: ::windows::core::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_CAPTURE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CAPTURE_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_COPY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_COPY_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_COPY_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_COPY_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_COPY_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_COPY_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_COPY_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_COPY_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_CUE_PARMS {
+    pub dwCallback: usize,
+    pub dwTo: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_CUE_PARMS {}
+impl ::core::clone::Clone for MCI_DGV_CUE_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_CUE_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_CUE_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CUE_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_CUE_PARMS {}
+impl ::core::default::Default for MCI_DGV_CUE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_CUT_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_CUT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_CUT_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_CUT_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_CUT_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CUT_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_CUT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_CUT_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_DELETE_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_DELETE_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_DELETE_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_DELETE_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_DELETE_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_DELETE_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_DELETE_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_DELETE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_INFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PSTR,
+    pub dwRetSize: u32,
+    pub dwItem: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_INFO_PARMSA {}
+impl ::core::clone::Clone for MCI_DGV_INFO_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_INFO_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSA {}
+impl ::core::default::Default for MCI_DGV_INFO_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_INFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PWSTR,
+    pub dwRetSize: u32,
+    pub dwItem: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_INFO_PARMSW {}
+impl ::core::clone::Clone for MCI_DGV_INFO_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_INFO_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSW {}
+impl ::core::default::Default for MCI_DGV_INFO_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_LIST_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PSTR,
+    pub dwLength: u32,
+    pub dwNumber: u32,
+    pub dwItem: u32,
+    pub lpstrAlgorithm: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for MCI_DGV_LIST_PARMSA {}
+impl ::core::clone::Clone for MCI_DGV_LIST_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_LIST_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSA {}
+impl ::core::default::Default for MCI_DGV_LIST_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_LIST_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PWSTR,
+    pub dwLength: u32,
+    pub dwNumber: u32,
+    pub dwItem: u32,
+    pub lpstrAlgorithm: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MCI_DGV_LIST_PARMSW {}
+impl ::core::clone::Clone for MCI_DGV_LIST_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_LIST_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSW {}
+impl ::core::default::Default for MCI_DGV_LIST_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_MONITOR_PARMS {
+    pub dwCallback: usize,
+    pub dwSource: u32,
+    pub dwMethod: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_MONITOR_PARMS {}
+impl ::core::clone::Clone for MCI_DGV_MONITOR_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_MONITOR_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_MONITOR_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_MONITOR_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_MONITOR_PARMS {}
+impl ::core::default::Default for MCI_DGV_MONITOR_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PSTR,
+    pub lpstrElementName: ::windows::core::PSTR,
+    pub lpstrAlias: ::windows::core::PSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_OPEN_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PWSTR,
+    pub lpstrElementName: ::windows::core::PWSTR,
+    pub lpstrAlias: ::windows::core::PWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_OPEN_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_PASTE_PARMS {
+    pub dwCallback: usize,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_PASTE_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_PASTE_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_PASTE_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_PASTE_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_PASTE_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_PASTE_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_PASTE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_QUALITY_PARMSA {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub lpstrName: ::windows::core::PSTR,
+    pub lpstrAlgorithm: u32,
+    pub dwHandle: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_QUALITY_PARMSA {}
+impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_QUALITY_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSA {}
+impl ::core::default::Default for MCI_DGV_QUALITY_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_QUALITY_PARMSW {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub lpstrName: ::windows::core::PWSTR,
+    pub lpstrAlgorithm: u32,
+    pub dwHandle: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_QUALITY_PARMSW {}
+impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_QUALITY_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSW {}
+impl ::core::default::Default for MCI_DGV_QUALITY_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_RECORD_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub dwAudioStream: u32,
+    pub dwVideoStream: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_RECORD_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_RECORD_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_RECORD_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_RECORD_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RECORD_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_RECORD_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_RECORD_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_RECT_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_RECT_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_RECT_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RECT_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_RECT_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_RESERVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrPath: ::windows::core::PSTR,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_RESERVE_PARMSA {}
+impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESERVE_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSA {}
+impl ::core::default::Default for MCI_DGV_RESERVE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_RESERVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrPath: ::windows::core::PWSTR,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_RESERVE_PARMSW {}
+impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESERVE_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSW {}
+impl ::core::default::Default for MCI_DGV_RESERVE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_RESTORE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrFileName: ::windows::core::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_RESTORE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESTORE_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_RESTORE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_RESTORE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrFileName: ::windows::core::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_RESTORE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESTORE_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_RESTORE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrFileName: ::windows::core::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SAVE_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_SAVE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrFileName: ::windows::core::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SAVE_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_SAVE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_SETAUDIO_PARMSA {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: ::windows::core::PSTR,
+    pub lpstrQuality: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for MCI_DGV_SETAUDIO_PARMSA {}
+impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETAUDIO_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSA {}
+impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_SETAUDIO_PARMSW {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: ::windows::core::PWSTR,
+    pub lpstrQuality: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MCI_DGV_SETAUDIO_PARMSW {}
+impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETAUDIO_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSW {}
+impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_SETVIDEO_PARMSA {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: ::windows::core::PSTR,
+    pub lpstrQuality: ::windows::core::PSTR,
+    pub dwSourceNumber: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_SETVIDEO_PARMSA {}
+impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETVIDEO_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSA {}
+impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_SETVIDEO_PARMSW {
+    pub dwCallback: usize,
+    pub dwItem: u32,
+    pub dwValue: u32,
+    pub dwOver: u32,
+    pub lpstrAlgorithm: ::windows::core::PWSTR,
+    pub lpstrQuality: ::windows::core::PWSTR,
+    pub dwSourceNumber: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_SETVIDEO_PARMSW {}
+impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETVIDEO_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSW {}
+impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub dwFileFormat: u32,
+    pub dwSpeed: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_SET_PARMS {}
+impl ::core::clone::Clone for MCI_DGV_SET_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_SET_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_SET_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SET_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_SET_PARMS {}
+impl ::core::default::Default for MCI_DGV_SET_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_SIGNAL_PARMS {
+    pub dwCallback: usize,
+    pub dwPosition: u32,
+    pub dwPeriod: u32,
+    pub dwUserParm: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_SIGNAL_PARMS {}
+impl ::core::clone::Clone for MCI_DGV_SIGNAL_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_SIGNAL_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_SIGNAL_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SIGNAL_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_SIGNAL_PARMS {}
+impl ::core::default::Default for MCI_DGV_SIGNAL_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_STATUS_PARMSA {
+    pub dwCallback: usize,
+    pub dwReturn: usize,
+    pub dwItem: u32,
+    pub dwTrack: u32,
+    pub lpstrDrive: ::windows::core::PSTR,
+    pub dwReference: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_STATUS_PARMSA {}
+impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STATUS_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSA {}
+impl ::core::default::Default for MCI_DGV_STATUS_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_STATUS_PARMSW {
+    pub dwCallback: usize,
+    pub dwReturn: usize,
+    pub dwItem: u32,
+    pub dwTrack: u32,
+    pub lpstrDrive: ::windows::core::PWSTR,
+    pub dwReference: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_STATUS_PARMSW {}
+impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STATUS_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSW {}
+impl ::core::default::Default for MCI_DGV_STATUS_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_DGV_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+impl ::core::marker::Copy for MCI_DGV_STEP_PARMS {}
+impl ::core::clone::Clone for MCI_DGV_STEP_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_DGV_STEP_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_DGV_STEP_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STEP_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_DGV_STEP_PARMS {}
+impl ::core::default::Default for MCI_DGV_STEP_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct MCI_DGV_UPDATE_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MCI_DGV_UPDATE_PARMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MCI_DGV_UPDATE_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for MCI_DGV_UPDATE_PARMS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for MCI_DGV_UPDATE_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_UPDATE_PARMS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for MCI_DGV_UPDATE_PARMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for MCI_DGV_UPDATE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: ::windows::core::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_WINDOW_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_WINDOW_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_DGV_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_DGV_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_WINDOW_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_DGV_WINDOW_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_GENERIC_PARMS {
+    pub dwCallback: usize,
+}
+impl ::core::marker::Copy for MCI_GENERIC_PARMS {}
+impl ::core::clone::Clone for MCI_GENERIC_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_GENERIC_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_GENERIC_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_GENERIC_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_GENERIC_PARMS {}
+impl ::core::default::Default for MCI_GENERIC_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_GETDEVCAPS_PARMS {
+    pub dwCallback: usize,
+    pub dwReturn: u32,
+    pub dwItem: u32,
+}
+impl ::core::marker::Copy for MCI_GETDEVCAPS_PARMS {}
+impl ::core::clone::Clone for MCI_GETDEVCAPS_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_GETDEVCAPS_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_GETDEVCAPS_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_GETDEVCAPS_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_GETDEVCAPS_PARMS {}
+impl ::core::default::Default for MCI_GETDEVCAPS_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_INFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PSTR,
+    pub dwRetSize: u32,
+}
+impl ::core::marker::Copy for MCI_INFO_PARMSA {}
+impl ::core::clone::Clone for MCI_INFO_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_INFO_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_INFO_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_INFO_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_INFO_PARMSA {}
+impl ::core::default::Default for MCI_INFO_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_INFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PWSTR,
+    pub dwRetSize: u32,
+}
+impl ::core::marker::Copy for MCI_INFO_PARMSW {}
+impl ::core::clone::Clone for MCI_INFO_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_INFO_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_INFO_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_INFO_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_INFO_PARMSW {}
+impl ::core::default::Default for MCI_INFO_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_LOAD_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCSTR,
+}
+impl ::core::marker::Copy for MCI_LOAD_PARMSA {}
+impl ::core::clone::Clone for MCI_LOAD_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_LOAD_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_LOAD_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_LOAD_PARMSA {}
+impl ::core::default::Default for MCI_LOAD_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_LOAD_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for MCI_LOAD_PARMSW {}
+impl ::core::clone::Clone for MCI_LOAD_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_LOAD_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_LOAD_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_LOAD_PARMSW {}
+impl ::core::default::Default for MCI_LOAD_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_OPEN_DRIVER_PARMS {
+    pub wDeviceID: u32,
+    pub lpstrParams: ::windows::core::PCWSTR,
+    pub wCustomCommandTable: u32,
+    pub wType: u32,
+}
+impl ::core::marker::Copy for MCI_OPEN_DRIVER_PARMS {}
+impl ::core::clone::Clone for MCI_OPEN_DRIVER_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_OPEN_DRIVER_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_OPEN_DRIVER_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_DRIVER_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_OPEN_DRIVER_PARMS {}
+impl ::core::default::Default for MCI_OPEN_DRIVER_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCSTR,
+    pub lpstrElementName: ::windows::core::PCSTR,
+    pub lpstrAlias: ::windows::core::PCSTR,
+}
+impl ::core::marker::Copy for MCI_OPEN_PARMSA {}
+impl ::core::clone::Clone for MCI_OPEN_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_OPEN_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_OPEN_PARMSA {}
+impl ::core::default::Default for MCI_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCWSTR,
+    pub lpstrElementName: ::windows::core::PCWSTR,
+    pub lpstrAlias: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for MCI_OPEN_PARMSW {}
+impl ::core::clone::Clone for MCI_OPEN_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_OPEN_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_OPEN_PARMSW {}
+impl ::core::default::Default for MCI_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_LOAD_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_LOAD_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_LOAD_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_LOAD_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_LOAD_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_LOAD_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_LOAD_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_LOAD_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCSTR,
+    pub lpstrElementName: ::windows::core::PCSTR,
+    pub lpstrAlias: ::windows::core::PCSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_OPEN_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCWSTR,
+    pub lpstrElementName: ::windows::core::PCWSTR,
+    pub lpstrAlias: ::windows::core::PCWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_OPEN_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_RECT_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_RECT_PARMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_RECT_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_RECT_PARMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_RECT_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_SAVE_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_SAVE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_SAVE_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_SAVE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: ::windows::core::PCSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_WINDOW_PARMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MCI_OVLY_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: ::windows::core::PCWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MCI_OVLY_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_WINDOW_PARMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+impl ::core::marker::Copy for MCI_PLAY_PARMS {}
+impl ::core::clone::Clone for MCI_PLAY_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_PLAY_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_PLAY_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_PLAY_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_PLAY_PARMS {}
+impl ::core::default::Default for MCI_PLAY_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_RECORD_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+impl ::core::marker::Copy for MCI_RECORD_PARMS {}
+impl ::core::clone::Clone for MCI_RECORD_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_RECORD_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_RECORD_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_RECORD_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_RECORD_PARMS {}
+impl ::core::default::Default for MCI_RECORD_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCSTR,
+}
+impl ::core::marker::Copy for MCI_SAVE_PARMSA {}
+impl ::core::clone::Clone for MCI_SAVE_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_SAVE_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SAVE_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_SAVE_PARMSA {}
+impl ::core::default::Default for MCI_SAVE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for MCI_SAVE_PARMSW {}
+impl ::core::clone::Clone for MCI_SAVE_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_SAVE_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SAVE_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_SAVE_PARMSW {}
+impl ::core::default::Default for MCI_SAVE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_SEEK_PARMS {
+    pub dwCallback: usize,
+    pub dwTo: u32,
+}
+impl ::core::marker::Copy for MCI_SEEK_PARMS {}
+impl ::core::clone::Clone for MCI_SEEK_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_SEEK_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_SEEK_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SEEK_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_SEEK_PARMS {}
+impl ::core::default::Default for MCI_SEEK_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_SEQ_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub dwTempo: u32,
+    pub dwPort: u32,
+    pub dwSlave: u32,
+    pub dwMaster: u32,
+    pub dwOffset: u32,
+}
+impl ::core::marker::Copy for MCI_SEQ_SET_PARMS {}
+impl ::core::clone::Clone for MCI_SEQ_SET_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_SEQ_SET_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_SEQ_SET_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SEQ_SET_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_SEQ_SET_PARMS {}
+impl ::core::default::Default for MCI_SEQ_SET_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+}
+impl ::core::marker::Copy for MCI_SET_PARMS {}
+impl ::core::clone::Clone for MCI_SET_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_SET_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_SET_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SET_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_SET_PARMS {}
+impl ::core::default::Default for MCI_SET_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_STATUS_PARMS {
+    pub dwCallback: usize,
+    pub dwReturn: usize,
+    pub dwItem: u32,
+    pub dwTrack: u32,
+}
+impl ::core::marker::Copy for MCI_STATUS_PARMS {}
+impl ::core::clone::Clone for MCI_STATUS_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_STATUS_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_STATUS_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_STATUS_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_STATUS_PARMS {}
+impl ::core::default::Default for MCI_STATUS_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_SYSINFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PSTR,
+    pub dwRetSize: u32,
+    pub dwNumber: u32,
+    pub wDeviceType: u32,
+}
+impl ::core::marker::Copy for MCI_SYSINFO_PARMSA {}
+impl ::core::clone::Clone for MCI_SYSINFO_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SYSINFO_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_SYSINFO_PARMSA {}
+impl ::core::default::Default for MCI_SYSINFO_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_SYSINFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: ::windows::core::PWSTR,
+    pub dwRetSize: u32,
+    pub dwNumber: u32,
+    pub wDeviceType: u32,
+}
+impl ::core::marker::Copy for MCI_SYSINFO_PARMSW {}
+impl ::core::clone::Clone for MCI_SYSINFO_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SYSINFO_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_SYSINFO_PARMSW {}
+impl ::core::default::Default for MCI_SYSINFO_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_VD_ESCAPE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrCommand: ::windows::core::PCSTR,
+}
+impl ::core::marker::Copy for MCI_VD_ESCAPE_PARMSA {}
+impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_ESCAPE_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSA {}
+impl ::core::default::Default for MCI_VD_ESCAPE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_VD_ESCAPE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrCommand: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for MCI_VD_ESCAPE_PARMSW {}
+impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_ESCAPE_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSW {}
+impl ::core::default::Default for MCI_VD_ESCAPE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_VD_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub dwSpeed: u32,
+}
+impl ::core::marker::Copy for MCI_VD_PLAY_PARMS {}
+impl ::core::clone::Clone for MCI_VD_PLAY_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_VD_PLAY_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_VD_PLAY_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_PLAY_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_VD_PLAY_PARMS {}
+impl ::core::default::Default for MCI_VD_PLAY_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_VD_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+impl ::core::marker::Copy for MCI_VD_STEP_PARMS {}
+impl ::core::clone::Clone for MCI_VD_STEP_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_VD_STEP_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_VD_STEP_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_STEP_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_VD_STEP_PARMS {}
+impl ::core::default::Default for MCI_VD_STEP_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_WAVE_DELETE_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+impl ::core::marker::Copy for MCI_WAVE_DELETE_PARMS {}
+impl ::core::clone::Clone for MCI_WAVE_DELETE_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_WAVE_DELETE_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_WAVE_DELETE_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_DELETE_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_WAVE_DELETE_PARMS {}
+impl ::core::default::Default for MCI_WAVE_DELETE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_WAVE_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCSTR,
+    pub lpstrElementName: ::windows::core::PCSTR,
+    pub lpstrAlias: ::windows::core::PCSTR,
+    pub dwBufferSeconds: u32,
+}
+impl ::core::marker::Copy for MCI_WAVE_OPEN_PARMSA {}
+impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_OPEN_PARMSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSA {}
+impl ::core::default::Default for MCI_WAVE_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_WAVE_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: ::windows::core::PCWSTR,
+    pub lpstrElementName: ::windows::core::PCWSTR,
+    pub lpstrAlias: ::windows::core::PCWSTR,
+    pub dwBufferSeconds: u32,
+}
+impl ::core::marker::Copy for MCI_WAVE_OPEN_PARMSW {}
+impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_OPEN_PARMSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSW {}
+impl ::core::default::Default for MCI_WAVE_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MCI_WAVE_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub wInput: u32,
+    pub wOutput: u32,
+    pub wFormatTag: u16,
+    pub wReserved2: u16,
+    pub nChannels: u16,
+    pub wReserved3: u16,
+    pub nSamplesPerSec: u32,
+    pub nAvgBytesPerSec: u32,
+    pub nBlockAlign: u16,
+    pub wReserved4: u16,
+    pub wBitsPerSample: u16,
+    pub wReserved5: u16,
+}
+impl ::core::marker::Copy for MCI_WAVE_SET_PARMS {}
+impl ::core::clone::Clone for MCI_WAVE_SET_PARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCI_WAVE_SET_PARMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCI_WAVE_SET_PARMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_SET_PARMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCI_WAVE_SET_PARMS {}
+impl ::core::default::Default for MCI_WAVE_SET_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct MEDIASPACEADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for MEDIASPACEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for MEDIASPACEADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for MEDIASPACEADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for MEDIASPACEADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEDIASPACEADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for MEDIASPACEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for MEDIASPACEADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MIDIOPENSTRMID {
+    pub dwStreamID: u32,
+    pub uDeviceID: u32,
+}
+impl ::core::marker::Copy for MIDIOPENSTRMID {}
+impl ::core::clone::Clone for MIDIOPENSTRMID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDIOPENSTRMID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDIOPENSTRMID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDIOPENSTRMID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDIOPENSTRMID {}
+impl ::core::default::Default for MIDIOPENSTRMID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct MIXEROPENDESC {
+    pub hmx: super::Audio::HMIXER,
+    pub pReserved0: *mut ::core::ffi::c_void,
+    pub dwCallback: usize,
+    pub dwInstance: usize,
+    pub dnDevNode: usize,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for MIXEROPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for MIXEROPENDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for MIXEROPENDESC {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for MIXEROPENDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIXEROPENDESC>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for MIXEROPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for MIXEROPENDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct MMCKINFO {
+    pub ckid: u32,
+    pub cksize: u32,
+    pub fccType: u32,
+    pub dwDataOffset: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for MMCKINFO {}
+impl ::core::clone::Clone for MMCKINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMCKINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMCKINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMCKINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMCKINFO {}
+impl ::core::default::Default for MMCKINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMIOINFO {
+    pub dwFlags: u32,
+    pub fccIOProc: u32,
+    pub pIOProc: LPMMIOPROC,
+    pub wErrorRet: u32,
+    pub htask: super::HTASK,
+    pub cchBuffer: i32,
+    pub pchBuffer: *mut i8,
+    pub pchNext: *mut i8,
+    pub pchEndRead: *mut i8,
+    pub pchEndWrite: *mut i8,
+    pub lBufOffset: i32,
+    pub lDiskOffset: i32,
+    pub adwInfo: [u32; 3],
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub hmmio: HMMIO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMIOINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMIOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MMIOINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MMIOINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMIOINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MMIOINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MMIOINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct MSAUDIO1WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+    pub wEncodeOptions: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for MSAUDIO1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for MSAUDIO1WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for MSAUDIO1WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for MSAUDIO1WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSAUDIO1WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for MSAUDIO1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for MSAUDIO1WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct NMS_VBXADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for NMS_VBXADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for NMS_VBXADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for NMS_VBXADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for NMS_VBXADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NMS_VBXADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for NMS_VBXADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for NMS_VBXADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct OLIADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for OLIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for OLIADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for OLIADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for OLIADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for OLIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for OLIADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct OLICELPWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for OLICELPWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for OLICELPWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for OLICELPWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for OLICELPWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLICELPWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for OLICELPWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for OLICELPWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct OLIGSMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for OLIGSMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for OLIGSMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for OLIGSMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for OLIGSMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIGSMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for OLIGSMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for OLIGSMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct OLIOPRWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for OLIOPRWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for OLIOPRWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for OLIOPRWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for OLIOPRWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIOPRWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for OLIOPRWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for OLIOPRWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct OLISBCWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for OLISBCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for OLISBCWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for OLISBCWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for OLISBCWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLISBCWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for OLISBCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for OLISBCWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct SIERRAADPCMWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for SIERRAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for SIERRAADPCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for SIERRAADPCMWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for SIERRAADPCMWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIERRAADPCMWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for SIERRAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for SIERRAADPCMWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct SONARCWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wCompType: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for SONARCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for SONARCWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for SONARCWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for SONARCWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SONARCWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for SONARCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for SONARCWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct TIMEREVENT {
+    pub wDelay: u16,
+    pub wResolution: u16,
+    pub lpFunction: super::LPTIMECALLBACK,
+    pub dwUser: u32,
+    pub wFlags: u16,
+    pub wReserved1: u16,
+}
+impl ::core::marker::Copy for TIMEREVENT {}
+impl ::core::clone::Clone for TIMEREVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TIMEREVENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TIMEREVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMEREVENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TIMEREVENT {}
+impl ::core::default::Default for TIMEREVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct TRUESPEECHWAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wRevision: u16,
+    pub nSamplesPerBlock: u16,
+    pub abReserved: [u8; 28],
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for TRUESPEECHWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for TRUESPEECHWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for TRUESPEECHWAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for TRUESPEECHWAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUESPEECHWAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for TRUESPEECHWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for TRUESPEECHWAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub struct VIDEOHDR {
+    pub lpData: *mut u8,
+    pub dwBufferLength: u32,
+    pub dwBytesUsed: u32,
+    pub dwTimeCaptured: u32,
+    pub dwUser: usize,
+    pub dwFlags: u32,
+    pub dwReserved: [usize; 4],
+}
+impl ::core::marker::Copy for VIDEOHDR {}
+impl ::core::clone::Clone for VIDEOHDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VIDEOHDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIDEOHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesUsed", &self.dwBytesUsed).field("dwTimeCaptured", &self.dwTimeCaptured).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VIDEOHDR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VIDEOHDR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOHDR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VIDEOHDR {}
+impl ::core::default::Default for VIDEOHDR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct WAVEOPENDESC {
+    pub hWave: super::Audio::HWAVE,
+    pub lpFormat: *mut super::Audio::WAVEFORMAT,
+    pub dwCallback: usize,
+    pub dwInstance: usize,
+    pub uMappedDeviceID: u32,
+    pub dnDevNode: usize,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for WAVEOPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for WAVEOPENDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for WAVEOPENDESC {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for WAVEOPENDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WAVEOPENDESC>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for WAVEOPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for WAVEOPENDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct WMAUDIO2WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub dwSamplesPerBlock: u32,
+    pub wEncodeOptions: u16,
+    pub dwSuperBlockAlign: u32,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for WMAUDIO2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for WMAUDIO2WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for WMAUDIO2WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for WMAUDIO2WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMAUDIO2WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for WMAUDIO2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for WMAUDIO2WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+pub struct WMAUDIO3WAVEFORMAT {
+    pub wfx: super::Audio::WAVEFORMATEX,
+    pub wValidBitsPerSample: u16,
+    pub dwChannelMask: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub wEncodeOptions: u16,
+    pub wReserved3: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::marker::Copy for WMAUDIO3WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::clone::Clone for WMAUDIO3WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+unsafe impl ::windows::core::Abi for WMAUDIO3WAVEFORMAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::PartialEq for WMAUDIO3WAVEFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMAUDIO3WAVEFORMAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::cmp::Eq for WMAUDIO3WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::core::default::Default for WMAUDIO3WAVEFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
@@ -16991,664 +17618,6 @@ impl ::core::default::Default for YAMAHA_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn capCreateCaptureWindowA<'a, P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn capCreateCaptureWindowA(lpszwindowname: ::windows::core::PCSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
-    }
-    capCreateCaptureWindowA(lpszwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), nid)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn capCreateCaptureWindowW<'a, P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn capCreateCaptureWindowW(lpszwindowname: ::windows::core::PCWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
-    }
-    capCreateCaptureWindowW(lpszwindowname.into(), dwstyle, x, y, nwidth, nheight, hwndparent.into(), nid)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: ::windows::core::PSTR, cbname: i32, lpszver: ::windows::core::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
-    }
-    capGetDriverDescriptionA(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: ::windows::core::PWSTR, cbname: i32, lpszver: ::windows::core::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
-    }
-    capGetDriverDescriptionW(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: &mut [u8]) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
-    }
-    joyGetDevCapsA(ujoyid, ::core::mem::transmute(pjc.as_ptr()), pjc.len() as _)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: &mut [u8]) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
-    }
-    joyGetDevCapsW(ujoyid, ::core::mem::transmute(pjc.as_ptr()), pjc.len() as _)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn joyGetNumDevs() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joyGetNumDevs() -> u32;
-    }
-    joyGetNumDevs()
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn joyGetPos(ujoyid: u32, pji: &mut JOYINFO) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
-    }
-    joyGetPos(ujoyid, ::core::mem::transmute(pji))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn joyGetPosEx(ujoyid: u32, pji: &mut JOYINFOEX) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
-    }
-    joyGetPosEx(ujoyid, ::core::mem::transmute(pji))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: &mut u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
-    }
-    joyGetThreshold(ujoyid, ::core::mem::transmute(puthreshold))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joyReleaseCapture(ujoyid: u32) -> u32;
-    }
-    joyReleaseCapture(ujoyid)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn joySetCapture<'a, P0, P1>(hwnd: P0, ujoyid: u32, uperiod: u32, fchanged: P1) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: super::super::Foundation::BOOL) -> u32;
-    }
-    joySetCapture(hwnd.into(), ujoyid, uperiod, fchanged.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
-    }
-    joySetThreshold(ujoyid, uthreshold)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciDriverNotify<'a, P0>(hwndcallback: P0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL;
-    }
-    mciDriverNotify(hwndcallback.into(), wdeviceid, ustatus)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciDriverYield(wdeviceid: u32) -> u32;
-    }
-    mciDriverYield(wdeviceid)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL;
-    }
-    mciFreeCommandResource(wtable)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetCreatorTask(mciid: u32) -> super::HTASK;
-    }
-    mciGetCreatorTask(mciid)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciGetDeviceIDA<'a, P0>(pszdevice: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetDeviceIDA(pszdevice: ::windows::core::PCSTR) -> u32;
-    }
-    mciGetDeviceIDA(pszdevice.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciGetDeviceIDFromElementIDA<'a, P0>(dwelementid: u32, lpstrtype: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetDeviceIDFromElementIDA(dwelementid: u32, lpstrtype: ::windows::core::PCSTR) -> u32;
-    }
-    mciGetDeviceIDFromElementIDA(dwelementid, lpstrtype.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciGetDeviceIDFromElementIDW<'a, P0>(dwelementid: u32, lpstrtype: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetDeviceIDFromElementIDW(dwelementid: u32, lpstrtype: ::windows::core::PCWSTR) -> u32;
-    }
-    mciGetDeviceIDFromElementIDW(dwelementid, lpstrtype.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciGetDeviceIDW<'a, P0>(pszdevice: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetDeviceIDW(pszdevice: ::windows::core::PCWSTR) -> u32;
-    }
-    mciGetDeviceIDW(pszdevice.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetDriverData(wdeviceid: u32) -> usize;
-    }
-    mciGetDriverData(wdeviceid)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetErrorStringA(mcierr: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
-    }
-    mciGetErrorStringA(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetErrorStringW(mcierr: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
-    }
-    mciGetErrorStringW(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: &u32) -> YIELDPROC {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
-    }
-    mciGetYieldProc(mciid, ::core::mem::transmute(pdwyielddata))
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciLoadCommandResource<'a, P0, P1>(hinstance: P0, lpresname: P1, wtype: u32) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: ::windows::core::PCWSTR, wtype: u32) -> u32;
-    }
-    mciLoadCommandResource(hinstance.into(), lpresname.into(), wtype)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
-    }
-    mciSendCommandA(mciid, umsg, dwparam1, dwparam2)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
-    }
-    mciSendCommandW(mciid, umsg, dwparam1, dwparam2)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciSendStringA<'a, P0, P1>(lpstrcommand: P0, lpstrreturnstring: ::core::option::Option<&mut [u8]>, hwndcallback: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciSendStringA(lpstrcommand: ::windows::core::PCSTR, lpstrreturnstring: ::windows::core::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
-    }
-    mciSendStringA(lpstrcommand.into(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciSendStringW<'a, P0, P1>(lpstrcommand: P0, lpstrreturnstring: ::core::option::Option<&mut [u16]>, hwndcallback: P1) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciSendStringW(lpstrcommand: ::windows::core::PCWSTR, lpstrreturnstring: ::windows::core::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
-    }
-    mciSendStringW(lpstrcommand.into(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
-    }
-    mciSetDriverData(wdeviceid, dwdata)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mciSetYieldProc(mciid: u32, fpyieldproc: *mut ::core::ffi::c_void, dwyielddata: u32) -> super::super::Foundation::BOOL;
-    }
-    mciSetYieldProc(mciid, ::core::mem::transmute(fpyieldproc), dwyielddata)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmDrvInstall<'a, P0, P1>(hdriver: P0, wszdrventry: P1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32
-where
-    P0: ::std::convert::Into<HDRVR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmDrvInstall(hdriver: HDRVR, wszdrventry: ::windows::core::PCWSTR, drvmessage: *mut ::core::ffi::c_void, wflags: u32) -> u32;
-    }
-    mmDrvInstall(hdriver.into(), wszdrventry.into(), ::core::mem::transmute(drvmessage), wflags)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmGetCurrentTask() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmGetCurrentTask() -> u32;
-    }
-    mmGetCurrentTask()
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmTaskBlock(h: u32) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmTaskBlock(h: u32);
-    }
-    mmTaskBlock(h)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: &mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmTaskCreate(lpfn: *mut ::core::ffi::c_void, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
-    }
-    mmTaskCreate(::core::mem::transmute(lpfn), ::core::mem::transmute(lph), dwinst)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
-    }
-    mmTaskSignal(h)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmTaskYield() {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmTaskYield();
-    }
-    mmTaskYield()
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioAdvance<'a, P0>(hmmio: P0, pmmioinfo: ::core::option::Option<&MMIOINFO>, fuadvance: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
-    }
-    mmioAdvance(hmmio.into(), ::core::mem::transmute(pmmioinfo), fuadvance)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioAscend<'a, P0>(hmmio: P0, pmmcki: &MMCKINFO, fuascend: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
-    }
-    mmioAscend(hmmio.into(), ::core::mem::transmute(pmmcki), fuascend)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioClose<'a, P0>(hmmio: P0, fuclose: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
-    }
-    mmioClose(hmmio.into(), fuclose)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioCreateChunk<'a, P0>(hmmio: P0, pmmcki: &MMCKINFO, fucreate: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
-    }
-    mmioCreateChunk(hmmio.into(), ::core::mem::transmute(pmmcki), fucreate)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioDescend<'a, P0>(hmmio: P0, pmmcki: &mut MMCKINFO, pmmckiparent: ::core::option::Option<&MMCKINFO>, fudescend: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
-    }
-    mmioDescend(hmmio.into(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(pmmckiparent), fudescend)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioFlush<'a, P0>(hmmio: P0, fuflush: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
-    }
-    mmioFlush(hmmio.into(), fuflush)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioGetInfo<'a, P0>(hmmio: P0, pmmioinfo: &mut MMIOINFO, fuinfo: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
-    }
-    mmioGetInfo(hmmio.into(), ::core::mem::transmute(pmmioinfo), fuinfo)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioInstallIOProcA(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
-    }
-    mmioInstallIOProcA(fccioproc, ::core::mem::transmute(pioproc), dwflags)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioInstallIOProcW(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
-    }
-    mmioInstallIOProcW(fccioproc, ::core::mem::transmute(pioproc), dwflags)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioOpenA(pszfilename: ::core::option::Option<&mut [u8; 128]>, pmmioinfo: ::core::option::Option<&mut MMIOINFO>, fdwopen: u32) -> HMMIO {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioOpenA(pszfilename: ::windows::core::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
-    }
-    mmioOpenA(::core::mem::transmute(pszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pmmioinfo), fdwopen)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioOpenW(pszfilename: ::core::option::Option<&mut [u16; 128]>, pmmioinfo: ::core::option::Option<&mut MMIOINFO>, fdwopen: u32) -> HMMIO {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioOpenW(pszfilename: ::windows::core::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
-    }
-    mmioOpenW(::core::mem::transmute(pszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pmmioinfo), fdwopen)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioRead<'a, P0>(hmmio: P0, pch: &mut [u8]) -> i32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
-    }
-    mmioRead(hmmio.into(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioRenameA<'a, P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: ::core::option::Option<&MMIOINFO>, fdwrename: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioRenameA(pszfilename: ::windows::core::PCSTR, psznewfilename: ::windows::core::PCSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
-    }
-    mmioRenameA(pszfilename.into(), psznewfilename.into(), ::core::mem::transmute(pmmioinfo), fdwrename)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioRenameW<'a, P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: ::core::option::Option<&MMIOINFO>, fdwrename: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioRenameW(pszfilename: ::windows::core::PCWSTR, psznewfilename: ::windows::core::PCWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
-    }
-    mmioRenameW(pszfilename.into(), psznewfilename.into(), ::core::mem::transmute(pmmioinfo), fdwrename)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioSeek<'a, P0>(hmmio: P0, loffset: i32, iorigin: i32) -> i32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
-    }
-    mmioSeek(hmmio.into(), loffset, iorigin)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioSendMessage<'a, P0, P1, P2>(hmmio: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<HMMIO>,
-    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-    }
-    mmioSendMessage(hmmio.into(), umsg, lparam1.into(), lparam2.into())
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioSetBuffer<'a, P0>(hmmio: P0, pchbuffer: ::core::option::Option<&mut [u8]>, fubuffer: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: ::windows::core::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
-    }
-    mmioSetBuffer(hmmio.into(), ::core::mem::transmute(pchbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len() as _), fubuffer)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mmioSetInfo<'a, P0>(hmmio: P0, pmmioinfo: &MMIOINFO, fuinfo: u32) -> u32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
-    }
-    mmioSetInfo(hmmio.into(), ::core::mem::transmute(pmmioinfo), fuinfo)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioStringToFOURCCA<'a, P0>(sz: P0, uflags: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioStringToFOURCCA(sz: ::windows::core::PCSTR, uflags: u32) -> u32;
-    }
-    mmioStringToFOURCCA(sz.into(), uflags)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioStringToFOURCCW<'a, P0>(sz: P0, uflags: u32) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioStringToFOURCCW(sz: ::windows::core::PCWSTR, uflags: u32) -> u32;
-    }
-    mmioStringToFOURCCW(sz.into(), uflags)
-}
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-#[inline]
-pub unsafe fn mmioWrite<'a, P0>(hmmio: P0, pch: &[u8]) -> i32
-where
-    P0: ::std::convert::Into<HMMIO>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mmioWrite(hmmio: HMMIO, pch: ::windows::core::PCSTR, cch: i32) -> i32;
-    }
-    mmioWrite(hmmio.into(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -17696,17 +17665,48 @@ impl ::core::default::Default for s_RIFFWAVE_inst {
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn sndOpenSound<'a, P0, P1>(eventname: P0, appname: P1, flags: i32, filehandle: &mut super::super::Foundation::HANDLE) -> i32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn sndOpenSound(eventname: ::windows::core::PCWSTR, appname: ::windows::core::PCWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
-    }
-    sndOpenSound(eventname.into(), appname.into(), flags, ::core::mem::transmute(filehandle))
-}
+pub type AVISAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type CAPCONTROLCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type CAPERRORCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCSTR) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type CAPERRORCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCWSTR) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type CAPSTATUSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCSTR) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type CAPSTATUSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows::core::PCWSTR) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type CAPVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
+pub type CAPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type CAPYIELDCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub type DRIVERMSGPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+pub type LPFNEXTDEVIO = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMMIOPROC = ::core::option::Option<unsafe extern "system" fn(lpmmioinfo: ::windows::core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize)>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+pub type VFWWDMExtensionProc = ::core::option::Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
+pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

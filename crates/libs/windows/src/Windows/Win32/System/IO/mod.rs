@@ -135,7 +135,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
+#[inline]
+pub unsafe fn PostQueuedCompletionStatus<'a, P0>(completionport: P0, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: ::core::option::Option<&OVERLAPPED>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PostQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
+    }
+    PostQueuedCompletionStatus(completionport.into(), dwnumberofbytestransferred, dwcompletionkey, ::core::mem::transmute(lpoverlapped))
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -286,16 +296,6 @@ impl ::core::default::Default for OVERLAPPED_ENTRY {
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PostQueuedCompletionStatus<'a, P0>(completionport: P0, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: ::core::option::Option<&OVERLAPPED>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PostQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
-    }
-    PostQueuedCompletionStatus(completionport.into(), dwnumberofbytestransferred, dwcompletionkey, ::core::mem::transmute(lpoverlapped))
-}
+pub type LPOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

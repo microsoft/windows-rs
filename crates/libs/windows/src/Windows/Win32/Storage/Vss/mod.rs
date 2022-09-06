@@ -1841,8 +1841,6 @@ pub struct IVssEnumObject_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-pub struct IVssExamineWriterMetadata(pub u8);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
 pub struct IVssExpressWriter(::windows::core::IUnknown);
@@ -2947,292 +2945,9 @@ pub struct IVssWriterImpl_Vtbl {
 }
 pub const VSSCoordinator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_AWS_UNDEFINED: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_AWS_NO_ALTERNATE_WRITER: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_AWS_ALTERNATE_WRITER_EXISTS: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_AWS_THIS_IS_ALTERNATE_WRITER: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(3i32);
-impl ::core::marker::Copy for VSS_ALTERNATE_WRITER_STATE {}
-impl ::core::clone::Clone for VSS_ALTERNATE_WRITER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VSS_ALTERNATE_WRITER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_ALTERNATE_WRITER_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VSS_ALTERNATE_WRITER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VSS_ALTERNATE_WRITER_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VSS_APPLICATION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_APP_UNKNOWN: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_APP_SYSTEM: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_APP_BACK_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_APP_FRONT_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_APP_SYSTEM_RM: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_APP_AUTO: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(-1i32);
-impl ::core::marker::Copy for VSS_APPLICATION_LEVEL {}
-impl ::core::clone::Clone for VSS_APPLICATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VSS_APPLICATION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_APPLICATION_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VSS_APPLICATION_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VSS_APPLICATION_LEVEL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_ASSOC_NO_MAX_SPACE: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_ASSOC_REMOVE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VSS_BACKUP_SCHEMA(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_UNDEFINED: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_DIFFERENTIAL: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_INCREMENTAL: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_EXCLUSIVE_INCREMENTAL_DIFFERENTIAL: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_LOG: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_COPY: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_TIMESTAMPED: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(32i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_LAST_MODIFY: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(64i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_LSN: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(128i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_WRITER_SUPPORTS_NEW_TARGET: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(256i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_WRITER_SUPPORTS_RESTORE_WITH_MOVE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(512i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_INDEPENDENT_SYSTEM_STATE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(1024i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_ROLLFORWARD_RESTORE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(4096i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_RESTORE_RENAME: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(8192i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_AUTHORITATIVE_RESTORE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(16384i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BS_WRITER_SUPPORTS_PARALLEL_RESTORES: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(32768i32);
-impl ::core::marker::Copy for VSS_BACKUP_SCHEMA {}
-impl ::core::clone::Clone for VSS_BACKUP_SCHEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VSS_BACKUP_SCHEMA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_BACKUP_SCHEMA {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VSS_BACKUP_SCHEMA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VSS_BACKUP_SCHEMA").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VSS_BACKUP_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BT_UNDEFINED: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BT_FULL: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BT_INCREMENTAL: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BT_DIFFERENTIAL: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BT_LOG: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BT_COPY: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_BT_OTHER: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(6i32);
-impl ::core::marker::Copy for VSS_BACKUP_TYPE {}
-impl ::core::clone::Clone for VSS_BACKUP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VSS_BACKUP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_BACKUP_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VSS_BACKUP_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VSS_BACKUP_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VSS_COMPONENT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_CF_BACKUP_RECOVERY: VSS_COMPONENT_FLAGS = VSS_COMPONENT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_CF_APP_ROLLBACK_RECOVERY: VSS_COMPONENT_FLAGS = VSS_COMPONENT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_CF_NOT_SYSTEM_STATE: VSS_COMPONENT_FLAGS = VSS_COMPONENT_FLAGS(4i32);
-impl ::core::marker::Copy for VSS_COMPONENT_FLAGS {}
-impl ::core::clone::Clone for VSS_COMPONENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VSS_COMPONENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_COMPONENT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VSS_COMPONENT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VSS_COMPONENT_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VSS_COMPONENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_CT_UNDEFINED: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_CT_DATABASE: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_CT_FILEGROUP: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(2i32);
-impl ::core::marker::Copy for VSS_COMPONENT_TYPE {}
-impl ::core::clone::Clone for VSS_COMPONENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VSS_COMPONENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_COMPONENT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VSS_COMPONENT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VSS_COMPONENT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub struct VSS_DIFF_AREA_PROP {
-    pub m_pwszVolumeName: *mut u16,
-    pub m_pwszDiffAreaVolumeName: *mut u16,
-    pub m_llMaximumDiffSpace: i64,
-    pub m_llAllocatedDiffSpace: i64,
-    pub m_llUsedDiffSpace: i64,
-}
-impl ::core::marker::Copy for VSS_DIFF_AREA_PROP {}
-impl ::core::clone::Clone for VSS_DIFF_AREA_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for VSS_DIFF_AREA_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_DIFF_AREA_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszDiffAreaVolumeName", &self.m_pwszDiffAreaVolumeName).field("m_llMaximumDiffSpace", &self.m_llMaximumDiffSpace).field("m_llAllocatedDiffSpace", &self.m_llAllocatedDiffSpace).field("m_llUsedDiffSpace", &self.m_llUsedDiffSpace).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_DIFF_AREA_PROP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_DIFF_AREA_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_DIFF_AREA_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_DIFF_AREA_PROP {}
-impl ::core::default::Default for VSS_DIFF_AREA_PROP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub struct VSS_DIFF_VOLUME_PROP {
-    pub m_pwszVolumeName: *mut u16,
-    pub m_pwszVolumeDisplayName: *mut u16,
-    pub m_llVolumeFreeSpace: i64,
-    pub m_llVolumeTotalSpace: i64,
-}
-impl ::core::marker::Copy for VSS_DIFF_VOLUME_PROP {}
-impl ::core::clone::Clone for VSS_DIFF_VOLUME_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for VSS_DIFF_VOLUME_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_DIFF_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).field("m_llVolumeFreeSpace", &self.m_llVolumeFreeSpace).field("m_llVolumeTotalSpace", &self.m_llVolumeTotalSpace).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_DIFF_VOLUME_PROP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_DIFF_VOLUME_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_DIFF_VOLUME_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_DIFF_VOLUME_PROP {}
-impl ::core::default::Default for VSS_DIFF_VOLUME_PROP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_E_ASRERROR_CRITICAL_DISKS_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147212280i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
@@ -3388,6 +3103,231 @@ pub const VSS_E_WRITER_NOT_RESPONDING: ::windows::core::HRESULT = ::windows::cor
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_E_WRITER_STATUS_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147212279i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_S_ASYNC_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(271115i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_S_ASYNC_FINISHED: ::windows::core::HRESULT = ::windows::core::HRESULT(271114i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_S_ASYNC_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(271113i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_S_SOME_SNAPSHOTS_NOT_IMPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(271137i32);
+pub const VssSnapshotMgmt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_AWS_UNDEFINED: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_AWS_NO_ALTERNATE_WRITER: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_AWS_ALTERNATE_WRITER_EXISTS: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_AWS_THIS_IS_ALTERNATE_WRITER: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(3i32);
+impl ::core::marker::Copy for VSS_ALTERNATE_WRITER_STATE {}
+impl ::core::clone::Clone for VSS_ALTERNATE_WRITER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VSS_ALTERNATE_WRITER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_ALTERNATE_WRITER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VSS_ALTERNATE_WRITER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VSS_ALTERNATE_WRITER_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VSS_APPLICATION_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_APP_UNKNOWN: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_APP_SYSTEM: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_APP_BACK_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_APP_FRONT_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_APP_SYSTEM_RM: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_APP_AUTO: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(-1i32);
+impl ::core::marker::Copy for VSS_APPLICATION_LEVEL {}
+impl ::core::clone::Clone for VSS_APPLICATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VSS_APPLICATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_APPLICATION_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VSS_APPLICATION_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VSS_APPLICATION_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VSS_BACKUP_SCHEMA(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_UNDEFINED: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_DIFFERENTIAL: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_INCREMENTAL: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_EXCLUSIVE_INCREMENTAL_DIFFERENTIAL: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_LOG: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(8i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_COPY: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(16i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_TIMESTAMPED: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(32i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_LAST_MODIFY: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(64i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_LSN: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(128i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_WRITER_SUPPORTS_NEW_TARGET: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(256i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_WRITER_SUPPORTS_RESTORE_WITH_MOVE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(512i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_INDEPENDENT_SYSTEM_STATE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(1024i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_ROLLFORWARD_RESTORE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(4096i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_RESTORE_RENAME: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(8192i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_AUTHORITATIVE_RESTORE: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(16384i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BS_WRITER_SUPPORTS_PARALLEL_RESTORES: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(32768i32);
+impl ::core::marker::Copy for VSS_BACKUP_SCHEMA {}
+impl ::core::clone::Clone for VSS_BACKUP_SCHEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VSS_BACKUP_SCHEMA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_BACKUP_SCHEMA {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VSS_BACKUP_SCHEMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VSS_BACKUP_SCHEMA").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VSS_BACKUP_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BT_UNDEFINED: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BT_FULL: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BT_INCREMENTAL: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BT_DIFFERENTIAL: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BT_LOG: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BT_COPY: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_BT_OTHER: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(6i32);
+impl ::core::marker::Copy for VSS_BACKUP_TYPE {}
+impl ::core::clone::Clone for VSS_BACKUP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VSS_BACKUP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_BACKUP_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VSS_BACKUP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VSS_BACKUP_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VSS_COMPONENT_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_CF_BACKUP_RECOVERY: VSS_COMPONENT_FLAGS = VSS_COMPONENT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_CF_APP_ROLLBACK_RECOVERY: VSS_COMPONENT_FLAGS = VSS_COMPONENT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_CF_NOT_SYSTEM_STATE: VSS_COMPONENT_FLAGS = VSS_COMPONENT_FLAGS(4i32);
+impl ::core::marker::Copy for VSS_COMPONENT_FLAGS {}
+impl ::core::clone::Clone for VSS_COMPONENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VSS_COMPONENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_COMPONENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VSS_COMPONENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VSS_COMPONENT_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VSS_COMPONENT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_CT_UNDEFINED: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_CT_DATABASE: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub const VSS_CT_FILEGROUP: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(2i32);
+impl ::core::marker::Copy for VSS_COMPONENT_TYPE {}
+impl ::core::clone::Clone for VSS_COMPONENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VSS_COMPONENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_COMPONENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VSS_COMPONENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VSS_COMPONENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_FILE_RESTORE_STATUS(pub i32);
@@ -3502,32 +3442,6 @@ impl ::core::fmt::Debug for VSS_HARDWARE_OPTIONS {
         f.debug_tuple("VSS_HARDWARE_OPTIONS").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub struct VSS_MGMT_OBJECT_PROP {
-    pub Type: VSS_MGMT_OBJECT_TYPE,
-    pub Obj: VSS_MGMT_OBJECT_UNION,
-}
-impl ::core::marker::Copy for VSS_MGMT_OBJECT_PROP {}
-impl ::core::clone::Clone for VSS_MGMT_OBJECT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_PROP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_MGMT_OBJECT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_MGMT_OBJECT_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_MGMT_OBJECT_PROP {}
-impl ::core::default::Default for VSS_MGMT_OBJECT_PROP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3557,59 +3471,6 @@ unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_TYPE {
 impl ::core::fmt::Debug for VSS_MGMT_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VSS_MGMT_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub union VSS_MGMT_OBJECT_UNION {
-    pub Vol: VSS_VOLUME_PROP,
-    pub DiffVol: VSS_DIFF_VOLUME_PROP,
-    pub DiffArea: VSS_DIFF_AREA_PROP,
-}
-impl ::core::marker::Copy for VSS_MGMT_OBJECT_UNION {}
-impl ::core::clone::Clone for VSS_MGMT_OBJECT_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_UNION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_MGMT_OBJECT_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_MGMT_OBJECT_UNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_MGMT_OBJECT_UNION {}
-impl ::core::default::Default for VSS_MGMT_OBJECT_UNION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub struct VSS_OBJECT_PROP {
-    pub Type: VSS_OBJECT_TYPE,
-    pub Obj: VSS_OBJECT_UNION,
-}
-impl ::core::marker::Copy for VSS_OBJECT_PROP {}
-impl ::core::clone::Clone for VSS_OBJECT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_OBJECT_PROP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_OBJECT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_OBJECT_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_OBJECT_PROP {}
-impl ::core::default::Default for VSS_OBJECT_PROP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
@@ -3645,32 +3506,6 @@ unsafe impl ::windows::core::Abi for VSS_OBJECT_TYPE {
 impl ::core::fmt::Debug for VSS_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VSS_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub union VSS_OBJECT_UNION {
-    pub Snap: VSS_SNAPSHOT_PROP,
-    pub Prov: VSS_PROVIDER_PROP,
-}
-impl ::core::marker::Copy for VSS_OBJECT_UNION {}
-impl ::core::clone::Clone for VSS_OBJECT_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_OBJECT_UNION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_OBJECT_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_OBJECT_UNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_OBJECT_UNION {}
-impl ::core::default::Default for VSS_OBJECT_UNION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
@@ -3798,41 +3633,6 @@ unsafe impl ::windows::core::Abi for VSS_PROVIDER_CAPABILITIES {
 impl ::core::fmt::Debug for VSS_PROVIDER_CAPABILITIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VSS_PROVIDER_CAPABILITIES").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub struct VSS_PROVIDER_PROP {
-    pub m_ProviderId: ::windows::core::GUID,
-    pub m_pwszProviderName: *mut u16,
-    pub m_eProviderType: VSS_PROVIDER_TYPE,
-    pub m_pwszProviderVersion: *mut u16,
-    pub m_ProviderVersionId: ::windows::core::GUID,
-    pub m_ClassId: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for VSS_PROVIDER_PROP {}
-impl ::core::clone::Clone for VSS_PROVIDER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for VSS_PROVIDER_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_PROVIDER_PROP").field("m_ProviderId", &self.m_ProviderId).field("m_pwszProviderName", &self.m_pwszProviderName).field("m_eProviderType", &self.m_eProviderType).field("m_pwszProviderVersion", &self.m_pwszProviderVersion).field("m_ProviderVersionId", &self.m_ProviderVersionId).field("m_ClassId", &self.m_ClassId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_PROVIDER_PROP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_PROVIDER_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_PROVIDER_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_PROVIDER_PROP {}
-impl ::core::default::Default for VSS_PROVIDER_PROP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
@@ -4095,62 +3895,6 @@ impl ::core::fmt::Debug for VSS_SNAPSHOT_CONTEXT {
         f.debug_tuple("VSS_SNAPSHOT_CONTEXT").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub struct VSS_SNAPSHOT_PROP {
-    pub m_SnapshotId: ::windows::core::GUID,
-    pub m_SnapshotSetId: ::windows::core::GUID,
-    pub m_lSnapshotsCount: i32,
-    pub m_pwszSnapshotDeviceObject: *mut u16,
-    pub m_pwszOriginalVolumeName: *mut u16,
-    pub m_pwszOriginatingMachine: *mut u16,
-    pub m_pwszServiceMachine: *mut u16,
-    pub m_pwszExposedName: *mut u16,
-    pub m_pwszExposedPath: *mut u16,
-    pub m_ProviderId: ::windows::core::GUID,
-    pub m_lSnapshotAttributes: i32,
-    pub m_tsCreationTimestamp: i64,
-    pub m_eStatus: VSS_SNAPSHOT_STATE,
-}
-impl ::core::marker::Copy for VSS_SNAPSHOT_PROP {}
-impl ::core::clone::Clone for VSS_SNAPSHOT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for VSS_SNAPSHOT_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_SNAPSHOT_PROP")
-            .field("m_SnapshotId", &self.m_SnapshotId)
-            .field("m_SnapshotSetId", &self.m_SnapshotSetId)
-            .field("m_lSnapshotsCount", &self.m_lSnapshotsCount)
-            .field("m_pwszSnapshotDeviceObject", &self.m_pwszSnapshotDeviceObject)
-            .field("m_pwszOriginalVolumeName", &self.m_pwszOriginalVolumeName)
-            .field("m_pwszOriginatingMachine", &self.m_pwszOriginatingMachine)
-            .field("m_pwszServiceMachine", &self.m_pwszServiceMachine)
-            .field("m_pwszExposedName", &self.m_pwszExposedName)
-            .field("m_pwszExposedPath", &self.m_pwszExposedPath)
-            .field("m_ProviderId", &self.m_ProviderId)
-            .field("m_lSnapshotAttributes", &self.m_lSnapshotAttributes)
-            .field("m_tsCreationTimestamp", &self.m_tsCreationTimestamp)
-            .field("m_eStatus", &self.m_eStatus)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_PROP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_SNAPSHOT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_SNAPSHOT_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_SNAPSHOT_PROP {}
-impl ::core::default::Default for VSS_SNAPSHOT_PROP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4324,14 +4068,6 @@ impl ::core::fmt::Debug for VSS_SUBSCRIBE_MASK {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_S_ASYNC_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(271115i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_S_ASYNC_FINISHED: ::windows::core::HRESULT = ::windows::core::HRESULT(271114i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_S_ASYNC_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(271113i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub const VSS_S_SOME_SNAPSHOTS_NOT_IMPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(271137i32);
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_USAGE_TYPE(pub i32);
@@ -4362,80 +4098,6 @@ unsafe impl ::windows::core::Abi for VSS_USAGE_TYPE {
 impl ::core::fmt::Debug for VSS_USAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VSS_USAGE_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-pub struct VSS_VOLUME_PROP {
-    pub m_pwszVolumeName: *mut u16,
-    pub m_pwszVolumeDisplayName: *mut u16,
-}
-impl ::core::marker::Copy for VSS_VOLUME_PROP {}
-impl ::core::clone::Clone for VSS_VOLUME_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for VSS_VOLUME_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for VSS_VOLUME_PROP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VSS_VOLUME_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_VOLUME_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_VOLUME_PROP {}
-impl ::core::default::Default for VSS_VOLUME_PROP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct VSS_VOLUME_PROTECTION_INFO {
-    pub m_protectionLevel: VSS_PROTECTION_LEVEL,
-    pub m_volumeIsOfflineForProtection: super::super::Foundation::BOOL,
-    pub m_protectionFault: VSS_PROTECTION_FAULT,
-    pub m_failureStatus: i32,
-    pub m_volumeHasUnusedDiffArea: super::super::Foundation::BOOL,
-    pub m_reserved: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for VSS_VOLUME_PROTECTION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for VSS_VOLUME_PROTECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VSS_VOLUME_PROTECTION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VSS_VOLUME_PROTECTION_INFO").field("m_protectionLevel", &self.m_protectionLevel).field("m_volumeIsOfflineForProtection", &self.m_volumeIsOfflineForProtection).field("m_protectionFault", &self.m_protectionFault).field("m_failureStatus", &self.m_failureStatus).field("m_volumeHasUnusedDiffArea", &self.m_volumeHasUnusedDiffArea).field("m_reserved", &self.m_reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VSS_VOLUME_PROTECTION_INFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for VSS_VOLUME_PROTECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_VOLUME_PROTECTION_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for VSS_VOLUME_PROTECTION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for VSS_VOLUME_PROTECTION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
@@ -4587,6 +4249,344 @@ impl ::core::fmt::Debug for VSS_WRITER_STATE {
         f.debug_tuple("VSS_WRITER_STATE").field(&self.0).finish()
     }
 }
-pub const VssSnapshotMgmt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);
+#[repr(C)]
+pub struct IVssExamineWriterMetadata(pub u8);
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub struct VSS_DIFF_AREA_PROP {
+    pub m_pwszVolumeName: *mut u16,
+    pub m_pwszDiffAreaVolumeName: *mut u16,
+    pub m_llMaximumDiffSpace: i64,
+    pub m_llAllocatedDiffSpace: i64,
+    pub m_llUsedDiffSpace: i64,
+}
+impl ::core::marker::Copy for VSS_DIFF_AREA_PROP {}
+impl ::core::clone::Clone for VSS_DIFF_AREA_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VSS_DIFF_AREA_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_DIFF_AREA_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszDiffAreaVolumeName", &self.m_pwszDiffAreaVolumeName).field("m_llMaximumDiffSpace", &self.m_llMaximumDiffSpace).field("m_llAllocatedDiffSpace", &self.m_llAllocatedDiffSpace).field("m_llUsedDiffSpace", &self.m_llUsedDiffSpace).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_DIFF_AREA_PROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_DIFF_AREA_PROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_DIFF_AREA_PROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_DIFF_AREA_PROP {}
+impl ::core::default::Default for VSS_DIFF_AREA_PROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub struct VSS_DIFF_VOLUME_PROP {
+    pub m_pwszVolumeName: *mut u16,
+    pub m_pwszVolumeDisplayName: *mut u16,
+    pub m_llVolumeFreeSpace: i64,
+    pub m_llVolumeTotalSpace: i64,
+}
+impl ::core::marker::Copy for VSS_DIFF_VOLUME_PROP {}
+impl ::core::clone::Clone for VSS_DIFF_VOLUME_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VSS_DIFF_VOLUME_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_DIFF_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).field("m_llVolumeFreeSpace", &self.m_llVolumeFreeSpace).field("m_llVolumeTotalSpace", &self.m_llVolumeTotalSpace).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_DIFF_VOLUME_PROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_DIFF_VOLUME_PROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_DIFF_VOLUME_PROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_DIFF_VOLUME_PROP {}
+impl ::core::default::Default for VSS_DIFF_VOLUME_PROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub struct VSS_MGMT_OBJECT_PROP {
+    pub Type: VSS_MGMT_OBJECT_TYPE,
+    pub Obj: VSS_MGMT_OBJECT_UNION,
+}
+impl ::core::marker::Copy for VSS_MGMT_OBJECT_PROP {}
+impl ::core::clone::Clone for VSS_MGMT_OBJECT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_PROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_MGMT_OBJECT_PROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_MGMT_OBJECT_PROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_MGMT_OBJECT_PROP {}
+impl ::core::default::Default for VSS_MGMT_OBJECT_PROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub union VSS_MGMT_OBJECT_UNION {
+    pub Vol: VSS_VOLUME_PROP,
+    pub DiffVol: VSS_DIFF_VOLUME_PROP,
+    pub DiffArea: VSS_DIFF_AREA_PROP,
+}
+impl ::core::marker::Copy for VSS_MGMT_OBJECT_UNION {}
+impl ::core::clone::Clone for VSS_MGMT_OBJECT_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_UNION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_MGMT_OBJECT_UNION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_MGMT_OBJECT_UNION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_MGMT_OBJECT_UNION {}
+impl ::core::default::Default for VSS_MGMT_OBJECT_UNION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub struct VSS_OBJECT_PROP {
+    pub Type: VSS_OBJECT_TYPE,
+    pub Obj: VSS_OBJECT_UNION,
+}
+impl ::core::marker::Copy for VSS_OBJECT_PROP {}
+impl ::core::clone::Clone for VSS_OBJECT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_OBJECT_PROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_OBJECT_PROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_OBJECT_PROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_OBJECT_PROP {}
+impl ::core::default::Default for VSS_OBJECT_PROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub union VSS_OBJECT_UNION {
+    pub Snap: VSS_SNAPSHOT_PROP,
+    pub Prov: VSS_PROVIDER_PROP,
+}
+impl ::core::marker::Copy for VSS_OBJECT_UNION {}
+impl ::core::clone::Clone for VSS_OBJECT_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_OBJECT_UNION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_OBJECT_UNION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_OBJECT_UNION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_OBJECT_UNION {}
+impl ::core::default::Default for VSS_OBJECT_UNION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub struct VSS_PROVIDER_PROP {
+    pub m_ProviderId: ::windows::core::GUID,
+    pub m_pwszProviderName: *mut u16,
+    pub m_eProviderType: VSS_PROVIDER_TYPE,
+    pub m_pwszProviderVersion: *mut u16,
+    pub m_ProviderVersionId: ::windows::core::GUID,
+    pub m_ClassId: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for VSS_PROVIDER_PROP {}
+impl ::core::clone::Clone for VSS_PROVIDER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VSS_PROVIDER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_PROVIDER_PROP").field("m_ProviderId", &self.m_ProviderId).field("m_pwszProviderName", &self.m_pwszProviderName).field("m_eProviderType", &self.m_eProviderType).field("m_pwszProviderVersion", &self.m_pwszProviderVersion).field("m_ProviderVersionId", &self.m_ProviderVersionId).field("m_ClassId", &self.m_ClassId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_PROVIDER_PROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_PROVIDER_PROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_PROVIDER_PROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_PROVIDER_PROP {}
+impl ::core::default::Default for VSS_PROVIDER_PROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub struct VSS_SNAPSHOT_PROP {
+    pub m_SnapshotId: ::windows::core::GUID,
+    pub m_SnapshotSetId: ::windows::core::GUID,
+    pub m_lSnapshotsCount: i32,
+    pub m_pwszSnapshotDeviceObject: *mut u16,
+    pub m_pwszOriginalVolumeName: *mut u16,
+    pub m_pwszOriginatingMachine: *mut u16,
+    pub m_pwszServiceMachine: *mut u16,
+    pub m_pwszExposedName: *mut u16,
+    pub m_pwszExposedPath: *mut u16,
+    pub m_ProviderId: ::windows::core::GUID,
+    pub m_lSnapshotAttributes: i32,
+    pub m_tsCreationTimestamp: i64,
+    pub m_eStatus: VSS_SNAPSHOT_STATE,
+}
+impl ::core::marker::Copy for VSS_SNAPSHOT_PROP {}
+impl ::core::clone::Clone for VSS_SNAPSHOT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VSS_SNAPSHOT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_SNAPSHOT_PROP")
+            .field("m_SnapshotId", &self.m_SnapshotId)
+            .field("m_SnapshotSetId", &self.m_SnapshotSetId)
+            .field("m_lSnapshotsCount", &self.m_lSnapshotsCount)
+            .field("m_pwszSnapshotDeviceObject", &self.m_pwszSnapshotDeviceObject)
+            .field("m_pwszOriginalVolumeName", &self.m_pwszOriginalVolumeName)
+            .field("m_pwszOriginatingMachine", &self.m_pwszOriginatingMachine)
+            .field("m_pwszServiceMachine", &self.m_pwszServiceMachine)
+            .field("m_pwszExposedName", &self.m_pwszExposedName)
+            .field("m_pwszExposedPath", &self.m_pwszExposedPath)
+            .field("m_ProviderId", &self.m_ProviderId)
+            .field("m_lSnapshotAttributes", &self.m_lSnapshotAttributes)
+            .field("m_tsCreationTimestamp", &self.m_tsCreationTimestamp)
+            .field("m_eStatus", &self.m_eStatus)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_PROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_SNAPSHOT_PROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_SNAPSHOT_PROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_SNAPSHOT_PROP {}
+impl ::core::default::Default for VSS_SNAPSHOT_PROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
+pub struct VSS_VOLUME_PROP {
+    pub m_pwszVolumeName: *mut u16,
+    pub m_pwszVolumeDisplayName: *mut u16,
+}
+impl ::core::marker::Copy for VSS_VOLUME_PROP {}
+impl ::core::clone::Clone for VSS_VOLUME_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VSS_VOLUME_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_VOLUME_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszVolumeDisplayName", &self.m_pwszVolumeDisplayName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VSS_VOLUME_PROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VSS_VOLUME_PROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_VOLUME_PROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VSS_VOLUME_PROP {}
+impl ::core::default::Default for VSS_VOLUME_PROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct VSS_VOLUME_PROTECTION_INFO {
+    pub m_protectionLevel: VSS_PROTECTION_LEVEL,
+    pub m_volumeIsOfflineForProtection: super::super::Foundation::BOOL,
+    pub m_protectionFault: VSS_PROTECTION_FAULT,
+    pub m_failureStatus: i32,
+    pub m_volumeHasUnusedDiffArea: super::super::Foundation::BOOL,
+    pub m_reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VSS_VOLUME_PROTECTION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VSS_VOLUME_PROTECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VSS_VOLUME_PROTECTION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VSS_VOLUME_PROTECTION_INFO").field("m_protectionLevel", &self.m_protectionLevel).field("m_volumeIsOfflineForProtection", &self.m_volumeIsOfflineForProtection).field("m_protectionFault", &self.m_protectionFault).field("m_failureStatus", &self.m_failureStatus).field("m_volumeHasUnusedDiffArea", &self.m_volumeHasUnusedDiffArea).field("m_reserved", &self.m_reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for VSS_VOLUME_PROTECTION_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for VSS_VOLUME_PROTECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_VOLUME_PROTECTION_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for VSS_VOLUME_PROTECTION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for VSS_VOLUME_PROTECTION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

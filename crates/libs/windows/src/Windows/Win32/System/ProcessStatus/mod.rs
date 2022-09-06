@@ -1,68 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub struct ENUM_PAGE_FILE_INFORMATION {
-    pub cb: u32,
-    pub Reserved: u32,
-    pub TotalSize: usize,
-    pub TotalInUse: usize,
-    pub PeakUsage: usize,
-}
-impl ::core::marker::Copy for ENUM_PAGE_FILE_INFORMATION {}
-impl ::core::clone::Clone for ENUM_PAGE_FILE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ENUM_PAGE_FILE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENUM_PAGE_FILE_INFORMATION").field("cb", &self.cb).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("TotalInUse", &self.TotalInUse).field("PeakUsage", &self.PeakUsage).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ENUM_PAGE_FILE_INFORMATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENUM_PAGE_FILE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_PAGE_FILE_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ENUM_PAGE_FILE_INFORMATION {}
-impl ::core::default::Default for ENUM_PAGE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
-impl ::core::marker::Copy for ENUM_PROCESS_MODULES_EX_FLAGS {}
-impl ::core::clone::Clone for ENUM_PROCESS_MODULES_EX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENUM_PROCESS_MODULES_EX_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ENUM_PROCESS_MODULES_EX_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ENUM_PROCESS_MODULES_EX_FLAGS").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -388,6 +323,73 @@ where
     }
     K32QueryWorkingSetEx(hprocess.into(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _)
 }
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
+pub const PSAPI_VERSION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
+pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
+pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
+pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
+pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
+impl ::core::marker::Copy for ENUM_PROCESS_MODULES_EX_FLAGS {}
+impl ::core::clone::Clone for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENUM_PROCESS_MODULES_EX_FLAGS").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
+pub struct ENUM_PAGE_FILE_INFORMATION {
+    pub cb: u32,
+    pub Reserved: u32,
+    pub TotalSize: usize,
+    pub TotalInUse: usize,
+    pub PeakUsage: usize,
+}
+impl ::core::marker::Copy for ENUM_PAGE_FILE_INFORMATION {}
+impl ::core::clone::Clone for ENUM_PAGE_FILE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ENUM_PAGE_FILE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENUM_PAGE_FILE_INFORMATION").field("cb", &self.cb).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("TotalInUse", &self.TotalInUse).field("PeakUsage", &self.PeakUsage).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_PAGE_FILE_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ENUM_PAGE_FILE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_PAGE_FILE_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ENUM_PAGE_FILE_INFORMATION {}
+impl ::core::default::Default for ENUM_PAGE_FILE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct MODULEINFO {
@@ -420,12 +422,6 @@ impl ::core::default::Default for MODULEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PENUM_PAGE_FILE_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PENUM_PAGE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PERFORMANCE_INFORMATION {
@@ -586,8 +582,6 @@ impl ::core::default::Default for PROCESS_MEMORY_COUNTERS_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub union PSAPI_WORKING_SET_BLOCK {
@@ -871,5 +865,11 @@ impl ::core::default::Default for PSAPI_WS_WATCH_INFORMATION_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUM_PAGE_FILE_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUM_PAGE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

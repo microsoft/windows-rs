@@ -3538,106 +3538,6 @@ unsafe impl ::core::marker::Send for PrintMediaTypeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintMediaTypeOptionDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintOptionStates(pub u32);
-impl PrintOptionStates {
-    pub const None: Self = Self(0u32);
-    pub const Enabled: Self = Self(1u32);
-    pub const Constrained: Self = Self(2u32);
-}
-impl ::core::marker::Copy for PrintOptionStates {}
-impl ::core::clone::Clone for PrintOptionStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintOptionStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintOptionStates {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintOptionStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintOptionStates").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PrintOptionStates {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PrintOptionStates {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PrintOptionStates {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PrintOptionStates {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PrintOptionStates {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintOptionStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintOptionType(pub i32);
-impl PrintOptionType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Number: Self = Self(1i32);
-    pub const Text: Self = Self(2i32);
-    pub const ItemList: Self = Self(3i32);
-    pub const Toggle: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintOptionType {}
-impl ::core::clone::Clone for PrintOptionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintOptionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintOptionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintOptionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintOptionType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintOptionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-#[repr(transparent)]
 pub struct PrintOrientationOptionDetails(::windows::core::IUnknown);
 impl PrintOrientationOptionDetails {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4641,5 +4541,105 @@ impl<'a> ::core::convert::TryFrom<&PrintTaskOptionDetails> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for PrintTaskOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintTaskOptionDetails {}
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintOptionStates(pub u32);
+impl PrintOptionStates {
+    pub const None: Self = Self(0u32);
+    pub const Enabled: Self = Self(1u32);
+    pub const Constrained: Self = Self(2u32);
+}
+impl ::core::marker::Copy for PrintOptionStates {}
+impl ::core::clone::Clone for PrintOptionStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintOptionStates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintOptionStates {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintOptionStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOptionStates").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PrintOptionStates {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PrintOptionStates {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PrintOptionStates {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PrintOptionStates {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PrintOptionStates {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintOptionStates {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintOptionType(pub i32);
+impl PrintOptionType {
+    pub const Unknown: Self = Self(0i32);
+    pub const Number: Self = Self(1i32);
+    pub const Text: Self = Self(2i32);
+    pub const ItemList: Self = Self(3i32);
+    pub const Toggle: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PrintOptionType {}
+impl ::core::clone::Clone for PrintOptionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintOptionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintOptionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintOptionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintOptionType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintOptionType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

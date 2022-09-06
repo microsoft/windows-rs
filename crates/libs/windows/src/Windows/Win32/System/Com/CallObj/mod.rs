@@ -1,276 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CALLFRAMEINFO {
-    pub iMethod: u32,
-    pub fHasInValues: super::super::super::Foundation::BOOL,
-    pub fHasInOutValues: super::super::super::Foundation::BOOL,
-    pub fHasOutValues: super::super::super::Foundation::BOOL,
-    pub fDerivesFromIDispatch: super::super::super::Foundation::BOOL,
-    pub cInInterfacesMax: i32,
-    pub cInOutInterfacesMax: i32,
-    pub cOutInterfacesMax: i32,
-    pub cTopLevelInInterfaces: i32,
-    pub iid: ::windows::core::GUID,
-    pub cMethod: u32,
-    pub cParams: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CALLFRAMEINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CALLFRAMEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CALLFRAMEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CALLFRAMEINFO")
-            .field("iMethod", &self.iMethod)
-            .field("fHasInValues", &self.fHasInValues)
-            .field("fHasInOutValues", &self.fHasInOutValues)
-            .field("fHasOutValues", &self.fHasOutValues)
-            .field("fDerivesFromIDispatch", &self.fDerivesFromIDispatch)
-            .field("cInInterfacesMax", &self.cInInterfacesMax)
-            .field("cInOutInterfacesMax", &self.cInOutInterfacesMax)
-            .field("cOutInterfacesMax", &self.cOutInterfacesMax)
-            .field("cTopLevelInInterfaces", &self.cTopLevelInInterfaces)
-            .field("iid", &self.iid)
-            .field("cMethod", &self.cMethod)
-            .field("cParams", &self.cParams)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CALLFRAMEINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CALLFRAMEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALLFRAMEINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CALLFRAMEINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CALLFRAMEINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CALLFRAMEPARAMINFO {
-    pub fIn: super::super::super::Foundation::BOOLEAN,
-    pub fOut: super::super::super::Foundation::BOOLEAN,
-    pub stackOffset: u32,
-    pub cbParam: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CALLFRAMEPARAMINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CALLFRAMEPARAMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CALLFRAMEPARAMINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CALLFRAMEPARAMINFO").field("fIn", &self.fIn).field("fOut", &self.fOut).field("stackOffset", &self.stackOffset).field("cbParam", &self.cbParam).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CALLFRAMEPARAMINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CALLFRAMEPARAMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALLFRAMEPARAMINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CALLFRAMEPARAMINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CALLFRAMEPARAMINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CALLFRAME_COPY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
-impl ::core::marker::Copy for CALLFRAME_COPY {}
-impl ::core::clone::Clone for CALLFRAME_COPY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_COPY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CALLFRAME_COPY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CALLFRAME_COPY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CALLFRAME_COPY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CALLFRAME_FREE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = CALLFRAME_FREE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
-impl ::core::marker::Copy for CALLFRAME_FREE {}
-impl ::core::clone::Clone for CALLFRAME_FREE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_FREE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CALLFRAME_FREE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CALLFRAME_FREE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CALLFRAME_FREE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CALLFRAME_MARSHALCONTEXT {
-    pub fIn: super::super::super::Foundation::BOOLEAN,
-    pub dwDestContext: u32,
-    pub pvDestContext: *mut ::core::ffi::c_void,
-    pub punkReserved: ::core::option::Option<::windows::core::IUnknown>,
-    pub guidTransferSyntax: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
-    fn clone(&self) -> Self {
-        Self {
-            fIn: self.fIn,
-            dwDestContext: self.dwDestContext,
-            pvDestContext: self.pvDestContext,
-            punkReserved: self.punkReserved.clone(),
-            guidTransferSyntax: self.guidTransferSyntax,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CALLFRAME_MARSHALCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CALLFRAME_MARSHALCONTEXT").field("fIn", &self.fIn).field("dwDestContext", &self.dwDestContext).field("pvDestContext", &self.pvDestContext).field("punkReserved", &self.punkReserved).field("guidTransferSyntax", &self.guidTransferSyntax).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CALLFRAME_MARSHALCONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CALLFRAME_MARSHALCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIn == other.fIn && self.dwDestContext == other.dwDestContext && self.pvDestContext == other.pvDestContext && self.punkReserved == other.punkReserved && self.guidTransferSyntax == other.guidTransferSyntax
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CALLFRAME_MARSHALCONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CALLFRAME_MARSHALCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CALLFRAME_NULL(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = CALLFRAME_NULL(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = CALLFRAME_NULL(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = CALLFRAME_NULL(6i32);
-impl ::core::marker::Copy for CALLFRAME_NULL {}
-impl ::core::clone::Clone for CALLFRAME_NULL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_NULL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CALLFRAME_NULL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CALLFRAME_NULL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CALLFRAME_NULL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CALLFRAME_WALK(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
-impl ::core::marker::Copy for CALLFRAME_WALK {}
-impl ::core::clone::Clone for CALLFRAME_WALK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_WALK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CALLFRAME_WALK {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CALLFRAME_WALK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CALLFRAME_WALK").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[inline]
 pub unsafe fn CoGetInterceptor<'a, P0>(iidintercepted: &::windows::core::GUID, punkouter: P0, iid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -868,6 +595,279 @@ pub struct IInterfaceRelated_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub SetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CALLFRAME_COPY(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
+impl ::core::marker::Copy for CALLFRAME_COPY {}
+impl ::core::clone::Clone for CALLFRAME_COPY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CALLFRAME_COPY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_COPY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_COPY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_COPY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CALLFRAME_FREE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = CALLFRAME_FREE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
+impl ::core::marker::Copy for CALLFRAME_FREE {}
+impl ::core::clone::Clone for CALLFRAME_FREE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CALLFRAME_FREE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_FREE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_FREE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_FREE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CALLFRAME_NULL(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = CALLFRAME_NULL(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = CALLFRAME_NULL(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = CALLFRAME_NULL(6i32);
+impl ::core::marker::Copy for CALLFRAME_NULL {}
+impl ::core::clone::Clone for CALLFRAME_NULL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CALLFRAME_NULL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_NULL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_NULL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_NULL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CALLFRAME_WALK(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
+pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
+impl ::core::marker::Copy for CALLFRAME_WALK {}
+impl ::core::clone::Clone for CALLFRAME_WALK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CALLFRAME_WALK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_WALK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_WALK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_WALK").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CALLFRAMEINFO {
+    pub iMethod: u32,
+    pub fHasInValues: super::super::super::Foundation::BOOL,
+    pub fHasInOutValues: super::super::super::Foundation::BOOL,
+    pub fHasOutValues: super::super::super::Foundation::BOOL,
+    pub fDerivesFromIDispatch: super::super::super::Foundation::BOOL,
+    pub cInInterfacesMax: i32,
+    pub cInOutInterfacesMax: i32,
+    pub cOutInterfacesMax: i32,
+    pub cTopLevelInInterfaces: i32,
+    pub iid: ::windows::core::GUID,
+    pub cMethod: u32,
+    pub cParams: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CALLFRAMEINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CALLFRAMEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALLFRAMEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALLFRAMEINFO")
+            .field("iMethod", &self.iMethod)
+            .field("fHasInValues", &self.fHasInValues)
+            .field("fHasInOutValues", &self.fHasInOutValues)
+            .field("fHasOutValues", &self.fHasOutValues)
+            .field("fDerivesFromIDispatch", &self.fDerivesFromIDispatch)
+            .field("cInInterfacesMax", &self.cInInterfacesMax)
+            .field("cInOutInterfacesMax", &self.cInOutInterfacesMax)
+            .field("cOutInterfacesMax", &self.cOutInterfacesMax)
+            .field("cTopLevelInInterfaces", &self.cTopLevelInInterfaces)
+            .field("iid", &self.iid)
+            .field("cMethod", &self.cMethod)
+            .field("cParams", &self.cParams)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CALLFRAMEINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CALLFRAMEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALLFRAMEINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CALLFRAMEINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CALLFRAMEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CALLFRAMEPARAMINFO {
+    pub fIn: super::super::super::Foundation::BOOLEAN,
+    pub fOut: super::super::super::Foundation::BOOLEAN,
+    pub stackOffset: u32,
+    pub cbParam: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CALLFRAMEPARAMINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CALLFRAMEPARAMINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALLFRAMEPARAMINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALLFRAMEPARAMINFO").field("fIn", &self.fIn).field("fOut", &self.fOut).field("stackOffset", &self.stackOffset).field("cbParam", &self.cbParam).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CALLFRAMEPARAMINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CALLFRAMEPARAMINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALLFRAMEPARAMINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CALLFRAMEPARAMINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CALLFRAMEPARAMINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CALLFRAME_MARSHALCONTEXT {
+    pub fIn: super::super::super::Foundation::BOOLEAN,
+    pub dwDestContext: u32,
+    pub pvDestContext: *mut ::core::ffi::c_void,
+    pub punkReserved: ::core::option::Option<::windows::core::IUnknown>,
+    pub guidTransferSyntax: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
+    fn clone(&self) -> Self {
+        Self {
+            fIn: self.fIn,
+            dwDestContext: self.dwDestContext,
+            pvDestContext: self.pvDestContext,
+            punkReserved: self.punkReserved.clone(),
+            guidTransferSyntax: self.guidTransferSyntax,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CALLFRAME_MARSHALCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALLFRAME_MARSHALCONTEXT").field("fIn", &self.fIn).field("dwDestContext", &self.dwDestContext).field("pvDestContext", &self.pvDestContext).field("punkReserved", &self.punkReserved).field("guidTransferSyntax", &self.guidTransferSyntax).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CALLFRAME_MARSHALCONTEXT {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CALLFRAME_MARSHALCONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        self.fIn == other.fIn && self.dwDestContext == other.dwDestContext && self.pvDestContext == other.pvDestContext && self.punkReserved == other.punkReserved && self.guidTransferSyntax == other.guidTransferSyntax
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CALLFRAME_MARSHALCONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CALLFRAME_MARSHALCONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

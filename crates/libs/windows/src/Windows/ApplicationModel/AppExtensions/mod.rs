@@ -1,3 +1,192 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtension(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtension {
+    type Vtable = IAppExtension_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtension_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AppInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetExtensionPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetExtensionPropertiesAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub GetPublicFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    GetPublicFolderAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtension2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtension2 {
+    type Vtable = IAppExtension2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3b15f0_14f9_4b9f_9419_a349a242ef38);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtension2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtensionCatalog(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtensionCatalog {
+    type Vtable = IAppExtensionCatalog_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97872032_8426_4ad1_9084_92e88c2da200);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtensionCatalog_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindAllAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub RequestRemovePackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestRemovePackageAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub PackageInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PackageInstalled: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePackageInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePackageInstalled: usize,
+    #[cfg(feature = "Foundation")]
+    pub PackageUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PackageUpdating: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePackageUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePackageUpdating: usize,
+    #[cfg(feature = "Foundation")]
+    pub PackageUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PackageUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePackageUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePackageUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub PackageUninstalling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PackageUninstalling: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePackageUninstalling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePackageUninstalling: usize,
+    #[cfg(feature = "Foundation")]
+    pub PackageStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PackageStatusChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePackageStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePackageStatusChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtensionCatalogStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtensionCatalogStatics {
+    type Vtable = IAppExtensionCatalogStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtensionCatalogStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appextensionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtensionPackageInstalledEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtensionPackageInstalledEventArgs {
+    type Vtable = IAppExtensionPackageInstalledEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e59234_3351_4a8d_9745_e7d3dd45bc48);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtensionPackageInstalledEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Extensions: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtensionPackageStatusChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtensionPackageStatusChangedEventArgs {
+    type Vtable = IAppExtensionPackageStatusChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce17433_1153_44fd_87b1_8ae1050303df);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtensionPackageStatusChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtensionPackageUninstallingEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtensionPackageUninstallingEventArgs {
+    type Vtable = IAppExtensionPackageUninstallingEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtensionPackageUninstallingEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtensionPackageUpdatedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtensionPackageUpdatedEventArgs {
+    type Vtable = IAppExtensionPackageUpdatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtensionPackageUpdatedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Extensions: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppExtensionPackageUpdatingEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppExtensionPackageUpdatingEventArgs {
+    type Vtable = IAppExtensionPackageUpdatingEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed59329_1a65_4800_a700_b321009e306a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppExtensionPackageUpdatingEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
 #[repr(transparent)]
 pub struct AppExtension(::windows::core::IUnknown);
@@ -732,194 +921,5 @@ impl ::core::convert::From<&AppExtensionPackageUpdatingEventArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatingEventArgs {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtension(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtension {
-    type Vtable = IAppExtension_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtension_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AppInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetExtensionPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetExtensionPropertiesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub GetPublicFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
-    GetPublicFolderAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtension2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtension2 {
-    type Vtable = IAppExtension2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3b15f0_14f9_4b9f_9419_a349a242ef38);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtension2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtensionCatalog(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtensionCatalog {
-    type Vtable = IAppExtensionCatalog_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97872032_8426_4ad1_9084_92e88c2da200);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtensionCatalog_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub RequestRemovePackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestRemovePackageAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub PackageInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PackageInstalled: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePackageInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePackageInstalled: usize,
-    #[cfg(feature = "Foundation")]
-    pub PackageUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PackageUpdating: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePackageUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePackageUpdating: usize,
-    #[cfg(feature = "Foundation")]
-    pub PackageUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PackageUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePackageUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePackageUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub PackageUninstalling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PackageUninstalling: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePackageUninstalling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePackageUninstalling: usize,
-    #[cfg(feature = "Foundation")]
-    pub PackageStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PackageStatusChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePackageStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePackageStatusChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtensionCatalogStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtensionCatalogStatics {
-    type Vtable = IAppExtensionCatalogStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtensionCatalogStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appextensionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtensionPackageInstalledEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtensionPackageInstalledEventArgs {
-    type Vtable = IAppExtensionPackageInstalledEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e59234_3351_4a8d_9745_e7d3dd45bc48);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtensionPackageInstalledEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtensionPackageStatusChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtensionPackageStatusChangedEventArgs {
-    type Vtable = IAppExtensionPackageStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce17433_1153_44fd_87b1_8ae1050303df);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtensionPackageStatusChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtensionPackageUninstallingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtensionPackageUninstallingEventArgs {
-    type Vtable = IAppExtensionPackageUninstallingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtensionPackageUninstallingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtensionPackageUpdatedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtensionPackageUpdatedEventArgs {
-    type Vtable = IAppExtensionPackageUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtensionPackageUpdatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppExtensionPackageUpdatingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppExtensionPackageUpdatingEventArgs {
-    type Vtable = IAppExtensionPackageUpdatingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed59329_1a65_4800_a700_b321009e306a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppExtensionPackageUpdatingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,3 +1,244 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialApp(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialApp {
+    type Vtable = IDialApp_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialApp_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RequestLaunchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appargument: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestLaunchAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub StopAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    StopAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetAppStateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetAppStateAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialAppStateDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialAppStateDetails {
+    type Vtable = IDialAppStateDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialAppStateDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DialAppState) -> ::windows::core::HRESULT,
+    pub FullXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialDevice(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialDevice {
+    type Vtable = IDialDevice_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialDevice_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub GetDialApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialDevice2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialDevice2 {
+    type Vtable = IDialDevice2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialDevice2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    Thumbnail: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialDevicePicker(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialDevicePicker {
+    type Vtable = IDialDevicePicker_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialDevicePicker_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Enumeration")]
+    pub Appearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Enumeration"))]
+    Appearance: usize,
+    #[cfg(feature = "Foundation")]
+    pub DialDeviceSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DialDeviceSelected: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDialDeviceSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDialDeviceSelected: usize,
+    #[cfg(feature = "Foundation")]
+    pub DisconnectButtonClicked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DisconnectButtonClicked: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDisconnectButtonClicked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDisconnectButtonClicked: usize,
+    #[cfg(feature = "Foundation")]
+    pub DialDevicePickerDismissed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DialDevicePickerDismissed: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDialDevicePickerDismissed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDialDevicePickerDismissed: usize,
+    #[cfg(feature = "Foundation")]
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Show: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    pub ShowWithPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))]
+    ShowWithPlacement: usize,
+    #[cfg(feature = "Foundation")]
+    pub PickSingleDialDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PickSingleDialDeviceAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    pub PickSingleDialDeviceAsyncWithPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))]
+    PickSingleDialDeviceAsyncWithPlacement: usize,
+    pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDisplayStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, status: DialDeviceDisplayStatus) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialDevicePickerFilter(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialDevicePickerFilter {
+    type Vtable = IDialDevicePickerFilter_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialDevicePickerFilter_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedAppNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedAppNames: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialDeviceSelectedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialDeviceSelectedEventArgs {
+    type Vtable = IDialDeviceSelectedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialDeviceSelectedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SelectedDialDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialDeviceStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialDeviceStatics {
+    type Vtable = IDialDeviceStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa69cc95_01f8_4758_8461_2bbd1cdc3cf3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialDeviceStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FromIdAsync: usize,
+    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    pub DeviceInfoSupportsDialAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))]
+    DeviceInfoSupportsDialAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialDisconnectButtonClickedEventArgs {
+    type Vtable = IDialDisconnectButtonClickedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialDisconnectButtonClickedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialReceiverApp(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialReceiverApp {
+    type Vtable = IDialReceiverApp_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialReceiverApp_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAdditionalDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAdditionalDataAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SetAdditionalDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, additionaldata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SetAdditionalDataAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialReceiverApp2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialReceiverApp2 {
+    type Vtable = IDialReceiverApp2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530c5805_9130_42ac_a504_1977dcb2ea8a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialReceiverApp2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub GetUniqueDeviceNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetUniqueDeviceNameAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDialReceiverAppStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDialReceiverAppStatics {
+    type Vtable = IDialReceiverAppStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53183a3c_4c36_4d02_b28a_f2a9da38ec52);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDialReceiverAppStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
 pub struct DialApp(::windows::core::IUnknown);
@@ -101,78 +342,6 @@ unsafe impl ::core::marker::Send for DialApp {}
 unsafe impl ::core::marker::Sync for DialApp {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DialAppLaunchResult(pub i32);
-impl DialAppLaunchResult {
-    pub const Launched: Self = Self(0i32);
-    pub const FailedToLaunch: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DialAppLaunchResult {}
-impl ::core::clone::Clone for DialAppLaunchResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialAppLaunchResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DialAppLaunchResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DialAppLaunchResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialAppLaunchResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DialAppLaunchResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DialAppState(pub i32);
-impl DialAppState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Stopped: Self = Self(1i32);
-    pub const Running: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DialAppState {}
-impl ::core::clone::Clone for DialAppState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialAppState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DialAppState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DialAppState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialAppState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DialAppState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
-#[repr(transparent)]
 pub struct DialAppStateDetails(::windows::core::IUnknown);
 impl DialAppStateDetails {
     pub fn State(&self) -> ::windows::core::Result<DialAppState> {
@@ -252,42 +421,6 @@ impl ::core::convert::From<&DialAppStateDetails> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for DialAppStateDetails {}
 unsafe impl ::core::marker::Sync for DialAppStateDetails {}
-#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DialAppStopResult(pub i32);
-impl DialAppStopResult {
-    pub const Stopped: Self = Self(0i32);
-    pub const StopFailed: Self = Self(1i32);
-    pub const OperationNotSupported: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DialAppStopResult {}
-impl ::core::clone::Clone for DialAppStopResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialAppStopResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DialAppStopResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DialAppStopResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialAppStopResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DialAppStopResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
 pub struct DialDevice(::windows::core::IUnknown);
@@ -415,44 +548,6 @@ impl ::core::convert::From<&DialDevice> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DialDevice {}
 unsafe impl ::core::marker::Sync for DialDevice {}
-#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DialDeviceDisplayStatus(pub i32);
-impl DialDeviceDisplayStatus {
-    pub const None: Self = Self(0i32);
-    pub const Connecting: Self = Self(1i32);
-    pub const Connected: Self = Self(2i32);
-    pub const Disconnecting: Self = Self(3i32);
-    pub const Disconnected: Self = Self(4i32);
-    pub const Error: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DialDeviceDisplayStatus {}
-impl ::core::clone::Clone for DialDeviceDisplayStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialDeviceDisplayStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DialDeviceDisplayStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DialDeviceDisplayStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialDeviceDisplayStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DialDeviceDisplayStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
 pub struct DialDevicePicker(::windows::core::IUnknown);
@@ -971,246 +1066,151 @@ impl ::core::convert::From<&DialReceiverApp> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for DialReceiverApp {}
 unsafe impl ::core::marker::Sync for DialReceiverApp {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-pub struct IDialApp(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialApp {
-    type Vtable = IDialApp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DialAppLaunchResult(pub i32);
+impl DialAppLaunchResult {
+    pub const Launched: Self = Self(0i32);
+    pub const FailedToLaunch: Self = Self(1i32);
+    pub const NotFound: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialApp_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RequestLaunchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appargument: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestLaunchAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub StopAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StopAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetAppStateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetAppStateAsync: usize,
+impl ::core::marker::Copy for DialAppLaunchResult {}
+impl ::core::clone::Clone for DialAppLaunchResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for DialAppLaunchResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DialAppLaunchResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DialAppLaunchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppLaunchResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DialAppLaunchResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-pub struct IDialAppStateDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialAppStateDetails {
-    type Vtable = IDialAppStateDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DialAppState(pub i32);
+impl DialAppState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Stopped: Self = Self(1i32);
+    pub const Running: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialAppStateDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DialAppState) -> ::windows::core::HRESULT,
-    pub FullXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for DialAppState {}
+impl ::core::clone::Clone for DialAppState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for DialAppState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DialAppState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DialAppState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DialAppState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-pub struct IDialDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialDevice {
-    type Vtable = IDialDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DialAppStopResult(pub i32);
+impl DialAppStopResult {
+    pub const Stopped: Self = Self(0i32);
+    pub const StopFailed: Self = Self(1i32);
+    pub const OperationNotSupported: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialDevice_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub GetDialApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for DialAppStopResult {}
+impl ::core::clone::Clone for DialAppStopResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for DialAppStopResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DialAppStopResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DialAppStopResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppStopResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DialAppStopResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-pub struct IDialDevice2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialDevice2 {
-    type Vtable = IDialDevice2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DialDeviceDisplayStatus(pub i32);
+impl DialDeviceDisplayStatus {
+    pub const None: Self = Self(0i32);
+    pub const Connecting: Self = Self(1i32);
+    pub const Connected: Self = Self(2i32);
+    pub const Disconnecting: Self = Self(3i32);
+    pub const Disconnected: Self = Self(4i32);
+    pub const Error: Self = Self(5i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialDevice2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Thumbnail: usize,
+impl ::core::marker::Copy for DialDeviceDisplayStatus {}
+impl ::core::clone::Clone for DialDeviceDisplayStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialDevicePicker(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialDevicePicker {
-    type Vtable = IDialDevicePicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
+impl ::core::default::Default for DialDeviceDisplayStatus {
+    fn default() -> Self {
+        Self(0)
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialDevicePicker_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Enumeration")]
-    pub Appearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Enumeration"))]
-    Appearance: usize,
-    #[cfg(feature = "Foundation")]
-    pub DialDeviceSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DialDeviceSelected: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDialDeviceSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDialDeviceSelected: usize,
-    #[cfg(feature = "Foundation")]
-    pub DisconnectButtonClicked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DisconnectButtonClicked: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDisconnectButtonClicked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDisconnectButtonClicked: usize,
-    #[cfg(feature = "Foundation")]
-    pub DialDevicePickerDismissed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DialDevicePickerDismissed: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDialDevicePickerDismissed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDialDevicePickerDismissed: usize,
-    #[cfg(feature = "Foundation")]
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Show: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub ShowWithPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))]
-    ShowWithPlacement: usize,
-    #[cfg(feature = "Foundation")]
-    pub PickSingleDialDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PickSingleDialDeviceAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub PickSingleDialDeviceAsyncWithPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))]
-    PickSingleDialDeviceAsyncWithPlacement: usize,
-    pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetDisplayStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, status: DialDeviceDisplayStatus) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::Abi for DialDeviceDisplayStatus {
+    type Abi = Self;
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialDevicePickerFilter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialDevicePickerFilter {
-    type Vtable = IDialDevicePickerFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
+impl ::core::fmt::Debug for DialDeviceDisplayStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDeviceDisplayStatus").field(&self.0).finish()
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialDevicePickerFilter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedAppNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedAppNames: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialDeviceSelectedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialDeviceSelectedEventArgs {
-    type Vtable = IDialDeviceSelectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialDeviceSelectedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SelectedDialDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialDeviceStatics {
-    type Vtable = IDialDeviceStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa69cc95_01f8_4758_8461_2bbd1cdc3cf3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialDeviceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
-    pub DeviceInfoSupportsDialAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))]
-    DeviceInfoSupportsDialAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialDisconnectButtonClickedEventArgs {
-    type Vtable = IDialDisconnectButtonClickedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialDisconnectButtonClickedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialReceiverApp(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialReceiverApp {
-    type Vtable = IDialReceiverApp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialReceiverApp_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAdditionalDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAdditionalDataAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SetAdditionalDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, additionaldata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SetAdditionalDataAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialReceiverApp2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialReceiverApp2 {
-    type Vtable = IDialReceiverApp2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530c5805_9130_42ac_a504_1977dcb2ea8a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialReceiverApp2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub GetUniqueDeviceNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetUniqueDeviceNameAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDialReceiverAppStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDialReceiverAppStatics {
-    type Vtable = IDialReceiverAppStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53183a3c_4c36_4d02_b28a_f2a9da38ec52);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDialReceiverAppStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::RuntimeType for DialDeviceDisplayStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

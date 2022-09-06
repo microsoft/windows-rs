@@ -1,3 +1,374 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAccountsSettingsPane(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAccountsSettingsPane {
+    type Vtable = IAccountsSettingsPane_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81ea942c_4f09_4406_a538_838d9b14b7e6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAccountsSettingsPane_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub AccountCommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AccountCommandsRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveAccountCommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveAccountCommandsRequested: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAccountsSettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs {
+    type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b68c099_db19_45d0_9abf_95d3773c9330);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub WebAccountProviderCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    WebAccountProviderCommands: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub WebAccountCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    WebAccountCommands: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CredentialCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CredentialCommands: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
+    pub Commands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
+    Commands: usize,
+    pub HeaderText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetHeaderText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs2 {
+    type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362f7bad_4e37_4967_8c40_e78ee7a1e5bb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAccountsSettingsPaneEventDeferral(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAccountsSettingsPaneEventDeferral {
+    type Vtable = IAccountsSettingsPaneEventDeferral_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAccountsSettingsPaneEventDeferral_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAccountsSettingsPaneStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics {
+    type Vtable = IAccountsSettingsPaneStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x561f8b60_b0ec_4150_a8dc_208ee44b068a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAccountsSettingsPaneStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAccountsSettingsPaneStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics2 {
+    type Vtable = IAccountsSettingsPaneStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21df7c2_ce0d_484f_b8e8_e823c215765e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAccountsSettingsPaneStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub ShowManageAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ShowManageAccountsAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ShowAddAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ShowAddAccountAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAccountsSettingsPaneStatics3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics3 {
+    type Vtable = IAccountsSettingsPaneStatics3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08410458_a2ba_4c6f_b4ac_48f514331216);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAccountsSettingsPaneStatics3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "System"))]
+    pub ShowManageAccountsForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "System")))]
+    ShowManageAccountsForUserAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "System"))]
+    pub ShowAddAccountForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "System")))]
+    ShowAddAccountForUserAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICredentialCommand(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICredentialCommand {
+    type Vtable = ICredentialCommand_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICredentialCommand_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub PasswordCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    PasswordCredential: usize,
+    pub CredentialDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICredentialCommandFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICredentialCommandFactory {
+    type Vtable = ICredentialCommandFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e88c17_bc3e_4b80_9495_4ed720e48a91);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICredentialCommandFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub CreateCredentialCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passwordcredential: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    CreateCredentialCommand: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub CreateCredentialCommandWithHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passwordcredential: *mut ::core::ffi::c_void, deleted: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    CreateCredentialCommandWithHandler: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISettingsCommandFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISettingsCommandFactory {
+    type Vtable = ISettingsCommandFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68e15b33_1c83_433a_aa5a_ceeea5bd4764);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISettingsCommandFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_Popups")]
+    pub CreateSettingsCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingscommandid: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Popups"))]
+    CreateSettingsCommand: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISettingsCommandStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISettingsCommandStatics {
+    type Vtable = ISettingsCommandStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x749ae954_2f69_4b17_8aba_d05ce5778e46);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISettingsCommandStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_Popups")]
+    pub AccountsCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Popups"))]
+    AccountsCommand: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ISettingsPane(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ISettingsPane {
+    type Vtable = ISettingsPane_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISettingsPane_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub CommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    CommandsRequested: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveCommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveCommandsRequested: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ISettingsPaneCommandsRequest(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequest {
+    type Vtable = ISettingsPaneCommandsRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISettingsPaneCommandsRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated"))]
+    pub ApplicationCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated")))]
+    ApplicationCommands: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ISettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequestedEventArgs {
+    type Vtable = ISettingsPaneCommandsRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISettingsPaneCommandsRequestedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Request: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ISettingsPaneStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ISettingsPaneStatics {
+    type Vtable = ISettingsPaneStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISettingsPaneStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetForCurrentView: usize,
+    #[cfg(feature = "deprecated")]
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Show: usize,
+    #[cfg(feature = "deprecated")]
+    pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SettingsEdgeLocation) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Edge: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWebAccountCommand(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWebAccountCommand {
+    type Vtable = IWebAccountCommand_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaa39398_9cfa_4246_b0c4_a913a3896541);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWebAccountCommand_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    WebAccount: usize,
+    pub Invoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Actions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SupportedWebAccountActions) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWebAccountCommandFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWebAccountCommandFactory {
+    type Vtable = IWebAccountCommandFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfa6cdff_2f2d_42f5_81de_1d56bafc496d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWebAccountCommandFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub CreateWebAccountCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, invoked: *mut ::core::ffi::c_void, actions: SupportedWebAccountActions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    CreateWebAccountCommand: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWebAccountInvokedArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWebAccountInvokedArgs {
+    type Vtable = IWebAccountInvokedArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWebAccountInvokedArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAccountAction) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWebAccountProviderCommand(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWebAccountProviderCommand {
+    type Vtable = IWebAccountProviderCommand_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWebAccountProviderCommand_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub WebAccountProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    WebAccountProvider: usize,
+    pub Invoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWebAccountProviderCommandFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWebAccountProviderCommandFactory {
+    type Vtable = IWebAccountProviderCommandFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5658a1b_b176_4776_8469_a9d3ff0b3f59);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWebAccountProviderCommandFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub CreateWebAccountProviderCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountprovider: *mut ::core::ffi::c_void, invoked: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    CreateWebAccountProviderCommand: usize,
+}
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
 pub struct AccountsSettingsPane(::windows::core::IUnknown);
@@ -449,464 +820,6 @@ impl ::core::convert::From<&CredentialCommand> for &::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-#[repr(transparent)]
-pub struct CredentialCommandCredentialDeletedHandler(pub ::windows::core::IUnknown);
-impl CredentialCommandCredentialDeletedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = CredentialCommandCredentialDeletedHandlerBox::<F> { vtable: &CredentialCommandCredentialDeletedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0>(&self, command: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CredentialCommand>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct CredentialCommandCredentialDeletedHandlerBox<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const CredentialCommandCredentialDeletedHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> CredentialCommandCredentialDeletedHandlerBox<F> {
-    const VTABLE: CredentialCommandCredentialDeletedHandler_Vtbl = CredentialCommandCredentialDeletedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<CredentialCommandCredentialDeletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&command)).into()
-    }
-}
-impl ::core::clone::Clone for CredentialCommandCredentialDeletedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CredentialCommandCredentialDeletedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CredentialCommandCredentialDeletedHandler {}
-impl ::core::fmt::Debug for CredentialCommandCredentialDeletedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CredentialCommandCredentialDeletedHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for CredentialCommandCredentialDeletedHandler {
-    type Vtable = CredentialCommandCredentialDeletedHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c0e185_0977_4678_b4e2_98727afbeed9);
-}
-unsafe impl ::windows::core::RuntimeType for CredentialCommandCredentialDeletedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61c0e185-0977-4678-b4e2-98727afbeed9}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct CredentialCommandCredentialDeletedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAccountsSettingsPane(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccountsSettingsPane {
-    type Vtable = IAccountsSettingsPane_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81ea942c_4f09_4406_a538_838d9b14b7e6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAccountsSettingsPane_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub AccountCommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AccountCommandsRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveAccountCommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAccountCommandsRequested: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAccountsSettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs {
-    type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b68c099_db19_45d0_9abf_95d3773c9330);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub WebAccountProviderCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WebAccountProviderCommands: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub WebAccountCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    WebAccountCommands: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub CredentialCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    CredentialCommands: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
-    pub Commands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))]
-    Commands: usize,
-    pub HeaderText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetHeaderText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs2 {
-    type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362f7bad_4e37_4967_8c40_e78ee7a1e5bb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAccountsSettingsPaneEventDeferral(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccountsSettingsPaneEventDeferral {
-    type Vtable = IAccountsSettingsPaneEventDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAccountsSettingsPaneEventDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAccountsSettingsPaneStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics {
-    type Vtable = IAccountsSettingsPaneStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x561f8b60_b0ec_4150_a8dc_208ee44b068a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAccountsSettingsPaneStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAccountsSettingsPaneStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics2 {
-    type Vtable = IAccountsSettingsPaneStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21df7c2_ce0d_484f_b8e8_e823c215765e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAccountsSettingsPaneStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub ShowManageAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ShowManageAccountsAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ShowAddAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ShowAddAccountAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAccountsSettingsPaneStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccountsSettingsPaneStatics3 {
-    type Vtable = IAccountsSettingsPaneStatics3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08410458_a2ba_4c6f_b4ac_48f514331216);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAccountsSettingsPaneStatics3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub ShowManageAccountsForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))]
-    ShowManageAccountsForUserAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub ShowAddAccountForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))]
-    ShowAddAccountForUserAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICredentialCommand(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICredentialCommand {
-    type Vtable = ICredentialCommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICredentialCommand_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub PasswordCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    PasswordCredential: usize,
-    pub CredentialDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICredentialCommandFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICredentialCommandFactory {
-    type Vtable = ICredentialCommandFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e88c17_bc3e_4b80_9495_4ed720e48a91);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICredentialCommandFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub CreateCredentialCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passwordcredential: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    CreateCredentialCommand: usize,
-    #[cfg(feature = "Security_Credentials")]
-    pub CreateCredentialCommandWithHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passwordcredential: *mut ::core::ffi::c_void, deleted: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    CreateCredentialCommandWithHandler: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISettingsCommandFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISettingsCommandFactory {
-    type Vtable = ISettingsCommandFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68e15b33_1c83_433a_aa5a_ceeea5bd4764);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISettingsCommandFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "UI_Popups")]
-    pub CreateSettingsCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingscommandid: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Popups"))]
-    CreateSettingsCommand: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISettingsCommandStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISettingsCommandStatics {
-    type Vtable = ISettingsCommandStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x749ae954_2f69_4b17_8aba_d05ce5778e46);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISettingsCommandStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "UI_Popups")]
-    pub AccountsCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Popups"))]
-    AccountsCommand: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ISettingsPane(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ISettingsPane {
-    type Vtable = ISettingsPane_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISettingsPane_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub CommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    CommandsRequested: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveCommandsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveCommandsRequested: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ISettingsPaneCommandsRequest(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequest {
-    type Vtable = ISettingsPaneCommandsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISettingsPaneCommandsRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated"))]
-    pub ApplicationCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated")))]
-    ApplicationCommands: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ISettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequestedEventArgs {
-    type Vtable = ISettingsPaneCommandsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISettingsPaneCommandsRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Request: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ISettingsPaneStatics(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ISettingsPaneStatics {
-    type Vtable = ISettingsPaneStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISettingsPaneStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetForCurrentView: usize,
-    #[cfg(feature = "deprecated")]
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Show: usize,
-    #[cfg(feature = "deprecated")]
-    pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SettingsEdgeLocation) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Edge: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWebAccountCommand(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountCommand {
-    type Vtable = IWebAccountCommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaa39398_9cfa_4246_b0c4_a913a3896541);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWebAccountCommand_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    WebAccount: usize,
-    pub Invoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Actions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SupportedWebAccountActions) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWebAccountCommandFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountCommandFactory {
-    type Vtable = IWebAccountCommandFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfa6cdff_2f2d_42f5_81de_1d56bafc496d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWebAccountCommandFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub CreateWebAccountCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, invoked: *mut ::core::ffi::c_void, actions: SupportedWebAccountActions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    CreateWebAccountCommand: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWebAccountInvokedArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountInvokedArgs {
-    type Vtable = IWebAccountInvokedArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWebAccountInvokedArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAccountAction) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWebAccountProviderCommand(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountProviderCommand {
-    type Vtable = IWebAccountProviderCommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWebAccountProviderCommand_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub WebAccountProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    WebAccountProvider: usize,
-    pub Invoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWebAccountProviderCommandFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountProviderCommandFactory {
-    type Vtable = IWebAccountProviderCommandFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5658a1b_b176_4776_8469_a9d3ff0b3f59);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWebAccountProviderCommandFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Security_Credentials")]
-    pub CreateWebAccountProviderCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountprovider: *mut ::core::ffi::c_void, invoked: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Security_Credentials"))]
-    CreateWebAccountProviderCommand: usize,
-}
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"UI_Popups\"`*"]
 #[cfg(feature = "UI_Popups")]
 #[repr(transparent)]
@@ -1088,48 +1001,6 @@ impl<'a> ::core::convert::TryFrom<&SettingsCommand> for ::windows::core::InParam
     fn try_from(value: &SettingsCommand) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
         Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SettingsEdgeLocation(pub i32);
-#[cfg(feature = "deprecated")]
-impl SettingsEdgeLocation {
-    pub const Right: Self = Self(0i32);
-    pub const Left: Self = Self(1i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SettingsEdgeLocation {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SettingsEdgeLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SettingsEdgeLocation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for SettingsEdgeLocation {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SettingsEdgeLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsEdgeLocation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"deprecated\"`*"]
@@ -1437,109 +1308,6 @@ impl ::core::convert::From<&SettingsPaneCommandsRequestedEventArgs> for &::windo
 }
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SupportedWebAccountActions(pub u32);
-impl SupportedWebAccountActions {
-    pub const None: Self = Self(0u32);
-    pub const Reconnect: Self = Self(1u32);
-    pub const Remove: Self = Self(2u32);
-    pub const ViewDetails: Self = Self(4u32);
-    pub const Manage: Self = Self(8u32);
-    pub const More: Self = Self(16u32);
-}
-impl ::core::marker::Copy for SupportedWebAccountActions {}
-impl ::core::clone::Clone for SupportedWebAccountActions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SupportedWebAccountActions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SupportedWebAccountActions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SupportedWebAccountActions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SupportedWebAccountActions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SupportedWebAccountActions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SupportedWebAccountActions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SupportedWebAccountActions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SupportedWebAccountActions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebAccountAction(pub i32);
-impl WebAccountAction {
-    pub const Reconnect: Self = Self(0i32);
-    pub const Remove: Self = Self(1i32);
-    pub const ViewDetails: Self = Self(2i32);
-    pub const Manage: Self = Self(3i32);
-    pub const More: Self = Self(4i32);
-}
-impl ::core::marker::Copy for WebAccountAction {}
-impl ::core::clone::Clone for WebAccountAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebAccountAction {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountAction").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebAccountAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-#[repr(transparent)]
 pub struct WebAccountCommand(::windows::core::IUnknown);
 impl WebAccountCommand {
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1642,94 +1410,6 @@ impl ::core::convert::From<&WebAccountCommand> for &::windows::core::IInspectabl
     fn from(value: &WebAccountCommand) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
-}
-#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-#[repr(transparent)]
-pub struct WebAccountCommandInvokedHandler(pub ::windows::core::IUnknown);
-impl WebAccountCommandInvokedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Option<WebAccountInvokedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = WebAccountCommandInvokedHandlerBox::<F> { vtable: &WebAccountCommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, P1>(&self, command: P0, args: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, WebAccountCommand>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountInvokedArgs>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.into().abi(), args.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct WebAccountCommandInvokedHandlerBox<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Option<WebAccountInvokedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const WebAccountCommandInvokedHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Option<WebAccountInvokedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WebAccountCommandInvokedHandlerBox<F> {
-    const VTABLE: WebAccountCommandInvokedHandler_Vtbl = WebAccountCommandInvokedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<WebAccountCommandInvokedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&command), ::core::mem::transmute(&args)).into()
-    }
-}
-impl ::core::clone::Clone for WebAccountCommandInvokedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebAccountCommandInvokedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountCommandInvokedHandler {}
-impl ::core::fmt::Debug for WebAccountCommandInvokedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountCommandInvokedHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for WebAccountCommandInvokedHandler {
-    type Vtable = WebAccountCommandInvokedHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee6e459_1705_4a9a_b599_a0c3d6921973);
-}
-unsafe impl ::windows::core::RuntimeType for WebAccountCommandInvokedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ee6e459-1705-4a9a-b599-a0c3d6921973}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct WebAccountCommandInvokedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
@@ -1900,6 +1580,326 @@ impl ::core::convert::From<&WebAccountProviderCommand> for &::windows::core::IIn
     fn from(value: &WebAccountProviderCommand) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
+}
+#[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SettingsEdgeLocation(pub i32);
+#[cfg(feature = "deprecated")]
+impl SettingsEdgeLocation {
+    pub const Right: Self = Self(0i32);
+    pub const Left: Self = Self(1i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for SettingsEdgeLocation {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for SettingsEdgeLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SettingsEdgeLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for SettingsEdgeLocation {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SettingsEdgeLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SettingsEdgeLocation").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SupportedWebAccountActions(pub u32);
+impl SupportedWebAccountActions {
+    pub const None: Self = Self(0u32);
+    pub const Reconnect: Self = Self(1u32);
+    pub const Remove: Self = Self(2u32);
+    pub const ViewDetails: Self = Self(4u32);
+    pub const Manage: Self = Self(8u32);
+    pub const More: Self = Self(16u32);
+}
+impl ::core::marker::Copy for SupportedWebAccountActions {}
+impl ::core::clone::Clone for SupportedWebAccountActions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SupportedWebAccountActions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SupportedWebAccountActions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SupportedWebAccountActions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SupportedWebAccountActions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SupportedWebAccountActions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SupportedWebAccountActions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SupportedWebAccountActions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SupportedWebAccountActions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebAccountAction(pub i32);
+impl WebAccountAction {
+    pub const Reconnect: Self = Self(0i32);
+    pub const Remove: Self = Self(1i32);
+    pub const ViewDetails: Self = Self(2i32);
+    pub const Manage: Self = Self(3i32);
+    pub const More: Self = Self(4i32);
+}
+impl ::core::marker::Copy for WebAccountAction {}
+impl ::core::clone::Clone for WebAccountAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebAccountAction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebAccountAction {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebAccountAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountAction").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebAccountAction {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
+#[repr(transparent)]
+pub struct CredentialCommandCredentialDeletedHandler(pub ::windows::core::IUnknown);
+impl CredentialCommandCredentialDeletedHandler {
+    pub fn new<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = CredentialCommandCredentialDeletedHandlerBox::<F> { vtable: &CredentialCommandCredentialDeletedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0>(&self, command: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CredentialCommand>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct CredentialCommandCredentialDeletedHandlerBox<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const CredentialCommandCredentialDeletedHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> CredentialCommandCredentialDeletedHandlerBox<F> {
+    const VTABLE: CredentialCommandCredentialDeletedHandler_Vtbl = CredentialCommandCredentialDeletedHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<CredentialCommandCredentialDeletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&command)).into()
+    }
+}
+impl ::core::clone::Clone for CredentialCommandCredentialDeletedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CredentialCommandCredentialDeletedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CredentialCommandCredentialDeletedHandler {}
+impl ::core::fmt::Debug for CredentialCommandCredentialDeletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialCommandCredentialDeletedHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for CredentialCommandCredentialDeletedHandler {
+    type Vtable = CredentialCommandCredentialDeletedHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c0e185_0977_4678_b4e2_98727afbeed9);
+}
+unsafe impl ::windows::core::RuntimeType for CredentialCommandCredentialDeletedHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61c0e185-0977-4678-b4e2-98727afbeed9}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct CredentialCommandCredentialDeletedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
+#[repr(transparent)]
+pub struct WebAccountCommandInvokedHandler(pub ::windows::core::IUnknown);
+impl WebAccountCommandInvokedHandler {
+    pub fn new<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Option<WebAccountInvokedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = WebAccountCommandInvokedHandlerBox::<F> { vtable: &WebAccountCommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, P1>(&self, command: P0, args: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WebAccountCommand>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountInvokedArgs>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.into().abi(), args.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct WebAccountCommandInvokedHandlerBox<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Option<WebAccountInvokedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const WebAccountCommandInvokedHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Option<WebAccountInvokedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WebAccountCommandInvokedHandlerBox<F> {
+    const VTABLE: WebAccountCommandInvokedHandler_Vtbl = WebAccountCommandInvokedHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<WebAccountCommandInvokedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&command), ::core::mem::transmute(&args)).into()
+    }
+}
+impl ::core::clone::Clone for WebAccountCommandInvokedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for WebAccountCommandInvokedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for WebAccountCommandInvokedHandler {}
+impl ::core::fmt::Debug for WebAccountCommandInvokedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountCommandInvokedHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for WebAccountCommandInvokedHandler {
+    type Vtable = WebAccountCommandInvokedHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee6e459_1705_4a9a_b599_a0c3d6921973);
+}
+unsafe impl ::windows::core::RuntimeType for WebAccountCommandInvokedHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ee6e459-1705-4a9a-b599-a0c3d6921973}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct WebAccountCommandInvokedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]

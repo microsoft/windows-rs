@@ -412,43 +412,6 @@ pub struct IWalletVerbFactory_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WalletActionKind(pub i32);
-impl WalletActionKind {
-    pub const OpenItem: Self = Self(0i32);
-    pub const Transaction: Self = Self(1i32);
-    pub const MoreTransactions: Self = Self(2i32);
-    pub const Message: Self = Self(3i32);
-    pub const Verb: Self = Self(4i32);
-}
-impl ::core::marker::Copy for WalletActionKind {}
-impl ::core::clone::Clone for WalletActionKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WalletActionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WalletActionKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WalletActionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletActionKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WalletActionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-#[repr(transparent)]
 pub struct WalletBarcode(::windows::core::IUnknown);
 impl WalletBarcode {
     pub fn Symbology(&self) -> ::windows::core::Result<WalletBarcodeSymbology> {
@@ -560,97 +523,6 @@ impl ::core::convert::From<&WalletBarcode> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for WalletBarcode {}
 unsafe impl ::core::marker::Sync for WalletBarcode {}
-#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WalletBarcodeSymbology(pub i32);
-impl WalletBarcodeSymbology {
-    pub const Invalid: Self = Self(0i32);
-    pub const Upca: Self = Self(1i32);
-    pub const Upce: Self = Self(2i32);
-    pub const Ean13: Self = Self(3i32);
-    pub const Ean8: Self = Self(4i32);
-    pub const Itf: Self = Self(5i32);
-    pub const Code39: Self = Self(6i32);
-    pub const Code128: Self = Self(7i32);
-    pub const Qr: Self = Self(8i32);
-    pub const Pdf417: Self = Self(9i32);
-    pub const Aztec: Self = Self(10i32);
-    pub const Custom: Self = Self(100000i32);
-}
-impl ::core::marker::Copy for WalletBarcodeSymbology {}
-impl ::core::clone::Clone for WalletBarcodeSymbology {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WalletBarcodeSymbology {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WalletBarcodeSymbology {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WalletBarcodeSymbology {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WalletDetailViewPosition(pub i32);
-impl WalletDetailViewPosition {
-    pub const Hidden: Self = Self(0i32);
-    pub const HeaderField1: Self = Self(1i32);
-    pub const HeaderField2: Self = Self(2i32);
-    pub const PrimaryField1: Self = Self(3i32);
-    pub const PrimaryField2: Self = Self(4i32);
-    pub const SecondaryField1: Self = Self(5i32);
-    pub const SecondaryField2: Self = Self(6i32);
-    pub const SecondaryField3: Self = Self(7i32);
-    pub const SecondaryField4: Self = Self(8i32);
-    pub const SecondaryField5: Self = Self(9i32);
-    pub const CenterField1: Self = Self(10i32);
-    pub const FooterField1: Self = Self(11i32);
-    pub const FooterField2: Self = Self(12i32);
-    pub const FooterField3: Self = Self(13i32);
-    pub const FooterField4: Self = Self(14i32);
-}
-impl ::core::marker::Copy for WalletDetailViewPosition {}
-impl ::core::clone::Clone for WalletDetailViewPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WalletDetailViewPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WalletDetailViewPosition {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WalletDetailViewPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WalletDetailViewPosition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
 pub struct WalletItem(::windows::core::IUnknown);
@@ -1266,45 +1138,6 @@ unsafe impl ::core::marker::Send for WalletItemCustomProperty {}
 unsafe impl ::core::marker::Sync for WalletItemCustomProperty {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WalletItemKind(pub i32);
-impl WalletItemKind {
-    pub const Invalid: Self = Self(0i32);
-    pub const Deal: Self = Self(1i32);
-    pub const General: Self = Self(2i32);
-    pub const PaymentInstrument: Self = Self(3i32);
-    pub const Ticket: Self = Self(4i32);
-    pub const BoardingPass: Self = Self(5i32);
-    pub const MembershipCard: Self = Self(6i32);
-}
-impl ::core::marker::Copy for WalletItemKind {}
-impl ::core::clone::Clone for WalletItemKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WalletItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WalletItemKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WalletItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItemKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WalletItemKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-#[repr(transparent)]
 pub struct WalletItemStore(::windows::core::IUnknown);
 impl WalletItemStore {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1592,41 +1425,6 @@ unsafe impl ::core::marker::Send for WalletRelevantLocation {}
 unsafe impl ::core::marker::Sync for WalletRelevantLocation {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WalletSummaryViewPosition(pub i32);
-impl WalletSummaryViewPosition {
-    pub const Hidden: Self = Self(0i32);
-    pub const Field1: Self = Self(1i32);
-    pub const Field2: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WalletSummaryViewPosition {}
-impl ::core::clone::Clone for WalletSummaryViewPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WalletSummaryViewPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WalletSummaryViewPosition {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WalletSummaryViewPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-#[repr(transparent)]
 pub struct WalletTransaction(::windows::core::IUnknown);
 impl WalletTransaction {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1862,5 +1660,207 @@ impl ::core::convert::From<&WalletVerb> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for WalletVerb {}
 unsafe impl ::core::marker::Sync for WalletVerb {}
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WalletActionKind(pub i32);
+impl WalletActionKind {
+    pub const OpenItem: Self = Self(0i32);
+    pub const Transaction: Self = Self(1i32);
+    pub const MoreTransactions: Self = Self(2i32);
+    pub const Message: Self = Self(3i32);
+    pub const Verb: Self = Self(4i32);
+}
+impl ::core::marker::Copy for WalletActionKind {}
+impl ::core::clone::Clone for WalletActionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WalletActionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WalletActionKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WalletActionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletActionKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WalletActionKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WalletBarcodeSymbology(pub i32);
+impl WalletBarcodeSymbology {
+    pub const Invalid: Self = Self(0i32);
+    pub const Upca: Self = Self(1i32);
+    pub const Upce: Self = Self(2i32);
+    pub const Ean13: Self = Self(3i32);
+    pub const Ean8: Self = Self(4i32);
+    pub const Itf: Self = Self(5i32);
+    pub const Code39: Self = Self(6i32);
+    pub const Code128: Self = Self(7i32);
+    pub const Qr: Self = Self(8i32);
+    pub const Pdf417: Self = Self(9i32);
+    pub const Aztec: Self = Self(10i32);
+    pub const Custom: Self = Self(100000i32);
+}
+impl ::core::marker::Copy for WalletBarcodeSymbology {}
+impl ::core::clone::Clone for WalletBarcodeSymbology {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WalletBarcodeSymbology {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WalletBarcodeSymbology {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WalletBarcodeSymbology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WalletDetailViewPosition(pub i32);
+impl WalletDetailViewPosition {
+    pub const Hidden: Self = Self(0i32);
+    pub const HeaderField1: Self = Self(1i32);
+    pub const HeaderField2: Self = Self(2i32);
+    pub const PrimaryField1: Self = Self(3i32);
+    pub const PrimaryField2: Self = Self(4i32);
+    pub const SecondaryField1: Self = Self(5i32);
+    pub const SecondaryField2: Self = Self(6i32);
+    pub const SecondaryField3: Self = Self(7i32);
+    pub const SecondaryField4: Self = Self(8i32);
+    pub const SecondaryField5: Self = Self(9i32);
+    pub const CenterField1: Self = Self(10i32);
+    pub const FooterField1: Self = Self(11i32);
+    pub const FooterField2: Self = Self(12i32);
+    pub const FooterField3: Self = Self(13i32);
+    pub const FooterField4: Self = Self(14i32);
+}
+impl ::core::marker::Copy for WalletDetailViewPosition {}
+impl ::core::clone::Clone for WalletDetailViewPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WalletDetailViewPosition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WalletDetailViewPosition {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WalletDetailViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WalletDetailViewPosition {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WalletItemKind(pub i32);
+impl WalletItemKind {
+    pub const Invalid: Self = Self(0i32);
+    pub const Deal: Self = Self(1i32);
+    pub const General: Self = Self(2i32);
+    pub const PaymentInstrument: Self = Self(3i32);
+    pub const Ticket: Self = Self(4i32);
+    pub const BoardingPass: Self = Self(5i32);
+    pub const MembershipCard: Self = Self(6i32);
+}
+impl ::core::marker::Copy for WalletItemKind {}
+impl ::core::clone::Clone for WalletItemKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WalletItemKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WalletItemKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WalletItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WalletItemKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WalletSummaryViewPosition(pub i32);
+impl WalletSummaryViewPosition {
+    pub const Hidden: Self = Self(0i32);
+    pub const Field1: Self = Self(1i32);
+    pub const Field2: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WalletSummaryViewPosition {}
+impl ::core::clone::Clone for WalletSummaryViewPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WalletSummaryViewPosition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WalletSummaryViewPosition {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WalletSummaryViewPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

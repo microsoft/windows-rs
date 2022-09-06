@@ -325,42 +325,6 @@ unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageQueryResult {}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OfflineMapPackageQueryStatus(pub i32);
-impl OfflineMapPackageQueryStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for OfflineMapPackageQueryStatus {}
-impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OfflineMapPackageQueryStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OfflineMapPackageQueryStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OfflineMapPackageQueryStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OfflineMapPackageQueryStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
-#[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadResult(::windows::core::IUnknown);
 impl OfflineMapPackageStartDownloadResult {
     pub fn Status(&self) -> ::windows::core::Result<OfflineMapPackageStartDownloadStatus> {
@@ -433,6 +397,42 @@ impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for &::windows
 }
 unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
+#[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OfflineMapPackageQueryStatus(pub i32);
+impl OfflineMapPackageQueryStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const InvalidCredentials: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
+}
+impl ::core::marker::Copy for OfflineMapPackageQueryStatus {}
+impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OfflineMapPackageQueryStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OfflineMapPackageQueryStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OfflineMapPackageQueryStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageQueryStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

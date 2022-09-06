@@ -1,46 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_RESET: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_SHIFTLOCK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(2u32);
-impl ::core::marker::Copy for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {}
-impl ::core::clone::Clone for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTIVATE_KEYBOARD_LAYOUT_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const ACUTE: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
@@ -55,8 +12,6 @@ where
     let result__ = ActivateKeyboardLayout(hkl.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const BREVE: u32 = 774u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -70,62 +25,6 @@ where
     }
     BlockInput(fblockit.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const CAPLOK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const CAPLOKALTGR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const CEDILLA: u32 = 807u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const CIRCUMFLEX: u32 = 770u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct DEADKEY {
-    pub dwBoth: u32,
-    pub wchComposed: u16,
-    pub uFlags: u16,
-}
-impl ::core::marker::Copy for DEADKEY {}
-impl ::core::clone::Clone for DEADKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DEADKEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DEADKEY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DEADKEY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEADKEY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DEADKEY {}
-impl ::core::default::Default for DEADKEY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DIARESIS: u32 = 776u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DIARESIS_TONOS: u32 = 901u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DKF_DEAD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DONTCARE_BIT: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DOT_ABOVE: u32 = 775u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const DOUBLE_ACUTE: u32 = 779u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -139,8 +38,6 @@ where
     }
     DragDetect(hwnd.into(), ::core::mem::transmute(pt))
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const EXTENDED_BIT: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -155,45 +52,6 @@ where
     }
     EnableWindow(hwnd.into(), benable.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const FAKE_KEYSTROKE: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
-impl ::core::marker::Copy for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {}
-impl ::core::clone::Clone for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GET_MOUSE_MOVE_POINTS_EX_RESOLUTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const GRAVE: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const GRPSELTAP: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -356,185 +214,6 @@ pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: &MOUSEMOVEPOINT, lpptbuf: 
     }
     GetMouseMovePointsEx(cbsize, ::core::mem::transmute(lppt), ::core::mem::transmute(lpptbuf.as_ptr()), lpptbuf.len() as _, resolution)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const HACEK: u32 = 780u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct HARDWAREINPUT {
-    pub uMsg: u32,
-    pub wParamL: u16,
-    pub wParamH: u16,
-}
-impl ::core::marker::Copy for HARDWAREINPUT {}
-impl ::core::clone::Clone for HARDWAREINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HARDWAREINPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HARDWAREINPUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HARDWAREINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWAREINPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HARDWAREINPUT {}
-impl ::core::default::Default for HARDWAREINPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const HOOK_ABOVE: u32 = 777u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HOT_KEY_MODIFIERS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOD_ALT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOD_SHIFT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOD_WIN: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(8u32);
-impl ::core::marker::Copy for HOT_KEY_MODIFIERS {}
-impl ::core::clone::Clone for HOT_KEY_MODIFIERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HOT_KEY_MODIFIERS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HOT_KEY_MODIFIERS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HOT_KEY_MODIFIERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HOT_KEY_MODIFIERS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HOT_KEY_MODIFIERS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HOT_KEY_MODIFIERS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HOT_KEY_MODIFIERS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HOT_KEY_MODIFIERS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HOT_KEY_MODIFIERS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct INPUT {
-    pub r#type: INPUT_TYPE,
-    pub Anonymous: INPUT_0,
-}
-impl ::core::marker::Copy for INPUT {}
-impl ::core::clone::Clone for INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for INPUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT {}
-impl ::core::default::Default for INPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub union INPUT_0 {
-    pub mi: MOUSEINPUT,
-    pub ki: KEYBDINPUT,
-    pub hi: HARDWAREINPUT,
-}
-impl ::core::marker::Copy for INPUT_0 {}
-impl ::core::clone::Clone for INPUT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for INPUT_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_0 {}
-impl ::core::default::Default for INPUT_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INPUT_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
-impl ::core::marker::Copy for INPUT_TYPE {}
-impl ::core::clone::Clone for INPUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INPUT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INPUT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INPUT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INPUT_TYPE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -547,467 +226,6 @@ where
         fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
     }
     IsWindowEnabled(hwnd.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KANALOK: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDALT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDBASE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDCTRL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDGRPSELTAP: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDKANA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDLOYA: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_ALPHANUM: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_CODEINPUT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_CONV_OR_NONCONV: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_HELP_OR_END: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_HIRAGANA: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_HOME_OR_CLEAR: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_INDEX_ALT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_INDEX_NORMAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_KANAEVENT: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_KANALOCK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_KATAKANA: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_NOEVENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_NULL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_NUMPAD: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_ROMAN: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_SBCSDBCS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_SEND_BASE_VK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_SEND_PARAM_VK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_TYPE_NORMAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_TYPE_NULL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDROYA: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDSHIFT: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct KBDTABLE_DESC {
-    pub wszDllName: [u16; 32],
-    pub dwType: u32,
-    pub dwSubType: u32,
-}
-impl ::core::marker::Copy for KBDTABLE_DESC {}
-impl ::core::clone::Clone for KBDTABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for KBDTABLE_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for KBDTABLE_DESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for KBDTABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLE_DESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for KBDTABLE_DESC {}
-impl ::core::default::Default for KBDTABLE_DESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct KBDTABLE_MULTI {
-    pub nTables: u32,
-    pub aKbdTables: [KBDTABLE_DESC; 8],
-}
-impl ::core::marker::Copy for KBDTABLE_MULTI {}
-impl ::core::clone::Clone for KBDTABLE_MULTI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for KBDTABLE_MULTI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for KBDTABLE_MULTI {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for KBDTABLE_MULTI {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLE_MULTI>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for KBDTABLE_MULTI {}
-impl ::core::default::Default for KBDTABLE_MULTI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBD_TYPE: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct KBD_TYPE_INFO {
-    pub dwVersion: u32,
-    pub dwType: u32,
-    pub dwSubType: u32,
-}
-impl ::core::marker::Copy for KBD_TYPE_INFO {}
-impl ::core::clone::Clone for KBD_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for KBD_TYPE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for KBD_TYPE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for KBD_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBD_TYPE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for KBD_TYPE_INFO {}
-impl ::core::default::Default for KBD_TYPE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KBD_VERSION: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct KEYBDINPUT {
-    pub wVk: VIRTUAL_KEY,
-    pub wScan: u16,
-    pub dwFlags: KEYBD_EVENT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-impl ::core::marker::Copy for KEYBDINPUT {}
-impl ::core::clone::Clone for KEYBDINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for KEYBDINPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for KEYBDINPUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for KEYBDINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBDINPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for KEYBDINPUT {}
-impl ::core::default::Default for KEYBDINPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KEYBD_EVENT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(4u32);
-impl ::core::marker::Copy for KEYBD_EVENT_FLAGS {}
-impl ::core::clone::Clone for KEYBD_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KEYBD_EVENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KEYBD_EVENT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KEYBD_EVENT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KEYBD_EVENT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for KEYBD_EVENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for KEYBD_EVENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for KEYBD_EVENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for KEYBD_EVENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for KEYBD_EVENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KEYBOARD_TYPE_UNKNOWN: u32 = 81u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLLF_ALTGR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLLF_LRM_RLM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const KLLF_SHIFTLOCK: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct LASTINPUTINFO {
-    pub cbSize: u32,
-    pub dwTime: u32,
-}
-impl ::core::marker::Copy for LASTINPUTINFO {}
-impl ::core::clone::Clone for LASTINPUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LASTINPUTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LASTINPUTINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LASTINPUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LASTINPUTINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LASTINPUTINFO {}
-impl ::core::default::Default for LASTINPUTINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct LIGATURE1 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 1],
-}
-impl ::core::marker::Copy for LIGATURE1 {}
-impl ::core::clone::Clone for LIGATURE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LIGATURE1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LIGATURE1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LIGATURE1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LIGATURE1 {}
-impl ::core::default::Default for LIGATURE1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct LIGATURE2 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 2],
-}
-impl ::core::marker::Copy for LIGATURE2 {}
-impl ::core::clone::Clone for LIGATURE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LIGATURE2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LIGATURE2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LIGATURE2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LIGATURE2 {}
-impl ::core::default::Default for LIGATURE2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct LIGATURE3 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 3],
-}
-impl ::core::marker::Copy for LIGATURE3 {}
-impl ::core::clone::Clone for LIGATURE3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LIGATURE3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LIGATURE3 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LIGATURE3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LIGATURE3 {}
-impl ::core::default::Default for LIGATURE3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct LIGATURE4 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 4],
-}
-impl ::core::marker::Copy for LIGATURE4 {}
-impl ::core::clone::Clone for LIGATURE4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LIGATURE4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LIGATURE4 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LIGATURE4 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE4>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LIGATURE4 {}
-impl ::core::default::Default for LIGATURE4 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct LIGATURE5 {
-    pub VirtualKey: u8,
-    pub ModificationNumber: u16,
-    pub wch: [u16; 5],
-}
-impl ::core::marker::Copy for LIGATURE5 {}
-impl ::core::clone::Clone for LIGATURE5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LIGATURE5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LIGATURE5 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LIGATURE5 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE5>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LIGATURE5 {}
-impl ::core::default::Default for LIGATURE5 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -1036,207 +254,6 @@ where
     }
     let result__ = LoadKeyboardLayoutW(pwszklid.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MACRON: u32 = 772u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_001_TYPE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_002_TYPE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_101A_TYPE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_101B_TYPE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_101C_TYPE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_101_TYPE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_103_TYPE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct MODIFIERS {
-    pub pVkToBit: *mut VK_TO_BIT,
-    pub wMaxModBits: u16,
-    pub ModNumber: [u8; 1],
-}
-impl ::core::marker::Copy for MODIFIERS {}
-impl ::core::clone::Clone for MODIFIERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MODIFIERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MODIFIERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MODIFIERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODIFIERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MODIFIERS {}
-impl ::core::default::Default for MODIFIERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct MOUSEINPUT {
-    pub dx: i32,
-    pub dy: i32,
-    pub mouseData: i32,
-    pub dwFlags: MOUSE_EVENT_FLAGS,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-impl ::core::marker::Copy for MOUSEINPUT {}
-impl ::core::clone::Clone for MOUSEINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MOUSEINPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MOUSEINPUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MOUSEINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEINPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MOUSEINPUT {}
-impl ::core::default::Default for MOUSEINPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct MOUSEMOVEPOINT {
-    pub x: i32,
-    pub y: i32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
-}
-impl ::core::marker::Copy for MOUSEMOVEPOINT {}
-impl ::core::clone::Clone for MOUSEMOVEPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MOUSEMOVEPOINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MOUSEMOVEPOINT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MOUSEMOVEPOINT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEMOVEPOINT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MOUSEMOVEPOINT {}
-impl ::core::default::Default for MOUSEMOVEPOINT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MOUSE_EVENT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_ABSOLUTE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_LEFTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_LEFTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_MIDDLEDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_MIDDLEUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_MOVE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_RIGHTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_RIGHTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_HWHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_MOVE_NOCOALESCE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16384u32);
-impl ::core::marker::Copy for MOUSE_EVENT_FLAGS {}
-impl ::core::clone::Clone for MOUSE_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MOUSE_EVENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MOUSE_EVENT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MOUSE_EVENT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MOUSE_EVENT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MOUSE_EVENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MOUSE_EVENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MOUSE_EVENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MOUSE_EVENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MOUSE_EVENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -1283,46 +300,6 @@ pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32 {
     MapVirtualKeyW(ucode, umaptype)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NEC_KBD_106_TYPE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NEC_KBD_LAPTOP_TYPE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NEC_KBD_NORMAL_TYPE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NEC_KBD_N_MODE_TYPE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_INFO_ACCESSIBILITY_KEYMAP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_INFO_EMURATE_101_KEYBOARD: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_INFO_EMURATE_106_KEYBOARD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_INFO_SEND_IME_NOTIFICATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_AX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_DEC: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_EPSON: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_FUJITSU: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_IBM: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_MATSUSHITA: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_MICROSOFT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_NEC: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const NLSKBD_OEM_TOSHIBA: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const OGONEK: u32 = 808u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const OVERSCORE: u32 = 773u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1331,8 +308,6 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
     }
     OemKeyScan(woemchar)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const RING: u32 = 778u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1356,28 +331,6 @@ pub unsafe fn ReleaseCapture() -> super::super::super::Foundation::BOOL {
     }
     ReleaseCapture()
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_ALT: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_CTRL: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_LSHIFT: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_LWIN: u32 = 91u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_NUMPAD_FIRST: u32 = 71u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_NUMPAD_LAST: u32 = 82u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_RSHIFT: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_RWIN: u32 = 92u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SCANCODE_THAI_LAYOUT_TOGGLE: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SGCAPS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const SHFT_INVALID: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
@@ -1460,6 +413,379 @@ where
     SwapMouseButton(fswap.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[inline]
+pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, lpchar: &mut u16, uflags: u32) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32;
+    }
+    ToAscii(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpchar), uflags)
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
+pub unsafe fn ToAsciiEx<'a, P0>(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, lpchar: &mut u16, uflags: u32, dwhkl: P0) -> i32
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
+    }
+    ToAsciiEx(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpchar), uflags, dwhkl.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[inline]
+pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32) -> i32;
+    }
+    ToUnicode(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags)
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
+pub unsafe fn ToUnicodeEx<'a, P0>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: P0) -> i32
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
+    }
+    ToUnicodeEx(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags, dwhkl.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TrackMouseEvent(lpeventtrack: &mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
+    }
+    TrackMouseEvent(::core::mem::transmute(lpeventtrack))
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[inline]
+pub unsafe fn UnloadKeyboardLayout<'a, P0>(hkl: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnloadKeyboardLayout(hkl: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
+    }
+    UnloadKeyboardLayout(hkl.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UnregisterHotKey<'a, P0>(hwnd: P0, id: i32) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32) -> super::super::super::Foundation::BOOL;
+    }
+    UnregisterHotKey(hwnd.into(), id)
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn VkKeyScanA<'a, P0>(ch: P0) -> i16
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::CHAR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VkKeyScanA(ch: super::super::super::Foundation::CHAR) -> i16;
+    }
+    VkKeyScanA(ch.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[inline]
+pub unsafe fn VkKeyScanExA<'a, P0, P1>(ch: P0, dwhkl: P1) -> i16
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::CHAR>,
+    P1: ::std::convert::Into<super::super::TextServices::HKL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VkKeyScanExA(ch: super::super::super::Foundation::CHAR, dwhkl: super::super::TextServices::HKL) -> i16;
+    }
+    VkKeyScanExA(ch.into(), dwhkl.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
+pub unsafe fn VkKeyScanExW<'a, P0>(ch: u16, dwhkl: P0) -> i16
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VkKeyScanExW(ch: u16, dwhkl: super::super::TextServices::HKL) -> i16;
+    }
+    VkKeyScanExW(ch, dwhkl.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[inline]
+pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VkKeyScanW(ch: u16) -> i16;
+    }
+    VkKeyScanW(ch)
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn _TrackMouseEvent(lpeventtrack: &mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
+    }
+    _TrackMouseEvent(::core::mem::transmute(lpeventtrack))
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[inline]
+pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
+    }
+    keybd_event(bvk, bscan, dwflags, dwextrainfo)
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[inline]
+pub unsafe fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize);
+    }
+    mouse_event(dwflags, dx, dy, dwdata, dwextrainfo)
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const ACUTE: u32 = 769u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const BREVE: u32 = 774u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const CAPLOK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const CAPLOKALTGR: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const CEDILLA: u32 = 807u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const CIRCUMFLEX: u32 = 770u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DIARESIS: u32 = 776u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DIARESIS_TONOS: u32 = 901u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DKF_DEAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DONTCARE_BIT: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DOT_ABOVE: u32 = 775u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const DOUBLE_ACUTE: u32 = 779u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const EXTENDED_BIT: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const FAKE_KEYSTROKE: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const GRAVE: u32 = 768u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const GRPSELTAP: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const HACEK: u32 = 780u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const HOOK_ABOVE: u32 = 777u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KANALOK: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDALT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDBASE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDCTRL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDGRPSELTAP: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDKANA: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDLOYA: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_ALPHANUM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_CODEINPUT: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_CONV_OR_NONCONV: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_HELP_OR_END: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_HIRAGANA: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_HOME_OR_CLEAR: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_INDEX_ALT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_INDEX_NORMAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_KANAEVENT: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_KANALOCK: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_KATAKANA: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_NOEVENT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_NULL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_NUMPAD: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_ROMAN: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_SBCSDBCS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_SEND_BASE_VK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_SEND_PARAM_VK: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_TYPE_NORMAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_TYPE_NULL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDROYA: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDSHIFT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBD_TYPE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KBD_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYBOARD_TYPE_UNKNOWN: u32 = 81u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLLF_ALTGR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLLF_LRM_RLM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLLF_SHIFTLOCK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MACRON: u32 = 772u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_001_TYPE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_002_TYPE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_101A_TYPE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_101B_TYPE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_101C_TYPE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_101_TYPE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_103_TYPE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NEC_KBD_106_TYPE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NEC_KBD_LAPTOP_TYPE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NEC_KBD_NORMAL_TYPE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NEC_KBD_N_MODE_TYPE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_INFO_ACCESSIBILITY_KEYMAP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_INFO_EMURATE_101_KEYBOARD: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_INFO_EMURATE_106_KEYBOARD: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_INFO_SEND_IME_NOTIFICATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_AX: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_DEC: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_EPSON: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_FUJITSU: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_IBM: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_MATSUSHITA: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_MICROSOFT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_NEC: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const NLSKBD_OEM_TOSHIBA: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const OGONEK: u32 = 808u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const OVERSCORE: u32 = 773u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const RING: u32 = 778u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_ALT: u32 = 56u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_CTRL: u32 = 29u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_LSHIFT: u32 = 42u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_LWIN: u32 = 91u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_NUMPAD_FIRST: u32 = 71u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_NUMPAD_LAST: u32 = 82u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_RSHIFT: u32 = 54u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_RWIN: u32 = 92u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SCANCODE_THAI_LAYOUT_TOGGLE: u32 = 41u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SGCAPS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const SHFT_INVALID: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const TILDE: u32 = 771u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const TONOS: u32 = 900u32;
@@ -1467,45 +793,374 @@ pub const TONOS: u32 = 900u32;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TRACKMOUSEEVENT {
-    pub cbSize: u32,
-    pub dwFlags: TRACKMOUSEEVENT_FLAGS,
-    pub hwndTrack: super::super::super::Foundation::HWND,
-    pub dwHoverTime: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TRACKMOUSEEVENT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TRACKMOUSEEVENT {
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const UMLAUT: u32 = 776u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_ABNT_C1: u32 = 193u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_ABNT_C2: u32 = 194u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_ALPHANUMERIC: u32 = 240u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_CODEINPUT: u32 = 250u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_DBCSCHAR: u32 = 244u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_DETERMINESTRING: u32 = 252u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_ENTERDLGCONVERSIONMODE: u32 = 253u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_ENTERIMECONFIGMODE: u32 = 248u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_ENTERWORDREGISTERMODE: u32 = 247u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_FLUSHSTRING: u32 = 249u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_HIRAGANA: u32 = 242u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_KATAKANA: u32 = 241u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_NOCODEINPUT: u32 = 251u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_NOROMAN: u32 = 246u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_ROMAN: u32 = 245u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK_DBE_SBCSCHAR: u32 = 243u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const VK__none_: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const WCH_DEAD: u32 = 61441u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const WCH_LGTR: u32 = 61442u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const WCH_NONE: u32 = 61440u32;
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszACUTE: &str = "\u{301}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszBREVE: &str = "\u{306}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszCEDILLA: &str = "\u{327}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszCIRCUMFLEX: &str = "\u{302}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszDIARESIS_TONOS: &str = "\u{385}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszDOT_ABOVE: &str = "\u{307}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszDOUBLE_ACUTE: &str = "\u{30b}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszGRAVE: &str = "\u{300}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszHACEK: &str = "\u{30c}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszHOOK_ABOVE: &str = "\u{309}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszMACRON: &str = "\u{304}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszOGONEK: &str = "\u{328}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszOVERSCORE: &str = "\u{305}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszRING: &str = "\u{30a}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszTILDE: &str = "\u{303}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszTONOS: &str = "\u{384}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const wszUMLAUT: &str = "\u{308}";
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_RESET: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_SHIFTLOCK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(2u32);
+impl ::core::marker::Copy for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {}
+impl ::core::clone::Clone for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TRACKMOUSEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TRACKMOUSEEVENT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTrack", &self.hwndTrack).field("dwHoverTime", &self.dwHoverTime).finish()
+impl ::core::default::Default for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT {
+unsafe impl ::windows::core::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACKMOUSEEVENT>()) == 0 }
+impl ::core::fmt::Debug for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVATE_KEYBOARD_LAYOUT_FLAGS").field(&self.0).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TRACKMOUSEEVENT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TRACKMOUSEEVENT {
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
+impl ::core::marker::Copy for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {}
+impl ::core::clone::Clone for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_MOUSE_MOVE_POINTS_EX_RESOLUTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HOT_KEY_MODIFIERS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOD_ALT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOD_SHIFT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOD_WIN: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(8u32);
+impl ::core::marker::Copy for HOT_KEY_MODIFIERS {}
+impl ::core::clone::Clone for HOT_KEY_MODIFIERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HOT_KEY_MODIFIERS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HOT_KEY_MODIFIERS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HOT_KEY_MODIFIERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HOT_KEY_MODIFIERS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HOT_KEY_MODIFIERS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HOT_KEY_MODIFIERS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HOT_KEY_MODIFIERS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HOT_KEY_MODIFIERS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HOT_KEY_MODIFIERS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INPUT_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
+impl ::core::marker::Copy for INPUT_TYPE {}
+impl ::core::clone::Clone for INPUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INPUT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INPUT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INPUT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INPUT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KEYBD_EVENT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(4u32);
+impl ::core::marker::Copy for KEYBD_EVENT_FLAGS {}
+impl ::core::clone::Clone for KEYBD_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KEYBD_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBD_EVENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KEYBD_EVENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KEYBD_EVENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for KEYBD_EVENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KEYBD_EVENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KEYBD_EVENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KEYBD_EVENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KEYBD_EVENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MOUSE_EVENT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_ABSOLUTE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_LEFTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_LEFTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_MIDDLEDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_MIDDLEUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_MOVE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_RIGHTDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_RIGHTUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_HWHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_MOVE_NOCOALESCE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16384u32);
+impl ::core::marker::Copy for MOUSE_EVENT_FLAGS {}
+impl ::core::clone::Clone for MOUSE_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MOUSE_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSE_EVENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MOUSE_EVENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MOUSE_EVENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MOUSE_EVENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MOUSE_EVENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MOUSE_EVENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MOUSE_EVENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MOUSE_EVENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -1568,88 +1223,6 @@ impl ::core::ops::Not for TRACKMOUSEEVENT_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[inline]
-pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, lpchar: &mut u16, uflags: u32) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32;
-    }
-    ToAscii(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpchar), uflags)
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
-#[cfg(feature = "Win32_UI_TextServices")]
-#[inline]
-pub unsafe fn ToAsciiEx<'a, P0>(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, lpchar: &mut u16, uflags: u32, dwhkl: P0) -> i32
-where
-    P0: ::std::convert::Into<super::super::TextServices::HKL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
-    }
-    ToAsciiEx(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpchar), uflags, dwhkl.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[inline]
-pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32) -> i32;
-    }
-    ToUnicode(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags)
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
-#[cfg(feature = "Win32_UI_TextServices")]
-#[inline]
-pub unsafe fn ToUnicodeEx<'a, P0>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: P0) -> i32
-where
-    P0: ::std::convert::Into<super::super::TextServices::HKL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
-    }
-    ToUnicodeEx(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags, dwhkl.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TrackMouseEvent(lpeventtrack: &mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
-    }
-    TrackMouseEvent(::core::mem::transmute(lpeventtrack))
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const UMLAUT: u32 = 776u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-#[inline]
-pub unsafe fn UnloadKeyboardLayout<'a, P0>(hkl: P0) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::TextServices::HKL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnloadKeyboardLayout(hkl: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
-    }
-    UnloadKeyboardLayout(hkl.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UnregisterHotKey<'a, P0>(hwnd: P0, id: i32) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32) -> super::super::super::Foundation::BOOL;
-    }
-    UnregisterHotKey(hwnd.into(), id)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[repr(transparent)]
@@ -2134,38 +1707,584 @@ impl ::core::fmt::Debug for VIRTUAL_KEY {
         f.debug_tuple("VIRTUAL_KEY").field(&self.0).finish()
     }
 }
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_ABNT_C1: u32 = 193u32;
+pub struct DEADKEY {
+    pub dwBoth: u32,
+    pub wchComposed: u16,
+    pub uFlags: u16,
+}
+impl ::core::marker::Copy for DEADKEY {}
+impl ::core::clone::Clone for DEADKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEADKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DEADKEY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DEADKEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEADKEY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DEADKEY {}
+impl ::core::default::Default for DEADKEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_ABNT_C2: u32 = 194u32;
+pub struct HARDWAREINPUT {
+    pub uMsg: u32,
+    pub wParamL: u16,
+    pub wParamH: u16,
+}
+impl ::core::marker::Copy for HARDWAREINPUT {}
+impl ::core::clone::Clone for HARDWAREINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HARDWAREINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HARDWAREINPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HARDWAREINPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWAREINPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HARDWAREINPUT {}
+impl ::core::default::Default for HARDWAREINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_ALPHANUMERIC: u32 = 240u32;
+pub struct INPUT {
+    pub r#type: INPUT_TYPE,
+    pub Anonymous: INPUT_0,
+}
+impl ::core::marker::Copy for INPUT {}
+impl ::core::clone::Clone for INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INPUT {}
+impl ::core::default::Default for INPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_CODEINPUT: u32 = 250u32;
+pub union INPUT_0 {
+    pub mi: MOUSEINPUT,
+    pub ki: KEYBDINPUT,
+    pub hi: HARDWAREINPUT,
+}
+impl ::core::marker::Copy for INPUT_0 {}
+impl ::core::clone::Clone for INPUT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INPUT_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INPUT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INPUT_0 {}
+impl ::core::default::Default for INPUT_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_DBCSCHAR: u32 = 244u32;
+pub struct KBDTABLE_DESC {
+    pub wszDllName: [u16; 32],
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+impl ::core::marker::Copy for KBDTABLE_DESC {}
+impl ::core::clone::Clone for KBDTABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KBDTABLE_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KBDTABLE_DESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KBDTABLE_DESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLE_DESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KBDTABLE_DESC {}
+impl ::core::default::Default for KBDTABLE_DESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_DETERMINESTRING: u32 = 252u32;
+pub struct KBDTABLE_MULTI {
+    pub nTables: u32,
+    pub aKbdTables: [KBDTABLE_DESC; 8],
+}
+impl ::core::marker::Copy for KBDTABLE_MULTI {}
+impl ::core::clone::Clone for KBDTABLE_MULTI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KBDTABLE_MULTI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KBDTABLE_MULTI {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KBDTABLE_MULTI {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLE_MULTI>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KBDTABLE_MULTI {}
+impl ::core::default::Default for KBDTABLE_MULTI {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_ENTERDLGCONVERSIONMODE: u32 = 253u32;
+pub struct KBD_TYPE_INFO {
+    pub dwVersion: u32,
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+impl ::core::marker::Copy for KBD_TYPE_INFO {}
+impl ::core::clone::Clone for KBD_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KBD_TYPE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KBD_TYPE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KBD_TYPE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBD_TYPE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KBD_TYPE_INFO {}
+impl ::core::default::Default for KBD_TYPE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_ENTERIMECONFIGMODE: u32 = 248u32;
+pub struct KEYBDINPUT {
+    pub wVk: VIRTUAL_KEY,
+    pub wScan: u16,
+    pub dwFlags: KEYBD_EVENT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+impl ::core::marker::Copy for KEYBDINPUT {}
+impl ::core::clone::Clone for KEYBDINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KEYBDINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBDINPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBDINPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBDINPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBDINPUT {}
+impl ::core::default::Default for KEYBDINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_ENTERWORDREGISTERMODE: u32 = 247u32;
+pub struct LASTINPUTINFO {
+    pub cbSize: u32,
+    pub dwTime: u32,
+}
+impl ::core::marker::Copy for LASTINPUTINFO {}
+impl ::core::clone::Clone for LASTINPUTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LASTINPUTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LASTINPUTINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LASTINPUTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LASTINPUTINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LASTINPUTINFO {}
+impl ::core::default::Default for LASTINPUTINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_FLUSHSTRING: u32 = 249u32;
+pub struct LIGATURE1 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 1],
+}
+impl ::core::marker::Copy for LIGATURE1 {}
+impl ::core::clone::Clone for LIGATURE1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LIGATURE1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LIGATURE1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LIGATURE1 {}
+impl ::core::default::Default for LIGATURE1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_HIRAGANA: u32 = 242u32;
+pub struct LIGATURE2 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 2],
+}
+impl ::core::marker::Copy for LIGATURE2 {}
+impl ::core::clone::Clone for LIGATURE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LIGATURE2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LIGATURE2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LIGATURE2 {}
+impl ::core::default::Default for LIGATURE2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_KATAKANA: u32 = 241u32;
+pub struct LIGATURE3 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 3],
+}
+impl ::core::marker::Copy for LIGATURE3 {}
+impl ::core::clone::Clone for LIGATURE3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LIGATURE3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LIGATURE3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LIGATURE3 {}
+impl ::core::default::Default for LIGATURE3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_NOCODEINPUT: u32 = 251u32;
+pub struct LIGATURE4 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 4],
+}
+impl ::core::marker::Copy for LIGATURE4 {}
+impl ::core::clone::Clone for LIGATURE4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LIGATURE4 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LIGATURE4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE4>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LIGATURE4 {}
+impl ::core::default::Default for LIGATURE4 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_NOROMAN: u32 = 246u32;
+pub struct LIGATURE5 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 5],
+}
+impl ::core::marker::Copy for LIGATURE5 {}
+impl ::core::clone::Clone for LIGATURE5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LIGATURE5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LIGATURE5 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LIGATURE5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE5>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LIGATURE5 {}
+impl ::core::default::Default for LIGATURE5 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_ROMAN: u32 = 245u32;
+pub struct MODIFIERS {
+    pub pVkToBit: *mut VK_TO_BIT,
+    pub wMaxModBits: u16,
+    pub ModNumber: [u8; 1],
+}
+impl ::core::marker::Copy for MODIFIERS {}
+impl ::core::clone::Clone for MODIFIERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MODIFIERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MODIFIERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MODIFIERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODIFIERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MODIFIERS {}
+impl ::core::default::Default for MODIFIERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK_DBE_SBCSCHAR: u32 = 243u32;
+pub struct MOUSEINPUT {
+    pub dx: i32,
+    pub dy: i32,
+    pub mouseData: i32,
+    pub dwFlags: MOUSE_EVENT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+impl ::core::marker::Copy for MOUSEINPUT {}
+impl ::core::clone::Clone for MOUSEINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MOUSEINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSEINPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSEINPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEINPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSEINPUT {}
+impl ::core::default::Default for MOUSEINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct MOUSEMOVEPOINT {
+    pub x: i32,
+    pub y: i32,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+impl ::core::marker::Copy for MOUSEMOVEPOINT {}
+impl ::core::clone::Clone for MOUSEMOVEPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MOUSEMOVEPOINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSEMOVEPOINT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSEMOVEPOINT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEMOVEPOINT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSEMOVEPOINT {}
+impl ::core::default::Default for MOUSEMOVEPOINT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TRACKMOUSEEVENT {
+    pub cbSize: u32,
+    pub dwFlags: TRACKMOUSEEVENT_FLAGS,
+    pub hwndTrack: super::super::super::Foundation::HWND,
+    pub dwHoverTime: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TRACKMOUSEEVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TRACKMOUSEEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TRACKMOUSEEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRACKMOUSEEVENT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTrack", &self.hwndTrack).field("dwHoverTime", &self.dwHoverTime).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACKMOUSEEVENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TRACKMOUSEEVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TRACKMOUSEEVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub struct VK_TO_BIT {
@@ -2580,8 +2699,6 @@ impl ::core::default::Default for VK_VSC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const VK__none_: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub struct VSC_LPWSTR {
@@ -2643,71 +2760,6 @@ impl ::core::default::Default for VSC_VK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn VkKeyScanA<'a, P0>(ch: P0) -> i16
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::CHAR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VkKeyScanA(ch: super::super::super::Foundation::CHAR) -> i16;
-    }
-    VkKeyScanA(ch.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-#[inline]
-pub unsafe fn VkKeyScanExA<'a, P0, P1>(ch: P0, dwhkl: P1) -> i16
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::CHAR>,
-    P1: ::std::convert::Into<super::super::TextServices::HKL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VkKeyScanExA(ch: super::super::super::Foundation::CHAR, dwhkl: super::super::TextServices::HKL) -> i16;
-    }
-    VkKeyScanExA(ch.into(), dwhkl.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
-#[cfg(feature = "Win32_UI_TextServices")]
-#[inline]
-pub unsafe fn VkKeyScanExW<'a, P0>(ch: u16, dwhkl: P0) -> i16
-where
-    P0: ::std::convert::Into<super::super::TextServices::HKL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VkKeyScanExW(ch: u16, dwhkl: super::super::TextServices::HKL) -> i16;
-    }
-    VkKeyScanExW(ch, dwhkl.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[inline]
-pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VkKeyScanW(ch: u16) -> i16;
-    }
-    VkKeyScanW(ch)
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const WCH_DEAD: u32 = 61441u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const WCH_LGTR: u32 = 61442u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const WCH_NONE: u32 = 61440u32;
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn _TrackMouseEvent(lpeventtrack: &mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
-    }
-    _TrackMouseEvent(::core::mem::transmute(lpeventtrack))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -2774,24 +2826,6 @@ impl ::core::default::Default for _VK_TO_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[inline]
-pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
-    }
-    keybd_event(bvk, bscan, dwflags, dwextrainfo)
-}
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-#[inline]
-pub unsafe fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize);
-    }
-    mouse_event(dwflags, dx, dy, dwdata, dwextrainfo)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -2890,39 +2924,5 @@ impl ::core::default::Default for tagKbdNlsLayer {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszACUTE: &str = "\u{301}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszBREVE: &str = "\u{306}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszCEDILLA: &str = "\u{327}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszCIRCUMFLEX: &str = "\u{302}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDIARESIS_TONOS: &str = "\u{385}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDOT_ABOVE: &str = "\u{307}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDOUBLE_ACUTE: &str = "\u{30b}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszGRAVE: &str = "\u{300}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszHACEK: &str = "\u{30c}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszHOOK_ABOVE: &str = "\u{309}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszMACRON: &str = "\u{304}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszOGONEK: &str = "\u{328}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszOVERSCORE: &str = "\u{305}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszRING: &str = "\u{30a}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszTILDE: &str = "\u{303}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszTONOS: &str = "\u{384}";
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszUMLAUT: &str = "\u{308}";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

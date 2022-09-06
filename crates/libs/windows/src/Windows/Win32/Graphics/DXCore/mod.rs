@@ -1,179 +1,3 @@
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub struct DXCoreAdapterMemoryBudget {
-    pub budget: u64,
-    pub currentUsage: u64,
-    pub availableForReservation: u64,
-    pub currentReservation: u64,
-}
-impl ::core::marker::Copy for DXCoreAdapterMemoryBudget {}
-impl ::core::clone::Clone for DXCoreAdapterMemoryBudget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DXCoreAdapterMemoryBudget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXCoreAdapterMemoryBudget").field("budget", &self.budget).field("currentUsage", &self.currentUsage).field("availableForReservation", &self.availableForReservation).field("currentReservation", &self.currentReservation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudget {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudget {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreAdapterMemoryBudget>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXCoreAdapterMemoryBudget {}
-impl ::core::default::Default for DXCoreAdapterMemoryBudget {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    pub nodeIndex: u32,
-    pub segmentGroup: DXCoreSegmentGroup,
-}
-impl ::core::marker::Copy for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
-impl ::core::clone::Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXCoreAdapterMemoryBudgetNodeSegmentGroup").field("nodeIndex", &self.nodeIndex).field("segmentGroup", &self.segmentGroup).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreAdapterMemoryBudgetNodeSegmentGroup>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
-impl ::core::default::Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXCoreAdapterPreference(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
-impl ::core::marker::Copy for DXCoreAdapterPreference {}
-impl ::core::clone::Clone for DXCoreAdapterPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreAdapterPreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreAdapterPreference {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXCoreAdapterPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXCoreAdapterPreference").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXCoreAdapterProperty(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const DriverVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const DriverDescription: DXCoreAdapterProperty = DXCoreAdapterProperty(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const HardwareID: DXCoreAdapterProperty = DXCoreAdapterProperty(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const ComputePreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const DedicatedAdapterMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const DedicatedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const IsHardware: DXCoreAdapterProperty = DXCoreAdapterProperty(11u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const IsIntegrated: DXCoreAdapterProperty = DXCoreAdapterProperty(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const IsDetachable: DXCoreAdapterProperty = DXCoreAdapterProperty(13u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
-impl ::core::marker::Copy for DXCoreAdapterProperty {}
-impl ::core::clone::Clone for DXCoreAdapterProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreAdapterProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreAdapterProperty {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXCoreAdapterProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXCoreAdapterProperty").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXCoreAdapterState(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
-impl ::core::marker::Copy for DXCoreAdapterState {}
-impl ::core::clone::Clone for DXCoreAdapterState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreAdapterState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreAdapterState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXCoreAdapterState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXCoreAdapterState").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[inline]
 pub unsafe fn DXCoreCreateAdapterFactory<T>() -> ::windows::core::Result<T>
@@ -186,131 +10,6 @@ where
     }
     let mut result__ = ::core::option::Option::None;
     DXCoreCreateAdapterFactory(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub struct DXCoreHardwareID {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSysID: u32,
-    pub revision: u32,
-}
-impl ::core::marker::Copy for DXCoreHardwareID {}
-impl ::core::clone::Clone for DXCoreHardwareID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DXCoreHardwareID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXCoreHardwareID").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSysID", &self.subSysID).field("revision", &self.revision).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreHardwareID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DXCoreHardwareID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreHardwareID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXCoreHardwareID {}
-impl ::core::default::Default for DXCoreHardwareID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub struct DXCoreHardwareIDParts {
-    pub vendorID: u32,
-    pub deviceID: u32,
-    pub subSystemID: u32,
-    pub subVendorID: u32,
-    pub revisionID: u32,
-}
-impl ::core::marker::Copy for DXCoreHardwareIDParts {}
-impl ::core::clone::Clone for DXCoreHardwareIDParts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DXCoreHardwareIDParts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXCoreHardwareIDParts").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSystemID", &self.subSystemID).field("subVendorID", &self.subVendorID).field("revisionID", &self.revisionID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreHardwareIDParts {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DXCoreHardwareIDParts {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreHardwareIDParts>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXCoreHardwareIDParts {}
-impl ::core::default::Default for DXCoreHardwareIDParts {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXCoreNotificationType(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
-impl ::core::marker::Copy for DXCoreNotificationType {}
-impl ::core::clone::Clone for DXCoreNotificationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreNotificationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreNotificationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXCoreNotificationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXCoreNotificationType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXCoreSegmentGroup(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
-impl ::core::marker::Copy for DXCoreSegmentGroup {}
-impl ::core::clone::Clone for DXCoreSegmentGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreSegmentGroup {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXCoreSegmentGroup {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXCoreSegmentGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXCoreSegmentGroup").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
@@ -561,9 +260,310 @@ pub struct IDXCoreAdapterList_Vtbl {
     pub Sort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::HRESULT,
     pub IsAdapterPreferenceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preference: DXCoreAdapterPreference) -> bool,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
-pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::core::option::Option<::windows::core::IUnknown>, context: *const ::core::ffi::c_void)>;
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c47866b_7583_450d_f0f0_6bada895af4b);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248e2800_a793_4724_abaa_23a6de1be090);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const _FACDXCORE: u32 = 2176u32;
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXCoreAdapterPreference(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
+impl ::core::marker::Copy for DXCoreAdapterPreference {}
+impl ::core::clone::Clone for DXCoreAdapterPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXCoreAdapterPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterPreference {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreAdapterPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreAdapterPreference").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXCoreAdapterProperty(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const DriverVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const DriverDescription: DXCoreAdapterProperty = DXCoreAdapterProperty(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const HardwareID: DXCoreAdapterProperty = DXCoreAdapterProperty(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const ComputePreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const DedicatedAdapterMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const DedicatedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const IsHardware: DXCoreAdapterProperty = DXCoreAdapterProperty(11u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const IsIntegrated: DXCoreAdapterProperty = DXCoreAdapterProperty(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const IsDetachable: DXCoreAdapterProperty = DXCoreAdapterProperty(13u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
+impl ::core::marker::Copy for DXCoreAdapterProperty {}
+impl ::core::clone::Clone for DXCoreAdapterProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXCoreAdapterProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreAdapterProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreAdapterProperty").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXCoreAdapterState(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
+impl ::core::marker::Copy for DXCoreAdapterState {}
+impl ::core::clone::Clone for DXCoreAdapterState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXCoreAdapterState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreAdapterState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreAdapterState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXCoreNotificationType(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
+impl ::core::marker::Copy for DXCoreNotificationType {}
+impl ::core::clone::Clone for DXCoreNotificationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXCoreNotificationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreNotificationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreNotificationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreNotificationType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXCoreSegmentGroup(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
+impl ::core::marker::Copy for DXCoreSegmentGroup {}
+impl ::core::clone::Clone for DXCoreSegmentGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXCoreSegmentGroup {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreSegmentGroup {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreSegmentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreSegmentGroup").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub struct DXCoreAdapterMemoryBudget {
+    pub budget: u64,
+    pub currentUsage: u64,
+    pub availableForReservation: u64,
+    pub currentReservation: u64,
+}
+impl ::core::marker::Copy for DXCoreAdapterMemoryBudget {}
+impl ::core::clone::Clone for DXCoreAdapterMemoryBudget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreAdapterMemoryBudget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreAdapterMemoryBudget").field("budget", &self.budget).field("currentUsage", &self.currentUsage).field("availableForReservation", &self.availableForReservation).field("currentReservation", &self.currentReservation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudget {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudget {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreAdapterMemoryBudget>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DXCoreAdapterMemoryBudget {}
+impl ::core::default::Default for DXCoreAdapterMemoryBudget {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    pub nodeIndex: u32,
+    pub segmentGroup: DXCoreSegmentGroup,
+}
+impl ::core::marker::Copy for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
+impl ::core::clone::Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreAdapterMemoryBudgetNodeSegmentGroup").field("nodeIndex", &self.nodeIndex).field("segmentGroup", &self.segmentGroup).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreAdapterMemoryBudgetNodeSegmentGroup>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
+impl ::core::default::Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub struct DXCoreHardwareID {
+    pub vendorID: u32,
+    pub deviceID: u32,
+    pub subSysID: u32,
+    pub revision: u32,
+}
+impl ::core::marker::Copy for DXCoreHardwareID {}
+impl ::core::clone::Clone for DXCoreHardwareID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreHardwareID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreHardwareID").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSysID", &self.subSysID).field("revision", &self.revision).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreHardwareID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DXCoreHardwareID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreHardwareID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DXCoreHardwareID {}
+impl ::core::default::Default for DXCoreHardwareID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub struct DXCoreHardwareIDParts {
+    pub vendorID: u32,
+    pub deviceID: u32,
+    pub subSystemID: u32,
+    pub subVendorID: u32,
+    pub revisionID: u32,
+}
+impl ::core::marker::Copy for DXCoreHardwareIDParts {}
+impl ::core::clone::Clone for DXCoreHardwareIDParts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DXCoreHardwareIDParts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DXCoreHardwareIDParts").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSystemID", &self.subSystemID).field("subVendorID", &self.subVendorID).field("revisionID", &self.revisionID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreHardwareIDParts {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DXCoreHardwareIDParts {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreHardwareIDParts>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DXCoreHardwareIDParts {}
+impl ::core::default::Default for DXCoreHardwareIDParts {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::core::option::Option<::windows::core::IUnknown>, context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

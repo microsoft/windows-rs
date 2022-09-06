@@ -1,343 +1,4 @@
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const ADVANCED_DUP: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const ADVANCED_DUPLEX: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const ALL_PAGES: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const AUTO_ADVANCE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const AUTO_SOURCE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BACK_FIRST: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BACK_ONLY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BARCODE_READER: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BARCODE_READER_READY: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BASE_VAL_WIA_ERROR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BASE_VAL_WIA_SUCCESS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BOTTOM_JUSTIFIED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BUS_TYPE_FIREWIRE: u32 = 203u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BUS_TYPE_PARALLEL: u32 = 202u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BUS_TYPE_SCSI: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const BUS_TYPE_USB: u32 = 201u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CAPTUREMODE_BURST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CAPTUREMODE_NORMAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CAPTUREMODE_TIMELAPSE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CENTERED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CFSTR_WIAITEMNAMES: &str = "WIAItemNames";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CFSTR_WIAITEMPTR: &str = "WIAItemPointer";
-pub const CLSID_WiaDefaultSegFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4f4d30b_0b29_4508_8922_0c5797d42765);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETADFAVAILABLE: u32 = 117u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETADFHASPAPER: u32 = 120u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETADFOPEN: u32 = 118u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETADFREADY: u32 = 119u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETADFSTATUS: u32 = 121u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETADFUNLOADREADY: u32 = 122u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETCAPABILITIES: u32 = 132u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETSUPPORTEDFILEFORMATS: u32 = 138u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETSUPPORTEDMEMORYFORMATS: u32 = 139u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETTPAAVAILABLE: u32 = 123u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GETTPAOPENED: u32 = 124u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_GET_INTERRUPT_EVENT: u32 = 133u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_INITIALIZE: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_LOAD_ADF: u32 = 115u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_RESETSCANNER: u32 = 131u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SENDSCSICOMMAND: u32 = 127u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETCOLORDITHER: u32 = 111u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETCONTRAST: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETDATATYPE: u32 = 106u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETDITHER: u32 = 107u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETFILTER: u32 = 114u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETFORMAT: u32 = 140u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETGSDNAME: u32 = 134u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETINTENSITY: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETLAMP: u32 = 126u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETMATRIX: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETMIRROR: u32 = 108u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETNEGATIVE: u32 = 109u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETSCANMODE: u32 = 135u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETSPEED: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETSTIDEVICEHKEY: u32 = 136u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETTONEMAP: u32 = 110u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETXRESOLUTION: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_SETYRESOLUTION: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_STI_DEVICERESET: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_STI_DIAGNOSTIC: u32 = 130u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_STI_GETSTATUS: u32 = 129u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_TPAREADY: u32 = 125u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_UNINITIALIZE: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const CMD_UNLOAD_ADF: u32 = 116u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const COPY_PARENT_PROPERTY_VALUES: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_DUP: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_DUP_AVAIL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_FEED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_FEED_AVAIL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_FILM_TPA: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_FLAT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_SCAN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DETECT_STOR: u32 = 4096u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVICEDIALOGDATA {
-    pub cbSize: u32,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub pIWiaItemRoot: ::core::option::Option<IWiaItem>,
-    pub dwFlags: u32,
-    pub lIntent: i32,
-    pub lItemCount: i32,
-    pub ppWiaItems: *mut ::core::option::Option<IWiaItem>,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DEVICEDIALOGDATA {
-    fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            hwndParent: self.hwndParent,
-            pIWiaItemRoot: self.pIWiaItemRoot.clone(),
-            dwFlags: self.dwFlags,
-            lIntent: self.lIntent,
-            lItemCount: self.lItemCount,
-            ppWiaItems: self.ppWiaItems,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEVICEDIALOGDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDIALOGDATA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("lIntent", &self.lIntent).field("lItemCount", &self.lItemCount).field("ppWiaItems", &self.ppWiaItems).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DEVICEDIALOGDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.lIntent == other.lIntent && self.lItemCount == other.lItemCount && self.ppWiaItems == other.ppWiaItems
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DEVICEDIALOGDATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DEVICEDIALOGDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVICEDIALOGDATA2 {
-    pub cbSize: u32,
-    pub pIWiaItemRoot: ::core::option::Option<IWiaItem2>,
-    pub dwFlags: u32,
-    pub hwndParent: super::super::Foundation::HWND,
-    pub bstrFolderName: super::super::Foundation::BSTR,
-    pub bstrFilename: super::super::Foundation::BSTR,
-    pub lNumFiles: i32,
-    pub pbstrFilePaths: *mut super::super::Foundation::BSTR,
-    pub pWiaItem: ::core::option::Option<IWiaItem2>,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DEVICEDIALOGDATA2 {
-    fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            pIWiaItemRoot: self.pIWiaItemRoot.clone(),
-            dwFlags: self.dwFlags,
-            hwndParent: self.hwndParent,
-            bstrFolderName: self.bstrFolderName.clone(),
-            bstrFilename: self.bstrFilename.clone(),
-            lNumFiles: self.lNumFiles,
-            pbstrFilePaths: self.pbstrFilePaths,
-            pWiaItem: self.pWiaItem.clone(),
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEVICEDIALOGDATA2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICEDIALOGDATA2").field("cbSize", &self.cbSize).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("hwndParent", &self.hwndParent).field("bstrFolderName", &self.bstrFolderName).field("bstrFilename", &self.bstrFilename).field("lNumFiles", &self.lNumFiles).field("pbstrFilePaths", &self.pbstrFilePaths).field("pWiaItem", &self.pWiaItem).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DEVICEDIALOGDATA2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.hwndParent == other.hwndParent && self.bstrFolderName == other.bstrFolderName && self.bstrFilename == other.bstrFilename && self.lNumFiles == other.lNumFiles && self.pbstrFilePaths == other.pbstrFilePaths && self.pWiaItem == other.pWiaItem
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DEVICEDIALOGDATA2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DEVICEDIALOGDATA2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DEVICE_ATTENTION: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DUP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DUPLEX: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const DUP_READY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DeviceDialogFunction = ::core::option::Option<unsafe extern "system" fn(param0: *mut DEVICEDIALOGDATA) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EFFECTMODE_BW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EFFECTMODE_SEPIA: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EFFECTMODE_STANDARD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const ENDORSER: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const ENDORSER_READY: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const ESC_TWAIN_CAPABILITY: u32 = 2001u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const ESC_TWAIN_PRIVATE_SUPPORTED_CAPS: u32 = 2002u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMETERING_AVERAGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMETERING_CENTERSPOT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMETERING_CENTERWEIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMETERING_MULTISPOT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMODE_APERTURE_PRIORITY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMODE_AUTO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMODE_MANUAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMODE_PORTRAIT: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMODE_PROGRAM_ACTION: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMODE_PROGRAM_CREATIVE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const EXPOSUREMODE_SHUTTER_PRIORITY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FEED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FEEDER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FEED_READY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FILM_TPA: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FILM_TPA_READY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLASHMODE_AUTO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLASHMODE_EXTERNALSYNC: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLASHMODE_FILL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLASHMODE_OFF: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLASHMODE_REDEYE_AUTO: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLASHMODE_REDEYE_FILL: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLAT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLATBED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLAT_COVER_UP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FLAT_READY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FOCUSMETERING_CENTERSPOT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FOCUSMETERING_MULTISPOT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FOCUSMODE_AUTO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FOCUSMODE_MACROAUTO: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FOCUSMODE_MANUAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FRONT_FIRST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const FRONT_ONLY: u32 = 32u32;
-pub const GUID_DEVINTERFACE_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
 pub struct IEnumWIA_DEV_CAPS(::windows::core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
@@ -677,32 +338,6 @@ pub struct IEnumWiaItem2_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IMPRINTER: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IMPRINTER_READY: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_MSG_DATA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_MSG_DATA_HEADER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_MSG_FILE_PREVIEW_DATA: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_MSG_FILE_PREVIEW_DATA_HEADER: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_MSG_NEW_PAGE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_MSG_STATUS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_MSG_TERMINATION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_STATUS_MASK: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_STATUS_PROCESSING_DATA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
 pub struct IWiaAppErrorHandler(::windows::core::IUnknown);
@@ -3147,6 +2782,264 @@ pub struct IWiaVideo_Vtbl {
     pub GetCurrentState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut WIAVIDEO_STATE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const ADVANCED_DUP: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const ADVANCED_DUPLEX: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const ALL_PAGES: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const AUTO_ADVANCE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const AUTO_SOURCE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BACK_FIRST: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BACK_ONLY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BARCODE_READER: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BARCODE_READER_READY: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BASE_VAL_WIA_ERROR: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BASE_VAL_WIA_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BOTTOM_JUSTIFIED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BUS_TYPE_FIREWIRE: u32 = 203u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BUS_TYPE_PARALLEL: u32 = 202u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BUS_TYPE_SCSI: u32 = 200u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const BUS_TYPE_USB: u32 = 201u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CAPTUREMODE_BURST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CAPTUREMODE_NORMAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CAPTUREMODE_TIMELAPSE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CENTERED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CFSTR_WIAITEMNAMES: &str = "WIAItemNames";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CFSTR_WIAITEMPTR: &str = "WIAItemPointer";
+pub const CLSID_WiaDefaultSegFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4f4d30b_0b29_4508_8922_0c5797d42765);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETADFAVAILABLE: u32 = 117u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETADFHASPAPER: u32 = 120u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETADFOPEN: u32 = 118u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETADFREADY: u32 = 119u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETADFSTATUS: u32 = 121u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETADFUNLOADREADY: u32 = 122u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETCAPABILITIES: u32 = 132u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETSUPPORTEDFILEFORMATS: u32 = 138u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETSUPPORTEDMEMORYFORMATS: u32 = 139u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETTPAAVAILABLE: u32 = 123u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GETTPAOPENED: u32 = 124u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_GET_INTERRUPT_EVENT: u32 = 133u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_INITIALIZE: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_LOAD_ADF: u32 = 115u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_RESETSCANNER: u32 = 131u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SENDSCSICOMMAND: u32 = 127u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETCOLORDITHER: u32 = 111u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETCONTRAST: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETDATATYPE: u32 = 106u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETDITHER: u32 = 107u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETFILTER: u32 = 114u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETFORMAT: u32 = 140u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETGSDNAME: u32 = 134u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETINTENSITY: u32 = 105u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETLAMP: u32 = 126u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETMATRIX: u32 = 112u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETMIRROR: u32 = 108u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETNEGATIVE: u32 = 109u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETSCANMODE: u32 = 135u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETSPEED: u32 = 113u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETSTIDEVICEHKEY: u32 = 136u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETTONEMAP: u32 = 110u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETXRESOLUTION: u32 = 102u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_SETYRESOLUTION: u32 = 103u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_STI_DEVICERESET: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_STI_DIAGNOSTIC: u32 = 130u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_STI_GETSTATUS: u32 = 129u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_TPAREADY: u32 = 125u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_UNINITIALIZE: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const CMD_UNLOAD_ADF: u32 = 116u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const COPY_PARENT_PROPERTY_VALUES: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_DUP: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_DUP_AVAIL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_FEED: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_FEED_AVAIL: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_FILM_TPA: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_FLAT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_SCAN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DETECT_STOR: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DEVICE_ATTENTION: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DUP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DUPLEX: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const DUP_READY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EFFECTMODE_BW: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EFFECTMODE_SEPIA: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EFFECTMODE_STANDARD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const ENDORSER: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const ENDORSER_READY: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const ESC_TWAIN_CAPABILITY: u32 = 2001u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const ESC_TWAIN_PRIVATE_SUPPORTED_CAPS: u32 = 2002u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMETERING_AVERAGE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMETERING_CENTERSPOT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMETERING_CENTERWEIGHT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMETERING_MULTISPOT: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMODE_APERTURE_PRIORITY: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMODE_AUTO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMODE_MANUAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMODE_PORTRAIT: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMODE_PROGRAM_ACTION: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMODE_PROGRAM_CREATIVE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const EXPOSUREMODE_SHUTTER_PRIORITY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FEED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FEEDER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FEED_READY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FILM_TPA: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FILM_TPA_READY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLASHMODE_AUTO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLASHMODE_EXTERNALSYNC: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLASHMODE_FILL: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLASHMODE_OFF: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLASHMODE_REDEYE_AUTO: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLASHMODE_REDEYE_FILL: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLAT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLATBED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLAT_COVER_UP: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FLAT_READY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FOCUSMETERING_CENTERSPOT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FOCUSMETERING_MULTISPOT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FOCUSMODE_AUTO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FOCUSMODE_MACROAUTO: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FOCUSMODE_MANUAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FRONT_FIRST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const FRONT_ONLY: u32 = 32u32;
+pub const GUID_DEVINTERFACE_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IMPRINTER: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IMPRINTER_READY: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_MSG_DATA: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_MSG_DATA_HEADER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_MSG_FILE_PREVIEW_DATA: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_MSG_FILE_PREVIEW_DATA_HEADER: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_MSG_NEW_PAGE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_MSG_STATUS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_MSG_TERMINATION: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_STATUS_MASK: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_STATUS_PROCESSING_DATA: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const LAMP_ERR: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const LANDSCAPE: u32 = 1u32;
@@ -3192,150 +3085,6 @@ pub const MCRO_STATUS_OK: u32 = 1u32;
 pub const MICR_READER: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const MICR_READER_READY: u32 = 65536u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MINIDRV_TRANSFER_CONTEXT {
-    pub lSize: i32,
-    pub lWidthInPixels: i32,
-    pub lLines: i32,
-    pub lDepth: i32,
-    pub lXRes: i32,
-    pub lYRes: i32,
-    pub lCompression: i32,
-    pub guidFormatID: ::windows::core::GUID,
-    pub tymed: i32,
-    pub hFile: isize,
-    pub cbOffset: i32,
-    pub lBufferSize: i32,
-    pub lActiveBuffer: i32,
-    pub lNumBuffers: i32,
-    pub pBaseBuffer: *mut u8,
-    pub pTransferBuffer: *mut u8,
-    pub bTransferDataCB: super::super::Foundation::BOOL,
-    pub bClassDrvAllocBuf: super::super::Foundation::BOOL,
-    pub lClientAddress: isize,
-    pub pIWiaMiniDrvCallBack: ::core::option::Option<IWiaMiniDrvCallBack>,
-    pub lImageSize: i32,
-    pub lHeaderSize: i32,
-    pub lItemSize: i32,
-    pub cbWidthInBytes: i32,
-    pub lPage: i32,
-    pub lCurIfdOffset: i32,
-    pub lPrevIfdOffset: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MINIDRV_TRANSFER_CONTEXT {
-    fn clone(&self) -> Self {
-        Self {
-            lSize: self.lSize,
-            lWidthInPixels: self.lWidthInPixels,
-            lLines: self.lLines,
-            lDepth: self.lDepth,
-            lXRes: self.lXRes,
-            lYRes: self.lYRes,
-            lCompression: self.lCompression,
-            guidFormatID: self.guidFormatID,
-            tymed: self.tymed,
-            hFile: self.hFile,
-            cbOffset: self.cbOffset,
-            lBufferSize: self.lBufferSize,
-            lActiveBuffer: self.lActiveBuffer,
-            lNumBuffers: self.lNumBuffers,
-            pBaseBuffer: self.pBaseBuffer,
-            pTransferBuffer: self.pTransferBuffer,
-            bTransferDataCB: self.bTransferDataCB,
-            bClassDrvAllocBuf: self.bClassDrvAllocBuf,
-            lClientAddress: self.lClientAddress,
-            pIWiaMiniDrvCallBack: self.pIWiaMiniDrvCallBack.clone(),
-            lImageSize: self.lImageSize,
-            lHeaderSize: self.lHeaderSize,
-            lItemSize: self.lItemSize,
-            cbWidthInBytes: self.cbWidthInBytes,
-            lPage: self.lPage,
-            lCurIfdOffset: self.lCurIfdOffset,
-            lPrevIfdOffset: self.lPrevIfdOffset,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MINIDRV_TRANSFER_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDRV_TRANSFER_CONTEXT")
-            .field("lSize", &self.lSize)
-            .field("lWidthInPixels", &self.lWidthInPixels)
-            .field("lLines", &self.lLines)
-            .field("lDepth", &self.lDepth)
-            .field("lXRes", &self.lXRes)
-            .field("lYRes", &self.lYRes)
-            .field("lCompression", &self.lCompression)
-            .field("guidFormatID", &self.guidFormatID)
-            .field("tymed", &self.tymed)
-            .field("hFile", &self.hFile)
-            .field("cbOffset", &self.cbOffset)
-            .field("lBufferSize", &self.lBufferSize)
-            .field("lActiveBuffer", &self.lActiveBuffer)
-            .field("lNumBuffers", &self.lNumBuffers)
-            .field("pBaseBuffer", &self.pBaseBuffer)
-            .field("pTransferBuffer", &self.pTransferBuffer)
-            .field("bTransferDataCB", &self.bTransferDataCB)
-            .field("bClassDrvAllocBuf", &self.bClassDrvAllocBuf)
-            .field("lClientAddress", &self.lClientAddress)
-            .field("pIWiaMiniDrvCallBack", &self.pIWiaMiniDrvCallBack)
-            .field("lImageSize", &self.lImageSize)
-            .field("lHeaderSize", &self.lHeaderSize)
-            .field("lItemSize", &self.lItemSize)
-            .field("cbWidthInBytes", &self.cbWidthInBytes)
-            .field("lPage", &self.lPage)
-            .field("lCurIfdOffset", &self.lCurIfdOffset)
-            .field("lPrevIfdOffset", &self.lPrevIfdOffset)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MINIDRV_TRANSFER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MINIDRV_TRANSFER_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lSize == other.lSize
-            && self.lWidthInPixels == other.lWidthInPixels
-            && self.lLines == other.lLines
-            && self.lDepth == other.lDepth
-            && self.lXRes == other.lXRes
-            && self.lYRes == other.lYRes
-            && self.lCompression == other.lCompression
-            && self.guidFormatID == other.guidFormatID
-            && self.tymed == other.tymed
-            && self.hFile == other.hFile
-            && self.cbOffset == other.cbOffset
-            && self.lBufferSize == other.lBufferSize
-            && self.lActiveBuffer == other.lActiveBuffer
-            && self.lNumBuffers == other.lNumBuffers
-            && self.pBaseBuffer == other.pBaseBuffer
-            && self.pTransferBuffer == other.pTransferBuffer
-            && self.bTransferDataCB == other.bTransferDataCB
-            && self.bClassDrvAllocBuf == other.bClassDrvAllocBuf
-            && self.lClientAddress == other.lClientAddress
-            && self.pIWiaMiniDrvCallBack == other.pIWiaMiniDrvCallBack
-            && self.lImageSize == other.lImageSize
-            && self.lHeaderSize == other.lHeaderSize
-            && self.lItemSize == other.lItemSize
-            && self.cbWidthInBytes == other.cbWidthInBytes
-            && self.lPage == other.lPage
-            && self.lCurIfdOffset == other.lCurIfdOffset
-            && self.lPrevIfdOffset == other.lPrevIfdOffset
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MINIDRV_TRANSFER_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MINIDRV_TRANSFER_CONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const MIRRORED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -3358,191 +3107,16 @@ pub const POWERMODE_BATTERY: u32 = 2u32;
 pub const POWERMODE_LINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const PREFEED: u32 = 256u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct RANGEVALUE {
-    pub lMin: i32,
-    pub lMax: i32,
-    pub lStep: i32,
-}
-impl ::core::marker::Copy for RANGEVALUE {}
-impl ::core::clone::Clone for RANGEVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RANGEVALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RANGEVALUE").field("lMin", &self.lMin).field("lMax", &self.lMax).field("lStep", &self.lStep).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RANGEVALUE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RANGEVALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RANGEVALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RANGEVALUE {}
-impl ::core::default::Default for RANGEVALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const RIGHT_JUSTIFIED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const ROT180: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const ROT270: u32 = 3u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SCANINFO {
-    pub ADF: i32,
-    pub TPA: i32,
-    pub Endorser: i32,
-    pub OpticalXResolution: i32,
-    pub OpticalYResolution: i32,
-    pub BedWidth: i32,
-    pub BedHeight: i32,
-    pub IntensityRange: RANGEVALUE,
-    pub ContrastRange: RANGEVALUE,
-    pub SupportedCompressionType: i32,
-    pub SupportedDataTypes: i32,
-    pub WidthPixels: i32,
-    pub WidthBytes: i32,
-    pub Lines: i32,
-    pub DataType: i32,
-    pub PixelBits: i32,
-    pub Intensity: i32,
-    pub Contrast: i32,
-    pub Xresolution: i32,
-    pub Yresolution: i32,
-    pub Window: SCANWINDOW,
-    pub DitherPattern: i32,
-    pub Negative: i32,
-    pub Mirror: i32,
-    pub AutoBack: i32,
-    pub ColorDitherPattern: i32,
-    pub ToneMap: i32,
-    pub Compression: i32,
-    pub RawDataFormat: i32,
-    pub RawPixelOrder: i32,
-    pub bNeedDataAlignment: i32,
-    pub DelayBetweenRead: i32,
-    pub MaxBufferSize: i32,
-    pub DeviceIOHandles: [super::super::Foundation::HANDLE; 16],
-    pub lReserved: [i32; 4],
-    pub pMicroDriverContext: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SCANINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SCANINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SCANINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCANINFO")
-            .field("ADF", &self.ADF)
-            .field("TPA", &self.TPA)
-            .field("Endorser", &self.Endorser)
-            .field("OpticalXResolution", &self.OpticalXResolution)
-            .field("OpticalYResolution", &self.OpticalYResolution)
-            .field("BedWidth", &self.BedWidth)
-            .field("BedHeight", &self.BedHeight)
-            .field("IntensityRange", &self.IntensityRange)
-            .field("ContrastRange", &self.ContrastRange)
-            .field("SupportedCompressionType", &self.SupportedCompressionType)
-            .field("SupportedDataTypes", &self.SupportedDataTypes)
-            .field("WidthPixels", &self.WidthPixels)
-            .field("WidthBytes", &self.WidthBytes)
-            .field("Lines", &self.Lines)
-            .field("DataType", &self.DataType)
-            .field("PixelBits", &self.PixelBits)
-            .field("Intensity", &self.Intensity)
-            .field("Contrast", &self.Contrast)
-            .field("Xresolution", &self.Xresolution)
-            .field("Yresolution", &self.Yresolution)
-            .field("Window", &self.Window)
-            .field("DitherPattern", &self.DitherPattern)
-            .field("Negative", &self.Negative)
-            .field("Mirror", &self.Mirror)
-            .field("AutoBack", &self.AutoBack)
-            .field("ColorDitherPattern", &self.ColorDitherPattern)
-            .field("ToneMap", &self.ToneMap)
-            .field("Compression", &self.Compression)
-            .field("RawDataFormat", &self.RawDataFormat)
-            .field("RawPixelOrder", &self.RawPixelOrder)
-            .field("bNeedDataAlignment", &self.bNeedDataAlignment)
-            .field("DelayBetweenRead", &self.DelayBetweenRead)
-            .field("MaxBufferSize", &self.MaxBufferSize)
-            .field("DeviceIOHandles", &self.DeviceIOHandles)
-            .field("lReserved", &self.lReserved)
-            .field("pMicroDriverContext", &self.pMicroDriverContext)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SCANINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SCANINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCANINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SCANINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SCANINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const SCANMODE_FINALSCAN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const SCANMODE_PREVIEWSCAN: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct SCANWINDOW {
-    pub xPos: i32,
-    pub yPos: i32,
-    pub xExtent: i32,
-    pub yExtent: i32,
-}
-impl ::core::marker::Copy for SCANWINDOW {}
-impl ::core::clone::Clone for SCANWINDOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SCANWINDOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCANWINDOW").field("xPos", &self.xPos).field("yPos", &self.yPos).field("xExtent", &self.xExtent).field("yExtent", &self.yExtent).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SCANWINDOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCANWINDOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCANWINDOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SCANWINDOW {}
-impl ::core::default::Default for SCANWINDOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const SCAN_FINISHED: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -3569,95 +3143,12 @@ pub const TOP_JUSTIFIED: u32 = 0u32;
 pub const TRANSPARENCY_DYNAMIC_FRAME_SUPPORT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const TRANSPARENCY_STATIC_FRAME_SUPPORT: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct TWAIN_CAPABILITY {
-    pub lSize: i32,
-    pub lMSG: i32,
-    pub lCapID: i32,
-    pub lConType: i32,
-    pub lRC: i32,
-    pub lCC: i32,
-    pub lDataSize: i32,
-    pub Data: [u8; 1],
-}
-impl ::core::marker::Copy for TWAIN_CAPABILITY {}
-impl ::core::clone::Clone for TWAIN_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TWAIN_CAPABILITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TWAIN_CAPABILITY").field("lSize", &self.lSize).field("lMSG", &self.lMSG).field("lCapID", &self.lCapID).field("lConType", &self.lConType).field("lRC", &self.lRC).field("lCC", &self.lCC).field("lDataSize", &self.lDataSize).field("Data", &self.Data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TWAIN_CAPABILITY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TWAIN_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TWAIN_CAPABILITY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TWAIN_CAPABILITY {}
-impl ::core::default::Default for TWAIN_CAPABILITY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const TYMED_CALLBACK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const TYMED_MULTIPAGE_CALLBACK: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const TYMED_MULTIPAGE_FILE: u32 = 256u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct VAL {
-    pub lVal: i32,
-    pub dblVal: f64,
-    pub pGuid: *mut ::windows::core::GUID,
-    pub pScanInfo: *mut SCANINFO,
-    pub handle: isize,
-    pub ppButtonNames: *mut *mut u16,
-    pub pHandle: *mut super::super::Foundation::HANDLE,
-    pub lReserved: i32,
-    pub szVal: [super::super::Foundation::CHAR; 255],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for VAL {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for VAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VAL").field("lVal", &self.lVal).field("dblVal", &self.dblVal).field("pGuid", &self.pGuid).field("pScanInfo", &self.pScanInfo).field("handle", &self.handle).field("ppButtonNames", &self.ppButtonNames).field("pHandle", &self.pHandle).field("lReserved", &self.lReserved).field("szVal", &self.szVal).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VAL {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for VAL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VAL>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for VAL {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for VAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WHITEBALANCE_AUTO: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -3672,259 +3163,8 @@ pub const WHITEBALANCE_MANUAL: u32 = 1u32;
 pub const WHITEBALANCE_ONEPUSH_AUTO: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WHITEBALANCE_TUNGSTEN: u32 = 6u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WIAS_CHANGED_VALUE_INFO {
-    pub bChanged: super::super::Foundation::BOOL,
-    pub vt: i32,
-    pub Old: WIAS_CHANGED_VALUE_INFO_1,
-    pub Current: WIAS_CHANGED_VALUE_INFO_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO {
-    fn clone(&self) -> Self {
-        Self { bChanged: self.bChanged, vt: self.vt, Old: self.Old.clone(), Current: self.Current.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bChanged == other.bChanged && self.vt == other.vt && self.Old == other.Old && self.Current == other.Current
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union WIAS_CHANGED_VALUE_INFO_0 {
-    pub lVal: i32,
-    pub fltVal: f32,
-    pub bstrVal: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    pub guidVal: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_0 {
-    fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_CHANGED_VALUE_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union WIAS_CHANGED_VALUE_INFO_1 {
-    pub lVal: i32,
-    pub fltVal: f32,
-    pub bstrVal: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    pub guidVal: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
-    fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_CHANGED_VALUE_INFO_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIAS_DOWN_SAMPLE_INFO {
-    pub ulOriginalWidth: u32,
-    pub ulOriginalHeight: u32,
-    pub ulBitsPerPixel: u32,
-    pub ulXRes: u32,
-    pub ulYRes: u32,
-    pub ulDownSampledWidth: u32,
-    pub ulDownSampledHeight: u32,
-    pub ulActualSize: u32,
-    pub ulDestBufSize: u32,
-    pub ulSrcBufSize: u32,
-    pub pSrcBuffer: *mut u8,
-    pub pDestBuffer: *mut u8,
-}
-impl ::core::marker::Copy for WIAS_DOWN_SAMPLE_INFO {}
-impl ::core::clone::Clone for WIAS_DOWN_SAMPLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIAS_DOWN_SAMPLE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIAS_DOWN_SAMPLE_INFO")
-            .field("ulOriginalWidth", &self.ulOriginalWidth)
-            .field("ulOriginalHeight", &self.ulOriginalHeight)
-            .field("ulBitsPerPixel", &self.ulBitsPerPixel)
-            .field("ulXRes", &self.ulXRes)
-            .field("ulYRes", &self.ulYRes)
-            .field("ulDownSampledWidth", &self.ulDownSampledWidth)
-            .field("ulDownSampledHeight", &self.ulDownSampledHeight)
-            .field("ulActualSize", &self.ulActualSize)
-            .field("ulDestBufSize", &self.ulDestBufSize)
-            .field("ulSrcBufSize", &self.ulSrcBufSize)
-            .field("pSrcBuffer", &self.pSrcBuffer)
-            .field("pDestBuffer", &self.pDestBuffer)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIAS_DOWN_SAMPLE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIAS_DOWN_SAMPLE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_DOWN_SAMPLE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIAS_DOWN_SAMPLE_INFO {}
-impl ::core::default::Default for WIAS_DOWN_SAMPLE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIAS_ENDORSER_INFO {
-    pub ulPageCount: u32,
-    pub ulNumEndorserValues: u32,
-    pub pEndorserValues: *mut WIAS_ENDORSER_VALUE,
-}
-impl ::core::marker::Copy for WIAS_ENDORSER_INFO {}
-impl ::core::clone::Clone for WIAS_ENDORSER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIAS_ENDORSER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIAS_ENDORSER_INFO").field("ulPageCount", &self.ulPageCount).field("ulNumEndorserValues", &self.ulNumEndorserValues).field("pEndorserValues", &self.pEndorserValues).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIAS_ENDORSER_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIAS_ENDORSER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_ENDORSER_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIAS_ENDORSER_INFO {}
-impl ::core::default::Default for WIAS_ENDORSER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIAS_ENDORSER_VALUE {
-    pub wszTokenName: ::windows::core::PWSTR,
-    pub wszValue: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for WIAS_ENDORSER_VALUE {}
-impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIAS_ENDORSER_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIAS_ENDORSER_VALUE").field("wszTokenName", &self.wszTokenName).field("wszValue", &self.wszValue).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIAS_ENDORSER_VALUE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIAS_ENDORSER_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_ENDORSER_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIAS_ENDORSER_VALUE {}
-impl ::core::default::Default for WIAS_ENDORSER_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIAU_DEBUG_TSTR: &str = "S";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WIAVIDEO_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
-impl ::core::marker::Copy for WIAVIDEO_STATE {}
-impl ::core::clone::Clone for WIAVIDEO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WIAVIDEO_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WIAVIDEO_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WIAVIDEO_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WIAVIDEO_STATE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -3961,40 +3201,6 @@ pub const WIA_AUTO_CROP_SINGLE: u32 = 1u32;
 pub const WIA_AUTO_DESKEW_OFF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_AUTO_DESKEW_ON: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_BARCODES {
-    pub Tag: u32,
-    pub Version: u32,
-    pub Size: u32,
-    pub Count: u32,
-    pub Barcodes: [WIA_BARCODE_INFO; 1],
-}
-impl ::core::marker::Copy for WIA_BARCODES {}
-impl ::core::clone::Clone for WIA_BARCODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_BARCODES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_BARCODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("Barcodes", &self.Barcodes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_BARCODES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_BARCODES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_BARCODES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_BARCODES {}
-impl ::core::default::Default for WIA_BARCODES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_BARCODE_AUTO_SEARCH: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -4043,44 +3249,6 @@ pub const WIA_BARCODE_HIGH_CAPACITY_COLOR: u32 = 26u32;
 pub const WIA_BARCODE_HORIZONTAL_SEARCH: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_BARCODE_INFO {
-    pub Size: u32,
-    pub Type: u32,
-    pub Page: u32,
-    pub Confidence: u32,
-    pub XOffset: u32,
-    pub YOffset: u32,
-    pub Rotation: u32,
-    pub Length: u32,
-    pub Text: [u16; 1],
-}
-impl ::core::marker::Copy for WIA_BARCODE_INFO {}
-impl ::core::clone::Clone for WIA_BARCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_BARCODE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_BARCODE_INFO").field("Size", &self.Size).field("Type", &self.Type).field("Page", &self.Page).field("Confidence", &self.Confidence).field("XOffset", &self.XOffset).field("YOffset", &self.YOffset).field("Rotation", &self.Rotation).field("Length", &self.Length).field("Text", &self.Text).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_BARCODE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_BARCODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_BARCODE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_BARCODE_INFO {}
-impl ::core::default::Default for WIA_BARCODE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_BARCODE_INTELLIGENT_MAIL: u32 = 23u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -4211,39 +3379,6 @@ pub const WIA_COMPRESSION_NONE: u32 = 0u32;
 pub const WIA_COMPRESSION_PNG: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DATA_AUTO: u32 = 100u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_DATA_CALLBACK_HEADER {
-    pub lSize: i32,
-    pub guidFormatID: ::windows::core::GUID,
-    pub lBufferSize: i32,
-    pub lPageCount: i32,
-}
-impl ::core::marker::Copy for WIA_DATA_CALLBACK_HEADER {}
-impl ::core::clone::Clone for WIA_DATA_CALLBACK_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_DATA_CALLBACK_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_DATA_CALLBACK_HEADER").field("lSize", &self.lSize).field("guidFormatID", &self.guidFormatID).field("lBufferSize", &self.lBufferSize).field("lPageCount", &self.lPageCount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_DATA_CALLBACK_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_DATA_CALLBACK_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DATA_CALLBACK_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_DATA_CALLBACK_HEADER {}
-impl ::core::default::Default for WIA_DATA_CALLBACK_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DATA_COLOR: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -4268,50 +3403,6 @@ pub const WIA_DATA_RAW_YUV: u32 = 8u32;
 pub const WIA_DATA_RAW_YUVK: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DATA_THRESHOLD: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WIA_DATA_TRANSFER_INFO {
-    pub ulSize: u32,
-    pub ulSection: u32,
-    pub ulBufferSize: u32,
-    pub bDoubleBuffer: super::super::Foundation::BOOL,
-    pub ulReserved1: u32,
-    pub ulReserved2: u32,
-    pub ulReserved3: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WIA_DATA_TRANSFER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WIA_DATA_TRANSFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIA_DATA_TRANSFER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_DATA_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulSection", &self.ulSection).field("ulBufferSize", &self.ulBufferSize).field("bDoubleBuffer", &self.bDoubleBuffer).field("ulReserved1", &self.ulReserved1).field("ulReserved2", &self.ulReserved2).field("ulReserved3", &self.ulReserved3).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIA_DATA_TRANSFER_INFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIA_DATA_TRANSFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DATA_TRANSFER_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIA_DATA_TRANSFER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WIA_DATA_TRANSFER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DEPTH_AUTO: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -4330,88 +3421,6 @@ pub const WIA_DEVICE_NOT_CONNECTED: u32 = 0u32;
 pub const WIA_DEVINFO_ENUM_ALL: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DEVINFO_ENUM_LOCAL: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WIA_DEV_CAP {
-    pub guid: ::windows::core::GUID,
-    pub ulFlags: u32,
-    pub bstrName: super::super::Foundation::BSTR,
-    pub bstrDescription: super::super::Foundation::BSTR,
-    pub bstrIcon: super::super::Foundation::BSTR,
-    pub bstrCommandline: super::super::Foundation::BSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WIA_DEV_CAP {
-    fn clone(&self) -> Self {
-        Self {
-            guid: self.guid,
-            ulFlags: self.ulFlags,
-            bstrName: self.bstrName.clone(),
-            bstrDescription: self.bstrDescription.clone(),
-            bstrIcon: self.bstrIcon.clone(),
-            bstrCommandline: self.bstrCommandline.clone(),
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIA_DEV_CAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_DEV_CAP").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("bstrName", &self.bstrName).field("bstrDescription", &self.bstrDescription).field("bstrIcon", &self.bstrIcon).field("bstrCommandline", &self.bstrCommandline).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIA_DEV_CAP {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIA_DEV_CAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.ulFlags == other.ulFlags && self.bstrName == other.bstrName && self.bstrDescription == other.bstrDescription && self.bstrIcon == other.bstrIcon && self.bstrCommandline == other.bstrCommandline
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIA_DEV_CAP {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WIA_DEV_CAP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_DEV_CAP_DRV {
-    pub guid: *mut ::windows::core::GUID,
-    pub ulFlags: u32,
-    pub wszName: ::windows::core::PWSTR,
-    pub wszDescription: ::windows::core::PWSTR,
-    pub wszIcon: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for WIA_DEV_CAP_DRV {}
-impl ::core::clone::Clone for WIA_DEV_CAP_DRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_DEV_CAP_DRV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_DEV_CAP_DRV").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("wszName", &self.wszName).field("wszDescription", &self.wszDescription).field("wszIcon", &self.wszIcon).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_DEV_CAP_DRV {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_DEV_CAP_DRV {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DEV_CAP_DRV>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_DEV_CAP_DRV {}
-impl ::core::default::Default for WIA_DEV_CAP_DRV {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DIP_BAUDRATE: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -4478,54 +3487,6 @@ pub const WIA_DIP_VEND_DESC_STR: &str = "Manufacturer";
 pub const WIA_DIP_WIA_VERSION: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DIP_WIA_VERSION_STR: &str = "WIA Version";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WIA_DITHER_PATTERN_DATA {
-    pub lSize: i32,
-    pub bstrPatternName: super::super::Foundation::BSTR,
-    pub lPatternWidth: i32,
-    pub lPatternLength: i32,
-    pub cbPattern: i32,
-    pub pbPattern: *mut u8,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WIA_DITHER_PATTERN_DATA {
-    fn clone(&self) -> Self {
-        Self {
-            lSize: self.lSize,
-            bstrPatternName: self.bstrPatternName.clone(),
-            lPatternWidth: self.lPatternWidth,
-            lPatternLength: self.lPatternLength,
-            cbPattern: self.cbPattern,
-            pbPattern: self.pbPattern,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIA_DITHER_PATTERN_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_DITHER_PATTERN_DATA").field("lSize", &self.lSize).field("bstrPatternName", &self.bstrPatternName).field("lPatternWidth", &self.lPatternWidth).field("lPatternLength", &self.lPatternLength).field("cbPattern", &self.cbPattern).field("pbPattern", &self.pbPattern).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIA_DITHER_PATTERN_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIA_DITHER_PATTERN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lSize == other.lSize && self.bstrPatternName == other.bstrPatternName && self.lPatternWidth == other.lPatternWidth && self.lPatternLength == other.lPatternLength && self.cbPattern == other.cbPattern && self.pbPattern == other.pbPattern
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIA_DITHER_PATTERN_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WIA_DITHER_PATTERN_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_DONT_SHOW_PREVIEW_CONTROL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -4979,40 +3940,6 @@ pub const WIA_EVENT_STORAGE_CREATED: ::windows::core::GUID = ::windows::core::GU
 pub const WIA_EVENT_STORAGE_DELETED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e41e75e_9390_44c5_9a51_e47019e390cf);
 pub const WIA_EVENT_TREE_UPDATED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9859b91_4ab2_4cd6_a1fc_582eec55e585);
 pub const WIA_EVENT_VOLUME_INSERT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9638bbfd_d1bd_11d2_b31f_00c04f68ce61);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_EXTENDED_TRANSFER_INFO {
-    pub ulSize: u32,
-    pub ulMinBufferSize: u32,
-    pub ulOptimalBufferSize: u32,
-    pub ulMaxBufferSize: u32,
-    pub ulNumBuffers: u32,
-}
-impl ::core::marker::Copy for WIA_EXTENDED_TRANSFER_INFO {}
-impl ::core::clone::Clone for WIA_EXTENDED_TRANSFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_EXTENDED_TRANSFER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_EXTENDED_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulMinBufferSize", &self.ulMinBufferSize).field("ulOptimalBufferSize", &self.ulOptimalBufferSize).field("ulMaxBufferSize", &self.ulMaxBufferSize).field("ulNumBuffers", &self.ulNumBuffers).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_EXTENDED_TRANSFER_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_EXTENDED_TRANSFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_EXTENDED_TRANSFER_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_EXTENDED_TRANSFER_INFO {}
-impl ::core::default::Default for WIA_EXTENDED_TRANSFER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_FEEDER_CONTROL_AUTO: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -5031,37 +3958,6 @@ pub const WIA_FLAG_NOM: u32 = 0u32;
 pub const WIA_FLAG_NUM_ELEMS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_FLAG_VALUES: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_FORMAT_INFO {
-    pub guidFormatID: ::windows::core::GUID,
-    pub lTymed: i32,
-}
-impl ::core::marker::Copy for WIA_FORMAT_INFO {}
-impl ::core::clone::Clone for WIA_FORMAT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_FORMAT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_FORMAT_INFO").field("guidFormatID", &self.guidFormatID).field("lTymed", &self.lTymed).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_FORMAT_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_FORMAT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_FORMAT_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_FORMAT_INFO {}
-impl ::core::default::Default for WIA_FORMAT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_IMAGEPROC_FILTER_STR: &str = "ImageProcessingFilter";
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -5704,75 +4600,6 @@ pub const WIA_MAJOR_EVENT_PICTURE_DELETED: u32 = 4u32;
 pub const WIA_MAJOR_EVENT_PICTURE_TAKEN: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_MAX_CTX_SIZE: u32 = 16777216u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_MICR {
-    pub Tag: u32,
-    pub Version: u32,
-    pub Size: u32,
-    pub Placeholder: u16,
-    pub Reserved: u16,
-    pub Count: u32,
-    pub Micr: [WIA_MICR_INFO; 1],
-}
-impl ::core::marker::Copy for WIA_MICR {}
-impl ::core::clone::Clone for WIA_MICR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_MICR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_MICR").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Placeholder", &self.Placeholder).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Micr", &self.Micr).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_MICR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_MICR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_MICR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_MICR {}
-impl ::core::default::Default for WIA_MICR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_MICR_INFO {
-    pub Size: u32,
-    pub Page: u32,
-    pub Length: u32,
-    pub Text: [u16; 1],
-}
-impl ::core::marker::Copy for WIA_MICR_INFO {}
-impl ::core::clone::Clone for WIA_MICR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_MICR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_MICR_INFO").field("Size", &self.Size).field("Page", &self.Page).field("Length", &self.Length).field("Text", &self.Text).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_MICR_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_MICR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_MICR_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_MICR_INFO {}
-impl ::core::default::Default for WIA_MICR_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_MICR_READER_AUTO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -5933,40 +4760,6 @@ pub const WIA_PAGE_USLEGAL: u32 = 3u32;
 pub const WIA_PAGE_USLETTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_PAGE_USSTATEMENT: u32 = 5u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_PATCH_CODES {
-    pub Tag: u32,
-    pub Version: u32,
-    pub Size: u32,
-    pub Count: u32,
-    pub PatchCodes: [WIA_PATCH_CODE_INFO; 1],
-}
-impl ::core::marker::Copy for WIA_PATCH_CODES {}
-impl ::core::clone::Clone for WIA_PATCH_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_PATCH_CODES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_PATCH_CODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("PatchCodes", &self.PatchCodes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_PATCH_CODES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_PATCH_CODES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PATCH_CODES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_PATCH_CODES {}
-impl ::core::default::Default for WIA_PATCH_CODES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_PATCH_CODE_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -5995,36 +4788,6 @@ pub const WIA_PATCH_CODE_8: u32 = 8u32;
 pub const WIA_PATCH_CODE_9: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_PATCH_CODE_CUSTOM_BASE: u32 = 32768u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub struct WIA_PATCH_CODE_INFO {
-    pub Type: u32,
-}
-impl ::core::marker::Copy for WIA_PATCH_CODE_INFO {}
-impl ::core::clone::Clone for WIA_PATCH_CODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WIA_PATCH_CODE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIA_PATCH_CODE_INFO").field("Type", &self.Type).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WIA_PATCH_CODE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIA_PATCH_CODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PATCH_CODE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WIA_PATCH_CODE_INFO {}
-impl ::core::default::Default for WIA_PATCH_CODE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_PATCH_CODE_READER_AUTO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
@@ -6169,6 +4932,1472 @@ pub const WIA_PRINT_YEAR: u32 = 1u32;
 pub const WIA_PRIVATE_DEVPROP: u32 = 38914u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_PRIVATE_ITEMPROP: u32 = 71682u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROPPAGE_DEVICE_GENERAL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROPPAGE_SCANNER_ITEM_GENERAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_CACHEABLE: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_FLAG: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_LIST: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_NONE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_RANGE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_READ: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_SYNC_REQUIRED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_PROP_WRITE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_RANGE_MAX: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_RANGE_MIN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_RANGE_NOM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_RANGE_NUM_ELEMS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_RANGE_STEP: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_REGISTER_EVENT_CALLBACK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_RESERVED_FOR_NEW_PROPS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SCAN_AHEAD_ALL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SCAN_AHEAD_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SCAN_AHEAD_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SEGMENTATION_FILTER_STR: &str = "SegmentationFilter";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SELECT_DEVICE_NODEFAULT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SEPARATOR_DETECT_NOSCAN_CONTINUE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SEPARATOR_DETECT_NOSCAN_STOP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SEPARATOR_DETECT_SCAN_CONTINUE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SEPARATOR_DETECT_SCAN_STOP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SEPARATOR_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SET_DEFAULT_HANDLER: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_SHOW_PREVIEW_CONTROL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_CALIBRATING: ::windows::core::HRESULT = ::windows::core::HRESULT(2162691i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_CLEAR: ::windows::core::HRESULT = ::windows::core::HRESULT(2162696i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_END_OF_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(2162689i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_NETWORK_DEVICE_RESERVED: ::windows::core::HRESULT = ::windows::core::HRESULT(2162695i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_NOT_HANDLED: ::windows::core::HRESULT = ::windows::core::HRESULT(2162698i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_RESERVING_NETWORK_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2162694i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_SKIP_ITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(2162697i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_STATUS_WARMING_UP: ::windows::core::HRESULT = ::windows::core::HRESULT(2162690i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_S_CHANGE_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2162699i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_S_NO_DEVICE_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145320939i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_TRANSFER_ACQUIRE_CHILDREN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_TRANSFER_CHILDREN_SINGLE_SCAN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_TRANSFER_MSG_DEVICE_STATUS: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_TRANSFER_MSG_END_OF_STREAM: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_TRANSFER_MSG_END_OF_TRANSFER: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_TRANSFER_MSG_NEW_PAGE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_TRANSFER_MSG_STATUS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_UNREGISTER_EVENT_CALLBACK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_USE_SEGMENTATION_FILTER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_FRIENDLY_NAME: u32 = 38920u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_FRIENDLY_NAME_STR: &str = "Friendly name";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MANUFACTURER: u32 = 38914u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MANUFACTURER_STR: &str = "Device manufacturer";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MANUFACTURER_URL: u32 = 38915u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MANUFACTURER_URL_STR: &str = "Manufacurer URL";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MODEL_NAME: u32 = 38916u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MODEL_NAME_STR: &str = "Model name";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MODEL_NUMBER: u32 = 38917u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MODEL_NUMBER_STR: &str = "Model number";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MODEL_URL: u32 = 38918u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_MODEL_URL_STR: &str = "Model URL";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_PRESENTATION_URL: u32 = 38919u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_PRESENTATION_URL_STR: &str = "Presentation URL";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_SCAN_AVAILABLE_ITEM: u32 = 38922u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_SCAN_AVAILABLE_ITEM_STR: &str = "Scan Available Item";
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_SERIAL_NUMBER: u32 = 38921u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIA_WSD_SERIAL_NUMBER_STR: &str = "Serial number";
+pub const WiaAudFmt_AIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66e2bf4f_b6fc_443f_94c8_2f33c8a65aaf);
+pub const WiaAudFmt_MP3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fbc71fb_43bf_49f2_9190_e6fecff37e54);
+pub const WiaAudFmt_WAV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf818e146_07af_40ff_ae55_be8f2c065dbe);
+pub const WiaAudFmt_WMA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61d6413_8bc2_438f_93ad_21bd484db6a1);
+pub const WiaDevMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
+pub const WiaDevMgr2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
+pub const WiaImgFmt_ASF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d948ee9_d0aa_4a12_9d9a_9cc5de36199b);
+pub const WiaImgFmt_AVI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32f8ca14_087c_4908_b7c4_6757fe7e90ab);
+pub const WiaImgFmt_BMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cab_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_CIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9821a8ab_3a7e_4215_94e0_d27a460c03b2);
+pub const WiaImgFmt_CSV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x355bda24_5a9f_4494_80dc_be752cecbc8c);
+pub const WiaImgFmt_DPOF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x369eeeab_a0e8_45ca_86a6_a83ce5697e28);
+pub const WiaImgFmt_EMF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cac_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_EXEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x485da097_141e_4aa5_bb3b_a5618d95d02b);
+pub const WiaImgFmt_EXIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb2_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_FLASHPIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb4_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_GIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb0_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_HTML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99a4e62_99de_4a94_acca_71956ac2977d);
+pub const WiaImgFmt_ICO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb5_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_JBIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e8dd92_2f0a_43d4_8636_f1614ba11e46);
+pub const WiaImgFmt_JBIG2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb8e7e67_283c_4235_9e59_0b9bf94ca687);
+pub const WiaImgFmt_JPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cae_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_JPEG2K: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x344ee2b2_39db_4dde_8173_c4b75f8f1e49);
+pub const WiaImgFmt_JPEG2KX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43e14614_c80a_4850_baf3_4b152dc8da27);
+pub const WiaImgFmt_MEMORYBMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3caa_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_MPG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd757e4_d2ec_4f57_955d_bcf8a97c4e52);
+pub const WiaImgFmt_OXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c7b1240_c14d_4109_9755_04b89025153a);
+pub const WiaImgFmt_PDFA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9980bd5b_3463_43c7_bdca_3caa146f229f);
+pub const WiaImgFmt_PHOTOCD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb3_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_PICT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bc85d8_6b3e_40ee_a95c_25d482e41adc);
+pub const WiaImgFmt_PNG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3caf_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_RAW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f120719_f1a8_4e07_9ade_9b64c63a3dcc);
+pub const WiaImgFmt_RAWBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda63f833_d26e_451e_90d2_ea55a1365d62);
+pub const WiaImgFmt_RAWMIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22c4f058_0d88_409c_ac1c_eec12b0ea680);
+pub const WiaImgFmt_RAWPAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7760507c_5064_400c_9a17_575624d8824b);
+pub const WiaImgFmt_RAWRGB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca48b55_f272_4371_b0f1_4a150d057bb4);
+pub const WiaImgFmt_RTF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x573dd6a3_4834_432d_a9b5_e198dd9e890d);
+pub const WiaImgFmt_SCRIPT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe7d6c53_2dac_446a_b0bd_d73e21e924c9);
+pub const WiaImgFmt_TIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb1_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_TXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfafd4d82_723f_421f_9318_30501ac44b59);
+pub const WiaImgFmt_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_UNICODE16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b7639b6_6357_47d1_9a07_12452dc073e9);
+pub const WiaImgFmt_WMF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cad_0728_11d3_9d7b_0000f81ef32e);
+pub const WiaImgFmt_XML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9171457_dac8_4884_b393_15b471d5f07e);
+pub const WiaImgFmt_XMLBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6235701c_3a98_484c_b2a8_fdffd87e6b16);
+pub const WiaImgFmt_XMLMIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d164c61_b9ae_4b23_8973_c7067e1fbd31);
+pub const WiaImgFmt_XMLPAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8986f55_f052_460d_9523_3a7dfedbb33c);
+pub const WiaImgFmt_XPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x700b4a0f_2011_411c_b430_d1e0b2e10b28);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeAnalyze: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeAudio: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeBurst: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeDeleted: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeDevice: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeDisconnected: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeDocument: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeFile: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeFolder: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeFree: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeGenerated: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeHPanorama: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeHasAttachments: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeImage: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeMask: u32 = 2148532223u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeProgrammableDataSource: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeRemoved: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeRoot: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeStorage: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeTransfer: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeTwainCapabilityPassThrough: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeVPanorama: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WiaItemTypeVideo: u32 = 65536u32;
+pub const WiaLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
+pub const WiaVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3908c3cd_4478_4536_af2f_10c25d4ef89a);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const g_dwDebugFlags: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WIAVIDEO_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
+impl ::core::marker::Copy for WIAVIDEO_STATE {}
+impl ::core::clone::Clone for WIAVIDEO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WIAVIDEO_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WIAVIDEO_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WIAVIDEO_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WIAVIDEO_STATE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVICEDIALOGDATA {
+    pub cbSize: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub pIWiaItemRoot: ::core::option::Option<IWiaItem>,
+    pub dwFlags: u32,
+    pub lIntent: i32,
+    pub lItemCount: i32,
+    pub ppWiaItems: *mut ::core::option::Option<IWiaItem>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVICEDIALOGDATA {
+    fn clone(&self) -> Self {
+        Self {
+            cbSize: self.cbSize,
+            hwndParent: self.hwndParent,
+            pIWiaItemRoot: self.pIWiaItemRoot.clone(),
+            dwFlags: self.dwFlags,
+            lIntent: self.lIntent,
+            lItemCount: self.lItemCount,
+            ppWiaItems: self.ppWiaItems,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICEDIALOGDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEDIALOGDATA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("lIntent", &self.lIntent).field("lItemCount", &self.lItemCount).field("ppWiaItems", &self.ppWiaItems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEVICEDIALOGDATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.lIntent == other.lIntent && self.lItemCount == other.lItemCount && self.ppWiaItems == other.ppWiaItems
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEVICEDIALOGDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DEVICEDIALOGDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVICEDIALOGDATA2 {
+    pub cbSize: u32,
+    pub pIWiaItemRoot: ::core::option::Option<IWiaItem2>,
+    pub dwFlags: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub bstrFolderName: super::super::Foundation::BSTR,
+    pub bstrFilename: super::super::Foundation::BSTR,
+    pub lNumFiles: i32,
+    pub pbstrFilePaths: *mut super::super::Foundation::BSTR,
+    pub pWiaItem: ::core::option::Option<IWiaItem2>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVICEDIALOGDATA2 {
+    fn clone(&self) -> Self {
+        Self {
+            cbSize: self.cbSize,
+            pIWiaItemRoot: self.pIWiaItemRoot.clone(),
+            dwFlags: self.dwFlags,
+            hwndParent: self.hwndParent,
+            bstrFolderName: self.bstrFolderName.clone(),
+            bstrFilename: self.bstrFilename.clone(),
+            lNumFiles: self.lNumFiles,
+            pbstrFilePaths: self.pbstrFilePaths,
+            pWiaItem: self.pWiaItem.clone(),
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEVICEDIALOGDATA2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICEDIALOGDATA2").field("cbSize", &self.cbSize).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("hwndParent", &self.hwndParent).field("bstrFolderName", &self.bstrFolderName).field("bstrFilename", &self.bstrFilename).field("lNumFiles", &self.lNumFiles).field("pbstrFilePaths", &self.pbstrFilePaths).field("pWiaItem", &self.pWiaItem).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA2 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEVICEDIALOGDATA2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.hwndParent == other.hwndParent && self.bstrFolderName == other.bstrFolderName && self.bstrFilename == other.bstrFilename && self.lNumFiles == other.lNumFiles && self.pbstrFilePaths == other.pbstrFilePaths && self.pWiaItem == other.pWiaItem
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEVICEDIALOGDATA2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DEVICEDIALOGDATA2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MINIDRV_TRANSFER_CONTEXT {
+    pub lSize: i32,
+    pub lWidthInPixels: i32,
+    pub lLines: i32,
+    pub lDepth: i32,
+    pub lXRes: i32,
+    pub lYRes: i32,
+    pub lCompression: i32,
+    pub guidFormatID: ::windows::core::GUID,
+    pub tymed: i32,
+    pub hFile: isize,
+    pub cbOffset: i32,
+    pub lBufferSize: i32,
+    pub lActiveBuffer: i32,
+    pub lNumBuffers: i32,
+    pub pBaseBuffer: *mut u8,
+    pub pTransferBuffer: *mut u8,
+    pub bTransferDataCB: super::super::Foundation::BOOL,
+    pub bClassDrvAllocBuf: super::super::Foundation::BOOL,
+    pub lClientAddress: isize,
+    pub pIWiaMiniDrvCallBack: ::core::option::Option<IWiaMiniDrvCallBack>,
+    pub lImageSize: i32,
+    pub lHeaderSize: i32,
+    pub lItemSize: i32,
+    pub cbWidthInBytes: i32,
+    pub lPage: i32,
+    pub lCurIfdOffset: i32,
+    pub lPrevIfdOffset: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MINIDRV_TRANSFER_CONTEXT {
+    fn clone(&self) -> Self {
+        Self {
+            lSize: self.lSize,
+            lWidthInPixels: self.lWidthInPixels,
+            lLines: self.lLines,
+            lDepth: self.lDepth,
+            lXRes: self.lXRes,
+            lYRes: self.lYRes,
+            lCompression: self.lCompression,
+            guidFormatID: self.guidFormatID,
+            tymed: self.tymed,
+            hFile: self.hFile,
+            cbOffset: self.cbOffset,
+            lBufferSize: self.lBufferSize,
+            lActiveBuffer: self.lActiveBuffer,
+            lNumBuffers: self.lNumBuffers,
+            pBaseBuffer: self.pBaseBuffer,
+            pTransferBuffer: self.pTransferBuffer,
+            bTransferDataCB: self.bTransferDataCB,
+            bClassDrvAllocBuf: self.bClassDrvAllocBuf,
+            lClientAddress: self.lClientAddress,
+            pIWiaMiniDrvCallBack: self.pIWiaMiniDrvCallBack.clone(),
+            lImageSize: self.lImageSize,
+            lHeaderSize: self.lHeaderSize,
+            lItemSize: self.lItemSize,
+            cbWidthInBytes: self.cbWidthInBytes,
+            lPage: self.lPage,
+            lCurIfdOffset: self.lCurIfdOffset,
+            lPrevIfdOffset: self.lPrevIfdOffset,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MINIDRV_TRANSFER_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MINIDRV_TRANSFER_CONTEXT")
+            .field("lSize", &self.lSize)
+            .field("lWidthInPixels", &self.lWidthInPixels)
+            .field("lLines", &self.lLines)
+            .field("lDepth", &self.lDepth)
+            .field("lXRes", &self.lXRes)
+            .field("lYRes", &self.lYRes)
+            .field("lCompression", &self.lCompression)
+            .field("guidFormatID", &self.guidFormatID)
+            .field("tymed", &self.tymed)
+            .field("hFile", &self.hFile)
+            .field("cbOffset", &self.cbOffset)
+            .field("lBufferSize", &self.lBufferSize)
+            .field("lActiveBuffer", &self.lActiveBuffer)
+            .field("lNumBuffers", &self.lNumBuffers)
+            .field("pBaseBuffer", &self.pBaseBuffer)
+            .field("pTransferBuffer", &self.pTransferBuffer)
+            .field("bTransferDataCB", &self.bTransferDataCB)
+            .field("bClassDrvAllocBuf", &self.bClassDrvAllocBuf)
+            .field("lClientAddress", &self.lClientAddress)
+            .field("pIWiaMiniDrvCallBack", &self.pIWiaMiniDrvCallBack)
+            .field("lImageSize", &self.lImageSize)
+            .field("lHeaderSize", &self.lHeaderSize)
+            .field("lItemSize", &self.lItemSize)
+            .field("cbWidthInBytes", &self.cbWidthInBytes)
+            .field("lPage", &self.lPage)
+            .field("lCurIfdOffset", &self.lCurIfdOffset)
+            .field("lPrevIfdOffset", &self.lPrevIfdOffset)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MINIDRV_TRANSFER_CONTEXT {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MINIDRV_TRANSFER_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        self.lSize == other.lSize
+            && self.lWidthInPixels == other.lWidthInPixels
+            && self.lLines == other.lLines
+            && self.lDepth == other.lDepth
+            && self.lXRes == other.lXRes
+            && self.lYRes == other.lYRes
+            && self.lCompression == other.lCompression
+            && self.guidFormatID == other.guidFormatID
+            && self.tymed == other.tymed
+            && self.hFile == other.hFile
+            && self.cbOffset == other.cbOffset
+            && self.lBufferSize == other.lBufferSize
+            && self.lActiveBuffer == other.lActiveBuffer
+            && self.lNumBuffers == other.lNumBuffers
+            && self.pBaseBuffer == other.pBaseBuffer
+            && self.pTransferBuffer == other.pTransferBuffer
+            && self.bTransferDataCB == other.bTransferDataCB
+            && self.bClassDrvAllocBuf == other.bClassDrvAllocBuf
+            && self.lClientAddress == other.lClientAddress
+            && self.pIWiaMiniDrvCallBack == other.pIWiaMiniDrvCallBack
+            && self.lImageSize == other.lImageSize
+            && self.lHeaderSize == other.lHeaderSize
+            && self.lItemSize == other.lItemSize
+            && self.cbWidthInBytes == other.cbWidthInBytes
+            && self.lPage == other.lPage
+            && self.lCurIfdOffset == other.lCurIfdOffset
+            && self.lPrevIfdOffset == other.lPrevIfdOffset
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MINIDRV_TRANSFER_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MINIDRV_TRANSFER_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct RANGEVALUE {
+    pub lMin: i32,
+    pub lMax: i32,
+    pub lStep: i32,
+}
+impl ::core::marker::Copy for RANGEVALUE {}
+impl ::core::clone::Clone for RANGEVALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RANGEVALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RANGEVALUE").field("lMin", &self.lMin).field("lMax", &self.lMax).field("lStep", &self.lStep).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RANGEVALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RANGEVALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RANGEVALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RANGEVALUE {}
+impl ::core::default::Default for RANGEVALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SCANINFO {
+    pub ADF: i32,
+    pub TPA: i32,
+    pub Endorser: i32,
+    pub OpticalXResolution: i32,
+    pub OpticalYResolution: i32,
+    pub BedWidth: i32,
+    pub BedHeight: i32,
+    pub IntensityRange: RANGEVALUE,
+    pub ContrastRange: RANGEVALUE,
+    pub SupportedCompressionType: i32,
+    pub SupportedDataTypes: i32,
+    pub WidthPixels: i32,
+    pub WidthBytes: i32,
+    pub Lines: i32,
+    pub DataType: i32,
+    pub PixelBits: i32,
+    pub Intensity: i32,
+    pub Contrast: i32,
+    pub Xresolution: i32,
+    pub Yresolution: i32,
+    pub Window: SCANWINDOW,
+    pub DitherPattern: i32,
+    pub Negative: i32,
+    pub Mirror: i32,
+    pub AutoBack: i32,
+    pub ColorDitherPattern: i32,
+    pub ToneMap: i32,
+    pub Compression: i32,
+    pub RawDataFormat: i32,
+    pub RawPixelOrder: i32,
+    pub bNeedDataAlignment: i32,
+    pub DelayBetweenRead: i32,
+    pub MaxBufferSize: i32,
+    pub DeviceIOHandles: [super::super::Foundation::HANDLE; 16],
+    pub lReserved: [i32; 4],
+    pub pMicroDriverContext: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SCANINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCANINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCANINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCANINFO")
+            .field("ADF", &self.ADF)
+            .field("TPA", &self.TPA)
+            .field("Endorser", &self.Endorser)
+            .field("OpticalXResolution", &self.OpticalXResolution)
+            .field("OpticalYResolution", &self.OpticalYResolution)
+            .field("BedWidth", &self.BedWidth)
+            .field("BedHeight", &self.BedHeight)
+            .field("IntensityRange", &self.IntensityRange)
+            .field("ContrastRange", &self.ContrastRange)
+            .field("SupportedCompressionType", &self.SupportedCompressionType)
+            .field("SupportedDataTypes", &self.SupportedDataTypes)
+            .field("WidthPixels", &self.WidthPixels)
+            .field("WidthBytes", &self.WidthBytes)
+            .field("Lines", &self.Lines)
+            .field("DataType", &self.DataType)
+            .field("PixelBits", &self.PixelBits)
+            .field("Intensity", &self.Intensity)
+            .field("Contrast", &self.Contrast)
+            .field("Xresolution", &self.Xresolution)
+            .field("Yresolution", &self.Yresolution)
+            .field("Window", &self.Window)
+            .field("DitherPattern", &self.DitherPattern)
+            .field("Negative", &self.Negative)
+            .field("Mirror", &self.Mirror)
+            .field("AutoBack", &self.AutoBack)
+            .field("ColorDitherPattern", &self.ColorDitherPattern)
+            .field("ToneMap", &self.ToneMap)
+            .field("Compression", &self.Compression)
+            .field("RawDataFormat", &self.RawDataFormat)
+            .field("RawPixelOrder", &self.RawPixelOrder)
+            .field("bNeedDataAlignment", &self.bNeedDataAlignment)
+            .field("DelayBetweenRead", &self.DelayBetweenRead)
+            .field("MaxBufferSize", &self.MaxBufferSize)
+            .field("DeviceIOHandles", &self.DeviceIOHandles)
+            .field("lReserved", &self.lReserved)
+            .field("pMicroDriverContext", &self.pMicroDriverContext)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SCANINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SCANINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCANINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SCANINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SCANINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct SCANWINDOW {
+    pub xPos: i32,
+    pub yPos: i32,
+    pub xExtent: i32,
+    pub yExtent: i32,
+}
+impl ::core::marker::Copy for SCANWINDOW {}
+impl ::core::clone::Clone for SCANWINDOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SCANWINDOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCANWINDOW").field("xPos", &self.xPos).field("yPos", &self.yPos).field("xExtent", &self.xExtent).field("yExtent", &self.yExtent).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SCANWINDOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCANWINDOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCANWINDOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCANWINDOW {}
+impl ::core::default::Default for SCANWINDOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct TWAIN_CAPABILITY {
+    pub lSize: i32,
+    pub lMSG: i32,
+    pub lCapID: i32,
+    pub lConType: i32,
+    pub lRC: i32,
+    pub lCC: i32,
+    pub lDataSize: i32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for TWAIN_CAPABILITY {}
+impl ::core::clone::Clone for TWAIN_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TWAIN_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TWAIN_CAPABILITY").field("lSize", &self.lSize).field("lMSG", &self.lMSG).field("lCapID", &self.lCapID).field("lConType", &self.lConType).field("lRC", &self.lRC).field("lCC", &self.lCC).field("lDataSize", &self.lDataSize).field("Data", &self.Data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TWAIN_CAPABILITY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TWAIN_CAPABILITY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TWAIN_CAPABILITY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TWAIN_CAPABILITY {}
+impl ::core::default::Default for TWAIN_CAPABILITY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct VAL {
+    pub lVal: i32,
+    pub dblVal: f64,
+    pub pGuid: *mut ::windows::core::GUID,
+    pub pScanInfo: *mut SCANINFO,
+    pub handle: isize,
+    pub ppButtonNames: *mut *mut u16,
+    pub pHandle: *mut super::super::Foundation::HANDLE,
+    pub lReserved: i32,
+    pub szVal: [super::super::Foundation::CHAR; 255],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for VAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VAL").field("lVal", &self.lVal).field("dblVal", &self.dblVal).field("pGuid", &self.pGuid).field("pScanInfo", &self.pScanInfo).field("handle", &self.handle).field("ppButtonNames", &self.ppButtonNames).field("pHandle", &self.pHandle).field("lReserved", &self.lReserved).field("szVal", &self.szVal).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for VAL {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for VAL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VAL>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for VAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for VAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WIAS_CHANGED_VALUE_INFO {
+    pub bChanged: super::super::Foundation::BOOL,
+    pub vt: i32,
+    pub Old: WIAS_CHANGED_VALUE_INFO_1,
+    pub Current: WIAS_CHANGED_VALUE_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO {
+    fn clone(&self) -> Self {
+        Self { bChanged: self.bChanged, vt: self.vt, Old: self.Old.clone(), Current: self.Current.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.bChanged == other.bChanged && self.vt == other.vt && self.Old == other.Old && self.Current == other.Current
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union WIAS_CHANGED_VALUE_INFO_0 {
+    pub lVal: i32,
+    pub fltVal: f32,
+    pub bstrVal: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
+    pub guidVal: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_0 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_CHANGED_VALUE_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union WIAS_CHANGED_VALUE_INFO_1 {
+    pub lVal: i32,
+    pub fltVal: f32,
+    pub bstrVal: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
+    pub guidVal: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_1 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_CHANGED_VALUE_INFO_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIAS_DOWN_SAMPLE_INFO {
+    pub ulOriginalWidth: u32,
+    pub ulOriginalHeight: u32,
+    pub ulBitsPerPixel: u32,
+    pub ulXRes: u32,
+    pub ulYRes: u32,
+    pub ulDownSampledWidth: u32,
+    pub ulDownSampledHeight: u32,
+    pub ulActualSize: u32,
+    pub ulDestBufSize: u32,
+    pub ulSrcBufSize: u32,
+    pub pSrcBuffer: *mut u8,
+    pub pDestBuffer: *mut u8,
+}
+impl ::core::marker::Copy for WIAS_DOWN_SAMPLE_INFO {}
+impl ::core::clone::Clone for WIAS_DOWN_SAMPLE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIAS_DOWN_SAMPLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_DOWN_SAMPLE_INFO")
+            .field("ulOriginalWidth", &self.ulOriginalWidth)
+            .field("ulOriginalHeight", &self.ulOriginalHeight)
+            .field("ulBitsPerPixel", &self.ulBitsPerPixel)
+            .field("ulXRes", &self.ulXRes)
+            .field("ulYRes", &self.ulYRes)
+            .field("ulDownSampledWidth", &self.ulDownSampledWidth)
+            .field("ulDownSampledHeight", &self.ulDownSampledHeight)
+            .field("ulActualSize", &self.ulActualSize)
+            .field("ulDestBufSize", &self.ulDestBufSize)
+            .field("ulSrcBufSize", &self.ulSrcBufSize)
+            .field("pSrcBuffer", &self.pSrcBuffer)
+            .field("pDestBuffer", &self.pDestBuffer)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIAS_DOWN_SAMPLE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIAS_DOWN_SAMPLE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_DOWN_SAMPLE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIAS_DOWN_SAMPLE_INFO {}
+impl ::core::default::Default for WIAS_DOWN_SAMPLE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIAS_ENDORSER_INFO {
+    pub ulPageCount: u32,
+    pub ulNumEndorserValues: u32,
+    pub pEndorserValues: *mut WIAS_ENDORSER_VALUE,
+}
+impl ::core::marker::Copy for WIAS_ENDORSER_INFO {}
+impl ::core::clone::Clone for WIAS_ENDORSER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIAS_ENDORSER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_ENDORSER_INFO").field("ulPageCount", &self.ulPageCount).field("ulNumEndorserValues", &self.ulNumEndorserValues).field("pEndorserValues", &self.pEndorserValues).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIAS_ENDORSER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIAS_ENDORSER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_ENDORSER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIAS_ENDORSER_INFO {}
+impl ::core::default::Default for WIAS_ENDORSER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIAS_ENDORSER_VALUE {
+    pub wszTokenName: ::windows::core::PWSTR,
+    pub wszValue: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for WIAS_ENDORSER_VALUE {}
+impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIAS_ENDORSER_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIAS_ENDORSER_VALUE").field("wszTokenName", &self.wszTokenName).field("wszValue", &self.wszValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIAS_ENDORSER_VALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIAS_ENDORSER_VALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_ENDORSER_VALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIAS_ENDORSER_VALUE {}
+impl ::core::default::Default for WIAS_ENDORSER_VALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_BARCODES {
+    pub Tag: u32,
+    pub Version: u32,
+    pub Size: u32,
+    pub Count: u32,
+    pub Barcodes: [WIA_BARCODE_INFO; 1],
+}
+impl ::core::marker::Copy for WIA_BARCODES {}
+impl ::core::clone::Clone for WIA_BARCODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_BARCODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_BARCODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("Barcodes", &self.Barcodes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_BARCODES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_BARCODES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_BARCODES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_BARCODES {}
+impl ::core::default::Default for WIA_BARCODES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_BARCODE_INFO {
+    pub Size: u32,
+    pub Type: u32,
+    pub Page: u32,
+    pub Confidence: u32,
+    pub XOffset: u32,
+    pub YOffset: u32,
+    pub Rotation: u32,
+    pub Length: u32,
+    pub Text: [u16; 1],
+}
+impl ::core::marker::Copy for WIA_BARCODE_INFO {}
+impl ::core::clone::Clone for WIA_BARCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_BARCODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_BARCODE_INFO").field("Size", &self.Size).field("Type", &self.Type).field("Page", &self.Page).field("Confidence", &self.Confidence).field("XOffset", &self.XOffset).field("YOffset", &self.YOffset).field("Rotation", &self.Rotation).field("Length", &self.Length).field("Text", &self.Text).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_BARCODE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_BARCODE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_BARCODE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_BARCODE_INFO {}
+impl ::core::default::Default for WIA_BARCODE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_DATA_CALLBACK_HEADER {
+    pub lSize: i32,
+    pub guidFormatID: ::windows::core::GUID,
+    pub lBufferSize: i32,
+    pub lPageCount: i32,
+}
+impl ::core::marker::Copy for WIA_DATA_CALLBACK_HEADER {}
+impl ::core::clone::Clone for WIA_DATA_CALLBACK_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_DATA_CALLBACK_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DATA_CALLBACK_HEADER").field("lSize", &self.lSize).field("guidFormatID", &self.guidFormatID).field("lBufferSize", &self.lBufferSize).field("lPageCount", &self.lPageCount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_DATA_CALLBACK_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_DATA_CALLBACK_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DATA_CALLBACK_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_DATA_CALLBACK_HEADER {}
+impl ::core::default::Default for WIA_DATA_CALLBACK_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WIA_DATA_TRANSFER_INFO {
+    pub ulSize: u32,
+    pub ulSection: u32,
+    pub ulBufferSize: u32,
+    pub bDoubleBuffer: super::super::Foundation::BOOL,
+    pub ulReserved1: u32,
+    pub ulReserved2: u32,
+    pub ulReserved3: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WIA_DATA_TRANSFER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIA_DATA_TRANSFER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DATA_TRANSFER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DATA_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulSection", &self.ulSection).field("ulBufferSize", &self.ulBufferSize).field("bDoubleBuffer", &self.bDoubleBuffer).field("ulReserved1", &self.ulReserved1).field("ulReserved2", &self.ulReserved2).field("ulReserved3", &self.ulReserved3).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIA_DATA_TRANSFER_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIA_DATA_TRANSFER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DATA_TRANSFER_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIA_DATA_TRANSFER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WIA_DATA_TRANSFER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WIA_DEV_CAP {
+    pub guid: ::windows::core::GUID,
+    pub ulFlags: u32,
+    pub bstrName: super::super::Foundation::BSTR,
+    pub bstrDescription: super::super::Foundation::BSTR,
+    pub bstrIcon: super::super::Foundation::BSTR,
+    pub bstrCommandline: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIA_DEV_CAP {
+    fn clone(&self) -> Self {
+        Self {
+            guid: self.guid,
+            ulFlags: self.ulFlags,
+            bstrName: self.bstrName.clone(),
+            bstrDescription: self.bstrDescription.clone(),
+            bstrIcon: self.bstrIcon.clone(),
+            bstrCommandline: self.bstrCommandline.clone(),
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DEV_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DEV_CAP").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("bstrName", &self.bstrName).field("bstrDescription", &self.bstrDescription).field("bstrIcon", &self.bstrIcon).field("bstrCommandline", &self.bstrCommandline).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIA_DEV_CAP {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIA_DEV_CAP {
+    fn eq(&self, other: &Self) -> bool {
+        self.guid == other.guid && self.ulFlags == other.ulFlags && self.bstrName == other.bstrName && self.bstrDescription == other.bstrDescription && self.bstrIcon == other.bstrIcon && self.bstrCommandline == other.bstrCommandline
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIA_DEV_CAP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WIA_DEV_CAP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_DEV_CAP_DRV {
+    pub guid: *mut ::windows::core::GUID,
+    pub ulFlags: u32,
+    pub wszName: ::windows::core::PWSTR,
+    pub wszDescription: ::windows::core::PWSTR,
+    pub wszIcon: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for WIA_DEV_CAP_DRV {}
+impl ::core::clone::Clone for WIA_DEV_CAP_DRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_DEV_CAP_DRV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DEV_CAP_DRV").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("wszName", &self.wszName).field("wszDescription", &self.wszDescription).field("wszIcon", &self.wszIcon).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_DEV_CAP_DRV {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_DEV_CAP_DRV {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DEV_CAP_DRV>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_DEV_CAP_DRV {}
+impl ::core::default::Default for WIA_DEV_CAP_DRV {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WIA_DITHER_PATTERN_DATA {
+    pub lSize: i32,
+    pub bstrPatternName: super::super::Foundation::BSTR,
+    pub lPatternWidth: i32,
+    pub lPatternLength: i32,
+    pub cbPattern: i32,
+    pub pbPattern: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIA_DITHER_PATTERN_DATA {
+    fn clone(&self) -> Self {
+        Self {
+            lSize: self.lSize,
+            bstrPatternName: self.bstrPatternName.clone(),
+            lPatternWidth: self.lPatternWidth,
+            lPatternLength: self.lPatternLength,
+            cbPattern: self.cbPattern,
+            pbPattern: self.pbPattern,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WIA_DITHER_PATTERN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_DITHER_PATTERN_DATA").field("lSize", &self.lSize).field("bstrPatternName", &self.bstrPatternName).field("lPatternWidth", &self.lPatternWidth).field("lPatternLength", &self.lPatternLength).field("cbPattern", &self.cbPattern).field("pbPattern", &self.pbPattern).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIA_DITHER_PATTERN_DATA {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIA_DITHER_PATTERN_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.lSize == other.lSize && self.bstrPatternName == other.bstrPatternName && self.lPatternWidth == other.lPatternWidth && self.lPatternLength == other.lPatternLength && self.cbPattern == other.cbPattern && self.pbPattern == other.pbPattern
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIA_DITHER_PATTERN_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WIA_DITHER_PATTERN_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_EXTENDED_TRANSFER_INFO {
+    pub ulSize: u32,
+    pub ulMinBufferSize: u32,
+    pub ulOptimalBufferSize: u32,
+    pub ulMaxBufferSize: u32,
+    pub ulNumBuffers: u32,
+}
+impl ::core::marker::Copy for WIA_EXTENDED_TRANSFER_INFO {}
+impl ::core::clone::Clone for WIA_EXTENDED_TRANSFER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_EXTENDED_TRANSFER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_EXTENDED_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulMinBufferSize", &self.ulMinBufferSize).field("ulOptimalBufferSize", &self.ulOptimalBufferSize).field("ulMaxBufferSize", &self.ulMaxBufferSize).field("ulNumBuffers", &self.ulNumBuffers).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_EXTENDED_TRANSFER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_EXTENDED_TRANSFER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_EXTENDED_TRANSFER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_EXTENDED_TRANSFER_INFO {}
+impl ::core::default::Default for WIA_EXTENDED_TRANSFER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_FORMAT_INFO {
+    pub guidFormatID: ::windows::core::GUID,
+    pub lTymed: i32,
+}
+impl ::core::marker::Copy for WIA_FORMAT_INFO {}
+impl ::core::clone::Clone for WIA_FORMAT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_FORMAT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_FORMAT_INFO").field("guidFormatID", &self.guidFormatID).field("lTymed", &self.lTymed).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_FORMAT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_FORMAT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_FORMAT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_FORMAT_INFO {}
+impl ::core::default::Default for WIA_FORMAT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_MICR {
+    pub Tag: u32,
+    pub Version: u32,
+    pub Size: u32,
+    pub Placeholder: u16,
+    pub Reserved: u16,
+    pub Count: u32,
+    pub Micr: [WIA_MICR_INFO; 1],
+}
+impl ::core::marker::Copy for WIA_MICR {}
+impl ::core::clone::Clone for WIA_MICR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_MICR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_MICR").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Placeholder", &self.Placeholder).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Micr", &self.Micr).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_MICR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_MICR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_MICR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_MICR {}
+impl ::core::default::Default for WIA_MICR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_MICR_INFO {
+    pub Size: u32,
+    pub Page: u32,
+    pub Length: u32,
+    pub Text: [u16; 1],
+}
+impl ::core::marker::Copy for WIA_MICR_INFO {}
+impl ::core::clone::Clone for WIA_MICR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_MICR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_MICR_INFO").field("Size", &self.Size).field("Page", &self.Page).field("Length", &self.Length).field("Text", &self.Text).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_MICR_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_MICR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_MICR_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_MICR_INFO {}
+impl ::core::default::Default for WIA_MICR_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_PATCH_CODES {
+    pub Tag: u32,
+    pub Version: u32,
+    pub Size: u32,
+    pub Count: u32,
+    pub PatchCodes: [WIA_PATCH_CODE_INFO; 1],
+}
+impl ::core::marker::Copy for WIA_PATCH_CODES {}
+impl ::core::clone::Clone for WIA_PATCH_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_PATCH_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PATCH_CODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("PatchCodes", &self.PatchCodes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_PATCH_CODES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_PATCH_CODES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PATCH_CODES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_PATCH_CODES {}
+impl ::core::default::Default for WIA_PATCH_CODES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub struct WIA_PATCH_CODE_INFO {
+    pub Type: u32,
+}
+impl ::core::marker::Copy for WIA_PATCH_CODE_INFO {}
+impl ::core::clone::Clone for WIA_PATCH_CODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WIA_PATCH_CODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WIA_PATCH_CODE_INFO").field("Type", &self.Type).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WIA_PATCH_CODE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIA_PATCH_CODE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PATCH_CODE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIA_PATCH_CODE_INFO {}
+impl ::core::default::Default for WIA_PATCH_CODE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6626,38 +6855,6 @@ impl ::core::default::Default for WIA_PROPID_TO_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROPPAGE_DEVICE_GENERAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROPPAGE_SCANNER_ITEM_GENERAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_CACHEABLE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_FLAG: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_LIST: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_NONE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_RANGE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_READ: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_SYNC_REQUIRED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_PROP_WRITE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_RANGE_MAX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_RANGE_MIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_RANGE_NOM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_RANGE_NUM_ELEMS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_RANGE_STEP: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub struct WIA_RAW_HEADER {
@@ -6726,203 +6923,6 @@ impl ::core::default::Default for WIA_RAW_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_REGISTER_EVENT_CALLBACK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_RESERVED_FOR_NEW_PROPS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SCAN_AHEAD_ALL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SCAN_AHEAD_DISABLED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SCAN_AHEAD_ENABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SEGMENTATION_FILTER_STR: &str = "SegmentationFilter";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SELECT_DEVICE_NODEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SEPARATOR_DETECT_NOSCAN_CONTINUE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SEPARATOR_DETECT_NOSCAN_STOP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SEPARATOR_DETECT_SCAN_CONTINUE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SEPARATOR_DETECT_SCAN_STOP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SEPARATOR_DISABLED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SET_DEFAULT_HANDLER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_SHOW_PREVIEW_CONTROL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_CALIBRATING: ::windows::core::HRESULT = ::windows::core::HRESULT(2162691i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_CLEAR: ::windows::core::HRESULT = ::windows::core::HRESULT(2162696i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_END_OF_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(2162689i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_NETWORK_DEVICE_RESERVED: ::windows::core::HRESULT = ::windows::core::HRESULT(2162695i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_NOT_HANDLED: ::windows::core::HRESULT = ::windows::core::HRESULT(2162698i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_RESERVING_NETWORK_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2162694i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_SKIP_ITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(2162697i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_STATUS_WARMING_UP: ::windows::core::HRESULT = ::windows::core::HRESULT(2162690i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_S_CHANGE_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2162699i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_S_NO_DEVICE_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145320939i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_TRANSFER_ACQUIRE_CHILDREN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_TRANSFER_CHILDREN_SINGLE_SCAN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_TRANSFER_MSG_DEVICE_STATUS: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_TRANSFER_MSG_END_OF_STREAM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_TRANSFER_MSG_END_OF_TRANSFER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_TRANSFER_MSG_NEW_PAGE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_TRANSFER_MSG_STATUS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_UNREGISTER_EVENT_CALLBACK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_USE_SEGMENTATION_FILTER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_FRIENDLY_NAME: u32 = 38920u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_FRIENDLY_NAME_STR: &str = "Friendly name";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MANUFACTURER: u32 = 38914u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MANUFACTURER_STR: &str = "Device manufacturer";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MANUFACTURER_URL: u32 = 38915u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MANUFACTURER_URL_STR: &str = "Manufacurer URL";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MODEL_NAME: u32 = 38916u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MODEL_NAME_STR: &str = "Model name";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MODEL_NUMBER: u32 = 38917u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MODEL_NUMBER_STR: &str = "Model number";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MODEL_URL: u32 = 38918u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_MODEL_URL_STR: &str = "Model URL";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_PRESENTATION_URL: u32 = 38919u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_PRESENTATION_URL_STR: &str = "Presentation URL";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_SCAN_AVAILABLE_ITEM: u32 = 38922u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_SCAN_AVAILABLE_ITEM_STR: &str = "Scan Available Item";
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_SERIAL_NUMBER: u32 = 38921u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIA_WSD_SERIAL_NUMBER_STR: &str = "Serial number";
-pub const WiaAudFmt_AIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66e2bf4f_b6fc_443f_94c8_2f33c8a65aaf);
-pub const WiaAudFmt_MP3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fbc71fb_43bf_49f2_9190_e6fecff37e54);
-pub const WiaAudFmt_WAV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf818e146_07af_40ff_ae55_be8f2c065dbe);
-pub const WiaAudFmt_WMA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61d6413_8bc2_438f_93ad_21bd484db6a1);
-pub const WiaDevMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
-pub const WiaDevMgr2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
-pub const WiaImgFmt_ASF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d948ee9_d0aa_4a12_9d9a_9cc5de36199b);
-pub const WiaImgFmt_AVI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32f8ca14_087c_4908_b7c4_6757fe7e90ab);
-pub const WiaImgFmt_BMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cab_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_CIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9821a8ab_3a7e_4215_94e0_d27a460c03b2);
-pub const WiaImgFmt_CSV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x355bda24_5a9f_4494_80dc_be752cecbc8c);
-pub const WiaImgFmt_DPOF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x369eeeab_a0e8_45ca_86a6_a83ce5697e28);
-pub const WiaImgFmt_EMF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cac_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_EXEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x485da097_141e_4aa5_bb3b_a5618d95d02b);
-pub const WiaImgFmt_EXIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb2_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_FLASHPIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb4_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_GIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb0_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_HTML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99a4e62_99de_4a94_acca_71956ac2977d);
-pub const WiaImgFmt_ICO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb5_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_JBIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e8dd92_2f0a_43d4_8636_f1614ba11e46);
-pub const WiaImgFmt_JBIG2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb8e7e67_283c_4235_9e59_0b9bf94ca687);
-pub const WiaImgFmt_JPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cae_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_JPEG2K: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x344ee2b2_39db_4dde_8173_c4b75f8f1e49);
-pub const WiaImgFmt_JPEG2KX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43e14614_c80a_4850_baf3_4b152dc8da27);
-pub const WiaImgFmt_MEMORYBMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3caa_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_MPG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd757e4_d2ec_4f57_955d_bcf8a97c4e52);
-pub const WiaImgFmt_OXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c7b1240_c14d_4109_9755_04b89025153a);
-pub const WiaImgFmt_PDFA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9980bd5b_3463_43c7_bdca_3caa146f229f);
-pub const WiaImgFmt_PHOTOCD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb3_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_PICT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bc85d8_6b3e_40ee_a95c_25d482e41adc);
-pub const WiaImgFmt_PNG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3caf_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_RAW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f120719_f1a8_4e07_9ade_9b64c63a3dcc);
-pub const WiaImgFmt_RAWBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda63f833_d26e_451e_90d2_ea55a1365d62);
-pub const WiaImgFmt_RAWMIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22c4f058_0d88_409c_ac1c_eec12b0ea680);
-pub const WiaImgFmt_RAWPAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7760507c_5064_400c_9a17_575624d8824b);
-pub const WiaImgFmt_RAWRGB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca48b55_f272_4371_b0f1_4a150d057bb4);
-pub const WiaImgFmt_RTF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x573dd6a3_4834_432d_a9b5_e198dd9e890d);
-pub const WiaImgFmt_SCRIPT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe7d6c53_2dac_446a_b0bd_d73e21e924c9);
-pub const WiaImgFmt_TIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cb1_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_TXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfafd4d82_723f_421f_9318_30501ac44b59);
-pub const WiaImgFmt_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_UNICODE16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b7639b6_6357_47d1_9a07_12452dc073e9);
-pub const WiaImgFmt_WMF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96b3cad_0728_11d3_9d7b_0000f81ef32e);
-pub const WiaImgFmt_XML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9171457_dac8_4884_b393_15b471d5f07e);
-pub const WiaImgFmt_XMLBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6235701c_3a98_484c_b2a8_fdffd87e6b16);
-pub const WiaImgFmt_XMLMIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d164c61_b9ae_4b23_8973_c7067e1fbd31);
-pub const WiaImgFmt_XMLPAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8986f55_f052_460d_9523_3a7dfedbb33c);
-pub const WiaImgFmt_XPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x700b4a0f_2011_411c_b430_d1e0b2e10b28);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeAnalyze: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeAudio: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeBurst: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeDeleted: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeDevice: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeDisconnected: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeDocument: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeFile: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeFolder: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeFree: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeGenerated: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeHPanorama: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeHasAttachments: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeImage: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeMask: u32 = 2148532223u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeProgrammableDataSource: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeRemoved: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeRoot: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeStorage: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeTransfer: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeTwainCapabilityPassThrough: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeVPanorama: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WiaItemTypeVideo: u32 = 65536u32;
-pub const WiaLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub struct WiaTransferParams {
@@ -6956,8 +6956,8 @@ impl ::core::default::Default for WiaTransferParams {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const WiaVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3908c3cd_4478_4536_af2f_10c25d4ef89a);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const g_dwDebugFlags: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DeviceDialogFunction = ::core::option::Option<unsafe extern "system" fn(param0: *mut DEVICEDIALOGDATA) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

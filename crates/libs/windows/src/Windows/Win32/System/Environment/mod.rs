@@ -59,161 +59,6 @@ pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::core::ffi::c_void)
     DestroyEnvironmentBlock(::core::mem::transmute(lpenvironment))
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub struct ENCLAVE_IDENTITY {
-    pub OwnerId: [u8; 32],
-    pub UniqueId: [u8; 32],
-    pub AuthorId: [u8; 32],
-    pub FamilyId: [u8; 16],
-    pub ImageId: [u8; 16],
-    pub EnclaveSvn: u32,
-    pub SecureKernelSvn: u32,
-    pub PlatformSvn: u32,
-    pub Flags: u32,
-    pub SigningLevel: u32,
-    pub EnclaveType: u32,
-}
-impl ::core::marker::Copy for ENCLAVE_IDENTITY {}
-impl ::core::clone::Clone for ENCLAVE_IDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for ENCLAVE_IDENTITY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENCLAVE_IDENTITY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_IDENTITY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ENCLAVE_IDENTITY {}
-impl ::core::default::Default for ENCLAVE_IDENTITY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub struct ENCLAVE_INFORMATION {
-    pub EnclaveType: u32,
-    pub Reserved: u32,
-    pub BaseAddress: *mut ::core::ffi::c_void,
-    pub Size: usize,
-    pub Identity: ENCLAVE_IDENTITY,
-}
-impl ::core::marker::Copy for ENCLAVE_INFORMATION {}
-impl ::core::clone::Clone for ENCLAVE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for ENCLAVE_INFORMATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENCLAVE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ENCLAVE_INFORMATION {}
-impl ::core::default::Default for ENCLAVE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
-impl ::core::marker::Copy for ENCLAVE_SEALING_IDENTITY_POLICY {}
-impl ::core::clone::Clone for ENCLAVE_SEALING_IDENTITY_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENCLAVE_SEALING_IDENTITY_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ENCLAVE_SEALING_IDENTITY_POLICY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ENCLAVE_SEALING_IDENTITY_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ENCLAVE_SEALING_IDENTITY_POLICY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    pub RequestSize: u32,
-    pub Flags: u32,
-    pub EnclaveSVN: u32,
-    pub SystemKeyID: u32,
-    pub CurrentSystemKeyID: u32,
-}
-impl ::core::marker::Copy for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
-impl ::core::clone::Clone for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENCLAVE_VBS_BASIC_KEY_REQUEST").field("RequestSize", &self.RequestSize).field("Flags", &self.Flags).field("EnclaveSVN", &self.EnclaveSVN).field("SystemKeyID", &self.SystemKeyID).field("CurrentSystemKeyID", &self.CurrentSystemKeyID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_VBS_BASIC_KEY_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
-impl ::core::default::Default for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<&u8>, report: ::core::option::Option<&mut [u8]>, outputsize: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -583,47 +428,170 @@ where
     TerminateEnclave(::core::mem::transmute(lpaddress), fwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize, sourceaddress: *const ::core::ffi::c_void, pageprotection: u32) -> i32>;
+pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
+pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
+pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize) -> i32>;
+pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = ::core::option::Option<unsafe extern "system" fn(keyrequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, requestedkeysize: u32, returnedkey: *mut u8) -> i32>;
+pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = ::core::option::Option<unsafe extern "system" fn(buffer: *mut u8, numberofbytes: u32, generation: *mut u64) -> i32>;
+pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = ::core::option::Option<unsafe extern "system" fn(enclavedata: *const u8, report: *mut ::core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
+pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = ::core::option::Option<unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = ::core::option::Option<unsafe extern "system" fn(returnvalue: usize)>;
+pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86_64")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32>;
+pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const ::core::ffi::c_void) -> i32>;
+pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
+pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
+pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = ::core::option::Option<unsafe extern "system" fn(report: *const ::core::ffi::c_void, reportsize: u32) -> i32>;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
+impl ::core::marker::Copy for ENCLAVE_SEALING_IDENTITY_POLICY {}
+impl ::core::clone::Clone for ENCLAVE_SEALING_IDENTITY_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENCLAVE_SEALING_IDENTITY_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENCLAVE_SEALING_IDENTITY_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENCLAVE_SEALING_IDENTITY_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENCLAVE_SEALING_IDENTITY_POLICY").field(&self.0).finish()
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub struct ENCLAVE_IDENTITY {
+    pub OwnerId: [u8; 32],
+    pub UniqueId: [u8; 32],
+    pub AuthorId: [u8; 32],
+    pub FamilyId: [u8; 16],
+    pub ImageId: [u8; 16],
+    pub EnclaveSvn: u32,
+    pub SecureKernelSvn: u32,
+    pub PlatformSvn: u32,
+    pub Flags: u32,
+    pub SigningLevel: u32,
+    pub EnclaveType: u32,
+}
+impl ::core::marker::Copy for ENCLAVE_IDENTITY {}
+impl ::core::clone::Clone for ENCLAVE_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ENCLAVE_IDENTITY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ENCLAVE_IDENTITY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_IDENTITY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ENCLAVE_IDENTITY {}
+impl ::core::default::Default for ENCLAVE_IDENTITY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub struct ENCLAVE_INFORMATION {
+    pub EnclaveType: u32,
+    pub Reserved: u32,
+    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub Size: usize,
+    pub Identity: ENCLAVE_IDENTITY,
+}
+impl ::core::marker::Copy for ENCLAVE_INFORMATION {}
+impl ::core::clone::Clone for ENCLAVE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ENCLAVE_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ENCLAVE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ENCLAVE_INFORMATION {}
+impl ::core::default::Default for ENCLAVE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    pub RequestSize: u32,
+    pub Flags: u32,
+    pub EnclaveSVN: u32,
+    pub SystemKeyID: u32,
+    pub CurrentSystemKeyID: u32,
+}
+impl ::core::marker::Copy for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
+impl ::core::clone::Clone for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ENCLAVE_VBS_BASIC_KEY_REQUEST").field("RequestSize", &self.RequestSize).field("Flags", &self.Flags).field("EnclaveSVN", &self.EnclaveSVN).field("SystemKeyID", &self.SystemKeyID).field("CurrentSystemKeyID", &self.CurrentSystemKeyID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_VBS_BASIC_KEY_REQUEST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
+impl ::core::default::Default for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
@@ -876,10 +844,6 @@ impl ::core::default::Default for VBS_ENCLAVE_REPORT_PKG_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
@@ -907,10 +871,46 @@ impl ::core::default::Default for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize, sourceaddress: *const ::core::ffi::c_void, pageprotection: u32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
+#[cfg(target_arch = "x86")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = ::core::option::Option<unsafe extern "system" fn(keyrequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, requestedkeysize: u32, returnedkey: *mut u8) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = ::core::option::Option<unsafe extern "system" fn(buffer: *mut u8, numberofbytes: u32, generation: *mut u64) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = ::core::option::Option<unsafe extern "system" fn(enclavedata: *const u8, report: *mut ::core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = ::core::option::Option<unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+#[cfg(target_arch = "x86")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = ::core::option::Option<unsafe extern "system" fn(returnvalue: usize)>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+#[cfg(target_arch = "x86_64")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const ::core::ffi::c_void) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+#[cfg(target_arch = "x86")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = ::core::option::Option<unsafe extern "system" fn(report: *const ::core::ffi::c_void, reportsize: u32) -> i32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

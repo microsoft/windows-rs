@@ -242,135 +242,6 @@ pub unsafe fn GetUnpredictedMessagePos() -> u32 {
     }
     GetUnpredictedMessagePos()
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub struct INPUT_INJECTION_VALUE {
-    pub page: u16,
-    pub usage: u16,
-    pub value: i32,
-    pub index: u16,
-}
-impl ::core::marker::Copy for INPUT_INJECTION_VALUE {}
-impl ::core::clone::Clone for INPUT_INJECTION_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for INPUT_INJECTION_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for INPUT_INJECTION_VALUE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_INJECTION_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_INJECTION_VALUE {}
-impl ::core::default::Default for INPUT_INJECTION_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub struct INPUT_TRANSFORM {
-    pub Anonymous: INPUT_TRANSFORM_0,
-}
-impl ::core::marker::Copy for INPUT_TRANSFORM {}
-impl ::core::clone::Clone for INPUT_TRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for INPUT_TRANSFORM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT_TRANSFORM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_TRANSFORM {}
-impl ::core::default::Default for INPUT_TRANSFORM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub union INPUT_TRANSFORM_0 {
-    pub Anonymous: INPUT_TRANSFORM_0_0,
-    pub m: [f32; 16],
-}
-impl ::core::marker::Copy for INPUT_TRANSFORM_0 {}
-impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_TRANSFORM_0 {}
-impl ::core::default::Default for INPUT_TRANSFORM_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub struct INPUT_TRANSFORM_0_0 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _13: f32,
-    pub _14: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _23: f32,
-    pub _24: f32,
-    pub _31: f32,
-    pub _32: f32,
-    pub _33: f32,
-    pub _34: f32,
-    pub _41: f32,
-    pub _42: f32,
-    pub _43: f32,
-    pub _44: f32,
-}
-impl ::core::marker::Copy for INPUT_TRANSFORM_0_0 {}
-impl ::core::clone::Clone for INPUT_TRANSFORM_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUT_TRANSFORM_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_TRANSFORM_0_0 {}
-impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -413,6 +284,16 @@ pub unsafe fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL
         fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL;
     }
     IsMouseInPointerEnabled()
+}
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL;
+    }
+    SkipPointerFrameMessages(pointerid)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]
@@ -546,6 +427,164 @@ impl ::core::ops::Not for POINTER_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOUCH_FEEDBACK_MODE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const TOUCH_FEEDBACK_INDIRECT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(3u32);
+impl ::core::marker::Copy for TOUCH_FEEDBACK_MODE {}
+impl ::core::clone::Clone for TOUCH_FEEDBACK_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOUCH_FEEDBACK_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOUCH_FEEDBACK_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOUCH_FEEDBACK_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOUCH_FEEDBACK_MODE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub struct INPUT_INJECTION_VALUE {
+    pub page: u16,
+    pub usage: u16,
+    pub value: i32,
+    pub index: u16,
+}
+impl ::core::marker::Copy for INPUT_INJECTION_VALUE {}
+impl ::core::clone::Clone for INPUT_INJECTION_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for INPUT_INJECTION_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for INPUT_INJECTION_VALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_INJECTION_VALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INPUT_INJECTION_VALUE {}
+impl ::core::default::Default for INPUT_INJECTION_VALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub struct INPUT_TRANSFORM {
+    pub Anonymous: INPUT_TRANSFORM_0,
+}
+impl ::core::marker::Copy for INPUT_TRANSFORM {}
+impl ::core::clone::Clone for INPUT_TRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INPUT_TRANSFORM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INPUT_TRANSFORM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INPUT_TRANSFORM {}
+impl ::core::default::Default for INPUT_TRANSFORM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub union INPUT_TRANSFORM_0 {
+    pub Anonymous: INPUT_TRANSFORM_0_0,
+    pub m: [f32; 16],
+}
+impl ::core::marker::Copy for INPUT_TRANSFORM_0 {}
+impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INPUT_TRANSFORM_0 {}
+impl ::core::default::Default for INPUT_TRANSFORM_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub struct INPUT_TRANSFORM_0_0 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _13: f32,
+    pub _14: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _23: f32,
+    pub _24: f32,
+    pub _31: f32,
+    pub _32: f32,
+    pub _33: f32,
+    pub _34: f32,
+    pub _41: f32,
+    pub _42: f32,
+    pub _43: f32,
+    pub _44: f32,
+}
+impl ::core::marker::Copy for INPUT_TRANSFORM_0_0 {}
+impl ::core::clone::Clone for INPUT_TRANSFORM_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INPUT_TRANSFORM_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INPUT_TRANSFORM_0_0 {}
+impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -704,45 +743,6 @@ impl ::core::cmp::Eq for POINTER_TOUCH_INFO {}
 impl ::core::default::Default for POINTER_TOUCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL;
-    }
-    SkipPointerFrameMessages(pointerid)
-}
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TOUCH_FEEDBACK_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const TOUCH_FEEDBACK_INDIRECT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(3u32);
-impl ::core::marker::Copy for TOUCH_FEEDBACK_MODE {}
-impl ::core::clone::Clone for TOUCH_FEEDBACK_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TOUCH_FEEDBACK_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TOUCH_FEEDBACK_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TOUCH_FEEDBACK_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TOUCH_FEEDBACK_MODE").field(&self.0).finish()
     }
 }
 #[cfg(feature = "implement")]

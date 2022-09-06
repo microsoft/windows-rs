@@ -1074,44 +1074,6 @@ pub struct ISyndicationTextFactory_Vtbl {
     pub CreateSyndicationText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateSyndicationTextEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: SyndicationTextType, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Web_Syndication\"`*"]
-pub struct RetrievalProgress {
-    pub BytesRetrieved: u32,
-    pub TotalBytesToRetrieve: u32,
-}
-impl ::core::marker::Copy for RetrievalProgress {}
-impl ::core::clone::Clone for RetrievalProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RetrievalProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RetrievalProgress").field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RetrievalProgress {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for RetrievalProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for RetrievalProgress {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RetrievalProgress>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RetrievalProgress {}
-impl ::core::default::Default for RetrievalProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
 pub struct SyndicationAttribute(::windows::core::IUnknown);
@@ -1957,44 +1919,6 @@ impl ::windows::core::RuntimeName for SyndicationError {
 }
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SyndicationErrorStatus(pub i32);
-impl SyndicationErrorStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const MissingRequiredElement: Self = Self(1i32);
-    pub const MissingRequiredAttribute: Self = Self(2i32);
-    pub const InvalidXml: Self = Self(3i32);
-    pub const UnexpectedContent: Self = Self(4i32);
-    pub const UnsupportedFormat: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SyndicationErrorStatus {}
-impl ::core::clone::Clone for SyndicationErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SyndicationErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SyndicationErrorStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SyndicationErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SyndicationErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_Syndication\"`*"]
-#[repr(transparent)]
 pub struct SyndicationFeed(::windows::core::IUnknown);
 impl SyndicationFeed {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -2413,44 +2337,6 @@ impl<'a> ::core::convert::TryFrom<&SyndicationFeed> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for SyndicationFeed {}
 unsafe impl ::core::marker::Sync for SyndicationFeed {}
-#[doc = "*Required features: `\"Web_Syndication\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SyndicationFormat(pub i32);
-impl SyndicationFormat {
-    pub const Atom10: Self = Self(0i32);
-    pub const Rss20: Self = Self(1i32);
-    pub const Rss10: Self = Self(2i32);
-    pub const Rss092: Self = Self(3i32);
-    pub const Rss091: Self = Self(4i32);
-    pub const Atom03: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SyndicationFormat {}
-impl ::core::clone::Clone for SyndicationFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SyndicationFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SyndicationFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SyndicationFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SyndicationFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
 pub struct SyndicationGenerator(::windows::core::IUnknown);
@@ -4078,6 +3964,82 @@ unsafe impl ::core::marker::Sync for SyndicationText {}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SyndicationErrorStatus(pub i32);
+impl SyndicationErrorStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const MissingRequiredElement: Self = Self(1i32);
+    pub const MissingRequiredAttribute: Self = Self(2i32);
+    pub const InvalidXml: Self = Self(3i32);
+    pub const UnexpectedContent: Self = Self(4i32);
+    pub const UnsupportedFormat: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SyndicationErrorStatus {}
+impl ::core::clone::Clone for SyndicationErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SyndicationErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SyndicationErrorStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SyndicationErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SyndicationErrorStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_Syndication\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SyndicationFormat(pub i32);
+impl SyndicationFormat {
+    pub const Atom10: Self = Self(0i32);
+    pub const Rss20: Self = Self(1i32);
+    pub const Rss10: Self = Self(2i32);
+    pub const Rss092: Self = Self(3i32);
+    pub const Rss091: Self = Self(4i32);
+    pub const Atom03: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SyndicationFormat {}
+impl ::core::clone::Clone for SyndicationFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SyndicationFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SyndicationFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SyndicationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SyndicationFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_Syndication\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
     pub const Text: Self = Self(0i32);
@@ -4108,6 +4070,44 @@ unsafe impl ::windows::core::RuntimeType for SyndicationTextType {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Web_Syndication\"`*"]
+pub struct RetrievalProgress {
+    pub BytesRetrieved: u32,
+    pub TotalBytesToRetrieve: u32,
+}
+impl ::core::marker::Copy for RetrievalProgress {}
+impl ::core::clone::Clone for RetrievalProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RetrievalProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RetrievalProgress").field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RetrievalProgress {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for RetrievalProgress {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for RetrievalProgress {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RetrievalProgress>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RetrievalProgress {}
+impl ::core::default::Default for RetrievalProgress {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

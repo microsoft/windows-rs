@@ -1,1366 +1,3 @@
-pub const CLSID_WMPMediaPluginRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5569e7f5_424b_4b93_89ca_79d17924689a);
-pub const CLSID_WMPSkinManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2a7fd52_301f_4348_b93a_638c6de49229);
-pub const CLSID_XFeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe6b11c3_c72e_4061_86c6_9d163121f229);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_DELTA: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_AsyncDownload: u32 = 24579u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_CancelAsyncDownload: u32 = 24580u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_DownloadMimeType: u32 = 24586u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_DownloadStatus: u32 = 24581u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_DownloadUrl: u32 = 24585u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_LastDownloadError: u32 = 24582u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_Length: u32 = 24578u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_LocalPath: u32 = 24583u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_Parent: u32 = 24584u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_RemoveFile: u32 = 24587u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_SetFile: u32 = 24588u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_Type: u32 = 24577u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDENCLOSURE_Url: u32 = 24576u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_Error: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_FeedDeleted: u32 = 32769u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_FeedDownloadCompleted: u32 = 32774u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_FeedDownloading: u32 = 32773u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_FeedItemCountChanged: u32 = 32775u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_FeedMoved: u32 = 32772u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_FeedRenamed: u32 = 32770u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDEVENTS_FeedUrlChanged: u32 = 32771u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_Error: u32 = 28672u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedAdded: u32 = 28679u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedDeleted: u32 = 28680u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedDownloadCompleted: u32 = 28686u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedDownloading: u32 = 28685u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedItemCountChanged: u32 = 28687u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedMovedFrom: u32 = 28683u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedMovedTo: u32 = 28684u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedRenamed: u32 = 28681u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FeedUrlChanged: u32 = 28682u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FolderAdded: u32 = 28673u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FolderDeleted: u32 = 28674u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FolderItemCountChanged: u32 = 28678u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FolderMovedFrom: u32 = 28676u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FolderMovedTo: u32 = 28677u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDEREVENTS_FolderRenamed: u32 = 28675u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_CreateFeed: u32 = 12290u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_CreateSubfolder: u32 = 12291u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Delete: u32 = 12296u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_ExistsFeed: u32 = 12292u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_ExistsSubfolder: u32 = 12294u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Feeds: u32 = 12288u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_GetFeed: u32 = 12293u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_GetSubfolder: u32 = 12295u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_GetWatcher: u32 = 12305u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_IsRoot: u32 = 12302u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Move: u32 = 12300u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Name: u32 = 12297u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Parent: u32 = 12301u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Path: u32 = 12299u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Rename: u32 = 12298u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_Subfolders: u32 = 12289u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_TotalItemCount: u32 = 12304u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDFOLDER_TotalUnreadItemCount: u32 = 12303u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Author: u32 = 20487u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Comments: u32 = 20486u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Delete: u32 = 20492u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Description: u32 = 20484u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_DownloadUrl: u32 = 20493u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_EffectiveId: u32 = 20496u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Enclosure: u32 = 20488u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Guid: u32 = 20483u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_IsRead: u32 = 20489u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_LastDownloadTime: u32 = 20494u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Link: u32 = 20482u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_LocalId: u32 = 20490u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Modified: u32 = 20495u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Parent: u32 = 20491u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_PubDate: u32 = 20485u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Title: u32 = 20481u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDITEM_Xml: u32 = 20480u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDSENUM_Count: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDSENUM_Item: u32 = 8193u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_AsyncSyncAll: u32 = 4108u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_BackgroundSync: u32 = 4105u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_BackgroundSyncStatus: u32 = 4106u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_DefaultInterval: u32 = 4107u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_DeleteFeed: u32 = 4102u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_DeleteFolder: u32 = 4103u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_ExistsFeed: u32 = 4098u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_ExistsFolder: u32 = 4100u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_GetFeed: u32 = 4099u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_GetFeedByUrl: u32 = 4104u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_GetFolder: u32 = 4101u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_IsSubscribed: u32 = 4097u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_ItemCountLimit: u32 = 4110u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_Normalize: u32 = 4109u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEEDS_RootFolder: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_AsyncDownload: u32 = 16395u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_CancelAsyncDownload: u32 = 16396u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_ClearCredentials: u32 = 16428u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Copyright: u32 = 16411u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Delete: u32 = 16393u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Description: u32 = 16404u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Download: u32 = 16394u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_DownloadEnclosuresAutomatically: u32 = 16412u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_DownloadStatus: u32 = 16413u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_DownloadUrl: u32 = 16416u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_GetItem: u32 = 16402u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_GetItemByEffectiveId: u32 = 16423u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_GetWatcher: u32 = 16419u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Image: u32 = 16406u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Interval: u32 = 16397u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_IsList: u32 = 16417u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_ItemCount: u32 = 16421u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Items: u32 = 16401u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Language: u32 = 16410u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_LastBuildDate: u32 = 16407u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_LastDownloadError: u32 = 16414u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_LastDownloadTime: u32 = 16399u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_LastItemDownloadTime: u32 = 16424u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_LastWriteTime: u32 = 16392u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Link: u32 = 16405u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_LocalEnclosurePath: u32 = 16400u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_LocalId: u32 = 16388u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_MarkAllItemsRead: u32 = 16418u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_MaxItemCount: u32 = 16422u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Merge: u32 = 16415u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Move: u32 = 16390u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Name: u32 = 16385u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Parent: u32 = 16391u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Password: u32 = 16426u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Path: u32 = 16389u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_PubDate: u32 = 16408u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Rename: u32 = 16386u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_SetCredentials: u32 = 16427u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_SyncSetting: u32 = 16398u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Title: u32 = 16403u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Ttl: u32 = 16409u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_UnreadItemCount: u32 = 16420u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Url: u32 = 16387u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Username: u32 = 16425u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_FEED_Xml: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROMCOLLECTION_BASE: u32 = 300u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROMCOLLECTION_COUNT: u32 = 301u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROMCOLLECTION_GETBYDRIVESPECIFIER: u32 = 303u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROMCOLLECTION_ITEM: u32 = 302u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROMCOLLECTION_STARTMONITORINGCDROMS: u32 = 304u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROMCOLLECTION_STOPMONITORINGCDROMS: u32 = 305u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROM_BASE: u32 = 250u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROM_DRIVESPECIFIER: u32 = 251u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROM_EJECT: u32 = 253u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCDROM_PLAYLIST: u32 = 252u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION2_GETLANGCOUNT: u32 = 955u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION2_GETLANGID: u32 = 957u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION2_GETLANGNAME: u32 = 956u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION2_GETSTYLECOUNT: u32 = 958u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION2_GETSTYLENAME: u32 = 959u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION_BASE: u32 = 950u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION_CAPTIONINGID: u32 = 954u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION_SAMIFILENAME: u32 = 953u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION_SAMILANG: u32 = 952u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCLOSEDCAPTION_SAMISTYLE: u32 = 951u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS2_STEP: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS3_AUDIOLANGUAGECOUNT: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS3_CURRENTAUDIOLANGUAGE: u32 = 68u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS3_CURRENTAUDIOLANGUAGEINDEX: u32 = 69u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS3_CURRENTPOSITIONTIMECODE: u32 = 71u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS3_GETAUDIOLANGUAGEDESC: u32 = 67u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS3_GETAUDIOLANGUAGEID: u32 = 66u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS3_GETLANGUAGENAME: u32 = 70u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLSFAKE_TIMECOMPRESSION: u32 = 72u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_BASE: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_CURRENTITEM: u32 = 60u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_CURRENTMARKER: u32 = 61u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_CURRENTPOSITION: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_CURRENTPOSITIONSTRING: u32 = 57u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_FASTFORWARD: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_FASTREVERSE: u32 = 55u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_ISAVAILABLE: u32 = 62u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_NEXT: u32 = 58u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_PAUSE: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_PLAY: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_PLAYITEM: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_PREVIOUS: u32 = 59u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCONTROLS_STOP: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE2_BASE: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE2_DVD: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE3_NEWMEDIA: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE3_NEWPLAYLIST: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_AUDIOLANGUAGECHANGE: u32 = 5102u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_BUFFERING: u32 = 5402u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_CDROMMEDIACHANGE: u32 = 5701u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_CURRENTITEMCHANGE: u32 = 5806u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_CURRENTMEDIAITEMAVAILABLE: u32 = 5803u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_CURRENTPLAYLISTCHANGE: u32 = 5804u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_CURRENTPLAYLISTITEMAVAILABLE: u32 = 5805u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_DISCONNECT: u32 = 5401u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_DOMAINCHANGE: u32 = 5822u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_DURATIONUNITCHANGE: u32 = 5204u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_ENDOFSTREAM: u32 = 5201u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_ERROR: u32 = 5501u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MARKERHIT: u32 = 5203u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACHANGE: u32 = 5802u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONATTRIBUTESTRINGADDED: u32 = 5808u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONATTRIBUTESTRINGCHANGED: u32 = 5820u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONATTRIBUTESTRINGREMOVED: u32 = 5809u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONCHANGE: u32 = 5807u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONCONTENTSCANADDEDITEM: u32 = 5813u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONCONTENTSCANPROGRESS: u32 = 5814u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONMEDIAADDED: u32 = 5825u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONMEDIAREMOVED: u32 = 5826u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONSEARCHCOMPLETE: u32 = 5817u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONSEARCHFOUNDITEM: u32 = 5815u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONSEARCHPROGRESS: u32 = 5816u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MEDIAERROR: u32 = 5821u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_MODECHANGE: u32 = 5819u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_NEWSTREAM: u32 = 5403u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_OPENPLAYLISTSWITCH: u32 = 5823u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_OPENSTATECHANGE: u32 = 5001u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_PLAYLISTCHANGE: u32 = 5801u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONCHANGE: u32 = 5810u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONPLAYLISTADDED: u32 = 5811u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONPLAYLISTREMOVED: u32 = 5812u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONPLAYLISTSETASDELETED: u32 = 5818u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_PLAYSTATECHANGE: u32 = 5101u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_POSITIONCHANGE: u32 = 5202u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_SCRIPTCOMMAND: u32 = 5301u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_STATUSCHANGE: u32 = 5002u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_STRINGCOLLECTIONCHANGE: u32 = 5824u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCOREEVENT_WARNING: u32 = 5601u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_BASE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_CDROMCOLLECTION: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_CLOSE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_CLOSEDCAPTION: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_CONTROLS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_CURRENTMEDIA: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_CURRENTPLAYLIST: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_ERROR: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_ISONLINE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_LAST: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_LAUNCHURL: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_MAX: u32 = 1454u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_MEDIACOLLECTION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_MIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_NETWORK: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_OPENSTATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_PLAYLISTCOLLECTION: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_PLAYSTATE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_SETTINGS: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_STATUS: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_URL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPCORE_VERSIONINFO: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADCOLLECTION_BASE: u32 = 1200u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADCOLLECTION_CLEAR: u32 = 1206u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADCOLLECTION_COUNT: u32 = 1202u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADCOLLECTION_ID: u32 = 1201u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADCOLLECTION_ITEM: u32 = 1203u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADCOLLECTION_REMOVEITEM: u32 = 1205u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADCOLLECTION_STARTDOWNLOAD: u32 = 1204u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM2_BASE: u32 = 1300u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM2_GETITEMINFO: u32 = 1301u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_BASE: u32 = 1250u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_CANCEL: u32 = 1258u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_DOWNLOADSTATE: u32 = 1255u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_PAUSE: u32 = 1256u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_PROGRESS: u32 = 1254u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_RESUME: u32 = 1257u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_SIZE: u32 = 1252u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_SOURCEURL: u32 = 1251u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADITEM_TYPE: u32 = 1253u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADMANAGER_BASE: u32 = 1150u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADMANAGER_CREATEDOWNLOADCOLLECTION: u32 = 1152u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDOWNLOADMANAGER_GETDOWNLOADCOLLECTION: u32 = 1151u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDVD_BACK: u32 = 1005u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDVD_BASE: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDVD_DOMAIN: u32 = 1002u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDVD_ISAVAILABLE: u32 = 1001u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDVD_RESUME: u32 = 1006u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDVD_TITLEMENU: u32 = 1004u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPDVD_TOPMENU: u32 = 1003u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERRORITEM2_CONDITION: u32 = 906u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERRORITEM_BASE: u32 = 900u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERRORITEM_CUSTOMURL: u32 = 905u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERRORITEM_ERRORCODE: u32 = 901u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERRORITEM_ERRORCONTEXT: u32 = 903u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERRORITEM_ERRORDESCRIPTION: u32 = 902u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERRORITEM_REMEDY: u32 = 904u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERROR_BASE: u32 = 850u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERROR_CLEARERRORQUEUE: u32 = 851u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERROR_ERRORCOUNT: u32 = 852u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERROR_ITEM: u32 = 853u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPERROR_WEBHELP: u32 = 854u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA2_ERROR: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA3_GETATTRIBUTECOUNTBYTYPE: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA3_GETITEMINFOBYTYPE: u32 = 770u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION2_BASE: u32 = 1400u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION2_CREATEQUERY: u32 = 1401u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION2_GETBYATTRANDMEDIATYPE: u32 = 1404u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION2_GETPLAYLISTBYQUERY: u32 = 1402u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION2_GETSTRINGCOLLBYQUERY: u32 = 1403u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_ADD: u32 = 452u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_BASE: u32 = 450u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_FREEZECOLLECTIONCHANGE: u32 = 474u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETALL: u32 = 453u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETATTRIBUTESTRINGCOLLECTION: u32 = 461u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETBYALBUM: u32 = 457u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETBYATTRIBUTE: u32 = 458u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETBYAUTHOR: u32 = 456u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETBYGENRE: u32 = 455u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETBYNAME: u32 = 454u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETBYQUERYDESCRIPTION: u32 = 473u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_GETMEDIAATOM: u32 = 470u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_ISDELETED: u32 = 472u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_NEWQUERY: u32 = 462u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_POSTCOLLECTIONCHANGE: u32 = 476u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_REMOVE: u32 = 459u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_SETDELETED: u32 = 471u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_STARTCONTENTSCAN: u32 = 465u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_STARTMONITORING: u32 = 463u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_STARTSEARCH: u32 = 467u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_STOPCONTENTSCAN: u32 = 466u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_STOPMONITORING: u32 = 464u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_STOPSEARCH: u32 = 468u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_UNFREEZECOLLECTIONCHANGE: u32 = 475u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIACOLLECTION_UPDATEMETADATA: u32 = 469u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_ATTRIBUTECOUNT: u32 = 759u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_BASE: u32 = 750u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_DURATION: u32 = 757u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_DURATIONSTRING: u32 = 758u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_GETATTRIBUTENAME: u32 = 760u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_GETITEMINFO: u32 = 761u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_GETITEMINFOBYATOM: u32 = 765u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_GETMARKERNAME: u32 = 756u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_GETMARKERTIME: u32 = 755u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_IMAGESOURCEHEIGHT: u32 = 753u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_IMAGESOURCEWIDTH: u32 = 752u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_ISIDENTICAL: u32 = 763u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_ISMEMBEROF: u32 = 766u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_ISREADONLYITEM: u32 = 767u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_MARKERCOUNT: u32 = 754u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_NAME: u32 = 764u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_SETITEMINFO: u32 = 762u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMEDIA_SOURCEURL: u32 = 751u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMETADATA_BASE: u32 = 1050u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMETADATA_PICTURE_DESCRIPTION: u32 = 1053u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMETADATA_PICTURE_MIMETYPE: u32 = 1051u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMETADATA_PICTURE_PICTURETYPE: u32 = 1052u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMETADATA_PICTURE_URL: u32 = 1054u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMETADATA_TEXT_DESCRIPTION: u32 = 1056u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPMETADATA_TEXT_TEXT: u32 = 1055u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_BANDWIDTH: u32 = 801u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_BASE: u32 = 800u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_BITRATE: u32 = 812u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_BUFFERINGCOUNT: u32 = 807u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_BUFFERINGPROGRESS: u32 = 808u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_BUFFERINGTIME: u32 = 809u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_DOWNLOADPROGRESS: u32 = 824u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_ENCODEDFRAMERATE: u32 = 825u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_FRAMERATE: u32 = 810u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_FRAMESSKIPPED: u32 = 826u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_GETPROXYBYPASSFORLOCAL: u32 = 821u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_GETPROXYEXCEPTIONLIST: u32 = 819u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_GETPROXYNAME: u32 = 815u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_GETPROXYPORT: u32 = 817u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_GETPROXYSETTINGS: u32 = 813u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_LOSTPACKETS: u32 = 805u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_MAXBANDWIDTH: u32 = 823u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_MAXBITRATE: u32 = 811u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_RECEIVEDPACKETS: u32 = 804u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_RECEPTIONQUALITY: u32 = 806u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_RECOVEREDPACKETS: u32 = 802u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_SETPROXYBYPASSFORLOCAL: u32 = 822u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_SETPROXYEXCEPTIONLIST: u32 = 820u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_SETPROXYNAME: u32 = 816u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_SETPROXYPORT: u32 = 818u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_SETPROXYSETTINGS: u32 = 814u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPNETWORK_SOURCEPROTOCOL: u32 = 803u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX2_BASE: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX2_STRETCHTOFIT: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX2_WINDOWLESSVIDEO: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX4_ISREMOTE: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX4_OPENPLAYER: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX4_PLAYERAPPLICATION: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_CDROMBURNERROR: u32 = 6523u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_CDROMBURNMEDIAERROR: u32 = 6522u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_CDROMBURNSTATECHANGE: u32 = 6521u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_CDROMRIPMEDIAERROR: u32 = 6520u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_CDROMRIPSTATECHANGE: u32 = 6519u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_CLICK: u32 = 6505u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_CREATEPARTNERSHIPCOMPLETE: u32 = 6518u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_DEVICECONNECT: u32 = 6513u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_DEVICEDISCONNECT: u32 = 6514u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_DEVICEESTIMATION: u32 = 6527u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_DEVICESTATUSCHANGE: u32 = 6515u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_DEVICESYNCERROR: u32 = 6517u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_DEVICESYNCSTATECHANGE: u32 = 6516u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_DOUBLECLICK: u32 = 6506u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_FOLDERSCANSTATECHANGE: u32 = 6526u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_KEYDOWN: u32 = 6507u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_KEYPRESS: u32 = 6508u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_KEYUP: u32 = 6509u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_LIBRARYCONNECT: u32 = 6524u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_LIBRARYDISCONNECT: u32 = 6525u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_MOUSEDOWN: u32 = 6510u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_MOUSEMOVE: u32 = 6511u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_MOUSEUP: u32 = 6512u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_PLAYERDOCKEDSTATECHANGE: u32 = 6503u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_PLAYERRECONNECT: u32 = 6504u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_SWITCHEDTOCONTROL: u32 = 6502u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCXEVENT_SWITCHEDTOPLAYERAPPLICATION: u32 = 6501u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX_BASE: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX_ENABLECONTEXTMENU: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX_ENABLED: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX_FULLSCREEN: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX_LAST: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX_TRANSPARENTATSTART: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPOCX_UIMODE: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYERAPP_BASE: u32 = 1100u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYERAPP_HASDISPLAY: u32 = 1104u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYERAPP_PLAYERDOCKED: u32 = 1103u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYERAPP_REMOTESTATUS: u32 = 1105u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYERAPP_SWITCHTOCONTROL: u32 = 1102u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYERAPP_SWITCHTOPLAYERAPPLICATION: u32 = 1101u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTARRAY_BASE: u32 = 500u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTARRAY_COUNT: u32 = 501u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTARRAY_ITEM: u32 = 502u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_BASE: u32 = 550u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_GETALL: u32 = 553u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_GETBYNAME: u32 = 554u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_GETBYQUERYDESCRIPTION: u32 = 555u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_IMPORTPLAYLIST: u32 = 562u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_ISDELETED: u32 = 561u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_NEWPLAYLIST: u32 = 552u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_NEWQUERY: u32 = 557u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_REMOVE: u32 = 556u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_SETDELETED: u32 = 560u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_STARTMONITORING: u32 = 558u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLISTCOLLECTION_STOPMONITORING: u32 = 559u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_APPENDITEM: u32 = 207u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_ATTRIBUTECOUNT: u32 = 210u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_ATTRIBUTENAME: u32 = 211u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_BASE: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_CLEAR: u32 = 205u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_COUNT: u32 = 201u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_GETITEMINFO: u32 = 203u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_INSERTITEM: u32 = 206u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_ISIDENTICAL: u32 = 213u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_ITEM: u32 = 212u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_MOVEITEM: u32 = 209u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_NAME: u32 = 202u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_REMOVEITEM: u32 = 208u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPPLAYLIST_SETITEMINFO: u32 = 204u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPQUERY_ADDCONDITION: u32 = 1351u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPQUERY_BASE: u32 = 1350u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPQUERY_BEGINNEXTGROUP: u32 = 1352u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS2_DEFAULTAUDIOLANGUAGE: u32 = 114u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS2_LIBRARYACCESSRIGHTS: u32 = 115u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS2_REQUESTLIBRARYACCESSRIGHTS: u32 = 116u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_AUTOSTART: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_BALANCE: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_BASE: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_BASEURL: u32 = 108u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_DEFAULTFRAME: u32 = 109u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_ENABLEERRORDIALOGS: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_GETMODE: u32 = 110u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_INVOKEURLS: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_ISAVAILABLE: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_MUTE: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_PLAYCOUNT: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_RATE: u32 = 106u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_SETMODE: u32 = 111u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSETTINGS_VOLUME: u32 = 107u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION2_BASE: u32 = 1450u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION2_GETATTRCOUNTBYTYPE: u32 = 1453u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION2_GETITEMINFO: u32 = 1452u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION2_GETITEMINFOBYTYPE: u32 = 1454u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION2_ISIDENTICAL: u32 = 1451u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION_BASE: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION_COUNT: u32 = 401u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const DISPID_WMPSTRINGCOLLECTION_ITEM: u32 = 402u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const EFFECT2_FULLSCREENEXCLUSIVE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const EFFECT_CANGOFULLSCREEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const EFFECT_HASPROPERTYPAGE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const EFFECT_VARIABLEFREQSTEP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const EFFECT_WINDOWEDONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_BACKGROUNDSYNC_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FBSA_DISABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FBSA_ENABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FBSA_RUNNOW: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(2i32);
-impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_ACTION {}
-impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_ACTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_BACKGROUNDSYNC_ACTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_BACKGROUNDSYNC_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FBSS_DISABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FBSS_ENABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(1i32);
-impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_STATUS {}
-impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_BACKGROUNDSYNC_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_DOWNLOAD_ERROR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_NONE: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_INVALID_FEED_FORMAT: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(2i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_NORMALIZATION_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(3i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_PERSISTENCE_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(4i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_DOWNLOAD_BLOCKED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(5i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_CANCELED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(6i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_UNSUPPORTED_AUTH: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(7i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_BACKGROUND_DOWNLOAD_DISABLED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(8i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_NOT_EXIST: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(9i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_UNSUPPORTED_MSXML: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(10i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_UNSUPPORTED_DTD: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(11i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_DOWNLOAD_SIZE_LIMIT_EXCEEDED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(12i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_ACCESS_DENIED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(13i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_AUTH_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(14i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDE_INVALID_AUTH: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(15i32);
-impl ::core::marker::Copy for FEEDS_DOWNLOAD_ERROR {}
-impl ::core::clone::Clone for FEEDS_DOWNLOAD_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_DOWNLOAD_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_ERROR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_DOWNLOAD_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_DOWNLOAD_ERROR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_DOWNLOAD_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDS_NONE: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDS_PENDING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDS_DOWNLOADING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDS_DOWNLOADED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FDS_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(4i32);
-impl ::core::marker::Copy for FEEDS_DOWNLOAD_STATUS {}
-impl ::core::clone::Clone for FEEDS_DOWNLOAD_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_DOWNLOAD_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_DOWNLOAD_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_DOWNLOAD_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_ERROR_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FEC_E_ERRORBASE: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FEC_E_INVALIDMSXMLPROPERTY: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FEC_E_DOWNLOADSIZELIMITEXCEEDED: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479167i32);
-impl ::core::marker::Copy for FEEDS_ERROR_CODE {}
-impl ::core::clone::Clone for FEEDS_ERROR_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_ERROR_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_ERROR_CODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_ERROR_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_ERROR_CODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FEICF_READ_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FEICF_UNREAD_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(2i32);
-impl ::core::marker::Copy for FEEDS_EVENTS_ITEM_COUNT_FLAGS {}
-impl ::core::clone::Clone for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_EVENTS_ITEM_COUNT_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_EVENTS_MASK(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FEM_FOLDEREVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FEM_FEEDEVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(2i32);
-impl ::core::marker::Copy for FEEDS_EVENTS_MASK {}
-impl ::core::clone::Clone for FEEDS_EVENTS_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_EVENTS_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_EVENTS_MASK {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_EVENTS_MASK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_EVENTS_MASK").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_EVENTS_SCOPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FES_ALL: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FES_SELF_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FES_SELF_AND_CHILDREN_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(2i32);
-impl ::core::marker::Copy for FEEDS_EVENTS_SCOPE {}
-impl ::core::clone::Clone for FEEDS_EVENTS_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_EVENTS_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_EVENTS_SCOPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_EVENTS_SCOPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_EVENTS_SCOPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_SYNC_SETTING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FSS_DEFAULT: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FSS_INTERVAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FSS_MANUAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(2i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FSS_SUGGESTED: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(3i32);
-impl ::core::marker::Copy for FEEDS_SYNC_SETTING {}
-impl ::core::clone::Clone for FEEDS_SYNC_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_SYNC_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_SYNC_SETTING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_SYNC_SETTING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_SYNC_SETTING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_XML_FILTER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXFF_ALL: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXFF_UNREAD: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXFF_READ: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(2i32);
-impl ::core::marker::Copy for FEEDS_XML_FILTER_FLAGS {}
-impl ::core::clone::Clone for FEEDS_XML_FILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_FILTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_XML_FILTER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_XML_FILTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_XML_FILTER_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_XML_INCLUDE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXIF_NONE: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXIF_CF_EXTENSIONS: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(1i32);
-impl ::core::marker::Copy for FEEDS_XML_INCLUDE_FLAGS {}
-impl ::core::clone::Clone for FEEDS_XML_INCLUDE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_INCLUDE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_XML_INCLUDE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_XML_INCLUDE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_XML_INCLUDE_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_XML_SORT_ORDER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXSO_ASCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXSO_DESCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(2i32);
-impl ::core::marker::Copy for FEEDS_XML_SORT_ORDER {}
-impl ::core::clone::Clone for FEEDS_XML_SORT_ORDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_SORT_ORDER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_ORDER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_XML_SORT_ORDER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_XML_SORT_ORDER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEEDS_XML_SORT_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(2i32);
-impl ::core::marker::Copy for FEEDS_XML_SORT_PROPERTY {}
-impl ::core::clone::Clone for FEEDS_XML_SORT_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_SORT_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_PROPERTY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEEDS_XML_SORT_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEEDS_XML_SORT_PROPERTY").field(&self.0).finish()
-    }
-}
-pub const FeedFolderWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
-pub const FeedWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
-pub const FeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -3697,10 +2334,6 @@ pub struct IFeedsManager_Vtbl {
     Normalize: usize,
     pub ItemCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemcountlimit: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const IOCTL_WMP_DEVICE_CAN_SYNC: u32 = 844123479u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const IOCTL_WMP_METADATA_ROUND_TRIP: u32 = 827346263u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
 pub struct IWMPAudioRenderConfig(::windows::core::IUnknown);
@@ -17723,6 +16356,1045 @@ pub struct IXFeedsManager_Vtbl {
     Normalize: usize,
     pub ItemCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiitemcountlimit: *mut u32) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct _WMPOCXEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl _WMPOCXEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_WMPOCXEvents> for ::windows::core::IUnknown {
+    fn from(value: _WMPOCXEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _WMPOCXEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _WMPOCXEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_WMPOCXEvents> for ::windows::core::IUnknown {
+    fn from(value: &_WMPOCXEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_WMPOCXEvents> for super::super::System::Com::IDispatch {
+    fn from(value: _WMPOCXEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _WMPOCXEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _WMPOCXEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_WMPOCXEvents> for super::super::System::Com::IDispatch {
+    fn from(value: &_WMPOCXEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for _WMPOCXEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for _WMPOCXEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for _WMPOCXEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _WMPOCXEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_WMPOCXEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for _WMPOCXEvents {
+    type Vtable = _WMPOCXEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a51_394a_11d3_b153_00c04f79faa6);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct _WMPOCXEvents_Vtbl {
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
+}
+pub const CLSID_WMPMediaPluginRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5569e7f5_424b_4b93_89ca_79d17924689a);
+pub const CLSID_WMPSkinManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2a7fd52_301f_4348_b93a_638c6de49229);
+pub const CLSID_XFeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe6b11c3_c72e_4061_86c6_9d163121f229);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_DELTA: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_AsyncDownload: u32 = 24579u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_CancelAsyncDownload: u32 = 24580u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_DownloadMimeType: u32 = 24586u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_DownloadStatus: u32 = 24581u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_DownloadUrl: u32 = 24585u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_LastDownloadError: u32 = 24582u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_Length: u32 = 24578u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_LocalPath: u32 = 24583u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_Parent: u32 = 24584u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_RemoveFile: u32 = 24587u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_SetFile: u32 = 24588u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_Type: u32 = 24577u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDENCLOSURE_Url: u32 = 24576u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_Error: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_FeedDeleted: u32 = 32769u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_FeedDownloadCompleted: u32 = 32774u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_FeedDownloading: u32 = 32773u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_FeedItemCountChanged: u32 = 32775u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_FeedMoved: u32 = 32772u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_FeedRenamed: u32 = 32770u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDEVENTS_FeedUrlChanged: u32 = 32771u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_Error: u32 = 28672u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedAdded: u32 = 28679u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedDeleted: u32 = 28680u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedDownloadCompleted: u32 = 28686u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedDownloading: u32 = 28685u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedItemCountChanged: u32 = 28687u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedMovedFrom: u32 = 28683u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedMovedTo: u32 = 28684u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedRenamed: u32 = 28681u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FeedUrlChanged: u32 = 28682u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FolderAdded: u32 = 28673u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FolderDeleted: u32 = 28674u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FolderItemCountChanged: u32 = 28678u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FolderMovedFrom: u32 = 28676u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FolderMovedTo: u32 = 28677u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDEREVENTS_FolderRenamed: u32 = 28675u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_CreateFeed: u32 = 12290u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_CreateSubfolder: u32 = 12291u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Delete: u32 = 12296u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_ExistsFeed: u32 = 12292u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_ExistsSubfolder: u32 = 12294u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Feeds: u32 = 12288u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_GetFeed: u32 = 12293u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_GetSubfolder: u32 = 12295u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_GetWatcher: u32 = 12305u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_IsRoot: u32 = 12302u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Move: u32 = 12300u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Name: u32 = 12297u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Parent: u32 = 12301u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Path: u32 = 12299u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Rename: u32 = 12298u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_Subfolders: u32 = 12289u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_TotalItemCount: u32 = 12304u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDFOLDER_TotalUnreadItemCount: u32 = 12303u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Author: u32 = 20487u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Comments: u32 = 20486u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Delete: u32 = 20492u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Description: u32 = 20484u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_DownloadUrl: u32 = 20493u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_EffectiveId: u32 = 20496u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Enclosure: u32 = 20488u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Guid: u32 = 20483u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_IsRead: u32 = 20489u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_LastDownloadTime: u32 = 20494u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Link: u32 = 20482u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_LocalId: u32 = 20490u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Modified: u32 = 20495u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Parent: u32 = 20491u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_PubDate: u32 = 20485u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Title: u32 = 20481u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDITEM_Xml: u32 = 20480u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDSENUM_Count: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDSENUM_Item: u32 = 8193u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_AsyncSyncAll: u32 = 4108u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_BackgroundSync: u32 = 4105u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_BackgroundSyncStatus: u32 = 4106u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_DefaultInterval: u32 = 4107u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_DeleteFeed: u32 = 4102u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_DeleteFolder: u32 = 4103u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_ExistsFeed: u32 = 4098u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_ExistsFolder: u32 = 4100u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_GetFeed: u32 = 4099u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_GetFeedByUrl: u32 = 4104u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_GetFolder: u32 = 4101u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_IsSubscribed: u32 = 4097u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_ItemCountLimit: u32 = 4110u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_Normalize: u32 = 4109u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEEDS_RootFolder: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_AsyncDownload: u32 = 16395u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_CancelAsyncDownload: u32 = 16396u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_ClearCredentials: u32 = 16428u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Copyright: u32 = 16411u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Delete: u32 = 16393u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Description: u32 = 16404u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Download: u32 = 16394u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_DownloadEnclosuresAutomatically: u32 = 16412u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_DownloadStatus: u32 = 16413u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_DownloadUrl: u32 = 16416u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_GetItem: u32 = 16402u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_GetItemByEffectiveId: u32 = 16423u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_GetWatcher: u32 = 16419u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Image: u32 = 16406u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Interval: u32 = 16397u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_IsList: u32 = 16417u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_ItemCount: u32 = 16421u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Items: u32 = 16401u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Language: u32 = 16410u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_LastBuildDate: u32 = 16407u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_LastDownloadError: u32 = 16414u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_LastDownloadTime: u32 = 16399u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_LastItemDownloadTime: u32 = 16424u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_LastWriteTime: u32 = 16392u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Link: u32 = 16405u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_LocalEnclosurePath: u32 = 16400u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_LocalId: u32 = 16388u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_MarkAllItemsRead: u32 = 16418u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_MaxItemCount: u32 = 16422u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Merge: u32 = 16415u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Move: u32 = 16390u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Name: u32 = 16385u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Parent: u32 = 16391u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Password: u32 = 16426u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Path: u32 = 16389u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_PubDate: u32 = 16408u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Rename: u32 = 16386u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_SetCredentials: u32 = 16427u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_SyncSetting: u32 = 16398u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Title: u32 = 16403u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Ttl: u32 = 16409u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_UnreadItemCount: u32 = 16420u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Url: u32 = 16387u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Username: u32 = 16425u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_FEED_Xml: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROMCOLLECTION_BASE: u32 = 300u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROMCOLLECTION_COUNT: u32 = 301u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROMCOLLECTION_GETBYDRIVESPECIFIER: u32 = 303u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROMCOLLECTION_ITEM: u32 = 302u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROMCOLLECTION_STARTMONITORINGCDROMS: u32 = 304u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROMCOLLECTION_STOPMONITORINGCDROMS: u32 = 305u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROM_BASE: u32 = 250u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROM_DRIVESPECIFIER: u32 = 251u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROM_EJECT: u32 = 253u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCDROM_PLAYLIST: u32 = 252u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION2_GETLANGCOUNT: u32 = 955u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION2_GETLANGID: u32 = 957u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION2_GETLANGNAME: u32 = 956u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION2_GETSTYLECOUNT: u32 = 958u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION2_GETSTYLENAME: u32 = 959u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION_BASE: u32 = 950u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION_CAPTIONINGID: u32 = 954u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION_SAMIFILENAME: u32 = 953u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION_SAMILANG: u32 = 952u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCLOSEDCAPTION_SAMISTYLE: u32 = 951u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS2_STEP: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS3_AUDIOLANGUAGECOUNT: u32 = 65u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS3_CURRENTAUDIOLANGUAGE: u32 = 68u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS3_CURRENTAUDIOLANGUAGEINDEX: u32 = 69u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS3_CURRENTPOSITIONTIMECODE: u32 = 71u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS3_GETAUDIOLANGUAGEDESC: u32 = 67u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS3_GETAUDIOLANGUAGEID: u32 = 66u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS3_GETLANGUAGENAME: u32 = 70u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLSFAKE_TIMECOMPRESSION: u32 = 72u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_BASE: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_CURRENTITEM: u32 = 60u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_CURRENTMARKER: u32 = 61u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_CURRENTPOSITION: u32 = 56u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_CURRENTPOSITIONSTRING: u32 = 57u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_FASTFORWARD: u32 = 54u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_FASTREVERSE: u32 = 55u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_ISAVAILABLE: u32 = 62u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_NEXT: u32 = 58u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_PAUSE: u32 = 53u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_PLAY: u32 = 51u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_PLAYITEM: u32 = 63u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_PREVIOUS: u32 = 59u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCONTROLS_STOP: u32 = 52u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE2_BASE: u32 = 39u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE2_DVD: u32 = 40u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE3_NEWMEDIA: u32 = 42u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE3_NEWPLAYLIST: u32 = 41u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_AUDIOLANGUAGECHANGE: u32 = 5102u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_BUFFERING: u32 = 5402u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_CDROMMEDIACHANGE: u32 = 5701u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_CURRENTITEMCHANGE: u32 = 5806u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_CURRENTMEDIAITEMAVAILABLE: u32 = 5803u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_CURRENTPLAYLISTCHANGE: u32 = 5804u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_CURRENTPLAYLISTITEMAVAILABLE: u32 = 5805u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_DISCONNECT: u32 = 5401u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_DOMAINCHANGE: u32 = 5822u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_DURATIONUNITCHANGE: u32 = 5204u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_ENDOFSTREAM: u32 = 5201u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_ERROR: u32 = 5501u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MARKERHIT: u32 = 5203u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACHANGE: u32 = 5802u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONATTRIBUTESTRINGADDED: u32 = 5808u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONATTRIBUTESTRINGCHANGED: u32 = 5820u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONATTRIBUTESTRINGREMOVED: u32 = 5809u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONCHANGE: u32 = 5807u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONCONTENTSCANADDEDITEM: u32 = 5813u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONCONTENTSCANPROGRESS: u32 = 5814u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONMEDIAADDED: u32 = 5825u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONMEDIAREMOVED: u32 = 5826u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONSEARCHCOMPLETE: u32 = 5817u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONSEARCHFOUNDITEM: u32 = 5815u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIACOLLECTIONSEARCHPROGRESS: u32 = 5816u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MEDIAERROR: u32 = 5821u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_MODECHANGE: u32 = 5819u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_NEWSTREAM: u32 = 5403u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_OPENPLAYLISTSWITCH: u32 = 5823u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_OPENSTATECHANGE: u32 = 5001u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_PLAYLISTCHANGE: u32 = 5801u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONCHANGE: u32 = 5810u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONPLAYLISTADDED: u32 = 5811u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONPLAYLISTREMOVED: u32 = 5812u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_PLAYLISTCOLLECTIONPLAYLISTSETASDELETED: u32 = 5818u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_PLAYSTATECHANGE: u32 = 5101u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_POSITIONCHANGE: u32 = 5202u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_SCRIPTCOMMAND: u32 = 5301u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_STATUSCHANGE: u32 = 5002u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_STRINGCOLLECTIONCHANGE: u32 = 5824u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCOREEVENT_WARNING: u32 = 5601u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_BASE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_CDROMCOLLECTION: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_CLOSE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_CLOSEDCAPTION: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_CONTROLS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_CURRENTMEDIA: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_CURRENTPLAYLIST: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_ERROR: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_ISONLINE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_LAST: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_LAUNCHURL: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_MAX: u32 = 1454u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_MEDIACOLLECTION: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_MIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_NETWORK: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_OPENSTATE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_PLAYLISTCOLLECTION: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_PLAYSTATE: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_SETTINGS: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_STATUS: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_URL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPCORE_VERSIONINFO: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADCOLLECTION_BASE: u32 = 1200u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADCOLLECTION_CLEAR: u32 = 1206u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADCOLLECTION_COUNT: u32 = 1202u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADCOLLECTION_ID: u32 = 1201u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADCOLLECTION_ITEM: u32 = 1203u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADCOLLECTION_REMOVEITEM: u32 = 1205u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADCOLLECTION_STARTDOWNLOAD: u32 = 1204u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM2_BASE: u32 = 1300u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM2_GETITEMINFO: u32 = 1301u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_BASE: u32 = 1250u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_CANCEL: u32 = 1258u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_DOWNLOADSTATE: u32 = 1255u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_PAUSE: u32 = 1256u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_PROGRESS: u32 = 1254u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_RESUME: u32 = 1257u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_SIZE: u32 = 1252u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_SOURCEURL: u32 = 1251u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADITEM_TYPE: u32 = 1253u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADMANAGER_BASE: u32 = 1150u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADMANAGER_CREATEDOWNLOADCOLLECTION: u32 = 1152u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDOWNLOADMANAGER_GETDOWNLOADCOLLECTION: u32 = 1151u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDVD_BACK: u32 = 1005u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDVD_BASE: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDVD_DOMAIN: u32 = 1002u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDVD_ISAVAILABLE: u32 = 1001u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDVD_RESUME: u32 = 1006u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDVD_TITLEMENU: u32 = 1004u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPDVD_TOPMENU: u32 = 1003u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERRORITEM2_CONDITION: u32 = 906u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERRORITEM_BASE: u32 = 900u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERRORITEM_CUSTOMURL: u32 = 905u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERRORITEM_ERRORCODE: u32 = 901u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERRORITEM_ERRORCONTEXT: u32 = 903u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERRORITEM_ERRORDESCRIPTION: u32 = 902u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERRORITEM_REMEDY: u32 = 904u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERROR_BASE: u32 = 850u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERROR_CLEARERRORQUEUE: u32 = 851u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERROR_ERRORCOUNT: u32 = 852u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERROR_ITEM: u32 = 853u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPERROR_WEBHELP: u32 = 854u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA2_ERROR: u32 = 768u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA3_GETATTRIBUTECOUNTBYTYPE: u32 = 769u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA3_GETITEMINFOBYTYPE: u32 = 770u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION2_BASE: u32 = 1400u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION2_CREATEQUERY: u32 = 1401u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION2_GETBYATTRANDMEDIATYPE: u32 = 1404u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION2_GETPLAYLISTBYQUERY: u32 = 1402u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION2_GETSTRINGCOLLBYQUERY: u32 = 1403u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_ADD: u32 = 452u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_BASE: u32 = 450u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_FREEZECOLLECTIONCHANGE: u32 = 474u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETALL: u32 = 453u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETATTRIBUTESTRINGCOLLECTION: u32 = 461u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETBYALBUM: u32 = 457u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETBYATTRIBUTE: u32 = 458u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETBYAUTHOR: u32 = 456u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETBYGENRE: u32 = 455u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETBYNAME: u32 = 454u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETBYQUERYDESCRIPTION: u32 = 473u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_GETMEDIAATOM: u32 = 470u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_ISDELETED: u32 = 472u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_NEWQUERY: u32 = 462u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_POSTCOLLECTIONCHANGE: u32 = 476u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_REMOVE: u32 = 459u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_SETDELETED: u32 = 471u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_STARTCONTENTSCAN: u32 = 465u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_STARTMONITORING: u32 = 463u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_STARTSEARCH: u32 = 467u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_STOPCONTENTSCAN: u32 = 466u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_STOPMONITORING: u32 = 464u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_STOPSEARCH: u32 = 468u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_UNFREEZECOLLECTIONCHANGE: u32 = 475u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIACOLLECTION_UPDATEMETADATA: u32 = 469u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_ATTRIBUTECOUNT: u32 = 759u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_BASE: u32 = 750u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_DURATION: u32 = 757u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_DURATIONSTRING: u32 = 758u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_GETATTRIBUTENAME: u32 = 760u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_GETITEMINFO: u32 = 761u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_GETITEMINFOBYATOM: u32 = 765u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_GETMARKERNAME: u32 = 756u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_GETMARKERTIME: u32 = 755u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_IMAGESOURCEHEIGHT: u32 = 753u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_IMAGESOURCEWIDTH: u32 = 752u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_ISIDENTICAL: u32 = 763u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_ISMEMBEROF: u32 = 766u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_ISREADONLYITEM: u32 = 767u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_MARKERCOUNT: u32 = 754u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_NAME: u32 = 764u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_SETITEMINFO: u32 = 762u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMEDIA_SOURCEURL: u32 = 751u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMETADATA_BASE: u32 = 1050u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMETADATA_PICTURE_DESCRIPTION: u32 = 1053u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMETADATA_PICTURE_MIMETYPE: u32 = 1051u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMETADATA_PICTURE_PICTURETYPE: u32 = 1052u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMETADATA_PICTURE_URL: u32 = 1054u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMETADATA_TEXT_DESCRIPTION: u32 = 1056u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPMETADATA_TEXT_TEXT: u32 = 1055u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_BANDWIDTH: u32 = 801u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_BASE: u32 = 800u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_BITRATE: u32 = 812u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_BUFFERINGCOUNT: u32 = 807u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_BUFFERINGPROGRESS: u32 = 808u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_BUFFERINGTIME: u32 = 809u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_DOWNLOADPROGRESS: u32 = 824u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_ENCODEDFRAMERATE: u32 = 825u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_FRAMERATE: u32 = 810u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_FRAMESSKIPPED: u32 = 826u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_GETPROXYBYPASSFORLOCAL: u32 = 821u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_GETPROXYEXCEPTIONLIST: u32 = 819u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_GETPROXYNAME: u32 = 815u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_GETPROXYPORT: u32 = 817u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_GETPROXYSETTINGS: u32 = 813u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_LOSTPACKETS: u32 = 805u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_MAXBANDWIDTH: u32 = 823u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_MAXBITRATE: u32 = 811u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_RECEIVEDPACKETS: u32 = 804u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_RECEPTIONQUALITY: u32 = 806u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_RECOVEREDPACKETS: u32 = 802u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_SETPROXYBYPASSFORLOCAL: u32 = 822u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_SETPROXYEXCEPTIONLIST: u32 = 820u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_SETPROXYNAME: u32 = 816u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_SETPROXYPORT: u32 = 818u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_SETPROXYSETTINGS: u32 = 814u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPNETWORK_SOURCEPROTOCOL: u32 = 803u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX2_BASE: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX2_STRETCHTOFIT: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX2_WINDOWLESSVIDEO: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX4_ISREMOTE: u32 = 26u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX4_OPENPLAYER: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX4_PLAYERAPPLICATION: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_CDROMBURNERROR: u32 = 6523u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_CDROMBURNMEDIAERROR: u32 = 6522u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_CDROMBURNSTATECHANGE: u32 = 6521u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_CDROMRIPMEDIAERROR: u32 = 6520u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_CDROMRIPSTATECHANGE: u32 = 6519u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_CLICK: u32 = 6505u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_CREATEPARTNERSHIPCOMPLETE: u32 = 6518u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_DEVICECONNECT: u32 = 6513u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_DEVICEDISCONNECT: u32 = 6514u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_DEVICEESTIMATION: u32 = 6527u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_DEVICESTATUSCHANGE: u32 = 6515u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_DEVICESYNCERROR: u32 = 6517u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_DEVICESYNCSTATECHANGE: u32 = 6516u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_DOUBLECLICK: u32 = 6506u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_FOLDERSCANSTATECHANGE: u32 = 6526u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_KEYDOWN: u32 = 6507u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_KEYPRESS: u32 = 6508u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_KEYUP: u32 = 6509u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_LIBRARYCONNECT: u32 = 6524u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_LIBRARYDISCONNECT: u32 = 6525u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_MOUSEDOWN: u32 = 6510u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_MOUSEMOVE: u32 = 6511u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_MOUSEUP: u32 = 6512u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_PLAYERDOCKEDSTATECHANGE: u32 = 6503u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_PLAYERRECONNECT: u32 = 6504u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_SWITCHEDTOCONTROL: u32 = 6502u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCXEVENT_SWITCHEDTOPLAYERAPPLICATION: u32 = 6501u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX_BASE: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX_ENABLECONTEXTMENU: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX_ENABLED: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX_FULLSCREEN: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX_LAST: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX_TRANSPARENTATSTART: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPOCX_UIMODE: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYERAPP_BASE: u32 = 1100u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYERAPP_HASDISPLAY: u32 = 1104u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYERAPP_PLAYERDOCKED: u32 = 1103u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYERAPP_REMOTESTATUS: u32 = 1105u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYERAPP_SWITCHTOCONTROL: u32 = 1102u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYERAPP_SWITCHTOPLAYERAPPLICATION: u32 = 1101u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTARRAY_BASE: u32 = 500u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTARRAY_COUNT: u32 = 501u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTARRAY_ITEM: u32 = 502u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_BASE: u32 = 550u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_GETALL: u32 = 553u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_GETBYNAME: u32 = 554u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_GETBYQUERYDESCRIPTION: u32 = 555u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_IMPORTPLAYLIST: u32 = 562u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_ISDELETED: u32 = 561u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_NEWPLAYLIST: u32 = 552u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_NEWQUERY: u32 = 557u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_REMOVE: u32 = 556u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_SETDELETED: u32 = 560u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_STARTMONITORING: u32 = 558u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLISTCOLLECTION_STOPMONITORING: u32 = 559u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_APPENDITEM: u32 = 207u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_ATTRIBUTECOUNT: u32 = 210u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_ATTRIBUTENAME: u32 = 211u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_BASE: u32 = 200u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_CLEAR: u32 = 205u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_COUNT: u32 = 201u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_GETITEMINFO: u32 = 203u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_INSERTITEM: u32 = 206u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_ISIDENTICAL: u32 = 213u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_ITEM: u32 = 212u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_MOVEITEM: u32 = 209u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_NAME: u32 = 202u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_REMOVEITEM: u32 = 208u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPPLAYLIST_SETITEMINFO: u32 = 204u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPQUERY_ADDCONDITION: u32 = 1351u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPQUERY_BASE: u32 = 1350u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPQUERY_BEGINNEXTGROUP: u32 = 1352u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS2_DEFAULTAUDIOLANGUAGE: u32 = 114u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS2_LIBRARYACCESSRIGHTS: u32 = 115u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS2_REQUESTLIBRARYACCESSRIGHTS: u32 = 116u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_AUTOSTART: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_BALANCE: u32 = 102u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_BASE: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_BASEURL: u32 = 108u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_DEFAULTFRAME: u32 = 109u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_ENABLEERRORDIALOGS: u32 = 112u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_GETMODE: u32 = 110u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_INVOKEURLS: u32 = 103u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_ISAVAILABLE: u32 = 113u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_MUTE: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_PLAYCOUNT: u32 = 105u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_RATE: u32 = 106u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_SETMODE: u32 = 111u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSETTINGS_VOLUME: u32 = 107u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION2_BASE: u32 = 1450u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION2_GETATTRCOUNTBYTYPE: u32 = 1453u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION2_GETITEMINFO: u32 = 1452u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION2_GETITEMINFOBYTYPE: u32 = 1454u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION2_ISIDENTICAL: u32 = 1451u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION_BASE: u32 = 400u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION_COUNT: u32 = 401u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const DISPID_WMPSTRINGCOLLECTION_ITEM: u32 = 402u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const EFFECT2_FULLSCREENEXCLUSIVE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const EFFECT_CANGOFULLSCREEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const EFFECT_HASPROPERTYPAGE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const EFFECT_VARIABLEFREQSTEP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const EFFECT_WINDOWEDONLY: u32 = 8u32;
+pub const FeedFolderWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
+pub const FeedWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
+pub const FeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const IOCTL_WMP_DEVICE_CAN_SYNC: u32 = 844123479u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const IOCTL_WMP_METADATA_ROUND_TRIP: u32 = 827346263u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const PLUGIN_ALL_MEDIASENDTO: &str = "MediaSendTo";
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -17784,6 +17456,703 @@ pub const PLUGIN_TYPE_SEPARATEWINDOW: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const PLUGIN_TYPE_SETTINGSAREA: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SA_BUFFER_SIZE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_ALLOWCDBURN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_ALLOWPDATRANSFER: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_ALLOWPLAY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_ALTLOGIN: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_BACKGROUNDPROCESSING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_DEVICEAVAILABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_IS_CONTENTPARTNER: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_PREPAREFORSYNC: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_CAP_UILESSMODE_ALLOWPLAY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const SUBSCRIPTION_V1_CAPS: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_BASE: u32 = 5000u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_CDROM_BASE: u32 = 5700u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_CONTENT_BASE: u32 = 5300u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_CONTROL_BASE: u32 = 5100u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_ERROR_BASE: u32 = 5500u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_NETWORK_BASE: u32 = 5400u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_PLAYLIST_BASE: u32 = 5800u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPGC_FLAGS_ALLOW_PREROLL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPGC_FLAGS_DISABLE_PLUGINS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
+pub const WMPLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPOCXEVENT_BASE: u32 = 6500u32;
+pub const WMPRemoteMediaServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMPUE_EC_USER: u32 = 33024u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMP_MDRT_FLAGS_UNREPORTED_DELETED_ITEMS: u32 = 1u32;
+pub const WMP_PLUGINTYPE_DSP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6434baea_4954_498d_abd5_2b07123e1f04);
+pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef29b174_c347_44cc_9a4f_2399118ff38c);
+pub const WMP_PLUGINTYPE_RENDERING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8554541_115d_406a_a4c7_51111c330183);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMP_SUBSCR_DL_TYPE_BACKGROUND: &str = "background";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const WMP_SUBSCR_DL_TYPE_REALTIME: &str = "real time";
+pub const WMProfile_V40_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f99ddd8_6684_456b_a0a3_33e1316895f0);
+pub const WMProfile_V40_128Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ddbe12_13dc_4e32_a35e_40378e34279a);
+pub const WMProfile_V40_16AMRadio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f4be81f_d57d_41e1_b2e3_2fad986bfec2);
+pub const WMProfile_V40_1MBVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4482a4c_cc17_4b07_a94e_9818d5e0f13f);
+pub const WMProfile_V40_250Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x541841c3_9339_4f7b_9a22_b11540894e42);
+pub const WMProfile_V40_2856100MBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a1c2206_dc5e_4186_beb2_4c5a994b132e);
+pub const WMProfile_V40_288FMRadioMono: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa57fc8_6ea4_4645_8abf_b6e5a8f814a1);
+pub const WMProfile_V40_288FMRadioStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22fcf466_aa40_431f_a289_06d0ea1a1e40);
+pub const WMProfile_V40_288VideoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac617f2d_6cbe_4e84_8e9a_ce151a12a354);
+pub const WMProfile_V40_288VideoVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2bc274_0eb6_4da9_b550_ecf7f2b9948f);
+pub const WMProfile_V40_288VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf2f00d_d555_4815_94ce_8275f3a70bfe);
+pub const WMProfile_V40_3MBVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55374ac0_309b_4396_b88f_e6e292113f28);
+pub const WMProfile_V40_512Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70440e6d_c4ef_4f84_8cd0_d5c28686e784);
+pub const WMProfile_V40_56DialUpStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8026f87_e905_4594_a3c7_00d00041d1d9);
+pub const WMProfile_V40_56DialUpVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe21713bb_652f_4dab_99de_71e04400270f);
+pub const WMProfile_V40_56DialUpVideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb756ff10_520f_4749_a399_b780e2fc9250);
+pub const WMProfile_V40_64Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4820b3f7_cbec_41dc_9391_78598714c8e5);
+pub const WMProfile_V40_6VoiceAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd508978a_11a0_4d15_b0da_acdc99d4f890);
+pub const WMProfile_V40_96Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0efa0ee3_9e64_41e2_837f_3c0038f327ba);
+pub const WMProfile_V40_DialUpMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7f47f1_72a6_45a4_80f0_3aecefc32c07);
+pub const WMProfile_V40_IntranetMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82cd3321_a94a_4ffc_9c2b_092c10ca16e7);
+pub const WMProfile_V70_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9f3c932_5ea9_4c6d_89b4_2686e515426e);
+pub const WMProfile_V70_128Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc64cf5da_df45_40d3_8027_de698d68dc66);
+pub const WMProfile_V70_1500FilmContentVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a5f6df_ee3f_434c_a433_523ce55f516b);
+pub const WMProfile_V70_1500Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b89164a_5490_4686_9e37_5a80884e5146);
+pub const WMProfile_V70_150VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f472967_e3c6_4797_9694_f0304c5e2f17);
+pub const WMProfile_V70_2000Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa980124_bf10_4e4f_9afd_4329a7395cff);
+pub const WMProfile_V70_225VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf55ea573_4c02_42b5_9026_a8260c438a9f);
+pub const WMProfile_V70_256Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafe69b3a_403f_4a1b_8007_0e21cfb3df84);
+pub const WMProfile_V70_2856100MBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07df7a25_3fe2_4a5b_8b1e_348b0721ca70);
+pub const WMProfile_V70_288FMRadioMono: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc012a833_a03b_44a5_96dc_ed95cc65582d);
+pub const WMProfile_V70_288FMRadioStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe96d67c9_1a39_4dc4_b900_b1184dc83620);
+pub const WMProfile_V70_288VideoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58bba0ee_896a_4948_9953_85b736f83947);
+pub const WMProfile_V70_288VideoVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb952f38e_7dbc_4533_a9ca_b00b1c6e9800);
+pub const WMProfile_V70_288VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70a32e2b_e2df_4ebd_9105_d9ca194a2d50);
+pub const WMProfile_V70_384Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3d45fbb_8782_44df_97c6_8678e2f9b13d);
+pub const WMProfile_V70_56DialUpStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674ee767_0949_4fac_875e_f4c9c292013b);
+pub const WMProfile_V70_56VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef99e40_57bc_4ab3_b2d1_b6e3caf64257);
+pub const WMProfile_V70_64Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb29cffc6_f131_41db_b5e8_99d8b0b945f4);
+pub const WMProfile_V70_64AudioISDN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dea458_9d60_4212_9c59_d40919c939e4);
+pub const WMProfile_V70_64VideoISDN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b7a7e9_7b8e_4992_a1a1_068217a3b311);
+pub const WMProfile_V70_6VoiceAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaba9fbf_b64f_49b3_aa0c_73fbdd150ad0);
+pub const WMProfile_V70_700FilmContentVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a747920_2449_4d76_99cb_fdb0c90484d4);
+pub const WMProfile_V70_768Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0326ebb6_f76e_4964_b0db_e729978d35ee);
+pub const WMProfile_V70_96Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d4b819_16cc_4a59_9f37_693dbb0302d6);
+pub const WMProfile_V70_DialUpMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b16e74b_4068_45b5_b80e_7bf8c80d2c2f);
+pub const WMProfile_V70_IntranetMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045880dc_34b6_4ca9_a326_73557ed143f3);
+pub const WMProfile_V80_100768VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bdb5a0e_979e_47d3_9596_73b386392a55);
+pub const WMProfile_V80_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e300b4_c2d4_4fc0_b5dd_ecbd948dc0df);
+pub const WMProfile_V80_128StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407b9450_8bdc_4ee5_88b8_6f527bd941f2);
+pub const WMProfile_V80_1400NTSCVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x931d1bee_617a_4bcd_9905_ccd0786683ee);
+pub const WMProfile_V80_150VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaee16dfa_2c14_4a2f_ad3f_a3034031784f);
+pub const WMProfile_V80_255VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeedbcdf_3fac_4c93_ac0d_47941ec72c0b);
+pub const WMProfile_V80_256Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbc75500_33d2_4466_b86b_122b201cc9ae);
+pub const WMProfile_V80_288100VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8722c69_2419_4b36_b4e0_6e17b60564e5);
+pub const WMProfile_V80_28856VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd66920c4_c21f_4ec8_a0b4_95cf2bd57fc4);
+pub const WMProfile_V80_288MonoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ea3126d_e1ba_4716_89af_f65cee0c0c67);
+pub const WMProfile_V80_288StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e4cab5c_35dc_45bb_a7c0_19b28070d0cc);
+pub const WMProfile_V80_288Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df678d9_1352_4186_bbf8_74f0c19b6ae2);
+pub const WMProfile_V80_288VideoOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c45b4c7_4aeb_4f78_a5ec_88420b9dadef);
+pub const WMProfile_V80_32StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60907f9f_b352_47e5_b210_0ef1f47e9f9d);
+pub const WMProfile_V80_384PALVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9227c692_ae62_4f72_a7ea_736062d0e21e);
+pub const WMProfile_V80_384Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29b00c2b_09a9_48bd_ad09_cdae117d1da7);
+pub const WMProfile_V80_48StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ee06be5_492b_480a_8a8f_12f373ecf9d4);
+pub const WMProfile_V80_56Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x254e8a96_2612_405c_8039_f0bf725ced7d);
+pub const WMProfile_V80_56VideoOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e2a6955_81df_4943_ba50_68a986a708f6);
+pub const WMProfile_V80_64StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bb5bc4_3176_457f_8dd6_3cd919123e2d);
+pub const WMProfile_V80_700NTSCVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8c2985f_e5d9_4538_9e23_9b21bf78f745);
+pub const WMProfile_V80_700PALVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec298949_639b_45e2_96fd_4ab32d5919c2);
+pub const WMProfile_V80_768Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d01102_e71a_4820_8f0d_13d2ec1e4872);
+pub const WMProfile_V80_96StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fc81930_61f2_436f_9d33_349f2a1c0f10);
+pub const WMProfile_V80_BESTVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x048439ba_309c_440e_9cb4_3dcca3756423);
+pub const WMProfile_V80_FAIRVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042);
+pub const WMProfile_V80_HIGHVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
+pub const WindowsMediaPlayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllAuthors: &str = "AllAuthors";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllCPAlbumIDs: &str = "AllCPAlbumIDs";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllCPAlbumSubGenreIDs: &str = "AllCPAlbumSubGenreIDs";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllCPArtistIDs: &str = "AllCPArtistIDs";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllCPGenreIDs: &str = "AllCPGenreIDs";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllCPListIDs: &str = "AllCPListIDs";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllCPRadioIDs: &str = "AllCPRadioIDs";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllCPTrackIDs: &str = "AllCPTrackIDs";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllReleaseDateYears: &str = "AllReleaseDateYears";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllUserEffectiveRatingStarss: &str = "AllUserEffectiveRatingStarss";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAllWMParentalRatings: &str = "AllWMParentalRatings";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szAuthor: &str = "Author";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szCPAlbumID: &str = "CPAlbumID";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szCPAlbumSubGenreID: &str = "CPAlbumSubGenreID";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szCPArtistID: &str = "CPArtistID";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szCPGenreID: &str = "CPGenreID";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szCPListID: &str = "CPListID";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szCPRadioID: &str = "CPRadioID";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szCPTrackID: &str = "CPTrackID";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_AccountBalance: &str = "AccountBalance";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_AccountType: &str = "AccountType";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_HasCachedCredentials: &str = "HasCachedCredentials";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_LicenseRefreshAdvanceWarning: &str = "LicenseRefreshAdvanceWarning";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_LoginState: &str = "LoginState";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_MaximumTrackPurchasePerPurchase: &str = "MaximumNumberOfTracksPerPurchase";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_MediaPlayerAccountType: &str = "MediaPlayerAccountType";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_PurchasedTrackRequiresReDownload: &str = "PurchasedTrackRequiresReDownload";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPartnerInfo_UserName: &str = "UserName";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPrice_CannotBuy: &str = "PriceCannotBuy";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPrice_Free: &str = "PriceFree";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szContentPrice_Unknown: &str = "PriceUnknown";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szFlyoutMenu: &str = "FlyoutMenu";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ALTLoginCaption: &str = "ALTLoginCaption";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ALTLoginURL: &str = "ALTLoginURL";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_AlbumArtURL: &str = "AlbumArt";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ArtistArtURL: &str = "ArtistArt";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_AuthenticationSuccessURL: &str = "AuthenticationSuccessURL";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_CreateAccountURL: &str = "CreateAccount";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ErrorDescription: &str = "CPErrorDescription";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ErrorURL: &str = "CPErrorURL";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ErrorURLLinkText: &str = "CPErrorURLLinkText";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ForgetPasswordURL: &str = "ForgotPassword";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_GenreArtURL: &str = "GenreArt";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_HTMLViewURL: &str = "HTMLViewURL";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_ListArtURL: &str = "ListArt";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_LoginFailureURL: &str = "LoginFailureURL";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_PopupCaption: &str = "PopupCaption";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_PopupURL: &str = "Popup";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_RadioArtURL: &str = "RadioArt";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_SubGenreArtURL: &str = "SubGenreArt";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szItemInfo_TreeListIconURL: &str = "CPListIDIcon";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szMediaPlayerTask_Browse: &str = "Browse";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szMediaPlayerTask_Burn: &str = "Burn";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szMediaPlayerTask_Sync: &str = "Sync";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szOnlineStore: &str = "OnlineStore";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szRefreshLicenseBurn: &str = "RefreshForBurn";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szRefreshLicensePlay: &str = "RefreshForPlay";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szRefreshLicenseSync: &str = "RefreshForSync";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szReleaseDateYear: &str = "ReleaseDateYear";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szRootLocation: &str = "RootLocation";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szStationEvent_Complete: &str = "TrackComplete";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szStationEvent_Skipped: &str = "TrackSkipped";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szStationEvent_Started: &str = "TrackStarted";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szUnknownLocation: &str = "UnknownLocation";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szUserEffectiveRatingStars: &str = "UserEffectiveRatingStars";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szUserPlaylist: &str = "UserPlaylist";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szVerifyPermissionSync: &str = "VerifyPermissionSync";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szVideoRecent: &str = "VideoRecent";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szVideoRoot: &str = "VideoRoot";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szViewMode_Details: &str = "ViewModeDetails";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szViewMode_Icon: &str = "ViewModeIcon";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szViewMode_OrderedList: &str = "ViewModeOrderedList";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szViewMode_Report: &str = "ViewModeReport";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szViewMode_Tile: &str = "ViewModeTile";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const g_szWMParentalRating: &str = "WMParentalRating";
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const kfltTimedLevelMaximumFrequency: f32 = 22050f32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const kfltTimedLevelMinimumFrequency: f32 = 20f32;
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_BACKGROUNDSYNC_ACTION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FBSA_DISABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FBSA_ENABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FBSA_RUNNOW: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(2i32);
+impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_ACTION {}
+impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_BACKGROUNDSYNC_ACTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_BACKGROUNDSYNC_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FBSS_DISABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FBSS_ENABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(1i32);
+impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_STATUS {}
+impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_BACKGROUNDSYNC_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_DOWNLOAD_ERROR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_NONE: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_INVALID_FEED_FORMAT: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(2i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_NORMALIZATION_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(3i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_PERSISTENCE_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(4i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_DOWNLOAD_BLOCKED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(5i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_CANCELED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(6i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_UNSUPPORTED_AUTH: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(7i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_BACKGROUND_DOWNLOAD_DISABLED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(8i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_NOT_EXIST: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(9i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_UNSUPPORTED_MSXML: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(10i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_UNSUPPORTED_DTD: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(11i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_DOWNLOAD_SIZE_LIMIT_EXCEEDED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(12i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_ACCESS_DENIED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(13i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_AUTH_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(14i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDE_INVALID_AUTH: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(15i32);
+impl ::core::marker::Copy for FEEDS_DOWNLOAD_ERROR {}
+impl ::core::clone::Clone for FEEDS_DOWNLOAD_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_DOWNLOAD_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_DOWNLOAD_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_DOWNLOAD_ERROR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_DOWNLOAD_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDS_NONE: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDS_PENDING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDS_DOWNLOADING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDS_DOWNLOADED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FDS_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(4i32);
+impl ::core::marker::Copy for FEEDS_DOWNLOAD_STATUS {}
+impl ::core::clone::Clone for FEEDS_DOWNLOAD_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_DOWNLOAD_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_DOWNLOAD_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_DOWNLOAD_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_ERROR_CODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FEC_E_ERRORBASE: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FEC_E_INVALIDMSXMLPROPERTY: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FEC_E_DOWNLOADSIZELIMITEXCEEDED: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479167i32);
+impl ::core::marker::Copy for FEEDS_ERROR_CODE {}
+impl ::core::clone::Clone for FEEDS_ERROR_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_ERROR_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_ERROR_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_ERROR_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_ERROR_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FEICF_READ_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FEICF_UNREAD_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_ITEM_COUNT_FLAGS {}
+impl ::core::clone::Clone for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_EVENTS_ITEM_COUNT_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_EVENTS_MASK(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FEM_FOLDEREVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FEM_FEEDEVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_MASK {}
+impl ::core::clone::Clone for FEEDS_EVENTS_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_EVENTS_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_EVENTS_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_EVENTS_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_EVENTS_MASK").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_EVENTS_SCOPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FES_ALL: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FES_SELF_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FES_SELF_AND_CHILDREN_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_SCOPE {}
+impl ::core::clone::Clone for FEEDS_EVENTS_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_EVENTS_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_EVENTS_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_EVENTS_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_EVENTS_SCOPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_SYNC_SETTING(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FSS_DEFAULT: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FSS_INTERVAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FSS_MANUAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(2i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FSS_SUGGESTED: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(3i32);
+impl ::core::marker::Copy for FEEDS_SYNC_SETTING {}
+impl ::core::clone::Clone for FEEDS_SYNC_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_SYNC_SETTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_SYNC_SETTING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_SYNC_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_SYNC_SETTING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_XML_FILTER_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXFF_ALL: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXFF_UNREAD: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXFF_READ: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(2i32);
+impl ::core::marker::Copy for FEEDS_XML_FILTER_FLAGS {}
+impl ::core::clone::Clone for FEEDS_XML_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_XML_FILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_FILTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_FILTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_FILTER_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_XML_INCLUDE_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXIF_NONE: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXIF_CF_EXTENSIONS: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(1i32);
+impl ::core::marker::Copy for FEEDS_XML_INCLUDE_FLAGS {}
+impl ::core::clone::Clone for FEEDS_XML_INCLUDE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_XML_INCLUDE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_INCLUDE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_INCLUDE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_INCLUDE_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_XML_SORT_ORDER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXSO_ASCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXSO_DESCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(2i32);
+impl ::core::marker::Copy for FEEDS_XML_SORT_ORDER {}
+impl ::core::clone::Clone for FEEDS_XML_SORT_ORDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_XML_SORT_ORDER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_ORDER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_SORT_ORDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_SORT_ORDER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEEDS_XML_SORT_PROPERTY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
+pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(2i32);
+impl ::core::marker::Copy for FEEDS_XML_SORT_PROPERTY {}
+impl ::core::clone::Clone for FEEDS_XML_SORT_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEEDS_XML_SORT_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_SORT_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_SORT_PROPERTY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayerState(pub i32);
@@ -17810,61 +18179,6 @@ unsafe impl ::windows::core::Abi for PlayerState {
 impl ::core::fmt::Debug for PlayerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlayerState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SA_BUFFER_SIZE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_ALLOWCDBURN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_ALLOWPDATRANSFER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_ALLOWPLAY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_ALTLOGIN: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_BACKGROUNDPROCESSING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_DEVICEAVAILABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_IS_CONTENTPARTNER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_PREPAREFORSYNC: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_CAP_UILESSMODE_ALLOWPLAY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const SUBSCRIPTION_V1_CAPS: u32 = 15u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub struct TimedLevel {
-    pub frequency: [u8; 2048],
-    pub waveform: [u8; 2048],
-    pub state: i32,
-    pub timeStamp: i64,
-}
-impl ::core::marker::Copy for TimedLevel {}
-impl ::core::clone::Clone for TimedLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TimedLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TimedLevel").field("frequency", &self.frequency).field("waveform", &self.waveform).field("state", &self.state).field("timeStamp", &self.timeStamp).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TimedLevel {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TimedLevel {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimedLevel>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TimedLevel {}
-impl ::core::default::Default for TimedLevel {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -17967,24 +18281,6 @@ impl ::core::fmt::Debug for WMPBurnState {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_BASE: u32 = 5000u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_CDROM_BASE: u32 = 5700u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_CONTENT_BASE: u32 = 5300u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_CONTROL_BASE: u32 = 5100u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_ERROR_BASE: u32 = 5500u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_NETWORK_BASE: u32 = 5400u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_PLAYLIST_BASE: u32 = 5800u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPCallbackNotification(pub i32);
@@ -18017,44 +18313,6 @@ unsafe impl ::windows::core::Abi for WMPCallbackNotification {
 impl ::core::fmt::Debug for WMPCallbackNotification {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WMPCallbackNotification").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WMPContextMenuInfo {
-    pub dwID: u32,
-    pub bstrMenuText: super::super::Foundation::BSTR,
-    pub bstrHelpText: super::super::Foundation::BSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WMPContextMenuInfo {
-    fn clone(&self) -> Self {
-        Self { dwID: self.dwID, bstrMenuText: self.bstrMenuText.clone(), bstrHelpText: self.bstrHelpText.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WMPContextMenuInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMPContextMenuInfo").field("dwID", &self.dwID).field("bstrMenuText", &self.bstrMenuText).field("bstrHelpText", &self.bstrHelpText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WMPContextMenuInfo {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WMPContextMenuInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwID == other.dwID && self.bstrMenuText == other.bstrMenuText && self.bstrHelpText == other.bstrHelpText
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WMPContextMenuInfo {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WMPContextMenuInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
@@ -18126,17 +18384,6 @@ impl ::core::fmt::Debug for WMPFolderScanState {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPGC_FLAGS_ALLOW_PREROLL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPGC_FLAGS_DISABLE_PLUGINS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
-pub const WMPLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPLibraryType(pub i32);
@@ -18171,8 +18418,6 @@ impl ::core::fmt::Debug for WMPLibraryType {
         f.debug_tuple("WMPLibraryType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPOCXEVENT_BASE: u32 = 6500u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -18392,7 +18637,6 @@ impl ::core::fmt::Debug for WMPPlugin_Caps {
         f.debug_tuple("WMPPlugin_Caps").field(&self.0).finish()
     }
 }
-pub const WMPRemoteMediaServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -18705,19 +18949,77 @@ impl ::core::fmt::Debug for WMPTransactionType {
         f.debug_tuple("WMPTransactionType").field(&self.0).finish()
     }
 }
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMPUE_EC_USER: u32 = 33024u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMP_MDRT_FLAGS_UNREPORTED_DELETED_ITEMS: u32 = 1u32;
-pub const WMP_PLUGINTYPE_DSP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6434baea_4954_498d_abd5_2b07123e1f04);
-pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef29b174_c347_44cc_9a4f_2399118ff38c);
-pub const WMP_PLUGINTYPE_RENDERING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8554541_115d_406a_a4c7_51111c330183);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMP_SUBSCR_DL_TYPE_BACKGROUND: &str = "background";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const WMP_SUBSCR_DL_TYPE_REALTIME: &str = "real time";
+pub struct TimedLevel {
+    pub frequency: [u8; 2048],
+    pub waveform: [u8; 2048],
+    pub state: i32,
+    pub timeStamp: i64,
+}
+impl ::core::marker::Copy for TimedLevel {}
+impl ::core::clone::Clone for TimedLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TimedLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TimedLevel").field("frequency", &self.frequency).field("waveform", &self.waveform).field("state", &self.state).field("timeStamp", &self.timeStamp).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TimedLevel {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TimedLevel {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimedLevel>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TimedLevel {}
+impl ::core::default::Default for TimedLevel {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WMPContextMenuInfo {
+    pub dwID: u32,
+    pub bstrMenuText: super::super::Foundation::BSTR,
+    pub bstrHelpText: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WMPContextMenuInfo {
+    fn clone(&self) -> Self {
+        Self { dwID: self.dwID, bstrMenuText: self.bstrMenuText.clone(), bstrHelpText: self.bstrHelpText.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WMPContextMenuInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMPContextMenuInfo").field("dwID", &self.dwID).field("bstrMenuText", &self.bstrMenuText).field("bstrHelpText", &self.bstrHelpText).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WMPContextMenuInfo {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WMPContextMenuInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwID == other.dwID && self.bstrMenuText == other.bstrMenuText && self.bstrHelpText == other.bstrHelpText
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WMPContextMenuInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WMPContextMenuInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
@@ -18774,307 +19076,5 @@ impl ::core::default::Default for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const WMProfile_V40_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f99ddd8_6684_456b_a0a3_33e1316895f0);
-pub const WMProfile_V40_128Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ddbe12_13dc_4e32_a35e_40378e34279a);
-pub const WMProfile_V40_16AMRadio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f4be81f_d57d_41e1_b2e3_2fad986bfec2);
-pub const WMProfile_V40_1MBVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4482a4c_cc17_4b07_a94e_9818d5e0f13f);
-pub const WMProfile_V40_250Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x541841c3_9339_4f7b_9a22_b11540894e42);
-pub const WMProfile_V40_2856100MBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a1c2206_dc5e_4186_beb2_4c5a994b132e);
-pub const WMProfile_V40_288FMRadioMono: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa57fc8_6ea4_4645_8abf_b6e5a8f814a1);
-pub const WMProfile_V40_288FMRadioStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22fcf466_aa40_431f_a289_06d0ea1a1e40);
-pub const WMProfile_V40_288VideoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac617f2d_6cbe_4e84_8e9a_ce151a12a354);
-pub const WMProfile_V40_288VideoVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2bc274_0eb6_4da9_b550_ecf7f2b9948f);
-pub const WMProfile_V40_288VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf2f00d_d555_4815_94ce_8275f3a70bfe);
-pub const WMProfile_V40_3MBVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55374ac0_309b_4396_b88f_e6e292113f28);
-pub const WMProfile_V40_512Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70440e6d_c4ef_4f84_8cd0_d5c28686e784);
-pub const WMProfile_V40_56DialUpStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8026f87_e905_4594_a3c7_00d00041d1d9);
-pub const WMProfile_V40_56DialUpVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe21713bb_652f_4dab_99de_71e04400270f);
-pub const WMProfile_V40_56DialUpVideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb756ff10_520f_4749_a399_b780e2fc9250);
-pub const WMProfile_V40_64Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4820b3f7_cbec_41dc_9391_78598714c8e5);
-pub const WMProfile_V40_6VoiceAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd508978a_11a0_4d15_b0da_acdc99d4f890);
-pub const WMProfile_V40_96Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0efa0ee3_9e64_41e2_837f_3c0038f327ba);
-pub const WMProfile_V40_DialUpMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7f47f1_72a6_45a4_80f0_3aecefc32c07);
-pub const WMProfile_V40_IntranetMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82cd3321_a94a_4ffc_9c2b_092c10ca16e7);
-pub const WMProfile_V70_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9f3c932_5ea9_4c6d_89b4_2686e515426e);
-pub const WMProfile_V70_128Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc64cf5da_df45_40d3_8027_de698d68dc66);
-pub const WMProfile_V70_1500FilmContentVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a5f6df_ee3f_434c_a433_523ce55f516b);
-pub const WMProfile_V70_1500Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b89164a_5490_4686_9e37_5a80884e5146);
-pub const WMProfile_V70_150VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f472967_e3c6_4797_9694_f0304c5e2f17);
-pub const WMProfile_V70_2000Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa980124_bf10_4e4f_9afd_4329a7395cff);
-pub const WMProfile_V70_225VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf55ea573_4c02_42b5_9026_a8260c438a9f);
-pub const WMProfile_V70_256Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafe69b3a_403f_4a1b_8007_0e21cfb3df84);
-pub const WMProfile_V70_2856100MBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07df7a25_3fe2_4a5b_8b1e_348b0721ca70);
-pub const WMProfile_V70_288FMRadioMono: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc012a833_a03b_44a5_96dc_ed95cc65582d);
-pub const WMProfile_V70_288FMRadioStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe96d67c9_1a39_4dc4_b900_b1184dc83620);
-pub const WMProfile_V70_288VideoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58bba0ee_896a_4948_9953_85b736f83947);
-pub const WMProfile_V70_288VideoVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb952f38e_7dbc_4533_a9ca_b00b1c6e9800);
-pub const WMProfile_V70_288VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70a32e2b_e2df_4ebd_9105_d9ca194a2d50);
-pub const WMProfile_V70_384Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3d45fbb_8782_44df_97c6_8678e2f9b13d);
-pub const WMProfile_V70_56DialUpStereo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674ee767_0949_4fac_875e_f4c9c292013b);
-pub const WMProfile_V70_56VideoWebServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef99e40_57bc_4ab3_b2d1_b6e3caf64257);
-pub const WMProfile_V70_64Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb29cffc6_f131_41db_b5e8_99d8b0b945f4);
-pub const WMProfile_V70_64AudioISDN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dea458_9d60_4212_9c59_d40919c939e4);
-pub const WMProfile_V70_64VideoISDN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b7a7e9_7b8e_4992_a1a1_068217a3b311);
-pub const WMProfile_V70_6VoiceAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaba9fbf_b64f_49b3_aa0c_73fbdd150ad0);
-pub const WMProfile_V70_700FilmContentVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a747920_2449_4d76_99cb_fdb0c90484d4);
-pub const WMProfile_V70_768Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0326ebb6_f76e_4964_b0db_e729978d35ee);
-pub const WMProfile_V70_96Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d4b819_16cc_4a59_9f37_693dbb0302d6);
-pub const WMProfile_V70_DialUpMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b16e74b_4068_45b5_b80e_7bf8c80d2c2f);
-pub const WMProfile_V70_IntranetMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045880dc_34b6_4ca9_a326_73557ed143f3);
-pub const WMProfile_V80_100768VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bdb5a0e_979e_47d3_9596_73b386392a55);
-pub const WMProfile_V80_100Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e300b4_c2d4_4fc0_b5dd_ecbd948dc0df);
-pub const WMProfile_V80_128StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407b9450_8bdc_4ee5_88b8_6f527bd941f2);
-pub const WMProfile_V80_1400NTSCVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x931d1bee_617a_4bcd_9905_ccd0786683ee);
-pub const WMProfile_V80_150VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaee16dfa_2c14_4a2f_ad3f_a3034031784f);
-pub const WMProfile_V80_255VideoPDA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeedbcdf_3fac_4c93_ac0d_47941ec72c0b);
-pub const WMProfile_V80_256Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbc75500_33d2_4466_b86b_122b201cc9ae);
-pub const WMProfile_V80_288100VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8722c69_2419_4b36_b4e0_6e17b60564e5);
-pub const WMProfile_V80_28856VideoMBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd66920c4_c21f_4ec8_a0b4_95cf2bd57fc4);
-pub const WMProfile_V80_288MonoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ea3126d_e1ba_4716_89af_f65cee0c0c67);
-pub const WMProfile_V80_288StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e4cab5c_35dc_45bb_a7c0_19b28070d0cc);
-pub const WMProfile_V80_288Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df678d9_1352_4186_bbf8_74f0c19b6ae2);
-pub const WMProfile_V80_288VideoOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c45b4c7_4aeb_4f78_a5ec_88420b9dadef);
-pub const WMProfile_V80_32StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60907f9f_b352_47e5_b210_0ef1f47e9f9d);
-pub const WMProfile_V80_384PALVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9227c692_ae62_4f72_a7ea_736062d0e21e);
-pub const WMProfile_V80_384Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29b00c2b_09a9_48bd_ad09_cdae117d1da7);
-pub const WMProfile_V80_48StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ee06be5_492b_480a_8a8f_12f373ecf9d4);
-pub const WMProfile_V80_56Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x254e8a96_2612_405c_8039_f0bf725ced7d);
-pub const WMProfile_V80_56VideoOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e2a6955_81df_4943_ba50_68a986a708f6);
-pub const WMProfile_V80_64StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bb5bc4_3176_457f_8dd6_3cd919123e2d);
-pub const WMProfile_V80_700NTSCVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8c2985f_e5d9_4538_9e23_9b21bf78f745);
-pub const WMProfile_V80_700PALVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec298949_639b_45e2_96fd_4ab32d5919c2);
-pub const WMProfile_V80_768Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d01102_e71a_4820_8f0d_13d2ec1e4872);
-pub const WMProfile_V80_96StereoAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fc81930_61f2_436f_9d33_349f2a1c0f10);
-pub const WMProfile_V80_BESTVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x048439ba_309c_440e_9cb4_3dcca3756423);
-pub const WMProfile_V80_FAIRVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042);
-pub const WMProfile_V80_HIGHVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
-pub const WindowsMediaPlayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-pub struct _WMPOCXEvents(::windows::core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl _WMPOCXEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_WMPOCXEvents> for ::windows::core::IUnknown {
-    fn from(value: _WMPOCXEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _WMPOCXEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _WMPOCXEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_WMPOCXEvents> for ::windows::core::IUnknown {
-    fn from(value: &_WMPOCXEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_WMPOCXEvents> for super::super::System::Com::IDispatch {
-    fn from(value: _WMPOCXEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _WMPOCXEvents> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _WMPOCXEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_WMPOCXEvents> for super::super::System::Com::IDispatch {
-    fn from(value: &_WMPOCXEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _WMPOCXEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _WMPOCXEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _WMPOCXEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _WMPOCXEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_WMPOCXEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for _WMPOCXEvents {
-    type Vtable = _WMPOCXEvents_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a51_394a_11d3_b153_00c04f79faa6);
-}
-#[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct _WMPOCXEvents_Vtbl {
-    pub base__: super::super::System::Com::IDispatch_Vtbl,
-}
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllAuthors: &str = "AllAuthors";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllCPAlbumIDs: &str = "AllCPAlbumIDs";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllCPAlbumSubGenreIDs: &str = "AllCPAlbumSubGenreIDs";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllCPArtistIDs: &str = "AllCPArtistIDs";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllCPGenreIDs: &str = "AllCPGenreIDs";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllCPListIDs: &str = "AllCPListIDs";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllCPRadioIDs: &str = "AllCPRadioIDs";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllCPTrackIDs: &str = "AllCPTrackIDs";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllReleaseDateYears: &str = "AllReleaseDateYears";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllUserEffectiveRatingStarss: &str = "AllUserEffectiveRatingStarss";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAllWMParentalRatings: &str = "AllWMParentalRatings";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szAuthor: &str = "Author";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szCPAlbumID: &str = "CPAlbumID";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szCPAlbumSubGenreID: &str = "CPAlbumSubGenreID";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szCPArtistID: &str = "CPArtistID";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szCPGenreID: &str = "CPGenreID";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szCPListID: &str = "CPListID";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szCPRadioID: &str = "CPRadioID";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szCPTrackID: &str = "CPTrackID";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_AccountBalance: &str = "AccountBalance";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_AccountType: &str = "AccountType";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_HasCachedCredentials: &str = "HasCachedCredentials";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_LicenseRefreshAdvanceWarning: &str = "LicenseRefreshAdvanceWarning";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_LoginState: &str = "LoginState";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_MaximumTrackPurchasePerPurchase: &str = "MaximumNumberOfTracksPerPurchase";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_MediaPlayerAccountType: &str = "MediaPlayerAccountType";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_PurchasedTrackRequiresReDownload: &str = "PurchasedTrackRequiresReDownload";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPartnerInfo_UserName: &str = "UserName";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPrice_CannotBuy: &str = "PriceCannotBuy";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPrice_Free: &str = "PriceFree";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szContentPrice_Unknown: &str = "PriceUnknown";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szFlyoutMenu: &str = "FlyoutMenu";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ALTLoginCaption: &str = "ALTLoginCaption";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ALTLoginURL: &str = "ALTLoginURL";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_AlbumArtURL: &str = "AlbumArt";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ArtistArtURL: &str = "ArtistArt";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_AuthenticationSuccessURL: &str = "AuthenticationSuccessURL";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_CreateAccountURL: &str = "CreateAccount";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ErrorDescription: &str = "CPErrorDescription";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ErrorURL: &str = "CPErrorURL";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ErrorURLLinkText: &str = "CPErrorURLLinkText";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ForgetPasswordURL: &str = "ForgotPassword";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_GenreArtURL: &str = "GenreArt";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_HTMLViewURL: &str = "HTMLViewURL";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_ListArtURL: &str = "ListArt";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_LoginFailureURL: &str = "LoginFailureURL";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_PopupCaption: &str = "PopupCaption";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_PopupURL: &str = "Popup";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_RadioArtURL: &str = "RadioArt";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_SubGenreArtURL: &str = "SubGenreArt";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szItemInfo_TreeListIconURL: &str = "CPListIDIcon";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szMediaPlayerTask_Browse: &str = "Browse";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szMediaPlayerTask_Burn: &str = "Burn";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szMediaPlayerTask_Sync: &str = "Sync";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szOnlineStore: &str = "OnlineStore";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szRefreshLicenseBurn: &str = "RefreshForBurn";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szRefreshLicensePlay: &str = "RefreshForPlay";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szRefreshLicenseSync: &str = "RefreshForSync";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szReleaseDateYear: &str = "ReleaseDateYear";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szRootLocation: &str = "RootLocation";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szStationEvent_Complete: &str = "TrackComplete";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szStationEvent_Skipped: &str = "TrackSkipped";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szStationEvent_Started: &str = "TrackStarted";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szUnknownLocation: &str = "UnknownLocation";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szUserEffectiveRatingStars: &str = "UserEffectiveRatingStars";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szUserPlaylist: &str = "UserPlaylist";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szVerifyPermissionSync: &str = "VerifyPermissionSync";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szVideoRecent: &str = "VideoRecent";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szVideoRoot: &str = "VideoRoot";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szViewMode_Details: &str = "ViewModeDetails";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szViewMode_Icon: &str = "ViewModeIcon";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szViewMode_OrderedList: &str = "ViewModeOrderedList";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szViewMode_Report: &str = "ViewModeReport";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szViewMode_Tile: &str = "ViewModeTile";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const g_szWMParentalRating: &str = "WMParentalRating";
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const kfltTimedLevelMaximumFrequency: f32 = 22050f32;
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-pub const kfltTimedLevelMinimumFrequency: f32 = 20f32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

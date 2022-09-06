@@ -1,242 +1,3 @@
-#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
-#[repr(transparent)]
-pub struct AnimationDescription(::windows::core::IUnknown);
-impl AnimationDescription {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Animations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Animations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn StaggerDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StaggerDelay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    pub fn StaggerDelayFactor(&self) -> ::windows::core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StaggerDelayFactor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DelayLimit(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DelayLimit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    pub fn ZOrder(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ZOrder)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription> {
-        Self::IAnimationDescriptionFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect, target, result__.as_mut_ptr()).from_abi::<AnimationDescription>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for AnimationDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AnimationDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationDescription {}
-impl ::core::fmt::Debug for AnimationDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationDescription").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AnimationDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AnimationDescription {
-    type Vtable = IAnimationDescription_Vtbl;
-    const IID: ::windows::core::GUID = <IAnimationDescription as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AnimationDescription {
-    const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
-}
-impl ::core::convert::From<AnimationDescription> for ::windows::core::IUnknown {
-    fn from(value: AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for ::windows::core::IUnknown {
-    fn from(value: &AnimationDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for &::windows::core::IUnknown {
-    fn from(value: &AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AnimationDescription> for ::windows::core::IInspectable {
-    fn from(value: AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for ::windows::core::IInspectable {
-    fn from(value: &AnimationDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for &::windows::core::IInspectable {
-    fn from(value: &AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AnimationDescription {}
-unsafe impl ::core::marker::Sync for AnimationDescription {}
-#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AnimationEffect(pub i32);
-impl AnimationEffect {
-    pub const Expand: Self = Self(0i32);
-    pub const Collapse: Self = Self(1i32);
-    pub const Reposition: Self = Self(2i32);
-    pub const FadeIn: Self = Self(3i32);
-    pub const FadeOut: Self = Self(4i32);
-    pub const AddToList: Self = Self(5i32);
-    pub const DeleteFromList: Self = Self(6i32);
-    pub const AddToGrid: Self = Self(7i32);
-    pub const DeleteFromGrid: Self = Self(8i32);
-    pub const AddToSearchGrid: Self = Self(9i32);
-    pub const DeleteFromSearchGrid: Self = Self(10i32);
-    pub const AddToSearchList: Self = Self(11i32);
-    pub const DeleteFromSearchList: Self = Self(12i32);
-    pub const ShowEdgeUI: Self = Self(13i32);
-    pub const ShowPanel: Self = Self(14i32);
-    pub const HideEdgeUI: Self = Self(15i32);
-    pub const HidePanel: Self = Self(16i32);
-    pub const ShowPopup: Self = Self(17i32);
-    pub const HidePopup: Self = Self(18i32);
-    pub const PointerDown: Self = Self(19i32);
-    pub const PointerUp: Self = Self(20i32);
-    pub const DragSourceStart: Self = Self(21i32);
-    pub const DragSourceEnd: Self = Self(22i32);
-    pub const TransitionContent: Self = Self(23i32);
-    pub const Reveal: Self = Self(24i32);
-    pub const Hide: Self = Self(25i32);
-    pub const DragBetweenEnter: Self = Self(26i32);
-    pub const DragBetweenLeave: Self = Self(27i32);
-    pub const SwipeSelect: Self = Self(28i32);
-    pub const SwipeDeselect: Self = Self(29i32);
-    pub const SwipeReveal: Self = Self(30i32);
-    pub const EnterPage: Self = Self(31i32);
-    pub const TransitionPage: Self = Self(32i32);
-    pub const CrossFade: Self = Self(33i32);
-    pub const Peek: Self = Self(34i32);
-    pub const UpdateBadge: Self = Self(35i32);
-}
-impl ::core::marker::Copy for AnimationEffect {}
-impl ::core::clone::Clone for AnimationEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationEffect {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AnimationEffect {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationEffect").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AnimationEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AnimationEffectTarget(pub i32);
-impl AnimationEffectTarget {
-    pub const Primary: Self = Self(0i32);
-    pub const Added: Self = Self(1i32);
-    pub const Affected: Self = Self(2i32);
-    pub const Background: Self = Self(3i32);
-    pub const Content: Self = Self(4i32);
-    pub const Deleted: Self = Self(5i32);
-    pub const Deselected: Self = Self(6i32);
-    pub const DragSource: Self = Self(7i32);
-    pub const Hidden: Self = Self(8i32);
-    pub const Incoming: Self = Self(9i32);
-    pub const Outgoing: Self = Self(10i32);
-    pub const Outline: Self = Self(11i32);
-    pub const Remaining: Self = Self(12i32);
-    pub const Revealed: Self = Self(13i32);
-    pub const RowIn: Self = Self(14i32);
-    pub const RowOut: Self = Self(15i32);
-    pub const Selected: Self = Self(16i32);
-    pub const Selection: Self = Self(17i32);
-    pub const Shown: Self = Self(18i32);
-    pub const Tapped: Self = Self(19i32);
-}
-impl ::core::marker::Copy for AnimationEffectTarget {}
-impl ::core::clone::Clone for AnimationEffectTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationEffectTarget {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AnimationEffectTarget {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationEffectTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AnimationEffectTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnimationDescription(::windows::core::IUnknown);
@@ -446,6 +207,125 @@ pub struct IScaleAnimation_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     NormalizedOrigin: usize,
 }
+#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
+#[repr(transparent)]
+pub struct AnimationDescription(::windows::core::IUnknown);
+impl AnimationDescription {
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Animations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Animations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn StaggerDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StaggerDelay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    pub fn StaggerDelayFactor(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StaggerDelayFactor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DelayLimit(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DelayLimit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    pub fn ZOrder(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ZOrder)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription> {
+        Self::IAnimationDescriptionFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect, target, result__.as_mut_ptr()).from_abi::<AnimationDescription>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for AnimationDescription {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AnimationDescription {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AnimationDescription {}
+impl ::core::fmt::Debug for AnimationDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDescription").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AnimationDescription {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AnimationDescription {
+    type Vtable = IAnimationDescription_Vtbl;
+    const IID: ::windows::core::GUID = <IAnimationDescription as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AnimationDescription {
+    const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
+}
+impl ::core::convert::From<AnimationDescription> for ::windows::core::IUnknown {
+    fn from(value: AnimationDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AnimationDescription> for ::windows::core::IUnknown {
+    fn from(value: &AnimationDescription) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AnimationDescription> for &::windows::core::IUnknown {
+    fn from(value: &AnimationDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AnimationDescription> for ::windows::core::IInspectable {
+    fn from(value: AnimationDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AnimationDescription> for ::windows::core::IInspectable {
+    fn from(value: &AnimationDescription) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AnimationDescription> for &::windows::core::IInspectable {
+    fn from(value: &AnimationDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AnimationDescription {}
+unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
 pub struct OpacityAnimation(::windows::core::IUnknown);
@@ -720,41 +600,6 @@ impl<'a> ::core::convert::TryFrom<&PropertyAnimation> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
-#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PropertyAnimationType(pub i32);
-impl PropertyAnimationType {
-    pub const Scale: Self = Self(0i32);
-    pub const Translation: Self = Self(1i32);
-    pub const Opacity: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PropertyAnimationType {}
-impl ::core::clone::Clone for PropertyAnimationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyAnimationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PropertyAnimationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PropertyAnimationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyAnimationType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PropertyAnimationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
 pub struct ScaleAnimation(::windows::core::IUnknown);
@@ -1054,5 +899,160 @@ impl<'a> ::core::convert::TryFrom<&TranslationAnimation> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for TranslationAnimation {}
 unsafe impl ::core::marker::Sync for TranslationAnimation {}
+#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AnimationEffect(pub i32);
+impl AnimationEffect {
+    pub const Expand: Self = Self(0i32);
+    pub const Collapse: Self = Self(1i32);
+    pub const Reposition: Self = Self(2i32);
+    pub const FadeIn: Self = Self(3i32);
+    pub const FadeOut: Self = Self(4i32);
+    pub const AddToList: Self = Self(5i32);
+    pub const DeleteFromList: Self = Self(6i32);
+    pub const AddToGrid: Self = Self(7i32);
+    pub const DeleteFromGrid: Self = Self(8i32);
+    pub const AddToSearchGrid: Self = Self(9i32);
+    pub const DeleteFromSearchGrid: Self = Self(10i32);
+    pub const AddToSearchList: Self = Self(11i32);
+    pub const DeleteFromSearchList: Self = Self(12i32);
+    pub const ShowEdgeUI: Self = Self(13i32);
+    pub const ShowPanel: Self = Self(14i32);
+    pub const HideEdgeUI: Self = Self(15i32);
+    pub const HidePanel: Self = Self(16i32);
+    pub const ShowPopup: Self = Self(17i32);
+    pub const HidePopup: Self = Self(18i32);
+    pub const PointerDown: Self = Self(19i32);
+    pub const PointerUp: Self = Self(20i32);
+    pub const DragSourceStart: Self = Self(21i32);
+    pub const DragSourceEnd: Self = Self(22i32);
+    pub const TransitionContent: Self = Self(23i32);
+    pub const Reveal: Self = Self(24i32);
+    pub const Hide: Self = Self(25i32);
+    pub const DragBetweenEnter: Self = Self(26i32);
+    pub const DragBetweenLeave: Self = Self(27i32);
+    pub const SwipeSelect: Self = Self(28i32);
+    pub const SwipeDeselect: Self = Self(29i32);
+    pub const SwipeReveal: Self = Self(30i32);
+    pub const EnterPage: Self = Self(31i32);
+    pub const TransitionPage: Self = Self(32i32);
+    pub const CrossFade: Self = Self(33i32);
+    pub const Peek: Self = Self(34i32);
+    pub const UpdateBadge: Self = Self(35i32);
+}
+impl ::core::marker::Copy for AnimationEffect {}
+impl ::core::clone::Clone for AnimationEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AnimationEffect {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AnimationEffect {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AnimationEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationEffect").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AnimationEffect {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AnimationEffectTarget(pub i32);
+impl AnimationEffectTarget {
+    pub const Primary: Self = Self(0i32);
+    pub const Added: Self = Self(1i32);
+    pub const Affected: Self = Self(2i32);
+    pub const Background: Self = Self(3i32);
+    pub const Content: Self = Self(4i32);
+    pub const Deleted: Self = Self(5i32);
+    pub const Deselected: Self = Self(6i32);
+    pub const DragSource: Self = Self(7i32);
+    pub const Hidden: Self = Self(8i32);
+    pub const Incoming: Self = Self(9i32);
+    pub const Outgoing: Self = Self(10i32);
+    pub const Outline: Self = Self(11i32);
+    pub const Remaining: Self = Self(12i32);
+    pub const Revealed: Self = Self(13i32);
+    pub const RowIn: Self = Self(14i32);
+    pub const RowOut: Self = Self(15i32);
+    pub const Selected: Self = Self(16i32);
+    pub const Selection: Self = Self(17i32);
+    pub const Shown: Self = Self(18i32);
+    pub const Tapped: Self = Self(19i32);
+}
+impl ::core::marker::Copy for AnimationEffectTarget {}
+impl ::core::clone::Clone for AnimationEffectTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AnimationEffectTarget {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AnimationEffectTarget {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AnimationEffectTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AnimationEffectTarget {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PropertyAnimationType(pub i32);
+impl PropertyAnimationType {
+    pub const Scale: Self = Self(0i32);
+    pub const Translation: Self = Self(1i32);
+    pub const Opacity: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PropertyAnimationType {}
+impl ::core::clone::Clone for PropertyAnimationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PropertyAnimationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PropertyAnimationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PropertyAnimationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyAnimationType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PropertyAnimationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

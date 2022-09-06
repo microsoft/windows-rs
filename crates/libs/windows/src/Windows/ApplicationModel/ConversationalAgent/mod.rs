@@ -1,3 +1,541 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IActivationSignalDetectionConfiguration(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfiguration {
+    type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IActivationSignalDetectionConfiguration_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SetEnabledAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetEnabledAsync: usize,
+    pub AvailabilityInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub AvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AvailabilityChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveAvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveAvailabilityChanged: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetModelData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetModelData: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub SetModelDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    SetModelDataAsync: usize,
+    pub GetModelDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetModelDataTypeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetModelDataTypeAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetModelData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetModelData: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub GetModelDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    GetModelDataAsync: usize,
+    pub ClearModelData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ClearModelDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ClearModelDataAsync: usize,
+    pub TrainingStepsCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub TrainingStepsRemaining: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub TrainingDataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionTrainingDataFormat) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub ApplyTrainingData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationTrainingStatus) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ApplyTrainingData: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub ApplyTrainingDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    ApplyTrainingDataAsync: usize,
+    pub ClearTrainingData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ClearTrainingDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ClearTrainingDataAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IActivationSignalDetectionConfiguration2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfiguration2 {
+    type Vtable = IActivationSignalDetectionConfiguration2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IActivationSignalDetectionConfiguration2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub SetModelDataWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationSetModelDataResult) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    SetModelDataWithResult: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub SetModelDataWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    SetModelDataWithResultAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetEnabledWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetEnabledWithResultAsync: usize,
+    pub SetEnabledWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ActivationSignalDetectionConfigurationStateChangeResult) -> ::windows::core::HRESULT,
+    pub TrainingStepCompletionMaxAllowedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IActivationSignalDetectionConfigurationCreationResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfigurationCreationResult {
+    type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows::core::HRESULT,
+    pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IActivationSignalDetector(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IActivationSignalDetector {
+    type Vtable = IActivationSignalDetector_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IActivationSignalDetector_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT,
+    pub CanCreateConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedModelDataTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedModelDataTypes: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedTrainingDataFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedTrainingDataFormats: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedPowerStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedPowerStates: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSupportedModelIdsForSignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSupportedModelIdsForSignalId: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSupportedModelIdsForSignalIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSupportedModelIdsForSignalIdAsync: usize,
+    pub CreateConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub CreateConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateConfigurationAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetConfigurations: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetConfigurationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetConfigurationsAsync: usize,
+    pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetConfigurationAsync: usize,
+    pub RemoveConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RemoveConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveConfigurationAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IActivationSignalDetector2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IActivationSignalDetector2 {
+    type Vtable = IActivationSignalDetector2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IActivationSignalDetector2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAvailableModelIdsForSignalIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAvailableModelIdsForSignalIdAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAvailableModelIdsForSignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAvailableModelIdsForSignalId: usize,
+    #[cfg(feature = "Foundation")]
+    pub CreateConfigurationWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateConfigurationWithResultAsync: usize,
+    pub CreateConfigurationWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RemoveConfigurationWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveConfigurationWithResultAsync: usize,
+    pub RemoveConfigurationWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ActivationSignalDetectionConfigurationRemovalResult) -> ::windows::core::HRESULT,
+    pub DetectorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentDetectorManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager {
+    type Vtable = IConversationalAgentDetectorManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentDetectorManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAllActivationSignalDetectors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAllActivationSignalDetectors: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAllActivationSignalDetectorsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAllActivationSignalDetectorsAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetActivationSignalDetectors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetActivationSignalDetectors: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetActivationSignalDetectorsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetActivationSignalDetectorsAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentDetectorManager2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager2 {
+    type Vtable = IConversationalAgentDetectorManager2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentDetectorManager2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetActivationSignalDetectorFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetActivationSignalDetectorFromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetActivationSignalDetectorFromIdAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentDetectorManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManagerStatics {
+    type Vtable = IConversationalAgentDetectorManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentDetectorManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSession(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSession {
+    type Vtable = IConversationalAgentSession_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSession_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub SessionInterrupted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SessionInterrupted: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveSessionInterrupted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveSessionInterrupted: usize,
+    #[cfg(feature = "Foundation")]
+    pub SignalDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SignalDetected: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveSignalDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveSignalDetected: usize,
+    #[cfg(feature = "Foundation")]
+    pub SystemStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SystemStateChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveSystemStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveSystemStateChanged: usize,
+    pub AgentState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentState) -> ::windows::core::HRESULT,
+    pub Signal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsIndicatorLightAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsScreenAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsUserAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsVoiceActivationAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsInterruptible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsInterrupted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RequestInterruptibleAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestInterruptibleAsync: usize,
+    pub RequestInterruptible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RequestAgentStateChangeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestAgentStateChangeAsync: usize,
+    pub RequestAgentStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RequestForegroundActivationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestForegroundActivationAsync: usize,
+    pub RequestForegroundActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetAudioClientAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetAudioClientAsync: usize,
+    pub GetAudioClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Media_Audio"))]
+    pub CreateAudioDeviceInputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graph: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Media_Audio")))]
+    CreateAudioDeviceInputNodeAsync: usize,
+    #[cfg(feature = "Media_Audio")]
+    pub CreateAudioDeviceInputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graph: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Media_Audio"))]
+    CreateAudioDeviceInputNode: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetAudioCaptureDeviceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetAudioCaptureDeviceIdAsync: usize,
+    pub GetAudioCaptureDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetAudioRenderDeviceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetAudioRenderDeviceIdAsync: usize,
+    pub GetAudioRenderDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetSignalModelIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetSignalModelIdAsync: usize,
+    pub GetSignalModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SetSignalModelIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetSignalModelIdAsync: usize,
+    pub SetSignalModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSupportedSignalModelIdsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSupportedSignalModelIdsAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSupportedSignalModelIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSupportedSignalModelIds: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSession2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSession2 {
+    type Vtable = IConversationalAgentSession2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSession2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub RequestActivationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestActivationAsync: usize,
+    pub RequestActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut ConversationalAgentActivationResult) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SetSupportLockScreenActivationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetSupportLockScreenActivationAsync: usize,
+    pub SetSupportLockScreenActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetMissingPrerequisites: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetMissingPrerequisites: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetMissingPrerequisitesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetMissingPrerequisitesAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSessionInterruptedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSessionInterruptedEventArgs {
+    type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSessionInterruptedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSessionStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSessionStatics {
+    type Vtable = IConversationalAgentSessionStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSessionStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub GetCurrentSessionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetCurrentSessionAsync: usize,
+    pub GetCurrentSessionSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSignal(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSignal {
+    type Vtable = IConversationalAgentSignal_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSignal_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsSignalVerificationRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsSignalVerificationRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub SignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetSignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SignalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetSignalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SignalContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSignalContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SignalStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SignalStart: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetSignalStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetSignalStart: usize,
+    #[cfg(feature = "Foundation")]
+    pub SignalEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SignalEnd: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetSignalEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetSignalEnd: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSignal2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSignal2 {
+    type Vtable = IConversationalAgentSignal2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSignal2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DetectorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DetectorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSignalDetectedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSignalDetectedEventArgs {
+    type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSignalDetectedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConversationalAgentSystemStateChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConversationalAgentSystemStateChangedEventArgs {
+    type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConversationalAgentSystemStateChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SystemStateChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDetectionConfigurationAvailabilityChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
+    type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDetectionConfigurationAvailabilityInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo {
+    type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasSystemResourceAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasLockScreenPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDetectionConfigurationAvailabilityInfo2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo2 {
+    type Vtable = IDetectionConfigurationAvailabilityInfo2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub UnavailableSystemResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    UnavailableSystemResources: usize,
+}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfiguration(::windows::core::IUnknown);
@@ -421,200 +959,6 @@ unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreat
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
-impl ActivationSignalDetectionConfigurationCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SignalIdNotAvailable: Self = Self(1i32);
-    pub const ModelIdNotSupported: Self = Self(2i32);
-    pub const InvalidSignalId: Self = Self(3i32);
-    pub const InvalidModelId: Self = Self(4i32);
-    pub const InvalidDisplayName: Self = Self(5i32);
-    pub const ConfigurationAlreadyExists: Self = Self(6i32);
-    pub const CreationNotSupported: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationCreationStatus {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationCreationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectionConfigurationCreationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
-impl ActivationSignalDetectionConfigurationRemovalResult {
-    pub const Success: Self = Self(0i32);
-    pub const NotFound: Self = Self(1i32);
-    pub const CurrentlyEnabled: Self = Self(2i32);
-    pub const RemovalNotSupported: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationRemovalResult {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationRemovalResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationRemovalResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationRemovalResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectionConfigurationRemovalResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
-impl ActivationSignalDetectionConfigurationSetModelDataResult {
-    pub const Success: Self = Self(0i32);
-    pub const EmptyModelData: Self = Self(1i32);
-    pub const UnsupportedFormat: Self = Self(2i32);
-    pub const ConfigurationCurrentlyEnabled: Self = Self(3i32);
-    pub const InvalidData: Self = Self(4i32);
-    pub const SetModelDataNotSupported: Self = Self(5i32);
-    pub const ConfigurationNotFound: Self = Self(6i32);
-    pub const UnknownError: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationSetModelDataResult {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelDataResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationSetModelDataResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationSetModelDataResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectionConfigurationSetModelDataResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
-impl ActivationSignalDetectionConfigurationStateChangeResult {
-    pub const Success: Self = Self(0i32);
-    pub const NoModelData: Self = Self(1i32);
-    pub const ConfigurationNotFound: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationStateChangeResult {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationStateChangeResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationStateChangeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectionConfigurationStateChangeResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
-impl ActivationSignalDetectionTrainingDataFormat {
-    pub const Voice8kHz8BitMono: Self = Self(0i32);
-    pub const Voice8kHz16BitMono: Self = Self(1i32);
-    pub const Voice16kHz8BitMono: Self = Self(2i32);
-    pub const Voice16kHz16BitMono: Self = Self(3i32);
-    pub const VoiceOEMDefined: Self = Self(4i32);
-    pub const Audio44kHz8BitMono: Self = Self(5i32);
-    pub const Audio44kHz16BitMono: Self = Self(6i32);
-    pub const Audio48kHz8BitMono: Self = Self(7i32);
-    pub const Audio48kHz16BitMono: Self = Self(8i32);
-    pub const AudioOEMDefined: Self = Self(9i32);
-    pub const OtherOEMDefined: Self = Self(10i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionTrainingDataFormat {}
-impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionTrainingDataFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationSignalDetectionTrainingDataFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationSignalDetectionTrainingDataFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectionTrainingDataFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
 pub struct ActivationSignalDetector(::windows::core::IUnknown);
 impl ActivationSignalDetector {
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -863,146 +1207,6 @@ impl ::core::convert::From<&ActivationSignalDetector> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for ActivationSignalDetector {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationSignalDetectorKind(pub i32);
-impl ActivationSignalDetectorKind {
-    pub const AudioPattern: Self = Self(0i32);
-    pub const AudioImpulse: Self = Self(1i32);
-    pub const HardwareEvent: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectorKind {}
-impl ::core::clone::Clone for ActivationSignalDetectorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectorKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationSignalDetectorKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationSignalDetectorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectorKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationSignalDetectorPowerState(pub i32);
-impl ActivationSignalDetectorPowerState {
-    pub const HighPower: Self = Self(0i32);
-    pub const ConnectedLowPower: Self = Self(1i32);
-    pub const DisconnectedLowPower: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectorPowerState {}
-impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectorPowerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationSignalDetectorPowerState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationSignalDetectorPowerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectorPowerState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorPowerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConversationalAgentActivationKind(pub i32);
-impl ConversationalAgentActivationKind {
-    pub const VoiceActivationPreview: Self = Self(0i32);
-    pub const Foreground: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ConversationalAgentActivationKind {}
-impl ::core::clone::Clone for ConversationalAgentActivationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentActivationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConversationalAgentActivationKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConversationalAgentActivationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentActivationKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConversationalAgentActivationResult(pub i32);
-impl ConversationalAgentActivationResult {
-    pub const Success: Self = Self(0i32);
-    pub const AgentInactive: Self = Self(1i32);
-    pub const ScreenNotAvailable: Self = Self(2i32);
-    pub const AgentInterrupted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ConversationalAgentActivationResult {}
-impl ::core::clone::Clone for ConversationalAgentActivationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentActivationResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConversationalAgentActivationResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConversationalAgentActivationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentActivationResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct ConversationalAgentDetectorManager(::windows::core::IUnknown);
@@ -1642,40 +1846,6 @@ unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventA
 unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConversationalAgentSessionUpdateResponse(pub i32);
-impl ConversationalAgentSessionUpdateResponse {
-    pub const Success: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ConversationalAgentSessionUpdateResponse {}
-impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentSessionUpdateResponse {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConversationalAgentSessionUpdateResponse {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConversationalAgentSessionUpdateResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentSessionUpdateResponse").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionUpdateResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
 pub struct ConversationalAgentSignal(::windows::core::IUnknown);
 impl ConversationalAgentSignal {
     pub fn IsSignalVerificationRequired(&self) -> ::windows::core::Result<bool> {
@@ -1900,80 +2070,6 @@ unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs 
 unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConversationalAgentState(pub i32);
-impl ConversationalAgentState {
-    pub const Inactive: Self = Self(0i32);
-    pub const Detecting: Self = Self(1i32);
-    pub const Listening: Self = Self(2i32);
-    pub const Working: Self = Self(3i32);
-    pub const Speaking: Self = Self(4i32);
-    pub const ListeningAndSpeaking: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ConversationalAgentState {}
-impl ::core::clone::Clone for ConversationalAgentState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConversationalAgentState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConversationalAgentState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ConversationalAgentState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConversationalAgentSystemStateChangeType(pub i32);
-impl ConversationalAgentSystemStateChangeType {
-    pub const UserAuthentication: Self = Self(0i32);
-    pub const ScreenAvailability: Self = Self(1i32);
-    pub const IndicatorLightAvailability: Self = Self(2i32);
-    pub const VoiceActivationAvailability: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ConversationalAgentSystemStateChangeType {}
-impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentSystemStateChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConversationalAgentSystemStateChangeType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConversationalAgentSystemStateChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentSystemStateChangeType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangeType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(::windows::core::IUnknown);
 impl ConversationalAgentSystemStateChangedEventArgs {
     pub fn SystemStateChangeType(&self) -> ::windows::core::Result<ConversationalAgentSystemStateChangeType> {
@@ -2046,79 +2142,6 @@ impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for 
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
-impl ConversationalAgentVoiceActivationPrerequisiteKind {
-    pub const MicrophonePermission: Self = Self(0i32);
-    pub const KnownAgents: Self = Self(1i32);
-    pub const AgentAllowed: Self = Self(2i32);
-    pub const AppCapability: Self = Self(3i32);
-    pub const BackgroundTaskRegistration: Self = Self(4i32);
-    pub const PolicyPermission: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ConversationalAgentVoiceActivationPrerequisiteKind {}
-impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentVoiceActivationPrerequisiteKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConversationalAgentVoiceActivationPrerequisiteKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentVoiceActivationPrerequisiteKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
-impl DetectionConfigurationAvailabilityChangeKind {
-    pub const SystemResourceAccess: Self = Self(0i32);
-    pub const Permission: Self = Self(1i32);
-    pub const LockScreenPermission: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DetectionConfigurationAvailabilityChangeKind {}
-impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DetectionConfigurationAvailabilityChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DetectionConfigurationAvailabilityChangeKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DetectionConfigurationAvailabilityChangeKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(::windows::core::IUnknown);
@@ -2300,6 +2323,521 @@ unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
+impl ActivationSignalDetectionConfigurationCreationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const SignalIdNotAvailable: Self = Self(1i32);
+    pub const ModelIdNotSupported: Self = Self(2i32);
+    pub const InvalidSignalId: Self = Self(3i32);
+    pub const InvalidModelId: Self = Self(4i32);
+    pub const InvalidDisplayName: Self = Self(5i32);
+    pub const ConfigurationAlreadyExists: Self = Self(6i32);
+    pub const CreationNotSupported: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationCreationStatus {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionConfigurationCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationCreationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationCreationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
+impl ActivationSignalDetectionConfigurationRemovalResult {
+    pub const Success: Self = Self(0i32);
+    pub const NotFound: Self = Self(1i32);
+    pub const CurrentlyEnabled: Self = Self(2i32);
+    pub const RemovalNotSupported: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationRemovalResult {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionConfigurationRemovalResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationRemovalResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationRemovalResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationRemovalResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
+impl ActivationSignalDetectionConfigurationSetModelDataResult {
+    pub const Success: Self = Self(0i32);
+    pub const EmptyModelData: Self = Self(1i32);
+    pub const UnsupportedFormat: Self = Self(2i32);
+    pub const ConfigurationCurrentlyEnabled: Self = Self(3i32);
+    pub const InvalidData: Self = Self(4i32);
+    pub const SetModelDataNotSupported: Self = Self(5i32);
+    pub const ConfigurationNotFound: Self = Self(6i32);
+    pub const UnknownError: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationSetModelDataResult {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelDataResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionConfigurationSetModelDataResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationSetModelDataResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationSetModelDataResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
+impl ActivationSignalDetectionConfigurationStateChangeResult {
+    pub const Success: Self = Self(0i32);
+    pub const NoModelData: Self = Self(1i32);
+    pub const ConfigurationNotFound: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationStateChangeResult {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionConfigurationStateChangeResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationStateChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionConfigurationStateChangeResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
+impl ActivationSignalDetectionTrainingDataFormat {
+    pub const Voice8kHz8BitMono: Self = Self(0i32);
+    pub const Voice8kHz16BitMono: Self = Self(1i32);
+    pub const Voice16kHz8BitMono: Self = Self(2i32);
+    pub const Voice16kHz16BitMono: Self = Self(3i32);
+    pub const VoiceOEMDefined: Self = Self(4i32);
+    pub const Audio44kHz8BitMono: Self = Self(5i32);
+    pub const Audio44kHz16BitMono: Self = Self(6i32);
+    pub const Audio48kHz8BitMono: Self = Self(7i32);
+    pub const Audio48kHz16BitMono: Self = Self(8i32);
+    pub const AudioOEMDefined: Self = Self(9i32);
+    pub const OtherOEMDefined: Self = Self(10i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectionTrainingDataFormat {}
+impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionTrainingDataFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationSignalDetectionTrainingDataFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationSignalDetectionTrainingDataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectionTrainingDataFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationSignalDetectorKind(pub i32);
+impl ActivationSignalDetectorKind {
+    pub const AudioPattern: Self = Self(0i32);
+    pub const AudioImpulse: Self = Self(1i32);
+    pub const HardwareEvent: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectorKind {}
+impl ::core::clone::Clone for ActivationSignalDetectorKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectorKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationSignalDetectorKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationSignalDetectorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectorKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationSignalDetectorPowerState(pub i32);
+impl ActivationSignalDetectorPowerState {
+    pub const HighPower: Self = Self(0i32);
+    pub const ConnectedLowPower: Self = Self(1i32);
+    pub const DisconnectedLowPower: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectorPowerState {}
+impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectorPowerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationSignalDetectorPowerState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationSignalDetectorPowerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationSignalDetectorPowerState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorPowerState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConversationalAgentActivationKind(pub i32);
+impl ConversationalAgentActivationKind {
+    pub const VoiceActivationPreview: Self = Self(0i32);
+    pub const Foreground: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ConversationalAgentActivationKind {}
+impl ::core::clone::Clone for ConversationalAgentActivationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentActivationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConversationalAgentActivationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConversationalAgentActivationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentActivationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConversationalAgentActivationResult(pub i32);
+impl ConversationalAgentActivationResult {
+    pub const Success: Self = Self(0i32);
+    pub const AgentInactive: Self = Self(1i32);
+    pub const ScreenNotAvailable: Self = Self(2i32);
+    pub const AgentInterrupted: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ConversationalAgentActivationResult {}
+impl ::core::clone::Clone for ConversationalAgentActivationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentActivationResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConversationalAgentActivationResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConversationalAgentActivationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentActivationResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConversationalAgentSessionUpdateResponse(pub i32);
+impl ConversationalAgentSessionUpdateResponse {
+    pub const Success: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ConversationalAgentSessionUpdateResponse {}
+impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentSessionUpdateResponse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConversationalAgentSessionUpdateResponse {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConversationalAgentSessionUpdateResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSessionUpdateResponse").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionUpdateResponse {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConversationalAgentState(pub i32);
+impl ConversationalAgentState {
+    pub const Inactive: Self = Self(0i32);
+    pub const Detecting: Self = Self(1i32);
+    pub const Listening: Self = Self(2i32);
+    pub const Working: Self = Self(3i32);
+    pub const Speaking: Self = Self(4i32);
+    pub const ListeningAndSpeaking: Self = Self(5i32);
+}
+impl ::core::marker::Copy for ConversationalAgentState {}
+impl ::core::clone::Clone for ConversationalAgentState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConversationalAgentState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConversationalAgentState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConversationalAgentSystemStateChangeType(pub i32);
+impl ConversationalAgentSystemStateChangeType {
+    pub const UserAuthentication: Self = Self(0i32);
+    pub const ScreenAvailability: Self = Self(1i32);
+    pub const IndicatorLightAvailability: Self = Self(2i32);
+    pub const VoiceActivationAvailability: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ConversationalAgentSystemStateChangeType {}
+impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentSystemStateChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConversationalAgentSystemStateChangeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConversationalAgentSystemStateChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentSystemStateChangeType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangeType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
+impl ConversationalAgentVoiceActivationPrerequisiteKind {
+    pub const MicrophonePermission: Self = Self(0i32);
+    pub const KnownAgents: Self = Self(1i32);
+    pub const AgentAllowed: Self = Self(2i32);
+    pub const AppCapability: Self = Self(3i32);
+    pub const BackgroundTaskRegistration: Self = Self(4i32);
+    pub const PolicyPermission: Self = Self(5i32);
+}
+impl ::core::marker::Copy for ConversationalAgentVoiceActivationPrerequisiteKind {}
+impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentVoiceActivationPrerequisiteKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConversationalAgentVoiceActivationPrerequisiteKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentVoiceActivationPrerequisiteKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
+impl DetectionConfigurationAvailabilityChangeKind {
+    pub const SystemResourceAccess: Self = Self(0i32);
+    pub const Permission: Self = Self(1i32);
+    pub const LockScreenPermission: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DetectionConfigurationAvailabilityChangeKind {}
+impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DetectionConfigurationAvailabilityChangeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DetectionConfigurationAvailabilityChangeKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DetectionConfigurationAvailabilityChangeKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {
     pub const Success: Self = Self(0i32);
@@ -2338,544 +2876,6 @@ unsafe impl ::windows::core::RuntimeType for DetectionConfigurationTrainingStatu
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IActivationSignalDetectionConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfiguration {
-    type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IActivationSignalDetectionConfiguration_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SetEnabledAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetEnabledAsync: usize,
-    pub AvailabilityInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub AvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AvailabilityChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveAvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAvailabilityChanged: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetModelData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetModelData: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub SetModelDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    SetModelDataAsync: usize,
-    pub GetModelDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetModelDataTypeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetModelDataTypeAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetModelData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetModelData: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub GetModelDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    GetModelDataAsync: usize,
-    pub ClearModelData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ClearModelDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ClearModelDataAsync: usize,
-    pub TrainingStepsCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub TrainingStepsRemaining: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub TrainingDataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionTrainingDataFormat) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub ApplyTrainingData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationTrainingStatus) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    ApplyTrainingData: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub ApplyTrainingDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    ApplyTrainingDataAsync: usize,
-    pub ClearTrainingData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ClearTrainingDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ClearTrainingDataAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IActivationSignalDetectionConfiguration2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfiguration2 {
-    type Vtable = IActivationSignalDetectionConfiguration2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IActivationSignalDetectionConfiguration2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub SetModelDataWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationSetModelDataResult) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetModelDataWithResult: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub SetModelDataWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    SetModelDataWithResultAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetEnabledWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetEnabledWithResultAsync: usize,
-    pub SetEnabledWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ActivationSignalDetectionConfigurationStateChangeResult) -> ::windows::core::HRESULT,
-    pub TrainingStepCompletionMaxAllowedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IActivationSignalDetectionConfigurationCreationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivationSignalDetectionConfigurationCreationResult {
-    type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows::core::HRESULT,
-    pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IActivationSignalDetector(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivationSignalDetector {
-    type Vtable = IActivationSignalDetector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IActivationSignalDetector_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT,
-    pub CanCreateConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedModelDataTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedModelDataTypes: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedTrainingDataFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedTrainingDataFormats: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedPowerStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedPowerStates: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSupportedModelIdsForSignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedModelIdsForSignalId: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSupportedModelIdsForSignalIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedModelIdsForSignalIdAsync: usize,
-    pub CreateConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub CreateConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateConfigurationAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConfigurations: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetConfigurationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConfigurationsAsync: usize,
-    pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetConfigurationAsync: usize,
-    pub RemoveConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RemoveConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveConfigurationAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IActivationSignalDetector2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivationSignalDetector2 {
-    type Vtable = IActivationSignalDetector2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IActivationSignalDetector2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAvailableModelIdsForSignalIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAvailableModelIdsForSignalIdAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAvailableModelIdsForSignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAvailableModelIdsForSignalId: usize,
-    #[cfg(feature = "Foundation")]
-    pub CreateConfigurationWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateConfigurationWithResultAsync: usize,
-    pub CreateConfigurationWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RemoveConfigurationWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveConfigurationWithResultAsync: usize,
-    pub RemoveConfigurationWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ActivationSignalDetectionConfigurationRemovalResult) -> ::windows::core::HRESULT,
-    pub DetectorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentDetectorManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager {
-    type Vtable = IConversationalAgentDetectorManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentDetectorManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAllActivationSignalDetectors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAllActivationSignalDetectors: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAllActivationSignalDetectorsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAllActivationSignalDetectorsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetActivationSignalDetectors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetActivationSignalDetectors: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetActivationSignalDetectorsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetActivationSignalDetectorsAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentDetectorManager2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManager2 {
-    type Vtable = IConversationalAgentDetectorManager2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentDetectorManager2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetActivationSignalDetectorFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetActivationSignalDetectorFromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetActivationSignalDetectorFromIdAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentDetectorManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentDetectorManagerStatics {
-    type Vtable = IConversationalAgentDetectorManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentDetectorManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSession {
-    type Vtable = IConversationalAgentSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub SessionInterrupted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SessionInterrupted: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveSessionInterrupted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSessionInterrupted: usize,
-    #[cfg(feature = "Foundation")]
-    pub SignalDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SignalDetected: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveSignalDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSignalDetected: usize,
-    #[cfg(feature = "Foundation")]
-    pub SystemStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SystemStateChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveSystemStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSystemStateChanged: usize,
-    pub AgentState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentState) -> ::windows::core::HRESULT,
-    pub Signal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IsIndicatorLightAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsScreenAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsUserAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsVoiceActivationAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsInterruptible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsInterrupted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RequestInterruptibleAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestInterruptibleAsync: usize,
-    pub RequestInterruptible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RequestAgentStateChangeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestAgentStateChangeAsync: usize,
-    pub RequestAgentStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RequestForegroundActivationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestForegroundActivationAsync: usize,
-    pub RequestForegroundActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetAudioClientAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetAudioClientAsync: usize,
-    pub GetAudioClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Media_Audio"))]
-    pub CreateAudioDeviceInputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graph: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Audio")))]
-    CreateAudioDeviceInputNodeAsync: usize,
-    #[cfg(feature = "Media_Audio")]
-    pub CreateAudioDeviceInputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graph: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Media_Audio"))]
-    CreateAudioDeviceInputNode: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetAudioCaptureDeviceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetAudioCaptureDeviceIdAsync: usize,
-    pub GetAudioCaptureDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetAudioRenderDeviceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetAudioRenderDeviceIdAsync: usize,
-    pub GetAudioRenderDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetSignalModelIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetSignalModelIdAsync: usize,
-    pub GetSignalModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SetSignalModelIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSignalModelIdAsync: usize,
-    pub SetSignalModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSupportedSignalModelIdsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedSignalModelIdsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSupportedSignalModelIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedSignalModelIds: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSession2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSession2 {
-    type Vtable = IConversationalAgentSession2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSession2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub RequestActivationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestActivationAsync: usize,
-    pub RequestActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut ConversationalAgentActivationResult) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SetSupportLockScreenActivationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSupportLockScreenActivationAsync: usize,
-    pub SetSupportLockScreenActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetMissingPrerequisites: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMissingPrerequisites: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetMissingPrerequisitesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetMissingPrerequisitesAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSessionInterruptedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSessionInterruptedEventArgs {
-    type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSessionInterruptedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSessionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSessionStatics {
-    type Vtable = IConversationalAgentSessionStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSessionStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub GetCurrentSessionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetCurrentSessionAsync: usize,
-    pub GetCurrentSessionSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSignal(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSignal {
-    type Vtable = IConversationalAgentSignal_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSignal_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsSignalVerificationRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIsSignalVerificationRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub SignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetSignalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SignalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetSignalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SignalContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetSignalContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SignalStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SignalStart: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetSignalStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSignalStart: usize,
-    #[cfg(feature = "Foundation")]
-    pub SignalEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SignalEnd: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetSignalEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetSignalEnd: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSignal2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSignal2 {
-    type Vtable = IConversationalAgentSignal2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSignal2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DetectorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub DetectorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSignalDetectedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSignalDetectedEventArgs {
-    type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSignalDetectedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConversationalAgentSystemStateChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConversationalAgentSystemStateChangedEventArgs {
-    type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConversationalAgentSystemStateChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SystemStateChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDetectionConfigurationAvailabilityChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
-    type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDetectionConfigurationAvailabilityInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo {
-    type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasSystemResourceAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasLockScreenPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDetectionConfigurationAvailabilityInfo2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDetectionConfigurationAvailabilityInfo2 {
-    type Vtable = IDetectionConfigurationAvailabilityInfo2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub UnavailableSystemResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    UnavailableSystemResources: usize,
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]

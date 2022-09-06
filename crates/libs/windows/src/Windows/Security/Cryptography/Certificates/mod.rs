@@ -1,3 +1,895 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificate(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificate {
+    type Vtable = ICertificate_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificate_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub BuildChainAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    BuildChainAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub BuildChainWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, parameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    BuildChainWithParametersAsync: usize,
+    pub SerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub GetHashValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub GetHashValueWithAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetCertificateBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetCertificateBlob: usize,
+    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Issuer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub HasPrivateKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsStronglyProtected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ValidFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ValidFrom: usize,
+    #[cfg(feature = "Foundation")]
+    pub ValidTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ValidTo: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    EnhancedKeyUsages: usize,
+    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificate2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificate2 {
+    type Vtable = ICertificate2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b8374c_8a25_4d96_a492_8fc29ac4fda6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificate2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsSecurityDeviceBound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub KeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub KeyAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SignatureAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SignatureHashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SubjectAlternativeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificate3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificate3 {
+    type Vtable = ICertificate3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe51a966_ae5f_4652_ace7_c6d7e7724cf3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificate3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsPerUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub StoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub KeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateChain(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateChain {
+    type Vtable = ICertificateChain_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20bf5385_3691_4501_a62c_fd97278b31ee);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateChain_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ChainValidationResult) -> ::windows::core::HRESULT,
+    pub ValidateWithParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: *mut ::core::ffi::c_void, result__: *mut ChainValidationResult) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includeroot: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetCertificates: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateEnrollmentManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics {
+    type Vtable = ICertificateEnrollmentManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8846ef3f_a986_48fb_9fd7_9aec06935bf1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateEnrollmentManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub CreateRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateRequestAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub InstallCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, installoption: InstallOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    InstallCertificateAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ImportPfxDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ImportPfxDataAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateEnrollmentManagerStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics2 {
+    type Vtable = ICertificateEnrollmentManagerStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc5b1c33_6429_4014_999c_5d9735802d1d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateEnrollmentManagerStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub UserCertificateEnrollmentManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ImportPfxDataToKspAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keystorageprovider: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ImportPfxDataToKspAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateEnrollmentManagerStatics3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics3 {
+    type Vtable = ICertificateEnrollmentManagerStatics3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdec82be_617c_425a_b72d_398b26ac7264);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateEnrollmentManagerStatics3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pfximportparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ImportPfxDataToKspWithParametersAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateExtension(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateExtension {
+    type Vtable = ICertificateExtension_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateExtension_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IsCritical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsCritical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub EncodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateFactory {
+    type Vtable = ICertificateFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b4221c_4baf_44a2_9608_04fb62b16942);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certblob: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateCertificate: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateKeyUsages(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateKeyUsages {
+    type Vtable = ICertificateKeyUsages_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateKeyUsages_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EncipherOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetEncipherOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub CrlSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetCrlSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub KeyCertificateSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetKeyCertificateSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub KeyAgreement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetKeyAgreement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub DataEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetDataEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub KeyEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetKeyEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub NonRepudiation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetNonRepudiation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub DigitalSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetDigitalSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateQuery(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateQuery {
+    type Vtable = ICertificateQuery_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateQuery_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    EnhancedKeyUsages: usize,
+    pub IssuerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetIssuerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Thumbprint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub SetThumbprint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
+    pub HardwareOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetHardwareOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateQuery2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateQuery2 {
+    type Vtable = ICertificateQuery2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x935a0af7_0bd9_4f75_b8c2_e27a7f74eecd);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateQuery2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IncludeDuplicates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIncludeDuplicates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub IncludeExpiredCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIncludeExpiredCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub StoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetStoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateRequestProperties(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateRequestProperties {
+    type Vtable = ICertificateRequestProperties_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x487e84f6_94e2_4dce_8833_1a700a37a29a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateRequestProperties_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetSubject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub KeyAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetKeyAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub KeySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub SetKeySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub HashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetHashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Exportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExportOption) -> ::windows::core::HRESULT,
+    pub SetExportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExportOption) -> ::windows::core::HRESULT,
+    pub KeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnrollKeyUsages) -> ::windows::core::HRESULT,
+    pub SetKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: EnrollKeyUsages) -> ::windows::core::HRESULT,
+    pub KeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut KeyProtectionLevel) -> ::windows::core::HRESULT,
+    pub SetKeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: KeyProtectionLevel) -> ::windows::core::HRESULT,
+    pub KeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetKeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateRequestProperties2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateRequestProperties2 {
+    type Vtable = ICertificateRequestProperties2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da0c954_d73f_4ff3_a0a6_0677c0ada05b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateRequestProperties2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SmartcardReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetSmartcardReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AttestationCredentialCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetAttestationCredentialCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateRequestProperties3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateRequestProperties3 {
+    type Vtable = ICertificateRequestProperties3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe687f616_734d_46b1_9d4c_6edfdbfc845b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateRequestProperties3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CurveName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetCurveName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub CurveParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub SetCurveParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
+    pub ContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub UseExistingKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetUseExistingKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateRequestProperties4(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateRequestProperties4 {
+    type Vtable = ICertificateRequestProperties4_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e429ad2_1c61_4fea_b8fe_135fb19cdce4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateRequestProperties4_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SuppressedDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SuppressedDefaults: usize,
+    pub SubjectAlternativeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Extensions: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateStore(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateStore {
+    type Vtable = ICertificateStore_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateStore_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateStore2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateStore2 {
+    type Vtable = ICertificateStore2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e68e4a_417d_4d1a_babd_15687e549974);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateStore2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateStoresStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateStoresStatics {
+    type Vtable = ICertificateStoresStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbecc739_c6fe_4de7_99cf_74c3e596e032);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateStoresStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindAllAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindAllWithQueryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindAllWithQueryAsync: usize,
+    pub TrustedRootCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IntermediateCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetStoreByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICertificateStoresStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICertificateStoresStatics2 {
+    type Vtable = ICertificateStoresStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa900b79_a0d4_4b8c_bc55_c0a37eb141ed);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICertificateStoresStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetUserStoreByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IChainBuildingParameters(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IChainBuildingParameters {
+    type Vtable = IChainBuildingParameters_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422ba922_7c8d_47b7_b59b_b12703733ac3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IChainBuildingParameters_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    EnhancedKeyUsages: usize,
+    #[cfg(feature = "Foundation")]
+    pub ValidationTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ValidationTimestamp: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetValidationTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetValidationTimestamp: usize,
+    pub RevocationCheckEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetRevocationCheckEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub NetworkRetrievalEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetNetworkRetrievalEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub AuthorityInformationAccessEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetAuthorityInformationAccessEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub CurrentTimeValidationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetCurrentTimeValidationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ExclusiveTrustRoots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ExclusiveTrustRoots: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IChainValidationParameters(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IChainValidationParameters {
+    type Vtable = IChainValidationParameters_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IChainValidationParameters_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CertificateChainPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CertificateChainPolicy) -> ::windows::core::HRESULT,
+    pub SetCertificateChainPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CertificateChainPolicy) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Networking")]
+    pub ServerDnsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Networking"))]
+    ServerDnsName: usize,
+    #[cfg(feature = "Networking")]
+    pub SetServerDnsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Networking"))]
+    SetServerDnsName: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsAttachedSignature(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsAttachedSignature {
+    type Vtable = ICmsAttachedSignature_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsAttachedSignature_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Certificates: usize,
+    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Signers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Signers: usize,
+    pub VerifySignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SignatureValidationResult) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsAttachedSignatureFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsAttachedSignatureFactory {
+    type Vtable = ICmsAttachedSignatureFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0c8fc15_f757_4c64_a362_52cc1c77cffb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsAttachedSignatureFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateCmsAttachedSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputblob: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateCmsAttachedSignature: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsAttachedSignatureStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsAttachedSignatureStatics {
+    type Vtable = ICmsAttachedSignatureStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87989c8e_b0ad_498d_a7f5_78b59bce4b36);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsAttachedSignatureStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GenerateSignatureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, signers: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GenerateSignatureAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsDetachedSignature(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsDetachedSignature {
+    type Vtable = ICmsDetachedSignature_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1ef154_f65e_4536_8339_5944081db2ca);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsDetachedSignature_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Certificates: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Signers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Signers: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub VerifySignatureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    VerifySignatureAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsDetachedSignatureFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsDetachedSignatureFactory {
+    type Vtable = ICmsDetachedSignatureFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4ab3503_ae7f_4387_ad19_00f150e48ebb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsDetachedSignatureFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateCmsDetachedSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputblob: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateCmsDetachedSignature: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsDetachedSignatureStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsDetachedSignatureStatics {
+    type Vtable = ICmsDetachedSignatureStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d114cfd_bf9b_4682_9be6_91f57c053808);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsDetachedSignatureStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    pub GenerateSignatureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, signers: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    GenerateSignatureAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsSignerInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsSignerInfo {
+    type Vtable = ICmsSignerInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsSignerInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Certificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetHashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TimestampInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICmsTimestampInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICmsTimestampInfo {
+    type Vtable = ICmsTimestampInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f5f00f2_2c18_4f88_8435_c534086076f5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICmsTimestampInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Certificates: usize,
+    #[cfg(feature = "Foundation")]
+    pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Timestamp: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IKeyAlgorithmNamesStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IKeyAlgorithmNamesStatics {
+    type Vtable = IKeyAlgorithmNamesStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479065d7_7ac7_4581_8c3b_d07027140448);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKeyAlgorithmNamesStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Rsa: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Dsa: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Ecdh256: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Ecdh384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Ecdh521: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Ecdsa256: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Ecdsa384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Ecdsa521: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IKeyAlgorithmNamesStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IKeyAlgorithmNamesStatics2 {
+    type Vtable = IKeyAlgorithmNamesStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99b5686_e1fd_4a4a_893d_a26f33dd8bb4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKeyAlgorithmNamesStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Ecdsa: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Ecdh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IKeyAttestationHelperStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IKeyAttestationHelperStatics {
+    type Vtable = IKeyAttestationHelperStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1648e246_f644_4326_88be_3af102d30e0c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKeyAttestationHelperStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub DecryptTpmAttestationCredentialAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DecryptTpmAttestationCredentialAsync: usize,
+    pub GetTpmAttestationCredentialId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IKeyAttestationHelperStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IKeyAttestationHelperStatics2 {
+    type Vtable = IKeyAttestationHelperStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c590b2c_a6c6_4a5e_9e64_e85d5279df97);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKeyAttestationHelperStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub DecryptTpmAttestationCredentialWithContainerNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, containername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DecryptTpmAttestationCredentialWithContainerNameAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IKeyStorageProviderNamesStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IKeyStorageProviderNamesStatics {
+    type Vtable = IKeyStorageProviderNamesStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf186ae0_5529_4602_bd94_0aab91957b5c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKeyStorageProviderNamesStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SoftwareKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SmartcardKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub PlatformKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IKeyStorageProviderNamesStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IKeyStorageProviderNamesStatics2 {
+    type Vtable = IKeyStorageProviderNamesStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262d743d_9c2e_41cc_8812_c4d971dd7c60);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKeyStorageProviderNamesStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub PassportKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPfxImportParameters(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPfxImportParameters {
+    type Vtable = IPfxImportParameters_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPfxImportParameters_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Exportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExportOption) -> ::windows::core::HRESULT,
+    pub SetExportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExportOption) -> ::windows::core::HRESULT,
+    pub KeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut KeyProtectionLevel) -> ::windows::core::HRESULT,
+    pub SetKeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: KeyProtectionLevel) -> ::windows::core::HRESULT,
+    pub InstallOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InstallOptions) -> ::windows::core::HRESULT,
+    pub SetInstallOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InstallOptions) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub KeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetKeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IStandardCertificateStoreNamesStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IStandardCertificateStoreNamesStatics {
+    type Vtable = IStandardCertificateStoreNamesStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c154adb_a496_41f8_8fe5_9e96f36efbf8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStandardCertificateStoreNamesStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Personal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TrustedRootCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IntermediateCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISubjectAlternativeNameInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISubjectAlternativeNameInfo {
+    type Vtable = ISubjectAlternativeNameInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISubjectAlternativeNameInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EmailName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    EmailName: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub IPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    IPAddress: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Url: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DnsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DnsName: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DistinguishedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DistinguishedName: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub PrincipalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    PrincipalName: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ISubjectAlternativeNameInfo2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ISubjectAlternativeNameInfo2 {
+    type Vtable = ISubjectAlternativeNameInfo2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437a78c6_1c51_41ea_b34a_3d654398a370);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISubjectAlternativeNameInfo2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EmailNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    EmailNames: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub IPAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    IPAddresses: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Urls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Urls: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DnsNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DnsNames: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DistinguishedNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DistinguishedNames: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub PrincipalNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    PrincipalNames: usize,
+    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IUserCertificateEnrollmentManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IUserCertificateEnrollmentManager {
+    type Vtable = IUserCertificateEnrollmentManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96313718_22e1_4819_b20b_ab46a6eca06e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUserCertificateEnrollmentManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub CreateRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateRequestAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub InstallCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, installoption: InstallOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    InstallCertificateAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ImportPfxDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ImportPfxDataAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ImportPfxDataToKspAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keystorageprovider: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ImportPfxDataToKspAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IUserCertificateEnrollmentManager2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IUserCertificateEnrollmentManager2 {
+    type Vtable = IUserCertificateEnrollmentManager2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dad9cb1_65de_492a_b86d_fc5c482c3747);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUserCertificateEnrollmentManager2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pfximportparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ImportPfxDataToKspWithParametersAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IUserCertificateStore(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IUserCertificateStore {
+    type Vtable = IUserCertificateStore_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUserCertificateStore_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub RequestAddAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestAddAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub RequestDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestDeleteAsync: usize,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 pub struct Certificate(::windows::core::IUnknown);
@@ -361,42 +1253,6 @@ impl ::core::convert::From<&CertificateChain> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for CertificateChain {}
 unsafe impl ::core::marker::Sync for CertificateChain {}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CertificateChainPolicy(pub i32);
-impl CertificateChainPolicy {
-    pub const Base: Self = Self(0i32);
-    pub const Ssl: Self = Self(1i32);
-    pub const NTAuthentication: Self = Self(2i32);
-    pub const MicrosoftRoot: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CertificateChainPolicy {}
-impl ::core::clone::Clone for CertificateChainPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CertificateChainPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CertificateChainPolicy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CertificateChainPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CertificateChainPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
@@ -1600,52 +2456,6 @@ unsafe impl ::core::marker::Send for ChainValidationParameters {}
 unsafe impl ::core::marker::Sync for ChainValidationParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ChainValidationResult(pub i32);
-impl ChainValidationResult {
-    pub const Success: Self = Self(0i32);
-    pub const Untrusted: Self = Self(1i32);
-    pub const Revoked: Self = Self(2i32);
-    pub const Expired: Self = Self(3i32);
-    pub const IncompleteChain: Self = Self(4i32);
-    pub const InvalidSignature: Self = Self(5i32);
-    pub const WrongUsage: Self = Self(6i32);
-    pub const InvalidName: Self = Self(7i32);
-    pub const InvalidCertificateAuthorityPolicy: Self = Self(8i32);
-    pub const BasicConstraintsError: Self = Self(9i32);
-    pub const UnknownCriticalExtension: Self = Self(10i32);
-    pub const RevocationInformationMissing: Self = Self(11i32);
-    pub const RevocationFailure: Self = Self(12i32);
-    pub const OtherErrors: Self = Self(13i32);
-}
-impl ::core::marker::Copy for ChainValidationResult {}
-impl ::core::clone::Clone for ChainValidationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChainValidationResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ChainValidationResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ChainValidationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChainValidationResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ChainValidationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
 pub struct CmsAttachedSignature(::windows::core::IUnknown);
 impl CmsAttachedSignature {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2116,1059 +2926,6 @@ impl ::core::convert::From<&CmsTimestampInfo> for &::windows::core::IInspectable
 unsafe impl ::core::marker::Send for CmsTimestampInfo {}
 unsafe impl ::core::marker::Sync for CmsTimestampInfo {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EnrollKeyUsages(pub u32);
-impl EnrollKeyUsages {
-    pub const None: Self = Self(0u32);
-    pub const Decryption: Self = Self(1u32);
-    pub const Signing: Self = Self(2u32);
-    pub const KeyAgreement: Self = Self(4u32);
-    pub const All: Self = Self(16777215u32);
-}
-impl ::core::marker::Copy for EnrollKeyUsages {}
-impl ::core::clone::Clone for EnrollKeyUsages {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollKeyUsages {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EnrollKeyUsages {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EnrollKeyUsages {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for EnrollKeyUsages {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EnrollKeyUsages {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EnrollKeyUsages {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EnrollKeyUsages {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EnrollKeyUsages {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for EnrollKeyUsages {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ExportOption(pub i32);
-impl ExportOption {
-    pub const NotExportable: Self = Self(0i32);
-    pub const Exportable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ExportOption {}
-impl ::core::clone::Clone for ExportOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExportOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ExportOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ExportOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExportOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ExportOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificate(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificate {
-    type Vtable = ICertificate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificate_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub BuildChainAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BuildChainAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub BuildChainWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, parameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    BuildChainWithParametersAsync: usize,
-    pub SerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub GetHashValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub GetHashValueWithAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub GetCertificateBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    GetCertificateBlob: usize,
-    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Issuer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub HasPrivateKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsStronglyProtected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ValidFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidFrom: usize,
-    #[cfg(feature = "Foundation")]
-    pub ValidTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidTo: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnhancedKeyUsages: usize,
-    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificate2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificate2 {
-    type Vtable = ICertificate2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b8374c_8a25_4d96_a492_8fc29ac4fda6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificate2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsSecurityDeviceBound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub KeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub KeyAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SignatureAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SignatureHashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SubjectAlternativeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificate3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificate3 {
-    type Vtable = ICertificate3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe51a966_ae5f_4652_ace7_c6d7e7724cf3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificate3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsPerUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub StoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub KeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateChain(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateChain {
-    type Vtable = ICertificateChain_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20bf5385_3691_4501_a62c_fd97278b31ee);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateChain_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ChainValidationResult) -> ::windows::core::HRESULT,
-    pub ValidateWithParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: *mut ::core::ffi::c_void, result__: *mut ChainValidationResult) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includeroot: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetCertificates: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateEnrollmentManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics {
-    type Vtable = ICertificateEnrollmentManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8846ef3f_a986_48fb_9fd7_9aec06935bf1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateEnrollmentManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub CreateRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateRequestAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub InstallCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, installoption: InstallOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InstallCertificateAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ImportPfxDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateEnrollmentManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics2 {
-    type Vtable = ICertificateEnrollmentManagerStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc5b1c33_6429_4014_999c_5d9735802d1d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateEnrollmentManagerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub UserCertificateEnrollmentManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ImportPfxDataToKspAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keystorageprovider: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateEnrollmentManagerStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateEnrollmentManagerStatics3 {
-    type Vtable = ICertificateEnrollmentManagerStatics3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdec82be_617c_425a_b72d_398b26ac7264);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateEnrollmentManagerStatics3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pfximportparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspWithParametersAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateExtension(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateExtension {
-    type Vtable = ICertificateExtension_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateExtension_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub IsCritical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIsCritical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub EncodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateFactory {
-    type Vtable = ICertificateFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b4221c_4baf_44a2_9608_04fb62b16942);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certblob: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateCertificate: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateKeyUsages(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateKeyUsages {
-    type Vtable = ICertificateKeyUsages_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateKeyUsages_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EncipherOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetEncipherOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub CrlSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetCrlSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub KeyCertificateSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetKeyCertificateSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub KeyAgreement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetKeyAgreement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub DataEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetDataEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub KeyEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetKeyEncipherment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub NonRepudiation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetNonRepudiation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub DigitalSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetDigitalSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateQuery(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateQuery {
-    type Vtable = ICertificateQuery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateQuery_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnhancedKeyUsages: usize,
-    pub IssuerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetIssuerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Thumbprint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub SetThumbprint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
-    pub HardwareOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetHardwareOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateQuery2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateQuery2 {
-    type Vtable = ICertificateQuery2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x935a0af7_0bd9_4f75_b8c2_e27a7f74eecd);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateQuery2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IncludeDuplicates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIncludeDuplicates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub IncludeExpiredCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIncludeExpiredCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub StoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetStoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateRequestProperties(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateRequestProperties {
-    type Vtable = ICertificateRequestProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x487e84f6_94e2_4dce_8833_1a700a37a29a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateRequestProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetSubject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub KeyAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetKeyAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub KeySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub SetKeySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub HashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetHashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Exportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExportOption) -> ::windows::core::HRESULT,
-    pub SetExportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExportOption) -> ::windows::core::HRESULT,
-    pub KeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnrollKeyUsages) -> ::windows::core::HRESULT,
-    pub SetKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: EnrollKeyUsages) -> ::windows::core::HRESULT,
-    pub KeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut KeyProtectionLevel) -> ::windows::core::HRESULT,
-    pub SetKeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: KeyProtectionLevel) -> ::windows::core::HRESULT,
-    pub KeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetKeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateRequestProperties2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateRequestProperties2 {
-    type Vtable = ICertificateRequestProperties2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da0c954_d73f_4ff3_a0a6_0677c0ada05b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateRequestProperties2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SmartcardReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetSmartcardReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetSigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AttestationCredentialCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetAttestationCredentialCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateRequestProperties3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateRequestProperties3 {
-    type Vtable = ICertificateRequestProperties3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe687f616_734d_46b1_9d4c_6edfdbfc845b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateRequestProperties3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CurveName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetCurveName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub CurveParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub SetCurveParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
-    pub ContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub UseExistingKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetUseExistingKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateRequestProperties4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateRequestProperties4 {
-    type Vtable = ICertificateRequestProperties4_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e429ad2_1c61_4fea_b8fe_135fb19cdce4);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateRequestProperties4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SuppressedDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SuppressedDefaults: usize,
-    pub SubjectAlternativeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Extensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Extensions: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateStore(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateStore {
-    type Vtable = ICertificateStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateStore_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateStore2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateStore2 {
-    type Vtable = ICertificateStore2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e68e4a_417d_4d1a_babd_15687e549974);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateStore2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateStoresStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateStoresStatics {
-    type Vtable = ICertificateStoresStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbecc739_c6fe_4de7_99cf_74c3e596e032);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateStoresStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub FindAllWithQueryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAllWithQueryAsync: usize,
-    pub TrustedRootCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IntermediateCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetStoreByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICertificateStoresStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICertificateStoresStatics2 {
-    type Vtable = ICertificateStoresStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa900b79_a0d4_4b8c_bc55_c0a37eb141ed);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICertificateStoresStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetUserStoreByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IChainBuildingParameters(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IChainBuildingParameters {
-    type Vtable = IChainBuildingParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422ba922_7c8d_47b7_b59b_b12703733ac3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IChainBuildingParameters_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub EnhancedKeyUsages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnhancedKeyUsages: usize,
-    #[cfg(feature = "Foundation")]
-    pub ValidationTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidationTimestamp: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetValidationTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetValidationTimestamp: usize,
-    pub RevocationCheckEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetRevocationCheckEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub NetworkRetrievalEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetNetworkRetrievalEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub AuthorityInformationAccessEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetAuthorityInformationAccessEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub CurrentTimeValidationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetCurrentTimeValidationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ExclusiveTrustRoots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExclusiveTrustRoots: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IChainValidationParameters(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IChainValidationParameters {
-    type Vtable = IChainValidationParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IChainValidationParameters_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CertificateChainPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CertificateChainPolicy) -> ::windows::core::HRESULT,
-    pub SetCertificateChainPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CertificateChainPolicy) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Networking")]
-    pub ServerDnsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Networking"))]
-    ServerDnsName: usize,
-    #[cfg(feature = "Networking")]
-    pub SetServerDnsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Networking"))]
-    SetServerDnsName: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsAttachedSignature(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsAttachedSignature {
-    type Vtable = ICmsAttachedSignature_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsAttachedSignature_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Certificates: usize,
-    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Signers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Signers: usize,
-    pub VerifySignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SignatureValidationResult) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsAttachedSignatureFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsAttachedSignatureFactory {
-    type Vtable = ICmsAttachedSignatureFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0c8fc15_f757_4c64_a362_52cc1c77cffb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsAttachedSignatureFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateCmsAttachedSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputblob: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateCmsAttachedSignature: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsAttachedSignatureStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsAttachedSignatureStatics {
-    type Vtable = ICmsAttachedSignatureStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87989c8e_b0ad_498d_a7f5_78b59bce4b36);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsAttachedSignatureStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GenerateSignatureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, signers: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GenerateSignatureAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsDetachedSignature(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsDetachedSignature {
-    type Vtable = ICmsDetachedSignature_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1ef154_f65e_4536_8339_5944081db2ca);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsDetachedSignature_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Certificates: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Signers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Signers: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub VerifySignatureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    VerifySignatureAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsDetachedSignatureFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsDetachedSignatureFactory {
-    type Vtable = ICmsDetachedSignatureFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4ab3503_ae7f_4387_ad19_00f150e48ebb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsDetachedSignatureFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateCmsDetachedSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputblob: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateCmsDetachedSignature: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsDetachedSignatureStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsDetachedSignatureStatics {
-    type Vtable = ICmsDetachedSignatureStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d114cfd_bf9b_4682_9be6_91f57c053808);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsDetachedSignatureStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub GenerateSignatureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, signers: *mut ::core::ffi::c_void, certificates: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
-    GenerateSignatureAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsSignerInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsSignerInfo {
-    type Vtable = ICmsSignerInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsSignerInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Certificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub HashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetHashAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub TimestampInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICmsTimestampInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICmsTimestampInfo {
-    type Vtable = ICmsTimestampInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f5f00f2_2c18_4f88_8435_c534086076f5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICmsTimestampInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Certificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Certificates: usize,
-    #[cfg(feature = "Foundation")]
-    pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Timestamp: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IKeyAlgorithmNamesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKeyAlgorithmNamesStatics {
-    type Vtable = IKeyAlgorithmNamesStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479065d7_7ac7_4581_8c3b_d07027140448);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKeyAlgorithmNamesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Rsa: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Dsa: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Ecdh256: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Ecdh384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Ecdh521: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Ecdsa256: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Ecdsa384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Ecdsa521: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IKeyAlgorithmNamesStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKeyAlgorithmNamesStatics2 {
-    type Vtable = IKeyAlgorithmNamesStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99b5686_e1fd_4a4a_893d_a26f33dd8bb4);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKeyAlgorithmNamesStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Ecdsa: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Ecdh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IKeyAttestationHelperStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKeyAttestationHelperStatics {
-    type Vtable = IKeyAttestationHelperStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1648e246_f644_4326_88be_3af102d30e0c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKeyAttestationHelperStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub DecryptTpmAttestationCredentialAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DecryptTpmAttestationCredentialAsync: usize,
-    pub GetTpmAttestationCredentialId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IKeyAttestationHelperStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKeyAttestationHelperStatics2 {
-    type Vtable = IKeyAttestationHelperStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c590b2c_a6c6_4a5e_9e64_e85d5279df97);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKeyAttestationHelperStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub DecryptTpmAttestationCredentialWithContainerNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credential: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, containername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DecryptTpmAttestationCredentialWithContainerNameAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IKeyStorageProviderNamesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKeyStorageProviderNamesStatics {
-    type Vtable = IKeyStorageProviderNamesStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf186ae0_5529_4602_bd94_0aab91957b5c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKeyStorageProviderNamesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SoftwareKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SmartcardKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub PlatformKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IKeyStorageProviderNamesStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKeyStorageProviderNamesStatics2 {
-    type Vtable = IKeyStorageProviderNamesStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262d743d_9c2e_41cc_8812_c4d971dd7c60);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKeyStorageProviderNamesStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub PassportKeyStorageProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IPfxImportParameters(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPfxImportParameters {
-    type Vtable = IPfxImportParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPfxImportParameters_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Exportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExportOption) -> ::windows::core::HRESULT,
-    pub SetExportable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExportOption) -> ::windows::core::HRESULT,
-    pub KeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut KeyProtectionLevel) -> ::windows::core::HRESULT,
-    pub SetKeyProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: KeyProtectionLevel) -> ::windows::core::HRESULT,
-    pub InstallOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InstallOptions) -> ::windows::core::HRESULT,
-    pub SetInstallOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InstallOptions) -> ::windows::core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub KeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetKeyStorageProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetContainerNamePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IStandardCertificateStoreNamesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IStandardCertificateStoreNamesStatics {
-    type Vtable = IStandardCertificateStoreNamesStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c154adb_a496_41f8_8fe5_9e96f36efbf8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStandardCertificateStoreNamesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Personal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub TrustedRootCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub IntermediateCertificationAuthorities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISubjectAlternativeNameInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISubjectAlternativeNameInfo {
-    type Vtable = ISubjectAlternativeNameInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISubjectAlternativeNameInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub EmailName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EmailName: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub IPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    IPAddress: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Url: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DnsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DnsName: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DistinguishedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DistinguishedName: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub PrincipalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PrincipalName: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ISubjectAlternativeNameInfo2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISubjectAlternativeNameInfo2 {
-    type Vtable = ISubjectAlternativeNameInfo2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437a78c6_1c51_41ea_b34a_3d654398a370);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISubjectAlternativeNameInfo2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub EmailNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EmailNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub IPAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    IPAddresses: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Urls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Urls: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DnsNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DnsNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub DistinguishedNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    DistinguishedNames: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub PrincipalNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PrincipalNames: usize,
-    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IUserCertificateEnrollmentManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserCertificateEnrollmentManager {
-    type Vtable = IUserCertificateEnrollmentManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96313718_22e1_4819_b20b_ab46a6eca06e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IUserCertificateEnrollmentManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub CreateRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateRequestAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub InstallCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, installoption: InstallOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InstallCertificateAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ImportPfxDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ImportPfxDataToKspAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keystorageprovider: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IUserCertificateEnrollmentManager2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserCertificateEnrollmentManager2 {
-    type Vtable = IUserCertificateEnrollmentManager2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dad9cb1_65de_492a_b86d_fc5c482c3747);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IUserCertificateEnrollmentManager2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub ImportPfxDataToKspWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfxdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pfximportparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ImportPfxDataToKspWithParametersAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IUserCertificateStore(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserCertificateStore {
-    type Vtable = IUserCertificateStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IUserCertificateStore_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub RequestAddAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestAddAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub RequestDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestDeleteAsync: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InstallOptions(pub u32);
-impl InstallOptions {
-    pub const None: Self = Self(0u32);
-    pub const DeleteExpired: Self = Self(1u32);
-}
-impl ::core::marker::Copy for InstallOptions {}
-impl ::core::clone::Clone for InstallOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InstallOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InstallOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InstallOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InstallOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InstallOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InstallOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InstallOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InstallOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InstallOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InstallOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 pub struct KeyAlgorithmNames;
 impl KeyAlgorithmNames {
     pub fn Rsa() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3283,77 +3040,6 @@ impl KeyAttestationHelper {
 }
 impl ::windows::core::RuntimeName for KeyAttestationHelper {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyAttestationHelper";
-}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KeyProtectionLevel(pub i32);
-impl KeyProtectionLevel {
-    pub const NoConsent: Self = Self(0i32);
-    pub const ConsentOnly: Self = Self(1i32);
-    pub const ConsentWithPassword: Self = Self(2i32);
-    pub const ConsentWithFingerprint: Self = Self(3i32);
-}
-impl ::core::marker::Copy for KeyProtectionLevel {}
-impl ::core::clone::Clone for KeyProtectionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeyProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KeyProtectionLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KeyProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for KeyProtectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KeySize(pub i32);
-impl KeySize {
-    pub const Invalid: Self = Self(0i32);
-    pub const Rsa2048: Self = Self(2048i32);
-    pub const Rsa4096: Self = Self(4096i32);
-}
-impl ::core::marker::Copy for KeySize {}
-impl ::core::clone::Clone for KeySize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeySize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KeySize {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KeySize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeySize").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for KeySize {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 pub struct KeyStorageProviderNames;
@@ -3547,43 +3233,6 @@ impl ::core::convert::From<&PfxImportParameters> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for PfxImportParameters {}
 unsafe impl ::core::marker::Sync for PfxImportParameters {}
-#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SignatureValidationResult(pub i32);
-impl SignatureValidationResult {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidParameter: Self = Self(1i32);
-    pub const BadMessage: Self = Self(2i32);
-    pub const InvalidSignature: Self = Self(3i32);
-    pub const OtherErrors: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SignatureValidationResult {}
-impl ::core::clone::Clone for SignatureValidationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SignatureValidationResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SignatureValidationResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SignatureValidationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SignatureValidationResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SignatureValidationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
 pub struct StandardCertificateStoreNames;
 impl StandardCertificateStoreNames {
@@ -4019,5 +3668,356 @@ impl ::core::convert::From<&UserCertificateStore> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for UserCertificateStore {}
 unsafe impl ::core::marker::Sync for UserCertificateStore {}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CertificateChainPolicy(pub i32);
+impl CertificateChainPolicy {
+    pub const Base: Self = Self(0i32);
+    pub const Ssl: Self = Self(1i32);
+    pub const NTAuthentication: Self = Self(2i32);
+    pub const MicrosoftRoot: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CertificateChainPolicy {}
+impl ::core::clone::Clone for CertificateChainPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CertificateChainPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CertificateChainPolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CertificateChainPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CertificateChainPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ChainValidationResult(pub i32);
+impl ChainValidationResult {
+    pub const Success: Self = Self(0i32);
+    pub const Untrusted: Self = Self(1i32);
+    pub const Revoked: Self = Self(2i32);
+    pub const Expired: Self = Self(3i32);
+    pub const IncompleteChain: Self = Self(4i32);
+    pub const InvalidSignature: Self = Self(5i32);
+    pub const WrongUsage: Self = Self(6i32);
+    pub const InvalidName: Self = Self(7i32);
+    pub const InvalidCertificateAuthorityPolicy: Self = Self(8i32);
+    pub const BasicConstraintsError: Self = Self(9i32);
+    pub const UnknownCriticalExtension: Self = Self(10i32);
+    pub const RevocationInformationMissing: Self = Self(11i32);
+    pub const RevocationFailure: Self = Self(12i32);
+    pub const OtherErrors: Self = Self(13i32);
+}
+impl ::core::marker::Copy for ChainValidationResult {}
+impl ::core::clone::Clone for ChainValidationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ChainValidationResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ChainValidationResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ChainValidationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChainValidationResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ChainValidationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EnrollKeyUsages(pub u32);
+impl EnrollKeyUsages {
+    pub const None: Self = Self(0u32);
+    pub const Decryption: Self = Self(1u32);
+    pub const Signing: Self = Self(2u32);
+    pub const KeyAgreement: Self = Self(4u32);
+    pub const All: Self = Self(16777215u32);
+}
+impl ::core::marker::Copy for EnrollKeyUsages {}
+impl ::core::clone::Clone for EnrollKeyUsages {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EnrollKeyUsages {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EnrollKeyUsages {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EnrollKeyUsages {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for EnrollKeyUsages {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EnrollKeyUsages {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EnrollKeyUsages {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EnrollKeyUsages {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EnrollKeyUsages {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for EnrollKeyUsages {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ExportOption(pub i32);
+impl ExportOption {
+    pub const NotExportable: Self = Self(0i32);
+    pub const Exportable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ExportOption {}
+impl ::core::clone::Clone for ExportOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ExportOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ExportOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ExportOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExportOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ExportOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InstallOptions(pub u32);
+impl InstallOptions {
+    pub const None: Self = Self(0u32);
+    pub const DeleteExpired: Self = Self(1u32);
+}
+impl ::core::marker::Copy for InstallOptions {}
+impl ::core::clone::Clone for InstallOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InstallOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InstallOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InstallOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InstallOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InstallOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InstallOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InstallOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InstallOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InstallOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InstallOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KeyProtectionLevel(pub i32);
+impl KeyProtectionLevel {
+    pub const NoConsent: Self = Self(0i32);
+    pub const ConsentOnly: Self = Self(1i32);
+    pub const ConsentWithPassword: Self = Self(2i32);
+    pub const ConsentWithFingerprint: Self = Self(3i32);
+}
+impl ::core::marker::Copy for KeyProtectionLevel {}
+impl ::core::clone::Clone for KeyProtectionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KeyProtectionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KeyProtectionLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KeyProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for KeyProtectionLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KeySize(pub i32);
+impl KeySize {
+    pub const Invalid: Self = Self(0i32);
+    pub const Rsa2048: Self = Self(2048i32);
+    pub const Rsa4096: Self = Self(4096i32);
+}
+impl ::core::marker::Copy for KeySize {}
+impl ::core::clone::Clone for KeySize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KeySize {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KeySize {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KeySize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeySize").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for KeySize {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SignatureValidationResult(pub i32);
+impl SignatureValidationResult {
+    pub const Success: Self = Self(0i32);
+    pub const InvalidParameter: Self = Self(1i32);
+    pub const BadMessage: Self = Self(2i32);
+    pub const InvalidSignature: Self = Self(3i32);
+    pub const OtherErrors: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SignatureValidationResult {}
+impl ::core::clone::Clone for SignatureValidationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SignatureValidationResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SignatureValidationResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SignatureValidationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignatureValidationResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SignatureValidationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

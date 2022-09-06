@@ -1,120 +1,3 @@
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub struct APPLICATION_EVENT_DATA {
-    pub cbApplicationEventData: u32,
-    pub ApplicationId: ::windows::core::GUID,
-    pub EndpointId: ::windows::core::GUID,
-    pub dwEventId: u32,
-    pub cbEventData: u32,
-    pub bEventData: [u8; 1],
-}
-impl ::core::marker::Copy for APPLICATION_EVENT_DATA {}
-impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for APPLICATION_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APPLICATION_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for APPLICATION_EVENT_DATA {}
-impl ::core::default::Default for APPLICATION_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const CONTENT_ID_GLANCE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const CONTENT_ID_HOME: u32 = 1u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub struct CONTENT_MISSING_EVENT_DATA {
-    pub cbContentMissingEventData: u32,
-    pub ApplicationId: ::windows::core::GUID,
-    pub EndpointId: ::windows::core::GUID,
-    pub ContentId: u32,
-}
-impl ::core::marker::Copy for CONTENT_MISSING_EVENT_DATA {}
-impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONTENT_MISSING_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTENT_MISSING_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONTENT_MISSING_EVENT_DATA {}
-impl ::core::default::Default for CONTENT_MISSING_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub struct DEVICE_USER_CHANGE_EVENT_DATA {
-    pub cbDeviceUserChangeEventData: u32,
-    pub wszUser: u16,
-}
-impl ::core::marker::Copy for DEVICE_USER_CHANGE_EVENT_DATA {}
-impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_USER_CHANGE_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DEVICE_USER_CHANGE_EVENT_DATA {}
-impl ::core::default::Default for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub struct EVENT_DATA_HEADER {
-    pub cbEventDataHeader: u32,
-    pub guidEventType: ::windows::core::GUID,
-    pub dwVersion: u32,
-    pub cbEventDataSid: u32,
-}
-impl ::core::marker::Copy for EVENT_DATA_HEADER {}
-impl ::core::clone::Clone for EVENT_DATA_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for EVENT_DATA_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_DATA_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_DATA_HEADER {}
-impl ::core::default::Default for EVENT_DATA_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
 pub struct ISideShowBulkCapabilities(::windows::core::IUnknown);
@@ -890,32 +773,67 @@ pub struct ISideShowSession_Vtbl {
     pub RegisterContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID, out_ppicontent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RegisterNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, out_ppinotification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub struct NEW_EVENT_DATA_AVAILABLE {
-    pub cbNewEventDataAvailable: u32,
-    pub dwVersion: u32,
-}
-impl ::core::marker::Copy for NEW_EVENT_DATA_AVAILABLE {}
-impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NEW_EVENT_DATA_AVAILABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NEW_EVENT_DATA_AVAILABLE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NEW_EVENT_DATA_AVAILABLE {}
-impl ::core::default::Default for NEW_EVENT_DATA_AVAILABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+pub const CONTENT_ID_GLANCE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const CONTENT_ID_HOME: u32 = 1u32;
+pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
+pub const SIDESHOW_APPLICATION_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 16u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 15u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 5u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 6u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 9u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 7u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 1u32 };
+pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 4u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 2u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 3u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 14u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 8u32 };
+#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 10u32 };
+pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
+pub const SIDESHOW_ENDPOINT_ICAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
+pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
+pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
+pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
+pub const SideShowKeyCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
+pub const SideShowNotification: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
+pub const SideShowPropVariantCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
+pub const SideShowSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const VERSION_1_WINDOWS_7: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -961,6 +879,229 @@ unsafe impl ::windows::core::Abi for SCF_BUTTON_IDS {
 impl ::core::fmt::Debug for SCF_BUTTON_IDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SCF_BUTTON_IDS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SCF_EVENT_IDS(pub i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
+impl ::core::marker::Copy for SCF_EVENT_IDS {}
+impl ::core::clone::Clone for SCF_EVENT_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SCF_EVENT_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SCF_EVENT_IDS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCF_EVENT_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCF_EVENT_IDS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SIDESHOW_COLOR_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(2i32);
+impl ::core::marker::Copy for SIDESHOW_COLOR_TYPE {}
+impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SIDESHOW_COLOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SIDESHOW_COLOR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SIDESHOW_COLOR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SIDESHOW_COLOR_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SIDESHOW_SCREEN_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
+impl ::core::marker::Copy for SIDESHOW_SCREEN_TYPE {}
+impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SIDESHOW_SCREEN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SIDESHOW_SCREEN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SIDESHOW_SCREEN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SIDESHOW_SCREEN_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub struct APPLICATION_EVENT_DATA {
+    pub cbApplicationEventData: u32,
+    pub ApplicationId: ::windows::core::GUID,
+    pub EndpointId: ::windows::core::GUID,
+    pub dwEventId: u32,
+    pub cbEventData: u32,
+    pub bEventData: [u8; 1],
+}
+impl ::core::marker::Copy for APPLICATION_EVENT_DATA {}
+impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for APPLICATION_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APPLICATION_EVENT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for APPLICATION_EVENT_DATA {}
+impl ::core::default::Default for APPLICATION_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub struct CONTENT_MISSING_EVENT_DATA {
+    pub cbContentMissingEventData: u32,
+    pub ApplicationId: ::windows::core::GUID,
+    pub EndpointId: ::windows::core::GUID,
+    pub ContentId: u32,
+}
+impl ::core::marker::Copy for CONTENT_MISSING_EVENT_DATA {}
+impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONTENT_MISSING_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTENT_MISSING_EVENT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONTENT_MISSING_EVENT_DATA {}
+impl ::core::default::Default for CONTENT_MISSING_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub struct DEVICE_USER_CHANGE_EVENT_DATA {
+    pub cbDeviceUserChangeEventData: u32,
+    pub wszUser: u16,
+}
+impl ::core::marker::Copy for DEVICE_USER_CHANGE_EVENT_DATA {}
+impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DEVICE_USER_CHANGE_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_USER_CHANGE_EVENT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DEVICE_USER_CHANGE_EVENT_DATA {}
+impl ::core::default::Default for DEVICE_USER_CHANGE_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub struct EVENT_DATA_HEADER {
+    pub cbEventDataHeader: u32,
+    pub guidEventType: ::windows::core::GUID,
+    pub dwVersion: u32,
+    pub cbEventDataSid: u32,
+}
+impl ::core::marker::Copy for EVENT_DATA_HEADER {}
+impl ::core::clone::Clone for EVENT_DATA_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EVENT_DATA_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_DATA_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EVENT_DATA_HEADER {}
+impl ::core::default::Default for EVENT_DATA_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub struct NEW_EVENT_DATA_AVAILABLE {
+    pub cbNewEventDataAvailable: u32,
+    pub dwVersion: u32,
+}
+impl ::core::marker::Copy for NEW_EVENT_DATA_AVAILABLE {}
+impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NEW_EVENT_DATA_AVAILABLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NEW_EVENT_DATA_AVAILABLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NEW_EVENT_DATA_AVAILABLE {}
+impl ::core::default::Default for NEW_EVENT_DATA_AVAILABLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1028,35 +1169,6 @@ impl ::core::default::Default for SCF_EVENT_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SCF_EVENT_IDS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
-impl ::core::marker::Copy for SCF_EVENT_IDS {}
-impl ::core::clone::Clone for SCF_EVENT_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCF_EVENT_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SCF_EVENT_IDS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SCF_EVENT_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SCF_EVENT_IDS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub struct SCF_MENUACTION_EVENT {
@@ -1122,117 +1234,5 @@ impl ::core::default::Default for SCF_NAVIGATION_EVENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const SIDESHOW_APPLICATION_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 16u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 15u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 5u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 6u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 9u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 7u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 1u32 };
-pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 4u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 2u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 3u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 14u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 8u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 10u32 };
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SIDESHOW_COLOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(2i32);
-impl ::core::marker::Copy for SIDESHOW_COLOR_TYPE {}
-impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIDESHOW_COLOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SIDESHOW_COLOR_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SIDESHOW_COLOR_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SIDESHOW_COLOR_TYPE").field(&self.0).finish()
-    }
-}
-pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
-pub const SIDESHOW_ENDPOINT_ICAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
-pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
-pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SIDESHOW_SCREEN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
-impl ::core::marker::Copy for SIDESHOW_SCREEN_TYPE {}
-impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIDESHOW_SCREEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SIDESHOW_SCREEN_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SIDESHOW_SCREEN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SIDESHOW_SCREEN_TYPE").field(&self.0).finish()
-    }
-}
-pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
-pub const SideShowKeyCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbbdbf8_18de_49b8_83dc_ebc727c62d94);
-pub const SideShowNotification: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
-pub const SideShowPropVariantCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
-pub const SideShowSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const VERSION_1_WINDOWS_7: u32 = 0u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

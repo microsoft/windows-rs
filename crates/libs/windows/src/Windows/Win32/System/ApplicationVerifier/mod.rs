@@ -1,116 +1,18 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
-pub struct AVRF_BACKTRACE_INFORMATION {
-    pub Depth: u32,
-    pub Index: u32,
-    pub ReturnAddresses: [u64; 32],
-}
-impl ::core::marker::Copy for AVRF_BACKTRACE_INFORMATION {}
-impl ::core::clone::Clone for AVRF_BACKTRACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn VerifierEnumerateResource<'a, P0>(process: P0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void) -> u32;
     }
-}
-impl ::core::fmt::Debug for AVRF_BACKTRACE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVRF_BACKTRACE_INFORMATION").field("Depth", &self.Depth).field("Index", &self.Index).field("ReturnAddresses", &self.ReturnAddresses).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AVRF_BACKTRACE_INFORMATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AVRF_BACKTRACE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_BACKTRACE_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
-impl ::core::default::Default for AVRF_BACKTRACE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
-pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
-pub struct AVRF_HANDLE_OPERATION {
-    pub Handle: u64,
-    pub ProcessId: u32,
-    pub ThreadId: u32,
-    pub OperationType: u32,
-    pub Spare0: u32,
-    pub BackTraceInformation: AVRF_BACKTRACE_INFORMATION,
-}
-impl ::core::marker::Copy for AVRF_HANDLE_OPERATION {}
-impl ::core::clone::Clone for AVRF_HANDLE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AVRF_HANDLE_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVRF_HANDLE_OPERATION").field("Handle", &self.Handle).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("OperationType", &self.OperationType).field("Spare0", &self.Spare0).field("BackTraceInformation", &self.BackTraceInformation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AVRF_HANDLE_OPERATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AVRF_HANDLE_OPERATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_HANDLE_OPERATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AVRF_HANDLE_OPERATION {}
-impl ::core::default::Default for AVRF_HANDLE_OPERATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
-pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
-pub struct AVRF_HEAP_ALLOCATION {
-    pub HeapHandle: u64,
-    pub UserAllocation: u64,
-    pub UserAllocationSize: u64,
-    pub Allocation: u64,
-    pub AllocationSize: u64,
-    pub UserAllocationState: u32,
-    pub HeapState: u32,
-    pub HeapContext: u64,
-    pub BackTraceInformation: *mut AVRF_BACKTRACE_INFORMATION,
-}
-impl ::core::marker::Copy for AVRF_HEAP_ALLOCATION {}
-impl ::core::clone::Clone for AVRF_HEAP_ALLOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AVRF_HEAP_ALLOCATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AVRF_HEAP_ALLOCATION").field("HeapHandle", &self.HeapHandle).field("UserAllocation", &self.UserAllocation).field("UserAllocationSize", &self.UserAllocationSize).field("Allocation", &self.Allocation).field("AllocationSize", &self.AllocationSize).field("UserAllocationState", &self.UserAllocationState).field("HeapState", &self.HeapState).field("HeapContext", &self.HeapContext).field("BackTraceInformation", &self.BackTraceInformation).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AVRF_HEAP_ALLOCATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_HEAP_ALLOCATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AVRF_HEAP_ALLOCATION {}
-impl ::core::default::Default for AVRF_HEAP_ALLOCATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    VerifierEnumerateResource(process.into(), flags, resourcetype, ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const AVRF_MAX_TRACES: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
-pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -165,19 +67,6 @@ impl ::core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn VerifierEnumerateResource<'a, P0>(process: P0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void) -> u32;
-    }
-    VerifierEnumerateResource(process.into(), flags, resourcetype, ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
@@ -324,5 +213,116 @@ impl ::core::fmt::Debug for eUserAllocationState {
         f.debug_tuple("eUserAllocationState").field(&self.0).finish()
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
+pub struct AVRF_BACKTRACE_INFORMATION {
+    pub Depth: u32,
+    pub Index: u32,
+    pub ReturnAddresses: [u64; 32],
+}
+impl ::core::marker::Copy for AVRF_BACKTRACE_INFORMATION {}
+impl ::core::clone::Clone for AVRF_BACKTRACE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AVRF_BACKTRACE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVRF_BACKTRACE_INFORMATION").field("Depth", &self.Depth).field("Index", &self.Index).field("ReturnAddresses", &self.ReturnAddresses).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AVRF_BACKTRACE_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AVRF_BACKTRACE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_BACKTRACE_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
+impl ::core::default::Default for AVRF_BACKTRACE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
+pub struct AVRF_HANDLE_OPERATION {
+    pub Handle: u64,
+    pub ProcessId: u32,
+    pub ThreadId: u32,
+    pub OperationType: u32,
+    pub Spare0: u32,
+    pub BackTraceInformation: AVRF_BACKTRACE_INFORMATION,
+}
+impl ::core::marker::Copy for AVRF_HANDLE_OPERATION {}
+impl ::core::clone::Clone for AVRF_HANDLE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AVRF_HANDLE_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVRF_HANDLE_OPERATION").field("Handle", &self.Handle).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("OperationType", &self.OperationType).field("Spare0", &self.Spare0).field("BackTraceInformation", &self.BackTraceInformation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AVRF_HANDLE_OPERATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AVRF_HANDLE_OPERATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_HANDLE_OPERATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AVRF_HANDLE_OPERATION {}
+impl ::core::default::Default for AVRF_HANDLE_OPERATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
+pub struct AVRF_HEAP_ALLOCATION {
+    pub HeapHandle: u64,
+    pub UserAllocation: u64,
+    pub UserAllocationSize: u64,
+    pub Allocation: u64,
+    pub AllocationSize: u64,
+    pub UserAllocationState: u32,
+    pub HeapState: u32,
+    pub HeapContext: u64,
+    pub BackTraceInformation: *mut AVRF_BACKTRACE_INFORMATION,
+}
+impl ::core::marker::Copy for AVRF_HEAP_ALLOCATION {}
+impl ::core::clone::Clone for AVRF_HEAP_ALLOCATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AVRF_HEAP_ALLOCATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AVRF_HEAP_ALLOCATION").field("HeapHandle", &self.HeapHandle).field("UserAllocation", &self.UserAllocation).field("UserAllocationSize", &self.UserAllocationSize).field("Allocation", &self.Allocation).field("AllocationSize", &self.AllocationSize).field("UserAllocationState", &self.UserAllocationState).field("HeapState", &self.HeapState).field("HeapContext", &self.HeapContext).field("BackTraceInformation", &self.BackTraceInformation).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AVRF_HEAP_ALLOCATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_HEAP_ALLOCATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AVRF_HEAP_ALLOCATION {}
+impl ::core::default::Default for AVRF_HEAP_ALLOCATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
+pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
+pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
+pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

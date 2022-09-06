@@ -1,5 +1,92 @@
 #[cfg(feature = "Devices_Display_Core")]
 pub mod Core;
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayMonitor(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayMonitor {
+    type Vtable = IDisplayMonitor_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayMonitor_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ConnectionKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorConnectionKind) -> ::windows::core::HRESULT,
+    pub PhysicalConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorPhysicalConnectorKind) -> ::windows::core::HRESULT,
+    pub DisplayAdapterDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Graphics")]
+    pub DisplayAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Graphics"))]
+    DisplayAdapterId: usize,
+    pub DisplayAdapterTargetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub UsageKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorUsageKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Graphics")]
+    pub NativeResolutionInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Graphics"))]
+    NativeResolutionInRawPixels: usize,
+    #[cfg(feature = "Foundation")]
+    pub PhysicalSizeInInches: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PhysicalSizeInInches: usize,
+    pub RawDpiX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub RawDpiY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RedPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RedPrimary: usize,
+    #[cfg(feature = "Foundation")]
+    pub GreenPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GreenPrimary: usize,
+    #[cfg(feature = "Foundation")]
+    pub BluePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    BluePrimary: usize,
+    #[cfg(feature = "Foundation")]
+    pub WhitePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    WhitePoint: usize,
+    pub MaxLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub MinLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub MaxAverageFullFrameLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub GetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descriptorkind: DisplayMonitorDescriptorKind, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayMonitor2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayMonitor2 {
+    type Vtable = IDisplayMonitor2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023018e6_cb23_5830_96df_a7bf6e602577);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayMonitor2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayMonitorStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayMonitorStatics {
+    type Vtable = IDisplayMonitorStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eae698f_a228_4c05_821d_b695d667de8e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayMonitorStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FromIdAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub FromInterfaceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FromInterfaceIdAsync: usize,
+}
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
 pub struct DisplayMonitor(::windows::core::IUnknown);
@@ -399,93 +486,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorUsageKind {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayMonitor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayMonitor {
-    type Vtable = IDisplayMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayMonitor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ConnectionKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorConnectionKind) -> ::windows::core::HRESULT,
-    pub PhysicalConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorPhysicalConnectorKind) -> ::windows::core::HRESULT,
-    pub DisplayAdapterDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Graphics")]
-    pub DisplayAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Graphics"))]
-    DisplayAdapterId: usize,
-    pub DisplayAdapterTargetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub UsageKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorUsageKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Graphics")]
-    pub NativeResolutionInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Graphics"))]
-    NativeResolutionInRawPixels: usize,
-    #[cfg(feature = "Foundation")]
-    pub PhysicalSizeInInches: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PhysicalSizeInInches: usize,
-    pub RawDpiX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub RawDpiY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RedPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RedPrimary: usize,
-    #[cfg(feature = "Foundation")]
-    pub GreenPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GreenPrimary: usize,
-    #[cfg(feature = "Foundation")]
-    pub BluePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BluePrimary: usize,
-    #[cfg(feature = "Foundation")]
-    pub WhitePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WhitePoint: usize,
-    pub MaxLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub MinLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub MaxAverageFullFrameLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub GetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descriptorkind: DisplayMonitorDescriptorKind, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayMonitor2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayMonitor2 {
-    type Vtable = IDisplayMonitor2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023018e6_cb23_5830_96df_a7bf6e602577);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayMonitor2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayMonitorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayMonitorStatics {
-    type Vtable = IDisplayMonitorStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eae698f_a228_4c05_821d_b695d667de8e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayMonitorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub FromInterfaceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromInterfaceIdAsync: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

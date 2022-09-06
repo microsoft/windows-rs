@@ -1,42 +1,38 @@
-#[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
+#[doc(hidden)]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AudioRoutingEndpoint(pub i32);
-impl AudioRoutingEndpoint {
-    pub const Default: Self = Self(0i32);
-    pub const Earpiece: Self = Self(1i32);
-    pub const Speakerphone: Self = Self(2i32);
-    pub const Bluetooth: Self = Self(3i32);
-    pub const WiredHeadset: Self = Self(4i32);
-    pub const WiredHeadsetSpeakerOnly: Self = Self(5i32);
-    pub const BluetoothWithNoiseAndEchoCancellation: Self = Self(6i32);
-    pub const BluetoothPreferred: Self = Self(7i32);
+pub struct IAudioRoutingManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAudioRoutingManager {
+    type Vtable = IAudioRoutingManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
-impl ::core::marker::Copy for AudioRoutingEndpoint {}
-impl ::core::clone::Clone for AudioRoutingEndpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAudioRoutingManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows::core::HRESULT,
+    pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub AudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointchangehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AudioEndpointChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveAudioEndpointChanged: usize,
+    pub AvailableAudioEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows::core::HRESULT,
 }
-impl ::core::default::Default for AudioRoutingEndpoint {
-    fn default() -> Self {
-        Self(0)
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAudioRoutingManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAudioRoutingManagerStatics {
+    type Vtable = IAudioRoutingManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
 }
-unsafe impl ::windows::core::Abi for AudioRoutingEndpoint {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioRoutingEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioRoutingEndpoint").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAudioRoutingManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
@@ -155,6 +151,46 @@ unsafe impl ::core::marker::Sync for AudioRoutingManager {}
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AudioRoutingEndpoint(pub i32);
+impl AudioRoutingEndpoint {
+    pub const Default: Self = Self(0i32);
+    pub const Earpiece: Self = Self(1i32);
+    pub const Speakerphone: Self = Self(2i32);
+    pub const Bluetooth: Self = Self(3i32);
+    pub const WiredHeadset: Self = Self(4i32);
+    pub const WiredHeadsetSpeakerOnly: Self = Self(5i32);
+    pub const BluetoothWithNoiseAndEchoCancellation: Self = Self(6i32);
+    pub const BluetoothPreferred: Self = Self(7i32);
+}
+impl ::core::marker::Copy for AudioRoutingEndpoint {}
+impl ::core::clone::Clone for AudioRoutingEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AudioRoutingEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AudioRoutingEndpoint {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioRoutingEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioRoutingEndpoint").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {
     pub const None: Self = Self(0u32);
@@ -215,42 +251,6 @@ unsafe impl ::windows::core::RuntimeType for AvailableAudioRoutingEndpoints {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAudioRoutingManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAudioRoutingManager {
-    type Vtable = IAudioRoutingManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAudioRoutingManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows::core::HRESULT,
-    pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub AudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointchangehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AudioEndpointChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAudioEndpointChanged: usize,
-    pub AvailableAudioEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAudioRoutingManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAudioRoutingManagerStatics {
-    type Vtable = IAudioRoutingManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAudioRoutingManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

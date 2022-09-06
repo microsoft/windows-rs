@@ -1,102 +1,3 @@
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACTIVITY_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Unknown: ACTIVITY_STATE = ACTIVITY_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Stationary: ACTIVITY_STATE = ACTIVITY_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Fidgeting: ACTIVITY_STATE = ACTIVITY_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Walking: ACTIVITY_STATE = ACTIVITY_STATE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Running: ACTIVITY_STATE = ACTIVITY_STATE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_InVehicle: ACTIVITY_STATE = ACTIVITY_STATE(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Biking: ACTIVITY_STATE = ACTIVITY_STATE(64i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Idle: ACTIVITY_STATE = ACTIVITY_STATE(128i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Max: ACTIVITY_STATE = ACTIVITY_STATE(256i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityState_Force_Dword: ACTIVITY_STATE = ACTIVITY_STATE(-1i32);
-impl ::core::marker::Copy for ACTIVITY_STATE {}
-impl ::core::clone::Clone for ACTIVITY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVITY_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACTIVITY_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTIVITY_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTIVITY_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACTIVITY_STATE_COUNT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ActivityStateCount: ACTIVITY_STATE_COUNT = ACTIVITY_STATE_COUNT(8i32);
-impl ::core::marker::Copy for ACTIVITY_STATE_COUNT {}
-impl ::core::clone::Clone for ACTIVITY_STATE_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVITY_STATE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACTIVITY_STATE_COUNT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTIVITY_STATE_COUNT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTIVITY_STATE_COUNT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AXIS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const AXIS_X: AXIS = AXIS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const AXIS_Y: AXIS = AXIS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const AXIS_Z: AXIS = AXIS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const AXIS_MAX: AXIS = AXIS(3i32);
-impl ::core::marker::Copy for AXIS {}
-impl ::core::clone::Clone for AXIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AXIS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AXIS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AXIS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AXIS").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
@@ -206,39 +107,6 @@ pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: &mut SENSOR_COL
     }
     CollectionsListUpdateMarshalledPointer(::core::mem::transmute(collection)).ok()
 }
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ELEVATION_CHANGE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(-1i32);
-impl ::core::marker::Copy for ELEVATION_CHANGE_MODE {}
-impl ::core::clone::Clone for ELEVATION_CHANGE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ELEVATION_CHANGE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ELEVATION_CHANGE_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ELEVATION_CHANGE_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ELEVATION_CHANGE_MODE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
@@ -249,41 +117,6 @@ pub unsafe fn EvaluateActivityThresholds(newsample: &SENSOR_COLLECTION_LIST, old
     }
     EvaluateActivityThresholds(::core::mem::transmute(newsample), ::core::mem::transmute(oldsample), ::core::mem::transmute(thresholds))
 }
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
-pub const GUID_DEVINTERFACE_SENSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba1bb692_9b7a_4833_9a1e_525ed134e7e2);
-pub const GUID_SensorCategory_All: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
-pub const GUID_SensorCategory_Biometric: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
-pub const GUID_SensorCategory_Electrical: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
-pub const GUID_SensorCategory_Environmental: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
-pub const GUID_SensorCategory_Light: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
-pub const GUID_SensorCategory_Location: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
-pub const GUID_SensorCategory_Mechanical: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
-pub const GUID_SensorCategory_Motion: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
-pub const GUID_SensorCategory_Orientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
-pub const GUID_SensorCategory_Other: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
-pub const GUID_SensorCategory_PersonalActivity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1609081_1e12_412b_a14d_cbb0e95bd2e5);
-pub const GUID_SensorCategory_Scanner: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
-pub const GUID_SensorCategory_Unsupported: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
-pub const GUID_SensorType_Accelerometer3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
-pub const GUID_SensorType_ActivityDetection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d9e0118_1807_4f2e_96e4_2ce57142e196);
-pub const GUID_SensorType_AmbientLight: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97f115c8_599a_4153_8894_d2d12899918a);
-pub const GUID_SensorType_Barometer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e903829_ff8a_4a93_97df_3dcbde402288);
-pub const GUID_SensorType_Custom: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83af229_8640_4d18_a213_e22675ebb2c3);
-pub const GUID_SensorType_FloorElevation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade4987f_7ac4_4dfa_9722_0a027181c747);
-pub const GUID_SensorType_GeomagneticOrientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe77195f8_2d1f_4823_971b_1c4467556c9d);
-pub const GUID_SensorType_GravityVector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b52c73_bb76_463f_9524_38de76eb700b);
-pub const GUID_SensorType_Gyrometer3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09485f5a_759e_42c2_bd4b_a349b75c8643);
-pub const GUID_SensorType_HingeAngle: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82358065_f4c4_4da1_b272_13c23332a207);
-pub const GUID_SensorType_Humidity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c72bf67_bd7e_4257_990b_98a3ba3b400a);
-pub const GUID_SensorType_LinearAccelerometer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x038b0283_97b4_41c8_bc24_5ff1aa48fec7);
-pub const GUID_SensorType_Magnetometer3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55e5effb_15c7_40df_8698_a84b7c863c53);
-pub const GUID_SensorType_Orientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb5d8f7_3cfd_41c8_8542_cce622cf5d6e);
-pub const GUID_SensorType_Pedometer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb19f89af_e3eb_444b_8dea_202575a71599);
-pub const GUID_SensorType_Proximity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5220dae9_3179_4430_9f90_06266d2a34de);
-pub const GUID_SensorType_RelativeOrientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40993b51_4706_44dc_98d5_c920c037ffab);
-pub const GUID_SensorType_SimpleDeviceOrientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86a19291_0482_402c_bf4c_addac52b1c39);
-pub const GUID_SensorType_Temperature: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04fd0ec4_d5da_45fa_95a9_5db38ee19306);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -294,63 +127,281 @@ pub unsafe fn GetPerformanceTime(timems: &mut u32) -> ::windows::core::Result<()
     }
     GetPerformanceTime(::core::mem::transmute(timems)).ok()
 }
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(-1i32);
-impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE {}
-impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn InitPropVariantFromCLSIDArray(members: *const ::windows::core::GUID, size: u32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn InitPropVariantFromFloat(fltval: f32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    InitPropVariantFromFloat(fltval, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn IsCollectionListSame(lista: &SENSOR_COLLECTION_LIST, listb: &SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN;
     }
+    IsCollectionListSame(::core::mem::transmute(lista), ::core::mem::transmute(listb))
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows::core::GUID], guidelem: &::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn IsGUIDPresentInList(guidarray: *const ::windows::core::GUID, arraylength: u32, guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
+    }
+    IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, ::core::mem::transmute(guidelem))
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn IsKeyPresentInCollectionList(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN;
+    }
+    IsKeyPresentInCollectionList(::core::mem::transmute(plist), ::core::mem::transmute(pkey))
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn IsKeyPresentInPropertyList(plist: &SENSOR_PROPERTY_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN;
+    }
+    IsKeyPresentInPropertyList(::core::mem::transmute(plist), ::core::mem::transmute(pkey))
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn IsSensorSubscribed(subscriptionlist: &SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn IsSensorSubscribed(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
+    }
+    IsSensorSubscribed(::core::mem::transmute(subscriptionlist), ::core::mem::transmute(currenttype))
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetBool(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetBool(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetDouble(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut f64) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f64) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetDouble(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetFileTime(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetFileTime(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetFloat(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut f32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f32) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetFloat(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetGuid(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::core::GUID) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetGuid(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetInt32(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut i32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i32) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetInt32(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetInt64(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut i64) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i64) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetInt64(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetNthInt64(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: &mut i64) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut i64) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetNthInt64(::core::mem::transmute(plist), ::core::mem::transmute(pkey), occurrence, ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetNthUlong(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetNthUlong(::core::mem::transmute(plist), ::core::mem::transmute(pkey), occurrence, ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetNthUshort(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: &mut u16) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u16) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetNthUshort(::core::mem::transmute(plist), ::core::mem::transmute(pkey), occurrence, ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetPropVariant<'a, P0>(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: &mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetPropVariant(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetPropVariant(::core::mem::transmute(plist), ::core::mem::transmute(pkey), typecheck.into(), ::core::mem::transmute(pvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetUlong(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetUlong(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeyGetUshort(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut u16) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u16) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeyGetUshort(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropKeyFindKeySetPropVariant<'a, P0>(plist: &mut SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: &super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropKeyFindKeySetPropVariant(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
+    }
+    PropKeyFindKeySetPropVariant(::core::mem::transmute(plist), ::core::mem::transmute(pkey), typecheck.into(), ::core::mem::transmute(pvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn PropVariantGetInformation(propvariantvalue: &super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: ::core::option::Option<&mut u32>, propvariantsize: ::core::option::Option<&mut u32>, propvariantpointer: *mut *mut ::core::ffi::c_void, remappedtype: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: *mut u32, propvariantsize: *mut u32, propvariantpointer: *mut *mut ::core::ffi::c_void, remappedtype: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    PropVariantGetInformation(::core::mem::transmute(propvariantvalue), ::core::mem::transmute(propvariantoffset), ::core::mem::transmute(propvariantsize), ::core::mem::transmute(propvariantpointer), ::core::mem::transmute(remappedtype)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn PropertiesListCopy(target: &mut SENSOR_PROPERTY_LIST, source: &SENSOR_PROPERTY_LIST) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> super::super::Foundation::NTSTATUS;
+    }
+    PropertiesListCopy(::core::mem::transmute(target), ::core::mem::transmute(source)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
+#[inline]
+pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32;
+    }
+    PropertiesListGetFillableCount(buffersizebytes)
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[inline]
+pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: &SENSOR_COLLECTION_LIST, pkey: ::core::option::Option<&mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pvalue: ::core::option::Option<&mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
+    }
+    SensorCollectionGetAt(index, ::core::mem::transmute(psensorslist), ::core::mem::transmute(pkey), ::core::mem::transmute(pvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: &mut *mut u8) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
+    }
+    SerializationBufferAllocate(sizeinbytes, ::core::mem::transmute(pbuffer)).ok()
+}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = HUMAN_PRESENCE_DETECTION_TYPE_COUNT(4i32);
-impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {}
-impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn SerializationBufferFree(buffer: ::core::option::Option<&u8>) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn SerializationBufferFree(buffer: *const u8);
     }
-}
-impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE_COUNT").field(&self.0).finish()
-    }
+    SerializationBufferFree(::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -932,617 +983,41 @@ pub struct ISensorManagerEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnSensorEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, state: SensorState) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn InitPropVariantFromCLSIDArray(members: *const ::windows::core::GUID, size: u32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn InitPropVariantFromFloat(fltval: f32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    InitPropVariantFromFloat(fltval, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn IsCollectionListSame(lista: &SENSOR_COLLECTION_LIST, listb: &SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN;
-    }
-    IsCollectionListSame(::core::mem::transmute(lista), ::core::mem::transmute(listb))
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows::core::GUID], guidelem: &::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn IsGUIDPresentInList(guidarray: *const ::windows::core::GUID, arraylength: u32, guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
-    }
-    IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, ::core::mem::transmute(guidelem))
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn IsKeyPresentInCollectionList(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN;
-    }
-    IsKeyPresentInCollectionList(::core::mem::transmute(plist), ::core::mem::transmute(pkey))
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn IsKeyPresentInPropertyList(plist: &SENSOR_PROPERTY_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN;
-    }
-    IsKeyPresentInPropertyList(::core::mem::transmute(plist), ::core::mem::transmute(pkey))
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn IsSensorSubscribed(subscriptionlist: &SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn IsSensorSubscribed(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
-    }
-    IsSensorSubscribed(::core::mem::transmute(subscriptionlist), ::core::mem::transmute(currenttype))
-}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LOCATION_DESIRED_ACCURACY(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(1i32);
-impl ::core::marker::Copy for LOCATION_DESIRED_ACCURACY {}
-impl ::core::clone::Clone for LOCATION_DESIRED_ACCURACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOCATION_DESIRED_ACCURACY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LOCATION_DESIRED_ACCURACY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LOCATION_DESIRED_ACCURACY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LOCATION_DESIRED_ACCURACY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LOCATION_POSITION_SOURCE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(4i32);
-impl ::core::marker::Copy for LOCATION_POSITION_SOURCE {}
-impl ::core::clone::Clone for LOCATION_POSITION_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOCATION_POSITION_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LOCATION_POSITION_SOURCE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LOCATION_POSITION_SOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LOCATION_POSITION_SOURCE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MAGNETOMETER_ACCURACY(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(3i32);
-impl ::core::marker::Copy for MAGNETOMETER_ACCURACY {}
-impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MAGNETOMETER_ACCURACY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MAGNETOMETER_ACCURACY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MAGNETOMETER_ACCURACY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MAGNETOMETER_ACCURACY").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub struct MATRIX3X3 {
-    pub Anonymous: MATRIX3X3_0,
-}
-impl ::core::marker::Copy for MATRIX3X3 {}
-impl ::core::clone::Clone for MATRIX3X3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MATRIX3X3 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MATRIX3X3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3 {}
-impl ::core::default::Default for MATRIX3X3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub union MATRIX3X3_0 {
-    pub Anonymous1: MATRIX3X3_0_0,
-    pub Anonymous2: MATRIX3X3_0_1,
-    pub M: [f32; 9],
-}
-impl ::core::marker::Copy for MATRIX3X3_0 {}
-impl ::core::clone::Clone for MATRIX3X3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MATRIX3X3_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MATRIX3X3_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3_0 {}
-impl ::core::default::Default for MATRIX3X3_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub struct MATRIX3X3_0_0 {
-    pub A11: f32,
-    pub A12: f32,
-    pub A13: f32,
-    pub A21: f32,
-    pub A22: f32,
-    pub A23: f32,
-    pub A31: f32,
-    pub A32: f32,
-    pub A33: f32,
-}
-impl ::core::marker::Copy for MATRIX3X3_0_0 {}
-impl ::core::clone::Clone for MATRIX3X3_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MATRIX3X3_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MATRIX3X3_0_0").field("A11", &self.A11).field("A12", &self.A12).field("A13", &self.A13).field("A21", &self.A21).field("A22", &self.A22).field("A23", &self.A23).field("A31", &self.A31).field("A32", &self.A32).field("A33", &self.A33).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MATRIX3X3_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MATRIX3X3_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3_0_0 {}
-impl ::core::default::Default for MATRIX3X3_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub struct MATRIX3X3_0_1 {
-    pub V1: VEC3D,
-    pub V2: VEC3D,
-    pub V3: VEC3D,
-}
-impl ::core::marker::Copy for MATRIX3X3_0_1 {}
-impl ::core::clone::Clone for MATRIX3X3_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MATRIX3X3_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MATRIX3X3_0_1").field("V1", &self.V1).field("V2", &self.V2).field("V3", &self.V3).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MATRIX3X3_0_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MATRIX3X3_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3_0_1 {}
-impl ::core::default::Default for MATRIX3X3_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MagnetometerAccuracy(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = MagnetometerAccuracy(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = MagnetometerAccuracy(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = MagnetometerAccuracy(3i32);
-impl ::core::marker::Copy for MagnetometerAccuracy {}
-impl ::core::clone::Clone for MagnetometerAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagnetometerAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MagnetometerAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PEDOMETER_STEP_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const PedometerStepType_Walking: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const PedometerStepType_Running: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(-1i32);
-impl ::core::marker::Copy for PEDOMETER_STEP_TYPE {}
-impl ::core::clone::Clone for PEDOMETER_STEP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PEDOMETER_STEP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PEDOMETER_STEP_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = PEDOMETER_STEP_TYPE_COUNT(3i32);
-impl ::core::marker::Copy for PEDOMETER_STEP_TYPE_COUNT {}
-impl ::core::clone::Clone for PEDOMETER_STEP_TYPE_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PEDOMETER_STEP_TYPE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE_COUNT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PEDOMETER_STEP_TYPE_COUNT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROXIMITY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ProximityType_HumanProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const ProximityType_Force_Dword: PROXIMITY_TYPE = PROXIMITY_TYPE(-1i32);
-impl ::core::marker::Copy for PROXIMITY_TYPE {}
-impl ::core::clone::Clone for PROXIMITY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROXIMITY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PROXIMITY_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PROXIMITY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROXIMITY_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetBool(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetBool(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetDouble(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut f64) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f64) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetDouble(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetFileTime(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetFileTime(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetFloat(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut f32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f32) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetFloat(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetGuid(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::core::GUID) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetGuid(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetInt32(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut i32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i32) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetInt32(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetInt64(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut i64) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i64) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetInt64(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetNthInt64(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: &mut i64) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut i64) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetNthInt64(::core::mem::transmute(plist), ::core::mem::transmute(pkey), occurrence, ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetNthUlong(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetNthUlong(::core::mem::transmute(plist), ::core::mem::transmute(pkey), occurrence, ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetNthUshort(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: &mut u16) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u16) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetNthUshort(::core::mem::transmute(plist), ::core::mem::transmute(pkey), occurrence, ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetPropVariant<'a, P0>(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: &mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetPropVariant(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetPropVariant(::core::mem::transmute(plist), ::core::mem::transmute(pkey), typecheck.into(), ::core::mem::transmute(pvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetUlong(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetUlong(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeyGetUshort(plist: &SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: &mut u16) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u16) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeyGetUshort(::core::mem::transmute(plist), ::core::mem::transmute(pkey), ::core::mem::transmute(pretvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropKeyFindKeySetPropVariant<'a, P0>(plist: &mut SENSOR_COLLECTION_LIST, pkey: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: &super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropKeyFindKeySetPropVariant(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
-    }
-    PropKeyFindKeySetPropVariant(::core::mem::transmute(plist), ::core::mem::transmute(pkey), typecheck.into(), ::core::mem::transmute(pvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn PropVariantGetInformation(propvariantvalue: &super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: ::core::option::Option<&mut u32>, propvariantsize: ::core::option::Option<&mut u32>, propvariantpointer: *mut *mut ::core::ffi::c_void, remappedtype: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: *mut u32, propvariantsize: *mut u32, propvariantpointer: *mut *mut ::core::ffi::c_void, remappedtype: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    PropVariantGetInformation(::core::mem::transmute(propvariantvalue), ::core::mem::transmute(propvariantoffset), ::core::mem::transmute(propvariantsize), ::core::mem::transmute(propvariantpointer), ::core::mem::transmute(remappedtype)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn PropertiesListCopy(target: &mut SENSOR_PROPERTY_LIST, source: &SENSOR_PROPERTY_LIST) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> super::super::Foundation::NTSTATUS;
-    }
-    PropertiesListCopy(::core::mem::transmute(target), ::core::mem::transmute(source)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[inline]
-pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32;
-    }
-    PropertiesListGetFillableCount(buffersizebytes)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub struct QUATERNION {
-    pub X: f32,
-    pub Y: f32,
-    pub Z: f32,
-    pub W: f32,
-}
-impl ::core::marker::Copy for QUATERNION {}
-impl ::core::clone::Clone for QUATERNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for QUATERNION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUATERNION").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for QUATERNION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUATERNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUATERNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for QUATERNION {}
-impl ::core::default::Default for QUATERNION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
+pub const GUID_DEVINTERFACE_SENSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba1bb692_9b7a_4833_9a1e_525ed134e7e2);
+pub const GUID_SensorCategory_All: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
+pub const GUID_SensorCategory_Biometric: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
+pub const GUID_SensorCategory_Electrical: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
+pub const GUID_SensorCategory_Environmental: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x323439aa_7f66_492b_ba0c_73e9aa0a65d5);
+pub const GUID_SensorCategory_Light: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17a665c0_9063_4216_b202_5c7a255e18ce);
+pub const GUID_SensorCategory_Location: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfa794e4_f964_4fdb_90f6_51056bfe4b44);
+pub const GUID_SensorCategory_Mechanical: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d131d68_8ef7_4656_80b5_cccbd93791c5);
+pub const GUID_SensorCategory_Motion: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd09daf1_3b2e_4c3d_b598_b5e5ff93fd46);
+pub const GUID_SensorCategory_Orientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6c04b6_96fe_4954_b726_68682a473f69);
+pub const GUID_SensorCategory_Other: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
+pub const GUID_SensorCategory_PersonalActivity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1609081_1e12_412b_a14d_cbb0e95bd2e5);
+pub const GUID_SensorCategory_Scanner: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
+pub const GUID_SensorCategory_Unsupported: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
+pub const GUID_SensorType_Accelerometer3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
+pub const GUID_SensorType_ActivityDetection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d9e0118_1807_4f2e_96e4_2ce57142e196);
+pub const GUID_SensorType_AmbientLight: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97f115c8_599a_4153_8894_d2d12899918a);
+pub const GUID_SensorType_Barometer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e903829_ff8a_4a93_97df_3dcbde402288);
+pub const GUID_SensorType_Custom: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83af229_8640_4d18_a213_e22675ebb2c3);
+pub const GUID_SensorType_FloorElevation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade4987f_7ac4_4dfa_9722_0a027181c747);
+pub const GUID_SensorType_GeomagneticOrientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe77195f8_2d1f_4823_971b_1c4467556c9d);
+pub const GUID_SensorType_GravityVector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b52c73_bb76_463f_9524_38de76eb700b);
+pub const GUID_SensorType_Gyrometer3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09485f5a_759e_42c2_bd4b_a349b75c8643);
+pub const GUID_SensorType_HingeAngle: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82358065_f4c4_4da1_b272_13c23332a207);
+pub const GUID_SensorType_Humidity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c72bf67_bd7e_4257_990b_98a3ba3b400a);
+pub const GUID_SensorType_LinearAccelerometer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x038b0283_97b4_41c8_bc24_5ff1aa48fec7);
+pub const GUID_SensorType_Magnetometer3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55e5effb_15c7_40df_8698_a84b7c863c53);
+pub const GUID_SensorType_Orientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb5d8f7_3cfd_41c8_8542_cce622cf5d6e);
+pub const GUID_SensorType_Pedometer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb19f89af_e3eb_444b_8dea_202575a71599);
+pub const GUID_SensorType_Proximity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5220dae9_3179_4430_9f90_06266d2a34de);
+pub const GUID_SensorType_RelativeOrientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40993b51_4706_44dc_98d5_c920c037ffab);
+pub const GUID_SensorType_SimpleDeviceOrientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86a19291_0482_402c_bf4c_addac52b1c39);
+pub const GUID_SensorType_Temperature: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04fd0ec4_d5da_45fa_95a9_5db38ee19306);
 pub const SENSOR_CATEGORY_ALL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc317c286_c468_4288_9975_d4c4587c442c);
 pub const SENSOR_CATEGORY_BIOMETRIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca19690f_a2c7_477d_a99e_99ec6e2b5648);
 pub const SENSOR_CATEGORY_ELECTRICAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb73fcd8_fc4a_483c_ac58_27b691c6beff);
@@ -1555,67 +1030,6 @@ pub const SENSOR_CATEGORY_ORIENTATION: ::windows::core::GUID = ::windows::core::
 pub const SENSOR_CATEGORY_OTHER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c90e7a9_f4c9_4fa2_af37_56d471fe5a3d);
 pub const SENSOR_CATEGORY_SCANNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb000e77e_f5b5_420f_815d_0270a726f270);
 pub const SENSOR_CATEGORY_UNSUPPORTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2beae7fa_19b0_48c5_a1f6_b5480dc206b0);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-pub struct SENSOR_COLLECTION_LIST {
-    pub AllocatedSizeInBytes: u32,
-    pub Count: u32,
-    pub List: [SENSOR_VALUE_PAIR; 1],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
-    fn clone(&self) -> Self {
-        Self { AllocatedSizeInBytes: self.AllocatedSizeInBytes, Count: self.Count, List: self.List.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for SENSOR_COLLECTION_LIST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::PartialEq for SENSOR_COLLECTION_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllocatedSizeInBytes == other.AllocatedSizeInBytes && self.Count == other.Count && self.List == other.List
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::Eq for SENSOR_COLLECTION_LIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::default::Default for SENSOR_COLLECTION_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SENSOR_CONNECTION_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(2i32);
-impl ::core::marker::Copy for SENSOR_CONNECTION_TYPES {}
-impl ::core::clone::Clone for SENSOR_CONNECTION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SENSOR_CONNECTION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SENSOR_CONNECTION_TYPES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SENSOR_CONNECTION_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SENSOR_CONNECTION_TYPES").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_DATA_TYPE_ABSOLUTE_PRESSURE_PASCAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df), pid: 5u32 };
@@ -2063,46 +1477,6 @@ pub const SENSOR_PROPERTY_HID_USAGE: super::super::UI::Shell::PropertiesSystem::
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 16u32 };
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub struct SENSOR_PROPERTY_LIST {
-    pub AllocatedSizeInBytes: u32,
-    pub Count: u32,
-    pub List: [super::super::UI::Shell::PropertiesSystem::PROPERTYKEY; 1],
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::marker::Copy for SENSOR_PROPERTY_LIST {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::clone::Clone for SENSOR_PROPERTY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::fmt::Debug for SENSOR_PROPERTY_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SENSOR_PROPERTY_LIST").field("AllocatedSizeInBytes", &self.AllocatedSizeInBytes).field("Count", &self.Count).field("List", &self.List).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-unsafe impl ::windows::core::Abi for SENSOR_PROPERTY_LIST {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::cmp::PartialEq for SENSOR_PROPERTY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SENSOR_PROPERTY_LIST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::cmp::Eq for SENSOR_PROPERTY_LIST {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::default::Default for SENSOR_PROPERTY_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -2148,37 +1522,6 @@ pub const SENSOR_PROPERTY_TURN_ON_OFF_NMEA: super::super::UI::Shell::PropertiesS
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_PROPERTY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 2u32 };
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SENSOR_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const SensorState_Initializing: SENSOR_STATE = SENSOR_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const SensorState_Idle: SENSOR_STATE = SENSOR_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const SensorState_Active: SENSOR_STATE = SENSOR_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-pub const SensorState_Error: SENSOR_STATE = SENSOR_STATE(3i32);
-impl ::core::marker::Copy for SENSOR_STATE {}
-impl ::core::clone::Clone for SENSOR_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SENSOR_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SENSOR_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SENSOR_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SENSOR_STATE").field(&self.0).finish()
-    }
-}
 pub const SENSOR_TYPE_ACCELEROMETER_1D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04d2387_7340_4cc2_991e_3b18cb8ef2f4);
 pub const SENSOR_TYPE_ACCELEROMETER_2D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2c517a8_f6b5_4ba6_a423_5df560b4cc07);
 pub const SENSOR_TYPE_ACCELEROMETER_3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
@@ -2234,35 +1577,467 @@ pub const SENSOR_TYPE_STRAIN: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const SENSOR_TYPE_TOUCH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17db3018_06c4_4f7d_81af_9274b7599c27);
 pub const SENSOR_TYPE_UNKNOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ba83e3_ef4f_41ed_9885_a87d6435a8e1);
 pub const SENSOR_TYPE_VOLTAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5484637_4fb7_4953_98b8_a56d8aa1fb1e);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-pub struct SENSOR_VALUE_PAIR {
-    pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
-    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
+pub const Sensor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
+pub const SensorCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
+pub const SensorDataReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
+pub const SensorManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACTIVITY_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Unknown: ACTIVITY_STATE = ACTIVITY_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Stationary: ACTIVITY_STATE = ACTIVITY_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Fidgeting: ACTIVITY_STATE = ACTIVITY_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Walking: ACTIVITY_STATE = ACTIVITY_STATE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Running: ACTIVITY_STATE = ACTIVITY_STATE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_InVehicle: ACTIVITY_STATE = ACTIVITY_STATE(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Biking: ACTIVITY_STATE = ACTIVITY_STATE(64i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Idle: ACTIVITY_STATE = ACTIVITY_STATE(128i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Max: ACTIVITY_STATE = ACTIVITY_STATE(256i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityState_Force_Dword: ACTIVITY_STATE = ACTIVITY_STATE(-1i32);
+impl ::core::marker::Copy for ACTIVITY_STATE {}
+impl ::core::clone::Clone for ACTIVITY_STATE {
     fn clone(&self) -> Self {
-        Self { Key: self.Key, Value: self.Value.clone() }
+        *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for SENSOR_VALUE_PAIR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::PartialEq for SENSOR_VALUE_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Value == other.Value
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::Eq for SENSOR_VALUE_PAIR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::default::Default for SENSOR_VALUE_PAIR {
+impl ::core::default::Default for ACTIVITY_STATE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ACTIVITY_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTIVITY_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVITY_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACTIVITY_STATE_COUNT(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ActivityStateCount: ACTIVITY_STATE_COUNT = ACTIVITY_STATE_COUNT(8i32);
+impl ::core::marker::Copy for ACTIVITY_STATE_COUNT {}
+impl ::core::clone::Clone for ACTIVITY_STATE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ACTIVITY_STATE_COUNT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ACTIVITY_STATE_COUNT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTIVITY_STATE_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVITY_STATE_COUNT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AXIS(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const AXIS_X: AXIS = AXIS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const AXIS_Y: AXIS = AXIS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const AXIS_Z: AXIS = AXIS(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const AXIS_MAX: AXIS = AXIS(3i32);
+impl ::core::marker::Copy for AXIS {}
+impl ::core::clone::Clone for AXIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AXIS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AXIS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AXIS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AXIS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ELEVATION_CHANGE_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(-1i32);
+impl ::core::marker::Copy for ELEVATION_CHANGE_MODE {}
+impl ::core::clone::Clone for ELEVATION_CHANGE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ELEVATION_CHANGE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ELEVATION_CHANGE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ELEVATION_CHANGE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ELEVATION_CHANGE_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(-1i32);
+impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE {}
+impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = HUMAN_PRESENCE_DETECTION_TYPE_COUNT(4i32);
+impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {}
+impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE_COUNT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LOCATION_DESIRED_ACCURACY(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(1i32);
+impl ::core::marker::Copy for LOCATION_DESIRED_ACCURACY {}
+impl ::core::clone::Clone for LOCATION_DESIRED_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LOCATION_DESIRED_ACCURACY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LOCATION_DESIRED_ACCURACY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCATION_DESIRED_ACCURACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCATION_DESIRED_ACCURACY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LOCATION_POSITION_SOURCE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(4i32);
+impl ::core::marker::Copy for LOCATION_POSITION_SOURCE {}
+impl ::core::clone::Clone for LOCATION_POSITION_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LOCATION_POSITION_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LOCATION_POSITION_SOURCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCATION_POSITION_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCATION_POSITION_SOURCE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MAGNETOMETER_ACCURACY(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(3i32);
+impl ::core::marker::Copy for MAGNETOMETER_ACCURACY {}
+impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MAGNETOMETER_ACCURACY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MAGNETOMETER_ACCURACY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MAGNETOMETER_ACCURACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MAGNETOMETER_ACCURACY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MagnetometerAccuracy(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = MagnetometerAccuracy(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = MagnetometerAccuracy(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = MagnetometerAccuracy(3i32);
+impl ::core::marker::Copy for MagnetometerAccuracy {}
+impl ::core::clone::Clone for MagnetometerAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MagnetometerAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MagnetometerAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PEDOMETER_STEP_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const PedometerStepType_Walking: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const PedometerStepType_Running: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(-1i32);
+impl ::core::marker::Copy for PEDOMETER_STEP_TYPE {}
+impl ::core::clone::Clone for PEDOMETER_STEP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEDOMETER_STEP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEDOMETER_STEP_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = PEDOMETER_STEP_TYPE_COUNT(3i32);
+impl ::core::marker::Copy for PEDOMETER_STEP_TYPE_COUNT {}
+impl ::core::clone::Clone for PEDOMETER_STEP_TYPE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEDOMETER_STEP_TYPE_COUNT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE_COUNT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEDOMETER_STEP_TYPE_COUNT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PROXIMITY_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ProximityType_HumanProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const ProximityType_Force_Dword: PROXIMITY_TYPE = PROXIMITY_TYPE(-1i32);
+impl ::core::marker::Copy for PROXIMITY_TYPE {}
+impl ::core::clone::Clone for PROXIMITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROXIMITY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROXIMITY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROXIMITY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROXIMITY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SENSOR_CONNECTION_TYPES(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(2i32);
+impl ::core::marker::Copy for SENSOR_CONNECTION_TYPES {}
+impl ::core::clone::Clone for SENSOR_CONNECTION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SENSOR_CONNECTION_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SENSOR_CONNECTION_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SENSOR_CONNECTION_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SENSOR_CONNECTION_TYPES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SENSOR_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const SensorState_Initializing: SENSOR_STATE = SENSOR_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const SensorState_Idle: SENSOR_STATE = SENSOR_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const SensorState_Active: SENSOR_STATE = SENSOR_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const SensorState_Error: SENSOR_STATE = SENSOR_STATE(3i32);
+impl ::core::marker::Copy for SENSOR_STATE {}
+impl ::core::clone::Clone for SENSOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SENSOR_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SENSOR_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SENSOR_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SENSOR_STATE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -2300,18 +2075,6 @@ impl ::core::fmt::Debug for SIMPLE_DEVICE_ORIENTATION {
         f.debug_tuple("SIMPLE_DEVICE_ORIENTATION").field(&self.0).finish()
     }
 }
-pub const Sensor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
-pub const SensorCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[inline]
-pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: &SENSOR_COLLECTION_LIST, pkey: ::core::option::Option<&mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pvalue: ::core::option::Option<&mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
-    }
-    SensorCollectionGetAt(index, ::core::mem::transmute(psensorslist), ::core::mem::transmute(pkey), ::core::mem::transmute(pvalue)).ok()
-}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2341,8 +2104,6 @@ impl ::core::fmt::Debug for SensorConnectionType {
         f.debug_tuple("SensorConnectionType").field(&self.0).finish()
     }
 }
-pub const SensorDataReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
-pub const SensorManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2382,25 +2143,6 @@ impl ::core::fmt::Debug for SensorState {
         f.debug_tuple("SensorState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: &mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
-    }
-    SerializationBufferAllocate(sizeinbytes, ::core::mem::transmute(pbuffer)).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-#[inline]
-pub unsafe fn SerializationBufferFree(buffer: ::core::option::Option<&u8>) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SerializationBufferFree(buffer: *const u8);
-    }
-    SerializationBufferFree(::core::mem::transmute(buffer))
-}
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2434,6 +2176,264 @@ unsafe impl ::windows::core::Abi for SimpleDeviceOrientation {
 impl ::core::fmt::Debug for SimpleDeviceOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SimpleDeviceOrientation").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub struct MATRIX3X3 {
+    pub Anonymous: MATRIX3X3_0,
+}
+impl ::core::marker::Copy for MATRIX3X3 {}
+impl ::core::clone::Clone for MATRIX3X3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MATRIX3X3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MATRIX3X3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MATRIX3X3 {}
+impl ::core::default::Default for MATRIX3X3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub union MATRIX3X3_0 {
+    pub Anonymous1: MATRIX3X3_0_0,
+    pub Anonymous2: MATRIX3X3_0_1,
+    pub M: [f32; 9],
+}
+impl ::core::marker::Copy for MATRIX3X3_0 {}
+impl ::core::clone::Clone for MATRIX3X3_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MATRIX3X3_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MATRIX3X3_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MATRIX3X3_0 {}
+impl ::core::default::Default for MATRIX3X3_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub struct MATRIX3X3_0_0 {
+    pub A11: f32,
+    pub A12: f32,
+    pub A13: f32,
+    pub A21: f32,
+    pub A22: f32,
+    pub A23: f32,
+    pub A31: f32,
+    pub A32: f32,
+    pub A33: f32,
+}
+impl ::core::marker::Copy for MATRIX3X3_0_0 {}
+impl ::core::clone::Clone for MATRIX3X3_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MATRIX3X3_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MATRIX3X3_0_0").field("A11", &self.A11).field("A12", &self.A12).field("A13", &self.A13).field("A21", &self.A21).field("A22", &self.A22).field("A23", &self.A23).field("A31", &self.A31).field("A32", &self.A32).field("A33", &self.A33).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MATRIX3X3_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MATRIX3X3_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MATRIX3X3_0_0 {}
+impl ::core::default::Default for MATRIX3X3_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub struct MATRIX3X3_0_1 {
+    pub V1: VEC3D,
+    pub V2: VEC3D,
+    pub V3: VEC3D,
+}
+impl ::core::marker::Copy for MATRIX3X3_0_1 {}
+impl ::core::clone::Clone for MATRIX3X3_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MATRIX3X3_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MATRIX3X3_0_1").field("V1", &self.V1).field("V2", &self.V2).field("V3", &self.V3).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MATRIX3X3_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MATRIX3X3_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MATRIX3X3_0_1 {}
+impl ::core::default::Default for MATRIX3X3_0_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub struct QUATERNION {
+    pub X: f32,
+    pub Y: f32,
+    pub Z: f32,
+    pub W: f32,
+}
+impl ::core::marker::Copy for QUATERNION {}
+impl ::core::clone::Clone for QUATERNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for QUATERNION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUATERNION").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for QUATERNION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for QUATERNION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUATERNION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for QUATERNION {}
+impl ::core::default::Default for QUATERNION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct SENSOR_COLLECTION_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [SENSOR_VALUE_PAIR; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
+    fn clone(&self) -> Self {
+        Self { AllocatedSizeInBytes: self.AllocatedSizeInBytes, Count: self.Count, List: self.List.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+unsafe impl ::windows::core::Abi for SENSOR_COLLECTION_LIST {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::cmp::PartialEq for SENSOR_COLLECTION_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        self.AllocatedSizeInBytes == other.AllocatedSizeInBytes && self.Count == other.Count && self.List == other.List
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::cmp::Eq for SENSOR_COLLECTION_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::default::Default for SENSOR_COLLECTION_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct SENSOR_PROPERTY_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [super::super::UI::Shell::PropertiesSystem::PROPERTYKEY; 1],
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for SENSOR_PROPERTY_LIST {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for SENSOR_PROPERTY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::fmt::Debug for SENSOR_PROPERTY_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SENSOR_PROPERTY_LIST").field("AllocatedSizeInBytes", &self.AllocatedSizeInBytes).field("Count", &self.Count).field("List", &self.List).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+unsafe impl ::windows::core::Abi for SENSOR_PROPERTY_LIST {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::cmp::PartialEq for SENSOR_PROPERTY_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SENSOR_PROPERTY_LIST>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::cmp::Eq for SENSOR_PROPERTY_LIST {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::default::Default for SENSOR_PROPERTY_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct SENSOR_VALUE_PAIR {
+    pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
+    fn clone(&self) -> Self {
+        Self { Key: self.Key, Value: self.Value.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+unsafe impl ::windows::core::Abi for SENSOR_VALUE_PAIR {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::cmp::PartialEq for SENSOR_VALUE_PAIR {
+    fn eq(&self, other: &Self) -> bool {
+        self.Key == other.Key && self.Value == other.Value
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::cmp::Eq for SENSOR_VALUE_PAIR {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::default::Default for SENSOR_VALUE_PAIR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

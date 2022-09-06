@@ -74,41 +74,6 @@ pub struct IWebAuthenticationResult_Vtbl {
     pub ResponseErrorDetail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TokenBindingKeyType(pub i32);
-impl TokenBindingKeyType {
-    pub const Rsa2048: Self = Self(0i32);
-    pub const EcdsaP256: Self = Self(1i32);
-    pub const AnyExisting: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TokenBindingKeyType {}
-impl ::core::clone::Clone for TokenBindingKeyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TokenBindingKeyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TokenBindingKeyType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TokenBindingKeyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 pub struct WebAuthenticationBroker;
 impl WebAuthenticationBroker {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -207,71 +172,6 @@ impl ::windows::core::RuntimeName for WebAuthenticationBroker {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebAuthenticationOptions(pub u32);
-impl WebAuthenticationOptions {
-    pub const None: Self = Self(0u32);
-    pub const SilentMode: Self = Self(1u32);
-    pub const UseTitle: Self = Self(2u32);
-    pub const UseHttpPost: Self = Self(4u32);
-    pub const UseCorporateNetwork: Self = Self(8u32);
-}
-impl ::core::marker::Copy for WebAuthenticationOptions {}
-impl ::core::clone::Clone for WebAuthenticationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAuthenticationOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebAuthenticationOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAuthenticationOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WebAuthenticationOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WebAuthenticationOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WebAuthenticationOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WebAuthenticationOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WebAuthenticationOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
-#[repr(transparent)]
 pub struct WebAuthenticationResult(::windows::core::IUnknown);
 impl WebAuthenticationResult {
     pub fn ResponseData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -354,6 +254,106 @@ impl ::core::convert::From<&WebAuthenticationResult> for ::windows::core::IInspe
 impl ::core::convert::From<&WebAuthenticationResult> for &::windows::core::IInspectable {
     fn from(value: &WebAuthenticationResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TokenBindingKeyType(pub i32);
+impl TokenBindingKeyType {
+    pub const Rsa2048: Self = Self(0i32);
+    pub const EcdsaP256: Self = Self(1i32);
+    pub const AnyExisting: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TokenBindingKeyType {}
+impl ::core::clone::Clone for TokenBindingKeyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TokenBindingKeyType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TokenBindingKeyType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TokenBindingKeyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebAuthenticationOptions(pub u32);
+impl WebAuthenticationOptions {
+    pub const None: Self = Self(0u32);
+    pub const SilentMode: Self = Self(1u32);
+    pub const UseTitle: Self = Self(2u32);
+    pub const UseHttpPost: Self = Self(4u32);
+    pub const UseCorporateNetwork: Self = Self(8u32);
+}
+impl ::core::marker::Copy for WebAuthenticationOptions {}
+impl ::core::clone::Clone for WebAuthenticationOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebAuthenticationOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebAuthenticationOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebAuthenticationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WebAuthenticationOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WebAuthenticationOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WebAuthenticationOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WebAuthenticationOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WebAuthenticationOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]

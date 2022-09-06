@@ -21,96 +21,81 @@ use std::collections::*;
 use std::fmt::Write;
 use tokens::*;
 
-pub fn define(gen: &Gen, name: &str) -> String {
-    let mut tokens = String::new();
-    let type_name = TypeName::parse(name);
-
-    for def in gen.reader.get(type_name) {
-        if let Some(def) = gen.define(def) {
-            tokens.push_str(def.as_str());
-        }
-    }
-
-    if tokens.is_empty() {
-        if let Some(apis) = gen.reader.get(TypeName::new(type_name.namespace, "Apis")).next() {
-            for method in gen.reader.type_def_methods(apis) {
-                if gen.reader.method_def_name(method) == type_name.name {
-                    tokens.push_str(functions::gen(gen, method).as_str());
-                }
-            }
-            if tokens.is_empty() {
-                for field in gen.reader.type_def_fields(apis) {
-                    if gen.reader.field_name(field) == type_name.name {
-                        tokens.push_str(constants::gen(gen, field).as_str());
-                    }
-                }
-            }
-        }
-    }
-
-    assert!(!tokens.is_empty(), "`{}` not found", name);
-    tokens
-}
-
 pub fn namespace(gen: &Gen, tree: &Tree) -> String {
-    let namespaces = tree.nested.iter().map(move |(name, tree)| {
+    let mut tokens = TokenStream::new();
+
+    for (name, tree) in &tree.nested {
         let name = to_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
         if gen.cfg {
-            quote! {
-                #[cfg(feature = #namespace)] pub mod #name;
-            }
-        } else {
-            quote! {
-                pub mod #name;
-            }
+            tokens.combine(&quote! { #[cfg(feature = #namespace)] });
         }
-    });
-
-    let mut functions = vec![];
-
-    if gen.sys {
-        if let Some(apis) = gen.reader.get(TypeName::new(tree.namespace, "Apis")).next() {
-            // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
-            let mut methods = BTreeMap::new();
-            for method in gen.reader.type_def_methods(apis) {
-                combine(&mut methods, gen.reader.method_def_name(method), functions::gen(gen, method));
-            }
-            // TODO: instead of Vec just check whether class has `Apis` methods and then pass an iterator?
-            if !methods.is_empty() {
-                let methods = methods.values();
-                functions = vec![quote! {
-                    #(#methods)*
-                }];
-            }
-        }
+        tokens.combine(&quote! { pub mod #name; });
     }
 
-    // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
-    let mut types = BTreeMap::<&str, TokenStream>::new();
+    let mut functions = BTreeMap::<&str, BTreeMap<&str, TokenStream>>::new();
+    let mut types = BTreeMap::<TypeKind, BTreeMap<&str, TokenStream>>::new();
 
     for def in gen.reader.namespace_types(tree.namespace) {
-        if let Some(tokens) = gen.define(def) {
-            combine_type(&mut types, gen.reader.type_def_type_name(def), tokens);
-        } else {
-            if !gen.sys {
-                for method in gen.reader.type_def_methods(def) {
-                    combine(&mut types, gen.reader.method_def_name(method), functions::gen(gen, method));
+        let type_name = gen.reader.type_def_type_name(def);
+        if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
+            continue;
+        }
+        let name = type_name.name;
+        let kind = gen.reader.type_def_kind(def);
+        match kind {
+            TypeKind::Class => {
+                if gen.reader.type_def_flags(def).winrt() {
+                    types.entry(kind).or_default().insert(name, classes::gen(gen, def));
+                } else {
+                    for method in gen.reader.type_def_methods(def) {
+                        let name = gen.reader.method_def_name(method);
+                        let extern_abi = gen.reader.method_def_extern_abi(method);
+                        functions.entry(extern_abi).or_default().entry(name).or_default().combine(&functions::gen(gen, method));
+                    }
+                    for field in gen.reader.type_def_fields(def) {
+                        let name = gen.reader.field_name(field);
+                        types.entry(kind).or_default().entry(name).or_default().combine(&constants::gen(gen, field));
+                    }
                 }
             }
-            for field in gen.reader.type_def_fields(def) {
-                combine(&mut types, gen.reader.field_name(field), constants::gen(gen, field));
+            TypeKind::Interface => types.entry(kind).or_default().entry(name).or_default().combine(&interfaces::gen(gen, def)),
+            TypeKind::Enum => types.entry(kind).or_default().entry(name).or_default().combine(&enums::gen(gen, def)),
+            TypeKind::Struct => {
+                if gen.reader.type_def_fields(def).next().is_none() {
+                    if let Some(guid) = gen.reader.type_def_guid(def) {
+                        let value = gen.guid(&guid);
+                        let guid = gen.type_name(&Type::GUID);
+                        let constant = quote! { pub const #name: #guid = #value; };
+                        types.entry(TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
+                        continue;
+                    }
+                }
+                types.entry(kind).or_default().entry(name).or_default().combine(&structs::gen(gen, def));
             }
+            TypeKind::Delegate => types.entry(kind).or_default().entry(name).or_default().combine(&delegates::gen(gen, def)),
         }
     }
 
-    let types = types.values();
+    for (extern_abi, functions) in functions {
+        let functions = functions.values();
+        if gen.sys {
+            tokens.combine(&quote! {
+                #[cfg_attr(windows, link(name = "windows"))]
+                extern #extern_abi {
+                    #(#functions)*
+                }
+            });
+        } else {
+            tokens.combine(&quote! {
+                #(#functions)*
+            });
+        }
+    }
 
-    let mut tokens = quote! {
-        #(#namespaces)*
-        #(#functions)*
-        #(#types)*
-    };
+    for ty in types.values().flat_map(|v| v.values()) {
+        tokens.combine(ty);
+    }
 
     if tree.namespace == "Windows.Win32.UI.WindowsAndMessaging" {
         tokens.combine(&quote! {
@@ -136,7 +121,18 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
     for def in gen.reader.namespace_types(tree.namespace) {
-        combine_type(&mut types, gen.reader.type_def_type_name(def), implements::gen(gen, def));
+        let type_name = gen.reader.type_def_type_name(def);
+        if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
+            continue;
+        }
+        if gen.reader.type_def_kind(def) != TypeKind::Interface {
+            continue;
+        }
+        let tokens = implements::gen(gen, def);
+
+        if !tokens.is_empty() {
+            types.insert(type_name.name, tokens);
+        }
     }
 
     let types = types.values();
@@ -157,16 +153,6 @@ pub fn component(namespace: &str, files: &[File]) -> String {
     let mut bindings = crate::namespace(&gen, &tree);
     bindings.push_str(&namespace_impl(&gen, &tree));
     bindings
-}
-
-fn combine<'a>(types: &mut BTreeMap<&'a str, TokenStream>, name: &'a str, tokens: TokenStream) {
-    types.entry(name).or_default().combine(&tokens);
-}
-
-fn combine_type<'a>(types: &mut BTreeMap<&'a str, TokenStream>, type_name: TypeName<'a>, tokens: TokenStream) {
-    if !CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
-        types.entry(type_name.name).or_default().combine(&tokens);
-    }
 }
 
 /// Expand a possibly empty generics list with a new generic

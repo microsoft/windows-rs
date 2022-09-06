@@ -260,6 +260,103 @@ unsafe impl ::core::marker::Send for ThreadPoolTimer {}
 unsafe impl ::core::marker::Sync for ThreadPoolTimer {}
 #[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WorkItemOptions(pub u32);
+impl WorkItemOptions {
+    pub const None: Self = Self(0u32);
+    pub const TimeSliced: Self = Self(1u32);
+}
+impl ::core::marker::Copy for WorkItemOptions {}
+impl ::core::clone::Clone for WorkItemOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WorkItemOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WorkItemOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WorkItemOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WorkItemOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WorkItemOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WorkItemOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WorkItemOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WorkItemOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WorkItemOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Threading\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WorkItemPriority(pub i32);
+impl WorkItemPriority {
+    pub const Low: Self = Self(-1i32);
+    pub const Normal: Self = Self(0i32);
+    pub const High: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WorkItemPriority {}
+impl ::core::clone::Clone for WorkItemPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WorkItemPriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WorkItemPriority {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WorkItemPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WorkItemPriority").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WorkItemPriority {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Threading\"`*"]
+#[repr(transparent)]
 pub struct TimerDestroyedHandler(pub ::windows::core::IUnknown);
 impl TimerDestroyedHandler {
     pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -535,103 +632,6 @@ pub struct WorkItemHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Invoke: usize,
-}
-#[doc = "*Required features: `\"System_Threading\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WorkItemOptions(pub u32);
-impl WorkItemOptions {
-    pub const None: Self = Self(0u32);
-    pub const TimeSliced: Self = Self(1u32);
-}
-impl ::core::marker::Copy for WorkItemOptions {}
-impl ::core::clone::Clone for WorkItemOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WorkItemOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WorkItemOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WorkItemOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WorkItemOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WorkItemOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WorkItemOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WorkItemOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WorkItemOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WorkItemOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_Threading\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WorkItemPriority(pub i32);
-impl WorkItemPriority {
-    pub const Low: Self = Self(-1i32);
-    pub const Normal: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WorkItemPriority {}
-impl ::core::clone::Clone for WorkItemPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WorkItemPriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WorkItemPriority {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WorkItemPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemPriority").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WorkItemPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

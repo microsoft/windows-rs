@@ -1,3 +1,16 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDesktopWindowTarget(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDesktopWindowTarget {
+    type Vtable = IDesktopWindowTarget_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDesktopWindowTarget_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsTopmost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
 #[repr(transparent)]
 pub struct DesktopWindowTarget(::windows::core::IUnknown);
@@ -261,18 +274,5 @@ impl<'a> ::core::convert::From<&DesktopWindowTarget> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for DesktopWindowTarget {}
 unsafe impl ::core::marker::Sync for DesktopWindowTarget {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDesktopWindowTarget(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDesktopWindowTarget {
-    type Vtable = IDesktopWindowTarget_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDesktopWindowTarget_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsTopmost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

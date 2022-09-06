@@ -736,40 +736,6 @@ unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventAr
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechContinuousRecognitionMode(pub i32);
-impl SpeechContinuousRecognitionMode {
-    pub const Default: Self = Self(0i32);
-    pub const PauseOnRecognition: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpeechContinuousRecognitionMode {}
-impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechContinuousRecognitionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechContinuousRecognitionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(::windows::core::IUnknown);
 impl SpeechContinuousRecognitionResultGeneratedEventArgs {
     pub fn Result(&self) -> ::windows::core::Result<SpeechRecognitionResult> {
@@ -1011,45 +977,6 @@ unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionSession {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechRecognitionAudioProblem(pub i32);
-impl SpeechRecognitionAudioProblem {
-    pub const None: Self = Self(0i32);
-    pub const TooNoisy: Self = Self(1i32);
-    pub const NoSignal: Self = Self(2i32);
-    pub const TooLoud: Self = Self(3i32);
-    pub const TooQuiet: Self = Self(4i32);
-    pub const TooFast: Self = Self(5i32);
-    pub const TooSlow: Self = Self(6i32);
-}
-impl ::core::marker::Copy for SpeechRecognitionAudioProblem {}
-impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionAudioProblem {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechRecognitionAudioProblem {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechRecognitionAudioProblem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
 pub struct SpeechRecognitionCompilationResult(::windows::core::IUnknown);
 impl SpeechRecognitionCompilationResult {
     pub fn Status(&self) -> ::windows::core::Result<SpeechRecognitionResultStatus> {
@@ -1122,113 +1049,6 @@ impl ::core::convert::From<&SpeechRecognitionCompilationResult> for &::windows::
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionCompilationResult {}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechRecognitionConfidence(pub i32);
-impl SpeechRecognitionConfidence {
-    pub const High: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const Low: Self = Self(2i32);
-    pub const Rejected: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SpeechRecognitionConfidence {}
-impl ::core::clone::Clone for SpeechRecognitionConfidence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionConfidence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechRecognitionConfidence {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionConfidence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechRecognitionConstraintProbability(pub i32);
-impl SpeechRecognitionConstraintProbability {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
-    pub const Max: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SpeechRecognitionConstraintProbability {}
-impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionConstraintProbability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintProbability {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechRecognitionConstraintType(pub i32);
-impl SpeechRecognitionConstraintType {
-    pub const Topic: Self = Self(0i32);
-    pub const List: Self = Self(1i32);
-    pub const Grammar: Self = Self(2i32);
-    pub const VoiceCommandDefinition: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SpeechRecognitionConstraintType {}
-impl ::core::clone::Clone for SpeechRecognitionConstraintType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionConstraintType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionGrammarFileConstraint(::windows::core::IUnknown);
@@ -1924,84 +1744,6 @@ unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechRecognitionResultStatus(pub i32);
-impl SpeechRecognitionResultStatus {
-    pub const Success: Self = Self(0i32);
-    pub const TopicLanguageNotSupported: Self = Self(1i32);
-    pub const GrammarLanguageMismatch: Self = Self(2i32);
-    pub const GrammarCompilationFailure: Self = Self(3i32);
-    pub const AudioQualityFailure: Self = Self(4i32);
-    pub const UserCanceled: Self = Self(5i32);
-    pub const Unknown: Self = Self(6i32);
-    pub const TimeoutExceeded: Self = Self(7i32);
-    pub const PauseLimitExceeded: Self = Self(8i32);
-    pub const NetworkFailure: Self = Self(9i32);
-    pub const MicrophoneUnavailable: Self = Self(10i32);
-}
-impl ::core::marker::Copy for SpeechRecognitionResultStatus {}
-impl ::core::clone::Clone for SpeechRecognitionResultStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechRecognitionResultStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechRecognitionScenario(pub i32);
-impl SpeechRecognitionScenario {
-    pub const WebSearch: Self = Self(0i32);
-    pub const Dictation: Self = Self(1i32);
-    pub const FormFilling: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SpeechRecognitionScenario {}
-impl ::core::clone::Clone for SpeechRecognitionScenario {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionScenario {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechRecognitionScenario {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionScenario {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechRecognitionScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
 pub struct SpeechRecognitionSemanticInterpretation(::windows::core::IUnknown);
 impl SpeechRecognitionSemanticInterpretation {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2660,45 +2402,6 @@ unsafe impl ::core::marker::Send for SpeechRecognizer {}
 unsafe impl ::core::marker::Sync for SpeechRecognizer {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechRecognizerState(pub i32);
-impl SpeechRecognizerState {
-    pub const Idle: Self = Self(0i32);
-    pub const Capturing: Self = Self(1i32);
-    pub const Processing: Self = Self(2i32);
-    pub const SoundStarted: Self = Self(3i32);
-    pub const SoundEnded: Self = Self(4i32);
-    pub const SpeechDetected: Self = Self(5i32);
-    pub const Paused: Self = Self(6i32);
-}
-impl ::core::marker::Copy for SpeechRecognizerState {}
-impl ::core::clone::Clone for SpeechRecognizerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognizerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechRecognizerState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognizerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechRecognizerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-#[repr(transparent)]
 pub struct SpeechRecognizerStateChangedEventArgs(::windows::core::IUnknown);
 impl SpeechRecognizerStateChangedEventArgs {
     pub fn State(&self) -> ::windows::core::Result<SpeechRecognizerState> {
@@ -3119,5 +2822,302 @@ impl ::core::convert::From<&VoiceCommandSet> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for VoiceCommandSet {}
 unsafe impl ::core::marker::Sync for VoiceCommandSet {}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechContinuousRecognitionMode(pub i32);
+impl SpeechContinuousRecognitionMode {
+    pub const Default: Self = Self(0i32);
+    pub const PauseOnRecognition: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpeechContinuousRecognitionMode {}
+impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechContinuousRecognitionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechContinuousRecognitionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechRecognitionAudioProblem(pub i32);
+impl SpeechRecognitionAudioProblem {
+    pub const None: Self = Self(0i32);
+    pub const TooNoisy: Self = Self(1i32);
+    pub const NoSignal: Self = Self(2i32);
+    pub const TooLoud: Self = Self(3i32);
+    pub const TooQuiet: Self = Self(4i32);
+    pub const TooFast: Self = Self(5i32);
+    pub const TooSlow: Self = Self(6i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionAudioProblem {}
+impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionAudioProblem {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechRecognitionAudioProblem {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechRecognitionAudioProblem {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechRecognitionConfidence(pub i32);
+impl SpeechRecognitionConfidence {
+    pub const High: Self = Self(0i32);
+    pub const Medium: Self = Self(1i32);
+    pub const Low: Self = Self(2i32);
+    pub const Rejected: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionConfidence {}
+impl ::core::clone::Clone for SpeechRecognitionConfidence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionConfidence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechRecognitionConfidence {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechRecognitionConfidence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechRecognitionConstraintProbability(pub i32);
+impl SpeechRecognitionConstraintProbability {
+    pub const Default: Self = Self(0i32);
+    pub const Min: Self = Self(1i32);
+    pub const Max: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionConstraintProbability {}
+impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionConstraintProbability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintProbability {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechRecognitionConstraintType(pub i32);
+impl SpeechRecognitionConstraintType {
+    pub const Topic: Self = Self(0i32);
+    pub const List: Self = Self(1i32);
+    pub const Grammar: Self = Self(2i32);
+    pub const VoiceCommandDefinition: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionConstraintType {}
+impl ::core::clone::Clone for SpeechRecognitionConstraintType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionConstraintType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechRecognitionResultStatus(pub i32);
+impl SpeechRecognitionResultStatus {
+    pub const Success: Self = Self(0i32);
+    pub const TopicLanguageNotSupported: Self = Self(1i32);
+    pub const GrammarLanguageMismatch: Self = Self(2i32);
+    pub const GrammarCompilationFailure: Self = Self(3i32);
+    pub const AudioQualityFailure: Self = Self(4i32);
+    pub const UserCanceled: Self = Self(5i32);
+    pub const Unknown: Self = Self(6i32);
+    pub const TimeoutExceeded: Self = Self(7i32);
+    pub const PauseLimitExceeded: Self = Self(8i32);
+    pub const NetworkFailure: Self = Self(9i32);
+    pub const MicrophoneUnavailable: Self = Self(10i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionResultStatus {}
+impl ::core::clone::Clone for SpeechRecognitionResultStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionResultStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechRecognitionResultStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechRecognitionScenario(pub i32);
+impl SpeechRecognitionScenario {
+    pub const WebSearch: Self = Self(0i32);
+    pub const Dictation: Self = Self(1i32);
+    pub const FormFilling: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionScenario {}
+impl ::core::clone::Clone for SpeechRecognitionScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionScenario {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechRecognitionScenario {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechRecognitionScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechRecognitionScenario {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechRecognizerState(pub i32);
+impl SpeechRecognizerState {
+    pub const Idle: Self = Self(0i32);
+    pub const Capturing: Self = Self(1i32);
+    pub const Processing: Self = Self(2i32);
+    pub const SoundStarted: Self = Self(3i32);
+    pub const SoundEnded: Self = Self(4i32);
+    pub const SpeechDetected: Self = Self(5i32);
+    pub const Paused: Self = Self(6i32);
+}
+impl ::core::marker::Copy for SpeechRecognizerState {}
+impl ::core::clone::Clone for SpeechRecognizerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechRecognizerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechRecognizerState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechRecognizerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechRecognizerState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

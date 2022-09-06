@@ -1,3 +1,253 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreIncrementalInkStroke(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreIncrementalInkStroke {
+    type Vtable = ICoreIncrementalInkStroke_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreIncrementalInkStroke_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AppendInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AppendInkPoints: usize,
+    pub CreateInkStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub PointTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    PointTransform: usize,
+    #[cfg(feature = "Foundation")]
+    pub BoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    BoundingRect: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreIncrementalInkStrokeFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreIncrementalInkStrokeFactory {
+    type Vtable = ICoreIncrementalInkStrokeFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawingattributes: *mut ::core::ffi::c_void, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Create: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreInkIndependentInputSource(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource {
+    type Vtable = ICoreInkIndependentInputSource_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39b38da9_7639_4499_a5b5_191d00e35b16);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreInkIndependentInputSource_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
+    pub PointerEntering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
+    PointerEntering: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePointerEntering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePointerEntering: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
+    pub PointerHovering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
+    PointerHovering: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePointerHovering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePointerHovering: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
+    pub PointerExiting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
+    PointerExiting: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePointerExiting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePointerExiting: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
+    pub PointerPressing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
+    PointerPressing: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePointerPressing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePointerPressing: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
+    pub PointerMoving: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
+    PointerMoving: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePointerMoving: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePointerMoving: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
+    pub PointerReleasing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
+    PointerReleasing: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePointerReleasing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePointerReleasing: usize,
+    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
+    pub PointerLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
+    PointerLost: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePointerLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePointerLost: usize,
+    pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreInkIndependentInputSource2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource2 {
+    type Vtable = ICoreInkIndependentInputSource2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2846b012_0b59_5bb9_a3c5_becb7cf03a33);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreInkIndependentInputSource2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_Core")]
+    pub PointerCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Core"))]
+    PointerCursor: usize,
+    #[cfg(feature = "UI_Core")]
+    pub SetPointerCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Core"))]
+    SetPointerCursor: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreInkIndependentInputSourceStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSourceStatics {
+    type Vtable = ICoreInkIndependentInputSourceStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreInkPresenterHost(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreInkPresenterHost {
+    type Vtable = ICoreInkPresenterHost_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x396e89e6_7d55_4617_9e58_68c70c9169b9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreInkPresenterHost_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Composition")]
+    pub RootVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Composition"))]
+    RootVisual: usize,
+    #[cfg(feature = "UI_Composition")]
+    pub SetRootVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Composition"))]
+    SetRootVisual: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreWetStrokeUpdateEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateEventArgs {
+    type Vtable = ICoreWetStrokeUpdateEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07d14c_3380_457a_a987_991357896c1b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub NewInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    NewInkPoints: usize,
+    pub PointerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub Disposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreWetStrokeDisposition) -> ::windows::core::HRESULT,
+    pub SetDisposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreWetStrokeDisposition) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreWetStrokeUpdateSource(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSource {
+    type Vtable = ICoreWetStrokeUpdateSource_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWetStrokeUpdateSource_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub WetStrokeStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    WetStrokeStarting: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveWetStrokeStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveWetStrokeStarting: usize,
+    #[cfg(feature = "Foundation")]
+    pub WetStrokeContinuing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    WetStrokeContinuing: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveWetStrokeContinuing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveWetStrokeContinuing: usize,
+    #[cfg(feature = "Foundation")]
+    pub WetStrokeStopping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    WetStrokeStopping: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveWetStrokeStopping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveWetStrokeStopping: usize,
+    #[cfg(feature = "Foundation")]
+    pub WetStrokeCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    WetStrokeCompleted: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveWetStrokeCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveWetStrokeCompleted: usize,
+    #[cfg(feature = "Foundation")]
+    pub WetStrokeCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    WetStrokeCanceled: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveWetStrokeCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveWetStrokeCanceled: usize,
+    pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICoreWetStrokeUpdateSourceStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSourceStatics {
+    type Vtable = ICoreWetStrokeUpdateSourceStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreIncrementalInkStroke(::windows::core::IUnknown);
@@ -459,41 +709,6 @@ unsafe impl ::core::marker::Send for CoreInkPresenterHost {}
 unsafe impl ::core::marker::Sync for CoreInkPresenterHost {}
 #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CoreWetStrokeDisposition(pub i32);
-impl CoreWetStrokeDisposition {
-    pub const Inking: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CoreWetStrokeDisposition {}
-impl ::core::clone::Clone for CoreWetStrokeDisposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreWetStrokeDisposition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CoreWetStrokeDisposition {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreWetStrokeDisposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreWetStrokeDisposition").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CoreWetStrokeDisposition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
-#[repr(transparent)]
 pub struct CoreWetStrokeUpdateEventArgs(::windows::core::IUnknown);
 impl CoreWetStrokeUpdateEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -764,255 +979,40 @@ impl ::core::convert::From<&CoreWetStrokeUpdateSource> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for CoreWetStrokeUpdateSource {}
 unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateSource {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
 #[repr(transparent)]
-pub struct ICoreIncrementalInkStroke(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreIncrementalInkStroke {
-    type Vtable = ICoreIncrementalInkStroke_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CoreWetStrokeDisposition(pub i32);
+impl CoreWetStrokeDisposition {
+    pub const Inking: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreIncrementalInkStroke_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AppendInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AppendInkPoints: usize,
-    pub CreateInkStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub PointTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    PointTransform: usize,
-    #[cfg(feature = "Foundation")]
-    pub BoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BoundingRect: usize,
+impl ::core::marker::Copy for CoreWetStrokeDisposition {}
+impl ::core::clone::Clone for CoreWetStrokeDisposition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreIncrementalInkStrokeFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreIncrementalInkStrokeFactory {
-    type Vtable = ICoreIncrementalInkStrokeFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
+impl ::core::default::Default for CoreWetStrokeDisposition {
+    fn default() -> Self {
+        Self(0)
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawingattributes: *mut ::core::ffi::c_void, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Create: usize,
+unsafe impl ::windows::core::Abi for CoreWetStrokeDisposition {
+    type Abi = Self;
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreInkIndependentInputSource(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource {
-    type Vtable = ICoreInkIndependentInputSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39b38da9_7639_4499_a5b5_191d00e35b16);
+impl ::core::fmt::Debug for CoreWetStrokeDisposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWetStrokeDisposition").field(&self.0).finish()
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreInkIndependentInputSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub PointerEntering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
-    PointerEntering: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePointerEntering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePointerEntering: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub PointerHovering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
-    PointerHovering: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePointerHovering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePointerHovering: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub PointerExiting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
-    PointerExiting: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePointerExiting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePointerExiting: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub PointerPressing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
-    PointerPressing: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePointerPressing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePointerPressing: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub PointerMoving: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
-    PointerMoving: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePointerMoving: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePointerMoving: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub PointerReleasing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
-    PointerReleasing: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePointerReleasing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePointerReleasing: usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub PointerLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))]
-    PointerLost: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePointerLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePointerLost: usize,
-    pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreInkIndependentInputSource2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource2 {
-    type Vtable = ICoreInkIndependentInputSource2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2846b012_0b59_5bb9_a3c5_becb7cf03a33);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreInkIndependentInputSource2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "UI_Core")]
-    pub PointerCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Core"))]
-    PointerCursor: usize,
-    #[cfg(feature = "UI_Core")]
-    pub SetPointerCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Core"))]
-    SetPointerCursor: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreInkIndependentInputSourceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSourceStatics {
-    type Vtable = ICoreInkIndependentInputSourceStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreInkPresenterHost(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreInkPresenterHost {
-    type Vtable = ICoreInkPresenterHost_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x396e89e6_7d55_4617_9e58_68c70c9169b9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreInkPresenterHost_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Composition")]
-    pub RootVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    RootVisual: usize,
-    #[cfg(feature = "UI_Composition")]
-    pub SetRootVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Composition"))]
-    SetRootVisual: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreWetStrokeUpdateEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateEventArgs {
-    type Vtable = ICoreWetStrokeUpdateEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07d14c_3380_457a_a987_991357896c1b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub NewInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    NewInkPoints: usize,
-    pub PointerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub Disposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreWetStrokeDisposition) -> ::windows::core::HRESULT,
-    pub SetDisposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreWetStrokeDisposition) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreWetStrokeUpdateSource(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSource {
-    type Vtable = ICoreWetStrokeUpdateSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreWetStrokeUpdateSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub WetStrokeStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WetStrokeStarting: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveWetStrokeStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveWetStrokeStarting: usize,
-    #[cfg(feature = "Foundation")]
-    pub WetStrokeContinuing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WetStrokeContinuing: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveWetStrokeContinuing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveWetStrokeContinuing: usize,
-    #[cfg(feature = "Foundation")]
-    pub WetStrokeStopping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WetStrokeStopping: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveWetStrokeStopping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveWetStrokeStopping: usize,
-    #[cfg(feature = "Foundation")]
-    pub WetStrokeCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WetStrokeCompleted: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveWetStrokeCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveWetStrokeCompleted: usize,
-    #[cfg(feature = "Foundation")]
-    pub WetStrokeCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WetStrokeCanceled: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveWetStrokeCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveWetStrokeCanceled: usize,
-    pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICoreWetStrokeUpdateSourceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSourceStatics {
-    type Vtable = ICoreWetStrokeUpdateSourceStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::RuntimeType for CoreWetStrokeDisposition {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

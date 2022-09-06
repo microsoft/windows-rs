@@ -1,4 +1,22 @@
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967294u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_CPU_ACCESS_FIELD: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_CPU_ACCESS_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_CPU_ACCESS_READ_WRITE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_CPU_ACCESS_SCRATCH: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_FORMAT_DEFINED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const _FACDXGI: u32 = 2170u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_ALPHA_MODE(pub u32);
@@ -31,8 +49,6 @@ impl ::core::fmt::Debug for DXGI_ALPHA_MODE {
         f.debug_tuple("DXGI_ALPHA_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -108,16 +124,6 @@ impl ::core::fmt::Debug for DXGI_COLOR_SPACE_TYPE {
         f.debug_tuple("DXGI_COLOR_SPACE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_CPU_ACCESS_FIELD: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_CPU_ACCESS_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_CPU_ACCESS_READ_WRITE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_CPU_ACCESS_SCRATCH: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -386,7 +392,98 @@ impl ::core::fmt::Debug for DXGI_FORMAT {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_FORMAT_DEFINED: u32 = 1u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXGI_MODE_ROTATION(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_ROTATION_UNSPECIFIED: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_ROTATION_IDENTITY: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_ROTATION_ROTATE90: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_ROTATION_ROTATE180: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_ROTATION_ROTATE270: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(4i32);
+impl ::core::marker::Copy for DXGI_MODE_ROTATION {}
+impl ::core::clone::Clone for DXGI_MODE_ROTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXGI_MODE_ROTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXGI_MODE_ROTATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXGI_MODE_ROTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXGI_MODE_ROTATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXGI_MODE_SCALING(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_SCALING_UNSPECIFIED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_SCALING_CENTERED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_SCALING_STRETCHED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(2i32);
+impl ::core::marker::Copy for DXGI_MODE_SCALING {}
+impl ::core::clone::Clone for DXGI_MODE_SCALING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXGI_MODE_SCALING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXGI_MODE_SCALING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXGI_MODE_SCALING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXGI_MODE_SCALING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXGI_MODE_SCANLINE_ORDER(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
+pub const DXGI_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(3i32);
+impl ::core::marker::Copy for DXGI_MODE_SCANLINE_ORDER {}
+impl ::core::clone::Clone for DXGI_MODE_SCANLINE_ORDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXGI_MODE_SCANLINE_ORDER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXGI_MODE_SCANLINE_ORDER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXGI_MODE_SCANLINE_ORDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXGI_MODE_SCANLINE_ORDER").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
 pub struct DXGI_GAMMA_CONTROL {
@@ -588,99 +685,6 @@ impl ::core::default::Default for DXGI_MODE_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXGI_MODE_ROTATION(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_ROTATION_UNSPECIFIED: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_ROTATION_IDENTITY: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_ROTATION_ROTATE90: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_ROTATION_ROTATE180: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_ROTATION_ROTATE270: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(4i32);
-impl ::core::marker::Copy for DXGI_MODE_ROTATION {}
-impl ::core::clone::Clone for DXGI_MODE_ROTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MODE_ROTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXGI_MODE_ROTATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXGI_MODE_ROTATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXGI_MODE_ROTATION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXGI_MODE_SCALING(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_SCALING_UNSPECIFIED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_SCALING_CENTERED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_SCALING_STRETCHED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(2i32);
-impl ::core::marker::Copy for DXGI_MODE_SCALING {}
-impl ::core::clone::Clone for DXGI_MODE_SCALING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MODE_SCALING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXGI_MODE_SCALING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXGI_MODE_SCALING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXGI_MODE_SCALING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXGI_MODE_SCANLINE_ORDER(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(3i32);
-impl ::core::marker::Copy for DXGI_MODE_SCANLINE_ORDER {}
-impl ::core::clone::Clone for DXGI_MODE_SCANLINE_ORDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MODE_SCANLINE_ORDER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXGI_MODE_SCANLINE_ORDER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXGI_MODE_SCANLINE_ORDER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXGI_MODE_SCANLINE_ORDER").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
 pub struct DXGI_RATIONAL {
@@ -775,9 +779,5 @@ impl ::core::default::Default for DXGI_SAMPLE_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const _FACDXGI: u32 = 2170u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

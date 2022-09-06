@@ -94,41 +94,6 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallBlockedReason(pub i32);
-impl PhoneCallBlockedReason {
-    pub const InCallBlockingList: Self = Self(0i32);
-    pub const PrivateNumber: Self = Self(1i32);
-    pub const UnknownNumber: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallBlockedReason {}
-impl ::core::clone::Clone for PhoneCallBlockedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallBlockedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallBlockedReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallBlockedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
-#[repr(transparent)]
 pub struct PhoneCallBlockedTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallBlockedTriggerDetails {
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -296,42 +261,6 @@ impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for &::win
 }
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneIncomingCallDismissedReason(pub i32);
-impl PhoneIncomingCallDismissedReason {
-    pub const Unknown: Self = Self(0i32);
-    pub const CallRejected: Self = Self(1i32);
-    pub const TextReply: Self = Self(2i32);
-    pub const ConnectionLost: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneIncomingCallDismissedReason {}
-impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneIncomingCallDismissedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneIncomingCallDismissedReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(::windows::core::IUnknown);
@@ -526,41 +455,6 @@ unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails
 unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneLineChangeKind(pub i32);
-impl PhoneLineChangeKind {
-    pub const Added: Self = Self(0i32);
-    pub const Removed: Self = Self(1i32);
-    pub const PropertiesChanged: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneLineChangeKind {}
-impl ::core::clone::Clone for PhoneLineChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneLineChangeKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneLineChangeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneLineChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
-#[repr(transparent)]
 pub struct PhoneLineChangedTriggerDetails(::windows::core::IUnknown);
 impl PhoneLineChangedTriggerDetails {
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -649,76 +543,6 @@ unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneLineProperties(pub u32);
-impl PhoneLineProperties {
-    pub const None: Self = Self(0u32);
-    pub const BrandingOptions: Self = Self(1u32);
-    pub const CanDial: Self = Self(2u32);
-    pub const CellularDetails: Self = Self(4u32);
-    pub const DisplayColor: Self = Self(8u32);
-    pub const DisplayName: Self = Self(16u32);
-    pub const NetworkName: Self = Self(32u32);
-    pub const NetworkState: Self = Self(64u32);
-    pub const Transport: Self = Self(128u32);
-    pub const Voicemail: Self = Self(256u32);
-}
-impl ::core::marker::Copy for PhoneLineProperties {}
-impl ::core::clone::Clone for PhoneLineProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneLineProperties {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneLineProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PhoneLineProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PhoneLineProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PhoneLineProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PhoneLineProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PhoneLineProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneLineProperties {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
-#[repr(transparent)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(::windows::core::IUnknown);
 impl PhoneNewVoicemailMessageTriggerDetails {
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -805,6 +629,182 @@ impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for &::windo
 }
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
+#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallBlockedReason(pub i32);
+impl PhoneCallBlockedReason {
+    pub const InCallBlockingList: Self = Self(0i32);
+    pub const PrivateNumber: Self = Self(1i32);
+    pub const UnknownNumber: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneCallBlockedReason {}
+impl ::core::clone::Clone for PhoneCallBlockedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallBlockedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallBlockedReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallBlockedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneIncomingCallDismissedReason(pub i32);
+impl PhoneIncomingCallDismissedReason {
+    pub const Unknown: Self = Self(0i32);
+    pub const CallRejected: Self = Self(1i32);
+    pub const TextReply: Self = Self(2i32);
+    pub const ConnectionLost: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhoneIncomingCallDismissedReason {}
+impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneIncomingCallDismissedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneIncomingCallDismissedReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneLineChangeKind(pub i32);
+impl PhoneLineChangeKind {
+    pub const Added: Self = Self(0i32);
+    pub const Removed: Self = Self(1i32);
+    pub const PropertiesChanged: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneLineChangeKind {}
+impl ::core::clone::Clone for PhoneLineChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneLineChangeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneLineChangeKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneLineChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneLineChangeKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneLineProperties(pub u32);
+impl PhoneLineProperties {
+    pub const None: Self = Self(0u32);
+    pub const BrandingOptions: Self = Self(1u32);
+    pub const CanDial: Self = Self(2u32);
+    pub const CellularDetails: Self = Self(4u32);
+    pub const DisplayColor: Self = Self(8u32);
+    pub const DisplayName: Self = Self(16u32);
+    pub const NetworkName: Self = Self(32u32);
+    pub const NetworkState: Self = Self(64u32);
+    pub const Transport: Self = Self(128u32);
+    pub const Voicemail: Self = Self(256u32);
+}
+impl ::core::marker::Copy for PhoneLineProperties {}
+impl ::core::clone::Clone for PhoneLineProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneLineProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneLineProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneLineProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PhoneLineProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PhoneLineProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PhoneLineProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PhoneLineProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PhoneLineProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneLineProperties {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

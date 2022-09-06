@@ -1,3 +1,70 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppCapability(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppCapability {
+    type Vtable = IAppCapability_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppCapability_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CapabilityName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
+    #[cfg(feature = "Foundation")]
+    pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestAccessAsync: usize,
+    pub CheckAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppCapabilityAccessStatus) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub AccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AccessChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveAccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveAccessChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppCapabilityAccessChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppCapabilityAccessChangedEventArgs {
+    type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppCapabilityStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppCapabilityStatics {
+    type Vtable = IAppCapabilityStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppCapabilityStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RequestAccessForCapabilitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitynames: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RequestAccessForCapabilitiesAsync: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
+    pub RequestAccessForCapabilitiesForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, capabilitynames: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
+    RequestAccessForCapabilitiesForUserAsync: usize,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "System")]
+    pub CreateWithProcessIdForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    CreateWithProcessIdForUser: usize,
+}
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
 #[repr(transparent)]
 pub struct AppCapability(::windows::core::IUnknown);
@@ -264,73 +331,6 @@ unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessStatus {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppCapability(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppCapability {
-    type Vtable = IAppCapability_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppCapability_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CapabilityName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-    #[cfg(feature = "Foundation")]
-    pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestAccessAsync: usize,
-    pub CheckAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppCapabilityAccessStatus) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub AccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AccessChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveAccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAccessChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppCapabilityAccessChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppCapabilityAccessChangedEventArgs {
-    type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppCapabilityStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppCapabilityStatics {
-    type Vtable = IAppCapabilityStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppCapabilityStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub RequestAccessForCapabilitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitynames: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RequestAccessForCapabilitiesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub RequestAccessForCapabilitiesForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, capabilitynames: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))]
-    RequestAccessForCapabilitiesForUserAsync: usize,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "System")]
-    pub CreateWithProcessIdForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    CreateWithProcessIdForUser: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

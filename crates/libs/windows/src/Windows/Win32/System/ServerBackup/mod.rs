@@ -197,6 +197,43 @@ pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
+pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(6i32);
+impl ::core::marker::Copy for WSB_OB_STATUS_ENTRY_PAIR_TYPE {}
+impl ::core::clone::Clone for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSB_OB_STATUS_ENTRY_PAIR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -271,43 +308,6 @@ impl ::core::cmp::Eq for WSB_OB_STATUS_ENTRY {}
 impl ::core::default::Default for WSB_OB_STATUS_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(6i32);
-impl ::core::marker::Copy for WSB_OB_STATUS_ENTRY_PAIR_TYPE {}
-impl ::core::clone::Clone for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WSB_OB_STATUS_ENTRY_PAIR_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]

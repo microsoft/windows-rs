@@ -1,3 +1,19 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IClass(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IClass {
+    type Vtable = IClass_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9054d_f33d_515f_b891_29e6cb101073);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IClass_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
+    pub Int32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const i32, b_array_size: u32, b: *mut i32, c_array_size: *mut u32, c: *mut *mut i32, result_size__: *mut u32, result__: *mut *mut i32) -> ::windows::core::HRESULT,
+    pub StringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, b_array_size: u32, b: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, c_array_size: *mut u32, c: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[repr(transparent)]
 pub struct Class(::windows::core::IUnknown);
 impl Class {
@@ -96,22 +112,6 @@ impl ::core::convert::From<&Class> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Class {}
 unsafe impl ::core::marker::Sync for Class {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IClass(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IClass {
-    type Vtable = IClass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9054d_f33d_515f_b891_29e6cb101073);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IClass_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
-    pub Int32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const i32, b_array_size: u32, b: *mut i32, c_array_size: *mut u32, c: *mut *mut i32, result_size__: *mut u32, result__: *mut *mut i32) -> ::windows::core::HRESULT,
-    pub StringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, b_array_size: u32, b: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, c_array_size: *mut u32, c: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
 pub trait IClass_Impl: Sized {
     fn Property(&self) -> ::windows::core::Result<i32>;
     fn SetProperty(&self, value: i32) -> ::windows::core::Result<()>;

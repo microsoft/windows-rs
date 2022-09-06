@@ -1,30 +1,4 @@
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPIADDRESS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: ::windows::core::PCSTR, neditfields: u32, lpszlabels: ::windows::core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPIDELETEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPIDETAILS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lprecip: *mut MapiRecipDesc, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPIFINDNEXT = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessagetype: ::windows::core::PCSTR, lpszseedmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lpszmessageid: ::windows::core::PCSTR) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPIFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPILOGOFF = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPILOGON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszprofilename: ::windows::core::PCSTR, lpszpassword: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lplhsession: *mut usize) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPIREADMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lppmessage: *mut *mut MapiMessage) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPIRESOLVENAME = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszname: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lpprecip: *mut *mut MapiRecipDesc) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPISAVEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32, lpszmessageid: ::windows::core::PCSTR) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPISENDDOCUMENTS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszdelimchar: ::windows::core::PCSTR, lpszfilepaths: ::windows::core::PCSTR, lpszfilenames: ::windows::core::PCSTR, ulreserved: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPISENDMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -141,6 +115,8 @@ pub const MAPI_UNREAD: u32 = 1u32;
 pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub const MAPI_USER_ABORT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub const SUCCESS_SUCCESS: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub struct MapiFileDesc {
@@ -424,6 +400,30 @@ impl ::core::default::Default for MapiRecipDescW {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-pub const SUCCESS_SUCCESS: u32 = 0u32;
+pub type LPMAPIADDRESS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: ::windows::core::PCSTR, neditfields: u32, lpszlabels: ::windows::core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPIDELETEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPIDETAILS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lprecip: *mut MapiRecipDesc, flflags: u32, ulreserved: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPIFINDNEXT = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessagetype: ::windows::core::PCSTR, lpszseedmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lpszmessageid: ::windows::core::PCSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPIFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPILOGOFF = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, flflags: u32, ulreserved: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPILOGON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszprofilename: ::windows::core::PCSTR, lpszpassword: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lplhsession: *mut usize) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPIREADMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lppmessage: *mut *mut MapiMessage) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPIRESOLVENAME = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszname: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lpprecip: *mut *mut MapiRecipDesc) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPISAVEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32, lpszmessageid: ::windows::core::PCSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPISENDDOCUMENTS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszdelimchar: ::windows::core::PCSTR, lpszfilepaths: ::windows::core::PCSTR, lpszfilenames: ::windows::core::PCSTR, ulreserved: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPISENDMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
+pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

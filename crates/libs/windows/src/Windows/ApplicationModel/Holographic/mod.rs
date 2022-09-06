@@ -1,3 +1,37 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHolographicKeyboard(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHolographicKeyboard {
+    type Vtable = IHolographicKeyboard_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHolographicKeyboard_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    pub SetPlacementOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    SetPlacementOverride: usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    pub SetPlacementOverrideWithMaxSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    SetPlacementOverrideWithMaxSize: usize,
+    pub ResetPlacementOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHolographicKeyboardStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHolographicKeyboardStatics {
+    type Vtable = IHolographicKeyboardStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb676c624_63d7_58cf_b06b_08baa032a23f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHolographicKeyboardStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"ApplicationModel_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicKeyboard(::windows::core::IUnknown);
@@ -98,39 +132,5 @@ impl ::core::convert::From<&HolographicKeyboard> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for HolographicKeyboard {}
 unsafe impl ::core::marker::Sync for HolographicKeyboard {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHolographicKeyboard(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHolographicKeyboard {
-    type Vtable = IHolographicKeyboard_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHolographicKeyboard_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub SetPlacementOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
-    SetPlacementOverride: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub SetPlacementOverrideWithMaxSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
-    SetPlacementOverrideWithMaxSize: usize,
-    pub ResetPlacementOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHolographicKeyboardStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHolographicKeyboardStatics {
-    type Vtable = IHolographicKeyboardStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb676c624_63d7_58cf_b06b_08baa032a23f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHolographicKeyboardStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

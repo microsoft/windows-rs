@@ -1,40 +1,74 @@
-#[doc = "*Required features: `\"Storage_Compression\"`*"]
+#[doc(hidden)]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CompressAlgorithm(pub i32);
-impl CompressAlgorithm {
-    pub const InvalidAlgorithm: Self = Self(0i32);
-    pub const NullAlgorithm: Self = Self(1i32);
-    pub const Mszip: Self = Self(2i32);
-    pub const Xpress: Self = Self(3i32);
-    pub const XpressHuff: Self = Self(4i32);
-    pub const Lzms: Self = Self(5i32);
+pub struct ICompressor(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICompressor {
+    type Vtable = ICompressor_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 }
-impl ::core::marker::Copy for CompressAlgorithm {}
-impl ::core::clone::Clone for CompressAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompressor_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub FinishAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FinishAsync: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub DetachStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    DetachStream: usize,
 }
-impl ::core::default::Default for CompressAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICompressorFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICompressorFactory {
+    type Vtable = ICompressorFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
 }
-unsafe impl ::windows::core::Abi for CompressAlgorithm {
-    type Abi = Self;
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompressorFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateCompressor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateCompressor: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateCompressorEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: *mut ::core::ffi::c_void, algorithm: CompressAlgorithm, blocksize: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateCompressorEx: usize,
 }
-impl ::core::fmt::Debug for CompressAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompressAlgorithm").field(&self.0).finish()
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDecompressor(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDecompressor {
+    type Vtable = IDecompressor_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 }
-unsafe impl ::windows::core::RuntimeType for CompressAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDecompressor_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub DetachStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    DetachStream: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDecompressorFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDecompressorFactory {
+    type Vtable = IDecompressorFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5337e252_1da2_42e1_8834_0379d28d742f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDecompressorFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateDecompressor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateDecompressor: usize,
 }
 #[doc = "*Required features: `\"Storage_Compression\"`*"]
 #[repr(transparent)]
@@ -378,77 +412,43 @@ impl<'a> ::core::convert::TryFrom<&Decompressor> for ::windows::core::InParam<'a
 }
 unsafe impl ::core::marker::Send for Decompressor {}
 unsafe impl ::core::marker::Sync for Decompressor {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"Storage_Compression\"`*"]
 #[repr(transparent)]
-pub struct ICompressor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompressor {
-    type Vtable = ICompressor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CompressAlgorithm(pub i32);
+impl CompressAlgorithm {
+    pub const InvalidAlgorithm: Self = Self(0i32);
+    pub const NullAlgorithm: Self = Self(1i32);
+    pub const Mszip: Self = Self(2i32);
+    pub const Xpress: Self = Self(3i32);
+    pub const XpressHuff: Self = Self(4i32);
+    pub const Lzms: Self = Self(5i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICompressor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub FinishAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FinishAsync: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub DetachStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    DetachStream: usize,
+impl ::core::marker::Copy for CompressAlgorithm {}
+impl ::core::clone::Clone for CompressAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICompressorFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompressorFactory {
-    type Vtable = ICompressorFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
+impl ::core::default::Default for CompressAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICompressorFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateCompressor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateCompressor: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateCompressorEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: *mut ::core::ffi::c_void, algorithm: CompressAlgorithm, blocksize: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateCompressorEx: usize,
+unsafe impl ::windows::core::Abi for CompressAlgorithm {
+    type Abi = Self;
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDecompressor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDecompressor {
-    type Vtable = IDecompressor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
+impl ::core::fmt::Debug for CompressAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompressAlgorithm").field(&self.0).finish()
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDecompressor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub DetachStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    DetachStream: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDecompressorFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDecompressorFactory {
-    type Vtable = IDecompressorFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5337e252_1da2_42e1_8834_0379d28d742f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDecompressorFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateDecompressor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateDecompressor: usize,
+unsafe impl ::windows::core::RuntimeType for CompressAlgorithm {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -54,6 +54,32 @@ impl ::windows::core::RuntimeName for ServiceDevice {
     const NAME: &'static str = "Windows.Devices.Portable.ServiceDevice";
 }
 #[doc = "*Required features: `\"Devices_Portable\"`*"]
+pub struct StorageDevice;
+impl StorageDevice {
+    #[doc = "*Required features: `\"Storage\"`*"]
+    #[cfg(feature = "Storage")]
+    pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
+        Self::IStorageDeviceStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFolder>(result__)
+        })
+    }
+    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IStorageDeviceStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IStorageDeviceStatics<R, F: FnOnce(&IStorageDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<StorageDevice, IStorageDeviceStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for StorageDevice {
+    const NAME: &'static str = "Windows.Devices.Portable.StorageDevice";
+}
+#[doc = "*Required features: `\"Devices_Portable\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ServiceDeviceType(pub i32);
@@ -91,32 +117,6 @@ unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc = "*Required features: `\"Devices_Portable\"`*"]
-pub struct StorageDevice;
-impl StorageDevice {
-    #[doc = "*Required features: `\"Storage\"`*"]
-    #[cfg(feature = "Storage")]
-    pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
-        Self::IStorageDeviceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFolder>(result__)
-        })
-    }
-    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IStorageDeviceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IStorageDeviceStatics<R, F: FnOnce(&IStorageDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<StorageDevice, IStorageDeviceStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for StorageDevice {
-    const NAME: &'static str = "Windows.Devices.Portable.StorageDevice";
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

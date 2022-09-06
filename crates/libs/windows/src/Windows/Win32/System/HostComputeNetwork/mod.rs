@@ -1,184 +1,4 @@
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCN_NOTIFICATIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationInvalid: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkPreCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkPreDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(3i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNamespaceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNamespaceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(6i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationGuestNetworkServiceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(7i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationGuestNetworkServiceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(8i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkEndpointAttached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(9i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkEndpointDetached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationGuestNetworkServiceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(17i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationGuestNetworkServiceInterfaceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(18i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16777216i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(-268435456i32);
-impl ::core::marker::Copy for HCN_NOTIFICATIONS {}
-impl ::core::clone::Clone for HCN_NOTIFICATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCN_NOTIFICATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_NOTIFICATIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCN_NOTIFICATIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCN_NOTIFICATIONS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: ::windows::core::PCWSTR)>;
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCN_PORT_ACCESS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = HCN_PORT_ACCESS(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = HCN_PORT_ACCESS(2i32);
-impl ::core::marker::Copy for HCN_PORT_ACCESS {}
-impl ::core::clone::Clone for HCN_PORT_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCN_PORT_ACCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_PORT_ACCESS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCN_PORT_ACCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCN_PORT_ACCESS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCN_PORT_PROTOCOL(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(3i32);
-impl ::core::marker::Copy for HCN_PORT_PROTOCOL {}
-impl ::core::clone::Clone for HCN_PORT_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCN_PORT_PROTOCOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_PORT_PROTOCOL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HCN_PORT_PROTOCOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCN_PORT_PROTOCOL").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub struct HCN_PORT_RANGE_ENTRY {
-    pub OwningPartitionId: ::windows::core::GUID,
-    pub TargetPartitionId: ::windows::core::GUID,
-    pub Protocol: HCN_PORT_PROTOCOL,
-    pub Priority: u64,
-    pub ReservationType: u32,
-    pub SharingFlags: u32,
-    pub DeliveryMode: u32,
-    pub StartingPort: u16,
-    pub EndingPort: u16,
-}
-impl ::core::marker::Copy for HCN_PORT_RANGE_ENTRY {}
-impl ::core::clone::Clone for HCN_PORT_RANGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_ENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
-impl ::core::default::Default for HCN_PORT_RANGE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub struct HCN_PORT_RANGE_RESERVATION {
-    pub startingPort: u16,
-    pub endingPort: u16,
-}
-impl ::core::marker::Copy for HCN_PORT_RANGE_RESERVATION {}
-impl ::core::clone::Clone for HCN_PORT_RANGE_RESERVATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HCN_PORT_RANGE_RESERVATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCN_PORT_RANGE_RESERVATION").field("startingPort", &self.startingPort).field("endingPort", &self.endingPort).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_RESERVATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}
-impl ::core::default::Default for HCN_PORT_RANGE_RESERVATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
 pub unsafe fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -618,5 +438,185 @@ pub unsafe fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c
     }
     HcnUnregisterServiceCallback(::core::mem::transmute(callbackhandle)).ok()
 }
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCN_NOTIFICATIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationInvalid: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkPreCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkPreDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(3i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNamespaceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNamespaceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationGuestNetworkServiceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(7i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationGuestNetworkServiceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(8i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkEndpointAttached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(9i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkEndpointDetached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationGuestNetworkServiceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(17i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationGuestNetworkServiceInterfaceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(18i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16777216i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(-268435456i32);
+impl ::core::marker::Copy for HCN_NOTIFICATIONS {}
+impl ::core::clone::Clone for HCN_NOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCN_NOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCN_NOTIFICATIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCN_NOTIFICATIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCN_NOTIFICATIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCN_PORT_ACCESS(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = HCN_PORT_ACCESS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = HCN_PORT_ACCESS(2i32);
+impl ::core::marker::Copy for HCN_PORT_ACCESS {}
+impl ::core::clone::Clone for HCN_PORT_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCN_PORT_ACCESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCN_PORT_ACCESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCN_PORT_ACCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCN_PORT_ACCESS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCN_PORT_PROTOCOL(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(3i32);
+impl ::core::marker::Copy for HCN_PORT_PROTOCOL {}
+impl ::core::clone::Clone for HCN_PORT_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCN_PORT_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HCN_PORT_PROTOCOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HCN_PORT_PROTOCOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCN_PORT_PROTOCOL").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub struct HCN_PORT_RANGE_ENTRY {
+    pub OwningPartitionId: ::windows::core::GUID,
+    pub TargetPartitionId: ::windows::core::GUID,
+    pub Protocol: HCN_PORT_PROTOCOL,
+    pub Priority: u64,
+    pub ReservationType: u32,
+    pub SharingFlags: u32,
+    pub DeliveryMode: u32,
+    pub StartingPort: u16,
+    pub EndingPort: u16,
+}
+impl ::core::marker::Copy for HCN_PORT_RANGE_ENTRY {}
+impl ::core::clone::Clone for HCN_PORT_RANGE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
+impl ::core::default::Default for HCN_PORT_RANGE_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub struct HCN_PORT_RANGE_RESERVATION {
+    pub startingPort: u16,
+    pub endingPort: u16,
+}
+impl ::core::marker::Copy for HCN_PORT_RANGE_RESERVATION {}
+impl ::core::clone::Clone for HCN_PORT_RANGE_RESERVATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HCN_PORT_RANGE_RESERVATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HCN_PORT_RANGE_RESERVATION").field("startingPort", &self.startingPort).field("endingPort", &self.endingPort).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_RESERVATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}
+impl ::core::default::Default for HCN_PORT_RANGE_RESERVATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: ::windows::core::PCWSTR)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

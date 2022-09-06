@@ -24,193 +24,6 @@ where
     }
     CloseTouchInputHandle(htouchinput.into())
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub struct GESTURECONFIG {
-    pub dwID: GESTURECONFIG_ID,
-    pub dwWant: u32,
-    pub dwBlock: u32,
-}
-impl ::core::marker::Copy for GESTURECONFIG {}
-impl ::core::clone::Clone for GESTURECONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GESTURECONFIG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GESTURECONFIG").field("dwID", &self.dwID).field("dwWant", &self.dwWant).field("dwBlock", &self.dwBlock).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GESTURECONFIG {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GESTURECONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTURECONFIG>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GESTURECONFIG {}
-impl ::core::default::Default for GESTURECONFIG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GESTURECONFIG_ID(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_ZOOM: GESTURECONFIG_ID = GESTURECONFIG_ID(3u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_PAN: GESTURECONFIG_ID = GESTURECONFIG_ID(4u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
-impl ::core::marker::Copy for GESTURECONFIG_ID {}
-impl ::core::clone::Clone for GESTURECONFIG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GESTURECONFIG_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GESTURECONFIG_ID {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GESTURECONFIG_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GESTURECONFIG_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GESTURECONFIG_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GESTURECONFIG_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GESTURECONFIG_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GESTURECONFIG_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GESTURECONFIG_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct GESTUREINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwID: u32,
-    pub hwndTarget: super::super::super::Foundation::HWND,
-    pub ptsLocation: super::super::super::Foundation::POINTS,
-    pub dwInstanceID: u32,
-    pub dwSequenceID: u32,
-    pub ullArguments: u64,
-    pub cbExtraArgs: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for GESTUREINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for GESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GESTUREINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GESTUREINFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwID", &self.dwID).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).field("dwSequenceID", &self.dwSequenceID).field("ullArguments", &self.ullArguments).field("cbExtraArgs", &self.cbExtraArgs).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GESTUREINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GESTUREINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTUREINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GESTUREINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GESTUREINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct GESTURENOTIFYSTRUCT {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub hwndTarget: super::super::super::Foundation::HWND,
-    pub ptsLocation: super::super::super::Foundation::POINTS,
-    pub dwInstanceID: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for GESTURENOTIFYSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GESTURENOTIFYSTRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GESTURENOTIFYSTRUCT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GESTURENOTIFYSTRUCT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GESTURENOTIFYSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTURENOTIFYSTRUCT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GESTURENOTIFYSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GESTURENOTIFYSTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -263,69 +76,57 @@ where
     }
     GetTouchInputInfo(htouchinput.into(), pinputs.len() as _, ::core::mem::transmute(pinputs.as_ptr()), cbsize)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HGESTUREINFO(pub isize);
-impl HGESTUREINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsTouchWindow<'a, P0>(hwnd: P0, pulflags: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: *mut u32) -> super::super::super::Foundation::BOOL;
     }
+    IsTouchWindow(hwnd.into(), ::core::mem::transmute(pulflags))
 }
-impl ::core::default::Default for HGESTUREINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RegisterTouchWindow<'a, P0>(hwnd: P0, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL;
     }
+    RegisterTouchWindow(hwnd.into(), ulflags)
 }
-impl ::core::clone::Clone for HGESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetGestureConfig<'a, P0>(hwnd: P0, dwreserved: u32, pgestureconfig: &[GESTURECONFIG], cbsize: u32) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
     }
+    SetGestureConfig(hwnd.into(), dwreserved, pgestureconfig.len() as _, ::core::mem::transmute(pgestureconfig.as_ptr()), cbsize)
 }
-impl ::core::marker::Copy for HGESTUREINFO {}
-impl ::core::fmt::Debug for HGESTUREINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HGESTUREINFO").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UnregisterTouchWindow<'a, P0>(hwnd: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
     }
-}
-impl ::core::convert::From<::core::option::Option<HGESTUREINFO>> for HGESTUREINFO {
-    fn from(optional: ::core::option::Option<HGESTUREINFO>) -> HGESTUREINFO {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HGESTUREINFO {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HTOUCHINPUT(pub isize);
-impl HTOUCHINPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HTOUCHINPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HTOUCHINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HTOUCHINPUT {}
-impl ::core::fmt::Debug for HTOUCHINPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HTOUCHINPUT").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HTOUCHINPUT>> for HTOUCHINPUT {
-    fn from(optional: ::core::option::Option<HTOUCHINPUT>) -> HTOUCHINPUT {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HTOUCHINPUT {
-    type Abi = Self;
+    UnregisterTouchWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -740,19 +541,131 @@ pub struct IManipulationProcessor_Vtbl {
     pub MinimumScaleRotateRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minradius: *mut f32) -> ::windows::core::HRESULT,
     pub SetMinimumScaleRotateRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minradius: f32) -> ::windows::core::HRESULT,
 }
-pub const InertiaProcessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsTouchWindow<'a, P0>(hwnd: P0, pulflags: ::core::option::Option<&mut u32>) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: *mut u32) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+#[repr(transparent)]
+pub struct _IManipulationEvents(::windows::core::IUnknown);
+impl _IManipulationEvents {
+    pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ManipulationStarted)(::windows::core::Interface::as_raw(self), x, y).ok()
     }
-    IsTouchWindow(hwnd.into(), ::core::mem::transmute(pulflags))
+    pub unsafe fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ManipulationDelta)(::windows::core::Interface::as_raw(self), x, y, translationdeltax, translationdeltay, scaledelta, expansiondelta, rotationdelta, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
+    }
+    pub unsafe fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ManipulationCompleted)(::windows::core::Interface::as_raw(self), x, y, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
+    }
+}
+impl ::core::convert::From<_IManipulationEvents> for ::windows::core::IUnknown {
+    fn from(value: _IManipulationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a _IManipulationEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IManipulationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&_IManipulationEvents> for ::windows::core::IUnknown {
+    fn from(value: &_IManipulationEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for _IManipulationEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for _IManipulationEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for _IManipulationEvents {}
+impl ::core::fmt::Debug for _IManipulationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IManipulationEvents").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for _IManipulationEvents {
+    type Vtable = _IManipulationEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IManipulationEvents_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub ManipulationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32) -> ::windows::core::HRESULT,
+    pub ManipulationDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
+    pub ManipulationCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
+}
+pub const InertiaProcessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
+pub const ManipulationProcessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GESTURECONFIG_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_ZOOM: GESTURECONFIG_ID = GESTURECONFIG_ID(3u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_PAN: GESTURECONFIG_ID = GESTURECONFIG_ID(4u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
+pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
+impl ::core::marker::Copy for GESTURECONFIG_ID {}
+impl ::core::clone::Clone for GESTURECONFIG_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GESTURECONFIG_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GESTURECONFIG_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GESTURECONFIG_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GESTURECONFIG_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GESTURECONFIG_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GESTURECONFIG_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GESTURECONFIG_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GESTURECONFIG_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GESTURECONFIG_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -789,7 +702,6 @@ impl ::core::fmt::Debug for MANIPULATION_PROCESSOR_MANIPULATIONS {
         f.debug_tuple("MANIPULATION_PROCESSOR_MANIPULATIONS").field(&self.0).finish()
     }
 }
-pub const ManipulationProcessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -816,32 +728,6 @@ impl ::core::fmt::Debug for REGISTER_TOUCH_WINDOW_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REGISTER_TOUCH_WINDOW_FLAGS").field(&self.0).finish()
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RegisterTouchWindow<'a, P0>(hwnd: P0, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL;
-    }
-    RegisterTouchWindow(hwnd.into(), ulflags)
-}
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetGestureConfig<'a, P0>(hwnd: P0, dwreserved: u32, pgestureconfig: &[GESTURECONFIG], cbsize: u32) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
-    }
-    SetGestureConfig(hwnd.into(), dwreserved, pgestureconfig.len() as _, ::core::mem::transmute(pgestureconfig.as_ptr()), cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -910,53 +796,6 @@ impl ::core::ops::Not for TOUCHEVENTF_FLAGS {
         Self(self.0.not())
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TOUCHINPUT {
-    pub x: i32,
-    pub y: i32,
-    pub hSource: super::super::super::Foundation::HANDLE,
-    pub dwID: u32,
-    pub dwFlags: TOUCHEVENTF_FLAGS,
-    pub dwMask: TOUCHINPUTMASKF_MASK,
-    pub dwTime: u32,
-    pub dwExtraInfo: usize,
-    pub cxContact: u32,
-    pub cyContact: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TOUCHINPUT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TOUCHINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TOUCHINPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TOUCHINPUT").field("x", &self.x).field("y", &self.y).field("hSource", &self.hSource).field("dwID", &self.dwID).field("dwFlags", &self.dwFlags).field("dwMask", &self.dwMask).field("dwTime", &self.dwTime).field("dwExtraInfo", &self.dwExtraInfo).field("cxContact", &self.cxContact).field("cyContact", &self.cyContact).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TOUCHINPUT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TOUCHINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOUCHINPUT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TOUCHINPUT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TOUCHINPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1014,75 +853,236 @@ impl ::core::ops::Not for TOUCHINPUTMASKF_MASK {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UnregisterTouchWindow<'a, P0>(hwnd: P0) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
-    }
-    UnregisterTouchWindow(hwnd.into())
-}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-#[repr(transparent)]
-pub struct _IManipulationEvents(::windows::core::IUnknown);
-impl _IManipulationEvents {
-    pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ManipulationStarted)(::windows::core::Interface::as_raw(self), x, y).ok()
-    }
-    pub unsafe fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ManipulationDelta)(::windows::core::Interface::as_raw(self), x, y, translationdeltax, translationdeltay, scaledelta, expansiondelta, rotationdelta, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
-    }
-    pub unsafe fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ManipulationCompleted)(::windows::core::Interface::as_raw(self), x, y, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
-    }
+pub struct GESTURECONFIG {
+    pub dwID: GESTURECONFIG_ID,
+    pub dwWant: u32,
+    pub dwBlock: u32,
 }
-impl ::core::convert::From<_IManipulationEvents> for ::windows::core::IUnknown {
-    fn from(value: _IManipulationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a _IManipulationEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _IManipulationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&_IManipulationEvents> for ::windows::core::IUnknown {
-    fn from(value: &_IManipulationEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for _IManipulationEvents {
+impl ::core::marker::Copy for GESTURECONFIG {}
+impl ::core::clone::Clone for GESTURECONFIG {
     fn clone(&self) -> Self {
-        Self(self.0.clone())
+        *self
     }
 }
-impl ::core::cmp::PartialEq for _IManipulationEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for _IManipulationEvents {}
-impl ::core::fmt::Debug for _IManipulationEvents {
+impl ::core::fmt::Debug for GESTURECONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IManipulationEvents").field(&self.0).finish()
+        f.debug_struct("GESTURECONFIG").field("dwID", &self.dwID).field("dwWant", &self.dwWant).field("dwBlock", &self.dwBlock).finish()
     }
 }
-unsafe impl ::windows::core::Interface for _IManipulationEvents {
-    type Vtable = _IManipulationEvents_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);
+unsafe impl ::windows::core::Abi for GESTURECONFIG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GESTURECONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTURECONFIG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GESTURECONFIG {}
+impl ::core::default::Default for GESTURECONFIG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
-#[doc(hidden)]
-pub struct _IManipulationEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub ManipulationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32) -> ::windows::core::HRESULT,
-    pub ManipulationDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
-    pub ManipulationCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GESTUREINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwID: u32,
+    pub hwndTarget: super::super::super::Foundation::HWND,
+    pub ptsLocation: super::super::super::Foundation::POINTS,
+    pub dwInstanceID: u32,
+    pub dwSequenceID: u32,
+    pub ullArguments: u64,
+    pub cbExtraArgs: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GESTUREINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GESTUREINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GESTUREINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GESTUREINFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwID", &self.dwID).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).field("dwSequenceID", &self.dwSequenceID).field("ullArguments", &self.ullArguments).field("cbExtraArgs", &self.cbExtraArgs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for GESTUREINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for GESTUREINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTUREINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for GESTUREINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for GESTUREINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GESTURENOTIFYSTRUCT {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub hwndTarget: super::super::super::Foundation::HWND,
+    pub ptsLocation: super::super::super::Foundation::POINTS,
+    pub dwInstanceID: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GESTURENOTIFYSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GESTURENOTIFYSTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GESTURENOTIFYSTRUCT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for GESTURENOTIFYSTRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for GESTURENOTIFYSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTURENOTIFYSTRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for GESTURENOTIFYSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for GESTURENOTIFYSTRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HGESTUREINFO(pub isize);
+impl HGESTUREINFO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HGESTUREINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HGESTUREINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HGESTUREINFO {}
+impl ::core::fmt::Debug for HGESTUREINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HGESTUREINFO").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HGESTUREINFO>> for HGESTUREINFO {
+    fn from(optional: ::core::option::Option<HGESTUREINFO>) -> HGESTUREINFO {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HGESTUREINFO {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HTOUCHINPUT(pub isize);
+impl HTOUCHINPUT {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HTOUCHINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HTOUCHINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HTOUCHINPUT {}
+impl ::core::fmt::Debug for HTOUCHINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTOUCHINPUT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HTOUCHINPUT>> for HTOUCHINPUT {
+    fn from(optional: ::core::option::Option<HTOUCHINPUT>) -> HTOUCHINPUT {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HTOUCHINPUT {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOUCHINPUT {
+    pub x: i32,
+    pub y: i32,
+    pub hSource: super::super::super::Foundation::HANDLE,
+    pub dwID: u32,
+    pub dwFlags: TOUCHEVENTF_FLAGS,
+    pub dwMask: TOUCHINPUTMASKF_MASK,
+    pub dwTime: u32,
+    pub dwExtraInfo: usize,
+    pub cxContact: u32,
+    pub cyContact: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOUCHINPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOUCHINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TOUCHINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOUCHINPUT").field("x", &self.x).field("y", &self.y).field("hSource", &self.hSource).field("dwID", &self.dwID).field("dwFlags", &self.dwFlags).field("dwMask", &self.dwMask).field("dwTime", &self.dwTime).field("dwExtraInfo", &self.dwExtraInfo).field("cxContact", &self.cxContact).field("cyContact", &self.cyContact).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TOUCHINPUT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TOUCHINPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOUCHINPUT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TOUCHINPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TOUCHINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

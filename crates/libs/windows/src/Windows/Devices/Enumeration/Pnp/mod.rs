@@ -478,47 +478,6 @@ unsafe impl ::core::marker::Send for PnpObjectCollection {}
 unsafe impl ::core::marker::Sync for PnpObjectCollection {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PnpObjectType(pub i32);
-impl PnpObjectType {
-    pub const Unknown: Self = Self(0i32);
-    pub const DeviceInterface: Self = Self(1i32);
-    pub const DeviceContainer: Self = Self(2i32);
-    pub const Device: Self = Self(3i32);
-    pub const DeviceInterfaceClass: Self = Self(4i32);
-    pub const AssociationEndpoint: Self = Self(5i32);
-    pub const AssociationEndpointContainer: Self = Self(6i32);
-    pub const AssociationEndpointService: Self = Self(7i32);
-    pub const DevicePanel: Self = Self(8i32);
-}
-impl ::core::marker::Copy for PnpObjectType {}
-impl ::core::clone::Clone for PnpObjectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PnpObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PnpObjectType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PnpObjectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PnpObjectType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
-#[repr(transparent)]
 pub struct PnpObjectUpdate(::windows::core::IUnknown);
 impl PnpObjectUpdate {
     pub fn Type(&self) -> ::windows::core::Result<PnpObjectType> {
@@ -779,5 +738,46 @@ impl ::core::convert::From<&PnpObjectWatcher> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for PnpObjectWatcher {}
 unsafe impl ::core::marker::Sync for PnpObjectWatcher {}
+#[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PnpObjectType(pub i32);
+impl PnpObjectType {
+    pub const Unknown: Self = Self(0i32);
+    pub const DeviceInterface: Self = Self(1i32);
+    pub const DeviceContainer: Self = Self(2i32);
+    pub const Device: Self = Self(3i32);
+    pub const DeviceInterfaceClass: Self = Self(4i32);
+    pub const AssociationEndpoint: Self = Self(5i32);
+    pub const AssociationEndpointContainer: Self = Self(6i32);
+    pub const AssociationEndpointService: Self = Self(7i32);
+    pub const DevicePanel: Self = Self(8i32);
+}
+impl ::core::marker::Copy for PnpObjectType {}
+impl ::core::clone::Clone for PnpObjectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PnpObjectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PnpObjectType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PnpObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PnpObjectType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PnpObjectType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,152 +1,3 @@
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHNEXTSTEP(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
-impl ::core::marker::Copy for AUTHNEXTSTEP {}
-impl ::core::clone::Clone for AUTHNEXTSTEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHNEXTSTEP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHNEXTSTEP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHNEXTSTEP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHNEXTSTEP").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DAV_AUTHN_SCHEME_FBA: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub struct DAV_CALLBACK_AUTH_BLOB {
-    pub pBuffer: *mut ::core::ffi::c_void,
-    pub ulSize: u32,
-    pub ulType: u32,
-}
-impl ::core::marker::Copy for DAV_CALLBACK_AUTH_BLOB {}
-impl ::core::clone::Clone for DAV_CALLBACK_AUTH_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_BLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_BLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
-impl ::core::default::Default for DAV_CALLBACK_AUTH_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub struct DAV_CALLBACK_AUTH_UNP {
-    pub pszUserName: ::windows::core::PWSTR,
-    pub ulUserNameLength: u32,
-    pub pszPassword: ::windows::core::PWSTR,
-    pub ulPasswordLength: u32,
-}
-impl ::core::marker::Copy for DAV_CALLBACK_AUTH_UNP {}
-impl ::core::clone::Clone for DAV_CALLBACK_AUTH_UNP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_UNP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_UNP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
-impl ::core::default::Default for DAV_CALLBACK_AUTH_UNP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DAV_CALLBACK_CRED {
-    pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
-    pub UNPBlob: DAV_CALLBACK_AUTH_UNP,
-    pub bAuthBlobValid: super::super::Foundation::BOOL,
-    pub bSave: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DAV_CALLBACK_CRED {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DAV_CALLBACK_CRED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DAV_CALLBACK_CRED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DAV_CALLBACK_CRED").field("AuthBlob", &self.AuthBlob).field("UNPBlob", &self.UNPBlob).field("bAuthBlobValid", &self.bAuthBlobValid).field("bSave", &self.bSave).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_CRED {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DAV_CALLBACK_CRED {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_CRED>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DAV_CALLBACK_CRED {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DAV_CALLBACK_CRED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -281,6 +132,155 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
         fn DavUnregisterAuthCallback(hcallback: u32);
     }
     DavUnregisterAuthCallback(hcallback)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DAV_AUTHN_SCHEME_FBA: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHNEXTSTEP(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
+impl ::core::marker::Copy for AUTHNEXTSTEP {}
+impl ::core::clone::Clone for AUTHNEXTSTEP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHNEXTSTEP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHNEXTSTEP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHNEXTSTEP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHNEXTSTEP").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub struct DAV_CALLBACK_AUTH_BLOB {
+    pub pBuffer: *mut ::core::ffi::c_void,
+    pub ulSize: u32,
+    pub ulType: u32,
+}
+impl ::core::marker::Copy for DAV_CALLBACK_AUTH_BLOB {}
+impl ::core::clone::Clone for DAV_CALLBACK_AUTH_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
+impl ::core::default::Default for DAV_CALLBACK_AUTH_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub struct DAV_CALLBACK_AUTH_UNP {
+    pub pszUserName: ::windows::core::PWSTR,
+    pub ulUserNameLength: u32,
+    pub pszPassword: ::windows::core::PWSTR,
+    pub ulPasswordLength: u32,
+}
+impl ::core::marker::Copy for DAV_CALLBACK_AUTH_UNP {}
+impl ::core::clone::Clone for DAV_CALLBACK_AUTH_UNP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_UNP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_UNP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
+impl ::core::default::Default for DAV_CALLBACK_AUTH_UNP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DAV_CALLBACK_CRED {
+    pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
+    pub UNPBlob: DAV_CALLBACK_AUTH_UNP,
+    pub bAuthBlobValid: super::super::Foundation::BOOL,
+    pub bSave: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DAV_CALLBACK_CRED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DAV_CALLBACK_CRED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DAV_CALLBACK_CRED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAV_CALLBACK_CRED").field("AuthBlob", &self.AuthBlob).field("UNPBlob", &self.UNPBlob).field("bAuthBlobValid", &self.bAuthBlobValid).field("bSave", &self.bSave).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DAV_CALLBACK_CRED {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DAV_CALLBACK_CRED {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_CRED>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DAV_CALLBACK_CRED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DAV_CALLBACK_CRED {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

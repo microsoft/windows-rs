@@ -1,1372 +1,5 @@
 #[cfg(feature = "Management_Deployment_Preview")]
 pub mod Preview;
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AddPackageByAppInstallerOptions(pub u32);
-impl AddPackageByAppInstallerOptions {
-    pub const None: Self = Self(0u32);
-    pub const InstallAllResources: Self = Self(32u32);
-    pub const ForceTargetAppShutdown: Self = Self(64u32);
-    pub const RequiredContentGroupOnly: Self = Self(256u32);
-    pub const LimitToExistingPackages: Self = Self(512u32);
-}
-impl ::core::marker::Copy for AddPackageByAppInstallerOptions {}
-impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AddPackageByAppInstallerOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AddPackageByAppInstallerOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AddPackageByAppInstallerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddPackageByAppInstallerOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AddPackageByAppInstallerOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AddPackageByAppInstallerOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AddPackageByAppInstallerOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AddPackageByAppInstallerOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AddPackageByAppInstallerOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AddPackageByAppInstallerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.AddPackageByAppInstallerOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct AddPackageOptions(::windows::core::IUnknown);
-impl AddPackageOptions {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AddPackageOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DependencyPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
-        }
-    }
-    pub fn TargetVolume(&self) -> ::windows::core::Result<PackageVolume> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TargetVolume)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PackageVolume>(result__)
-        }
-    }
-    pub fn SetTargetVolume<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageFamilyNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RelatedPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RelatedPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ExternalLocationUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetExternalLocationUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
-    }
-    pub fn StubPackageOption(&self) -> ::windows::core::Result<StubPackageOption> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StubPackageOption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StubPackageOption>(result__)
-        }
-    }
-    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeveloperMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetDeveloperMode(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ForceTargetAppShutdown(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetForceTargetAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn InstallAllResources(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InstallAllResources)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetInstallAllResources(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RequiredContentGroupOnly(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetRequiredContentGroupOnly(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RetainFilesOnFailure(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RetainFilesOnFailure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetRetainFilesOnFailure(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRetainFilesOnFailure)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn StageInPlace(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StageInPlace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetStageInPlace(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AllowUnsigned(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AllowUnsigned)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for AddPackageOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AddPackageOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AddPackageOptions {}
-impl ::core::fmt::Debug for AddPackageOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddPackageOptions").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AddPackageOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AddPackageOptions;{05cee018-f68f-422b-95a4-66679ec77fc0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AddPackageOptions {
-    type Vtable = IAddPackageOptions_Vtbl;
-    const IID: ::windows::core::GUID = <IAddPackageOptions as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AddPackageOptions {
-    const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
-}
-impl ::core::convert::From<AddPackageOptions> for ::windows::core::IUnknown {
-    fn from(value: AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IUnknown {
-    fn from(value: &AddPackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IUnknown {
-    fn from(value: &AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AddPackageOptions> for ::windows::core::IInspectable {
-    fn from(value: AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IInspectable {
-    fn from(value: &AddPackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IInspectable {
-    fn from(value: &AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AddPackageOptions {}
-unsafe impl ::core::marker::Sync for AddPackageOptions {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct AppInstallerManager(::windows::core::IUnknown);
-impl AppInstallerManager {
-    pub fn SetAutoUpdateSettings<'a, P0>(&self, packagefamilyname: &::windows::core::HSTRING, appinstallerinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AutoUpdateSettingsOptions>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), appinstallerinfo.into().abi()).ok() }
-    }
-    pub fn ClearAutoUpdateSettings(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ClearAutoUpdateSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PauseAutoUpdatesUntil(&self, packagefamilyname: &::windows::core::HSTRING, datetime: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PauseAutoUpdatesUntil)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), datetime).ok() }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<AppInstallerManager> {
-        Self::IAppInstallerManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppInstallerManager>(result__)
-        })
-    }
-    pub fn GetForSystem() -> ::windows::core::Result<AppInstallerManager> {
-        Self::IAppInstallerManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppInstallerManager>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAppInstallerManagerStatics<R, F: FnOnce(&IAppInstallerManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AppInstallerManager, IAppInstallerManagerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for AppInstallerManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppInstallerManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInstallerManager {}
-impl ::core::fmt::Debug for AppInstallerManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppInstallerManager").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppInstallerManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AppInstallerManager;{e7ee21c3-2103-53ee-9b18-68afeab0033d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AppInstallerManager {
-    type Vtable = IAppInstallerManager_Vtbl;
-    const IID: ::windows::core::GUID = <IAppInstallerManager as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AppInstallerManager {
-    const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
-}
-impl ::core::convert::From<AppInstallerManager> for ::windows::core::IUnknown {
-    fn from(value: AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IUnknown {
-    fn from(value: &AppInstallerManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IUnknown {
-    fn from(value: &AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppInstallerManager> for ::windows::core::IInspectable {
-    fn from(value: AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IInspectable {
-    fn from(value: &AppInstallerManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IInspectable {
-    fn from(value: &AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AppInstallerManager {}
-unsafe impl ::core::marker::Sync for AppInstallerManager {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct AutoUpdateSettingsOptions(::windows::core::IUnknown);
-impl AutoUpdateSettingsOptions {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AutoUpdateSettingsOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc = "*Required features: `\"ApplicationModel\"`*"]
-    #[cfg(feature = "ApplicationModel")]
-    pub fn Version(&self) -> ::windows::core::Result<super::super::ApplicationModel::PackageVersion> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::PackageVersion>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel\"`*"]
-    #[cfg(feature = "ApplicationModel")]
-    pub fn SetVersion(&self, value: super::super::ApplicationModel::PackageVersion) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AppInstallerUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AppInstallerUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetAppInstallerUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppInstallerUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
-    }
-    pub fn OnLaunch(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OnLaunch)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetOnLaunch(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOnLaunch)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn HoursBetweenUpdateChecks(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HoursBetweenUpdateChecks)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetHoursBetweenUpdateChecks(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHoursBetweenUpdateChecks)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ShowPrompt(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ShowPrompt)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetShowPrompt(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShowPrompt)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn UpdateBlocksActivation(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateBlocksActivation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetUpdateBlocksActivation(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUpdateBlocksActivation)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AutomaticBackgroundTask(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AutomaticBackgroundTask)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAutomaticBackgroundTask(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutomaticBackgroundTask)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsAutoRepairEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsAutoRepairEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAutoRepairEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsAutoRepairEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RepairUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RepairUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DependencyPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn OptionalPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel\"`*"]
-    #[cfg(feature = "ApplicationModel")]
-    pub fn CreateFromAppInstallerInfo<'a, P0>(appinstallerinfo: P0) -> ::windows::core::Result<AutoUpdateSettingsOptions>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::AppInstallerInfo>>,
-    {
-        Self::IAutoUpdateSettingsOptionsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromAppInstallerInfo)(::windows::core::Interface::as_raw(this), appinstallerinfo.into().abi(), result__.as_mut_ptr()).from_abi::<AutoUpdateSettingsOptions>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAutoUpdateSettingsOptionsStatics<R, F: FnOnce(&IAutoUpdateSettingsOptionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AutoUpdateSettingsOptions, IAutoUpdateSettingsOptionsStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for AutoUpdateSettingsOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AutoUpdateSettingsOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutoUpdateSettingsOptions {}
-impl ::core::fmt::Debug for AutoUpdateSettingsOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutoUpdateSettingsOptions").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AutoUpdateSettingsOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AutoUpdateSettingsOptions;{67491d87-35e1-512a-8968-1ae88d1be6d3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AutoUpdateSettingsOptions {
-    type Vtable = IAutoUpdateSettingsOptions_Vtbl;
-    const IID: ::windows::core::GUID = <IAutoUpdateSettingsOptions as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AutoUpdateSettingsOptions {
-    const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
-}
-impl ::core::convert::From<AutoUpdateSettingsOptions> for ::windows::core::IUnknown {
-    fn from(value: AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IUnknown {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IUnknown {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutoUpdateSettingsOptions> for ::windows::core::IInspectable {
-    fn from(value: AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IInspectable {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IInspectable {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AutoUpdateSettingsOptions {}
-unsafe impl ::core::marker::Sync for AutoUpdateSettingsOptions {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct CreateSharedPackageContainerOptions(::windows::core::IUnknown);
-impl CreateSharedPackageContainerOptions {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CreateSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Members(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Members)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
-        }
-    }
-    pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn CreateCollisionOption(&self) -> ::windows::core::Result<SharedPackageContainerCreationCollisionOptions> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCollisionOption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainerCreationCollisionOptions>(result__)
-        }
-    }
-    pub fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCreateCollisionOption)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for CreateSharedPackageContainerOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CreateSharedPackageContainerOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateSharedPackageContainerOptions {}
-impl ::core::fmt::Debug for CreateSharedPackageContainerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateSharedPackageContainerOptions").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerOptions;{c2ab6ece-f664-5c8e-a4b3-2a33276d3dde})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CreateSharedPackageContainerOptions {
-    type Vtable = ICreateSharedPackageContainerOptions_Vtbl;
-    const IID: ::windows::core::GUID = <ICreateSharedPackageContainerOptions as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CreateSharedPackageContainerOptions {
-    const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
-}
-impl ::core::convert::From<CreateSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CreateSharedPackageContainerOptions {}
-unsafe impl ::core::marker::Sync for CreateSharedPackageContainerOptions {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct CreateSharedPackageContainerResult(::windows::core::IUnknown);
-impl CreateSharedPackageContainerResult {
-    pub fn Container(&self) -> ::windows::core::Result<SharedPackageContainer> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainer>(result__)
-        }
-    }
-    pub fn Status(&self) -> ::windows::core::Result<SharedPackageContainerOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainerOperationStatus>(result__)
-        }
-    }
-    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CreateSharedPackageContainerResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CreateSharedPackageContainerResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateSharedPackageContainerResult {}
-impl ::core::fmt::Debug for CreateSharedPackageContainerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateSharedPackageContainerResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerResult;{ce8810bf-151c-5707-b936-497e564afc7a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CreateSharedPackageContainerResult {
-    type Vtable = ICreateSharedPackageContainerResult_Vtbl;
-    const IID: ::windows::core::GUID = <ICreateSharedPackageContainerResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CreateSharedPackageContainerResult {
-    const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
-}
-impl ::core::convert::From<CreateSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CreateSharedPackageContainerResult {}
-unsafe impl ::core::marker::Sync for CreateSharedPackageContainerResult {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct DeleteSharedPackageContainerOptions(::windows::core::IUnknown);
-impl DeleteSharedPackageContainerOptions {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeleteSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AllUsers(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AllUsers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllUsers(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllUsers)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for DeleteSharedPackageContainerOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeleteSharedPackageContainerOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeleteSharedPackageContainerOptions {}
-impl ::core::fmt::Debug for DeleteSharedPackageContainerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeleteSharedPackageContainerOptions").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerOptions;{9d81865f-986e-5138-8b5d-384d8e66ed6c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerOptions {
-    type Vtable = IDeleteSharedPackageContainerOptions_Vtbl;
-    const IID: ::windows::core::GUID = <IDeleteSharedPackageContainerOptions as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DeleteSharedPackageContainerOptions {
-    const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
-}
-impl ::core::convert::From<DeleteSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeleteSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DeleteSharedPackageContainerOptions {}
-unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerOptions {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct DeleteSharedPackageContainerResult(::windows::core::IUnknown);
-impl DeleteSharedPackageContainerResult {
-    pub fn Status(&self) -> ::windows::core::Result<SharedPackageContainerOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainerOperationStatus>(result__)
-        }
-    }
-    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DeleteSharedPackageContainerResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeleteSharedPackageContainerResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeleteSharedPackageContainerResult {}
-impl ::core::fmt::Debug for DeleteSharedPackageContainerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeleteSharedPackageContainerResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerResult;{35398884-5736-517b-85bc-e598c81ab284})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerResult {
-    type Vtable = IDeleteSharedPackageContainerResult_Vtbl;
-    const IID: ::windows::core::GUID = <IDeleteSharedPackageContainerResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DeleteSharedPackageContainerResult {
-    const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
-}
-impl ::core::convert::From<DeleteSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeleteSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
-unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerResult {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DeploymentOptions(pub u32);
-impl DeploymentOptions {
-    pub const None: Self = Self(0u32);
-    pub const ForceApplicationShutdown: Self = Self(1u32);
-    pub const DevelopmentMode: Self = Self(2u32);
-    pub const InstallAllResources: Self = Self(32u32);
-    pub const ForceTargetApplicationShutdown: Self = Self(64u32);
-    pub const RequiredContentGroupOnly: Self = Self(256u32);
-    pub const ForceUpdateFromAnyVersion: Self = Self(262144u32);
-    pub const RetainFilesOnFailure: Self = Self(2097152u32);
-    pub const StageInPlace: Self = Self(4194304u32);
-}
-impl ::core::marker::Copy for DeploymentOptions {}
-impl ::core::clone::Clone for DeploymentOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeploymentOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DeploymentOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DeploymentOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeploymentOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DeploymentOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DeploymentOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DeploymentOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DeploymentOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DeploymentOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeploymentOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-pub struct DeploymentProgress {
-    pub state: DeploymentProgressState,
-    pub percentage: u32,
-}
-impl ::core::marker::Copy for DeploymentProgress {}
-impl ::core::clone::Clone for DeploymentProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DeploymentProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DeploymentProgress").field("state", &self.state).field("percentage", &self.percentage).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DeploymentProgress {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for DeploymentProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Management.Deployment.DeploymentProgress;enum(Windows.Management.Deployment.DeploymentProgressState;i4);u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for DeploymentProgress {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DeploymentProgress>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DeploymentProgress {}
-impl ::core::default::Default for DeploymentProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DeploymentProgressState(pub i32);
-impl DeploymentProgressState {
-    pub const Queued: Self = Self(0i32);
-    pub const Processing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DeploymentProgressState {}
-impl ::core::clone::Clone for DeploymentProgressState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeploymentProgressState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DeploymentProgressState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DeploymentProgressState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeploymentProgressState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeploymentProgressState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct DeploymentResult(::windows::core::IUnknown);
-impl DeploymentResult {
-    pub fn ErrorText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
-        }
-    }
-    pub fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
-        }
-    }
-    pub fn IsRegistered(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IDeploymentResult2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsRegistered)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DeploymentResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeploymentResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeploymentResult {}
-impl ::core::fmt::Debug for DeploymentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeploymentResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeploymentResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeploymentResult;{2563b9ae-b77d-4c1f-8a7b-20e6ad515ef3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DeploymentResult {
-    type Vtable = IDeploymentResult_Vtbl;
-    const IID: ::windows::core::GUID = <IDeploymentResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DeploymentResult {
-    const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
-}
-impl ::core::convert::From<DeploymentResult> for ::windows::core::IUnknown {
-    fn from(value: DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for ::windows::core::IUnknown {
-    fn from(value: &DeploymentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for &::windows::core::IUnknown {
-    fn from(value: &DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeploymentResult> for ::windows::core::IInspectable {
-    fn from(value: DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for ::windows::core::IInspectable {
-    fn from(value: &DeploymentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for &::windows::core::IInspectable {
-    fn from(value: &DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DeploymentResult {}
-unsafe impl ::core::marker::Sync for DeploymentResult {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-pub struct FindSharedPackageContainerOptions(::windows::core::IUnknown);
-impl FindSharedPackageContainerOptions {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FindSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for FindSharedPackageContainerOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FindSharedPackageContainerOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindSharedPackageContainerOptions {}
-impl ::core::fmt::Debug for FindSharedPackageContainerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindSharedPackageContainerOptions").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FindSharedPackageContainerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.FindSharedPackageContainerOptions;{b40fc8fe-8384-54cc-817d-ae09d3b6a606})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FindSharedPackageContainerOptions {
-    type Vtable = IFindSharedPackageContainerOptions_Vtbl;
-    const IID: ::windows::core::GUID = <IFindSharedPackageContainerOptions as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FindSharedPackageContainerOptions {
-    const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
-}
-impl ::core::convert::From<FindSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IUnknown {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FindSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IInspectable {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for FindSharedPackageContainerOptions {}
-unsafe impl ::core::marker::Sync for FindSharedPackageContainerOptions {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAddPackageOptions(::windows::core::IUnknown);
@@ -2343,6 +976,1167 @@ pub struct IUpdateSharedPackageContainerResult_Vtbl {
 }
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
+pub struct AddPackageOptions(::windows::core::IUnknown);
+impl AddPackageOptions {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AddPackageOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DependencyPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+        }
+    }
+    pub fn TargetVolume(&self) -> ::windows::core::Result<PackageVolume> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TargetVolume)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PackageVolume>(result__)
+        }
+    }
+    pub fn SetTargetVolume<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn OptionalPackageFamilyNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn OptionalPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RelatedPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RelatedPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ExternalLocationUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetExternalLocationUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+    }
+    pub fn StubPackageOption(&self) -> ::windows::core::Result<StubPackageOption> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StubPackageOption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StubPackageOption>(result__)
+        }
+    }
+    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeveloperMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetDeveloperMode(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ForceTargetAppShutdown(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetForceTargetAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn InstallAllResources(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).InstallAllResources)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetInstallAllResources(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RequiredContentGroupOnly(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetRequiredContentGroupOnly(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetRequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RetainFilesOnFailure(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RetainFilesOnFailure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetRetainFilesOnFailure(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetRetainFilesOnFailure)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn StageInPlace(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StageInPlace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetStageInPlace(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AllowUnsigned(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AllowUnsigned)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for AddPackageOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AddPackageOptions {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AddPackageOptions {}
+impl ::core::fmt::Debug for AddPackageOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddPackageOptions").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AddPackageOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AddPackageOptions;{05cee018-f68f-422b-95a4-66679ec77fc0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AddPackageOptions {
+    type Vtable = IAddPackageOptions_Vtbl;
+    const IID: ::windows::core::GUID = <IAddPackageOptions as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AddPackageOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
+}
+impl ::core::convert::From<AddPackageOptions> for ::windows::core::IUnknown {
+    fn from(value: AddPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IUnknown {
+    fn from(value: &AddPackageOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IUnknown {
+    fn from(value: &AddPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AddPackageOptions> for ::windows::core::IInspectable {
+    fn from(value: AddPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IInspectable {
+    fn from(value: &AddPackageOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IInspectable {
+    fn from(value: &AddPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AddPackageOptions {}
+unsafe impl ::core::marker::Sync for AddPackageOptions {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct AppInstallerManager(::windows::core::IUnknown);
+impl AppInstallerManager {
+    pub fn SetAutoUpdateSettings<'a, P0>(&self, packagefamilyname: &::windows::core::HSTRING, appinstallerinfo: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AutoUpdateSettingsOptions>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), appinstallerinfo.into().abi()).ok() }
+    }
+    pub fn ClearAutoUpdateSettings(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).ClearAutoUpdateSettings)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PauseAutoUpdatesUntil(&self, packagefamilyname: &::windows::core::HSTRING, datetime: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).PauseAutoUpdatesUntil)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), datetime).ok() }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<AppInstallerManager> {
+        Self::IAppInstallerManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppInstallerManager>(result__)
+        })
+    }
+    pub fn GetForSystem() -> ::windows::core::Result<AppInstallerManager> {
+        Self::IAppInstallerManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetForSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppInstallerManager>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAppInstallerManagerStatics<R, F: FnOnce(&IAppInstallerManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AppInstallerManager, IAppInstallerManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for AppInstallerManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppInstallerManager {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppInstallerManager {}
+impl ::core::fmt::Debug for AppInstallerManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallerManager").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppInstallerManager {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AppInstallerManager;{e7ee21c3-2103-53ee-9b18-68afeab0033d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AppInstallerManager {
+    type Vtable = IAppInstallerManager_Vtbl;
+    const IID: ::windows::core::GUID = <IAppInstallerManager as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AppInstallerManager {
+    const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
+}
+impl ::core::convert::From<AppInstallerManager> for ::windows::core::IUnknown {
+    fn from(value: AppInstallerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IUnknown {
+    fn from(value: &AppInstallerManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IUnknown {
+    fn from(value: &AppInstallerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AppInstallerManager> for ::windows::core::IInspectable {
+    fn from(value: AppInstallerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IInspectable {
+    fn from(value: &AppInstallerManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IInspectable {
+    fn from(value: &AppInstallerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AppInstallerManager {}
+unsafe impl ::core::marker::Sync for AppInstallerManager {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct AutoUpdateSettingsOptions(::windows::core::IUnknown);
+impl AutoUpdateSettingsOptions {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AutoUpdateSettingsOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc = "*Required features: `\"ApplicationModel\"`*"]
+    #[cfg(feature = "ApplicationModel")]
+    pub fn Version(&self) -> ::windows::core::Result<super::super::ApplicationModel::PackageVersion> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::PackageVersion>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel\"`*"]
+    #[cfg(feature = "ApplicationModel")]
+    pub fn SetVersion(&self, value: super::super::ApplicationModel::PackageVersion) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AppInstallerUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AppInstallerUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetAppInstallerUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetAppInstallerUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+    }
+    pub fn OnLaunch(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OnLaunch)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetOnLaunch(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetOnLaunch)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn HoursBetweenUpdateChecks(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HoursBetweenUpdateChecks)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetHoursBetweenUpdateChecks(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetHoursBetweenUpdateChecks)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ShowPrompt(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ShowPrompt)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetShowPrompt(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetShowPrompt)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UpdateBlocksActivation(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UpdateBlocksActivation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetUpdateBlocksActivation(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetUpdateBlocksActivation)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AutomaticBackgroundTask(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AutomaticBackgroundTask)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetAutomaticBackgroundTask(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetAutomaticBackgroundTask)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsAutoRepairEnabled(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsAutoRepairEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetIsAutoRepairEnabled(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsAutoRepairEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn UpdateUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UpdateUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RepairUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RepairUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DependencyPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn OptionalPackageUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel\"`*"]
+    #[cfg(feature = "ApplicationModel")]
+    pub fn CreateFromAppInstallerInfo<'a, P0>(appinstallerinfo: P0) -> ::windows::core::Result<AutoUpdateSettingsOptions>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::AppInstallerInfo>>,
+    {
+        Self::IAutoUpdateSettingsOptionsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFromAppInstallerInfo)(::windows::core::Interface::as_raw(this), appinstallerinfo.into().abi(), result__.as_mut_ptr()).from_abi::<AutoUpdateSettingsOptions>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAutoUpdateSettingsOptionsStatics<R, F: FnOnce(&IAutoUpdateSettingsOptionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AutoUpdateSettingsOptions, IAutoUpdateSettingsOptionsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for AutoUpdateSettingsOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AutoUpdateSettingsOptions {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AutoUpdateSettingsOptions {}
+impl ::core::fmt::Debug for AutoUpdateSettingsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoUpdateSettingsOptions").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AutoUpdateSettingsOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AutoUpdateSettingsOptions;{67491d87-35e1-512a-8968-1ae88d1be6d3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AutoUpdateSettingsOptions {
+    type Vtable = IAutoUpdateSettingsOptions_Vtbl;
+    const IID: ::windows::core::GUID = <IAutoUpdateSettingsOptions as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AutoUpdateSettingsOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
+}
+impl ::core::convert::From<AutoUpdateSettingsOptions> for ::windows::core::IUnknown {
+    fn from(value: AutoUpdateSettingsOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IUnknown {
+    fn from(value: &AutoUpdateSettingsOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IUnknown {
+    fn from(value: &AutoUpdateSettingsOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AutoUpdateSettingsOptions> for ::windows::core::IInspectable {
+    fn from(value: AutoUpdateSettingsOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IInspectable {
+    fn from(value: &AutoUpdateSettingsOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IInspectable {
+    fn from(value: &AutoUpdateSettingsOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AutoUpdateSettingsOptions {}
+unsafe impl ::core::marker::Sync for AutoUpdateSettingsOptions {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct CreateSharedPackageContainerOptions(::windows::core::IUnknown);
+impl CreateSharedPackageContainerOptions {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<CreateSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Members(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Members)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
+        }
+    }
+    pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn CreateCollisionOption(&self) -> ::windows::core::Result<SharedPackageContainerCreationCollisionOptions> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateCollisionOption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainerCreationCollisionOptions>(result__)
+        }
+    }
+    pub fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetCreateCollisionOption)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for CreateSharedPackageContainerOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CreateSharedPackageContainerOptions {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CreateSharedPackageContainerOptions {}
+impl ::core::fmt::Debug for CreateSharedPackageContainerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateSharedPackageContainerOptions").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerOptions;{c2ab6ece-f664-5c8e-a4b3-2a33276d3dde})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CreateSharedPackageContainerOptions {
+    type Vtable = ICreateSharedPackageContainerOptions_Vtbl;
+    const IID: ::windows::core::GUID = <ICreateSharedPackageContainerOptions as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CreateSharedPackageContainerOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
+}
+impl ::core::convert::From<CreateSharedPackageContainerOptions> for ::windows::core::IUnknown {
+    fn from(value: CreateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::core::IUnknown {
+    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IUnknown {
+    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CreateSharedPackageContainerOptions> for ::windows::core::IInspectable {
+    fn from(value: CreateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::core::IInspectable {
+    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IInspectable {
+    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CreateSharedPackageContainerOptions {}
+unsafe impl ::core::marker::Sync for CreateSharedPackageContainerOptions {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct CreateSharedPackageContainerResult(::windows::core::IUnknown);
+impl CreateSharedPackageContainerResult {
+    pub fn Container(&self) -> ::windows::core::Result<SharedPackageContainer> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainer>(result__)
+        }
+    }
+    pub fn Status(&self) -> ::windows::core::Result<SharedPackageContainerOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainerOperationStatus>(result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CreateSharedPackageContainerResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CreateSharedPackageContainerResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CreateSharedPackageContainerResult {}
+impl ::core::fmt::Debug for CreateSharedPackageContainerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateSharedPackageContainerResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerResult;{ce8810bf-151c-5707-b936-497e564afc7a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CreateSharedPackageContainerResult {
+    type Vtable = ICreateSharedPackageContainerResult_Vtbl;
+    const IID: ::windows::core::GUID = <ICreateSharedPackageContainerResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CreateSharedPackageContainerResult {
+    const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
+}
+impl ::core::convert::From<CreateSharedPackageContainerResult> for ::windows::core::IUnknown {
+    fn from(value: CreateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::core::IUnknown {
+    fn from(value: &CreateSharedPackageContainerResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IUnknown {
+    fn from(value: &CreateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CreateSharedPackageContainerResult> for ::windows::core::IInspectable {
+    fn from(value: CreateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::core::IInspectable {
+    fn from(value: &CreateSharedPackageContainerResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IInspectable {
+    fn from(value: &CreateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CreateSharedPackageContainerResult {}
+unsafe impl ::core::marker::Sync for CreateSharedPackageContainerResult {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct DeleteSharedPackageContainerOptions(::windows::core::IUnknown);
+impl DeleteSharedPackageContainerOptions {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<DeleteSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AllUsers(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AllUsers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetAllUsers(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetAllUsers)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for DeleteSharedPackageContainerOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeleteSharedPackageContainerOptions {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeleteSharedPackageContainerOptions {}
+impl ::core::fmt::Debug for DeleteSharedPackageContainerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeleteSharedPackageContainerOptions").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerOptions;{9d81865f-986e-5138-8b5d-384d8e66ed6c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerOptions {
+    type Vtable = IDeleteSharedPackageContainerOptions_Vtbl;
+    const IID: ::windows::core::GUID = <IDeleteSharedPackageContainerOptions as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DeleteSharedPackageContainerOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
+}
+impl ::core::convert::From<DeleteSharedPackageContainerOptions> for ::windows::core::IUnknown {
+    fn from(value: DeleteSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::core::IUnknown {
+    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IUnknown {
+    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DeleteSharedPackageContainerOptions> for ::windows::core::IInspectable {
+    fn from(value: DeleteSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::core::IInspectable {
+    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IInspectable {
+    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DeleteSharedPackageContainerOptions {}
+unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerOptions {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct DeleteSharedPackageContainerResult(::windows::core::IUnknown);
+impl DeleteSharedPackageContainerResult {
+    pub fn Status(&self) -> ::windows::core::Result<SharedPackageContainerOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SharedPackageContainerOperationStatus>(result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DeleteSharedPackageContainerResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeleteSharedPackageContainerResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeleteSharedPackageContainerResult {}
+impl ::core::fmt::Debug for DeleteSharedPackageContainerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeleteSharedPackageContainerResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerResult;{35398884-5736-517b-85bc-e598c81ab284})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerResult {
+    type Vtable = IDeleteSharedPackageContainerResult_Vtbl;
+    const IID: ::windows::core::GUID = <IDeleteSharedPackageContainerResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DeleteSharedPackageContainerResult {
+    const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
+}
+impl ::core::convert::From<DeleteSharedPackageContainerResult> for ::windows::core::IUnknown {
+    fn from(value: DeleteSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::core::IUnknown {
+    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IUnknown {
+    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DeleteSharedPackageContainerResult> for ::windows::core::IInspectable {
+    fn from(value: DeleteSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::core::IInspectable {
+    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IInspectable {
+    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
+unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerResult {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct DeploymentResult(::windows::core::IUnknown);
+impl DeploymentResult {
+    pub fn ErrorText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ErrorText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+        }
+    }
+    pub fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExtendedErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
+        }
+    }
+    pub fn IsRegistered(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IDeploymentResult2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsRegistered)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DeploymentResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeploymentResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeploymentResult {}
+impl ::core::fmt::Debug for DeploymentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeploymentResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeploymentResult;{2563b9ae-b77d-4c1f-8a7b-20e6ad515ef3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DeploymentResult {
+    type Vtable = IDeploymentResult_Vtbl;
+    const IID: ::windows::core::GUID = <IDeploymentResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DeploymentResult {
+    const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
+}
+impl ::core::convert::From<DeploymentResult> for ::windows::core::IUnknown {
+    fn from(value: DeploymentResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeploymentResult> for ::windows::core::IUnknown {
+    fn from(value: &DeploymentResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeploymentResult> for &::windows::core::IUnknown {
+    fn from(value: &DeploymentResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DeploymentResult> for ::windows::core::IInspectable {
+    fn from(value: DeploymentResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeploymentResult> for ::windows::core::IInspectable {
+    fn from(value: &DeploymentResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeploymentResult> for &::windows::core::IInspectable {
+    fn from(value: &DeploymentResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DeploymentResult {}
+unsafe impl ::core::marker::Sync for DeploymentResult {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+pub struct FindSharedPackageContainerOptions(::windows::core::IUnknown);
+impl FindSharedPackageContainerOptions {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<FindSharedPackageContainerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+}
+impl ::core::clone::Clone for FindSharedPackageContainerOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FindSharedPackageContainerOptions {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FindSharedPackageContainerOptions {}
+impl ::core::fmt::Debug for FindSharedPackageContainerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindSharedPackageContainerOptions").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FindSharedPackageContainerOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.FindSharedPackageContainerOptions;{b40fc8fe-8384-54cc-817d-ae09d3b6a606})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FindSharedPackageContainerOptions {
+    type Vtable = IFindSharedPackageContainerOptions_Vtbl;
+    const IID: ::windows::core::GUID = <IFindSharedPackageContainerOptions as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FindSharedPackageContainerOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
+}
+impl ::core::convert::From<FindSharedPackageContainerOptions> for ::windows::core::IUnknown {
+    fn from(value: FindSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::core::IUnknown {
+    fn from(value: &FindSharedPackageContainerOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IUnknown {
+    fn from(value: &FindSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FindSharedPackageContainerOptions> for ::windows::core::IInspectable {
+    fn from(value: FindSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::core::IInspectable {
+    fn from(value: &FindSharedPackageContainerOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IInspectable {
+    fn from(value: &FindSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for FindSharedPackageContainerOptions {}
+unsafe impl ::core::marker::Sync for FindSharedPackageContainerOptions {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
 pub struct PackageAllUserProvisioningOptions(::windows::core::IUnknown);
 impl PackageAllUserProvisioningOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -2433,42 +2227,6 @@ impl ::core::convert::From<&PackageAllUserProvisioningOptions> for &::windows::c
 }
 unsafe impl ::core::marker::Send for PackageAllUserProvisioningOptions {}
 unsafe impl ::core::marker::Sync for PackageAllUserProvisioningOptions {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PackageInstallState(pub i32);
-impl PackageInstallState {
-    pub const NotInstalled: Self = Self(0i32);
-    pub const Staged: Self = Self(1i32);
-    pub const Installed: Self = Self(2i32);
-    pub const Paused: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PackageInstallState {}
-impl ::core::clone::Clone for PackageInstallState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageInstallState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PackageInstallState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageInstallState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageInstallState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PackageInstallState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
 pub struct PackageManager(::windows::core::IUnknown);
@@ -3324,209 +3082,6 @@ unsafe impl ::core::marker::Send for PackageManagerDebugSettings {}
 unsafe impl ::core::marker::Sync for PackageManagerDebugSettings {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PackageState(pub i32);
-impl PackageState {
-    pub const Normal: Self = Self(0i32);
-    pub const LicenseInvalid: Self = Self(1i32);
-    pub const Modified: Self = Self(2i32);
-    pub const Tampered: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PackageState {}
-impl ::core::clone::Clone for PackageState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PackageState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PackageState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PackageStatus(pub u32);
-impl PackageStatus {
-    pub const OK: Self = Self(0u32);
-    pub const LicenseIssue: Self = Self(1u32);
-    pub const Modified: Self = Self(2u32);
-    pub const Tampered: Self = Self(4u32);
-    pub const Disabled: Self = Self(8u32);
-}
-impl ::core::marker::Copy for PackageStatus {}
-impl ::core::clone::Clone for PackageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PackageStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageStatus").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PackageStatus {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PackageStatus {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PackageStatus {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PackageStatus {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PackageStatus {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PackageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStatus;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PackageStubPreference(pub i32);
-impl PackageStubPreference {
-    pub const Full: Self = Self(0i32);
-    pub const Stub: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PackageStubPreference {}
-impl ::core::clone::Clone for PackageStubPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageStubPreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PackageStubPreference {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageStubPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageStubPreference").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PackageStubPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PackageTypes(pub u32);
-impl PackageTypes {
-    pub const None: Self = Self(0u32);
-    pub const Main: Self = Self(1u32);
-    pub const Framework: Self = Self(2u32);
-    pub const Resource: Self = Self(4u32);
-    pub const Bundle: Self = Self(8u32);
-    pub const Xap: Self = Self(16u32);
-    pub const Optional: Self = Self(32u32);
-    pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for PackageTypes {}
-impl ::core::clone::Clone for PackageTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PackageTypes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PackageTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PackageTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PackageTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PackageTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PackageTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PackageTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageTypes;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
 pub struct PackageUserInformation(::windows::core::IUnknown);
 impl PackageUserInformation {
     pub fn UserSecurityId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4078,70 +3633,6 @@ unsafe impl ::core::marker::Send for RegisterPackageOptions {}
 unsafe impl ::core::marker::Sync for RegisterPackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemovalOptions(pub u32);
-impl RemovalOptions {
-    pub const None: Self = Self(0u32);
-    pub const PreserveApplicationData: Self = Self(4096u32);
-    pub const PreserveRoamableApplicationData: Self = Self(128u32);
-    pub const RemoveForAllUsers: Self = Self(524288u32);
-}
-impl ::core::marker::Copy for RemovalOptions {}
-impl ::core::clone::Clone for RemovalOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemovalOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemovalOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemovalOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemovalOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RemovalOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RemovalOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RemovalOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RemovalOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RemovalOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemovalOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.RemovalOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
 pub struct SharedPackageContainer(::windows::core::IUnknown);
 impl SharedPackageContainer {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4247,41 +3738,6 @@ impl ::core::convert::From<&SharedPackageContainer> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for SharedPackageContainer {}
 unsafe impl ::core::marker::Sync for SharedPackageContainer {}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
-impl SharedPackageContainerCreationCollisionOptions {
-    pub const FailIfExists: Self = Self(0i32);
-    pub const MergeWithExisting: Self = Self(1i32);
-    pub const ReplaceExisting: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SharedPackageContainerCreationCollisionOptions {}
-impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SharedPackageContainerCreationCollisionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SharedPackageContainerCreationCollisionOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SharedPackageContainerCreationCollisionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SharedPackageContainerCreationCollisionOptions").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SharedPackageContainerCreationCollisionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
 pub struct SharedPackageContainerManager(::windows::core::IUnknown);
@@ -4507,44 +3963,6 @@ unsafe impl ::core::marker::Send for SharedPackageContainerMember {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerMember {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SharedPackageContainerOperationStatus(pub i32);
-impl SharedPackageContainerOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const BlockedByPolicy: Self = Self(1i32);
-    pub const AlreadyExists: Self = Self(2i32);
-    pub const PackageFamilyExistsInAnotherContainer: Self = Self(3i32);
-    pub const NotFound: Self = Self(4i32);
-    pub const UnknownFailure: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SharedPackageContainerOperationStatus {}
-impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SharedPackageContainerOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SharedPackageContainerOperationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SharedPackageContainerOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SharedPackageContainerOperationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SharedPackageContainerOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
 pub struct StagePackageOptions(::windows::core::IUnknown);
 impl StagePackageOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -4764,42 +4182,6 @@ unsafe impl ::core::marker::Send for StagePackageOptions {}
 unsafe impl ::core::marker::Sync for StagePackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StubPackageOption(pub i32);
-impl StubPackageOption {
-    pub const Default: Self = Self(0i32);
-    pub const InstallFull: Self = Self(1i32);
-    pub const InstallStub: Self = Self(2i32);
-    pub const UsePreference: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StubPackageOption {}
-impl ::core::clone::Clone for StubPackageOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StubPackageOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StubPackageOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StubPackageOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StubPackageOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StubPackageOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management_Deployment\"`*"]
-#[repr(transparent)]
 pub struct UpdateSharedPackageContainerOptions(::windows::core::IUnknown);
 impl UpdateSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -4975,5 +4357,623 @@ impl ::core::convert::From<&UpdateSharedPackageContainerResult> for &::windows::
 }
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerResult {}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AddPackageByAppInstallerOptions(pub u32);
+impl AddPackageByAppInstallerOptions {
+    pub const None: Self = Self(0u32);
+    pub const InstallAllResources: Self = Self(32u32);
+    pub const ForceTargetAppShutdown: Self = Self(64u32);
+    pub const RequiredContentGroupOnly: Self = Self(256u32);
+    pub const LimitToExistingPackages: Self = Self(512u32);
+}
+impl ::core::marker::Copy for AddPackageByAppInstallerOptions {}
+impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AddPackageByAppInstallerOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AddPackageByAppInstallerOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AddPackageByAppInstallerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddPackageByAppInstallerOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AddPackageByAppInstallerOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AddPackageByAppInstallerOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AddPackageByAppInstallerOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AddPackageByAppInstallerOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AddPackageByAppInstallerOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AddPackageByAppInstallerOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.AddPackageByAppInstallerOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DeploymentOptions(pub u32);
+impl DeploymentOptions {
+    pub const None: Self = Self(0u32);
+    pub const ForceApplicationShutdown: Self = Self(1u32);
+    pub const DevelopmentMode: Self = Self(2u32);
+    pub const InstallAllResources: Self = Self(32u32);
+    pub const ForceTargetApplicationShutdown: Self = Self(64u32);
+    pub const RequiredContentGroupOnly: Self = Self(256u32);
+    pub const ForceUpdateFromAnyVersion: Self = Self(262144u32);
+    pub const RetainFilesOnFailure: Self = Self(2097152u32);
+    pub const StageInPlace: Self = Self(4194304u32);
+}
+impl ::core::marker::Copy for DeploymentOptions {}
+impl ::core::clone::Clone for DeploymentOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DeploymentOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DeploymentOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DeploymentOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DeploymentOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DeploymentOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DeploymentOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DeploymentOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DeploymentOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeploymentOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DeploymentProgressState(pub i32);
+impl DeploymentProgressState {
+    pub const Queued: Self = Self(0i32);
+    pub const Processing: Self = Self(1i32);
+}
+impl ::core::marker::Copy for DeploymentProgressState {}
+impl ::core::clone::Clone for DeploymentProgressState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DeploymentProgressState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DeploymentProgressState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DeploymentProgressState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentProgressState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeploymentProgressState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PackageInstallState(pub i32);
+impl PackageInstallState {
+    pub const NotInstalled: Self = Self(0i32);
+    pub const Staged: Self = Self(1i32);
+    pub const Installed: Self = Self(2i32);
+    pub const Paused: Self = Self(6i32);
+}
+impl ::core::marker::Copy for PackageInstallState {}
+impl ::core::clone::Clone for PackageInstallState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PackageInstallState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PackageInstallState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PackageInstallState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageInstallState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PackageInstallState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PackageState(pub i32);
+impl PackageState {
+    pub const Normal: Self = Self(0i32);
+    pub const LicenseInvalid: Self = Self(1i32);
+    pub const Modified: Self = Self(2i32);
+    pub const Tampered: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PackageState {}
+impl ::core::clone::Clone for PackageState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PackageState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PackageState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PackageState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PackageState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PackageStatus(pub u32);
+impl PackageStatus {
+    pub const OK: Self = Self(0u32);
+    pub const LicenseIssue: Self = Self(1u32);
+    pub const Modified: Self = Self(2u32);
+    pub const Tampered: Self = Self(4u32);
+    pub const Disabled: Self = Self(8u32);
+}
+impl ::core::marker::Copy for PackageStatus {}
+impl ::core::clone::Clone for PackageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PackageStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PackageStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStatus").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PackageStatus {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PackageStatus {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PackageStatus {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PackageStatus {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PackageStatus {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PackageStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStatus;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PackageStubPreference(pub i32);
+impl PackageStubPreference {
+    pub const Full: Self = Self(0i32);
+    pub const Stub: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PackageStubPreference {}
+impl ::core::clone::Clone for PackageStubPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PackageStubPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PackageStubPreference {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PackageStubPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageStubPreference").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PackageStubPreference {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PackageTypes(pub u32);
+impl PackageTypes {
+    pub const None: Self = Self(0u32);
+    pub const Main: Self = Self(1u32);
+    pub const Framework: Self = Self(2u32);
+    pub const Resource: Self = Self(4u32);
+    pub const Bundle: Self = Self(8u32);
+    pub const Xap: Self = Self(16u32);
+    pub const Optional: Self = Self(32u32);
+    pub const All: Self = Self(4294967295u32);
+}
+impl ::core::marker::Copy for PackageTypes {}
+impl ::core::clone::Clone for PackageTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PackageTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PackageTypes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PackageTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageTypes").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PackageTypes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PackageTypes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PackageTypes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PackageTypes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PackageTypes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PackageTypes {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageTypes;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemovalOptions(pub u32);
+impl RemovalOptions {
+    pub const None: Self = Self(0u32);
+    pub const PreserveApplicationData: Self = Self(4096u32);
+    pub const PreserveRoamableApplicationData: Self = Self(128u32);
+    pub const RemoveForAllUsers: Self = Self(524288u32);
+}
+impl ::core::marker::Copy for RemovalOptions {}
+impl ::core::clone::Clone for RemovalOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemovalOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemovalOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemovalOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemovalOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RemovalOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RemovalOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RemovalOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RemovalOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RemovalOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemovalOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.RemovalOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
+impl SharedPackageContainerCreationCollisionOptions {
+    pub const FailIfExists: Self = Self(0i32);
+    pub const MergeWithExisting: Self = Self(1i32);
+    pub const ReplaceExisting: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SharedPackageContainerCreationCollisionOptions {}
+impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SharedPackageContainerCreationCollisionOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SharedPackageContainerCreationCollisionOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SharedPackageContainerCreationCollisionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerCreationCollisionOptions").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SharedPackageContainerCreationCollisionOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SharedPackageContainerOperationStatus(pub i32);
+impl SharedPackageContainerOperationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const BlockedByPolicy: Self = Self(1i32);
+    pub const AlreadyExists: Self = Self(2i32);
+    pub const PackageFamilyExistsInAnotherContainer: Self = Self(3i32);
+    pub const NotFound: Self = Self(4i32);
+    pub const UnknownFailure: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SharedPackageContainerOperationStatus {}
+impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SharedPackageContainerOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SharedPackageContainerOperationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SharedPackageContainerOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerOperationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SharedPackageContainerOperationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StubPackageOption(pub i32);
+impl StubPackageOption {
+    pub const Default: Self = Self(0i32);
+    pub const InstallFull: Self = Self(1i32);
+    pub const InstallStub: Self = Self(2i32);
+    pub const UsePreference: Self = Self(3i32);
+}
+impl ::core::marker::Copy for StubPackageOption {}
+impl ::core::clone::Clone for StubPackageOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StubPackageOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StubPackageOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StubPackageOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StubPackageOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StubPackageOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Management_Deployment\"`*"]
+pub struct DeploymentProgress {
+    pub state: DeploymentProgressState,
+    pub percentage: u32,
+}
+impl ::core::marker::Copy for DeploymentProgress {}
+impl ::core::clone::Clone for DeploymentProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DeploymentProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DeploymentProgress").field("state", &self.state).field("percentage", &self.percentage).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DeploymentProgress {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for DeploymentProgress {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Management.Deployment.DeploymentProgress;enum(Windows.Management.Deployment.DeploymentProgressState;i4);u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for DeploymentProgress {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DeploymentProgress>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DeploymentProgress {}
+impl ::core::default::Default for DeploymentProgress {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

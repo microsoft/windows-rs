@@ -2102,77 +2102,6 @@ unsafe impl ::core::marker::Send for VpnAppId {}
 unsafe impl ::core::marker::Sync for VpnAppId {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnAppIdType(pub i32);
-impl VpnAppIdType {
-    pub const PackageFamilyName: Self = Self(0i32);
-    pub const FullyQualifiedBinaryName: Self = Self(1i32);
-    pub const FilePath: Self = Self(2i32);
-}
-impl ::core::marker::Copy for VpnAppIdType {}
-impl ::core::clone::Clone for VpnAppIdType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnAppIdType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnAppIdType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnAppIdType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnAppIdType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnAppIdType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAppIdType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnAuthenticationMethod(pub i32);
-impl VpnAuthenticationMethod {
-    pub const Mschapv2: Self = Self(0i32);
-    pub const Eap: Self = Self(1i32);
-    pub const Certificate: Self = Self(2i32);
-    pub const PresharedKey: Self = Self(3i32);
-}
-impl ::core::marker::Copy for VpnAuthenticationMethod {}
-impl ::core::clone::Clone for VpnAuthenticationMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnAuthenticationMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnAuthenticationMethod {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnAuthenticationMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnAuthenticationMethod").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnAuthenticationMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAuthenticationMethod;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
 pub struct VpnChannel(::windows::core::IUnknown);
 impl VpnChannel {
     pub fn AssociateTransport<'a, P0, P1>(&self, mainoutertunneltransport: P0, optionaloutertunneltransport: P1) -> ::windows::core::Result<()>
@@ -2672,40 +2601,6 @@ unsafe impl ::core::marker::Send for VpnChannelActivityEventArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityEventArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnChannelActivityEventType(pub i32);
-impl VpnChannelActivityEventType {
-    pub const Idle: Self = Self(0i32);
-    pub const Active: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VpnChannelActivityEventType {}
-impl ::core::clone::Clone for VpnChannelActivityEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnChannelActivityEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnChannelActivityEventType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnChannelActivityEventType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannelActivityEventType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnChannelActivityEventType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelActivityEventType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
 pub struct VpnChannelActivityStateChangedArgs(::windows::core::IUnknown);
 impl VpnChannelActivityStateChangedArgs {
     pub fn ActivityState(&self) -> ::windows::core::Result<VpnChannelActivityEventType> {
@@ -2879,69 +2774,6 @@ unsafe impl ::core::marker::Send for VpnChannelConfiguration {}
 unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnChannelRequestCredentialsOptions(pub u32);
-impl VpnChannelRequestCredentialsOptions {
-    pub const None: Self = Self(0u32);
-    pub const Retrying: Self = Self(1u32);
-    pub const UseForSingleSignIn: Self = Self(2u32);
-}
-impl ::core::marker::Copy for VpnChannelRequestCredentialsOptions {}
-impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnChannelRequestCredentialsOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnChannelRequestCredentialsOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnChannelRequestCredentialsOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannelRequestCredentialsOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VpnChannelRequestCredentialsOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VpnChannelRequestCredentialsOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VpnChannelRequestCredentialsOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VpnChannelRequestCredentialsOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VpnChannelRequestCredentialsOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnChannelRequestCredentialsOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
 pub struct VpnCredential(::windows::core::IUnknown);
 impl VpnCredential {
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -3060,45 +2892,6 @@ impl<'a> ::core::convert::TryFrom<&VpnCredential> for ::windows::core::InParam<'
 }
 unsafe impl ::core::marker::Send for VpnCredential {}
 unsafe impl ::core::marker::Sync for VpnCredential {}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnCredentialType(pub i32);
-impl VpnCredentialType {
-    pub const UsernamePassword: Self = Self(0i32);
-    pub const UsernameOtpPin: Self = Self(1i32);
-    pub const UsernamePasswordAndPin: Self = Self(2i32);
-    pub const UsernamePasswordChange: Self = Self(3i32);
-    pub const SmartCard: Self = Self(4i32);
-    pub const ProtectedCertificate: Self = Self(5i32);
-    pub const UnProtectedCertificate: Self = Self(6i32);
-}
-impl ::core::marker::Copy for VpnCredentialType {}
-impl ::core::clone::Clone for VpnCredentialType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnCredentialType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnCredentialType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnCredentialType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCredentialType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnCredentialType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnCredentialType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
 pub struct VpnCustomCheckBox(::windows::core::IUnknown);
@@ -4393,40 +4186,6 @@ unsafe impl ::core::marker::Send for VpnCustomTextBox {}
 unsafe impl ::core::marker::Sync for VpnCustomTextBox {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnDataPathType(pub i32);
-impl VpnDataPathType {
-    pub const Send: Self = Self(0i32);
-    pub const Receive: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VpnDataPathType {}
-impl ::core::clone::Clone for VpnDataPathType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnDataPathType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnDataPathType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnDataPathType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnDataPathType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnDataPathType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDataPathType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
 pub struct VpnDomainNameAssignment(::windows::core::IUnknown);
 impl VpnDomainNameAssignment {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -4664,41 +4423,6 @@ impl ::core::convert::From<&VpnDomainNameInfo> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for VpnDomainNameInfo {}
 unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnDomainNameType(pub i32);
-impl VpnDomainNameType {
-    pub const Suffix: Self = Self(0i32);
-    pub const FullyQualified: Self = Self(1i32);
-    pub const Reserved: Self = Self(65535i32);
-}
-impl ::core::marker::Copy for VpnDomainNameType {}
-impl ::core::clone::Clone for VpnDomainNameType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnDomainNameType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnDomainNameType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnDomainNameType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnDomainNameType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnDomainNameType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDomainNameType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
 pub struct VpnForegroundActivatedEventArgs(::windows::core::IUnknown);
@@ -4945,45 +4669,6 @@ impl ::core::convert::From<&VpnForegroundActivationOperation> for &::windows::co
 }
 unsafe impl ::core::marker::Send for VpnForegroundActivationOperation {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivationOperation {}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnIPProtocol(pub i32);
-impl VpnIPProtocol {
-    pub const None: Self = Self(0i32);
-    pub const Tcp: Self = Self(6i32);
-    pub const Udp: Self = Self(17i32);
-    pub const Icmp: Self = Self(1i32);
-    pub const Ipv6Icmp: Self = Self(58i32);
-    pub const Igmp: Self = Self(2i32);
-    pub const Pgm: Self = Self(113i32);
-}
-impl ::core::marker::Copy for VpnIPProtocol {}
-impl ::core::clone::Clone for VpnIPProtocol {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnIPProtocol {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnIPProtocol {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnIPProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnIPProtocol").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnIPProtocol {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnIPProtocol;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
 pub struct VpnInterfaceId(::windows::core::IUnknown);
@@ -5246,93 +4931,6 @@ impl ::core::convert::From<&VpnManagementAgent> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for VpnManagementAgent {}
 unsafe impl ::core::marker::Sync for VpnManagementAgent {}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnManagementConnectionStatus(pub i32);
-impl VpnManagementConnectionStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Disconnecting: Self = Self(1i32);
-    pub const Connected: Self = Self(2i32);
-    pub const Connecting: Self = Self(3i32);
-}
-impl ::core::marker::Copy for VpnManagementConnectionStatus {}
-impl ::core::clone::Clone for VpnManagementConnectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnManagementConnectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnManagementConnectionStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnManagementConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnManagementConnectionStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnManagementConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementConnectionStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnManagementErrorStatus(pub i32);
-impl VpnManagementErrorStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const Other: Self = Self(1i32);
-    pub const InvalidXmlSyntax: Self = Self(2i32);
-    pub const ProfileNameTooLong: Self = Self(3i32);
-    pub const ProfileInvalidAppId: Self = Self(4i32);
-    pub const AccessDenied: Self = Self(5i32);
-    pub const CannotFindProfile: Self = Self(6i32);
-    pub const AlreadyDisconnecting: Self = Self(7i32);
-    pub const AlreadyConnected: Self = Self(8i32);
-    pub const GeneralAuthenticationFailure: Self = Self(9i32);
-    pub const EapFailure: Self = Self(10i32);
-    pub const SmartCardFailure: Self = Self(11i32);
-    pub const CertificateFailure: Self = Self(12i32);
-    pub const ServerConfiguration: Self = Self(13i32);
-    pub const NoConnection: Self = Self(14i32);
-    pub const ServerConnection: Self = Self(15i32);
-    pub const UserNamePassword: Self = Self(16i32);
-    pub const DnsNotResolvable: Self = Self(17i32);
-    pub const InvalidIP: Self = Self(18i32);
-}
-impl ::core::marker::Copy for VpnManagementErrorStatus {}
-impl ::core::clone::Clone for VpnManagementErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnManagementErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnManagementErrorStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnManagementErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnManagementErrorStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnManagementErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementErrorStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
 pub struct VpnNamespaceAssignment(::windows::core::IUnknown);
@@ -5825,41 +5423,6 @@ unsafe impl ::core::marker::Send for VpnNativeProfile {}
 unsafe impl ::core::marker::Sync for VpnNativeProfile {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnNativeProtocolType(pub i32);
-impl VpnNativeProtocolType {
-    pub const Pptp: Self = Self(0i32);
-    pub const L2tp: Self = Self(1i32);
-    pub const IpsecIkev2: Self = Self(2i32);
-}
-impl ::core::marker::Copy for VpnNativeProtocolType {}
-impl ::core::clone::Clone for VpnNativeProtocolType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnNativeProtocolType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnNativeProtocolType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnNativeProtocolType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnNativeProtocolType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnNativeProtocolType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnNativeProtocolType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
 pub struct VpnPacketBuffer(::windows::core::IUnknown);
 impl VpnPacketBuffer {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -6155,40 +5718,6 @@ impl<'a> ::core::convert::TryFrom<&VpnPacketBufferList> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for VpnPacketBufferList {}
 unsafe impl ::core::marker::Sync for VpnPacketBufferList {}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnPacketBufferStatus(pub i32);
-impl VpnPacketBufferStatus {
-    pub const Ok: Self = Self(0i32);
-    pub const InvalidBufferSize: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VpnPacketBufferStatus {}
-impl ::core::clone::Clone for VpnPacketBufferStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnPacketBufferStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnPacketBufferStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnPacketBufferStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnPacketBufferStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnPacketBufferStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnPacketBufferStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
 pub struct VpnPickedCredential(::windows::core::IUnknown);
@@ -6761,40 +6290,6 @@ unsafe impl ::core::marker::Send for VpnRouteAssignment {}
 unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VpnRoutingPolicyType(pub i32);
-impl VpnRoutingPolicyType {
-    pub const SplitRouting: Self = Self(0i32);
-    pub const ForceAllTrafficOverVpn: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VpnRoutingPolicyType {}
-impl ::core::clone::Clone for VpnRoutingPolicyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VpnRoutingPolicyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VpnRoutingPolicyType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VpnRoutingPolicyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnRoutingPolicyType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VpnRoutingPolicyType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Vpn\"`*"]
-#[repr(transparent)]
 pub struct VpnSystemHealth(::windows::core::IUnknown);
 impl VpnSystemHealth {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -7136,5 +6631,510 @@ impl ::core::convert::From<&VpnTrafficFilterAssignment> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for VpnTrafficFilterAssignment {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilterAssignment {}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnAppIdType(pub i32);
+impl VpnAppIdType {
+    pub const PackageFamilyName: Self = Self(0i32);
+    pub const FullyQualifiedBinaryName: Self = Self(1i32);
+    pub const FilePath: Self = Self(2i32);
+}
+impl ::core::marker::Copy for VpnAppIdType {}
+impl ::core::clone::Clone for VpnAppIdType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnAppIdType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnAppIdType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnAppIdType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnAppIdType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnAppIdType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAppIdType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnAuthenticationMethod(pub i32);
+impl VpnAuthenticationMethod {
+    pub const Mschapv2: Self = Self(0i32);
+    pub const Eap: Self = Self(1i32);
+    pub const Certificate: Self = Self(2i32);
+    pub const PresharedKey: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VpnAuthenticationMethod {}
+impl ::core::clone::Clone for VpnAuthenticationMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnAuthenticationMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnAuthenticationMethod {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnAuthenticationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnAuthenticationMethod").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnAuthenticationMethod {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAuthenticationMethod;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnChannelActivityEventType(pub i32);
+impl VpnChannelActivityEventType {
+    pub const Idle: Self = Self(0i32);
+    pub const Active: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VpnChannelActivityEventType {}
+impl ::core::clone::Clone for VpnChannelActivityEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnChannelActivityEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnChannelActivityEventType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnChannelActivityEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelActivityEventType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnChannelActivityEventType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelActivityEventType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnChannelRequestCredentialsOptions(pub u32);
+impl VpnChannelRequestCredentialsOptions {
+    pub const None: Self = Self(0u32);
+    pub const Retrying: Self = Self(1u32);
+    pub const UseForSingleSignIn: Self = Self(2u32);
+}
+impl ::core::marker::Copy for VpnChannelRequestCredentialsOptions {}
+impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnChannelRequestCredentialsOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnChannelRequestCredentialsOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnChannelRequestCredentialsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelRequestCredentialsOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for VpnChannelRequestCredentialsOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for VpnChannelRequestCredentialsOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for VpnChannelRequestCredentialsOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for VpnChannelRequestCredentialsOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for VpnChannelRequestCredentialsOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnChannelRequestCredentialsOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnCredentialType(pub i32);
+impl VpnCredentialType {
+    pub const UsernamePassword: Self = Self(0i32);
+    pub const UsernameOtpPin: Self = Self(1i32);
+    pub const UsernamePasswordAndPin: Self = Self(2i32);
+    pub const UsernamePasswordChange: Self = Self(3i32);
+    pub const SmartCard: Self = Self(4i32);
+    pub const ProtectedCertificate: Self = Self(5i32);
+    pub const UnProtectedCertificate: Self = Self(6i32);
+}
+impl ::core::marker::Copy for VpnCredentialType {}
+impl ::core::clone::Clone for VpnCredentialType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnCredentialType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnCredentialType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnCredentialType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCredentialType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnCredentialType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnCredentialType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnDataPathType(pub i32);
+impl VpnDataPathType {
+    pub const Send: Self = Self(0i32);
+    pub const Receive: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VpnDataPathType {}
+impl ::core::clone::Clone for VpnDataPathType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnDataPathType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnDataPathType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnDataPathType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDataPathType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnDataPathType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDataPathType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnDomainNameType(pub i32);
+impl VpnDomainNameType {
+    pub const Suffix: Self = Self(0i32);
+    pub const FullyQualified: Self = Self(1i32);
+    pub const Reserved: Self = Self(65535i32);
+}
+impl ::core::marker::Copy for VpnDomainNameType {}
+impl ::core::clone::Clone for VpnDomainNameType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnDomainNameType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnDomainNameType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnDomainNameType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDomainNameType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnDomainNameType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDomainNameType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnIPProtocol(pub i32);
+impl VpnIPProtocol {
+    pub const None: Self = Self(0i32);
+    pub const Tcp: Self = Self(6i32);
+    pub const Udp: Self = Self(17i32);
+    pub const Icmp: Self = Self(1i32);
+    pub const Ipv6Icmp: Self = Self(58i32);
+    pub const Igmp: Self = Self(2i32);
+    pub const Pgm: Self = Self(113i32);
+}
+impl ::core::marker::Copy for VpnIPProtocol {}
+impl ::core::clone::Clone for VpnIPProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnIPProtocol {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnIPProtocol {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnIPProtocol {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnIPProtocol").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnIPProtocol {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnIPProtocol;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnManagementConnectionStatus(pub i32);
+impl VpnManagementConnectionStatus {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Disconnecting: Self = Self(1i32);
+    pub const Connected: Self = Self(2i32);
+    pub const Connecting: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VpnManagementConnectionStatus {}
+impl ::core::clone::Clone for VpnManagementConnectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnManagementConnectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnManagementConnectionStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnManagementConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnManagementConnectionStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnManagementConnectionStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementConnectionStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnManagementErrorStatus(pub i32);
+impl VpnManagementErrorStatus {
+    pub const Ok: Self = Self(0i32);
+    pub const Other: Self = Self(1i32);
+    pub const InvalidXmlSyntax: Self = Self(2i32);
+    pub const ProfileNameTooLong: Self = Self(3i32);
+    pub const ProfileInvalidAppId: Self = Self(4i32);
+    pub const AccessDenied: Self = Self(5i32);
+    pub const CannotFindProfile: Self = Self(6i32);
+    pub const AlreadyDisconnecting: Self = Self(7i32);
+    pub const AlreadyConnected: Self = Self(8i32);
+    pub const GeneralAuthenticationFailure: Self = Self(9i32);
+    pub const EapFailure: Self = Self(10i32);
+    pub const SmartCardFailure: Self = Self(11i32);
+    pub const CertificateFailure: Self = Self(12i32);
+    pub const ServerConfiguration: Self = Self(13i32);
+    pub const NoConnection: Self = Self(14i32);
+    pub const ServerConnection: Self = Self(15i32);
+    pub const UserNamePassword: Self = Self(16i32);
+    pub const DnsNotResolvable: Self = Self(17i32);
+    pub const InvalidIP: Self = Self(18i32);
+}
+impl ::core::marker::Copy for VpnManagementErrorStatus {}
+impl ::core::clone::Clone for VpnManagementErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnManagementErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnManagementErrorStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnManagementErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnManagementErrorStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnManagementErrorStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementErrorStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnNativeProtocolType(pub i32);
+impl VpnNativeProtocolType {
+    pub const Pptp: Self = Self(0i32);
+    pub const L2tp: Self = Self(1i32);
+    pub const IpsecIkev2: Self = Self(2i32);
+}
+impl ::core::marker::Copy for VpnNativeProtocolType {}
+impl ::core::clone::Clone for VpnNativeProtocolType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnNativeProtocolType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnNativeProtocolType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnNativeProtocolType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnNativeProtocolType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnNativeProtocolType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnNativeProtocolType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnPacketBufferStatus(pub i32);
+impl VpnPacketBufferStatus {
+    pub const Ok: Self = Self(0i32);
+    pub const InvalidBufferSize: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VpnPacketBufferStatus {}
+impl ::core::clone::Clone for VpnPacketBufferStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnPacketBufferStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnPacketBufferStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnPacketBufferStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnPacketBufferStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnPacketBufferStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnPacketBufferStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Vpn\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VpnRoutingPolicyType(pub i32);
+impl VpnRoutingPolicyType {
+    pub const SplitRouting: Self = Self(0i32);
+    pub const ForceAllTrafficOverVpn: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VpnRoutingPolicyType {}
+impl ::core::clone::Clone for VpnRoutingPolicyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VpnRoutingPolicyType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VpnRoutingPolicyType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VpnRoutingPolicyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnRoutingPolicyType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VpnRoutingPolicyType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

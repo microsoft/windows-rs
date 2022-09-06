@@ -52,516 +52,6 @@ pub mod SpeechSynthesis;
 pub mod Streaming;
 #[cfg(feature = "Media_Transcoding")]
 pub mod Transcoding;
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-pub struct AudioBuffer(::windows::core::IUnknown);
-impl AudioBuffer {
-    pub fn Capacity(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Capacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn Length(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetLength(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLength)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn CreateReference(&self) -> ::windows::core::Result<super::Foundation::IMemoryBufferReference> {
-        let this = &::windows::core::Interface::cast::<super::Foundation::IMemoryBuffer>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IMemoryBufferReference>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AudioBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioBuffer {}
-impl ::core::fmt::Debug for AudioBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioBuffer").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioBuffer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AudioBuffer;{35175827-724b-4c6a-b130-f6537f9ae0d0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioBuffer {
-    type Vtable = IAudioBuffer_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioBuffer as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioBuffer {
-    const NAME: &'static str = "Windows.Media.AudioBuffer";
-}
-impl ::core::convert::From<AudioBuffer> for ::windows::core::IUnknown {
-    fn from(value: AudioBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioBuffer> for ::windows::core::IUnknown {
-    fn from(value: &AudioBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioBuffer> for &::windows::core::IUnknown {
-    fn from(value: &AudioBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioBuffer> for ::windows::core::IInspectable {
-    fn from(value: AudioBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioBuffer> for ::windows::core::IInspectable {
-    fn from(value: &AudioBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioBuffer> for &::windows::core::IInspectable {
-    fn from(value: &AudioBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<AudioBuffer> for super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AudioBuffer) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<AudioBuffer> for super::Foundation::IMemoryBuffer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AudioBuffer) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IMemoryBuffer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IMemoryBuffer> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AudioBuffer {}
-unsafe impl ::core::marker::Sync for AudioBuffer {}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AudioBufferAccessMode(pub i32);
-impl AudioBufferAccessMode {
-    pub const Read: Self = Self(0i32);
-    pub const ReadWrite: Self = Self(1i32);
-    pub const Write: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AudioBufferAccessMode {}
-impl ::core::clone::Clone for AudioBufferAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioBufferAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AudioBufferAccessMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioBufferAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioBufferAccessMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioBufferAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AudioBufferAccessMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-pub struct AudioFrame(::windows::core::IUnknown);
-impl AudioFrame {
-    pub fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows::core::Result<AudioBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<AudioBuffer>(result__)
-        }
-    }
-    pub fn Create(capacity: u32) -> ::windows::core::Result<AudioFrame> {
-        Self::IAudioFrameFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), capacity, result__.as_mut_ptr()).from_abi::<AudioFrame>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsReadOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SystemRelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SystemRelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsDiscontinuous)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn IsDiscontinuous(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsDiscontinuous)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet> {
-        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IPropertySet>(result__)
-        }
-    }
-    #[doc(hidden)]
-    pub fn IAudioFrameFactory<R, F: FnOnce(&IAudioFrameFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioFrame, IAudioFrameFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for AudioFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioFrame {}
-impl ::core::fmt::Debug for AudioFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFrame").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AudioFrame;{e36ac304-aab2-4277-9ed0-43cedf8e29c6})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioFrame {
-    type Vtable = IAudioFrame_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioFrame as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioFrame {
-    const NAME: &'static str = "Windows.Media.AudioFrame";
-}
-impl ::core::convert::From<AudioFrame> for ::windows::core::IUnknown {
-    fn from(value: AudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrame> for ::windows::core::IUnknown {
-    fn from(value: &AudioFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrame> for &::windows::core::IUnknown {
-    fn from(value: &AudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioFrame> for ::windows::core::IInspectable {
-    fn from(value: AudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrame> for ::windows::core::IInspectable {
-    fn from(value: &AudioFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrame> for &::windows::core::IInspectable {
-    fn from(value: &AudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<AudioFrame> for super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AudioFrame) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&AudioFrame> for super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AudioFrame> for IMediaFrame {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AudioFrame) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AudioFrame> for IMediaFrame {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, IMediaFrame> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AudioFrame {}
-unsafe impl ::core::marker::Sync for AudioFrame {}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AudioProcessing(pub i32);
-impl AudioProcessing {
-    pub const Default: Self = Self(0i32);
-    pub const Raw: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AudioProcessing {}
-impl ::core::clone::Clone for AudioProcessing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioProcessing {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AudioProcessing {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioProcessing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioProcessing").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioProcessing {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AudioProcessing;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-pub struct AutoRepeatModeChangeRequestedEventArgs(::windows::core::IUnknown);
-impl AutoRepeatModeChangeRequestedEventArgs {
-    pub fn RequestedAutoRepeatMode(&self) -> ::windows::core::Result<MediaPlaybackAutoRepeatMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestedAutoRepeatMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackAutoRepeatMode>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AutoRepeatModeChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AutoRepeatModeChangeRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutoRepeatModeChangeRequestedEventArgs {}
-impl ::core::fmt::Debug for AutoRepeatModeChangeRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutoRepeatModeChangeRequestedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AutoRepeatModeChangeRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AutoRepeatModeChangeRequestedEventArgs;{ea137efa-d852-438e-882b-c990109a78f4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AutoRepeatModeChangeRequestedEventArgs {
-    type Vtable = IAutoRepeatModeChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAutoRepeatModeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AutoRepeatModeChangeRequestedEventArgs {
-    const NAME: &'static str = "Windows.Media.AutoRepeatModeChangeRequestedEventArgs";
-}
-impl ::core::convert::From<AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AutoRepeatModeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AutoRepeatModeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AutoRepeatModeChangeRequestedEventArgs {}
-unsafe impl ::core::marker::Sync for AutoRepeatModeChangeRequestedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioBuffer(::windows::core::IUnknown);
@@ -1892,6 +1382,447 @@ pub struct IVideoFrameStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
+pub struct AudioBuffer(::windows::core::IUnknown);
+impl AudioBuffer {
+    pub fn Capacity(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Capacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn Length(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetLength(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetLength)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn CreateReference(&self) -> ::windows::core::Result<super::Foundation::IMemoryBufferReference> {
+        let this = &::windows::core::Interface::cast::<super::Foundation::IMemoryBuffer>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IMemoryBufferReference>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AudioBuffer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioBuffer {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioBuffer {}
+impl ::core::fmt::Debug for AudioBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioBuffer").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioBuffer {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AudioBuffer;{35175827-724b-4c6a-b130-f6537f9ae0d0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioBuffer {
+    type Vtable = IAudioBuffer_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioBuffer as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioBuffer {
+    const NAME: &'static str = "Windows.Media.AudioBuffer";
+}
+impl ::core::convert::From<AudioBuffer> for ::windows::core::IUnknown {
+    fn from(value: AudioBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioBuffer> for ::windows::core::IUnknown {
+    fn from(value: &AudioBuffer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioBuffer> for &::windows::core::IUnknown {
+    fn from(value: &AudioBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioBuffer> for ::windows::core::IInspectable {
+    fn from(value: AudioBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioBuffer> for ::windows::core::IInspectable {
+    fn from(value: &AudioBuffer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioBuffer> for &::windows::core::IInspectable {
+    fn from(value: &AudioBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<AudioBuffer> for super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AudioBuffer) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<AudioBuffer> for super::Foundation::IMemoryBuffer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AudioBuffer) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IMemoryBuffer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AudioBuffer {}
+unsafe impl ::core::marker::Sync for AudioBuffer {}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+pub struct AudioFrame(::windows::core::IUnknown);
+impl AudioFrame {
+    pub fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows::core::Result<AudioBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<AudioBuffer>(result__)
+        }
+    }
+    pub fn Create(capacity: u32) -> ::windows::core::Result<AudioFrame> {
+        Self::IAudioFrameFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), capacity, result__.as_mut_ptr()).from_abi::<AudioFrame>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsReadOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetSystemRelativeTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SystemRelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SystemRelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetDuration<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsDiscontinuous)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsDiscontinuous(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsDiscontinuous)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet> {
+        let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExtendedProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IPropertySet>(result__)
+        }
+    }
+    #[doc(hidden)]
+    pub fn IAudioFrameFactory<R, F: FnOnce(&IAudioFrameFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AudioFrame, IAudioFrameFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for AudioFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioFrame {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioFrame {}
+impl ::core::fmt::Debug for AudioFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioFrame").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioFrame {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AudioFrame;{e36ac304-aab2-4277-9ed0-43cedf8e29c6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioFrame {
+    type Vtable = IAudioFrame_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioFrame as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioFrame {
+    const NAME: &'static str = "Windows.Media.AudioFrame";
+}
+impl ::core::convert::From<AudioFrame> for ::windows::core::IUnknown {
+    fn from(value: AudioFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioFrame> for ::windows::core::IUnknown {
+    fn from(value: &AudioFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioFrame> for &::windows::core::IUnknown {
+    fn from(value: &AudioFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioFrame> for ::windows::core::IInspectable {
+    fn from(value: AudioFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioFrame> for ::windows::core::IInspectable {
+    fn from(value: &AudioFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioFrame> for &::windows::core::IInspectable {
+    fn from(value: &AudioFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<AudioFrame> for super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AudioFrame) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&AudioFrame> for super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AudioFrame> for IMediaFrame {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AudioFrame) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AudioFrame> for IMediaFrame {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, IMediaFrame> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AudioFrame {}
+unsafe impl ::core::marker::Sync for AudioFrame {}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+pub struct AutoRepeatModeChangeRequestedEventArgs(::windows::core::IUnknown);
+impl AutoRepeatModeChangeRequestedEventArgs {
+    pub fn RequestedAutoRepeatMode(&self) -> ::windows::core::Result<MediaPlaybackAutoRepeatMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RequestedAutoRepeatMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackAutoRepeatMode>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AutoRepeatModeChangeRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AutoRepeatModeChangeRequestedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AutoRepeatModeChangeRequestedEventArgs {}
+impl ::core::fmt::Debug for AutoRepeatModeChangeRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoRepeatModeChangeRequestedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AutoRepeatModeChangeRequestedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AutoRepeatModeChangeRequestedEventArgs;{ea137efa-d852-438e-882b-c990109a78f4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AutoRepeatModeChangeRequestedEventArgs {
+    type Vtable = IAutoRepeatModeChangeRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAutoRepeatModeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AutoRepeatModeChangeRequestedEventArgs {
+    const NAME: &'static str = "Windows.Media.AutoRepeatModeChangeRequestedEventArgs";
+}
+impl ::core::convert::From<AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AutoRepeatModeChangeRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AutoRepeatModeChangeRequestedEventArgs {}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
 pub struct ImageDisplayProperties(::windows::core::IUnknown);
 impl ImageDisplayProperties {
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2439,114 +2370,6 @@ impl ::windows::core::RuntimeName for MediaMarkerTypes {
 }
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlaybackAutoRepeatMode(pub i32);
-impl MediaPlaybackAutoRepeatMode {
-    pub const None: Self = Self(0i32);
-    pub const Track: Self = Self(1i32);
-    pub const List: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaPlaybackAutoRepeatMode {}
-impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackAutoRepeatMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlaybackAutoRepeatMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlaybackAutoRepeatMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackAutoRepeatMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlaybackAutoRepeatMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackAutoRepeatMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlaybackStatus(pub i32);
-impl MediaPlaybackStatus {
-    pub const Closed: Self = Self(0i32);
-    pub const Changing: Self = Self(1i32);
-    pub const Stopped: Self = Self(2i32);
-    pub const Playing: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaPlaybackStatus {}
-impl ::core::clone::Clone for MediaPlaybackStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlaybackStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlaybackStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlaybackStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlaybackType(pub i32);
-impl MediaPlaybackType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Music: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-    pub const Image: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaPlaybackType {}
-impl ::core::clone::Clone for MediaPlaybackType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlaybackType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlaybackType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlaybackType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
 pub struct MediaProcessingTriggerDetails(::windows::core::IUnknown);
 impl MediaProcessingTriggerDetails {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2621,53 +2444,6 @@ impl ::core::convert::From<&MediaProcessingTriggerDetails> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for MediaProcessingTriggerDetails {}
 unsafe impl ::core::marker::Sync for MediaProcessingTriggerDetails {}
-#[repr(C)]
-#[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
-#[cfg(feature = "Foundation")]
-pub struct MediaTimeRange {
-    pub Start: super::Foundation::TimeSpan,
-    pub End: super::Foundation::TimeSpan,
-}
-#[cfg(feature = "Foundation")]
-impl ::core::marker::Copy for MediaTimeRange {}
-#[cfg(feature = "Foundation")]
-impl ::core::clone::Clone for MediaTimeRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for MediaTimeRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MediaTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Abi for MediaTimeRange {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::RuntimeType for MediaTimeRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.MediaTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for MediaTimeRange {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MediaTimeRange>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for MediaTimeRange {}
-#[cfg(feature = "Foundation")]
-impl ::core::default::Default for MediaTimeRange {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct MediaTimelineController(::windows::core::IUnknown);
@@ -2963,42 +2739,6 @@ impl ::core::convert::From<&MediaTimelineControllerFailedEventArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for MediaTimelineControllerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaTimelineControllerFailedEventArgs {}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaTimelineControllerState(pub i32);
-impl MediaTimelineControllerState {
-    pub const Paused: Self = Self(0i32);
-    pub const Running: Self = Self(1i32);
-    pub const Stalled: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaTimelineControllerState {}
-impl ::core::clone::Clone for MediaTimelineControllerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaTimelineControllerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaTimelineControllerState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaTimelineControllerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaTimelineControllerState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaTimelineControllerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaTimelineControllerState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct MusicDisplayProperties(::windows::core::IUnknown);
@@ -3365,41 +3105,6 @@ impl ::core::convert::From<&ShuffleEnabledChangeRequestedEventArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShuffleEnabledChangeRequestedEventArgs {}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SoundLevel(pub i32);
-impl SoundLevel {
-    pub const Muted: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
-    pub const Full: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SoundLevel {}
-impl ::core::clone::Clone for SoundLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SoundLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SoundLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SoundLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SoundLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SoundLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SoundLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControls(::windows::core::IUnknown);
@@ -3774,48 +3479,6 @@ unsafe impl ::core::marker::Send for SystemMediaTransportControls {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControls {}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SystemMediaTransportControlsButton(pub i32);
-impl SystemMediaTransportControlsButton {
-    pub const Play: Self = Self(0i32);
-    pub const Pause: Self = Self(1i32);
-    pub const Stop: Self = Self(2i32);
-    pub const Record: Self = Self(3i32);
-    pub const FastForward: Self = Self(4i32);
-    pub const Rewind: Self = Self(5i32);
-    pub const Next: Self = Self(6i32);
-    pub const Previous: Self = Self(7i32);
-    pub const ChannelUp: Self = Self(8i32);
-    pub const ChannelDown: Self = Self(9i32);
-}
-impl ::core::marker::Copy for SystemMediaTransportControlsButton {}
-impl ::core::clone::Clone for SystemMediaTransportControlsButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemMediaTransportControlsButton {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SystemMediaTransportControlsButton {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemMediaTransportControlsButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMediaTransportControlsButton").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsButton {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsButton;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(::windows::core::IUnknown);
 impl SystemMediaTransportControlsButtonPressedEventArgs {
     pub fn Button(&self) -> ::windows::core::Result<SystemMediaTransportControlsButton> {
@@ -4036,39 +3699,6 @@ impl ::core::convert::From<&SystemMediaTransportControlsDisplayUpdater> for &::w
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsDisplayUpdater {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsDisplayUpdater {}
-#[doc = "*Required features: `\"Media\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SystemMediaTransportControlsProperty(pub i32);
-impl SystemMediaTransportControlsProperty {
-    pub const SoundLevel: Self = Self(0i32);
-}
-impl ::core::marker::Copy for SystemMediaTransportControlsProperty {}
-impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemMediaTransportControlsProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SystemMediaTransportControlsProperty {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemMediaTransportControlsProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMediaTransportControlsProperty").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsProperty {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsProperty;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(::windows::core::IUnknown);
@@ -4728,5 +4358,375 @@ impl<'a> ::core::convert::TryFrom<&VideoFrame> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for VideoFrame {}
 unsafe impl ::core::marker::Sync for VideoFrame {}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AudioBufferAccessMode(pub i32);
+impl AudioBufferAccessMode {
+    pub const Read: Self = Self(0i32);
+    pub const ReadWrite: Self = Self(1i32);
+    pub const Write: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AudioBufferAccessMode {}
+impl ::core::clone::Clone for AudioBufferAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AudioBufferAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AudioBufferAccessMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioBufferAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioBufferAccessMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioBufferAccessMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AudioBufferAccessMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AudioProcessing(pub i32);
+impl AudioProcessing {
+    pub const Default: Self = Self(0i32);
+    pub const Raw: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AudioProcessing {}
+impl ::core::clone::Clone for AudioProcessing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AudioProcessing {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AudioProcessing {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioProcessing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioProcessing").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioProcessing {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AudioProcessing;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlaybackAutoRepeatMode(pub i32);
+impl MediaPlaybackAutoRepeatMode {
+    pub const None: Self = Self(0i32);
+    pub const Track: Self = Self(1i32);
+    pub const List: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MediaPlaybackAutoRepeatMode {}
+impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackAutoRepeatMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlaybackAutoRepeatMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlaybackAutoRepeatMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackAutoRepeatMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlaybackAutoRepeatMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackAutoRepeatMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlaybackStatus(pub i32);
+impl MediaPlaybackStatus {
+    pub const Closed: Self = Self(0i32);
+    pub const Changing: Self = Self(1i32);
+    pub const Stopped: Self = Self(2i32);
+    pub const Playing: Self = Self(3i32);
+    pub const Paused: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MediaPlaybackStatus {}
+impl ::core::clone::Clone for MediaPlaybackStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlaybackStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlaybackStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlaybackStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlaybackType(pub i32);
+impl MediaPlaybackType {
+    pub const Unknown: Self = Self(0i32);
+    pub const Music: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+    pub const Image: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MediaPlaybackType {}
+impl ::core::clone::Clone for MediaPlaybackType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlaybackType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlaybackType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlaybackType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaTimelineControllerState(pub i32);
+impl MediaTimelineControllerState {
+    pub const Paused: Self = Self(0i32);
+    pub const Running: Self = Self(1i32);
+    pub const Stalled: Self = Self(2i32);
+    pub const Error: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MediaTimelineControllerState {}
+impl ::core::clone::Clone for MediaTimelineControllerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaTimelineControllerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaTimelineControllerState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaTimelineControllerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTimelineControllerState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaTimelineControllerState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaTimelineControllerState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SoundLevel(pub i32);
+impl SoundLevel {
+    pub const Muted: Self = Self(0i32);
+    pub const Low: Self = Self(1i32);
+    pub const Full: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SoundLevel {}
+impl ::core::clone::Clone for SoundLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SoundLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SoundLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SoundLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SoundLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SoundLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SoundLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SystemMediaTransportControlsButton(pub i32);
+impl SystemMediaTransportControlsButton {
+    pub const Play: Self = Self(0i32);
+    pub const Pause: Self = Self(1i32);
+    pub const Stop: Self = Self(2i32);
+    pub const Record: Self = Self(3i32);
+    pub const FastForward: Self = Self(4i32);
+    pub const Rewind: Self = Self(5i32);
+    pub const Next: Self = Self(6i32);
+    pub const Previous: Self = Self(7i32);
+    pub const ChannelUp: Self = Self(8i32);
+    pub const ChannelDown: Self = Self(9i32);
+}
+impl ::core::marker::Copy for SystemMediaTransportControlsButton {}
+impl ::core::clone::Clone for SystemMediaTransportControlsButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SystemMediaTransportControlsButton {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SystemMediaTransportControlsButton {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SystemMediaTransportControlsButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMediaTransportControlsButton").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsButton {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsButton;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SystemMediaTransportControlsProperty(pub i32);
+impl SystemMediaTransportControlsProperty {
+    pub const SoundLevel: Self = Self(0i32);
+}
+impl ::core::marker::Copy for SystemMediaTransportControlsProperty {}
+impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SystemMediaTransportControlsProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SystemMediaTransportControlsProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SystemMediaTransportControlsProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMediaTransportControlsProperty").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsProperty {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsProperty;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
+#[cfg(feature = "Foundation")]
+pub struct MediaTimeRange {
+    pub Start: super::Foundation::TimeSpan,
+    pub End: super::Foundation::TimeSpan,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for MediaTimeRange {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for MediaTimeRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for MediaTimeRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MediaTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
+    }
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::Abi for MediaTimeRange {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::RuntimeType for MediaTimeRange {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.MediaTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::PartialEq for MediaTimeRange {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MediaTimeRange>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::Eq for MediaTimeRange {}
+#[cfg(feature = "Foundation")]
+impl ::core::default::Default for MediaTimeRange {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

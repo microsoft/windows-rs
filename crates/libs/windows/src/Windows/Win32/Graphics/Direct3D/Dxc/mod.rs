@@ -1,197 +1,3 @@
-pub const CLSID_DxcAssembler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd728db68_f903_4f80_94cd_dccf76ec7151);
-pub const CLSID_DxcCompiler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73e22d93_e6ce_47f3_b5bf_f0664f39c1b0);
-pub const CLSID_DxcCompilerArgs: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e56ae82_224d_470f_a1a1_fe3016ee9f9d);
-pub const CLSID_DxcContainerBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94134294_411f_4574_b4d0_8741e25240d2);
-pub const CLSID_DxcContainerReflection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f54489_55b8_400c_ba3a_1675e4728b91);
-pub const CLSID_DxcDiaDataSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1f6b73_2ab0_484d_8edc_ebe7a43ca09f);
-pub const CLSID_DxcLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6245d6af_66e0_48fd_80b4_4d271796748c);
-pub const CLSID_DxcLinker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6a8087_b0ea_4d56_9e45_d07e1a8b7806);
-pub const CLSID_DxcOptimizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
-pub const CLSID_DxcPdbUtils: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
-pub const CLSID_DxcValidator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_ALL_RESOURCES_BOUND: &str = "-all_resources_bound";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_AVOID_FLOW_CONTROL: &str = "-Gfa";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_DEBUG: &str = "-Zi";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_DEBUG_NAME_FOR_BINARY: &str = "-Zsb";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_DEBUG_NAME_FOR_SOURCE: &str = "-Zss";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_ENABLE_BACKWARDS_COMPATIBILITY: &str = "-Gec";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_ENABLE_STRICTNESS: &str = "-Ges";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_IEEE_STRICTNESS: &str = "-Gis";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL0: &str = "-O0";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL1: &str = "-O1";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL2: &str = "-O2";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_OPTIMIZATION_LEVEL3: &str = "-O3";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_PACK_MATRIX_COLUMN_MAJOR: &str = "-Zpc";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_PACK_MATRIX_ROW_MAJOR: &str = "-Zpr";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_PREFER_FLOW_CONTROL: &str = "-Gfp";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_RESOURCES_MAY_ALIAS: &str = "-res_may_alias";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_SKIP_OPTIMIZATIONS: &str = "-Od";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_SKIP_VALIDATION: &str = "-Vd";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_ARG_WARNINGS_ARE_ERRORS: &str = "-WX";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXC_CP(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
-impl ::core::marker::Copy for DXC_CP {}
-impl ::core::clone::Clone for DXC_CP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXC_CP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXC_CP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXC_CP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXC_CP").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_EXTRA_OUTPUT_NAME_STDERR: &str = "*stderr*";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: &str = "*stdout*";
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXC_OUT_KIND(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
-impl ::core::marker::Copy for DXC_OUT_KIND {}
-impl ::core::clone::Clone for DXC_OUT_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXC_OUT_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DXC_OUT_KIND {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DXC_OUT_KIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXC_OUT_KIND").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub struct DxcArgPair {
-    pub pName: ::windows::core::PCWSTR,
-    pub pValue: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for DxcArgPair {}
-impl ::core::clone::Clone for DxcArgPair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DxcArgPair {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DxcArgPair").field("pName", &self.pName).field("pValue", &self.pValue).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DxcArgPair {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DxcArgPair {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcArgPair>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DxcArgPair {}
-impl ::core::default::Default for DxcArgPair {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub struct DxcBuffer {
-    pub Ptr: *const ::core::ffi::c_void,
-    pub Size: usize,
-    pub Encoding: u32,
-}
-impl ::core::marker::Copy for DxcBuffer {}
-impl ::core::clone::Clone for DxcBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DxcBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DxcBuffer").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Encoding", &self.Encoding).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DxcBuffer {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DxcBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcBuffer>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DxcBuffer {}
-impl ::core::default::Default for DxcBuffer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[inline]
 pub unsafe fn DxcCreateInstance<T>(rclsid: &::windows::core::GUID) -> ::windows::core::Result<T>
@@ -220,89 +26,6 @@ where
     let mut result__ = ::core::option::Option::None;
     DxcCreateInstance2(pmalloc.into().abi(), ::core::mem::transmute(rclsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-pub type DxcCreateInstance2Proc = ::core::option::Option<unsafe extern "system" fn(pmalloc: ::core::option::Option<super::super::super::System::Com::IMalloc>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub type DxcCreateInstanceProc = ::core::option::Option<unsafe extern "system" fn(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub struct DxcDefine {
-    pub Name: ::windows::core::PCWSTR,
-    pub Value: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for DxcDefine {}
-impl ::core::clone::Clone for DxcDefine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DxcDefine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DxcDefine").field("Name", &self.Name).field("Value", &self.Value).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DxcDefine {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DxcDefine {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcDefine>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DxcDefine {}
-impl ::core::default::Default for DxcDefine {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub struct DxcShaderHash {
-    pub Flags: u32,
-    pub HashDigest: [u8; 16],
-}
-impl ::core::marker::Copy for DxcShaderHash {}
-impl ::core::clone::Clone for DxcShaderHash {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DxcShaderHash {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DxcShaderHash").field("Flags", &self.Flags).field("HashDigest", &self.HashDigest).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DxcShaderHash {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DxcShaderHash {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcShaderHash>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DxcShaderHash {}
-impl ::core::default::Default for DxcShaderHash {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcValidatorFlags_Default: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcValidatorFlags_ValidMask: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DxcVersionInfoFlags_None: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
 pub struct IDxcAssembler(::windows::core::IUnknown);
@@ -2382,5 +2105,282 @@ pub struct IDxcVersionInfo3_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetCustomVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversionstring: *mut *mut i8) -> ::windows::core::HRESULT,
 }
+pub const CLSID_DxcAssembler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd728db68_f903_4f80_94cd_dccf76ec7151);
+pub const CLSID_DxcCompiler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73e22d93_e6ce_47f3_b5bf_f0664f39c1b0);
+pub const CLSID_DxcCompilerArgs: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e56ae82_224d_470f_a1a1_fe3016ee9f9d);
+pub const CLSID_DxcContainerBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94134294_411f_4574_b4d0_8741e25240d2);
+pub const CLSID_DxcContainerReflection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f54489_55b8_400c_ba3a_1675e4728b91);
+pub const CLSID_DxcDiaDataSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1f6b73_2ab0_484d_8edc_ebe7a43ca09f);
+pub const CLSID_DxcLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6245d6af_66e0_48fd_80b4_4d271796748c);
+pub const CLSID_DxcLinker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6a8087_b0ea_4d56_9e45_d07e1a8b7806);
+pub const CLSID_DxcOptimizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
+pub const CLSID_DxcPdbUtils: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
+pub const CLSID_DxcValidator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_ALL_RESOURCES_BOUND: &str = "-all_resources_bound";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_AVOID_FLOW_CONTROL: &str = "-Gfa";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_DEBUG: &str = "-Zi";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_DEBUG_NAME_FOR_BINARY: &str = "-Zsb";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_DEBUG_NAME_FOR_SOURCE: &str = "-Zss";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_ENABLE_BACKWARDS_COMPATIBILITY: &str = "-Gec";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_ENABLE_STRICTNESS: &str = "-Ges";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_IEEE_STRICTNESS: &str = "-Gis";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL0: &str = "-O0";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL1: &str = "-O1";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL2: &str = "-O2";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL3: &str = "-O3";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_PACK_MATRIX_COLUMN_MAJOR: &str = "-Zpc";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_PACK_MATRIX_ROW_MAJOR: &str = "-Zpr";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_PREFER_FLOW_CONTROL: &str = "-Gfp";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_RESOURCES_MAY_ALIAS: &str = "-res_may_alias";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_SKIP_OPTIMIZATIONS: &str = "-Od";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_SKIP_VALIDATION: &str = "-Vd";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_ARG_WARNINGS_ARE_ERRORS: &str = "-WX";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_EXTRA_OUTPUT_NAME_STDERR: &str = "*stderr*";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: &str = "*stdout*";
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcValidatorFlags_Default: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcValidatorFlags_ValidMask: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DxcVersionInfoFlags_None: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXC_CP(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
+impl ::core::marker::Copy for DXC_CP {}
+impl ::core::clone::Clone for DXC_CP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXC_CP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXC_CP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXC_CP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXC_CP").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXC_OUT_KIND(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
+impl ::core::marker::Copy for DXC_OUT_KIND {}
+impl ::core::clone::Clone for DXC_OUT_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXC_OUT_KIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXC_OUT_KIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXC_OUT_KIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXC_OUT_KIND").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub struct DxcArgPair {
+    pub pName: ::windows::core::PCWSTR,
+    pub pValue: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for DxcArgPair {}
+impl ::core::clone::Clone for DxcArgPair {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DxcArgPair {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcArgPair").field("pName", &self.pName).field("pValue", &self.pValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DxcArgPair {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DxcArgPair {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcArgPair>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DxcArgPair {}
+impl ::core::default::Default for DxcArgPair {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub struct DxcBuffer {
+    pub Ptr: *const ::core::ffi::c_void,
+    pub Size: usize,
+    pub Encoding: u32,
+}
+impl ::core::marker::Copy for DxcBuffer {}
+impl ::core::clone::Clone for DxcBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DxcBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcBuffer").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Encoding", &self.Encoding).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DxcBuffer {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DxcBuffer {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcBuffer>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DxcBuffer {}
+impl ::core::default::Default for DxcBuffer {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub struct DxcDefine {
+    pub Name: ::windows::core::PCWSTR,
+    pub Value: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for DxcDefine {}
+impl ::core::clone::Clone for DxcDefine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DxcDefine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcDefine").field("Name", &self.Name).field("Value", &self.Value).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DxcDefine {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DxcDefine {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcDefine>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DxcDefine {}
+impl ::core::default::Default for DxcDefine {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub struct DxcShaderHash {
+    pub Flags: u32,
+    pub HashDigest: [u8; 16],
+}
+impl ::core::marker::Copy for DxcShaderHash {}
+impl ::core::clone::Clone for DxcShaderHash {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DxcShaderHash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DxcShaderHash").field("Flags", &self.Flags).field("HashDigest", &self.HashDigest).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DxcShaderHash {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DxcShaderHash {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcShaderHash>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DxcShaderHash {}
+impl ::core::default::Default for DxcShaderHash {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub type DxcCreateInstance2Proc = ::core::option::Option<unsafe extern "system" fn(pmalloc: ::core::option::Option<super::super::super::System::Com::IMalloc>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub type DxcCreateInstanceProc = ::core::option::Option<unsafe extern "system" fn(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

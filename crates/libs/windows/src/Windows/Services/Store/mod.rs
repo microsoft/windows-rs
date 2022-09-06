@@ -1359,43 +1359,6 @@ unsafe impl ::core::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreCanAcquireLicenseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreCanLicenseStatus(pub i32);
-impl StoreCanLicenseStatus {
-    pub const NotLicensableToUser: Self = Self(0i32);
-    pub const Licensable: Self = Self(1i32);
-    pub const LicenseActionNotApplicableToProduct: Self = Self(2i32);
-    pub const NetworkError: Self = Self(3i32);
-    pub const ServerError: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StoreCanLicenseStatus {}
-impl ::core::clone::Clone for StoreCanLicenseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreCanLicenseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreCanLicenseStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreCanLicenseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreCanLicenseStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreCanLicenseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
 pub struct StoreCollectionData(::windows::core::IUnknown);
 impl StoreCollectionData {
     pub fn IsTrial(&self) -> ::windows::core::Result<bool> {
@@ -1620,42 +1583,6 @@ impl ::core::convert::From<&StoreConsumableResult> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for StoreConsumableResult {}
 unsafe impl ::core::marker::Sync for StoreConsumableResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreConsumableStatus(pub i32);
-impl StoreConsumableStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const InsufficentQuantity: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const ServerError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StoreConsumableStatus {}
-impl ::core::clone::Clone for StoreConsumableStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreConsumableStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreConsumableStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreConsumableStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreConsumableStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreConsumableStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 pub struct StoreContext(::windows::core::IUnknown);
@@ -2171,44 +2098,6 @@ impl ::core::convert::From<&StoreContext> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for StoreContext {}
 unsafe impl ::core::marker::Sync for StoreContext {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreDurationUnit(pub i32);
-impl StoreDurationUnit {
-    pub const Minute: Self = Self(0i32);
-    pub const Hour: Self = Self(1i32);
-    pub const Day: Self = Self(2i32);
-    pub const Week: Self = Self(3i32);
-    pub const Month: Self = Self(4i32);
-    pub const Year: Self = Self(5i32);
-}
-impl ::core::marker::Copy for StoreDurationUnit {}
-impl ::core::clone::Clone for StoreDurationUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreDurationUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreDurationUnit {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreDurationUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreDurationUnit").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreDurationUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 pub struct StoreImage(::windows::core::IUnknown);
@@ -2810,95 +2699,6 @@ impl ::core::convert::From<&StorePackageUpdateResult> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::core::marker::Sync for StorePackageUpdateResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorePackageUpdateState(pub i32);
-impl StorePackageUpdateState {
-    pub const Pending: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const Deploying: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-    pub const Canceled: Self = Self(4i32);
-    pub const OtherError: Self = Self(5i32);
-    pub const ErrorLowBattery: Self = Self(6i32);
-    pub const ErrorWiFiRecommended: Self = Self(7i32);
-    pub const ErrorWiFiRequired: Self = Self(8i32);
-}
-impl ::core::marker::Copy for StorePackageUpdateState {}
-impl ::core::clone::Clone for StorePackageUpdateState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorePackageUpdateState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorePackageUpdateState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorePackageUpdateState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePackageUpdateState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorePackageUpdateState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Services_Store\"`*"]
-pub struct StorePackageUpdateStatus {
-    pub PackageFamilyName: ::windows::core::HSTRING,
-    pub PackageDownloadSizeInBytes: u64,
-    pub PackageBytesDownloaded: u64,
-    pub PackageDownloadProgress: f64,
-    pub TotalDownloadProgress: f64,
-    pub PackageUpdateState: StorePackageUpdateState,
-}
-impl ::core::clone::Clone for StorePackageUpdateStatus {
-    fn clone(&self) -> Self {
-        Self {
-            PackageFamilyName: self.PackageFamilyName.clone(),
-            PackageDownloadSizeInBytes: self.PackageDownloadSizeInBytes,
-            PackageBytesDownloaded: self.PackageBytesDownloaded,
-            PackageDownloadProgress: self.PackageDownloadProgress,
-            TotalDownloadProgress: self.TotalDownloadProgress,
-            PackageUpdateState: self.PackageUpdateState,
-        }
-    }
-}
-impl ::core::fmt::Debug for StorePackageUpdateStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("StorePackageUpdateStatus").field("PackageFamilyName", &self.PackageFamilyName).field("PackageDownloadSizeInBytes", &self.PackageDownloadSizeInBytes).field("PackageBytesDownloaded", &self.PackageBytesDownloaded).field("PackageDownloadProgress", &self.PackageDownloadProgress).field("TotalDownloadProgress", &self.TotalDownloadProgress).field("PackageUpdateState", &self.PackageUpdateState).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for StorePackageUpdateStatus {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-unsafe impl ::windows::core::RuntimeType for StorePackageUpdateStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StorePackageUpdateStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.PackageFamilyName == other.PackageFamilyName && self.PackageDownloadSizeInBytes == other.PackageDownloadSizeInBytes && self.PackageBytesDownloaded == other.PackageBytesDownloaded && self.PackageDownloadProgress == other.PackageDownloadProgress && self.TotalDownloadProgress == other.TotalDownloadProgress && self.PackageUpdateState == other.PackageUpdateState
-    }
-}
-impl ::core::cmp::Eq for StorePackageUpdateStatus {}
-impl ::core::default::Default for StorePackageUpdateStatus {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 pub struct StorePrice(::windows::core::IUnknown);
@@ -3758,43 +3558,6 @@ unsafe impl ::core::marker::Send for StorePurchaseResult {}
 unsafe impl ::core::marker::Sync for StorePurchaseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorePurchaseStatus(pub i32);
-impl StorePurchaseStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const AlreadyPurchased: Self = Self(1i32);
-    pub const NotPurchased: Self = Self(2i32);
-    pub const NetworkError: Self = Self(3i32);
-    pub const ServerError: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StorePurchaseStatus {}
-impl ::core::clone::Clone for StorePurchaseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorePurchaseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorePurchaseStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorePurchaseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePurchaseStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorePurchaseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
 pub struct StoreQueueItem(::windows::core::IUnknown);
 impl StoreQueueItem {
     pub fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4027,125 +3790,6 @@ unsafe impl ::core::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for StoreQueueItemCompletedEventArgs {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreQueueItemExtendedState(pub i32);
-impl StoreQueueItemExtendedState {
-    pub const ActivePending: Self = Self(0i32);
-    pub const ActiveStarting: Self = Self(1i32);
-    pub const ActiveAcquiringLicense: Self = Self(2i32);
-    pub const ActiveDownloading: Self = Self(3i32);
-    pub const ActiveRestoringData: Self = Self(4i32);
-    pub const ActiveInstalling: Self = Self(5i32);
-    pub const Completed: Self = Self(6i32);
-    pub const Canceled: Self = Self(7i32);
-    pub const Paused: Self = Self(8i32);
-    pub const Error: Self = Self(9i32);
-    pub const PausedPackagesInUse: Self = Self(10i32);
-    pub const PausedLowBattery: Self = Self(11i32);
-    pub const PausedWiFiRecommended: Self = Self(12i32);
-    pub const PausedWiFiRequired: Self = Self(13i32);
-    pub const PausedReadyToInstall: Self = Self(14i32);
-}
-impl ::core::marker::Copy for StoreQueueItemExtendedState {}
-impl ::core::clone::Clone for StoreQueueItemExtendedState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreQueueItemExtendedState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreQueueItemExtendedState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreQueueItemExtendedState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemExtendedState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreQueueItemExtendedState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreQueueItemKind(pub i32);
-impl StoreQueueItemKind {
-    pub const Install: Self = Self(0i32);
-    pub const Update: Self = Self(1i32);
-    pub const Repair: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StoreQueueItemKind {}
-impl ::core::clone::Clone for StoreQueueItemKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreQueueItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreQueueItemKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreQueueItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreQueueItemKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreQueueItemState(pub i32);
-impl StoreQueueItemState {
-    pub const Active: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StoreQueueItemState {}
-impl ::core::clone::Clone for StoreQueueItemState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreQueueItemState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreQueueItemState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreQueueItemState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreQueueItemState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
 pub struct StoreQueueItemStatus(::windows::core::IUnknown);
 impl StoreQueueItemStatus {
     pub fn PackageInstallState(&self) -> ::windows::core::Result<StoreQueueItemState> {
@@ -4334,42 +3978,6 @@ impl ::core::convert::From<&StoreRateAndReviewResult> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::core::marker::Sync for StoreRateAndReviewResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreRateAndReviewStatus(pub i32);
-impl StoreRateAndReviewStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const CanceledByUser: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StoreRateAndReviewStatus {}
-impl ::core::clone::Clone for StoreRateAndReviewStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreRateAndReviewStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreRateAndReviewStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreRateAndReviewStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreRateAndReviewStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 pub struct StoreRequestHelper;
 impl StoreRequestHelper {
@@ -4885,43 +4493,6 @@ unsafe impl ::core::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::core::marker::Sync for StoreUninstallStorePackageResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreUninstallStorePackageStatus(pub i32);
-impl StoreUninstallStorePackageStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const CanceledByUser: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const UninstallNotApplicable: Self = Self(3i32);
-    pub const Error: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StoreUninstallStorePackageStatus {}
-impl ::core::clone::Clone for StoreUninstallStorePackageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreUninstallStorePackageStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreUninstallStorePackageStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreUninstallStorePackageStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Store\"`*"]
-#[repr(transparent)]
 pub struct StoreVideo(::windows::core::IUnknown);
 impl StoreVideo {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5031,5 +4602,434 @@ impl ::core::convert::From<&StoreVideo> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for StoreVideo {}
 unsafe impl ::core::marker::Sync for StoreVideo {}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreCanLicenseStatus(pub i32);
+impl StoreCanLicenseStatus {
+    pub const NotLicensableToUser: Self = Self(0i32);
+    pub const Licensable: Self = Self(1i32);
+    pub const LicenseActionNotApplicableToProduct: Self = Self(2i32);
+    pub const NetworkError: Self = Self(3i32);
+    pub const ServerError: Self = Self(4i32);
+}
+impl ::core::marker::Copy for StoreCanLicenseStatus {}
+impl ::core::clone::Clone for StoreCanLicenseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreCanLicenseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreCanLicenseStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreCanLicenseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreCanLicenseStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreCanLicenseStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreConsumableStatus(pub i32);
+impl StoreConsumableStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const InsufficentQuantity: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const ServerError: Self = Self(3i32);
+}
+impl ::core::marker::Copy for StoreConsumableStatus {}
+impl ::core::clone::Clone for StoreConsumableStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreConsumableStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreConsumableStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreConsumableStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreConsumableStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreConsumableStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreDurationUnit(pub i32);
+impl StoreDurationUnit {
+    pub const Minute: Self = Self(0i32);
+    pub const Hour: Self = Self(1i32);
+    pub const Day: Self = Self(2i32);
+    pub const Week: Self = Self(3i32);
+    pub const Month: Self = Self(4i32);
+    pub const Year: Self = Self(5i32);
+}
+impl ::core::marker::Copy for StoreDurationUnit {}
+impl ::core::clone::Clone for StoreDurationUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreDurationUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreDurationUnit {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreDurationUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreDurationUnit").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreDurationUnit {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorePackageUpdateState(pub i32);
+impl StorePackageUpdateState {
+    pub const Pending: Self = Self(0i32);
+    pub const Downloading: Self = Self(1i32);
+    pub const Deploying: Self = Self(2i32);
+    pub const Completed: Self = Self(3i32);
+    pub const Canceled: Self = Self(4i32);
+    pub const OtherError: Self = Self(5i32);
+    pub const ErrorLowBattery: Self = Self(6i32);
+    pub const ErrorWiFiRecommended: Self = Self(7i32);
+    pub const ErrorWiFiRequired: Self = Self(8i32);
+}
+impl ::core::marker::Copy for StorePackageUpdateState {}
+impl ::core::clone::Clone for StorePackageUpdateState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorePackageUpdateState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorePackageUpdateState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorePackageUpdateState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePackageUpdateState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorePackageUpdateState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorePurchaseStatus(pub i32);
+impl StorePurchaseStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const AlreadyPurchased: Self = Self(1i32);
+    pub const NotPurchased: Self = Self(2i32);
+    pub const NetworkError: Self = Self(3i32);
+    pub const ServerError: Self = Self(4i32);
+}
+impl ::core::marker::Copy for StorePurchaseStatus {}
+impl ::core::clone::Clone for StorePurchaseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorePurchaseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorePurchaseStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorePurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePurchaseStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorePurchaseStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreQueueItemExtendedState(pub i32);
+impl StoreQueueItemExtendedState {
+    pub const ActivePending: Self = Self(0i32);
+    pub const ActiveStarting: Self = Self(1i32);
+    pub const ActiveAcquiringLicense: Self = Self(2i32);
+    pub const ActiveDownloading: Self = Self(3i32);
+    pub const ActiveRestoringData: Self = Self(4i32);
+    pub const ActiveInstalling: Self = Self(5i32);
+    pub const Completed: Self = Self(6i32);
+    pub const Canceled: Self = Self(7i32);
+    pub const Paused: Self = Self(8i32);
+    pub const Error: Self = Self(9i32);
+    pub const PausedPackagesInUse: Self = Self(10i32);
+    pub const PausedLowBattery: Self = Self(11i32);
+    pub const PausedWiFiRecommended: Self = Self(12i32);
+    pub const PausedWiFiRequired: Self = Self(13i32);
+    pub const PausedReadyToInstall: Self = Self(14i32);
+}
+impl ::core::marker::Copy for StoreQueueItemExtendedState {}
+impl ::core::clone::Clone for StoreQueueItemExtendedState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreQueueItemExtendedState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreQueueItemExtendedState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreQueueItemExtendedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemExtendedState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreQueueItemExtendedState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreQueueItemKind(pub i32);
+impl StoreQueueItemKind {
+    pub const Install: Self = Self(0i32);
+    pub const Update: Self = Self(1i32);
+    pub const Repair: Self = Self(2i32);
+}
+impl ::core::marker::Copy for StoreQueueItemKind {}
+impl ::core::clone::Clone for StoreQueueItemKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreQueueItemKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreQueueItemKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreQueueItemKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreQueueItemKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreQueueItemState(pub i32);
+impl StoreQueueItemState {
+    pub const Active: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
+    pub const Error: Self = Self(3i32);
+    pub const Paused: Self = Self(4i32);
+}
+impl ::core::marker::Copy for StoreQueueItemState {}
+impl ::core::clone::Clone for StoreQueueItemState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreQueueItemState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreQueueItemState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreQueueItemState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreQueueItemState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreQueueItemState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreRateAndReviewStatus(pub i32);
+impl StoreRateAndReviewStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const CanceledByUser: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const Error: Self = Self(3i32);
+}
+impl ::core::marker::Copy for StoreRateAndReviewStatus {}
+impl ::core::clone::Clone for StoreRateAndReviewStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreRateAndReviewStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreRateAndReviewStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreRateAndReviewStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreRateAndReviewStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Store\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreUninstallStorePackageStatus(pub i32);
+impl StoreUninstallStorePackageStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const CanceledByUser: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const UninstallNotApplicable: Self = Self(3i32);
+    pub const Error: Self = Self(4i32);
+}
+impl ::core::marker::Copy for StoreUninstallStorePackageStatus {}
+impl ::core::clone::Clone for StoreUninstallStorePackageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreUninstallStorePackageStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreUninstallStorePackageStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreUninstallStorePackageStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Services_Store\"`*"]
+pub struct StorePackageUpdateStatus {
+    pub PackageFamilyName: ::windows::core::HSTRING,
+    pub PackageDownloadSizeInBytes: u64,
+    pub PackageBytesDownloaded: u64,
+    pub PackageDownloadProgress: f64,
+    pub TotalDownloadProgress: f64,
+    pub PackageUpdateState: StorePackageUpdateState,
+}
+impl ::core::clone::Clone for StorePackageUpdateStatus {
+    fn clone(&self) -> Self {
+        Self {
+            PackageFamilyName: self.PackageFamilyName.clone(),
+            PackageDownloadSizeInBytes: self.PackageDownloadSizeInBytes,
+            PackageBytesDownloaded: self.PackageBytesDownloaded,
+            PackageDownloadProgress: self.PackageDownloadProgress,
+            TotalDownloadProgress: self.TotalDownloadProgress,
+            PackageUpdateState: self.PackageUpdateState,
+        }
+    }
+}
+impl ::core::fmt::Debug for StorePackageUpdateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("StorePackageUpdateStatus").field("PackageFamilyName", &self.PackageFamilyName).field("PackageDownloadSizeInBytes", &self.PackageDownloadSizeInBytes).field("PackageBytesDownloaded", &self.PackageBytesDownloaded).field("PackageDownloadProgress", &self.PackageDownloadProgress).field("TotalDownloadProgress", &self.TotalDownloadProgress).field("PackageUpdateState", &self.PackageUpdateState).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for StorePackageUpdateStatus {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+unsafe impl ::windows::core::RuntimeType for StorePackageUpdateStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
+}
+impl ::core::cmp::PartialEq for StorePackageUpdateStatus {
+    fn eq(&self, other: &Self) -> bool {
+        self.PackageFamilyName == other.PackageFamilyName && self.PackageDownloadSizeInBytes == other.PackageDownloadSizeInBytes && self.PackageBytesDownloaded == other.PackageBytesDownloaded && self.PackageDownloadProgress == other.PackageDownloadProgress && self.TotalDownloadProgress == other.TotalDownloadProgress && self.PackageUpdateState == other.PackageUpdateState
+    }
+}
+impl ::core::cmp::Eq for StorePackageUpdateStatus {}
+impl ::core::default::Default for StorePackageUpdateStatus {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,75 +1,411 @@
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
+#[doc(hidden)]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GuidanceAudioMeasurementSystem(pub i32);
-impl GuidanceAudioMeasurementSystem {
-    pub const Meters: Self = Self(0i32);
-    pub const MilesAndYards: Self = Self(1i32);
-    pub const MilesAndFeet: Self = Self(2i32);
+pub struct IGuidanceAudioNotificationRequestedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceAudioNotificationRequestedEventArgs {
+    type Vtable = IGuidanceAudioNotificationRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 }
-impl ::core::marker::Copy for GuidanceAudioMeasurementSystem {}
-impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
-    fn clone(&self) -> Self {
-        *self
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AudioNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioNotificationKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AudioFilePaths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AudioFilePaths: usize,
+    pub AudioText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-impl ::core::default::Default for GuidanceAudioMeasurementSystem {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GuidanceAudioMeasurementSystem {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GuidanceAudioMeasurementSystem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
+#[doc(hidden)]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GuidanceAudioNotificationKind(pub i32);
-impl GuidanceAudioNotificationKind {
-    pub const Maneuver: Self = Self(0i32);
-    pub const Route: Self = Self(1i32);
-    pub const Gps: Self = Self(2i32);
-    pub const SpeedLimit: Self = Self(3i32);
-    pub const Traffic: Self = Self(4i32);
-    pub const TrafficCamera: Self = Self(5i32);
+pub struct IGuidanceLaneInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceLaneInfo {
+    type Vtable = IGuidanceLaneInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
 }
-impl ::core::marker::Copy for GuidanceAudioNotificationKind {}
-impl ::core::clone::Clone for GuidanceAudioNotificationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceLaneInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub LaneMarkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceLaneMarkers) -> ::windows::core::HRESULT,
+    pub IsOnRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-impl ::core::default::Default for GuidanceAudioNotificationKind {
-    fn default() -> Self {
-        Self(0)
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceManeuver(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceManeuver {
+    type Vtable = IGuidanceManeuver_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
 }
-unsafe impl ::windows::core::Abi for GuidanceAudioNotificationKind {
-    type Abi = Self;
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceManeuver_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Devices_Geolocation")]
+    pub StartLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Geolocation"))]
+    StartLocation: usize,
+    pub DistanceFromRouteStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub DistanceFromPreviousManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub DepartureRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub NextRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DepartureShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub NextShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceManeuverKind) -> ::windows::core::HRESULT,
+    pub StartAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub EndAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub RoadSignpost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InstructionText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceMapMatchedCoordinate(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceMapMatchedCoordinate {
+    type Vtable = IGuidanceMapMatchedCoordinate_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
 }
-unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotificationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceMapMatchedCoordinate_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Devices_Geolocation")]
+    pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Geolocation"))]
+    Location: usize,
+    pub CurrentHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub CurrentSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub IsOnStreet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub Road: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceNavigator(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceNavigator {
+    type Vtable = IGuidanceNavigator_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceNavigator_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub StartNavigating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartSimulating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: *mut ::core::ffi::c_void, speedinmeterspersecond: i32) -> ::windows::core::HRESULT,
+    pub StartTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RepeatLastAudioNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AudioMeasurementSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioMeasurementSystem) -> ::windows::core::HRESULT,
+    pub SetAudioMeasurementSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GuidanceAudioMeasurementSystem) -> ::windows::core::HRESULT,
+    pub AudioNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioNotifications) -> ::windows::core::HRESULT,
+    pub SetAudioNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GuidanceAudioNotifications) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GuidanceUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GuidanceUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveGuidanceUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveGuidanceUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub DestinationReached: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DestinationReached: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDestinationReached: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDestinationReached: usize,
+    #[cfg(feature = "Foundation")]
+    pub Rerouting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Rerouting: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveRerouting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveRerouting: usize,
+    #[cfg(feature = "Foundation")]
+    pub Rerouted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Rerouted: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveRerouted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveRerouted: usize,
+    #[cfg(feature = "Foundation")]
+    pub RerouteFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RerouteFailed: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveRerouteFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveRerouteFailed: usize,
+    #[cfg(feature = "Foundation")]
+    pub UserLocationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    UserLocationLost: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveUserLocationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveUserLocationLost: usize,
+    #[cfg(feature = "Foundation")]
+    pub UserLocationRestored: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    UserLocationRestored: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveUserLocationRestored: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveUserLocationRestored: usize,
+    pub SetGuidanceVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, voiceid: i32, voicefolder: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Geolocation")]
+    pub UpdateUserLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userlocation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Geolocation"))]
+    UpdateUserLocation: usize,
+    #[cfg(feature = "Devices_Geolocation")]
+    pub UpdateUserLocationWithPositionOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userlocation: *mut ::core::ffi::c_void, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Geolocation"))]
+    UpdateUserLocationWithPositionOverride: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceNavigator2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceNavigator2 {
+    type Vtable = IGuidanceNavigator2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceNavigator2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub AudioNotificationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AudioNotificationRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveAudioNotificationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveAudioNotificationRequested: usize,
+    pub IsGuidanceAudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsGuidanceAudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceNavigatorStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics {
+    type Vtable = IGuidanceNavigatorStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00fd9513_4456_4e66_a143_3add6be08426);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceNavigatorStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceNavigatorStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics2 {
+    type Vtable = IGuidanceNavigatorStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceNavigatorStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub UseAppProvidedVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceReroutedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceReroutedEventArgs {
+    type Vtable = IGuidanceReroutedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceReroutedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceRoadSegment(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceRoadSegment {
+    type Vtable = IGuidanceRoadSegment_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceRoadSegment_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub RoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SpeedLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub TravelTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TravelTime: usize,
+    #[cfg(feature = "Devices_Geolocation")]
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Geolocation"))]
+    Path: usize,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IsHighway: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsTunnel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsTollRoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceRoadSegment2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceRoadSegment2 {
+    type Vtable = IGuidanceRoadSegment2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceRoadSegment2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsScenic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceRoadSignpost(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceRoadSignpost {
+    type Vtable = IGuidanceRoadSignpost_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceRoadSignpost_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ExitNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Exit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI")]
+    pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI"))]
+    BackgroundColor: usize,
+    #[cfg(feature = "UI")]
+    pub ForegroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI"))]
+    ForegroundColor: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ExitDirections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ExitDirections: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceRoute(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceRoute {
+    type Vtable = IGuidanceRoute_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceRoute_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Duration: usize,
+    pub Distance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Maneuvers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Maneuvers: usize,
+    #[cfg(feature = "Devices_Geolocation")]
+    pub BoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Geolocation"))]
+    BoundingBox: usize,
+    #[cfg(feature = "Devices_Geolocation")]
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Devices_Geolocation"))]
+    Path: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RoadSegments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RoadSegments: usize,
+    pub ConvertToMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceRouteStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceRouteStatics {
+    type Vtable = IGuidanceRouteStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceRouteStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CanCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub TryCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceTelemetryCollector(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollector {
+    type Vtable = IGuidanceTelemetryCollector_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceTelemetryCollector_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub ClearLocalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SpeedTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub SetSpeedTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    pub UploadFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub SetUploadFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceTelemetryCollectorStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollectorStatics {
+    type Vtable = IGuidanceTelemetryCollectorStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36532047_f160_44fb_b578_94577ca05990);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGuidanceUpdatedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGuidanceUpdatedEventArgs {
+    type Vtable = IGuidanceUpdatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGuidanceUpdatedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceMode) -> ::windows::core::HRESULT,
+    pub NextManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NextManeuverDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub AfterNextManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AfterNextManeuverDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub DistanceToDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub ElapsedDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ElapsedTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub TimeToDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TimeToDestination: usize,
+    pub RoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CurrentLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsNewManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub LaneInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    LaneInfo: usize,
 }
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
@@ -163,73 +499,6 @@ unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs
 unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GuidanceAudioNotifications(pub u32);
-impl GuidanceAudioNotifications {
-    pub const None: Self = Self(0u32);
-    pub const Maneuver: Self = Self(1u32);
-    pub const Route: Self = Self(2u32);
-    pub const Gps: Self = Self(4u32);
-    pub const SpeedLimit: Self = Self(8u32);
-    pub const Traffic: Self = Self(16u32);
-    pub const TrafficCamera: Self = Self(32u32);
-}
-impl ::core::marker::Copy for GuidanceAudioNotifications {}
-impl ::core::clone::Clone for GuidanceAudioNotifications {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceAudioNotifications {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GuidanceAudioNotifications {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GuidanceAudioNotifications {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GuidanceAudioNotifications {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GuidanceAudioNotifications {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GuidanceAudioNotifications {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GuidanceAudioNotifications {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GuidanceAudioNotifications {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotifications {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
-#[repr(transparent)]
 pub struct GuidanceLaneInfo(::windows::core::IUnknown);
 impl GuidanceLaneInfo {
     pub fn LaneMarkers(&self) -> ::windows::core::Result<GuidanceLaneMarkers> {
@@ -309,77 +578,6 @@ impl ::core::convert::From<&GuidanceLaneInfo> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GuidanceLaneMarkers(pub u32);
-impl GuidanceLaneMarkers {
-    pub const None: Self = Self(0u32);
-    pub const LightRight: Self = Self(1u32);
-    pub const Right: Self = Self(2u32);
-    pub const HardRight: Self = Self(4u32);
-    pub const Straight: Self = Self(8u32);
-    pub const UTurnLeft: Self = Self(16u32);
-    pub const HardLeft: Self = Self(32u32);
-    pub const Left: Self = Self(64u32);
-    pub const LightLeft: Self = Self(128u32);
-    pub const UTurnRight: Self = Self(256u32);
-    pub const Unknown: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for GuidanceLaneMarkers {}
-impl ::core::clone::Clone for GuidanceLaneMarkers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceLaneMarkers {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GuidanceLaneMarkers {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GuidanceLaneMarkers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GuidanceLaneMarkers {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GuidanceLaneMarkers {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GuidanceLaneMarkers {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GuidanceLaneMarkers {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GuidanceLaneMarkers {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GuidanceLaneMarkers {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceManeuver(::windows::core::IUnknown);
@@ -535,86 +733,6 @@ unsafe impl ::core::marker::Send for GuidanceManeuver {}
 unsafe impl ::core::marker::Sync for GuidanceManeuver {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GuidanceManeuverKind(pub i32);
-impl GuidanceManeuverKind {
-    pub const None: Self = Self(0i32);
-    pub const GoStraight: Self = Self(1i32);
-    pub const UTurnRight: Self = Self(2i32);
-    pub const UTurnLeft: Self = Self(3i32);
-    pub const TurnKeepRight: Self = Self(4i32);
-    pub const TurnLightRight: Self = Self(5i32);
-    pub const TurnRight: Self = Self(6i32);
-    pub const TurnHardRight: Self = Self(7i32);
-    pub const KeepMiddle: Self = Self(8i32);
-    pub const TurnKeepLeft: Self = Self(9i32);
-    pub const TurnLightLeft: Self = Self(10i32);
-    pub const TurnLeft: Self = Self(11i32);
-    pub const TurnHardLeft: Self = Self(12i32);
-    pub const FreewayEnterRight: Self = Self(13i32);
-    pub const FreewayEnterLeft: Self = Self(14i32);
-    pub const FreewayLeaveRight: Self = Self(15i32);
-    pub const FreewayLeaveLeft: Self = Self(16i32);
-    pub const FreewayKeepRight: Self = Self(17i32);
-    pub const FreewayKeepLeft: Self = Self(18i32);
-    pub const TrafficCircleRight1: Self = Self(19i32);
-    pub const TrafficCircleRight2: Self = Self(20i32);
-    pub const TrafficCircleRight3: Self = Self(21i32);
-    pub const TrafficCircleRight4: Self = Self(22i32);
-    pub const TrafficCircleRight5: Self = Self(23i32);
-    pub const TrafficCircleRight6: Self = Self(24i32);
-    pub const TrafficCircleRight7: Self = Self(25i32);
-    pub const TrafficCircleRight8: Self = Self(26i32);
-    pub const TrafficCircleRight9: Self = Self(27i32);
-    pub const TrafficCircleRight10: Self = Self(28i32);
-    pub const TrafficCircleRight11: Self = Self(29i32);
-    pub const TrafficCircleRight12: Self = Self(30i32);
-    pub const TrafficCircleLeft1: Self = Self(31i32);
-    pub const TrafficCircleLeft2: Self = Self(32i32);
-    pub const TrafficCircleLeft3: Self = Self(33i32);
-    pub const TrafficCircleLeft4: Self = Self(34i32);
-    pub const TrafficCircleLeft5: Self = Self(35i32);
-    pub const TrafficCircleLeft6: Self = Self(36i32);
-    pub const TrafficCircleLeft7: Self = Self(37i32);
-    pub const TrafficCircleLeft8: Self = Self(38i32);
-    pub const TrafficCircleLeft9: Self = Self(39i32);
-    pub const TrafficCircleLeft10: Self = Self(40i32);
-    pub const TrafficCircleLeft11: Self = Self(41i32);
-    pub const TrafficCircleLeft12: Self = Self(42i32);
-    pub const Start: Self = Self(43i32);
-    pub const End: Self = Self(44i32);
-    pub const TakeFerry: Self = Self(45i32);
-    pub const PassTransitStation: Self = Self(46i32);
-    pub const LeaveTransitStation: Self = Self(47i32);
-}
-impl ::core::marker::Copy for GuidanceManeuverKind {}
-impl ::core::clone::Clone for GuidanceManeuverKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceManeuverKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GuidanceManeuverKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GuidanceManeuverKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GuidanceManeuverKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
-#[repr(transparent)]
 pub struct GuidanceMapMatchedCoordinate(::windows::core::IUnknown);
 impl GuidanceMapMatchedCoordinate {
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -717,42 +835,6 @@ impl ::core::convert::From<&GuidanceMapMatchedCoordinate> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GuidanceMode(pub i32);
-impl GuidanceMode {
-    pub const None: Self = Self(0i32);
-    pub const Simulation: Self = Self(1i32);
-    pub const Navigation: Self = Self(2i32);
-    pub const Tracking: Self = Self(3i32);
-}
-impl ::core::marker::Copy for GuidanceMode {}
-impl ::core::clone::Clone for GuidanceMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GuidanceMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GuidanceMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GuidanceMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GuidanceMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 pub struct GuidanceNavigator(::windows::core::IUnknown);
@@ -1833,414 +1915,332 @@ impl ::core::convert::From<&GuidanceUpdatedEventArgs> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-pub struct IGuidanceAudioNotificationRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceAudioNotificationRequestedEventArgs {
-    type Vtable = IGuidanceAudioNotificationRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GuidanceAudioMeasurementSystem(pub i32);
+impl GuidanceAudioMeasurementSystem {
+    pub const Meters: Self = Self(0i32);
+    pub const MilesAndYards: Self = Self(1i32);
+    pub const MilesAndFeet: Self = Self(2i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AudioNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioNotificationKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AudioFilePaths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AudioFilePaths: usize,
-    pub AudioText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for GuidanceAudioMeasurementSystem {}
+impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for GuidanceAudioMeasurementSystem {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GuidanceAudioMeasurementSystem {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GuidanceAudioMeasurementSystem {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-pub struct IGuidanceLaneInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceLaneInfo {
-    type Vtable = IGuidanceLaneInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GuidanceAudioNotificationKind(pub i32);
+impl GuidanceAudioNotificationKind {
+    pub const Maneuver: Self = Self(0i32);
+    pub const Route: Self = Self(1i32);
+    pub const Gps: Self = Self(2i32);
+    pub const SpeedLimit: Self = Self(3i32);
+    pub const Traffic: Self = Self(4i32);
+    pub const TrafficCamera: Self = Self(5i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceLaneInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub LaneMarkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceLaneMarkers) -> ::windows::core::HRESULT,
-    pub IsOnRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for GuidanceAudioNotificationKind {}
+impl ::core::clone::Clone for GuidanceAudioNotificationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for GuidanceAudioNotificationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GuidanceAudioNotificationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotificationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-pub struct IGuidanceManeuver(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceManeuver {
-    type Vtable = IGuidanceManeuver_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GuidanceAudioNotifications(pub u32);
+impl GuidanceAudioNotifications {
+    pub const None: Self = Self(0u32);
+    pub const Maneuver: Self = Self(1u32);
+    pub const Route: Self = Self(2u32);
+    pub const Gps: Self = Self(4u32);
+    pub const SpeedLimit: Self = Self(8u32);
+    pub const Traffic: Self = Self(16u32);
+    pub const TrafficCamera: Self = Self(32u32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceManeuver_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Devices_Geolocation")]
-    pub StartLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Geolocation"))]
-    StartLocation: usize,
-    pub DistanceFromRouteStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub DistanceFromPreviousManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub DepartureRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub NextRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub DepartureShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub NextShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceManeuverKind) -> ::windows::core::HRESULT,
-    pub StartAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub EndAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub RoadSignpost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub InstructionText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for GuidanceAudioNotifications {}
+impl ::core::clone::Clone for GuidanceAudioNotifications {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for GuidanceAudioNotifications {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GuidanceAudioNotifications {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GuidanceAudioNotifications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GuidanceAudioNotifications {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GuidanceAudioNotifications {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GuidanceAudioNotifications {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GuidanceAudioNotifications {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GuidanceAudioNotifications {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotifications {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-pub struct IGuidanceMapMatchedCoordinate(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceMapMatchedCoordinate {
-    type Vtable = IGuidanceMapMatchedCoordinate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GuidanceLaneMarkers(pub u32);
+impl GuidanceLaneMarkers {
+    pub const None: Self = Self(0u32);
+    pub const LightRight: Self = Self(1u32);
+    pub const Right: Self = Self(2u32);
+    pub const HardRight: Self = Self(4u32);
+    pub const Straight: Self = Self(8u32);
+    pub const UTurnLeft: Self = Self(16u32);
+    pub const HardLeft: Self = Self(32u32);
+    pub const Left: Self = Self(64u32);
+    pub const LightLeft: Self = Self(128u32);
+    pub const UTurnRight: Self = Self(256u32);
+    pub const Unknown: Self = Self(4294967295u32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceMapMatchedCoordinate_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Devices_Geolocation")]
-    pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Geolocation"))]
-    Location: usize,
-    pub CurrentHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub CurrentSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub IsOnStreet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub Road: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for GuidanceLaneMarkers {}
+impl ::core::clone::Clone for GuidanceLaneMarkers {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for GuidanceLaneMarkers {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GuidanceLaneMarkers {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GuidanceLaneMarkers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GuidanceLaneMarkers {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GuidanceLaneMarkers {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GuidanceLaneMarkers {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GuidanceLaneMarkers {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GuidanceLaneMarkers {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GuidanceLaneMarkers {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-pub struct IGuidanceNavigator(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceNavigator {
-    type Vtable = IGuidanceNavigator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GuidanceManeuverKind(pub i32);
+impl GuidanceManeuverKind {
+    pub const None: Self = Self(0i32);
+    pub const GoStraight: Self = Self(1i32);
+    pub const UTurnRight: Self = Self(2i32);
+    pub const UTurnLeft: Self = Self(3i32);
+    pub const TurnKeepRight: Self = Self(4i32);
+    pub const TurnLightRight: Self = Self(5i32);
+    pub const TurnRight: Self = Self(6i32);
+    pub const TurnHardRight: Self = Self(7i32);
+    pub const KeepMiddle: Self = Self(8i32);
+    pub const TurnKeepLeft: Self = Self(9i32);
+    pub const TurnLightLeft: Self = Self(10i32);
+    pub const TurnLeft: Self = Self(11i32);
+    pub const TurnHardLeft: Self = Self(12i32);
+    pub const FreewayEnterRight: Self = Self(13i32);
+    pub const FreewayEnterLeft: Self = Self(14i32);
+    pub const FreewayLeaveRight: Self = Self(15i32);
+    pub const FreewayLeaveLeft: Self = Self(16i32);
+    pub const FreewayKeepRight: Self = Self(17i32);
+    pub const FreewayKeepLeft: Self = Self(18i32);
+    pub const TrafficCircleRight1: Self = Self(19i32);
+    pub const TrafficCircleRight2: Self = Self(20i32);
+    pub const TrafficCircleRight3: Self = Self(21i32);
+    pub const TrafficCircleRight4: Self = Self(22i32);
+    pub const TrafficCircleRight5: Self = Self(23i32);
+    pub const TrafficCircleRight6: Self = Self(24i32);
+    pub const TrafficCircleRight7: Self = Self(25i32);
+    pub const TrafficCircleRight8: Self = Self(26i32);
+    pub const TrafficCircleRight9: Self = Self(27i32);
+    pub const TrafficCircleRight10: Self = Self(28i32);
+    pub const TrafficCircleRight11: Self = Self(29i32);
+    pub const TrafficCircleRight12: Self = Self(30i32);
+    pub const TrafficCircleLeft1: Self = Self(31i32);
+    pub const TrafficCircleLeft2: Self = Self(32i32);
+    pub const TrafficCircleLeft3: Self = Self(33i32);
+    pub const TrafficCircleLeft4: Self = Self(34i32);
+    pub const TrafficCircleLeft5: Self = Self(35i32);
+    pub const TrafficCircleLeft6: Self = Self(36i32);
+    pub const TrafficCircleLeft7: Self = Self(37i32);
+    pub const TrafficCircleLeft8: Self = Self(38i32);
+    pub const TrafficCircleLeft9: Self = Self(39i32);
+    pub const TrafficCircleLeft10: Self = Self(40i32);
+    pub const TrafficCircleLeft11: Self = Self(41i32);
+    pub const TrafficCircleLeft12: Self = Self(42i32);
+    pub const Start: Self = Self(43i32);
+    pub const End: Self = Self(44i32);
+    pub const TakeFerry: Self = Self(45i32);
+    pub const PassTransitStation: Self = Self(46i32);
+    pub const LeaveTransitStation: Self = Self(47i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceNavigator_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub StartNavigating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StartSimulating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: *mut ::core::ffi::c_void, speedinmeterspersecond: i32) -> ::windows::core::HRESULT,
-    pub StartTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RepeatLastAudioNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AudioMeasurementSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioMeasurementSystem) -> ::windows::core::HRESULT,
-    pub SetAudioMeasurementSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GuidanceAudioMeasurementSystem) -> ::windows::core::HRESULT,
-    pub AudioNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioNotifications) -> ::windows::core::HRESULT,
-    pub SetAudioNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GuidanceAudioNotifications) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GuidanceUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GuidanceUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveGuidanceUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveGuidanceUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub DestinationReached: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DestinationReached: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDestinationReached: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDestinationReached: usize,
-    #[cfg(feature = "Foundation")]
-    pub Rerouting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Rerouting: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveRerouting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveRerouting: usize,
-    #[cfg(feature = "Foundation")]
-    pub Rerouted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Rerouted: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveRerouted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveRerouted: usize,
-    #[cfg(feature = "Foundation")]
-    pub RerouteFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RerouteFailed: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveRerouteFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveRerouteFailed: usize,
-    #[cfg(feature = "Foundation")]
-    pub UserLocationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UserLocationLost: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveUserLocationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveUserLocationLost: usize,
-    #[cfg(feature = "Foundation")]
-    pub UserLocationRestored: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    UserLocationRestored: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveUserLocationRestored: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveUserLocationRestored: usize,
-    pub SetGuidanceVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, voiceid: i32, voicefolder: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Geolocation")]
-    pub UpdateUserLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userlocation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Geolocation"))]
-    UpdateUserLocation: usize,
-    #[cfg(feature = "Devices_Geolocation")]
-    pub UpdateUserLocationWithPositionOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userlocation: *mut ::core::ffi::c_void, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Geolocation"))]
-    UpdateUserLocationWithPositionOverride: usize,
+impl ::core::marker::Copy for GuidanceManeuverKind {}
+impl ::core::clone::Clone for GuidanceManeuverKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+impl ::core::default::Default for GuidanceManeuverKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GuidanceManeuverKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GuidanceManeuverKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GuidanceManeuverKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
-pub struct IGuidanceNavigator2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceNavigator2 {
-    type Vtable = IGuidanceNavigator2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GuidanceMode(pub i32);
+impl GuidanceMode {
+    pub const None: Self = Self(0i32);
+    pub const Simulation: Self = Self(1i32);
+    pub const Navigation: Self = Self(2i32);
+    pub const Tracking: Self = Self(3i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceNavigator2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub AudioNotificationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AudioNotificationRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveAudioNotificationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAudioNotificationRequested: usize,
-    pub IsGuidanceAudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIsGuidanceAudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+impl ::core::marker::Copy for GuidanceMode {}
+impl ::core::clone::Clone for GuidanceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceNavigatorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics {
-    type Vtable = IGuidanceNavigatorStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00fd9513_4456_4e66_a143_3add6be08426);
+impl ::core::default::Default for GuidanceMode {
+    fn default() -> Self {
+        Self(0)
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceNavigatorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::Abi for GuidanceMode {
+    type Abi = Self;
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceNavigatorStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics2 {
-    type Vtable = IGuidanceNavigatorStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
+impl ::core::fmt::Debug for GuidanceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GuidanceMode").field(&self.0).finish()
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceNavigatorStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub UseAppProvidedVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceReroutedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceReroutedEventArgs {
-    type Vtable = IGuidanceReroutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceReroutedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceRoadSegment(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceRoadSegment {
-    type Vtable = IGuidanceRoadSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceRoadSegment_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub RoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SpeedLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub TravelTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TravelTime: usize,
-    #[cfg(feature = "Devices_Geolocation")]
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Geolocation"))]
-    Path: usize,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub IsHighway: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsTunnel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsTollRoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceRoadSegment2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceRoadSegment2 {
-    type Vtable = IGuidanceRoadSegment2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceRoadSegment2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsScenic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceRoadSignpost(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceRoadSignpost {
-    type Vtable = IGuidanceRoadSignpost_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceRoadSignpost_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ExitNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Exit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI")]
-    pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI"))]
-    BackgroundColor: usize,
-    #[cfg(feature = "UI")]
-    pub ForegroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI"))]
-    ForegroundColor: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ExitDirections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ExitDirections: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceRoute(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceRoute {
-    type Vtable = IGuidanceRoute_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceRoute_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
-    pub Distance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Maneuvers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Maneuvers: usize,
-    #[cfg(feature = "Devices_Geolocation")]
-    pub BoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Geolocation"))]
-    BoundingBox: usize,
-    #[cfg(feature = "Devices_Geolocation")]
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Devices_Geolocation"))]
-    Path: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub RoadSegments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RoadSegments: usize,
-    pub ConvertToMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceRouteStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceRouteStatics {
-    type Vtable = IGuidanceRouteStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceRouteStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CanCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub TryCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceTelemetryCollector(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollector {
-    type Vtable = IGuidanceTelemetryCollector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceTelemetryCollector_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub ClearLocalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SpeedTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub SetSpeedTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
-    pub UploadFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub SetUploadFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceTelemetryCollectorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollectorStatics {
-    type Vtable = IGuidanceTelemetryCollectorStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36532047_f160_44fb_b578_94577ca05990);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGuidanceUpdatedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGuidanceUpdatedEventArgs {
-    type Vtable = IGuidanceUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGuidanceUpdatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceMode) -> ::windows::core::HRESULT,
-    pub NextManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NextManeuverDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub AfterNextManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AfterNextManeuverDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub DistanceToDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub ElapsedDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ElapsedTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub TimeToDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TimeToDestination: usize,
-    pub RoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CurrentLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IsNewManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub LaneInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    LaneInfo: usize,
+unsafe impl ::windows::core::RuntimeType for GuidanceMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

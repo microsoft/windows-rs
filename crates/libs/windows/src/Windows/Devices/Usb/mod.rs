@@ -1181,43 +1181,6 @@ unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
 unsafe impl ::core::marker::Sync for UsbConfigurationDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UsbControlRecipient(pub i32);
-impl UsbControlRecipient {
-    pub const Device: Self = Self(0i32);
-    pub const SpecifiedInterface: Self = Self(1i32);
-    pub const Endpoint: Self = Self(2i32);
-    pub const Other: Self = Self(3i32);
-    pub const DefaultInterface: Self = Self(4i32);
-}
-impl ::core::marker::Copy for UsbControlRecipient {}
-impl ::core::clone::Clone for UsbControlRecipient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UsbControlRecipient {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UsbControlRecipient {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UsbControlRecipient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UsbControlRecipient {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Usb\"`*"]
-#[repr(transparent)]
 pub struct UsbControlRequestType(::windows::core::IUnknown);
 impl UsbControlRequestType {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1334,41 +1297,6 @@ impl ::core::convert::From<&UsbControlRequestType> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for UsbControlRequestType {}
 unsafe impl ::core::marker::Sync for UsbControlRequestType {}
-#[doc = "*Required features: `\"Devices_Usb\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UsbControlTransferType(pub i32);
-impl UsbControlTransferType {
-    pub const Standard: Self = Self(0i32);
-    pub const Class: Self = Self(1i32);
-    pub const Vendor: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UsbControlTransferType {}
-impl ::core::clone::Clone for UsbControlTransferType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UsbControlTransferType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UsbControlTransferType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UsbControlTransferType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UsbControlTransferType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbDescriptor(::windows::core::IUnknown);
@@ -2165,42 +2093,6 @@ impl ::core::convert::From<&UsbEndpointDescriptor> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
-#[doc = "*Required features: `\"Devices_Usb\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UsbEndpointType(pub i32);
-impl UsbEndpointType {
-    pub const Control: Self = Self(0i32);
-    pub const Isochronous: Self = Self(1i32);
-    pub const Bulk: Self = Self(2i32);
-    pub const Interrupt: Self = Self(3i32);
-}
-impl ::core::marker::Copy for UsbEndpointType {}
-impl ::core::clone::Clone for UsbEndpointType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UsbEndpointType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UsbEndpointType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UsbEndpointType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbEndpointType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UsbEndpointType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 pub struct UsbInterface(::windows::core::IUnknown);
@@ -3065,71 +2957,6 @@ unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UsbReadOptions(pub u32);
-impl UsbReadOptions {
-    pub const None: Self = Self(0u32);
-    pub const AutoClearStall: Self = Self(1u32);
-    pub const OverrideAutomaticBufferManagement: Self = Self(2u32);
-    pub const IgnoreShortPacket: Self = Self(4u32);
-    pub const AllowPartialReads: Self = Self(8u32);
-}
-impl ::core::marker::Copy for UsbReadOptions {}
-impl ::core::clone::Clone for UsbReadOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UsbReadOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UsbReadOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UsbReadOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbReadOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for UsbReadOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for UsbReadOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UsbReadOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UsbReadOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for UsbReadOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UsbReadOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Usb\"`*"]
-#[repr(transparent)]
 pub struct UsbSetupPacket(::windows::core::IUnknown);
 impl UsbSetupPacket {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -3277,6 +3104,179 @@ impl ::core::convert::From<&UsbSetupPacket> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for UsbSetupPacket {}
 unsafe impl ::core::marker::Sync for UsbSetupPacket {}
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UsbControlRecipient(pub i32);
+impl UsbControlRecipient {
+    pub const Device: Self = Self(0i32);
+    pub const SpecifiedInterface: Self = Self(1i32);
+    pub const Endpoint: Self = Self(2i32);
+    pub const Other: Self = Self(3i32);
+    pub const DefaultInterface: Self = Self(4i32);
+}
+impl ::core::marker::Copy for UsbControlRecipient {}
+impl ::core::clone::Clone for UsbControlRecipient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UsbControlRecipient {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UsbControlRecipient {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UsbControlRecipient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UsbControlRecipient {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UsbControlTransferType(pub i32);
+impl UsbControlTransferType {
+    pub const Standard: Self = Self(0i32);
+    pub const Class: Self = Self(1i32);
+    pub const Vendor: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UsbControlTransferType {}
+impl ::core::clone::Clone for UsbControlTransferType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UsbControlTransferType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UsbControlTransferType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UsbControlTransferType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UsbControlTransferType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UsbEndpointType(pub i32);
+impl UsbEndpointType {
+    pub const Control: Self = Self(0i32);
+    pub const Isochronous: Self = Self(1i32);
+    pub const Bulk: Self = Self(2i32);
+    pub const Interrupt: Self = Self(3i32);
+}
+impl ::core::marker::Copy for UsbEndpointType {}
+impl ::core::clone::Clone for UsbEndpointType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UsbEndpointType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UsbEndpointType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UsbEndpointType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbEndpointType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UsbEndpointType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Usb\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UsbReadOptions(pub u32);
+impl UsbReadOptions {
+    pub const None: Self = Self(0u32);
+    pub const AutoClearStall: Self = Self(1u32);
+    pub const OverrideAutomaticBufferManagement: Self = Self(2u32);
+    pub const IgnoreShortPacket: Self = Self(4u32);
+    pub const AllowPartialReads: Self = Self(8u32);
+}
+impl ::core::marker::Copy for UsbReadOptions {}
+impl ::core::clone::Clone for UsbReadOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UsbReadOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UsbReadOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UsbReadOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UsbReadOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for UsbReadOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UsbReadOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UsbReadOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UsbReadOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UsbReadOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UsbReadOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

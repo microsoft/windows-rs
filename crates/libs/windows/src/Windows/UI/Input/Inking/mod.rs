@@ -4,41 +4,6 @@ pub mod Analysis;
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking_Preview")]
 pub mod Preview;
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HandwritingLineHeight(pub i32);
-impl HandwritingLineHeight {
-    pub const Small: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const Large: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HandwritingLineHeight {}
-impl ::core::clone::Clone for HandwritingLineHeight {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HandwritingLineHeight {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HandwritingLineHeight {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HandwritingLineHeight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandwritingLineHeight").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HandwritingLineHeight {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(::windows::core::IUnknown);
@@ -1754,40 +1719,6 @@ unsafe impl ::core::marker::Send for InkDrawingAttributes {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributes {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkDrawingAttributesKind(pub i32);
-impl InkDrawingAttributesKind {
-    pub const Default: Self = Self(0i32);
-    pub const Pencil: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkDrawingAttributesKind {}
-impl ::core::clone::Clone for InkDrawingAttributesKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkDrawingAttributesKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkDrawingAttributesKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkDrawingAttributesKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkDrawingAttributesKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkDrawingAttributesKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
 pub struct InkDrawingAttributesPencilProperties(::windows::core::IUnknown);
 impl InkDrawingAttributesPencilProperties {
     pub fn Opacity(&self) -> ::windows::core::Result<f64> {
@@ -1864,41 +1795,6 @@ impl ::core::convert::From<&InkDrawingAttributesPencilProperties> for &::windows
 }
 unsafe impl ::core::marker::Send for InkDrawingAttributesPencilProperties {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributesPencilProperties {}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkHighContrastAdjustment(pub i32);
-impl InkHighContrastAdjustment {
-    pub const UseSystemColorsWhenNecessary: Self = Self(0i32);
-    pub const UseSystemColors: Self = Self(1i32);
-    pub const UseOriginalColors: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkHighContrastAdjustment {}
-impl ::core::clone::Clone for InkHighContrastAdjustment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkHighContrastAdjustment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkHighContrastAdjustment {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkHighContrastAdjustment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkHighContrastAdjustment").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkHighContrastAdjustment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkHighContrastAdjustment;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkInputConfiguration(::windows::core::IUnknown);
@@ -2088,75 +1984,6 @@ impl ::core::convert::From<&InkInputProcessingConfiguration> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for InkInputProcessingConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputProcessingConfiguration {}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkInputProcessingMode(pub i32);
-impl InkInputProcessingMode {
-    pub const None: Self = Self(0i32);
-    pub const Inking: Self = Self(1i32);
-    pub const Erasing: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkInputProcessingMode {}
-impl ::core::clone::Clone for InkInputProcessingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkInputProcessingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkInputProcessingMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkInputProcessingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkInputProcessingMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkInputProcessingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputProcessingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkInputRightDragAction(pub i32);
-impl InkInputRightDragAction {
-    pub const LeaveUnprocessed: Self = Self(0i32);
-    pub const AllowProcessing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkInputRightDragAction {}
-impl ::core::clone::Clone for InkInputRightDragAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkInputRightDragAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkInputRightDragAction {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkInputRightDragAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkInputRightDragAction").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkInputRightDragAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputRightDragAction;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkManager(::windows::core::IUnknown);
@@ -2483,41 +2310,6 @@ impl<'a> ::core::convert::TryFrom<&InkManager> for ::windows::core::InParam<'a, 
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkManipulationMode(pub i32);
-impl InkManipulationMode {
-    pub const Inking: Self = Self(0i32);
-    pub const Erasing: Self = Self(1i32);
-    pub const Selecting: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkManipulationMode {}
-impl ::core::clone::Clone for InkManipulationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkManipulationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkManipulationMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkManipulationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkManipulationMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkManipulationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkManipulationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
 pub struct InkModelerAttributes(::windows::core::IUnknown);
 impl InkModelerAttributes {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2620,40 +2412,6 @@ impl ::core::convert::From<&InkModelerAttributes> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for InkModelerAttributes {}
 unsafe impl ::core::marker::Sync for InkModelerAttributes {}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkPersistenceFormat(pub i32);
-impl InkPersistenceFormat {
-    pub const GifWithEmbeddedIsf: Self = Self(0i32);
-    pub const Isf: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkPersistenceFormat {}
-impl ::core::clone::Clone for InkPersistenceFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPersistenceFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkPersistenceFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkPersistenceFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPersistenceFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkPersistenceFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPersistenceFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkPoint(::windows::core::IUnknown);
@@ -2991,40 +2749,6 @@ impl ::core::convert::From<&InkPresenter> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for InkPresenter {}
 unsafe impl ::core::marker::Sync for InkPresenter {}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkPresenterPredefinedConfiguration(pub i32);
-impl InkPresenterPredefinedConfiguration {
-    pub const SimpleSinglePointer: Self = Self(0i32);
-    pub const SimpleMultiplePointer: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkPresenterPredefinedConfiguration {}
-impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPresenterPredefinedConfiguration {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkPresenterPredefinedConfiguration {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkPresenterPredefinedConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPresenterPredefinedConfiguration").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkPresenterPredefinedConfiguration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterPredefinedConfiguration;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkPresenterProtractor(::windows::core::IUnknown);
@@ -3458,41 +3182,6 @@ unsafe impl ::core::marker::Send for InkPresenterRuler {}
 unsafe impl ::core::marker::Sync for InkPresenterRuler {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkPresenterStencilKind(pub i32);
-impl InkPresenterStencilKind {
-    pub const Other: Self = Self(0i32);
-    pub const Ruler: Self = Self(1i32);
-    pub const Protractor: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkPresenterStencilKind {}
-impl ::core::clone::Clone for InkPresenterStencilKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPresenterStencilKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkPresenterStencilKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkPresenterStencilKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPresenterStencilKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkPresenterStencilKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterStencilKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
 pub struct InkRecognitionResult(::windows::core::IUnknown);
 impl InkRecognitionResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3585,41 +3274,6 @@ impl ::core::convert::From<&InkRecognitionResult> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for InkRecognitionResult {}
 unsafe impl ::core::marker::Sync for InkRecognitionResult {}
-#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InkRecognitionTarget(pub i32);
-impl InkRecognitionTarget {
-    pub const All: Self = Self(0i32);
-    pub const Selected: Self = Self(1i32);
-    pub const Recent: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkRecognitionTarget {}
-impl ::core::clone::Clone for InkRecognitionTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognitionTarget {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InkRecognitionTarget {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InkRecognitionTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkRecognitionTarget").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InkRecognitionTarget {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkRecognitionTarget;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkRecognizer(::windows::core::IUnknown);
@@ -5233,6 +4887,352 @@ impl ::core::convert::From<&PenAndInkSettings> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for PenAndInkSettings {}
 unsafe impl ::core::marker::Sync for PenAndInkSettings {}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HandwritingLineHeight(pub i32);
+impl HandwritingLineHeight {
+    pub const Small: Self = Self(0i32);
+    pub const Medium: Self = Self(1i32);
+    pub const Large: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HandwritingLineHeight {}
+impl ::core::clone::Clone for HandwritingLineHeight {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HandwritingLineHeight {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HandwritingLineHeight {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HandwritingLineHeight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandwritingLineHeight").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HandwritingLineHeight {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkDrawingAttributesKind(pub i32);
+impl InkDrawingAttributesKind {
+    pub const Default: Self = Self(0i32);
+    pub const Pencil: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkDrawingAttributesKind {}
+impl ::core::clone::Clone for InkDrawingAttributesKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkDrawingAttributesKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkDrawingAttributesKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkDrawingAttributesKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkDrawingAttributesKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkDrawingAttributesKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkHighContrastAdjustment(pub i32);
+impl InkHighContrastAdjustment {
+    pub const UseSystemColorsWhenNecessary: Self = Self(0i32);
+    pub const UseSystemColors: Self = Self(1i32);
+    pub const UseOriginalColors: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InkHighContrastAdjustment {}
+impl ::core::clone::Clone for InkHighContrastAdjustment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkHighContrastAdjustment {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkHighContrastAdjustment {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkHighContrastAdjustment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkHighContrastAdjustment").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkHighContrastAdjustment {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkHighContrastAdjustment;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkInputProcessingMode(pub i32);
+impl InkInputProcessingMode {
+    pub const None: Self = Self(0i32);
+    pub const Inking: Self = Self(1i32);
+    pub const Erasing: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InkInputProcessingMode {}
+impl ::core::clone::Clone for InkInputProcessingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkInputProcessingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkInputProcessingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkInputProcessingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkInputProcessingMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkInputProcessingMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputProcessingMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkInputRightDragAction(pub i32);
+impl InkInputRightDragAction {
+    pub const LeaveUnprocessed: Self = Self(0i32);
+    pub const AllowProcessing: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkInputRightDragAction {}
+impl ::core::clone::Clone for InkInputRightDragAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkInputRightDragAction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkInputRightDragAction {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkInputRightDragAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkInputRightDragAction").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkInputRightDragAction {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputRightDragAction;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkManipulationMode(pub i32);
+impl InkManipulationMode {
+    pub const Inking: Self = Self(0i32);
+    pub const Erasing: Self = Self(1i32);
+    pub const Selecting: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InkManipulationMode {}
+impl ::core::clone::Clone for InkManipulationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkManipulationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkManipulationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkManipulationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkManipulationMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkManipulationMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkManipulationMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkPersistenceFormat(pub i32);
+impl InkPersistenceFormat {
+    pub const GifWithEmbeddedIsf: Self = Self(0i32);
+    pub const Isf: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkPersistenceFormat {}
+impl ::core::clone::Clone for InkPersistenceFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkPersistenceFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkPersistenceFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkPersistenceFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPersistenceFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkPersistenceFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPersistenceFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkPresenterPredefinedConfiguration(pub i32);
+impl InkPresenterPredefinedConfiguration {
+    pub const SimpleSinglePointer: Self = Self(0i32);
+    pub const SimpleMultiplePointer: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkPresenterPredefinedConfiguration {}
+impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkPresenterPredefinedConfiguration {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkPresenterPredefinedConfiguration {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkPresenterPredefinedConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPresenterPredefinedConfiguration").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkPresenterPredefinedConfiguration {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterPredefinedConfiguration;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkPresenterStencilKind(pub i32);
+impl InkPresenterStencilKind {
+    pub const Other: Self = Self(0i32);
+    pub const Ruler: Self = Self(1i32);
+    pub const Protractor: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InkPresenterStencilKind {}
+impl ::core::clone::Clone for InkPresenterStencilKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkPresenterStencilKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkPresenterStencilKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkPresenterStencilKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPresenterStencilKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkPresenterStencilKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterStencilKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Inking\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InkRecognitionTarget(pub i32);
+impl InkRecognitionTarget {
+    pub const All: Self = Self(0i32);
+    pub const Selected: Self = Self(1i32);
+    pub const Recent: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InkRecognitionTarget {}
+impl ::core::clone::Clone for InkRecognitionTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InkRecognitionTarget {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InkRecognitionTarget {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InkRecognitionTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkRecognitionTarget").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InkRecognitionTarget {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkRecognitionTarget;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

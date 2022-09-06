@@ -1,13 +1,3 @@
-pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
-pub const DMOCATEGORY_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
-pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09);
-pub const DMOCATEGORY_AUDIO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57f2db8b_e6bb_4513_9d43_dcd2a6593125);
-pub const DMOCATEGORY_AUDIO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3602b3f_0592_48df_a4cd_674721e7ebeb);
-pub const DMOCATEGORY_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a761_90c8_11d0_bd43_00a0c911ce86);
-pub const DMOCATEGORY_AUDIO_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
-pub const DMOCATEGORY_VIDEO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a69b442_28be_4991_969c_b500adf5d8a8);
-pub const DMOCATEGORY_VIDEO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd990ee14_776c_4723_be46_3da2f56f10b9);
-pub const DMOCATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOEnum(guidcategory: &::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: &DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: &DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<IEnumDMO> {
@@ -57,184 +47,65 @@ pub unsafe fn DMOUnregister(clsiddmo: &::windows::core::GUID, guidcategory: &::w
     }
     DMOUnregister(::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory)).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DMO_ENUM_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = DMO_ENUM_FLAGS(1i32);
-impl ::core::marker::Copy for DMO_ENUM_FLAGS {}
-impl ::core::clone::Clone for DMO_ENUM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DMO_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DMO_ENUM_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DMO_ENUM_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DMO_ENUM_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_E_INVALIDSTREAMINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_E_INVALIDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_E_NOTACCEPTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_E_NO_MORE_ITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_E_TYPE_NOT_ACCEPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_E_TYPE_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct DMO_MEDIA_TYPE {
-    pub majortype: ::windows::core::GUID,
-    pub subtype: ::windows::core::GUID,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
-    pub lSampleSize: u32,
-    pub formattype: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub cbFormat: u32,
-    pub pbFormat: *mut u8,
+#[inline]
+pub unsafe fn MoCopyMediaType(pmtdest: &mut DMO_MEDIA_TYPE, pmtsrc: &DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
+    }
+    MoCopyMediaType(::core::mem::transmute(pmtdest), ::core::mem::transmute(pmtsrc)).ok()
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DMO_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        Self {
-            majortype: self.majortype,
-            subtype: self.subtype,
-            bFixedSizeSamples: self.bFixedSizeSamples,
-            bTemporalCompression: self.bTemporalCompression,
-            lSampleSize: self.lSampleSize,
-            formattype: self.formattype,
-            pUnk: self.pUnk.clone(),
-            cbFormat: self.cbFormat,
-            pbFormat: self.pbFormat,
-        }
+#[inline]
+pub unsafe fn MoCreateMediaType(ppmt: &mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
     }
+    MoCreateMediaType(::core::mem::transmute(ppmt), cbformat).ok()
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DMO_MEDIA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMO_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
+#[inline]
+pub unsafe fn MoDeleteMediaType(pmt: &mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
+    MoDeleteMediaType(::core::mem::transmute(pmt)).ok()
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMO_MEDIA_TYPE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+#[inline]
+pub unsafe fn MoDuplicateMediaType(ppmtdest: &mut *mut DMO_MEDIA_TYPE, pmtsrc: &DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
+    }
+    MoDuplicateMediaType(::core::mem::transmute(ppmtdest), ::core::mem::transmute(pmtsrc)).ok()
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DMO_MEDIA_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
+#[inline]
+pub unsafe fn MoFreeMediaType(pmt: &mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
+    MoFreeMediaType(::core::mem::transmute(pmt)).ok()
 }
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DMO_MEDIA_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DMO_MEDIA_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[inline]
+pub unsafe fn MoInitMediaType(pmt: &mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
     }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub struct DMO_OUTPUT_DATA_BUFFER {
-    pub pBuffer: ::core::option::Option<IMediaBuffer>,
-    pub dwStatus: u32,
-    pub rtTimestamp: i64,
-    pub rtTimelength: i64,
-}
-impl ::core::clone::Clone for DMO_OUTPUT_DATA_BUFFER {
-    fn clone(&self) -> Self {
-        Self { pBuffer: self.pBuffer.clone(), dwStatus: self.dwStatus, rtTimestamp: self.rtTimestamp, rtTimelength: self.rtTimelength }
-    }
-}
-impl ::core::fmt::Debug for DMO_OUTPUT_DATA_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMO_OUTPUT_DATA_BUFFER").field("pBuffer", &self.pBuffer).field("dwStatus", &self.dwStatus).field("rtTimestamp", &self.rtTimestamp).field("rtTimelength", &self.rtTimelength).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMO_OUTPUT_DATA_BUFFER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for DMO_OUTPUT_DATA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.dwStatus == other.dwStatus && self.rtTimestamp == other.rtTimestamp && self.rtTimelength == other.rtTimelength
-    }
-}
-impl ::core::cmp::Eq for DMO_OUTPUT_DATA_BUFFER {}
-impl ::core::default::Default for DMO_OUTPUT_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub struct DMO_PARTIAL_MEDIATYPE {
-    pub r#type: ::windows::core::GUID,
-    pub subtype: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DMO_PARTIAL_MEDIATYPE {}
-impl ::core::clone::Clone for DMO_PARTIAL_MEDIATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DMO_PARTIAL_MEDIATYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMO_PARTIAL_MEDIATYPE").field("type", &self.r#type).field("subtype", &self.subtype).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DMO_PARTIAL_MEDIATYPE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMO_PARTIAL_MEDIATYPE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMO_PARTIAL_MEDIATYPE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMO_PARTIAL_MEDIATYPE {}
-impl ::core::default::Default for DMO_PARTIAL_MEDIATYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DMO_REGISTER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = DMO_REGISTER_FLAGS(1i32);
-impl ::core::marker::Copy for DMO_REGISTER_FLAGS {}
-impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DMO_REGISTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DMO_REGISTER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DMO_REGISTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DMO_REGISTER_FLAGS").field(&self.0).finish()
-    }
+    MoInitMediaType(::core::mem::transmute(pmt), cbformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -707,65 +578,77 @@ pub struct IMediaObjectInPlace_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediaobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, platencytime: *mut i64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MoCopyMediaType(pmtdest: &mut DMO_MEDIA_TYPE, pmtsrc: &DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
+pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const DMOCATEGORY_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
+pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09);
+pub const DMOCATEGORY_AUDIO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57f2db8b_e6bb_4513_9d43_dcd2a6593125);
+pub const DMOCATEGORY_AUDIO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3602b3f_0592_48df_a4cd_674721e7ebeb);
+pub const DMOCATEGORY_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a761_90c8_11d0_bd43_00a0c911ce86);
+pub const DMOCATEGORY_AUDIO_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const DMOCATEGORY_VIDEO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a69b442_28be_4991_969c_b500adf5d8a8);
+pub const DMOCATEGORY_VIDEO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd990ee14_776c_4723_be46_3da2f56f10b9);
+pub const DMOCATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_E_INVALIDSTREAMINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_E_INVALIDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_E_NOTACCEPTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_E_NO_MORE_ITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_E_TYPE_NOT_ACCEPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_E_TYPE_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DMO_ENUM_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = DMO_ENUM_FLAGS(1i32);
+impl ::core::marker::Copy for DMO_ENUM_FLAGS {}
+impl ::core::clone::Clone for DMO_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
     }
-    MoCopyMediaType(::core::mem::transmute(pmtdest), ::core::mem::transmute(pmtsrc)).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MoCreateMediaType(ppmt: &mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
+impl ::core::default::Default for DMO_ENUM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
-    MoCreateMediaType(::core::mem::transmute(ppmt), cbformat).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MoDeleteMediaType(pmt: &mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
-    }
-    MoDeleteMediaType(::core::mem::transmute(pmt)).ok()
+unsafe impl ::windows::core::Abi for DMO_ENUM_FLAGS {
+    type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MoDuplicateMediaType(ppmtdest: &mut *mut DMO_MEDIA_TYPE, pmtsrc: &DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
+impl ::core::fmt::Debug for DMO_ENUM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DMO_ENUM_FLAGS").field(&self.0).finish()
     }
-    MoDuplicateMediaType(::core::mem::transmute(ppmtdest), ::core::mem::transmute(pmtsrc)).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MoFreeMediaType(pmt: &mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DMO_REGISTER_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = DMO_REGISTER_FLAGS(1i32);
+impl ::core::marker::Copy for DMO_REGISTER_FLAGS {}
+impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
     }
-    MoFreeMediaType(::core::mem::transmute(pmt)).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MoInitMediaType(pmt: &mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
+impl ::core::default::Default for DMO_REGISTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
-    MoInitMediaType(::core::mem::transmute(pmt), cbformat).ok()
+}
+unsafe impl ::windows::core::Abi for DMO_REGISTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DMO_REGISTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DMO_REGISTER_FLAGS").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -1047,6 +930,123 @@ unsafe impl ::windows::core::Abi for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
 impl ::core::fmt::Debug for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_DMO_VIDEO_OUTPUT_STREAM_FLAGS").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DMO_MEDIA_TYPE {
+    pub majortype: ::windows::core::GUID,
+    pub subtype: ::windows::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub cbFormat: u32,
+    pub pbFormat: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DMO_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        Self {
+            majortype: self.majortype,
+            subtype: self.subtype,
+            bFixedSizeSamples: self.bFixedSizeSamples,
+            bTemporalCompression: self.bTemporalCompression,
+            lSampleSize: self.lSampleSize,
+            formattype: self.formattype,
+            pUnk: self.pUnk.clone(),
+            cbFormat: self.cbFormat,
+            pbFormat: self.pbFormat,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMO_MEDIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DMO_MEDIA_TYPE {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DMO_MEDIA_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DMO_MEDIA_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DMO_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub struct DMO_OUTPUT_DATA_BUFFER {
+    pub pBuffer: ::core::option::Option<IMediaBuffer>,
+    pub dwStatus: u32,
+    pub rtTimestamp: i64,
+    pub rtTimelength: i64,
+}
+impl ::core::clone::Clone for DMO_OUTPUT_DATA_BUFFER {
+    fn clone(&self) -> Self {
+        Self { pBuffer: self.pBuffer.clone(), dwStatus: self.dwStatus, rtTimestamp: self.rtTimestamp, rtTimelength: self.rtTimelength }
+    }
+}
+impl ::core::fmt::Debug for DMO_OUTPUT_DATA_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_OUTPUT_DATA_BUFFER").field("pBuffer", &self.pBuffer).field("dwStatus", &self.dwStatus).field("rtTimestamp", &self.rtTimestamp).field("rtTimelength", &self.rtTimelength).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMO_OUTPUT_DATA_BUFFER {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for DMO_OUTPUT_DATA_BUFFER {
+    fn eq(&self, other: &Self) -> bool {
+        self.pBuffer == other.pBuffer && self.dwStatus == other.dwStatus && self.rtTimestamp == other.rtTimestamp && self.rtTimelength == other.rtTimelength
+    }
+}
+impl ::core::cmp::Eq for DMO_OUTPUT_DATA_BUFFER {}
+impl ::core::default::Default for DMO_OUTPUT_DATA_BUFFER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
+pub struct DMO_PARTIAL_MEDIATYPE {
+    pub r#type: ::windows::core::GUID,
+    pub subtype: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DMO_PARTIAL_MEDIATYPE {}
+impl ::core::clone::Clone for DMO_PARTIAL_MEDIATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DMO_PARTIAL_MEDIATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMO_PARTIAL_MEDIATYPE").field("type", &self.r#type).field("subtype", &self.subtype).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DMO_PARTIAL_MEDIATYPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMO_PARTIAL_MEDIATYPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMO_PARTIAL_MEDIATYPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMO_PARTIAL_MEDIATYPE {}
+impl ::core::default::Default for DMO_PARTIAL_MEDIATYPE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

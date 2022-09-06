@@ -1,263 +1,127 @@
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct AM_WMT_EVENT_DATA {
-    pub hrStatus: ::windows::core::HRESULT,
-    pub pData: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for AM_WMT_EVENT_DATA {}
-impl ::core::clone::Clone for AM_WMT_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn WMCreateBackupRestorer<'a, P0>(pcallback: P0) -> ::windows::core::Result<IWMLicenseBackup>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateBackupRestorer(pcallback: *mut ::core::ffi::c_void, ppbackup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-}
-impl ::core::fmt::Debug for AM_WMT_EVENT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AM_WMT_EVENT_DATA").field("hrStatus", &self.hrStatus).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AM_WMT_EVENT_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AM_WMT_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AM_WMT_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AM_WMT_EVENT_DATA {}
-impl ::core::default::Default for AM_WMT_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const CLSID_ClientNetManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd12a3ce_9c42_11d2_beed_0060082f2054);
-pub const CLSID_WMBandwidthSharing_Exclusive: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf6060aa_5197_11d2_b6af_00c04fd908e9);
-pub const CLSID_WMBandwidthSharing_Partial: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf6060ab_5197_11d2_b6af_00c04fd908e9);
-pub const CLSID_WMMUTEX_Bitrate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a01_35da_11d1_9034_00a0c90349be);
-pub const CLSID_WMMUTEX_Language: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a00_35da_11d1_9034_00a0c90349be);
-pub const CLSID_WMMUTEX_Presentation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a02_35da_11d1_9034_00a0c90349be);
-pub const CLSID_WMMUTEX_Unknown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a03_35da_11d1_9034_00a0c90349be);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct DRM_COPY_OPL {
-    pub wMinimumCopyLevel: u16,
-    pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
-    pub oplIdExcludes: DRM_OPL_OUTPUT_IDS,
-}
-impl ::core::marker::Copy for DRM_COPY_OPL {}
-impl ::core::clone::Clone for DRM_COPY_OPL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DRM_COPY_OPL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRM_COPY_OPL").field("wMinimumCopyLevel", &self.wMinimumCopyLevel).field("oplIdIncludes", &self.oplIdIncludes).field("oplIdExcludes", &self.oplIdExcludes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_COPY_OPL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRM_COPY_OPL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_COPY_OPL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRM_COPY_OPL {}
-impl ::core::default::Default for DRM_COPY_OPL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    pub wCompressedDigitalVideo: u16,
-    pub wUncompressedDigitalVideo: u16,
-    pub wAnalogVideo: u16,
-    pub wCompressedDigitalAudio: u16,
-    pub wUncompressedDigitalAudio: u16,
-}
-impl ::core::marker::Copy for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {}
-impl ::core::clone::Clone for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS").field("wCompressedDigitalVideo", &self.wCompressedDigitalVideo).field("wUncompressedDigitalVideo", &self.wUncompressedDigitalVideo).field("wAnalogVideo", &self.wAnalogVideo).field("wCompressedDigitalAudio", &self.wCompressedDigitalAudio).field("wUncompressedDigitalAudio", &self.wUncompressedDigitalAudio).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {}
-impl ::core::default::Default for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct DRM_OPL_OUTPUT_IDS {
-    pub cIds: u16,
-    pub rgIds: *mut ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DRM_OPL_OUTPUT_IDS {}
-impl ::core::clone::Clone for DRM_OPL_OUTPUT_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DRM_OPL_OUTPUT_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRM_OPL_OUTPUT_IDS").field("cIds", &self.cIds).field("rgIds", &self.rgIds).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_OPL_OUTPUT_IDS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRM_OPL_OUTPUT_IDS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_OPL_OUTPUT_IDS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRM_OPL_OUTPUT_IDS {}
-impl ::core::default::Default for DRM_OPL_OUTPUT_IDS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateBackupRestorer(pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMLicenseBackup>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const DRM_OPL_TYPES: u32 = 1u32;
-#[repr(C)]
+#[inline]
+pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateEditor(ppeditor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateEditor(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMMetadataEditor>(result__)
+}
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct DRM_OUTPUT_PROTECTION {
-    pub guidId: ::windows::core::GUID,
-    pub bConfigData: u8,
-}
-impl ::core::marker::Copy for DRM_OUTPUT_PROTECTION {}
-impl ::core::clone::Clone for DRM_OUTPUT_PROTECTION {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateIndexer(ppindexer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateIndexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMIndexer>(result__)
 }
-impl ::core::fmt::Debug for DRM_OUTPUT_PROTECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRM_OUTPUT_PROTECTION").field("guidId", &self.guidId).field("bConfigData", &self.bConfigData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_OUTPUT_PROTECTION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRM_OUTPUT_PROTECTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_OUTPUT_PROTECTION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRM_OUTPUT_PROTECTION {}
-impl ::core::default::Default for DRM_OUTPUT_PROTECTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct DRM_PLAY_OPL {
-    pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
-    pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
-    pub vopi: DRM_VIDEO_OUTPUT_PROTECTION_IDS,
-}
-impl ::core::marker::Copy for DRM_PLAY_OPL {}
-impl ::core::clone::Clone for DRM_PLAY_OPL {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateProfileManager(ppprofilemanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateProfileManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMProfileManager>(result__)
 }
-impl ::core::fmt::Debug for DRM_PLAY_OPL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRM_PLAY_OPL").field("minOPL", &self.minOPL).field("oplIdReserved", &self.oplIdReserved).field("vopi", &self.vopi).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_PLAY_OPL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRM_PLAY_OPL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_PLAY_OPL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRM_PLAY_OPL {}
-impl ::core::default::Default for DRM_PLAY_OPL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct DRM_VAL16 {
-    pub val: [u8; 16],
-}
-impl ::core::marker::Copy for DRM_VAL16 {}
-impl ::core::clone::Clone for DRM_VAL16 {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn WMCreateReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMReader>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMReader>(result__)
 }
-impl ::core::fmt::Debug for DRM_VAL16 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRM_VAL16").field("val", &self.val).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_VAL16 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRM_VAL16 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_VAL16>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRM_VAL16 {}
-impl ::core::default::Default for DRM_VAL16 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    pub cEntries: u16,
-    pub rgVop: *mut DRM_OUTPUT_PROTECTION,
-}
-impl ::core::marker::Copy for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
-impl ::core::clone::Clone for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn WMCreateSyncReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMSyncReader>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateSyncReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppsyncreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateSyncReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMSyncReader>(result__)
 }
-impl ::core::fmt::Debug for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRM_VIDEO_OUTPUT_PROTECTION_IDS").field("cEntries", &self.cEntries).field("rgVop", &self.rgVop).finish()
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[inline]
+pub unsafe fn WMCreateWriter<'a, P0>(punkcert: P0) -> ::windows::core::Result<IWMWriter>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateWriter(punkcert: *mut ::core::ffi::c_void, ppwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateWriter(punkcert.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriter>(result__)
 }
-unsafe impl ::windows::core::Abi for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_VIDEO_OUTPUT_PROTECTION_IDS>()) == 0 }
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[inline]
+pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateWriterFileSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateWriterFileSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterFileSink>(result__)
 }
-impl ::core::cmp::Eq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
-impl ::core::default::Default for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[inline]
+pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateWriterNetworkSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateWriterNetworkSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterNetworkSink>(result__)
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[inline]
+pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMCreateWriterPushSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WMCreateWriterPushSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterPushSink>(result__)
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WMIsContentProtected<'a, P0>(pwszfilename: P0, pfisprotected: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WMIsContentProtected(pwszfilename: ::windows::core::PCWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    WMIsContentProtected(pwszfilename.into(), ::core::mem::transmute(pfisprotected)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
@@ -11628,208 +11492,15 @@ pub struct IWMWriterSink_Vtbl {
     pub OnDataUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataunit: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEndWriting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+pub const CLSID_ClientNetManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd12a3ce_9c42_11d2_beed_0060082f2054);
+pub const CLSID_WMBandwidthSharing_Exclusive: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf6060aa_5197_11d2_b6af_00c04fd908e9);
+pub const CLSID_WMBandwidthSharing_Partial: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf6060ab_5197_11d2_b6af_00c04fd908e9);
+pub const CLSID_WMMUTEX_Bitrate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a01_35da_11d1_9034_00a0c90349be);
+pub const CLSID_WMMUTEX_Language: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a00_35da_11d1_9034_00a0c90349be);
+pub const CLSID_WMMUTEX_Presentation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a02_35da_11d1_9034_00a0c90349be);
+pub const CLSID_WMMUTEX_Unknown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a03_35da_11d1_9034_00a0c90349be);
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const NETSOURCE_URLCREDPOLICY_SETTING_SILENTLOGONOK: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const NETSOURCE_URLCREDPOLICY_SETTING_MUSTPROMPTUSER: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const NETSOURCE_URLCREDPOLICY_SETTING_ANONYMOUSONLY: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(2i32);
-impl ::core::marker::Copy for NETSOURCE_URLCREDPOLICY_SETTINGS {}
-impl ::core::clone::Clone for NETSOURCE_URLCREDPOLICY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETSOURCE_URLCREDPOLICY_SETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NETSOURCE_URLCREDPOLICY_SETTINGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NETSOURCE_URLCREDPOLICY_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NETSOURCE_URLCREDPOLICY_SETTINGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WEBSTREAM_SAMPLE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WEBSTREAM_SAMPLE_TYPE_FILE: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WEBSTREAM_SAMPLE_TYPE_RENDER: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(2i32);
-impl ::core::marker::Copy for WEBSTREAM_SAMPLE_TYPE {}
-impl ::core::clone::Clone for WEBSTREAM_SAMPLE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WEBSTREAM_SAMPLE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WEBSTREAM_SAMPLE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WEBSTREAM_SAMPLE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WEBSTREAM_SAMPLE_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateBackupRestorer<'a, P0>(pcallback: P0) -> ::windows::core::Result<IWMLicenseBackup>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateBackupRestorer(pcallback: *mut ::core::ffi::c_void, ppbackup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateBackupRestorer(pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMLicenseBackup>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateEditor(ppeditor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateEditor(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMMetadataEditor>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateIndexer(ppindexer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateIndexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMIndexer>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateProfileManager(ppprofilemanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateProfileManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMProfileManager>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMReader>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMReader>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateSyncReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMSyncReader>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateSyncReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppsyncreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateSyncReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMSyncReader>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateWriter<'a, P0>(punkcert: P0) -> ::windows::core::Result<IWMWriter>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriter(punkcert: *mut ::core::ffi::c_void, ppwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateWriter(punkcert.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriter>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriterFileSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateWriterFileSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterFileSink>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriterNetworkSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateWriterNetworkSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterNetworkSink>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[inline]
-pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriterPushSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WMCreateWriterPushSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterPushSink>(result__)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMDRM_IMPORT_INIT_STRUCT {
-    pub dwVersion: u32,
-    pub cbEncryptedSessionKeyMessage: u32,
-    pub pbEncryptedSessionKeyMessage: *mut u8,
-    pub cbEncryptedKeyMessage: u32,
-    pub pbEncryptedKeyMessage: *mut u8,
-}
-impl ::core::marker::Copy for WMDRM_IMPORT_INIT_STRUCT {}
-impl ::core::clone::Clone for WMDRM_IMPORT_INIT_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMDRM_IMPORT_INIT_STRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMDRM_IMPORT_INIT_STRUCT").field("dwVersion", &self.dwVersion).field("cbEncryptedSessionKeyMessage", &self.cbEncryptedSessionKeyMessage).field("pbEncryptedSessionKeyMessage", &self.pbEncryptedSessionKeyMessage).field("cbEncryptedKeyMessage", &self.cbEncryptedKeyMessage).field("pbEncryptedKeyMessage", &self.pbEncryptedKeyMessage).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMDRM_IMPORT_INIT_STRUCT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMDRM_IMPORT_INIT_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDRM_IMPORT_INIT_STRUCT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMDRM_IMPORT_INIT_STRUCT {}
-impl ::core::default::Default for WMDRM_IMPORT_INIT_STRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+pub const DRM_OPL_TYPES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
 pub const WMFORMAT_MPEG2Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
@@ -11837,19 +11508,6 @@ pub const WMFORMAT_Script: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const WMFORMAT_VideoInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
 pub const WMFORMAT_WaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
 pub const WMFORMAT_WebStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1e6b13_8359_4050_b398_388e965bf00c);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WMIsContentProtected<'a, P0>(pwszfilename: P0, pfisprotected: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMIsContentProtected(pwszfilename: ::windows::core::PCWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    WMIsContentProtected(pwszfilename.into(), ::core::mem::transmute(pfisprotected)).ok()
-}
 pub const WMMEDIASUBTYPE_ACELPnet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000130_0000_0010_8000_00aa00389b71);
 pub const WMMEDIASUBTYPE_Base: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
 pub const WMMEDIASUBTYPE_DRM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000009_0000_0010_8000_00aa00389b71);
@@ -11898,1156 +11556,15 @@ pub const WMMEDIATYPE_Image: ::windows::core::GUID = ::windows::core::GUID::from
 pub const WMMEDIATYPE_Script: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73636d64_0000_0010_8000_00aa00389b71);
 pub const WMMEDIATYPE_Text: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bba1ea7_5ab2_4829_ba57_0940209bcf3e);
 pub const WMMEDIATYPE_Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct WMMPEG2VIDEOINFO {
-    pub hdr: WMVIDEOINFOHEADER2,
-    pub dwStartTimeCode: u32,
-    pub cbSequenceHeader: u32,
-    pub dwProfile: u32,
-    pub dwLevel: u32,
-    pub dwFlags: u32,
-    pub dwSequenceHeader: [u32; 1],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for WMMPEG2VIDEOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for WMMPEG2VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for WMMPEG2VIDEOINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMMPEG2VIDEOINFO").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("dwProfile", &self.dwProfile).field("dwLevel", &self.dwLevel).field("dwFlags", &self.dwFlags).field("dwSequenceHeader", &self.dwSequenceHeader).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for WMMPEG2VIDEOINFO {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WMMPEG2VIDEOINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMMPEG2VIDEOINFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WMMPEG2VIDEOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for WMMPEG2VIDEOINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMSCRIPTFORMAT {
-    pub scriptType: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for WMSCRIPTFORMAT {}
-impl ::core::clone::Clone for WMSCRIPTFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMSCRIPTFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMSCRIPTFORMAT").field("scriptType", &self.scriptType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMSCRIPTFORMAT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMSCRIPTFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMSCRIPTFORMAT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMSCRIPTFORMAT {}
-impl ::core::default::Default for WMSCRIPTFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 pub const WMSCRIPTTYPE_TwoStrings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82f38a70_c29f_11d1_97ad_00a0c95ea850);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_ATTR_DATATYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TYPE_DWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TYPE_STRING: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TYPE_BINARY: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TYPE_BOOL: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TYPE_QWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TYPE_WORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TYPE_GUID: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(6i32);
-impl ::core::marker::Copy for WMT_ATTR_DATATYPE {}
-impl ::core::clone::Clone for WMT_ATTR_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_ATTR_DATATYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_ATTR_DATATYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_ATTR_DATATYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_ATTR_DATATYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_ATTR_IMAGETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IMAGETYPE_BITMAP: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IMAGETYPE_JPEG: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IMAGETYPE_GIF: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(3i32);
-impl ::core::marker::Copy for WMT_ATTR_IMAGETYPE {}
-impl ::core::clone::Clone for WMT_ATTR_IMAGETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_ATTR_IMAGETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_ATTR_IMAGETYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_ATTR_IMAGETYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_ATTR_IMAGETYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_BUFFER_SEGMENT {
-    pub pBuffer: ::core::option::Option<INSSBuffer>,
-    pub cbOffset: u32,
-    pub cbLength: u32,
-}
-impl ::core::clone::Clone for WMT_BUFFER_SEGMENT {
-    fn clone(&self) -> Self {
-        Self { pBuffer: self.pBuffer.clone(), cbOffset: self.cbOffset, cbLength: self.cbLength }
-    }
-}
-impl ::core::fmt::Debug for WMT_BUFFER_SEGMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_BUFFER_SEGMENT").field("pBuffer", &self.pBuffer).field("cbOffset", &self.cbOffset).field("cbLength", &self.cbLength).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_BUFFER_SEGMENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for WMT_BUFFER_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.cbOffset == other.cbOffset && self.cbLength == other.cbLength
-    }
-}
-impl ::core::cmp::Eq for WMT_BUFFER_SEGMENT {}
-impl ::core::default::Default for WMT_BUFFER_SEGMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_CODEC_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CODECINFO_AUDIO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(-1i32);
-impl ::core::marker::Copy for WMT_CODEC_INFO_TYPE {}
-impl ::core::clone::Clone for WMT_CODEC_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_CODEC_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_CODEC_INFO_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_CODEC_INFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_CODEC_INFO_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
-    pub ucColorPrimaries: u8,
-    pub ucColorTransferChar: u8,
-    pub ucColorMatrixCoef: u8,
-}
-impl ::core::marker::Copy for WMT_COLORSPACEINFO_EXTENSION_DATA {}
-impl ::core::clone::Clone for WMT_COLORSPACEINFO_EXTENSION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMT_COLORSPACEINFO_EXTENSION_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_COLORSPACEINFO_EXTENSION_DATA").field("ucColorPrimaries", &self.ucColorPrimaries).field("ucColorTransferChar", &self.ucColorTransferChar).field("ucColorMatrixCoef", &self.ucColorMatrixCoef).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_COLORSPACEINFO_EXTENSION_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMT_COLORSPACEINFO_EXTENSION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_COLORSPACEINFO_EXTENSION_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMT_COLORSPACEINFO_EXTENSION_DATA {}
-impl ::core::default::Default for WMT_COLORSPACEINFO_EXTENSION_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_CREDENTIAL_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CREDENTIAL_SAVE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CREDENTIAL_DONT_CACHE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CREDENTIAL_CLEAR_TEXT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CREDENTIAL_PROXY: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CREDENTIAL_ENCRYPT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(16i32);
-impl ::core::marker::Copy for WMT_CREDENTIAL_FLAGS {}
-impl ::core::clone::Clone for WMT_CREDENTIAL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_CREDENTIAL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_CREDENTIAL_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_CREDENTIAL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_CREDENTIAL_FLAGS").field(&self.0).finish()
-    }
-}
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65221c5a_fa75_4b39_b50c_06c336b6a3ef);
 pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x187cc922_8efc_4404_9daf_63f4830df1bc);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_DRMLA_TRUST(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_DRMLA_UNTRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_DRMLA_TRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_DRMLA_TAMPERED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(2i32);
-impl ::core::marker::Copy for WMT_DRMLA_TRUST {}
-impl ::core::clone::Clone for WMT_DRMLA_TRUST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_DRMLA_TRUST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_DRMLA_TRUST {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_DRMLA_TRUST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_DRMLA_TRUST").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_FILESINK_DATA_UNIT {
-    pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
-    pub cPayloads: u32,
-    pub pPayloadHeaderBuffers: *mut WMT_BUFFER_SEGMENT,
-    pub cPayloadDataFragments: u32,
-    pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
-}
-impl ::core::clone::Clone for WMT_FILESINK_DATA_UNIT {
-    fn clone(&self) -> Self {
-        Self {
-            packetHeaderBuffer: self.packetHeaderBuffer.clone(),
-            cPayloads: self.cPayloads,
-            pPayloadHeaderBuffers: self.pPayloadHeaderBuffers,
-            cPayloadDataFragments: self.cPayloadDataFragments,
-            pPayloadDataFragments: self.pPayloadDataFragments,
-        }
-    }
-}
-impl ::core::fmt::Debug for WMT_FILESINK_DATA_UNIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_FILESINK_DATA_UNIT").field("packetHeaderBuffer", &self.packetHeaderBuffer).field("cPayloads", &self.cPayloads).field("pPayloadHeaderBuffers", &self.pPayloadHeaderBuffers).field("cPayloadDataFragments", &self.cPayloadDataFragments).field("pPayloadDataFragments", &self.pPayloadDataFragments).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_FILESINK_DATA_UNIT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for WMT_FILESINK_DATA_UNIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.packetHeaderBuffer == other.packetHeaderBuffer && self.cPayloads == other.cPayloads && self.pPayloadHeaderBuffers == other.pPayloadHeaderBuffers && self.cPayloadDataFragments == other.cPayloadDataFragments && self.pPayloadDataFragments == other.pPayloadDataFragments
-    }
-}
-impl ::core::cmp::Eq for WMT_FILESINK_DATA_UNIT {}
-impl ::core::default::Default for WMT_FILESINK_DATA_UNIT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_FILESINK_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_FM_SINGLE_BUFFERS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_FM_FILESINK_UNBUFFERED: WMT_FILESINK_MODE = WMT_FILESINK_MODE(4i32);
-impl ::core::marker::Copy for WMT_FILESINK_MODE {}
-impl ::core::clone::Clone for WMT_FILESINK_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_FILESINK_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_FILESINK_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_FILESINK_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_FILESINK_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_IMAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_NONE: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_BITMAP: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_JPEG: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_GIF: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(3i32);
-impl ::core::marker::Copy for WMT_IMAGE_TYPE {}
-impl ::core::clone::Clone for WMT_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_IMAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_IMAGE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_IMAGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_IMAGE_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_INDEXER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_PRESENTATION_TIME: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_FRAME_NUMBERS: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_TIMECODE: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(2i32);
-impl ::core::marker::Copy for WMT_INDEXER_TYPE {}
-impl ::core::clone::Clone for WMT_INDEXER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_INDEXER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_INDEXER_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_INDEXER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_INDEXER_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_INDEX_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_NEAREST_DATA_UNIT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_NEAREST_OBJECT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_IT_NEAREST_CLEAN_POINT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(3i32);
-impl ::core::marker::Copy for WMT_INDEX_TYPE {}
-impl ::core::clone::Clone for WMT_INDEX_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_INDEX_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_INDEX_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_INDEX_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_INDEX_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_MUSICSPEECH_CLASS_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_MS_CLASS_MUSIC: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_MS_CLASS_SPEECH: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_MS_CLASS_MIXED: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(2i32);
-impl ::core::marker::Copy for WMT_MUSICSPEECH_CLASS_MODE {}
-impl ::core::clone::Clone for WMT_MUSICSPEECH_CLASS_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_MUSICSPEECH_CLASS_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_MUSICSPEECH_CLASS_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_MUSICSPEECH_CLASS_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_MUSICSPEECH_CLASS_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_NET_PROTOCOL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROTOCOL_HTTP: WMT_NET_PROTOCOL = WMT_NET_PROTOCOL(0i32);
-impl ::core::marker::Copy for WMT_NET_PROTOCOL {}
-impl ::core::clone::Clone for WMT_NET_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_NET_PROTOCOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_NET_PROTOCOL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_NET_PROTOCOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_NET_PROTOCOL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_OFFSET_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_OFFSET_FORMAT_100NS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_OFFSET_FORMAT_FRAME_NUMBERS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_OFFSET_FORMAT_PLAYLIST_OFFSET: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_OFFSET_FORMAT_100NS_APPROXIMATE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(4i32);
-impl ::core::marker::Copy for WMT_OFFSET_FORMAT {}
-impl ::core::clone::Clone for WMT_OFFSET_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_OFFSET_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_OFFSET_FORMAT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_OFFSET_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_OFFSET_FORMAT").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_PAYLOAD_FRAGMENT {
-    pub dwPayloadIndex: u32,
-    pub segmentData: WMT_BUFFER_SEGMENT,
-}
-impl ::core::clone::Clone for WMT_PAYLOAD_FRAGMENT {
-    fn clone(&self) -> Self {
-        Self { dwPayloadIndex: self.dwPayloadIndex, segmentData: self.segmentData.clone() }
-    }
-}
-impl ::core::fmt::Debug for WMT_PAYLOAD_FRAGMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_PAYLOAD_FRAGMENT").field("dwPayloadIndex", &self.dwPayloadIndex).field("segmentData", &self.segmentData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_PAYLOAD_FRAGMENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for WMT_PAYLOAD_FRAGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPayloadIndex == other.dwPayloadIndex && self.segmentData == other.segmentData
-    }
-}
-impl ::core::cmp::Eq for WMT_PAYLOAD_FRAGMENT {}
-impl ::core::default::Default for WMT_PAYLOAD_FRAGMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_PLAY_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PLAY_MODE_AUTOSELECT: WMT_PLAY_MODE = WMT_PLAY_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PLAY_MODE_LOCAL: WMT_PLAY_MODE = WMT_PLAY_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PLAY_MODE_DOWNLOAD: WMT_PLAY_MODE = WMT_PLAY_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PLAY_MODE_STREAMING: WMT_PLAY_MODE = WMT_PLAY_MODE(3i32);
-impl ::core::marker::Copy for WMT_PLAY_MODE {}
-impl ::core::clone::Clone for WMT_PLAY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_PLAY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_PLAY_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_PLAY_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_PLAY_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_PROXY_SETTINGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROXY_SETTING_NONE: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROXY_SETTING_MANUAL: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROXY_SETTING_AUTO: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROXY_SETTING_BROWSER: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROXY_SETTING_MAX: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(4i32);
-impl ::core::marker::Copy for WMT_PROXY_SETTINGS {}
-impl ::core::clone::Clone for WMT_PROXY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_PROXY_SETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_PROXY_SETTINGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_PROXY_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_PROXY_SETTINGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_RIGHTS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_PLAYBACK: WMT_RIGHTS = WMT_RIGHTS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_COPY_TO_NON_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_COPY_TO_CD: WMT_RIGHTS = WMT_RIGHTS(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_COPY_TO_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(16i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_ONE_TIME: WMT_RIGHTS = WMT_RIGHTS(32i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_SAVE_STREAM_PROTECTED: WMT_RIGHTS = WMT_RIGHTS(64i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_COPY: WMT_RIGHTS = WMT_RIGHTS(128i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_COLLABORATIVE_PLAY: WMT_RIGHTS = WMT_RIGHTS(256i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_SDMI_TRIGGER: WMT_RIGHTS = WMT_RIGHTS(65536i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RIGHT_SDMI_NOMORECOPIES: WMT_RIGHTS = WMT_RIGHTS(131072i32);
-impl ::core::marker::Copy for WMT_RIGHTS {}
-impl ::core::clone::Clone for WMT_RIGHTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_RIGHTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_RIGHTS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_RIGHTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_RIGHTS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_ERROR: WMT_STATUS = WMT_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_OPENED: WMT_STATUS = WMT_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_BUFFERING_START: WMT_STATUS = WMT_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_BUFFERING_STOP: WMT_STATUS = WMT_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_EOF: WMT_STATUS = WMT_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_END_OF_FILE: WMT_STATUS = WMT_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_END_OF_SEGMENT: WMT_STATUS = WMT_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_END_OF_STREAMING: WMT_STATUS = WMT_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_LOCATING: WMT_STATUS = WMT_STATUS(7i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CONNECTING: WMT_STATUS = WMT_STATUS(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_NO_RIGHTS: WMT_STATUS = WMT_STATUS(9i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_MISSING_CODEC: WMT_STATUS = WMT_STATUS(10i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_STARTED: WMT_STATUS = WMT_STATUS(11i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_STOPPED: WMT_STATUS = WMT_STATUS(12i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CLOSED: WMT_STATUS = WMT_STATUS(13i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_STRIDING: WMT_STATUS = WMT_STATUS(14i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TIMER: WMT_STATUS = WMT_STATUS(15i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_INDEX_PROGRESS: WMT_STATUS = WMT_STATUS(16i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_SAVEAS_START: WMT_STATUS = WMT_STATUS(17i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_SAVEAS_STOP: WMT_STATUS = WMT_STATUS(18i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_NEW_SOURCEFLAGS: WMT_STATUS = WMT_STATUS(19i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_NEW_METADATA: WMT_STATUS = WMT_STATUS(20i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_BACKUPRESTORE_BEGIN: WMT_STATUS = WMT_STATUS(21i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_SOURCE_SWITCH: WMT_STATUS = WMT_STATUS(22i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_ACQUIRE_LICENSE: WMT_STATUS = WMT_STATUS(23i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_INDIVIDUALIZE: WMT_STATUS = WMT_STATUS(24i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_NEEDS_INDIVIDUALIZATION: WMT_STATUS = WMT_STATUS(25i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_NO_RIGHTS_EX: WMT_STATUS = WMT_STATUS(26i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_BACKUPRESTORE_END: WMT_STATUS = WMT_STATUS(27i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_BACKUPRESTORE_CONNECTING: WMT_STATUS = WMT_STATUS(28i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_BACKUPRESTORE_DISCONNECTING: WMT_STATUS = WMT_STATUS(29i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_ERROR_WITHURL: WMT_STATUS = WMT_STATUS(30i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RESTRICTED_LICENSE: WMT_STATUS = WMT_STATUS(31i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CLIENT_CONNECT: WMT_STATUS = WMT_STATUS(32i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CLIENT_DISCONNECT: WMT_STATUS = WMT_STATUS(33i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_NATIVE_OUTPUT_PROPS_CHANGED: WMT_STATUS = WMT_STATUS(34i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RECONNECT_START: WMT_STATUS = WMT_STATUS(35i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_RECONNECT_END: WMT_STATUS = WMT_STATUS(36i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CLIENT_CONNECT_EX: WMT_STATUS = WMT_STATUS(37i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CLIENT_DISCONNECT_EX: WMT_STATUS = WMT_STATUS(38i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_SET_FEC_SPAN: WMT_STATUS = WMT_STATUS(39i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PREROLL_READY: WMT_STATUS = WMT_STATUS(40i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PREROLL_COMPLETE: WMT_STATUS = WMT_STATUS(41i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CLIENT_PROPERTIES: WMT_STATUS = WMT_STATUS(42i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_LICENSEURL_SIGNATURE_STATE: WMT_STATUS = WMT_STATUS(43i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_INIT_PLAYLIST_BURN: WMT_STATUS = WMT_STATUS(44i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TRANSCRYPTOR_INIT: WMT_STATUS = WMT_STATUS(45i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TRANSCRYPTOR_SEEKED: WMT_STATUS = WMT_STATUS(46i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TRANSCRYPTOR_READ: WMT_STATUS = WMT_STATUS(47i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TRANSCRYPTOR_CLOSED: WMT_STATUS = WMT_STATUS(48i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROXIMITY_RESULT: WMT_STATUS = WMT_STATUS(49i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_PROXIMITY_COMPLETED: WMT_STATUS = WMT_STATUS(50i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CONTENT_ENABLER: WMT_STATUS = WMT_STATUS(51i32);
-impl ::core::marker::Copy for WMT_STATUS {}
-impl ::core::clone::Clone for WMT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_STORAGE_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(1i32);
-impl ::core::marker::Copy for WMT_STORAGE_FORMAT {}
-impl ::core::clone::Clone for WMT_STORAGE_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_STORAGE_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_STORAGE_FORMAT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_STORAGE_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_STORAGE_FORMAT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_STREAM_SELECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_OFF: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_CLEANPOINT_ONLY: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_ON: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(2i32);
-impl ::core::marker::Copy for WMT_STREAM_SELECTION {}
-impl ::core::clone::Clone for WMT_STREAM_SELECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_STREAM_SELECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_STREAM_SELECTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_STREAM_SELECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_STREAM_SELECTION").field(&self.0).finish()
-    }
-}
-#[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_TIMECODE_EXTENSION_DATA {
-    pub wRange: u16,
-    pub dwTimecode: u32,
-    pub dwUserbits: u32,
-    pub dwAmFlags: u32,
-}
-impl ::core::marker::Copy for WMT_TIMECODE_EXTENSION_DATA {}
-impl ::core::clone::Clone for WMT_TIMECODE_EXTENSION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_TIMECODE_EXTENSION_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMT_TIMECODE_EXTENSION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_TIMECODE_EXTENSION_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMT_TIMECODE_EXTENSION_DATA {}
-impl ::core::default::Default for WMT_TIMECODE_EXTENSION_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_TIMECODE_FRAMERATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TIMECODE_FRAMERATE_30: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TIMECODE_FRAMERATE_30DROP: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TIMECODE_FRAMERATE_25: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_TIMECODE_FRAMERATE_24: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(3i32);
-impl ::core::marker::Copy for WMT_TIMECODE_FRAMERATE {}
-impl ::core::clone::Clone for WMT_TIMECODE_FRAMERATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_TIMECODE_FRAMERATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_TIMECODE_FRAMERATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_TIMECODE_FRAMERATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_TIMECODE_FRAMERATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_TRANSPORT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_Transport_Type_Unreliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_Transport_Type_Reliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(1i32);
-impl ::core::marker::Copy for WMT_TRANSPORT_TYPE {}
-impl ::core::clone::Clone for WMT_TRANSPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_TRANSPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_TRANSPORT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_TRANSPORT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_TRANSPORT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_VER_4_0: WMT_VERSION = WMT_VERSION(262144i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_VER_7_0: WMT_VERSION = WMT_VERSION(458752i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_VER_8_0: WMT_VERSION = WMT_VERSION(524288i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_VER_9_0: WMT_VERSION = WMT_VERSION(589824i32);
-impl ::core::marker::Copy for WMT_VERSION {}
-impl ::core::clone::Clone for WMT_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_VERSION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_VERSION").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_VIDEOIMAGE_SAMPLE {
-    pub dwMagic: u32,
-    pub cbStruct: u32,
-    pub dwControlFlags: u32,
-    pub dwInputFlagsCur: u32,
-    pub lCurMotionXtoX: i32,
-    pub lCurMotionYtoX: i32,
-    pub lCurMotionXoffset: i32,
-    pub lCurMotionXtoY: i32,
-    pub lCurMotionYtoY: i32,
-    pub lCurMotionYoffset: i32,
-    pub lCurBlendCoef1: i32,
-    pub lCurBlendCoef2: i32,
-    pub dwInputFlagsPrev: u32,
-    pub lPrevMotionXtoX: i32,
-    pub lPrevMotionYtoX: i32,
-    pub lPrevMotionXoffset: i32,
-    pub lPrevMotionXtoY: i32,
-    pub lPrevMotionYtoY: i32,
-    pub lPrevMotionYoffset: i32,
-    pub lPrevBlendCoef1: i32,
-    pub lPrevBlendCoef2: i32,
-}
-impl ::core::marker::Copy for WMT_VIDEOIMAGE_SAMPLE {}
-impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_VIDEOIMAGE_SAMPLE")
-            .field("dwMagic", &self.dwMagic)
-            .field("cbStruct", &self.cbStruct)
-            .field("dwControlFlags", &self.dwControlFlags)
-            .field("dwInputFlagsCur", &self.dwInputFlagsCur)
-            .field("lCurMotionXtoX", &self.lCurMotionXtoX)
-            .field("lCurMotionYtoX", &self.lCurMotionYtoX)
-            .field("lCurMotionXoffset", &self.lCurMotionXoffset)
-            .field("lCurMotionXtoY", &self.lCurMotionXtoY)
-            .field("lCurMotionYtoY", &self.lCurMotionYtoY)
-            .field("lCurMotionYoffset", &self.lCurMotionYoffset)
-            .field("lCurBlendCoef1", &self.lCurBlendCoef1)
-            .field("lCurBlendCoef2", &self.lCurBlendCoef2)
-            .field("dwInputFlagsPrev", &self.dwInputFlagsPrev)
-            .field("lPrevMotionXtoX", &self.lPrevMotionXtoX)
-            .field("lPrevMotionYtoX", &self.lPrevMotionYtoX)
-            .field("lPrevMotionXoffset", &self.lPrevMotionXoffset)
-            .field("lPrevMotionXtoY", &self.lPrevMotionXtoY)
-            .field("lPrevMotionYtoY", &self.lPrevMotionYtoY)
-            .field("lPrevMotionYoffset", &self.lPrevMotionYoffset)
-            .field("lPrevBlendCoef1", &self.lPrevBlendCoef1)
-            .field("lPrevBlendCoef2", &self.lPrevBlendCoef2)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_VIDEOIMAGE_SAMPLE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_VIDEOIMAGE_SAMPLE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE {}
-impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WMT_VIDEOIMAGE_SAMPLE2 {
-    pub dwMagic: u32,
-    pub dwStructSize: u32,
-    pub dwControlFlags: u32,
-    pub dwViewportWidth: u32,
-    pub dwViewportHeight: u32,
-    pub dwCurrImageWidth: u32,
-    pub dwCurrImageHeight: u32,
-    pub fCurrRegionX0: f32,
-    pub fCurrRegionY0: f32,
-    pub fCurrRegionWidth: f32,
-    pub fCurrRegionHeight: f32,
-    pub fCurrBlendCoef: f32,
-    pub dwPrevImageWidth: u32,
-    pub dwPrevImageHeight: u32,
-    pub fPrevRegionX0: f32,
-    pub fPrevRegionY0: f32,
-    pub fPrevRegionWidth: f32,
-    pub fPrevRegionHeight: f32,
-    pub fPrevBlendCoef: f32,
-    pub dwEffectType: u32,
-    pub dwNumEffectParas: u32,
-    pub fEffectPara0: f32,
-    pub fEffectPara1: f32,
-    pub fEffectPara2: f32,
-    pub fEffectPara3: f32,
-    pub fEffectPara4: f32,
-    pub bKeepPrevImage: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WMT_VIDEOIMAGE_SAMPLE2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_VIDEOIMAGE_SAMPLE2")
-            .field("dwMagic", &self.dwMagic)
-            .field("dwStructSize", &self.dwStructSize)
-            .field("dwControlFlags", &self.dwControlFlags)
-            .field("dwViewportWidth", &self.dwViewportWidth)
-            .field("dwViewportHeight", &self.dwViewportHeight)
-            .field("dwCurrImageWidth", &self.dwCurrImageWidth)
-            .field("dwCurrImageHeight", &self.dwCurrImageHeight)
-            .field("fCurrRegionX0", &self.fCurrRegionX0)
-            .field("fCurrRegionY0", &self.fCurrRegionY0)
-            .field("fCurrRegionWidth", &self.fCurrRegionWidth)
-            .field("fCurrRegionHeight", &self.fCurrRegionHeight)
-            .field("fCurrBlendCoef", &self.fCurrBlendCoef)
-            .field("dwPrevImageWidth", &self.dwPrevImageWidth)
-            .field("dwPrevImageHeight", &self.dwPrevImageHeight)
-            .field("fPrevRegionX0", &self.fPrevRegionX0)
-            .field("fPrevRegionY0", &self.fPrevRegionY0)
-            .field("fPrevRegionWidth", &self.fPrevRegionWidth)
-            .field("fPrevRegionHeight", &self.fPrevRegionHeight)
-            .field("fPrevBlendCoef", &self.fPrevBlendCoef)
-            .field("dwEffectType", &self.dwEffectType)
-            .field("dwNumEffectParas", &self.dwNumEffectParas)
-            .field("fEffectPara0", &self.fEffectPara0)
-            .field("fEffectPara1", &self.fEffectPara1)
-            .field("fEffectPara2", &self.fEffectPara2)
-            .field("fEffectPara3", &self.fEffectPara3)
-            .field("fEffectPara4", &self.fEffectPara4)
-            .field("bKeepPrevImage", &self.bKeepPrevImage)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WMT_VIDEOIMAGE_SAMPLE2 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_VIDEOIMAGE_SAMPLE2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
@@ -13098,360 +11615,6 @@ pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29u32;
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_WATERMARK_ENTRY {
-    pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
-    pub clsid: ::windows::core::GUID,
-    pub cbDisplayName: u32,
-    pub pwszDisplayName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for WMT_WATERMARK_ENTRY {}
-impl ::core::clone::Clone for WMT_WATERMARK_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMT_WATERMARK_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_WATERMARK_ENTRY").field("wmetType", &self.wmetType).field("clsid", &self.clsid).field("cbDisplayName", &self.cbDisplayName).field("pwszDisplayName", &self.pwszDisplayName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_WATERMARK_ENTRY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMT_WATERMARK_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WATERMARK_ENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMT_WATERMARK_ENTRY {}
-impl ::core::default::Default for WMT_WATERMARK_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMT_WATERMARK_ENTRY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(2i32);
-impl ::core::marker::Copy for WMT_WATERMARK_ENTRY_TYPE {}
-impl ::core::clone::Clone for WMT_WATERMARK_ENTRY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_WATERMARK_ENTRY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_WATERMARK_ENTRY_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMT_WATERMARK_ENTRY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMT_WATERMARK_ENTRY_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_WEBSTREAM_FORMAT {
-    pub cbSize: u16,
-    pub cbSampleHeaderFixedData: u16,
-    pub wVersion: u16,
-    pub wReserved: u16,
-}
-impl ::core::marker::Copy for WMT_WEBSTREAM_FORMAT {}
-impl ::core::clone::Clone for WMT_WEBSTREAM_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMT_WEBSTREAM_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_WEBSTREAM_FORMAT").field("cbSize", &self.cbSize).field("cbSampleHeaderFixedData", &self.cbSampleHeaderFixedData).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_FORMAT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMT_WEBSTREAM_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WEBSTREAM_FORMAT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMT_WEBSTREAM_FORMAT {}
-impl ::core::default::Default for WMT_WEBSTREAM_FORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
-    pub cbLength: u16,
-    pub wPart: u16,
-    pub cTotalParts: u16,
-    pub wSampleType: u16,
-    pub wszURL: [u16; 1],
-}
-impl ::core::marker::Copy for WMT_WEBSTREAM_SAMPLE_HEADER {}
-impl ::core::clone::Clone for WMT_WEBSTREAM_SAMPLE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WMT_WEBSTREAM_SAMPLE_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMT_WEBSTREAM_SAMPLE_HEADER").field("cbLength", &self.cbLength).field("wPart", &self.wPart).field("cTotalParts", &self.cTotalParts).field("wSampleType", &self.wSampleType).field("wszURL", &self.wszURL).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_SAMPLE_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WMT_WEBSTREAM_SAMPLE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WEBSTREAM_SAMPLE_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMT_WEBSTREAM_SAMPLE_HEADER {}
-impl ::core::default::Default for WMT_WEBSTREAM_SAMPLE_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct WMVIDEOINFOHEADER {
-    pub rcSource: super::super::Foundation::RECT,
-    pub rcTarget: super::super::Foundation::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: i64,
-    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for WMVIDEOINFOHEADER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for WMVIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for WMVIDEOINFOHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMVIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for WMVIDEOINFOHEADER {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMVIDEOINFOHEADER>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WMVIDEOINFOHEADER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for WMVIDEOINFOHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct WMVIDEOINFOHEADER2 {
-    pub rcSource: super::super::Foundation::RECT,
-    pub rcTarget: super::super::Foundation::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: i64,
-    pub dwInterlaceFlags: u32,
-    pub dwCopyProtectFlags: u32,
-    pub dwPictAspectRatioX: u32,
-    pub dwPictAspectRatioY: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for WMVIDEOINFOHEADER2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for WMVIDEOINFOHEADER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for WMVIDEOINFOHEADER2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WMVIDEOINFOHEADER2")
-            .field("rcSource", &self.rcSource)
-            .field("rcTarget", &self.rcTarget)
-            .field("dwBitRate", &self.dwBitRate)
-            .field("dwBitErrorRate", &self.dwBitErrorRate)
-            .field("AvgTimePerFrame", &self.AvgTimePerFrame)
-            .field("dwInterlaceFlags", &self.dwInterlaceFlags)
-            .field("dwCopyProtectFlags", &self.dwCopyProtectFlags)
-            .field("dwPictAspectRatioX", &self.dwPictAspectRatioX)
-            .field("dwPictAspectRatioY", &self.dwPictAspectRatioY)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("bmiHeader", &self.bmiHeader)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for WMVIDEOINFOHEADER2 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMVIDEOINFOHEADER2>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WMVIDEOINFOHEADER2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for WMVIDEOINFOHEADER2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_ADDRESS_ACCESSENTRY {
-    pub dwIPAddress: u32,
-    pub dwMask: u32,
-}
-impl ::core::marker::Copy for WM_ADDRESS_ACCESSENTRY {}
-impl ::core::clone::Clone for WM_ADDRESS_ACCESSENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WM_ADDRESS_ACCESSENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_ADDRESS_ACCESSENTRY").field("dwIPAddress", &self.dwIPAddress).field("dwMask", &self.dwMask).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WM_ADDRESS_ACCESSENTRY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_ADDRESS_ACCESSENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_ADDRESS_ACCESSENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_ADDRESS_ACCESSENTRY {}
-impl ::core::default::Default for WM_ADDRESS_ACCESSENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WM_AETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_AETYPE_INCLUDE: WM_AETYPE = WM_AETYPE(105i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_AETYPE_EXCLUDE: WM_AETYPE = WM_AETYPE(101i32);
-impl ::core::marker::Copy for WM_AETYPE {}
-impl ::core::clone::Clone for WM_AETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WM_AETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WM_AETYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WM_AETYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WM_AETYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_CLIENT_PROPERTIES {
-    pub dwIPAddress: u32,
-    pub dwPort: u32,
-}
-impl ::core::marker::Copy for WM_CLIENT_PROPERTIES {}
-impl ::core::clone::Clone for WM_CLIENT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WM_CLIENT_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_CLIENT_PROPERTIES").field("dwIPAddress", &self.dwIPAddress).field("dwPort", &self.dwPort).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WM_CLIENT_PROPERTIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_CLIENT_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_CLIENT_PROPERTIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_CLIENT_PROPERTIES {}
-impl ::core::default::Default for WM_CLIENT_PROPERTIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_CLIENT_PROPERTIES_EX {
-    pub cbSize: u32,
-    pub pwszIPAddress: ::windows::core::PCWSTR,
-    pub pwszPort: ::windows::core::PCWSTR,
-    pub pwszDNSName: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for WM_CLIENT_PROPERTIES_EX {}
-impl ::core::clone::Clone for WM_CLIENT_PROPERTIES_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WM_CLIENT_PROPERTIES_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_CLIENT_PROPERTIES_EX").field("cbSize", &self.cbSize).field("pwszIPAddress", &self.pwszIPAddress).field("pwszPort", &self.pwszPort).field("pwszDNSName", &self.pwszDNSName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WM_CLIENT_PROPERTIES_EX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_CLIENT_PROPERTIES_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_CLIENT_PROPERTIES_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_CLIENT_PROPERTIES_EX {}
-impl ::core::default::Default for WM_CLIENT_PROPERTIES_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CL_INTERLACED420: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
@@ -13465,483 +11628,9 @@ pub const WM_CT_REPEAT_FIRST_FIELD: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CT_TOP_FIELD_FIRST: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WM_DM_INTERLACED_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_DEINTERLACE_NORMAL: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_DEINTERLACE_HALFSIZE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_DEINTERLACE_INVERSETELECINE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(5i32);
-impl ::core::marker::Copy for WM_DM_INTERLACED_TYPE {}
-impl ::core::clone::Clone for WM_DM_INTERLACED_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WM_DM_INTERLACED_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WM_DM_INTERLACED_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WM_DM_INTERLACED_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WM_DM_INTERLACED_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WM_DM_IT_FIRST_FRAME_COHERENCY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_DISABLE_COHERENT_MODE: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(5i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(6i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(7i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(9i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(10i32);
-impl ::core::marker::Copy for WM_DM_IT_FIRST_FRAME_COHERENCY {}
-impl ::core::clone::Clone for WM_DM_IT_FIRST_FRAME_COHERENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WM_DM_IT_FIRST_FRAME_COHERENCY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WM_DM_IT_FIRST_FRAME_COHERENCY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WM_DM_IT_FIRST_FRAME_COHERENCY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WM_DM_IT_FIRST_FRAME_COHERENCY").field(&self.0).finish()
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_LEAKY_BUCKET_PAIR {
-    pub dwBitrate: u32,
-    pub msBufferWindow: u32,
-}
-impl ::core::marker::Copy for WM_LEAKY_BUCKET_PAIR {}
-impl ::core::clone::Clone for WM_LEAKY_BUCKET_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WM_LEAKY_BUCKET_PAIR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_LEAKY_BUCKET_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_LEAKY_BUCKET_PAIR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_LEAKY_BUCKET_PAIR {}
-impl ::core::default::Default for WM_LEAKY_BUCKET_PAIR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_MAX_STREAMS: u32 = 63u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WM_MEDIA_TYPE {
-    pub majortype: ::windows::core::GUID,
-    pub subtype: ::windows::core::GUID,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
-    pub lSampleSize: u32,
-    pub formattype: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub cbFormat: u32,
-    pub pbFormat: *mut u8,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WM_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        Self {
-            majortype: self.majortype,
-            subtype: self.subtype,
-            bFixedSizeSamples: self.bFixedSizeSamples,
-            bTemporalCompression: self.bTemporalCompression,
-            lSampleSize: self.lSampleSize,
-            formattype: self.formattype,
-            pUnk: self.pUnk.clone(),
-            cbFormat: self.cbFormat,
-            pbFormat: self.pbFormat,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WM_MEDIA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WM_MEDIA_TYPE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WM_MEDIA_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WM_MEDIA_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WM_MEDIA_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_PICTURE {
-    pub pwszMIMEType: ::windows::core::PWSTR,
-    pub bPictureType: u8,
-    pub pwszDescription: ::windows::core::PWSTR,
-    pub dwDataLen: u32,
-    pub pbData: *mut u8,
-}
-impl ::core::marker::Copy for WM_PICTURE {}
-impl ::core::clone::Clone for WM_PICTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WM_PICTURE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_PICTURE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_PICTURE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_PICTURE {}
-impl ::core::default::Default for WM_PICTURE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WM_PLAYBACK_DRC_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_PLAYBACK_DRC_HIGH: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_PLAYBACK_DRC_MEDIUM: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_PLAYBACK_DRC_LOW: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(2i32);
-impl ::core::marker::Copy for WM_PLAYBACK_DRC_LEVEL {}
-impl ::core::clone::Clone for WM_PLAYBACK_DRC_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WM_PLAYBACK_DRC_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WM_PLAYBACK_DRC_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WM_PLAYBACK_DRC_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WM_PLAYBACK_DRC_LEVEL").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_PORT_NUMBER_RANGE {
-    pub wPortBegin: u16,
-    pub wPortEnd: u16,
-}
-impl ::core::marker::Copy for WM_PORT_NUMBER_RANGE {}
-impl ::core::clone::Clone for WM_PORT_NUMBER_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WM_PORT_NUMBER_RANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_PORT_NUMBER_RANGE").field("wPortBegin", &self.wPortBegin).field("wPortEnd", &self.wPortEnd).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WM_PORT_NUMBER_RANGE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_PORT_NUMBER_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_PORT_NUMBER_RANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_PORT_NUMBER_RANGE {}
-impl ::core::default::Default for WM_PORT_NUMBER_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WM_READER_CLIENTINFO {
-    pub cbSize: u32,
-    pub wszLang: ::windows::core::PWSTR,
-    pub wszBrowserUserAgent: ::windows::core::PWSTR,
-    pub wszBrowserWebPage: ::windows::core::PWSTR,
-    pub qwReserved: u64,
-    pub pReserved: *mut super::super::Foundation::LPARAM,
-    pub wszHostExe: ::windows::core::PWSTR,
-    pub qwHostVersion: u64,
-    pub wszPlayerUserAgent: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WM_READER_CLIENTINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WM_READER_CLIENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WM_READER_CLIENTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_READER_CLIENTINFO").field("cbSize", &self.cbSize).field("wszLang", &self.wszLang).field("wszBrowserUserAgent", &self.wszBrowserUserAgent).field("wszBrowserWebPage", &self.wszBrowserWebPage).field("qwReserved", &self.qwReserved).field("pReserved", &self.pReserved).field("wszHostExe", &self.wszHostExe).field("qwHostVersion", &self.qwHostVersion).field("wszPlayerUserAgent", &self.wszPlayerUserAgent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WM_READER_CLIENTINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WM_READER_CLIENTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_READER_CLIENTINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WM_READER_CLIENTINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WM_READER_CLIENTINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_READER_STATISTICS {
-    pub cbSize: u32,
-    pub dwBandwidth: u32,
-    pub cPacketsReceived: u32,
-    pub cPacketsRecovered: u32,
-    pub cPacketsLost: u32,
-    pub wQuality: u16,
-}
-impl ::core::marker::Copy for WM_READER_STATISTICS {}
-impl ::core::clone::Clone for WM_READER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WM_READER_STATISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_READER_STATISTICS").field("cbSize", &self.cbSize).field("dwBandwidth", &self.dwBandwidth).field("cPacketsReceived", &self.cPacketsReceived).field("cPacketsRecovered", &self.cPacketsRecovered).field("cPacketsLost", &self.cPacketsLost).field("wQuality", &self.wQuality).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WM_READER_STATISTICS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_READER_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_READER_STATISTICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_READER_STATISTICS {}
-impl ::core::default::Default for WM_READER_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WM_SFEX_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_SFEX_NOTASYNCPOINT: WM_SFEX_TYPE = WM_SFEX_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_SFEX_DATALOSS: WM_SFEX_TYPE = WM_SFEX_TYPE(4i32);
-impl ::core::marker::Copy for WM_SFEX_TYPE {}
-impl ::core::clone::Clone for WM_SFEX_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WM_SFEX_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WM_SFEX_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WM_SFEX_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WM_SFEX_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WM_SF_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_SF_CLEANPOINT: WM_SF_TYPE = WM_SF_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = WM_SF_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const WM_SF_DATALOSS: WM_SF_TYPE = WM_SF_TYPE(4i32);
-impl ::core::marker::Copy for WM_SF_TYPE {}
-impl ::core::clone::Clone for WM_SF_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WM_SF_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WM_SF_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WM_SF_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WM_SF_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct WM_STREAM_PRIORITY_RECORD {
-    pub wStreamNumber: u16,
-    pub fMandatory: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for WM_STREAM_PRIORITY_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WM_STREAM_PRIORITY_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WM_STREAM_PRIORITY_RECORD {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WM_STREAM_PRIORITY_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_STREAM_PRIORITY_RECORD>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WM_STREAM_PRIORITY_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WM_STREAM_PRIORITY_RECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_STREAM_TYPE_INFO {
-    pub guidMajorType: ::windows::core::GUID,
-    pub cbFormat: u32,
-}
-impl ::core::marker::Copy for WM_STREAM_TYPE_INFO {}
-impl ::core::clone::Clone for WM_STREAM_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WM_STREAM_TYPE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_STREAM_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_STREAM_TYPE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_STREAM_TYPE_INFO {}
-impl ::core::default::Default for WM_STREAM_TYPE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_SYNCHRONISED_LYRICS {
-    pub bTimeStampFormat: u8,
-    pub bContentType: u8,
-    pub pwszContentDescriptor: ::windows::core::PWSTR,
-    pub dwLyricsLen: u32,
-    pub pbLyrics: *mut u8,
-}
-impl ::core::marker::Copy for WM_SYNCHRONISED_LYRICS {}
-impl ::core::clone::Clone for WM_SYNCHRONISED_LYRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WM_SYNCHRONISED_LYRICS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_SYNCHRONISED_LYRICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_SYNCHRONISED_LYRICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_SYNCHRONISED_LYRICS {}
-impl ::core::default::Default for WM_SYNCHRONISED_LYRICS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 pub const WM_SampleExtensionGUID_ChromaLocation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c5acca0_9276_4b2c_9e4c_a0edefdd217e);
 pub const WM_SampleExtensionGUID_ColorSpaceInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf79ada56_30eb_4f2b_9f7a_f24b139a1157);
 pub const WM_SampleExtensionGUID_ContentType: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd590dc20_07bc_436c_9cf7_f3bbfbf1a4dc);
@@ -13964,181 +11653,6 @@ pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_USER_TEXT {
-    pub pwszDescription: ::windows::core::PWSTR,
-    pub pwszText: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for WM_USER_TEXT {}
-impl ::core::clone::Clone for WM_USER_TEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WM_USER_TEXT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_USER_TEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_USER_TEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_USER_TEXT {}
-impl ::core::default::Default for WM_USER_TEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_USER_WEB_URL {
-    pub pwszDescription: ::windows::core::PWSTR,
-    pub pwszURL: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for WM_USER_WEB_URL {}
-impl ::core::clone::Clone for WM_USER_WEB_URL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for WM_USER_WEB_URL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_USER_WEB_URL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_USER_WEB_URL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_USER_WEB_URL {}
-impl ::core::default::Default for WM_USER_WEB_URL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_WRITER_STATISTICS {
-    pub qwSampleCount: u64,
-    pub qwByteCount: u64,
-    pub qwDroppedSampleCount: u64,
-    pub qwDroppedByteCount: u64,
-    pub dwCurrentBitrate: u32,
-    pub dwAverageBitrate: u32,
-    pub dwExpectedBitrate: u32,
-    pub dwCurrentSampleRate: u32,
-    pub dwAverageSampleRate: u32,
-    pub dwExpectedSampleRate: u32,
-}
-impl ::core::marker::Copy for WM_WRITER_STATISTICS {}
-impl ::core::clone::Clone for WM_WRITER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WM_WRITER_STATISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_WRITER_STATISTICS")
-            .field("qwSampleCount", &self.qwSampleCount)
-            .field("qwByteCount", &self.qwByteCount)
-            .field("qwDroppedSampleCount", &self.qwDroppedSampleCount)
-            .field("qwDroppedByteCount", &self.qwDroppedByteCount)
-            .field("dwCurrentBitrate", &self.dwCurrentBitrate)
-            .field("dwAverageBitrate", &self.dwAverageBitrate)
-            .field("dwExpectedBitrate", &self.dwExpectedBitrate)
-            .field("dwCurrentSampleRate", &self.dwCurrentSampleRate)
-            .field("dwAverageSampleRate", &self.dwAverageSampleRate)
-            .field("dwExpectedSampleRate", &self.dwExpectedSampleRate)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_WRITER_STATISTICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_WRITER_STATISTICS {}
-impl ::core::default::Default for WM_WRITER_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub struct WM_WRITER_STATISTICS_EX {
-    pub dwBitratePlusOverhead: u32,
-    pub dwCurrentSampleDropRateInQueue: u32,
-    pub dwCurrentSampleDropRateInCodec: u32,
-    pub dwCurrentSampleDropRateInMultiplexer: u32,
-    pub dwTotalSampleDropsInQueue: u32,
-    pub dwTotalSampleDropsInCodec: u32,
-    pub dwTotalSampleDropsInMultiplexer: u32,
-}
-impl ::core::marker::Copy for WM_WRITER_STATISTICS_EX {}
-impl ::core::clone::Clone for WM_WRITER_STATISTICS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for WM_WRITER_STATISTICS_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WM_WRITER_STATISTICS_EX")
-            .field("dwBitratePlusOverhead", &self.dwBitratePlusOverhead)
-            .field("dwCurrentSampleDropRateInQueue", &self.dwCurrentSampleDropRateInQueue)
-            .field("dwCurrentSampleDropRateInCodec", &self.dwCurrentSampleDropRateInCodec)
-            .field("dwCurrentSampleDropRateInMultiplexer", &self.dwCurrentSampleDropRateInMultiplexer)
-            .field("dwTotalSampleDropsInQueue", &self.dwTotalSampleDropsInQueue)
-            .field("dwTotalSampleDropsInCodec", &self.dwTotalSampleDropsInCodec)
-            .field("dwTotalSampleDropsInMultiplexer", &self.dwTotalSampleDropsInMultiplexer)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS_EX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_WRITER_STATISTICS_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_WRITER_STATISTICS_EX {}
-impl ::core::default::Default for WM_WRITER_STATISTICS_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _AM_ASFWRITERCONFIG_PARAM(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const AM_CONFIGASFWRITER_PARAM_MULTIPASS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(3i32);
-impl ::core::marker::Copy for _AM_ASFWRITERCONFIG_PARAM {}
-impl ::core::clone::Clone for _AM_ASFWRITERCONFIG_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _AM_ASFWRITERCONFIG_PARAM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _AM_ASFWRITERCONFIG_PARAM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _AM_ASFWRITERCONFIG_PARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_AM_ASFWRITERCONFIG_PARAM").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_dwWMContentAttributes: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
@@ -14589,5 +12103,2491 @@ pub const g_wszWMYear: &str = "WM/Year";
 pub const g_wszWatermarkCLSID: &str = "WatermarkCLSID";
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWatermarkConfig: &str = "WatermarkConfig";
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const NETSOURCE_URLCREDPOLICY_SETTING_SILENTLOGONOK: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const NETSOURCE_URLCREDPOLICY_SETTING_MUSTPROMPTUSER: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const NETSOURCE_URLCREDPOLICY_SETTING_ANONYMOUSONLY: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(2i32);
+impl ::core::marker::Copy for NETSOURCE_URLCREDPOLICY_SETTINGS {}
+impl ::core::clone::Clone for NETSOURCE_URLCREDPOLICY_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NETSOURCE_URLCREDPOLICY_SETTINGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NETSOURCE_URLCREDPOLICY_SETTINGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETSOURCE_URLCREDPOLICY_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETSOURCE_URLCREDPOLICY_SETTINGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WEBSTREAM_SAMPLE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WEBSTREAM_SAMPLE_TYPE_FILE: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WEBSTREAM_SAMPLE_TYPE_RENDER: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(2i32);
+impl ::core::marker::Copy for WEBSTREAM_SAMPLE_TYPE {}
+impl ::core::clone::Clone for WEBSTREAM_SAMPLE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WEBSTREAM_SAMPLE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WEBSTREAM_SAMPLE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WEBSTREAM_SAMPLE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WEBSTREAM_SAMPLE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_ATTR_DATATYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TYPE_DWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TYPE_STRING: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TYPE_BINARY: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TYPE_BOOL: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TYPE_QWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TYPE_WORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(5i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TYPE_GUID: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(6i32);
+impl ::core::marker::Copy for WMT_ATTR_DATATYPE {}
+impl ::core::clone::Clone for WMT_ATTR_DATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_ATTR_DATATYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_ATTR_DATATYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_ATTR_DATATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_ATTR_DATATYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_ATTR_IMAGETYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IMAGETYPE_BITMAP: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IMAGETYPE_JPEG: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IMAGETYPE_GIF: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(3i32);
+impl ::core::marker::Copy for WMT_ATTR_IMAGETYPE {}
+impl ::core::clone::Clone for WMT_ATTR_IMAGETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_ATTR_IMAGETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_ATTR_IMAGETYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_ATTR_IMAGETYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_ATTR_IMAGETYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_CODEC_INFO_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CODECINFO_AUDIO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(-1i32);
+impl ::core::marker::Copy for WMT_CODEC_INFO_TYPE {}
+impl ::core::clone::Clone for WMT_CODEC_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_CODEC_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_CODEC_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_CODEC_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_CODEC_INFO_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_CREDENTIAL_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CREDENTIAL_SAVE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CREDENTIAL_DONT_CACHE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CREDENTIAL_CLEAR_TEXT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CREDENTIAL_PROXY: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CREDENTIAL_ENCRYPT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(16i32);
+impl ::core::marker::Copy for WMT_CREDENTIAL_FLAGS {}
+impl ::core::clone::Clone for WMT_CREDENTIAL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_CREDENTIAL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_CREDENTIAL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_CREDENTIAL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_CREDENTIAL_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_DRMLA_TRUST(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_DRMLA_UNTRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_DRMLA_TRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_DRMLA_TAMPERED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(2i32);
+impl ::core::marker::Copy for WMT_DRMLA_TRUST {}
+impl ::core::clone::Clone for WMT_DRMLA_TRUST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_DRMLA_TRUST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_DRMLA_TRUST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_DRMLA_TRUST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_DRMLA_TRUST").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_FILESINK_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_FM_SINGLE_BUFFERS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_FM_FILESINK_UNBUFFERED: WMT_FILESINK_MODE = WMT_FILESINK_MODE(4i32);
+impl ::core::marker::Copy for WMT_FILESINK_MODE {}
+impl ::core::clone::Clone for WMT_FILESINK_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_FILESINK_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_FILESINK_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_FILESINK_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_FILESINK_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_IMAGE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_NONE: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_BITMAP: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_JPEG: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_GIF: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(3i32);
+impl ::core::marker::Copy for WMT_IMAGE_TYPE {}
+impl ::core::clone::Clone for WMT_IMAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_IMAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_IMAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_IMAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_IMAGE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_INDEXER_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_PRESENTATION_TIME: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_FRAME_NUMBERS: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_TIMECODE: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(2i32);
+impl ::core::marker::Copy for WMT_INDEXER_TYPE {}
+impl ::core::clone::Clone for WMT_INDEXER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_INDEXER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_INDEXER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_INDEXER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_INDEXER_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_INDEX_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_NEAREST_DATA_UNIT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_NEAREST_OBJECT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_IT_NEAREST_CLEAN_POINT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(3i32);
+impl ::core::marker::Copy for WMT_INDEX_TYPE {}
+impl ::core::clone::Clone for WMT_INDEX_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_INDEX_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_INDEX_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_INDEX_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_INDEX_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_MUSICSPEECH_CLASS_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_MS_CLASS_MUSIC: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_MS_CLASS_SPEECH: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_MS_CLASS_MIXED: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(2i32);
+impl ::core::marker::Copy for WMT_MUSICSPEECH_CLASS_MODE {}
+impl ::core::clone::Clone for WMT_MUSICSPEECH_CLASS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_MUSICSPEECH_CLASS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_MUSICSPEECH_CLASS_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_MUSICSPEECH_CLASS_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_MUSICSPEECH_CLASS_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_NET_PROTOCOL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROTOCOL_HTTP: WMT_NET_PROTOCOL = WMT_NET_PROTOCOL(0i32);
+impl ::core::marker::Copy for WMT_NET_PROTOCOL {}
+impl ::core::clone::Clone for WMT_NET_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_NET_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_NET_PROTOCOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_NET_PROTOCOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_NET_PROTOCOL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_OFFSET_FORMAT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_OFFSET_FORMAT_100NS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_OFFSET_FORMAT_FRAME_NUMBERS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_OFFSET_FORMAT_PLAYLIST_OFFSET: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(3i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_OFFSET_FORMAT_100NS_APPROXIMATE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(4i32);
+impl ::core::marker::Copy for WMT_OFFSET_FORMAT {}
+impl ::core::clone::Clone for WMT_OFFSET_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_OFFSET_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_OFFSET_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_OFFSET_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_OFFSET_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_PLAY_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PLAY_MODE_AUTOSELECT: WMT_PLAY_MODE = WMT_PLAY_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PLAY_MODE_LOCAL: WMT_PLAY_MODE = WMT_PLAY_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PLAY_MODE_DOWNLOAD: WMT_PLAY_MODE = WMT_PLAY_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PLAY_MODE_STREAMING: WMT_PLAY_MODE = WMT_PLAY_MODE(3i32);
+impl ::core::marker::Copy for WMT_PLAY_MODE {}
+impl ::core::clone::Clone for WMT_PLAY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_PLAY_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_PLAY_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_PLAY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_PLAY_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_PROXY_SETTINGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROXY_SETTING_NONE: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROXY_SETTING_MANUAL: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROXY_SETTING_AUTO: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROXY_SETTING_BROWSER: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(3i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROXY_SETTING_MAX: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(4i32);
+impl ::core::marker::Copy for WMT_PROXY_SETTINGS {}
+impl ::core::clone::Clone for WMT_PROXY_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_PROXY_SETTINGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_PROXY_SETTINGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_PROXY_SETTINGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_PROXY_SETTINGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_RIGHTS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_PLAYBACK: WMT_RIGHTS = WMT_RIGHTS(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_COPY_TO_NON_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_COPY_TO_CD: WMT_RIGHTS = WMT_RIGHTS(8i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_COPY_TO_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(16i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_ONE_TIME: WMT_RIGHTS = WMT_RIGHTS(32i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_SAVE_STREAM_PROTECTED: WMT_RIGHTS = WMT_RIGHTS(64i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_COPY: WMT_RIGHTS = WMT_RIGHTS(128i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_COLLABORATIVE_PLAY: WMT_RIGHTS = WMT_RIGHTS(256i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_SDMI_TRIGGER: WMT_RIGHTS = WMT_RIGHTS(65536i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RIGHT_SDMI_NOMORECOPIES: WMT_RIGHTS = WMT_RIGHTS(131072i32);
+impl ::core::marker::Copy for WMT_RIGHTS {}
+impl ::core::clone::Clone for WMT_RIGHTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_RIGHTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_RIGHTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_RIGHTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_RIGHTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_ERROR: WMT_STATUS = WMT_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_OPENED: WMT_STATUS = WMT_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_BUFFERING_START: WMT_STATUS = WMT_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_BUFFERING_STOP: WMT_STATUS = WMT_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_EOF: WMT_STATUS = WMT_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_END_OF_FILE: WMT_STATUS = WMT_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_END_OF_SEGMENT: WMT_STATUS = WMT_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_END_OF_STREAMING: WMT_STATUS = WMT_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_LOCATING: WMT_STATUS = WMT_STATUS(7i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CONNECTING: WMT_STATUS = WMT_STATUS(8i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_NO_RIGHTS: WMT_STATUS = WMT_STATUS(9i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_MISSING_CODEC: WMT_STATUS = WMT_STATUS(10i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_STARTED: WMT_STATUS = WMT_STATUS(11i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_STOPPED: WMT_STATUS = WMT_STATUS(12i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CLOSED: WMT_STATUS = WMT_STATUS(13i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_STRIDING: WMT_STATUS = WMT_STATUS(14i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TIMER: WMT_STATUS = WMT_STATUS(15i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_INDEX_PROGRESS: WMT_STATUS = WMT_STATUS(16i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_SAVEAS_START: WMT_STATUS = WMT_STATUS(17i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_SAVEAS_STOP: WMT_STATUS = WMT_STATUS(18i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_NEW_SOURCEFLAGS: WMT_STATUS = WMT_STATUS(19i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_NEW_METADATA: WMT_STATUS = WMT_STATUS(20i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_BACKUPRESTORE_BEGIN: WMT_STATUS = WMT_STATUS(21i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_SOURCE_SWITCH: WMT_STATUS = WMT_STATUS(22i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_ACQUIRE_LICENSE: WMT_STATUS = WMT_STATUS(23i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_INDIVIDUALIZE: WMT_STATUS = WMT_STATUS(24i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_NEEDS_INDIVIDUALIZATION: WMT_STATUS = WMT_STATUS(25i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_NO_RIGHTS_EX: WMT_STATUS = WMT_STATUS(26i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_BACKUPRESTORE_END: WMT_STATUS = WMT_STATUS(27i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_BACKUPRESTORE_CONNECTING: WMT_STATUS = WMT_STATUS(28i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_BACKUPRESTORE_DISCONNECTING: WMT_STATUS = WMT_STATUS(29i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_ERROR_WITHURL: WMT_STATUS = WMT_STATUS(30i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RESTRICTED_LICENSE: WMT_STATUS = WMT_STATUS(31i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CLIENT_CONNECT: WMT_STATUS = WMT_STATUS(32i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CLIENT_DISCONNECT: WMT_STATUS = WMT_STATUS(33i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_NATIVE_OUTPUT_PROPS_CHANGED: WMT_STATUS = WMT_STATUS(34i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RECONNECT_START: WMT_STATUS = WMT_STATUS(35i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_RECONNECT_END: WMT_STATUS = WMT_STATUS(36i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CLIENT_CONNECT_EX: WMT_STATUS = WMT_STATUS(37i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CLIENT_DISCONNECT_EX: WMT_STATUS = WMT_STATUS(38i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_SET_FEC_SPAN: WMT_STATUS = WMT_STATUS(39i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PREROLL_READY: WMT_STATUS = WMT_STATUS(40i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PREROLL_COMPLETE: WMT_STATUS = WMT_STATUS(41i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CLIENT_PROPERTIES: WMT_STATUS = WMT_STATUS(42i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_LICENSEURL_SIGNATURE_STATE: WMT_STATUS = WMT_STATUS(43i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_INIT_PLAYLIST_BURN: WMT_STATUS = WMT_STATUS(44i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TRANSCRYPTOR_INIT: WMT_STATUS = WMT_STATUS(45i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TRANSCRYPTOR_SEEKED: WMT_STATUS = WMT_STATUS(46i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TRANSCRYPTOR_READ: WMT_STATUS = WMT_STATUS(47i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TRANSCRYPTOR_CLOSED: WMT_STATUS = WMT_STATUS(48i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROXIMITY_RESULT: WMT_STATUS = WMT_STATUS(49i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_PROXIMITY_COMPLETED: WMT_STATUS = WMT_STATUS(50i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CONTENT_ENABLER: WMT_STATUS = WMT_STATUS(51i32);
+impl ::core::marker::Copy for WMT_STATUS {}
+impl ::core::clone::Clone for WMT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_STORAGE_FORMAT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(1i32);
+impl ::core::marker::Copy for WMT_STORAGE_FORMAT {}
+impl ::core::clone::Clone for WMT_STORAGE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_STORAGE_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_STORAGE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_STORAGE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_STORAGE_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_STREAM_SELECTION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_OFF: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_CLEANPOINT_ONLY: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_ON: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(2i32);
+impl ::core::marker::Copy for WMT_STREAM_SELECTION {}
+impl ::core::clone::Clone for WMT_STREAM_SELECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_STREAM_SELECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_STREAM_SELECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_STREAM_SELECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_STREAM_SELECTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_TIMECODE_FRAMERATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TIMECODE_FRAMERATE_30: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TIMECODE_FRAMERATE_30DROP: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TIMECODE_FRAMERATE_25: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_TIMECODE_FRAMERATE_24: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(3i32);
+impl ::core::marker::Copy for WMT_TIMECODE_FRAMERATE {}
+impl ::core::clone::Clone for WMT_TIMECODE_FRAMERATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_TIMECODE_FRAMERATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_TIMECODE_FRAMERATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_TIMECODE_FRAMERATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_TIMECODE_FRAMERATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_TRANSPORT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_Transport_Type_Unreliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_Transport_Type_Reliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(1i32);
+impl ::core::marker::Copy for WMT_TRANSPORT_TYPE {}
+impl ::core::clone::Clone for WMT_TRANSPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_TRANSPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_TRANSPORT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_TRANSPORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_TRANSPORT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_VERSION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_VER_4_0: WMT_VERSION = WMT_VERSION(262144i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_VER_7_0: WMT_VERSION = WMT_VERSION(458752i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_VER_8_0: WMT_VERSION = WMT_VERSION(524288i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_VER_9_0: WMT_VERSION = WMT_VERSION(589824i32);
+impl ::core::marker::Copy for WMT_VERSION {}
+impl ::core::clone::Clone for WMT_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_VERSION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMT_WATERMARK_ENTRY_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(2i32);
+impl ::core::marker::Copy for WMT_WATERMARK_ENTRY_TYPE {}
+impl ::core::clone::Clone for WMT_WATERMARK_ENTRY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMT_WATERMARK_ENTRY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_WATERMARK_ENTRY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMT_WATERMARK_ENTRY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMT_WATERMARK_ENTRY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WM_AETYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_AETYPE_INCLUDE: WM_AETYPE = WM_AETYPE(105i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_AETYPE_EXCLUDE: WM_AETYPE = WM_AETYPE(101i32);
+impl ::core::marker::Copy for WM_AETYPE {}
+impl ::core::clone::Clone for WM_AETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WM_AETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WM_AETYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WM_AETYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WM_AETYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WM_DM_INTERLACED_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_DEINTERLACE_NORMAL: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_DEINTERLACE_HALFSIZE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_DEINTERLACE_INVERSETELECINE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(5i32);
+impl ::core::marker::Copy for WM_DM_INTERLACED_TYPE {}
+impl ::core::clone::Clone for WM_DM_INTERLACED_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WM_DM_INTERLACED_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WM_DM_INTERLACED_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WM_DM_INTERLACED_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WM_DM_INTERLACED_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WM_DM_IT_FIRST_FRAME_COHERENCY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_DISABLE_COHERENT_MODE: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(3i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(4i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(5i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(6i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(7i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(8i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(9i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(10i32);
+impl ::core::marker::Copy for WM_DM_IT_FIRST_FRAME_COHERENCY {}
+impl ::core::clone::Clone for WM_DM_IT_FIRST_FRAME_COHERENCY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WM_DM_IT_FIRST_FRAME_COHERENCY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WM_DM_IT_FIRST_FRAME_COHERENCY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WM_DM_IT_FIRST_FRAME_COHERENCY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WM_DM_IT_FIRST_FRAME_COHERENCY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WM_PLAYBACK_DRC_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_PLAYBACK_DRC_HIGH: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_PLAYBACK_DRC_MEDIUM: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_PLAYBACK_DRC_LOW: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(2i32);
+impl ::core::marker::Copy for WM_PLAYBACK_DRC_LEVEL {}
+impl ::core::clone::Clone for WM_PLAYBACK_DRC_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WM_PLAYBACK_DRC_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WM_PLAYBACK_DRC_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WM_PLAYBACK_DRC_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WM_PLAYBACK_DRC_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WM_SFEX_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_SFEX_NOTASYNCPOINT: WM_SFEX_TYPE = WM_SFEX_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_SFEX_DATALOSS: WM_SFEX_TYPE = WM_SFEX_TYPE(4i32);
+impl ::core::marker::Copy for WM_SFEX_TYPE {}
+impl ::core::clone::Clone for WM_SFEX_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WM_SFEX_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WM_SFEX_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WM_SFEX_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WM_SFEX_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WM_SF_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_SF_CLEANPOINT: WM_SF_TYPE = WM_SF_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = WM_SF_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const WM_SF_DATALOSS: WM_SF_TYPE = WM_SF_TYPE(4i32);
+impl ::core::marker::Copy for WM_SF_TYPE {}
+impl ::core::clone::Clone for WM_SF_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WM_SF_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WM_SF_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WM_SF_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WM_SF_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct _AM_ASFWRITERCONFIG_PARAM(pub i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(1i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const AM_CONFIGASFWRITER_PARAM_MULTIPASS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(2i32);
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(3i32);
+impl ::core::marker::Copy for _AM_ASFWRITERCONFIG_PARAM {}
+impl ::core::clone::Clone for _AM_ASFWRITERCONFIG_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for _AM_ASFWRITERCONFIG_PARAM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for _AM_ASFWRITERCONFIG_PARAM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _AM_ASFWRITERCONFIG_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_AM_ASFWRITERCONFIG_PARAM").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct AM_WMT_EVENT_DATA {
+    pub hrStatus: ::windows::core::HRESULT,
+    pub pData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for AM_WMT_EVENT_DATA {}
+impl ::core::clone::Clone for AM_WMT_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AM_WMT_EVENT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AM_WMT_EVENT_DATA").field("hrStatus", &self.hrStatus).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AM_WMT_EVENT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AM_WMT_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AM_WMT_EVENT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AM_WMT_EVENT_DATA {}
+impl ::core::default::Default for AM_WMT_EVENT_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct DRM_COPY_OPL {
+    pub wMinimumCopyLevel: u16,
+    pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
+    pub oplIdExcludes: DRM_OPL_OUTPUT_IDS,
+}
+impl ::core::marker::Copy for DRM_COPY_OPL {}
+impl ::core::clone::Clone for DRM_COPY_OPL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRM_COPY_OPL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_COPY_OPL").field("wMinimumCopyLevel", &self.wMinimumCopyLevel).field("oplIdIncludes", &self.oplIdIncludes).field("oplIdExcludes", &self.oplIdExcludes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_COPY_OPL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_COPY_OPL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_COPY_OPL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_COPY_OPL {}
+impl ::core::default::Default for DRM_COPY_OPL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+    pub wCompressedDigitalVideo: u16,
+    pub wUncompressedDigitalVideo: u16,
+    pub wAnalogVideo: u16,
+    pub wCompressedDigitalAudio: u16,
+    pub wUncompressedDigitalAudio: u16,
+}
+impl ::core::marker::Copy for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {}
+impl ::core::clone::Clone for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS").field("wCompressedDigitalVideo", &self.wCompressedDigitalVideo).field("wUncompressedDigitalVideo", &self.wUncompressedDigitalVideo).field("wAnalogVideo", &self.wAnalogVideo).field("wCompressedDigitalAudio", &self.wCompressedDigitalAudio).field("wUncompressedDigitalAudio", &self.wUncompressedDigitalAudio).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {}
+impl ::core::default::Default for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct DRM_OPL_OUTPUT_IDS {
+    pub cIds: u16,
+    pub rgIds: *mut ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DRM_OPL_OUTPUT_IDS {}
+impl ::core::clone::Clone for DRM_OPL_OUTPUT_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRM_OPL_OUTPUT_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_OPL_OUTPUT_IDS").field("cIds", &self.cIds).field("rgIds", &self.rgIds).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_OPL_OUTPUT_IDS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_OPL_OUTPUT_IDS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_OPL_OUTPUT_IDS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_OPL_OUTPUT_IDS {}
+impl ::core::default::Default for DRM_OPL_OUTPUT_IDS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct DRM_OUTPUT_PROTECTION {
+    pub guidId: ::windows::core::GUID,
+    pub bConfigData: u8,
+}
+impl ::core::marker::Copy for DRM_OUTPUT_PROTECTION {}
+impl ::core::clone::Clone for DRM_OUTPUT_PROTECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRM_OUTPUT_PROTECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_OUTPUT_PROTECTION").field("guidId", &self.guidId).field("bConfigData", &self.bConfigData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_OUTPUT_PROTECTION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_OUTPUT_PROTECTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_OUTPUT_PROTECTION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_OUTPUT_PROTECTION {}
+impl ::core::default::Default for DRM_OUTPUT_PROTECTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct DRM_PLAY_OPL {
+    pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
+    pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
+    pub vopi: DRM_VIDEO_OUTPUT_PROTECTION_IDS,
+}
+impl ::core::marker::Copy for DRM_PLAY_OPL {}
+impl ::core::clone::Clone for DRM_PLAY_OPL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRM_PLAY_OPL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_PLAY_OPL").field("minOPL", &self.minOPL).field("oplIdReserved", &self.oplIdReserved).field("vopi", &self.vopi).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_PLAY_OPL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_PLAY_OPL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_PLAY_OPL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_PLAY_OPL {}
+impl ::core::default::Default for DRM_PLAY_OPL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct DRM_VAL16 {
+    pub val: [u8; 16],
+}
+impl ::core::marker::Copy for DRM_VAL16 {}
+impl ::core::clone::Clone for DRM_VAL16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRM_VAL16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_VAL16").field("val", &self.val).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_VAL16 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_VAL16 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_VAL16>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_VAL16 {}
+impl ::core::default::Default for DRM_VAL16 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    pub cEntries: u16,
+    pub rgVop: *mut DRM_OUTPUT_PROTECTION,
+}
+impl ::core::marker::Copy for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
+impl ::core::clone::Clone for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DRM_VIDEO_OUTPUT_PROTECTION_IDS").field("cEntries", &self.cEntries).field("rgVop", &self.rgVop).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_VIDEO_OUTPUT_PROTECTION_IDS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
+impl ::core::default::Default for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMDRM_IMPORT_INIT_STRUCT {
+    pub dwVersion: u32,
+    pub cbEncryptedSessionKeyMessage: u32,
+    pub pbEncryptedSessionKeyMessage: *mut u8,
+    pub cbEncryptedKeyMessage: u32,
+    pub pbEncryptedKeyMessage: *mut u8,
+}
+impl ::core::marker::Copy for WMDRM_IMPORT_INIT_STRUCT {}
+impl ::core::clone::Clone for WMDRM_IMPORT_INIT_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMDRM_IMPORT_INIT_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMDRM_IMPORT_INIT_STRUCT").field("dwVersion", &self.dwVersion).field("cbEncryptedSessionKeyMessage", &self.cbEncryptedSessionKeyMessage).field("pbEncryptedSessionKeyMessage", &self.pbEncryptedSessionKeyMessage).field("cbEncryptedKeyMessage", &self.cbEncryptedKeyMessage).field("pbEncryptedKeyMessage", &self.pbEncryptedKeyMessage).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMDRM_IMPORT_INIT_STRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMDRM_IMPORT_INIT_STRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDRM_IMPORT_INIT_STRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMDRM_IMPORT_INIT_STRUCT {}
+impl ::core::default::Default for WMDRM_IMPORT_INIT_STRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct WMMPEG2VIDEOINFO {
+    pub hdr: WMVIDEOINFOHEADER2,
+    pub dwStartTimeCode: u32,
+    pub cbSequenceHeader: u32,
+    pub dwProfile: u32,
+    pub dwLevel: u32,
+    pub dwFlags: u32,
+    pub dwSequenceHeader: [u32; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for WMMPEG2VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for WMMPEG2VIDEOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WMMPEG2VIDEOINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMMPEG2VIDEOINFO").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("dwProfile", &self.dwProfile).field("dwLevel", &self.dwLevel).field("dwFlags", &self.dwFlags).field("dwSequenceHeader", &self.dwSequenceHeader).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for WMMPEG2VIDEOINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for WMMPEG2VIDEOINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMMPEG2VIDEOINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for WMMPEG2VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for WMMPEG2VIDEOINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMSCRIPTFORMAT {
+    pub scriptType: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for WMSCRIPTFORMAT {}
+impl ::core::clone::Clone for WMSCRIPTFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMSCRIPTFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMSCRIPTFORMAT").field("scriptType", &self.scriptType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMSCRIPTFORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMSCRIPTFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMSCRIPTFORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMSCRIPTFORMAT {}
+impl ::core::default::Default for WMSCRIPTFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_BUFFER_SEGMENT {
+    pub pBuffer: ::core::option::Option<INSSBuffer>,
+    pub cbOffset: u32,
+    pub cbLength: u32,
+}
+impl ::core::clone::Clone for WMT_BUFFER_SEGMENT {
+    fn clone(&self) -> Self {
+        Self { pBuffer: self.pBuffer.clone(), cbOffset: self.cbOffset, cbLength: self.cbLength }
+    }
+}
+impl ::core::fmt::Debug for WMT_BUFFER_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_BUFFER_SEGMENT").field("pBuffer", &self.pBuffer).field("cbOffset", &self.cbOffset).field("cbLength", &self.cbLength).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_BUFFER_SEGMENT {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for WMT_BUFFER_SEGMENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.pBuffer == other.pBuffer && self.cbOffset == other.cbOffset && self.cbLength == other.cbLength
+    }
+}
+impl ::core::cmp::Eq for WMT_BUFFER_SEGMENT {}
+impl ::core::default::Default for WMT_BUFFER_SEGMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
+    pub ucColorPrimaries: u8,
+    pub ucColorTransferChar: u8,
+    pub ucColorMatrixCoef: u8,
+}
+impl ::core::marker::Copy for WMT_COLORSPACEINFO_EXTENSION_DATA {}
+impl ::core::clone::Clone for WMT_COLORSPACEINFO_EXTENSION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMT_COLORSPACEINFO_EXTENSION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_COLORSPACEINFO_EXTENSION_DATA").field("ucColorPrimaries", &self.ucColorPrimaries).field("ucColorTransferChar", &self.ucColorTransferChar).field("ucColorMatrixCoef", &self.ucColorMatrixCoef).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_COLORSPACEINFO_EXTENSION_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMT_COLORSPACEINFO_EXTENSION_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_COLORSPACEINFO_EXTENSION_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMT_COLORSPACEINFO_EXTENSION_DATA {}
+impl ::core::default::Default for WMT_COLORSPACEINFO_EXTENSION_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_FILESINK_DATA_UNIT {
+    pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
+    pub cPayloads: u32,
+    pub pPayloadHeaderBuffers: *mut WMT_BUFFER_SEGMENT,
+    pub cPayloadDataFragments: u32,
+    pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
+}
+impl ::core::clone::Clone for WMT_FILESINK_DATA_UNIT {
+    fn clone(&self) -> Self {
+        Self {
+            packetHeaderBuffer: self.packetHeaderBuffer.clone(),
+            cPayloads: self.cPayloads,
+            pPayloadHeaderBuffers: self.pPayloadHeaderBuffers,
+            cPayloadDataFragments: self.cPayloadDataFragments,
+            pPayloadDataFragments: self.pPayloadDataFragments,
+        }
+    }
+}
+impl ::core::fmt::Debug for WMT_FILESINK_DATA_UNIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_FILESINK_DATA_UNIT").field("packetHeaderBuffer", &self.packetHeaderBuffer).field("cPayloads", &self.cPayloads).field("pPayloadHeaderBuffers", &self.pPayloadHeaderBuffers).field("cPayloadDataFragments", &self.cPayloadDataFragments).field("pPayloadDataFragments", &self.pPayloadDataFragments).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_FILESINK_DATA_UNIT {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for WMT_FILESINK_DATA_UNIT {
+    fn eq(&self, other: &Self) -> bool {
+        self.packetHeaderBuffer == other.packetHeaderBuffer && self.cPayloads == other.cPayloads && self.pPayloadHeaderBuffers == other.pPayloadHeaderBuffers && self.cPayloadDataFragments == other.cPayloadDataFragments && self.pPayloadDataFragments == other.pPayloadDataFragments
+    }
+}
+impl ::core::cmp::Eq for WMT_FILESINK_DATA_UNIT {}
+impl ::core::default::Default for WMT_FILESINK_DATA_UNIT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_PAYLOAD_FRAGMENT {
+    pub dwPayloadIndex: u32,
+    pub segmentData: WMT_BUFFER_SEGMENT,
+}
+impl ::core::clone::Clone for WMT_PAYLOAD_FRAGMENT {
+    fn clone(&self) -> Self {
+        Self { dwPayloadIndex: self.dwPayloadIndex, segmentData: self.segmentData.clone() }
+    }
+}
+impl ::core::fmt::Debug for WMT_PAYLOAD_FRAGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_PAYLOAD_FRAGMENT").field("dwPayloadIndex", &self.dwPayloadIndex).field("segmentData", &self.segmentData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_PAYLOAD_FRAGMENT {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for WMT_PAYLOAD_FRAGMENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwPayloadIndex == other.dwPayloadIndex && self.segmentData == other.segmentData
+    }
+}
+impl ::core::cmp::Eq for WMT_PAYLOAD_FRAGMENT {}
+impl ::core::default::Default for WMT_PAYLOAD_FRAGMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_TIMECODE_EXTENSION_DATA {
+    pub wRange: u16,
+    pub dwTimecode: u32,
+    pub dwUserbits: u32,
+    pub dwAmFlags: u32,
+}
+impl ::core::marker::Copy for WMT_TIMECODE_EXTENSION_DATA {}
+impl ::core::clone::Clone for WMT_TIMECODE_EXTENSION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_TIMECODE_EXTENSION_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMT_TIMECODE_EXTENSION_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_TIMECODE_EXTENSION_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMT_TIMECODE_EXTENSION_DATA {}
+impl ::core::default::Default for WMT_TIMECODE_EXTENSION_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_VIDEOIMAGE_SAMPLE {
+    pub dwMagic: u32,
+    pub cbStruct: u32,
+    pub dwControlFlags: u32,
+    pub dwInputFlagsCur: u32,
+    pub lCurMotionXtoX: i32,
+    pub lCurMotionYtoX: i32,
+    pub lCurMotionXoffset: i32,
+    pub lCurMotionXtoY: i32,
+    pub lCurMotionYtoY: i32,
+    pub lCurMotionYoffset: i32,
+    pub lCurBlendCoef1: i32,
+    pub lCurBlendCoef2: i32,
+    pub dwInputFlagsPrev: u32,
+    pub lPrevMotionXtoX: i32,
+    pub lPrevMotionYtoX: i32,
+    pub lPrevMotionXoffset: i32,
+    pub lPrevMotionXtoY: i32,
+    pub lPrevMotionYtoY: i32,
+    pub lPrevMotionYoffset: i32,
+    pub lPrevBlendCoef1: i32,
+    pub lPrevBlendCoef2: i32,
+}
+impl ::core::marker::Copy for WMT_VIDEOIMAGE_SAMPLE {}
+impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_VIDEOIMAGE_SAMPLE")
+            .field("dwMagic", &self.dwMagic)
+            .field("cbStruct", &self.cbStruct)
+            .field("dwControlFlags", &self.dwControlFlags)
+            .field("dwInputFlagsCur", &self.dwInputFlagsCur)
+            .field("lCurMotionXtoX", &self.lCurMotionXtoX)
+            .field("lCurMotionYtoX", &self.lCurMotionYtoX)
+            .field("lCurMotionXoffset", &self.lCurMotionXoffset)
+            .field("lCurMotionXtoY", &self.lCurMotionXtoY)
+            .field("lCurMotionYtoY", &self.lCurMotionYtoY)
+            .field("lCurMotionYoffset", &self.lCurMotionYoffset)
+            .field("lCurBlendCoef1", &self.lCurBlendCoef1)
+            .field("lCurBlendCoef2", &self.lCurBlendCoef2)
+            .field("dwInputFlagsPrev", &self.dwInputFlagsPrev)
+            .field("lPrevMotionXtoX", &self.lPrevMotionXtoX)
+            .field("lPrevMotionYtoX", &self.lPrevMotionYtoX)
+            .field("lPrevMotionXoffset", &self.lPrevMotionXoffset)
+            .field("lPrevMotionXtoY", &self.lPrevMotionXtoY)
+            .field("lPrevMotionYtoY", &self.lPrevMotionYtoY)
+            .field("lPrevMotionYoffset", &self.lPrevMotionYoffset)
+            .field("lPrevBlendCoef1", &self.lPrevBlendCoef1)
+            .field("lPrevBlendCoef2", &self.lPrevBlendCoef2)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_VIDEOIMAGE_SAMPLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_VIDEOIMAGE_SAMPLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE {}
+impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WMT_VIDEOIMAGE_SAMPLE2 {
+    pub dwMagic: u32,
+    pub dwStructSize: u32,
+    pub dwControlFlags: u32,
+    pub dwViewportWidth: u32,
+    pub dwViewportHeight: u32,
+    pub dwCurrImageWidth: u32,
+    pub dwCurrImageHeight: u32,
+    pub fCurrRegionX0: f32,
+    pub fCurrRegionY0: f32,
+    pub fCurrRegionWidth: f32,
+    pub fCurrRegionHeight: f32,
+    pub fCurrBlendCoef: f32,
+    pub dwPrevImageWidth: u32,
+    pub dwPrevImageHeight: u32,
+    pub fPrevRegionX0: f32,
+    pub fPrevRegionY0: f32,
+    pub fPrevRegionWidth: f32,
+    pub fPrevRegionHeight: f32,
+    pub fPrevBlendCoef: f32,
+    pub dwEffectType: u32,
+    pub dwNumEffectParas: u32,
+    pub fEffectPara0: f32,
+    pub fEffectPara1: f32,
+    pub fEffectPara2: f32,
+    pub fEffectPara3: f32,
+    pub fEffectPara4: f32,
+    pub bKeepPrevImage: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WMT_VIDEOIMAGE_SAMPLE2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WMT_VIDEOIMAGE_SAMPLE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_VIDEOIMAGE_SAMPLE2")
+            .field("dwMagic", &self.dwMagic)
+            .field("dwStructSize", &self.dwStructSize)
+            .field("dwControlFlags", &self.dwControlFlags)
+            .field("dwViewportWidth", &self.dwViewportWidth)
+            .field("dwViewportHeight", &self.dwViewportHeight)
+            .field("dwCurrImageWidth", &self.dwCurrImageWidth)
+            .field("dwCurrImageHeight", &self.dwCurrImageHeight)
+            .field("fCurrRegionX0", &self.fCurrRegionX0)
+            .field("fCurrRegionY0", &self.fCurrRegionY0)
+            .field("fCurrRegionWidth", &self.fCurrRegionWidth)
+            .field("fCurrRegionHeight", &self.fCurrRegionHeight)
+            .field("fCurrBlendCoef", &self.fCurrBlendCoef)
+            .field("dwPrevImageWidth", &self.dwPrevImageWidth)
+            .field("dwPrevImageHeight", &self.dwPrevImageHeight)
+            .field("fPrevRegionX0", &self.fPrevRegionX0)
+            .field("fPrevRegionY0", &self.fPrevRegionY0)
+            .field("fPrevRegionWidth", &self.fPrevRegionWidth)
+            .field("fPrevRegionHeight", &self.fPrevRegionHeight)
+            .field("fPrevBlendCoef", &self.fPrevBlendCoef)
+            .field("dwEffectType", &self.dwEffectType)
+            .field("dwNumEffectParas", &self.dwNumEffectParas)
+            .field("fEffectPara0", &self.fEffectPara0)
+            .field("fEffectPara1", &self.fEffectPara1)
+            .field("fEffectPara2", &self.fEffectPara2)
+            .field("fEffectPara3", &self.fEffectPara3)
+            .field("fEffectPara4", &self.fEffectPara4)
+            .field("bKeepPrevImage", &self.bKeepPrevImage)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WMT_VIDEOIMAGE_SAMPLE2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_VIDEOIMAGE_SAMPLE2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_WATERMARK_ENTRY {
+    pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
+    pub clsid: ::windows::core::GUID,
+    pub cbDisplayName: u32,
+    pub pwszDisplayName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for WMT_WATERMARK_ENTRY {}
+impl ::core::clone::Clone for WMT_WATERMARK_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMT_WATERMARK_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_WATERMARK_ENTRY").field("wmetType", &self.wmetType).field("clsid", &self.clsid).field("cbDisplayName", &self.cbDisplayName).field("pwszDisplayName", &self.pwszDisplayName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_WATERMARK_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMT_WATERMARK_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WATERMARK_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMT_WATERMARK_ENTRY {}
+impl ::core::default::Default for WMT_WATERMARK_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_WEBSTREAM_FORMAT {
+    pub cbSize: u16,
+    pub cbSampleHeaderFixedData: u16,
+    pub wVersion: u16,
+    pub wReserved: u16,
+}
+impl ::core::marker::Copy for WMT_WEBSTREAM_FORMAT {}
+impl ::core::clone::Clone for WMT_WEBSTREAM_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMT_WEBSTREAM_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_WEBSTREAM_FORMAT").field("cbSize", &self.cbSize).field("cbSampleHeaderFixedData", &self.cbSampleHeaderFixedData).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMT_WEBSTREAM_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WEBSTREAM_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMT_WEBSTREAM_FORMAT {}
+impl ::core::default::Default for WMT_WEBSTREAM_FORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
+    pub cbLength: u16,
+    pub wPart: u16,
+    pub cTotalParts: u16,
+    pub wSampleType: u16,
+    pub wszURL: [u16; 1],
+}
+impl ::core::marker::Copy for WMT_WEBSTREAM_SAMPLE_HEADER {}
+impl ::core::clone::Clone for WMT_WEBSTREAM_SAMPLE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WMT_WEBSTREAM_SAMPLE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMT_WEBSTREAM_SAMPLE_HEADER").field("cbLength", &self.cbLength).field("wPart", &self.wPart).field("cTotalParts", &self.cTotalParts).field("wSampleType", &self.wSampleType).field("wszURL", &self.wszURL).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_SAMPLE_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WMT_WEBSTREAM_SAMPLE_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WEBSTREAM_SAMPLE_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WMT_WEBSTREAM_SAMPLE_HEADER {}
+impl ::core::default::Default for WMT_WEBSTREAM_SAMPLE_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct WMVIDEOINFOHEADER {
+    pub rcSource: super::super::Foundation::RECT,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub dwBitRate: u32,
+    pub dwBitErrorRate: u32,
+    pub AvgTimePerFrame: i64,
+    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for WMVIDEOINFOHEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for WMVIDEOINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WMVIDEOINFOHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMVIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for WMVIDEOINFOHEADER {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMVIDEOINFOHEADER>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for WMVIDEOINFOHEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for WMVIDEOINFOHEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct WMVIDEOINFOHEADER2 {
+    pub rcSource: super::super::Foundation::RECT,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub dwBitRate: u32,
+    pub dwBitErrorRate: u32,
+    pub AvgTimePerFrame: i64,
+    pub dwInterlaceFlags: u32,
+    pub dwCopyProtectFlags: u32,
+    pub dwPictAspectRatioX: u32,
+    pub dwPictAspectRatioY: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for WMVIDEOINFOHEADER2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for WMVIDEOINFOHEADER2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for WMVIDEOINFOHEADER2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WMVIDEOINFOHEADER2")
+            .field("rcSource", &self.rcSource)
+            .field("rcTarget", &self.rcTarget)
+            .field("dwBitRate", &self.dwBitRate)
+            .field("dwBitErrorRate", &self.dwBitErrorRate)
+            .field("AvgTimePerFrame", &self.AvgTimePerFrame)
+            .field("dwInterlaceFlags", &self.dwInterlaceFlags)
+            .field("dwCopyProtectFlags", &self.dwCopyProtectFlags)
+            .field("dwPictAspectRatioX", &self.dwPictAspectRatioX)
+            .field("dwPictAspectRatioY", &self.dwPictAspectRatioY)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("bmiHeader", &self.bmiHeader)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for WMVIDEOINFOHEADER2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMVIDEOINFOHEADER2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for WMVIDEOINFOHEADER2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for WMVIDEOINFOHEADER2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_ADDRESS_ACCESSENTRY {
+    pub dwIPAddress: u32,
+    pub dwMask: u32,
+}
+impl ::core::marker::Copy for WM_ADDRESS_ACCESSENTRY {}
+impl ::core::clone::Clone for WM_ADDRESS_ACCESSENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WM_ADDRESS_ACCESSENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_ADDRESS_ACCESSENTRY").field("dwIPAddress", &self.dwIPAddress).field("dwMask", &self.dwMask).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WM_ADDRESS_ACCESSENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_ADDRESS_ACCESSENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_ADDRESS_ACCESSENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_ADDRESS_ACCESSENTRY {}
+impl ::core::default::Default for WM_ADDRESS_ACCESSENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_CLIENT_PROPERTIES {
+    pub dwIPAddress: u32,
+    pub dwPort: u32,
+}
+impl ::core::marker::Copy for WM_CLIENT_PROPERTIES {}
+impl ::core::clone::Clone for WM_CLIENT_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WM_CLIENT_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_CLIENT_PROPERTIES").field("dwIPAddress", &self.dwIPAddress).field("dwPort", &self.dwPort).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WM_CLIENT_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_CLIENT_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_CLIENT_PROPERTIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_CLIENT_PROPERTIES {}
+impl ::core::default::Default for WM_CLIENT_PROPERTIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_CLIENT_PROPERTIES_EX {
+    pub cbSize: u32,
+    pub pwszIPAddress: ::windows::core::PCWSTR,
+    pub pwszPort: ::windows::core::PCWSTR,
+    pub pwszDNSName: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for WM_CLIENT_PROPERTIES_EX {}
+impl ::core::clone::Clone for WM_CLIENT_PROPERTIES_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WM_CLIENT_PROPERTIES_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_CLIENT_PROPERTIES_EX").field("cbSize", &self.cbSize).field("pwszIPAddress", &self.pwszIPAddress).field("pwszPort", &self.pwszPort).field("pwszDNSName", &self.pwszDNSName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WM_CLIENT_PROPERTIES_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_CLIENT_PROPERTIES_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_CLIENT_PROPERTIES_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_CLIENT_PROPERTIES_EX {}
+impl ::core::default::Default for WM_CLIENT_PROPERTIES_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_LEAKY_BUCKET_PAIR {
+    pub dwBitrate: u32,
+    pub msBufferWindow: u32,
+}
+impl ::core::marker::Copy for WM_LEAKY_BUCKET_PAIR {}
+impl ::core::clone::Clone for WM_LEAKY_BUCKET_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WM_LEAKY_BUCKET_PAIR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_LEAKY_BUCKET_PAIR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_LEAKY_BUCKET_PAIR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_LEAKY_BUCKET_PAIR {}
+impl ::core::default::Default for WM_LEAKY_BUCKET_PAIR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WM_MEDIA_TYPE {
+    pub majortype: ::windows::core::GUID,
+    pub subtype: ::windows::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub cbFormat: u32,
+    pub pbFormat: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WM_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        Self {
+            majortype: self.majortype,
+            subtype: self.subtype,
+            bFixedSizeSamples: self.bFixedSizeSamples,
+            bTemporalCompression: self.bTemporalCompression,
+            lSampleSize: self.lSampleSize,
+            formattype: self.formattype,
+            pUnk: self.pUnk.clone(),
+            cbFormat: self.cbFormat,
+            pbFormat: self.pbFormat,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_MEDIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WM_MEDIA_TYPE {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WM_MEDIA_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WM_MEDIA_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WM_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_PICTURE {
+    pub pwszMIMEType: ::windows::core::PWSTR,
+    pub bPictureType: u8,
+    pub pwszDescription: ::windows::core::PWSTR,
+    pub dwDataLen: u32,
+    pub pbData: *mut u8,
+}
+impl ::core::marker::Copy for WM_PICTURE {}
+impl ::core::clone::Clone for WM_PICTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WM_PICTURE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_PICTURE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_PICTURE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_PICTURE {}
+impl ::core::default::Default for WM_PICTURE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_PORT_NUMBER_RANGE {
+    pub wPortBegin: u16,
+    pub wPortEnd: u16,
+}
+impl ::core::marker::Copy for WM_PORT_NUMBER_RANGE {}
+impl ::core::clone::Clone for WM_PORT_NUMBER_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WM_PORT_NUMBER_RANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_PORT_NUMBER_RANGE").field("wPortBegin", &self.wPortBegin).field("wPortEnd", &self.wPortEnd).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WM_PORT_NUMBER_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_PORT_NUMBER_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_PORT_NUMBER_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_PORT_NUMBER_RANGE {}
+impl ::core::default::Default for WM_PORT_NUMBER_RANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WM_READER_CLIENTINFO {
+    pub cbSize: u32,
+    pub wszLang: ::windows::core::PWSTR,
+    pub wszBrowserUserAgent: ::windows::core::PWSTR,
+    pub wszBrowserWebPage: ::windows::core::PWSTR,
+    pub qwReserved: u64,
+    pub pReserved: *mut super::super::Foundation::LPARAM,
+    pub wszHostExe: ::windows::core::PWSTR,
+    pub qwHostVersion: u64,
+    pub wszPlayerUserAgent: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WM_READER_CLIENTINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WM_READER_CLIENTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WM_READER_CLIENTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_READER_CLIENTINFO").field("cbSize", &self.cbSize).field("wszLang", &self.wszLang).field("wszBrowserUserAgent", &self.wszBrowserUserAgent).field("wszBrowserWebPage", &self.wszBrowserWebPage).field("qwReserved", &self.qwReserved).field("pReserved", &self.pReserved).field("wszHostExe", &self.wszHostExe).field("qwHostVersion", &self.qwHostVersion).field("wszPlayerUserAgent", &self.wszPlayerUserAgent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WM_READER_CLIENTINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WM_READER_CLIENTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_READER_CLIENTINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WM_READER_CLIENTINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WM_READER_CLIENTINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_READER_STATISTICS {
+    pub cbSize: u32,
+    pub dwBandwidth: u32,
+    pub cPacketsReceived: u32,
+    pub cPacketsRecovered: u32,
+    pub cPacketsLost: u32,
+    pub wQuality: u16,
+}
+impl ::core::marker::Copy for WM_READER_STATISTICS {}
+impl ::core::clone::Clone for WM_READER_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WM_READER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_READER_STATISTICS").field("cbSize", &self.cbSize).field("dwBandwidth", &self.dwBandwidth).field("cPacketsReceived", &self.cPacketsReceived).field("cPacketsRecovered", &self.cPacketsRecovered).field("cPacketsLost", &self.cPacketsLost).field("wQuality", &self.wQuality).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WM_READER_STATISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_READER_STATISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_READER_STATISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_READER_STATISTICS {}
+impl ::core::default::Default for WM_READER_STATISTICS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WM_STREAM_PRIORITY_RECORD {
+    pub wStreamNumber: u16,
+    pub fMandatory: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WM_STREAM_PRIORITY_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WM_STREAM_PRIORITY_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WM_STREAM_PRIORITY_RECORD {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WM_STREAM_PRIORITY_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_STREAM_PRIORITY_RECORD>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WM_STREAM_PRIORITY_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WM_STREAM_PRIORITY_RECORD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_STREAM_TYPE_INFO {
+    pub guidMajorType: ::windows::core::GUID,
+    pub cbFormat: u32,
+}
+impl ::core::marker::Copy for WM_STREAM_TYPE_INFO {}
+impl ::core::clone::Clone for WM_STREAM_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WM_STREAM_TYPE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_STREAM_TYPE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_STREAM_TYPE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_STREAM_TYPE_INFO {}
+impl ::core::default::Default for WM_STREAM_TYPE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_SYNCHRONISED_LYRICS {
+    pub bTimeStampFormat: u8,
+    pub bContentType: u8,
+    pub pwszContentDescriptor: ::windows::core::PWSTR,
+    pub dwLyricsLen: u32,
+    pub pbLyrics: *mut u8,
+}
+impl ::core::marker::Copy for WM_SYNCHRONISED_LYRICS {}
+impl ::core::clone::Clone for WM_SYNCHRONISED_LYRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WM_SYNCHRONISED_LYRICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_SYNCHRONISED_LYRICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_SYNCHRONISED_LYRICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_SYNCHRONISED_LYRICS {}
+impl ::core::default::Default for WM_SYNCHRONISED_LYRICS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_USER_TEXT {
+    pub pwszDescription: ::windows::core::PWSTR,
+    pub pwszText: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for WM_USER_TEXT {}
+impl ::core::clone::Clone for WM_USER_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WM_USER_TEXT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_USER_TEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_USER_TEXT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_USER_TEXT {}
+impl ::core::default::Default for WM_USER_TEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_USER_WEB_URL {
+    pub pwszDescription: ::windows::core::PWSTR,
+    pub pwszURL: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for WM_USER_WEB_URL {}
+impl ::core::clone::Clone for WM_USER_WEB_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WM_USER_WEB_URL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_USER_WEB_URL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_USER_WEB_URL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_USER_WEB_URL {}
+impl ::core::default::Default for WM_USER_WEB_URL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_WRITER_STATISTICS {
+    pub qwSampleCount: u64,
+    pub qwByteCount: u64,
+    pub qwDroppedSampleCount: u64,
+    pub qwDroppedByteCount: u64,
+    pub dwCurrentBitrate: u32,
+    pub dwAverageBitrate: u32,
+    pub dwExpectedBitrate: u32,
+    pub dwCurrentSampleRate: u32,
+    pub dwAverageSampleRate: u32,
+    pub dwExpectedSampleRate: u32,
+}
+impl ::core::marker::Copy for WM_WRITER_STATISTICS {}
+impl ::core::clone::Clone for WM_WRITER_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WM_WRITER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_WRITER_STATISTICS")
+            .field("qwSampleCount", &self.qwSampleCount)
+            .field("qwByteCount", &self.qwByteCount)
+            .field("qwDroppedSampleCount", &self.qwDroppedSampleCount)
+            .field("qwDroppedByteCount", &self.qwDroppedByteCount)
+            .field("dwCurrentBitrate", &self.dwCurrentBitrate)
+            .field("dwAverageBitrate", &self.dwAverageBitrate)
+            .field("dwExpectedBitrate", &self.dwExpectedBitrate)
+            .field("dwCurrentSampleRate", &self.dwCurrentSampleRate)
+            .field("dwAverageSampleRate", &self.dwAverageSampleRate)
+            .field("dwExpectedSampleRate", &self.dwExpectedSampleRate)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_WRITER_STATISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_WRITER_STATISTICS {}
+impl ::core::default::Default for WM_WRITER_STATISTICS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+pub struct WM_WRITER_STATISTICS_EX {
+    pub dwBitratePlusOverhead: u32,
+    pub dwCurrentSampleDropRateInQueue: u32,
+    pub dwCurrentSampleDropRateInCodec: u32,
+    pub dwCurrentSampleDropRateInMultiplexer: u32,
+    pub dwTotalSampleDropsInQueue: u32,
+    pub dwTotalSampleDropsInCodec: u32,
+    pub dwTotalSampleDropsInMultiplexer: u32,
+}
+impl ::core::marker::Copy for WM_WRITER_STATISTICS_EX {}
+impl ::core::clone::Clone for WM_WRITER_STATISTICS_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WM_WRITER_STATISTICS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WM_WRITER_STATISTICS_EX")
+            .field("dwBitratePlusOverhead", &self.dwBitratePlusOverhead)
+            .field("dwCurrentSampleDropRateInQueue", &self.dwCurrentSampleDropRateInQueue)
+            .field("dwCurrentSampleDropRateInCodec", &self.dwCurrentSampleDropRateInCodec)
+            .field("dwCurrentSampleDropRateInMultiplexer", &self.dwCurrentSampleDropRateInMultiplexer)
+            .field("dwTotalSampleDropsInQueue", &self.dwTotalSampleDropsInQueue)
+            .field("dwTotalSampleDropsInCodec", &self.dwTotalSampleDropsInCodec)
+            .field("dwTotalSampleDropsInMultiplexer", &self.dwTotalSampleDropsInMultiplexer)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_WRITER_STATISTICS_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WM_WRITER_STATISTICS_EX {}
+impl ::core::default::Default for WM_WRITER_STATISTICS_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

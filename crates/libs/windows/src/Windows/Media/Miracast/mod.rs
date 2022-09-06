@@ -709,82 +709,6 @@ unsafe impl ::core::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverApplySettingsResult {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MiracastReceiverApplySettingsStatus(pub i32);
-impl MiracastReceiverApplySettingsStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const MiracastNotSupported: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-    pub const FriendlyNameTooLong: Self = Self(4i32);
-    pub const ModelNameTooLong: Self = Self(5i32);
-    pub const ModelNumberTooLong: Self = Self(6i32);
-    pub const InvalidSettings: Self = Self(7i32);
-}
-impl ::core::marker::Copy for MiracastReceiverApplySettingsStatus {}
-impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverApplySettingsStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MiracastReceiverApplySettingsStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverApplySettingsStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MiracastReceiverAuthorizationMethod(pub i32);
-impl MiracastReceiverAuthorizationMethod {
-    pub const None: Self = Self(0i32);
-    pub const ConfirmConnection: Self = Self(1i32);
-    pub const PinDisplayIfRequested: Self = Self(2i32);
-    pub const PinDisplayRequired: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MiracastReceiverAuthorizationMethod {}
-impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverAuthorizationMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MiracastReceiverAuthorizationMethod {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverAuthorizationMethod").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MiracastReceiverAuthorizationMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
-#[repr(transparent)]
 pub struct MiracastReceiverConnection(::windows::core::IUnknown);
 impl MiracastReceiverConnection {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1262,46 +1186,6 @@ unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannelSettings 
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MiracastReceiverDisconnectReason(pub i32);
-impl MiracastReceiverDisconnectReason {
-    pub const Finished: Self = Self(0i32);
-    pub const AppSpecificError: Self = Self(1i32);
-    pub const ConnectionNotAccepted: Self = Self(2i32);
-    pub const DisconnectedByUser: Self = Self(3i32);
-    pub const FailedToStartStreaming: Self = Self(4i32);
-    pub const MediaDecodingError: Self = Self(5i32);
-    pub const MediaStreamingError: Self = Self(6i32);
-    pub const MediaDecryptionError: Self = Self(7i32);
-}
-impl ::core::marker::Copy for MiracastReceiverDisconnectReason {}
-impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverDisconnectReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MiracastReceiverDisconnectReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverDisconnectReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
-#[repr(transparent)]
 pub struct MiracastReceiverDisconnectedEventArgs(::windows::core::IUnknown);
 impl MiracastReceiverDisconnectedEventArgs {
     pub fn Connection(&self) -> ::windows::core::Result<MiracastReceiverConnection> {
@@ -1497,40 +1381,6 @@ unsafe impl ::core::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverGameControllerDevice {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
-impl MiracastReceiverGameControllerDeviceUsageMode {
-    pub const AsGameController: Self = Self(0i32);
-    pub const AsMouseAndKeyboard: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MiracastReceiverGameControllerDeviceUsageMode {}
-impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverGameControllerDeviceUsageMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MiracastReceiverGameControllerDeviceUsageMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverGameControllerDeviceUsageMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
-#[repr(transparent)]
 pub struct MiracastReceiverInputDevices(::windows::core::IUnknown);
 impl MiracastReceiverInputDevices {
     pub fn Keyboard(&self) -> ::windows::core::Result<MiracastReceiverKeyboardDevice> {
@@ -1720,44 +1570,6 @@ impl ::core::convert::From<&MiracastReceiverKeyboardDevice> for &::windows::core
 }
 unsafe impl ::core::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverKeyboardDevice {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MiracastReceiverListeningStatus(pub i32);
-impl MiracastReceiverListeningStatus {
-    pub const NotListening: Self = Self(0i32);
-    pub const Listening: Self = Self(1i32);
-    pub const ConnectionPending: Self = Self(2i32);
-    pub const Connected: Self = Self(3i32);
-    pub const DisabledByPolicy: Self = Self(4i32);
-    pub const TemporarilyDisabled: Self = Self(5i32);
-}
-impl ::core::marker::Copy for MiracastReceiverListeningStatus {}
-impl ::core::clone::Clone for MiracastReceiverListeningStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverListeningStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MiracastReceiverListeningStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverListeningStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MiracastReceiverListeningStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(::windows::core::IUnknown);
@@ -2125,42 +1937,6 @@ impl ::core::convert::From<&MiracastReceiverSessionStartResult> for &::windows::
 }
 unsafe impl ::core::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSessionStartResult {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MiracastReceiverSessionStartStatus(pub i32);
-impl MiracastReceiverSessionStartStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const MiracastNotSupported: Self = Self(2i32);
-    pub const AccessDenied: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MiracastReceiverSessionStartStatus {}
-impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverSessionStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MiracastReceiverSessionStartStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverSessionStartStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 pub struct MiracastReceiverSettings(::windows::core::IUnknown);
@@ -2595,42 +2371,6 @@ unsafe impl ::core::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverVideoStreamSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MiracastReceiverWiFiStatus(pub i32);
-impl MiracastReceiverWiFiStatus {
-    pub const MiracastSupportUndetermined: Self = Self(0i32);
-    pub const MiracastNotSupported: Self = Self(1i32);
-    pub const MiracastSupportNotOptimized: Self = Self(2i32);
-    pub const MiracastSupported: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MiracastReceiverWiFiStatus {}
-impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverWiFiStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MiracastReceiverWiFiStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverWiFiStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MiracastReceiverWiFiStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
-#[repr(transparent)]
 pub struct MiracastTransmitter(::windows::core::IUnknown);
 impl MiracastTransmitter {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2743,6 +2483,266 @@ impl ::core::convert::From<&MiracastTransmitter> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for MiracastTransmitter {}
 unsafe impl ::core::marker::Sync for MiracastTransmitter {}
+#[doc = "*Required features: `\"Media_Miracast\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MiracastReceiverApplySettingsStatus(pub i32);
+impl MiracastReceiverApplySettingsStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const MiracastNotSupported: Self = Self(2i32);
+    pub const AccessDenied: Self = Self(3i32);
+    pub const FriendlyNameTooLong: Self = Self(4i32);
+    pub const ModelNameTooLong: Self = Self(5i32);
+    pub const ModelNumberTooLong: Self = Self(6i32);
+    pub const InvalidSettings: Self = Self(7i32);
+}
+impl ::core::marker::Copy for MiracastReceiverApplySettingsStatus {}
+impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverApplySettingsStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MiracastReceiverApplySettingsStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverApplySettingsStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Miracast\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MiracastReceiverAuthorizationMethod(pub i32);
+impl MiracastReceiverAuthorizationMethod {
+    pub const None: Self = Self(0i32);
+    pub const ConfirmConnection: Self = Self(1i32);
+    pub const PinDisplayIfRequested: Self = Self(2i32);
+    pub const PinDisplayRequired: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MiracastReceiverAuthorizationMethod {}
+impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverAuthorizationMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MiracastReceiverAuthorizationMethod {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverAuthorizationMethod").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MiracastReceiverAuthorizationMethod {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Miracast\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MiracastReceiverDisconnectReason(pub i32);
+impl MiracastReceiverDisconnectReason {
+    pub const Finished: Self = Self(0i32);
+    pub const AppSpecificError: Self = Self(1i32);
+    pub const ConnectionNotAccepted: Self = Self(2i32);
+    pub const DisconnectedByUser: Self = Self(3i32);
+    pub const FailedToStartStreaming: Self = Self(4i32);
+    pub const MediaDecodingError: Self = Self(5i32);
+    pub const MediaStreamingError: Self = Self(6i32);
+    pub const MediaDecryptionError: Self = Self(7i32);
+}
+impl ::core::marker::Copy for MiracastReceiverDisconnectReason {}
+impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverDisconnectReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MiracastReceiverDisconnectReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverDisconnectReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Miracast\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
+impl MiracastReceiverGameControllerDeviceUsageMode {
+    pub const AsGameController: Self = Self(0i32);
+    pub const AsMouseAndKeyboard: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MiracastReceiverGameControllerDeviceUsageMode {}
+impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverGameControllerDeviceUsageMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MiracastReceiverGameControllerDeviceUsageMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverGameControllerDeviceUsageMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Miracast\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MiracastReceiverListeningStatus(pub i32);
+impl MiracastReceiverListeningStatus {
+    pub const NotListening: Self = Self(0i32);
+    pub const Listening: Self = Self(1i32);
+    pub const ConnectionPending: Self = Self(2i32);
+    pub const Connected: Self = Self(3i32);
+    pub const DisabledByPolicy: Self = Self(4i32);
+    pub const TemporarilyDisabled: Self = Self(5i32);
+}
+impl ::core::marker::Copy for MiracastReceiverListeningStatus {}
+impl ::core::clone::Clone for MiracastReceiverListeningStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverListeningStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MiracastReceiverListeningStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverListeningStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MiracastReceiverListeningStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Miracast\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MiracastReceiverSessionStartStatus(pub i32);
+impl MiracastReceiverSessionStartStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const MiracastNotSupported: Self = Self(2i32);
+    pub const AccessDenied: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MiracastReceiverSessionStartStatus {}
+impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverSessionStartStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MiracastReceiverSessionStartStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverSessionStartStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Miracast\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MiracastReceiverWiFiStatus(pub i32);
+impl MiracastReceiverWiFiStatus {
+    pub const MiracastSupportUndetermined: Self = Self(0i32);
+    pub const MiracastNotSupported: Self = Self(1i32);
+    pub const MiracastSupportNotOptimized: Self = Self(2i32);
+    pub const MiracastSupported: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MiracastReceiverWiFiStatus {}
+impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverWiFiStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MiracastReceiverWiFiStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverWiFiStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MiracastReceiverWiFiStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

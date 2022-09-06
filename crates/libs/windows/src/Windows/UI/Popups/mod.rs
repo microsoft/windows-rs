@@ -354,105 +354,6 @@ impl ::core::convert::From<&MessageDialog> for &::windows::core::IInspectable {
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MessageDialogOptions(pub u32);
-impl MessageDialogOptions {
-    pub const None: Self = Self(0u32);
-    pub const AcceptUserInputAfterDelay: Self = Self(1u32);
-}
-impl ::core::marker::Copy for MessageDialogOptions {}
-impl ::core::clone::Clone for MessageDialogOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MessageDialogOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MessageDialogOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MessageDialogOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageDialogOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MessageDialogOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MessageDialogOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MessageDialogOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MessageDialogOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MessageDialogOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MessageDialogOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Popups\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Placement(pub i32);
-impl Placement {
-    pub const Default: Self = Self(0i32);
-    pub const Above: Self = Self(1i32);
-    pub const Below: Self = Self(2i32);
-    pub const Left: Self = Self(3i32);
-    pub const Right: Self = Self(4i32);
-}
-impl ::core::marker::Copy for Placement {}
-impl ::core::clone::Clone for Placement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Placement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Placement {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Placement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Placement").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Placement {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Popups\"`*"]
-#[repr(transparent)]
 pub struct PopupMenu(::windows::core::IUnknown);
 impl PopupMenu {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -723,94 +624,6 @@ unsafe impl ::core::marker::Send for UICommand {}
 unsafe impl ::core::marker::Sync for UICommand {}
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
-pub struct UICommandInvokedHandler(pub ::windows::core::IUnknown);
-impl UICommandInvokedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, E0>(&self, command: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IUICommand>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-}
-#[repr(C)]
-struct UICommandInvokedHandlerBox<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const UICommandInvokedHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> UICommandInvokedHandlerBox<F> {
-    const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<UICommandInvokedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&command)).into()
-    }
-}
-impl ::core::clone::Clone for UICommandInvokedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UICommandInvokedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UICommandInvokedHandler {}
-impl ::core::fmt::Debug for UICommandInvokedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UICommandInvokedHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for UICommandInvokedHandler {
-    type Vtable = UICommandInvokedHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
-}
-unsafe impl ::windows::core::RuntimeType for UICommandInvokedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{daf77a4f-c27a-4298-9ac6-2922c45e7da6}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct UICommandInvokedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"UI_Popups\"`*"]
-#[repr(transparent)]
 pub struct UICommandSeparator(::windows::core::IUnknown);
 impl UICommandSeparator {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -941,5 +754,192 @@ impl<'a> ::core::convert::TryFrom<&UICommandSeparator> for ::windows::core::InPa
 }
 unsafe impl ::core::marker::Send for UICommandSeparator {}
 unsafe impl ::core::marker::Sync for UICommandSeparator {}
+#[doc = "*Required features: `\"UI_Popups\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MessageDialogOptions(pub u32);
+impl MessageDialogOptions {
+    pub const None: Self = Self(0u32);
+    pub const AcceptUserInputAfterDelay: Self = Self(1u32);
+}
+impl ::core::marker::Copy for MessageDialogOptions {}
+impl ::core::clone::Clone for MessageDialogOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MessageDialogOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MessageDialogOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MessageDialogOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageDialogOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MessageDialogOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MessageDialogOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MessageDialogOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MessageDialogOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MessageDialogOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MessageDialogOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Popups\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Placement(pub i32);
+impl Placement {
+    pub const Default: Self = Self(0i32);
+    pub const Above: Self = Self(1i32);
+    pub const Below: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
+    pub const Right: Self = Self(4i32);
+}
+impl ::core::marker::Copy for Placement {}
+impl ::core::clone::Clone for Placement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Placement {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Placement {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Placement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Placement").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Placement {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Popups\"`*"]
+#[repr(transparent)]
+pub struct UICommandInvokedHandler(pub ::windows::core::IUnknown);
+impl UICommandInvokedHandler {
+    pub fn new<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, E0>(&self, command: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IUICommand>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+}
+#[repr(C)]
+struct UICommandInvokedHandlerBox<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const UICommandInvokedHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> UICommandInvokedHandlerBox<F> {
+    const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<UICommandInvokedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&command)).into()
+    }
+}
+impl ::core::clone::Clone for UICommandInvokedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for UICommandInvokedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for UICommandInvokedHandler {}
+impl ::core::fmt::Debug for UICommandInvokedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UICommandInvokedHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for UICommandInvokedHandler {
+    type Vtable = UICommandInvokedHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
+}
+unsafe impl ::windows::core::RuntimeType for UICommandInvokedHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{daf77a4f-c27a-4298-9ac6-2922c45e7da6}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct UICommandInvokedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

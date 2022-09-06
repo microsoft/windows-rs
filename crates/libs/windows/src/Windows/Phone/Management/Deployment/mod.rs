@@ -1,3 +1,156 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEnterprise(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEnterprise {
+    type Vtable = IEnterprise_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96592f8d_856c_4426_a947_b06307718078);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEnterprise_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub WorkplaceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub EnrollmentValidFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    EnrollmentValidFrom: usize,
+    #[cfg(feature = "Foundation")]
+    pub EnrollmentValidTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    EnrollmentValidTo: usize,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnterpriseStatus) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEnterpriseEnrollmentManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEnterpriseEnrollmentManager {
+    type Vtable = IEnterpriseEnrollmentManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20f9f390_2c69_41d8_88e6_e4b3884026cb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEnterpriseEnrollmentManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub EnrolledEnterprises: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    EnrolledEnterprises: usize,
+    pub CurrentEnterprise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ValidateEnterprisesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ValidateEnterprisesAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub RequestEnrollmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enrollmenttoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestEnrollmentAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub RequestUnenrollmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enterprise: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestUnenrollmentAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEnterpriseEnrollmentResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEnterpriseEnrollmentResult {
+    type Vtable = IEnterpriseEnrollmentResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff71ce6_90db_4342_b326_1729aa91301c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEnterpriseEnrollmentResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub EnrolledEnterprise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnterpriseEnrollmentStatus) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IInstallationManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IInstallationManagerStatics {
+    type Vtable = IInstallationManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x929aa738_8d49_42ac_80c9_b4ad793c43f2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IInstallationManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub AddPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sourcelocation: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AddPackageAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub AddPackagePreloadedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sourcelocation: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, offerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, license: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AddPackagePreloadedAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetPendingPackageInstalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetPendingPackageInstalls: usize,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    pub FindPackagesForCurrentPublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    FindPackagesForCurrentPublisher: usize,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    pub FindPackages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    FindPackages: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IInstallationManagerStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IInstallationManagerStatics2 {
+    type Vtable = IInstallationManagerStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IInstallationManagerStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "Management_Deployment"))]
+    pub RemovePackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, removaloptions: super::super::super::Management::Deployment::RemovalOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Management_Deployment")))]
+    RemovePackageAsync: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
+    pub RegisterPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manifesturi: *mut ::core::ffi::c_void, dependencypackageuris: *mut ::core::ffi::c_void, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Management_Deployment")))]
+    RegisterPackageAsync: usize,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    pub FindPackagesByNamePublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
+    FindPackagesByNamePublisher: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPackageInstallResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPackageInstallResult {
+    type Vtable = IPackageInstallResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPackageInstallResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ProductId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Management_Deployment")]
+    pub InstallState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Management::Deployment::PackageInstallState) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Management_Deployment"))]
+    InstallState: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPackageInstallResult2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPackageInstallResult2 {
+    type Vtable = IPackageInstallResult2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7149d909_3ff9_41ed_a717_2bc65ffc61d2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPackageInstallResult2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ErrorText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
 pub struct Enterprise(::windows::core::IUnknown);
@@ -244,230 +397,6 @@ impl ::core::convert::From<&EnterpriseEnrollmentResult> for &::windows::core::II
     }
 }
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EnterpriseEnrollmentStatus(pub i32);
-impl EnterpriseEnrollmentStatus {
-    pub const Success: Self = Self(0i32);
-    pub const CancelledByUser: Self = Self(1i32);
-    pub const UnknownFailure: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EnterpriseEnrollmentStatus {}
-impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnterpriseEnrollmentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EnterpriseEnrollmentStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseEnrollmentStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EnterpriseStatus(pub i32);
-impl EnterpriseStatus {
-    pub const Enrolled: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-    pub const Revoked: Self = Self(2i32);
-    pub const Expired: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EnterpriseStatus {}
-impl ::core::clone::Clone for EnterpriseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnterpriseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EnterpriseStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EnterpriseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for EnterpriseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEnterprise(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEnterprise {
-    type Vtable = IEnterprise_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96592f8d_856c_4426_a947_b06307718078);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEnterprise_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub WorkplaceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub EnrollmentValidFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EnrollmentValidFrom: usize,
-    #[cfg(feature = "Foundation")]
-    pub EnrollmentValidTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EnrollmentValidTo: usize,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnterpriseStatus) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEnterpriseEnrollmentManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEnterpriseEnrollmentManager {
-    type Vtable = IEnterpriseEnrollmentManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20f9f390_2c69_41d8_88e6_e4b3884026cb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEnterpriseEnrollmentManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub EnrolledEnterprises: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    EnrolledEnterprises: usize,
-    pub CurrentEnterprise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ValidateEnterprisesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ValidateEnterprisesAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub RequestEnrollmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enrollmenttoken: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestEnrollmentAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub RequestUnenrollmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enterprise: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestUnenrollmentAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEnterpriseEnrollmentResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEnterpriseEnrollmentResult {
-    type Vtable = IEnterpriseEnrollmentResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff71ce6_90db_4342_b326_1729aa91301c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEnterpriseEnrollmentResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub EnrolledEnterprise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnterpriseEnrollmentStatus) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IInstallationManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInstallationManagerStatics {
-    type Vtable = IInstallationManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x929aa738_8d49_42ac_80c9_b4ad793c43f2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IInstallationManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub AddPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sourcelocation: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AddPackageAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub AddPackagePreloadedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sourcelocation: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, offerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, license: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AddPackagePreloadedAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetPendingPackageInstalls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetPendingPackageInstalls: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub FindPackagesForCurrentPublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
-    FindPackagesForCurrentPublisher: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub FindPackages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
-    FindPackages: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IInstallationManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInstallationManagerStatics2 {
-    type Vtable = IInstallationManagerStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IInstallationManagerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Management_Deployment"))]
-    pub RemovePackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, removaloptions: super::super::super::Management::Deployment::RemovalOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Management_Deployment")))]
-    RemovePackageAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
-    pub RegisterPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manifesturi: *mut ::core::ffi::c_void, dependencypackageuris: *mut ::core::ffi::c_void, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Management_Deployment")))]
-    RegisterPackageAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub FindPackagesByNamePublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, packagepublisher: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
-    FindPackagesByNamePublisher: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IPackageInstallResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPackageInstallResult {
-    type Vtable = IPackageInstallResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPackageInstallResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ProductId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Management_Deployment")]
-    pub InstallState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Management::Deployment::PackageInstallState) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Management_Deployment"))]
-    InstallState: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IPackageInstallResult2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPackageInstallResult2 {
-    type Vtable = IPackageInstallResult2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7149d909_3ff9_41ed_a717_2bc65ffc61d2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPackageInstallResult2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ErrorText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 pub struct InstallationManager;
 impl InstallationManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -646,6 +575,77 @@ impl ::core::convert::From<&PackageInstallResult> for ::windows::core::IInspecta
 impl ::core::convert::From<&PackageInstallResult> for &::windows::core::IInspectable {
     fn from(value: &PackageInstallResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EnterpriseEnrollmentStatus(pub i32);
+impl EnterpriseEnrollmentStatus {
+    pub const Success: Self = Self(0i32);
+    pub const CancelledByUser: Self = Self(1i32);
+    pub const UnknownFailure: Self = Self(2i32);
+}
+impl ::core::marker::Copy for EnterpriseEnrollmentStatus {}
+impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EnterpriseEnrollmentStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EnterpriseEnrollmentStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnterpriseEnrollmentStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EnterpriseStatus(pub i32);
+impl EnterpriseStatus {
+    pub const Enrolled: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+    pub const Revoked: Self = Self(2i32);
+    pub const Expired: Self = Self(3i32);
+}
+impl ::core::marker::Copy for EnterpriseStatus {}
+impl ::core::clone::Clone for EnterpriseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EnterpriseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EnterpriseStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EnterpriseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnterpriseStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for EnterpriseStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

@@ -332,40 +332,6 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationMa
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
-impl MicrosoftAccountMultiFactorAuthenticationType {
-    pub const User: Self = Self(0i32);
-    pub const Device: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorAuthenticationType {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MicrosoftAccountMultiFactorAuthenticationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorAuthenticationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
-#[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -546,129 +512,6 @@ impl ::core::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for &::
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
-#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
-impl MicrosoftAccountMultiFactorServiceResponse {
-    pub const Success: Self = Self(0i32);
-    pub const Error: Self = Self(1i32);
-    pub const NoNetworkConnection: Self = Self(2i32);
-    pub const ServiceUnavailable: Self = Self(3i32);
-    pub const TotpSetupDenied: Self = Self(4i32);
-    pub const NgcNotSetup: Self = Self(5i32);
-    pub const SessionAlreadyDenied: Self = Self(6i32);
-    pub const SessionAlreadyApproved: Self = Self(7i32);
-    pub const SessionExpired: Self = Self(8i32);
-    pub const NgcNonceExpired: Self = Self(9i32);
-    pub const InvalidSessionId: Self = Self(10i32);
-    pub const InvalidSessionType: Self = Self(11i32);
-    pub const InvalidOperation: Self = Self(12i32);
-    pub const InvalidStateTransition: Self = Self(13i32);
-    pub const DeviceNotFound: Self = Self(14i32);
-    pub const FlowDisabled: Self = Self(15i32);
-    pub const SessionNotApproved: Self = Self(16i32);
-    pub const OperationCanceledByUser: Self = Self(17i32);
-    pub const NgcDisabledByServer: Self = Self(18i32);
-    pub const NgcKeyNotFoundOnServer: Self = Self(19i32);
-    pub const UIRequired: Self = Self(20i32);
-    pub const DeviceIdChanged: Self = Self(21i32);
-}
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorServiceResponse {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MicrosoftAccountMultiFactorServiceResponse {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorServiceResponse {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorServiceResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorServiceResponse").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorServiceResponse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
-impl MicrosoftAccountMultiFactorSessionApprovalStatus {
-    pub const Pending: Self = Self(0i32);
-    pub const Approved: Self = Self(1i32);
-    pub const Denied: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionApprovalStatus {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorSessionApprovalStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
-impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    pub const Authenticated: Self = Self(0i32);
-    pub const Unauthenticated: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionAuthenticationStatus {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorSessionAuthenticationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(::windows::core::IUnknown);
@@ -881,5 +724,162 @@ impl ::core::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSe
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
+#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
+impl MicrosoftAccountMultiFactorAuthenticationType {
+    pub const User: Self = Self(0i32);
+    pub const Device: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorAuthenticationType {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MicrosoftAccountMultiFactorAuthenticationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorAuthenticationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
+impl MicrosoftAccountMultiFactorServiceResponse {
+    pub const Success: Self = Self(0i32);
+    pub const Error: Self = Self(1i32);
+    pub const NoNetworkConnection: Self = Self(2i32);
+    pub const ServiceUnavailable: Self = Self(3i32);
+    pub const TotpSetupDenied: Self = Self(4i32);
+    pub const NgcNotSetup: Self = Self(5i32);
+    pub const SessionAlreadyDenied: Self = Self(6i32);
+    pub const SessionAlreadyApproved: Self = Self(7i32);
+    pub const SessionExpired: Self = Self(8i32);
+    pub const NgcNonceExpired: Self = Self(9i32);
+    pub const InvalidSessionId: Self = Self(10i32);
+    pub const InvalidSessionType: Self = Self(11i32);
+    pub const InvalidOperation: Self = Self(12i32);
+    pub const InvalidStateTransition: Self = Self(13i32);
+    pub const DeviceNotFound: Self = Self(14i32);
+    pub const FlowDisabled: Self = Self(15i32);
+    pub const SessionNotApproved: Self = Self(16i32);
+    pub const OperationCanceledByUser: Self = Self(17i32);
+    pub const NgcDisabledByServer: Self = Self(18i32);
+    pub const NgcKeyNotFoundOnServer: Self = Self(19i32);
+    pub const UIRequired: Self = Self(20i32);
+    pub const DeviceIdChanged: Self = Self(21i32);
+}
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorServiceResponse {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MicrosoftAccountMultiFactorServiceResponse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorServiceResponse {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorServiceResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorServiceResponse").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorServiceResponse {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
+impl MicrosoftAccountMultiFactorSessionApprovalStatus {
+    pub const Pending: Self = Self(0i32);
+    pub const Approved: Self = Self(1i32);
+    pub const Denied: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionApprovalStatus {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorSessionApprovalStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
+impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    pub const Authenticated: Self = Self(0i32);
+    pub const Unauthenticated: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionAuthenticationStatus {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorSessionAuthenticationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

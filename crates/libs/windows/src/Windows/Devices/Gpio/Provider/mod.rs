@@ -1,90 +1,5 @@
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
-pub struct GpioPinProviderValueChangedEventArgs(::windows::core::IUnknown);
-impl GpioPinProviderValueChangedEventArgs {
-    pub fn Edge(&self) -> ::windows::core::Result<ProviderGpioPinEdge> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Edge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProviderGpioPinEdge>(result__)
-        }
-    }
-    pub fn Create(edge: ProviderGpioPinEdge) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs> {
-        Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), edge, result__.as_mut_ptr()).from_abi::<GpioPinProviderValueChangedEventArgs>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IGpioPinProviderValueChangedEventArgsFactory<R, F: FnOnce(&IGpioPinProviderValueChangedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgsFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for GpioPinProviderValueChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GpioPinProviderValueChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioPinProviderValueChangedEventArgs {}
-impl ::core::fmt::Debug for GpioPinProviderValueChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioPinProviderValueChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GpioPinProviderValueChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs;{32a6d6f2-3d5b-44cd-8fbe-13a69f2edb24})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for GpioPinProviderValueChangedEventArgs {
-    type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IGpioPinProviderValueChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for GpioPinProviderValueChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";
-}
-impl ::core::convert::From<GpioPinProviderValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GpioPinProviderValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for GpioPinProviderValueChangedEventArgs {}
-unsafe impl ::core::marker::Sync for GpioPinProviderValueChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-#[repr(transparent)]
 pub struct IGpioControllerProvider(::windows::core::IUnknown);
 impl IGpioControllerProvider {
     pub fn PinCount(&self) -> ::windows::core::Result<i32> {
@@ -438,6 +353,91 @@ pub struct IGpioProvider_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllers: usize,
 }
+#[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
+#[repr(transparent)]
+pub struct GpioPinProviderValueChangedEventArgs(::windows::core::IUnknown);
+impl GpioPinProviderValueChangedEventArgs {
+    pub fn Edge(&self) -> ::windows::core::Result<ProviderGpioPinEdge> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Edge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProviderGpioPinEdge>(result__)
+        }
+    }
+    pub fn Create(edge: ProviderGpioPinEdge) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs> {
+        Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), edge, result__.as_mut_ptr()).from_abi::<GpioPinProviderValueChangedEventArgs>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IGpioPinProviderValueChangedEventArgsFactory<R, F: FnOnce(&IGpioPinProviderValueChangedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<GpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgsFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for GpioPinProviderValueChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GpioPinProviderValueChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GpioPinProviderValueChangedEventArgs {}
+impl ::core::fmt::Debug for GpioPinProviderValueChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinProviderValueChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GpioPinProviderValueChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs;{32a6d6f2-3d5b-44cd-8fbe-13a69f2edb24})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for GpioPinProviderValueChangedEventArgs {
+    type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IGpioPinProviderValueChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for GpioPinProviderValueChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";
+}
+impl ::core::convert::From<GpioPinProviderValueChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: GpioPinProviderValueChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<GpioPinProviderValueChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: GpioPinProviderValueChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for GpioPinProviderValueChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GpioPinProviderValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

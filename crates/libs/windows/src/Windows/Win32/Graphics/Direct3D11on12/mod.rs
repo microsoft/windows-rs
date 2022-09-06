@@ -23,39 +23,6 @@ where
     )
     .ok()
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`*"]
-pub struct D3D11_RESOURCE_FLAGS {
-    pub BindFlags: u32,
-    pub MiscFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub StructureByteStride: u32,
-}
-impl ::core::marker::Copy for D3D11_RESOURCE_FLAGS {}
-impl ::core::clone::Clone for D3D11_RESOURCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3D11_RESOURCE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D11_RESOURCE_FLAGS").field("BindFlags", &self.BindFlags).field("MiscFlags", &self.MiscFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("StructureByteStride", &self.StructureByteStride).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for D3D11_RESOURCE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for D3D11_RESOURCE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D11_RESOURCE_FLAGS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D11_RESOURCE_FLAGS {}
-impl ::core::default::Default for D3D11_RESOURCE_FLAGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`*"]
 #[repr(transparent)]
 pub struct ID3D11On12Device(::windows::core::IUnknown);
@@ -352,6 +319,39 @@ pub struct ID3D11On12Device2_Vtbl {
     pub ReturnUnderlyingResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource11: *mut ::core::ffi::c_void, numsync: u32, psignalvalues: *const u64, ppfences: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12")))]
     ReturnUnderlyingResource: usize,
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`*"]
+pub struct D3D11_RESOURCE_FLAGS {
+    pub BindFlags: u32,
+    pub MiscFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub StructureByteStride: u32,
+}
+impl ::core::marker::Copy for D3D11_RESOURCE_FLAGS {}
+impl ::core::clone::Clone for D3D11_RESOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for D3D11_RESOURCE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D3D11_RESOURCE_FLAGS").field("BindFlags", &self.BindFlags).field("MiscFlags", &self.MiscFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("StructureByteStride", &self.StructureByteStride).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for D3D11_RESOURCE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for D3D11_RESOURCE_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D11_RESOURCE_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for D3D11_RESOURCE_FLAGS {}
+impl ::core::default::Default for D3D11_RESOURCE_FLAGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D11\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]

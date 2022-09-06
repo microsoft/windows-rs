@@ -1,613 +1,3 @@
-#[doc = "*Required features: `\"Media_Effects\"`*"]
-#[repr(transparent)]
-pub struct AudioCaptureEffectsManager(::windows::core::IUnknown);
-impl AudioCaptureEffectsManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AudioCaptureEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioCaptureEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAudioCaptureEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioCaptureEffects)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioEffect>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AudioCaptureEffectsManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioCaptureEffectsManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioCaptureEffectsManager {}
-impl ::core::fmt::Debug for AudioCaptureEffectsManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioCaptureEffectsManager").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioCaptureEffectsManager {
-    type Vtable = IAudioCaptureEffectsManager_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioCaptureEffectsManager as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioCaptureEffectsManager {
-    const NAME: &'static str = "Windows.Media.Effects.AudioCaptureEffectsManager";
-}
-impl ::core::convert::From<AudioCaptureEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IUnknown {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioCaptureEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IInspectable {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
-unsafe impl ::core::marker::Sync for AudioCaptureEffectsManager {}
-#[doc = "*Required features: `\"Media_Effects\"`*"]
-#[repr(transparent)]
-pub struct AudioEffect(::windows::core::IUnknown);
-impl AudioEffect {
-    pub fn AudioEffectType(&self) -> ::windows::core::Result<AudioEffectType> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AudioEffectType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioEffectType>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AudioEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioEffect {}
-impl ::core::fmt::Debug for AudioEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEffect").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioEffect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioEffect {
-    type Vtable = IAudioEffect_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioEffect as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioEffect {
-    const NAME: &'static str = "Windows.Media.Effects.AudioEffect";
-}
-impl ::core::convert::From<AudioEffect> for ::windows::core::IUnknown {
-    fn from(value: AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffect> for ::windows::core::IUnknown {
-    fn from(value: &AudioEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffect> for &::windows::core::IUnknown {
-    fn from(value: &AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioEffect> for ::windows::core::IInspectable {
-    fn from(value: AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffect> for ::windows::core::IInspectable {
-    fn from(value: &AudioEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffect> for &::windows::core::IInspectable {
-    fn from(value: &AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AudioEffect {}
-unsafe impl ::core::marker::Sync for AudioEffect {}
-#[doc = "*Required features: `\"Media_Effects\"`*"]
-#[repr(transparent)]
-pub struct AudioEffectDefinition(::windows::core::IUnknown);
-impl AudioEffectDefinition {
-    pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ActivatableClassId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
-        }
-    }
-    pub fn Create(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioEffectDefinition> {
-        Self::IAudioEffectDefinitionFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<AudioEffectDefinition>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IAudioEffectDefinitionFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAudioEffectDefinitionFactory<R, F: FnOnce(&IAudioEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEffectDefinition, IAudioEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for AudioEffectDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioEffectDefinition {}
-impl ::core::fmt::Debug for AudioEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEffectDefinition").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioEffectDefinition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioEffectDefinition {
-    type Vtable = IAudioEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioEffectDefinition as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioEffectDefinition {
-    const NAME: &'static str = "Windows.Media.Effects.AudioEffectDefinition";
-}
-impl ::core::convert::From<AudioEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AudioEffectDefinition> for IAudioEffectDefinition {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AudioEffectDefinition) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AudioEffectDefinition> for IAudioEffectDefinition {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioEffectDefinition) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AudioEffectDefinition> for ::windows::core::InParam<'a, IAudioEffectDefinition> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioEffectDefinition) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AudioEffectDefinition {}
-unsafe impl ::core::marker::Sync for AudioEffectDefinition {}
-#[doc = "*Required features: `\"Media_Effects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AudioEffectType(pub i32);
-impl AudioEffectType {
-    pub const Other: Self = Self(0i32);
-    pub const AcousticEchoCancellation: Self = Self(1i32);
-    pub const NoiseSuppression: Self = Self(2i32);
-    pub const AutomaticGainControl: Self = Self(3i32);
-    pub const BeamForming: Self = Self(4i32);
-    pub const ConstantToneRemoval: Self = Self(5i32);
-    pub const Equalizer: Self = Self(6i32);
-    pub const LoudnessEqualizer: Self = Self(7i32);
-    pub const BassBoost: Self = Self(8i32);
-    pub const VirtualSurround: Self = Self(9i32);
-    pub const VirtualHeadphones: Self = Self(10i32);
-    pub const SpeakerFill: Self = Self(11i32);
-    pub const RoomCorrection: Self = Self(12i32);
-    pub const BassManagement: Self = Self(13i32);
-    pub const EnvironmentalEffects: Self = Self(14i32);
-    pub const SpeakerProtection: Self = Self(15i32);
-    pub const SpeakerCompensation: Self = Self(16i32);
-    pub const DynamicRangeCompression: Self = Self(17i32);
-    pub const FarFieldBeamForming: Self = Self(18i32);
-    pub const DeepNoiseSuppression: Self = Self(19i32);
-}
-impl ::core::marker::Copy for AudioEffectType {}
-impl ::core::clone::Clone for AudioEffectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioEffectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AudioEffectType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioEffectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEffectType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioEffectType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Effects\"`*"]
-pub struct AudioEffectsManager;
-impl AudioEffectsManager {
-    #[doc = "*Required features: `\"Media_Render\"`*"]
-    #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManager(deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager> {
-        Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Media_Render\"`*"]
-    #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManagerWithMode(deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager> {
-        Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Media_Capture\"`*"]
-    #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManager(deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager> {
-        Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Media_Capture\"`*"]
-    #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManagerWithMode(deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager> {
-        Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAudioEffectsManagerStatics<R, F: FnOnce(&IAudioEffectsManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioEffectsManager, IAudioEffectsManagerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for AudioEffectsManager {
-    const NAME: &'static str = "Windows.Media.Effects.AudioEffectsManager";
-}
-#[doc = "*Required features: `\"Media_Effects\"`*"]
-#[repr(transparent)]
-pub struct AudioRenderEffectsManager(::windows::core::IUnknown);
-impl AudioRenderEffectsManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AudioRenderEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioRenderEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAudioRenderEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioRenderEffects)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioEffect>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn EffectsProviderThumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EffectsProviderThumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn EffectsProviderSettingsLabel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EffectsProviderSettingsLabel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn ShowSettingsUI(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ShowSettingsUI)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-}
-impl ::core::clone::Clone for AudioRenderEffectsManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioRenderEffectsManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioRenderEffectsManager {}
-impl ::core::fmt::Debug for AudioRenderEffectsManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioRenderEffectsManager").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioRenderEffectsManager {
-    type Vtable = IAudioRenderEffectsManager_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioRenderEffectsManager as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioRenderEffectsManager {
-    const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
-}
-impl ::core::convert::From<AudioRenderEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IUnknown {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioRenderEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IInspectable {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
-unsafe impl ::core::marker::Sync for AudioRenderEffectsManager {}
-#[doc = "*Required features: `\"Media_Effects\"`*"]
-#[repr(transparent)]
-pub struct CompositeVideoFrameContext(::windows::core::IUnknown);
-impl CompositeVideoFrameContext {
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn SurfacesToOverlay(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SurfacesToOverlay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(result__)
-        }
-    }
-    pub fn BackgroundFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
-        }
-    }
-    pub fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OutputFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_Editing\"`*"]
-    #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
-    pub fn GetOverlayForSurface<'a, P0, E0>(&self, surfacetooverlay: P0) -> ::windows::core::Result<super::Editing::MediaOverlay>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetOverlayForSurface)(::windows::core::Interface::as_raw(this), surfacetooverlay.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Editing::MediaOverlay>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CompositeVideoFrameContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositeVideoFrameContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositeVideoFrameContext {}
-impl ::core::fmt::Debug for CompositeVideoFrameContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositeVideoFrameContext").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CompositeVideoFrameContext {
-    type Vtable = ICompositeVideoFrameContext_Vtbl;
-    const IID: ::windows::core::GUID = <ICompositeVideoFrameContext as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CompositeVideoFrameContext {
-    const NAME: &'static str = "Windows.Media.Effects.CompositeVideoFrameContext";
-}
-impl ::core::convert::From<CompositeVideoFrameContext> for ::windows::core::IUnknown {
-    fn from(value: CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IUnknown {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IUnknown {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositeVideoFrameContext> for ::windows::core::IInspectable {
-    fn from(value: CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IInspectable {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IInspectable {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CompositeVideoFrameContext {}
-unsafe impl ::core::marker::Sync for CompositeVideoFrameContext {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioCaptureEffectsManager(::windows::core::IUnknown);
@@ -1669,75 +1059,562 @@ pub struct IVideoTransformSphericalProjection_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaEffectClosedReason(pub i32);
-impl MediaEffectClosedReason {
-    pub const Done: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const UnsupportedEncodingFormat: Self = Self(2i32);
-    pub const EffectCurrentlyUnloaded: Self = Self(3i32);
+pub struct AudioCaptureEffectsManager(::windows::core::IUnknown);
+impl AudioCaptureEffectsManager {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AudioCaptureEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveAudioCaptureEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetAudioCaptureEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAudioCaptureEffects)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioEffect>>(result__)
+        }
+    }
 }
-impl ::core::marker::Copy for MediaEffectClosedReason {}
-impl ::core::clone::Clone for MediaEffectClosedReason {
+impl ::core::clone::Clone for AudioCaptureEffectsManager {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::default::Default for MediaEffectClosedReason {
-    fn default() -> Self {
-        Self(0)
+impl ::core::cmp::PartialEq for AudioCaptureEffectsManager {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
     }
 }
-unsafe impl ::windows::core::Abi for MediaEffectClosedReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaEffectClosedReason {
+impl ::core::cmp::Eq for AudioCaptureEffectsManager {}
+impl ::core::fmt::Debug for AudioCaptureEffectsManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
+        f.debug_tuple("AudioCaptureEffectsManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
-    type DefaultType = Self;
+unsafe impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
+    type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
+}
+unsafe impl ::windows::core::Interface for AudioCaptureEffectsManager {
+    type Vtable = IAudioCaptureEffectsManager_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioCaptureEffectsManager as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioCaptureEffectsManager {
+    const NAME: &'static str = "Windows.Media.Effects.AudioCaptureEffectsManager";
+}
+impl ::core::convert::From<AudioCaptureEffectsManager> for ::windows::core::IUnknown {
+    fn from(value: AudioCaptureEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IUnknown {
+    fn from(value: &AudioCaptureEffectsManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IUnknown {
+    fn from(value: &AudioCaptureEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioCaptureEffectsManager> for ::windows::core::IInspectable {
+    fn from(value: AudioCaptureEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IInspectable {
+    fn from(value: &AudioCaptureEffectsManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IInspectable {
+    fn from(value: &AudioCaptureEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
+unsafe impl ::core::marker::Sync for AudioCaptureEffectsManager {}
+#[doc = "*Required features: `\"Media_Effects\"`*"]
+#[repr(transparent)]
+pub struct AudioEffect(::windows::core::IUnknown);
+impl AudioEffect {
+    pub fn AudioEffectType(&self) -> ::windows::core::Result<AudioEffectType> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AudioEffectType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioEffectType>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AudioEffect {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioEffect {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioEffect {}
+impl ::core::fmt::Debug for AudioEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffect").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioEffect {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioEffect {
+    type Vtable = IAudioEffect_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioEffect as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioEffect {
+    const NAME: &'static str = "Windows.Media.Effects.AudioEffect";
+}
+impl ::core::convert::From<AudioEffect> for ::windows::core::IUnknown {
+    fn from(value: AudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioEffect> for ::windows::core::IUnknown {
+    fn from(value: &AudioEffect) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioEffect> for &::windows::core::IUnknown {
+    fn from(value: &AudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioEffect> for ::windows::core::IInspectable {
+    fn from(value: AudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioEffect> for ::windows::core::IInspectable {
+    fn from(value: &AudioEffect) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioEffect> for &::windows::core::IInspectable {
+    fn from(value: &AudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AudioEffect {}
+unsafe impl ::core::marker::Sync for AudioEffect {}
+#[doc = "*Required features: `\"Media_Effects\"`*"]
+#[repr(transparent)]
+pub struct AudioEffectDefinition(::windows::core::IUnknown);
+impl AudioEffectDefinition {
+    pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ActivatableClassId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+        }
+    }
+    pub fn Create(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioEffectDefinition> {
+        Self::IAudioEffectDefinitionFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateWithProperties<'a, P0, E0>(activatableclassid: &::windows::core::HSTRING, props: P0) -> ::windows::core::Result<AudioEffectDefinition>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IAudioEffectDefinitionFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAudioEffectDefinitionFactory<R, F: FnOnce(&IAudioEffectDefinitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AudioEffectDefinition, IAudioEffectDefinitionFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for AudioEffectDefinition {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioEffectDefinition {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioEffectDefinition {}
+impl ::core::fmt::Debug for AudioEffectDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffectDefinition").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioEffectDefinition {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioEffectDefinition {
+    type Vtable = IAudioEffectDefinition_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioEffectDefinition as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioEffectDefinition {
+    const NAME: &'static str = "Windows.Media.Effects.AudioEffectDefinition";
+}
+impl ::core::convert::From<AudioEffectDefinition> for ::windows::core::IUnknown {
+    fn from(value: AudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IUnknown {
+    fn from(value: &AudioEffectDefinition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IUnknown {
+    fn from(value: &AudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioEffectDefinition> for ::windows::core::IInspectable {
+    fn from(value: AudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IInspectable {
+    fn from(value: &AudioEffectDefinition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IInspectable {
+    fn from(value: &AudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AudioEffectDefinition> for IAudioEffectDefinition {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AudioEffectDefinition) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AudioEffectDefinition> for IAudioEffectDefinition {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioEffectDefinition) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AudioEffectDefinition> for ::windows::core::InParam<'a, IAudioEffectDefinition> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioEffectDefinition) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AudioEffectDefinition {}
+unsafe impl ::core::marker::Sync for AudioEffectDefinition {}
+#[doc = "*Required features: `\"Media_Effects\"`*"]
+pub struct AudioEffectsManager;
+impl AudioEffectsManager {
+    #[doc = "*Required features: `\"Media_Render\"`*"]
+    #[cfg(feature = "Media_Render")]
+    pub fn CreateAudioRenderEffectsManager(deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager> {
+        Self::IAudioEffectsManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Media_Render\"`*"]
+    #[cfg(feature = "Media_Render")]
+    pub fn CreateAudioRenderEffectsManagerWithMode(deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager> {
+        Self::IAudioEffectsManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Media_Capture\"`*"]
+    #[cfg(feature = "Media_Capture")]
+    pub fn CreateAudioCaptureEffectsManager(deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager> {
+        Self::IAudioEffectsManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Media_Capture\"`*"]
+    #[cfg(feature = "Media_Capture")]
+    pub fn CreateAudioCaptureEffectsManagerWithMode(deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager> {
+        Self::IAudioEffectsManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAudioEffectsManagerStatics<R, F: FnOnce(&IAudioEffectsManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AudioEffectsManager, IAudioEffectsManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for AudioEffectsManager {
+    const NAME: &'static str = "Windows.Media.Effects.AudioEffectsManager";
 }
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaMemoryTypes(pub i32);
-impl MediaMemoryTypes {
-    pub const Gpu: Self = Self(0i32);
-    pub const Cpu: Self = Self(1i32);
-    pub const GpuAndCpu: Self = Self(2i32);
+pub struct AudioRenderEffectsManager(::windows::core::IUnknown);
+impl AudioRenderEffectsManager {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AudioRenderEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveAudioRenderEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetAudioRenderEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAudioRenderEffects)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioEffect>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+    pub fn EffectsProviderThumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
+        let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).EffectsProviderThumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn EffectsProviderSettingsLabel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).EffectsProviderSettingsLabel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn ShowSettingsUI(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).ShowSettingsUI)(::windows::core::Interface::as_raw(this)).ok() }
+    }
 }
-impl ::core::marker::Copy for MediaMemoryTypes {}
-impl ::core::clone::Clone for MediaMemoryTypes {
+impl ::core::clone::Clone for AudioRenderEffectsManager {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::default::Default for MediaMemoryTypes {
-    fn default() -> Self {
-        Self(0)
+impl ::core::cmp::PartialEq for AudioRenderEffectsManager {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
     }
 }
-unsafe impl ::windows::core::Abi for MediaMemoryTypes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaMemoryTypes {
+impl ::core::cmp::Eq for AudioRenderEffectsManager {}
+impl ::core::fmt::Debug for AudioRenderEffectsManager {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()
+        f.debug_tuple("AudioRenderEffectsManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
-    type DefaultType = Self;
+unsafe impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
+    type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
+unsafe impl ::windows::core::Interface for AudioRenderEffectsManager {
+    type Vtable = IAudioRenderEffectsManager_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioRenderEffectsManager as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioRenderEffectsManager {
+    const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
+}
+impl ::core::convert::From<AudioRenderEffectsManager> for ::windows::core::IUnknown {
+    fn from(value: AudioRenderEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IUnknown {
+    fn from(value: &AudioRenderEffectsManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IUnknown {
+    fn from(value: &AudioRenderEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioRenderEffectsManager> for ::windows::core::IInspectable {
+    fn from(value: AudioRenderEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IInspectable {
+    fn from(value: &AudioRenderEffectsManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IInspectable {
+    fn from(value: &AudioRenderEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
+unsafe impl ::core::marker::Sync for AudioRenderEffectsManager {}
+#[doc = "*Required features: `\"Media_Effects\"`*"]
+#[repr(transparent)]
+pub struct CompositeVideoFrameContext(::windows::core::IUnknown);
+impl CompositeVideoFrameContext {
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
+    pub fn SurfacesToOverlay(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SurfacesToOverlay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(result__)
+        }
+    }
+    pub fn BackgroundFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BackgroundFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
+        }
+    }
+    pub fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OutputFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_Editing\"`*"]
+    #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
+    pub fn GetOverlayForSurface<'a, P0, E0>(&self, surfacetooverlay: P0) -> ::windows::core::Result<super::Editing::MediaOverlay>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetOverlayForSurface)(::windows::core::Interface::as_raw(this), surfacetooverlay.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Editing::MediaOverlay>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CompositeVideoFrameContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CompositeVideoFrameContext {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CompositeVideoFrameContext {}
+impl ::core::fmt::Debug for CompositeVideoFrameContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositeVideoFrameContext").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CompositeVideoFrameContext {
+    type Vtable = ICompositeVideoFrameContext_Vtbl;
+    const IID: ::windows::core::GUID = <ICompositeVideoFrameContext as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CompositeVideoFrameContext {
+    const NAME: &'static str = "Windows.Media.Effects.CompositeVideoFrameContext";
+}
+impl ::core::convert::From<CompositeVideoFrameContext> for ::windows::core::IUnknown {
+    fn from(value: CompositeVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IUnknown {
+    fn from(value: &CompositeVideoFrameContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IUnknown {
+    fn from(value: &CompositeVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CompositeVideoFrameContext> for ::windows::core::IInspectable {
+    fn from(value: CompositeVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IInspectable {
+    fn from(value: &CompositeVideoFrameContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IInspectable {
+    fn from(value: &CompositeVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CompositeVideoFrameContext {}
+unsafe impl ::core::marker::Sync for CompositeVideoFrameContext {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
 pub struct ProcessAudioFrameContext(::windows::core::IUnknown);
@@ -2610,5 +2487,128 @@ impl ::core::convert::From<&VideoTransformSphericalProjection> for &::windows::c
 }
 unsafe impl ::core::marker::Send for VideoTransformSphericalProjection {}
 unsafe impl ::core::marker::Sync for VideoTransformSphericalProjection {}
+#[doc = "*Required features: `\"Media_Effects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AudioEffectType(pub i32);
+impl AudioEffectType {
+    pub const Other: Self = Self(0i32);
+    pub const AcousticEchoCancellation: Self = Self(1i32);
+    pub const NoiseSuppression: Self = Self(2i32);
+    pub const AutomaticGainControl: Self = Self(3i32);
+    pub const BeamForming: Self = Self(4i32);
+    pub const ConstantToneRemoval: Self = Self(5i32);
+    pub const Equalizer: Self = Self(6i32);
+    pub const LoudnessEqualizer: Self = Self(7i32);
+    pub const BassBoost: Self = Self(8i32);
+    pub const VirtualSurround: Self = Self(9i32);
+    pub const VirtualHeadphones: Self = Self(10i32);
+    pub const SpeakerFill: Self = Self(11i32);
+    pub const RoomCorrection: Self = Self(12i32);
+    pub const BassManagement: Self = Self(13i32);
+    pub const EnvironmentalEffects: Self = Self(14i32);
+    pub const SpeakerProtection: Self = Self(15i32);
+    pub const SpeakerCompensation: Self = Self(16i32);
+    pub const DynamicRangeCompression: Self = Self(17i32);
+    pub const FarFieldBeamForming: Self = Self(18i32);
+    pub const DeepNoiseSuppression: Self = Self(19i32);
+}
+impl ::core::marker::Copy for AudioEffectType {}
+impl ::core::clone::Clone for AudioEffectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AudioEffectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AudioEffectType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioEffectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioEffectType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioEffectType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Effects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaEffectClosedReason(pub i32);
+impl MediaEffectClosedReason {
+    pub const Done: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const UnsupportedEncodingFormat: Self = Self(2i32);
+    pub const EffectCurrentlyUnloaded: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MediaEffectClosedReason {}
+impl ::core::clone::Clone for MediaEffectClosedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaEffectClosedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaEffectClosedReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaEffectClosedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Effects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaMemoryTypes(pub i32);
+impl MediaMemoryTypes {
+    pub const Gpu: Self = Self(0i32);
+    pub const Cpu: Self = Self(1i32);
+    pub const GpuAndCpu: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MediaMemoryTypes {}
+impl ::core::clone::Clone for MediaMemoryTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaMemoryTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaMemoryTypes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaMemoryTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

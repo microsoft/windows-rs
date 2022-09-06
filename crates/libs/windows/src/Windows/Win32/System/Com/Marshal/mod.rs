@@ -898,6 +898,310 @@ pub unsafe fn HWND_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut
     HWND_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserFree(param0: &u32, param1: &*const super::SAFEARRAY) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const super::SAFEARRAY);
+    }
+    LPSAFEARRAY_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserFree64(param0: &u32, param1: &*const super::SAFEARRAY) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const super::SAFEARRAY);
+    }
+    LPSAFEARRAY_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserMarshal(param0: &u32, param1: &mut u8, param2: &*const super::SAFEARRAY) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
+    }
+    LPSAFEARRAY_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserMarshal64(param0: &u32, param1: &mut u8, param2: &*const super::SAFEARRAY) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
+    }
+    LPSAFEARRAY_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserSize(param0: &u32, param1: u32, param2: &*const super::SAFEARRAY) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserSize(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
+    }
+    LPSAFEARRAY_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserSize64(param0: &u32, param1: u32, param2: &*const super::SAFEARRAY) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserSize64(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
+    }
+    LPSAFEARRAY_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut *mut super::SAFEARRAY) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
+    }
+    LPSAFEARRAY_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn LPSAFEARRAY_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut *mut super::SAFEARRAY) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LPSAFEARRAY_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
+    }
+    LPSAFEARRAY_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserFree(param0: &u32, param1: &*const *const u16) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16);
+    }
+    SNB_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserFree64(param0: &u32, param1: &*const *const u16) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u16);
+    }
+    SNB_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserMarshal(param0: &u32, param1: &mut u8, param2: &*const *const u16) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const *const *const u16) -> *mut u8;
+    }
+    SNB_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserMarshal64(param0: &u32, param1: &mut u8, param2: &*const *const u16) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const *const *const u16) -> *mut u8;
+    }
+    SNB_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserSize(param0: &u32, param1: u32, param2: &*const *const u16) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserSize(param0: *const u32, param1: u32, param2: *const *const *const u16) -> u32;
+    }
+    SNB_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserSize64(param0: &u32, param1: u32, param2: &*const *const u16) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserSize64(param0: *const u32, param1: u32, param2: *const *const *const u16) -> u32;
+    }
+    SNB_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut *mut *mut u16) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut *mut *mut u16) -> *mut u8;
+    }
+    SNB_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
+#[inline]
+pub unsafe fn SNB_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut *mut *mut u16) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SNB_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut *mut *mut u16) -> *mut u8;
+    }
+    SNB_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserFree(param0: &u32, param1: &super::STGMEDIUM) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGMEDIUM);
+    }
+    STGMEDIUM_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserFree64(param0: &u32, param1: &super::STGMEDIUM) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STGMEDIUM);
+    }
+    STGMEDIUM_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::STGMEDIUM) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8;
+    }
+    STGMEDIUM_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::STGMEDIUM) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8;
+    }
+    STGMEDIUM_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserSize(param0: &u32, param1: u32, param2: &super::STGMEDIUM) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
+    }
+    STGMEDIUM_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserSize64(param0: &u32, param1: u32, param2: &super::STGMEDIUM) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
+    }
+    STGMEDIUM_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::STGMEDIUM) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8;
+    }
+    STGMEDIUM_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::STGMEDIUM) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8;
+    }
+    STGMEDIUM_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserFree(param0: &u32, param1: &super::VARIANT) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT);
+    }
+    VARIANT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserFree64(param0: &u32, param1: &super::VARIANT) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIANT);
+    }
+    VARIANT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::VARIANT) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8;
+    }
+    VARIANT_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::VARIANT) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8;
+    }
+    VARIANT_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserSize(param0: &u32, param1: u32, param2: &super::VARIANT) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
+    }
+    VARIANT_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserSize64(param0: &u32, param1: u32, param2: &super::VARIANT) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
+    }
+    VARIANT_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::VARIANT) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
+    }
+    VARIANT_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn VARIANT_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::VARIANT) -> *mut u8 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
+    }
+    VARIANT_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
+}
+#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
 pub struct IMarshal(::windows::core::IUnknown);
 impl IMarshal {
@@ -1183,150 +1487,6 @@ pub struct IMarshalingStream_Vtbl {
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserFree(param0: &u32, param1: &*const super::SAFEARRAY) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const super::SAFEARRAY);
-    }
-    LPSAFEARRAY_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserFree64(param0: &u32, param1: &*const super::SAFEARRAY) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const super::SAFEARRAY);
-    }
-    LPSAFEARRAY_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserMarshal(param0: &u32, param1: &mut u8, param2: &*const super::SAFEARRAY) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
-    }
-    LPSAFEARRAY_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserMarshal64(param0: &u32, param1: &mut u8, param2: &*const super::SAFEARRAY) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
-    }
-    LPSAFEARRAY_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserSize(param0: &u32, param1: u32, param2: &*const super::SAFEARRAY) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserSize(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
-    }
-    LPSAFEARRAY_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserSize64(param0: &u32, param1: u32, param2: &*const super::SAFEARRAY) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserSize64(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
-    }
-    LPSAFEARRAY_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut *mut super::SAFEARRAY) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
-    }
-    LPSAFEARRAY_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn LPSAFEARRAY_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut *mut super::SAFEARRAY) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LPSAFEARRAY_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
-    }
-    LPSAFEARRAY_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserFree(param0: &u32, param1: &*const *const u16) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16);
-    }
-    SNB_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserFree64(param0: &u32, param1: &*const *const u16) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u16);
-    }
-    SNB_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserMarshal(param0: &u32, param1: &mut u8, param2: &*const *const u16) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const *const *const u16) -> *mut u8;
-    }
-    SNB_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserMarshal64(param0: &u32, param1: &mut u8, param2: &*const *const u16) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const *const *const u16) -> *mut u8;
-    }
-    SNB_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserSize(param0: &u32, param1: u32, param2: &*const *const u16) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserSize(param0: *const u32, param1: u32, param2: *const *const *const u16) -> u32;
-    }
-    SNB_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserSize64(param0: &u32, param1: u32, param2: &*const *const u16) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserSize64(param0: *const u32, param1: u32, param2: *const *const *const u16) -> u32;
-    }
-    SNB_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut *mut *mut u16) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut *mut *mut u16) -> *mut u8;
-    }
-    SNB_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[inline]
-pub unsafe fn SNB_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut *mut *mut u16) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SNB_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut *mut *mut u16) -> *mut u8;
-    }
-    SNB_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STDMSHLFLAGS(pub i32);
@@ -1352,166 +1512,6 @@ impl ::core::fmt::Debug for STDMSHLFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("STDMSHLFLAGS").field(&self.0).finish()
     }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserFree(param0: &u32, param1: &super::STGMEDIUM) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGMEDIUM);
-    }
-    STGMEDIUM_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserFree64(param0: &u32, param1: &super::STGMEDIUM) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STGMEDIUM);
-    }
-    STGMEDIUM_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::STGMEDIUM) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8;
-    }
-    STGMEDIUM_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::STGMEDIUM) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8;
-    }
-    STGMEDIUM_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserSize(param0: &u32, param1: u32, param2: &super::STGMEDIUM) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
-    }
-    STGMEDIUM_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserSize64(param0: &u32, param1: u32, param2: &super::STGMEDIUM) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
-    }
-    STGMEDIUM_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::STGMEDIUM) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8;
-    }
-    STGMEDIUM_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[inline]
-pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::STGMEDIUM) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8;
-    }
-    STGMEDIUM_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserFree(param0: &u32, param1: &super::VARIANT) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT);
-    }
-    VARIANT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserFree64(param0: &u32, param1: &super::VARIANT) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIANT);
-    }
-    VARIANT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::VARIANT) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8;
-    }
-    VARIANT_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::VARIANT) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8;
-    }
-    VARIANT_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserSize(param0: &u32, param1: u32, param2: &super::VARIANT) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
-    }
-    VARIANT_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserSize64(param0: &u32, param1: u32, param2: &super::VARIANT) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
-    }
-    VARIANT_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::VARIANT) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
-    }
-    VARIANT_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
-}
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn VARIANT_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::VARIANT) -> *mut u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
-    }
-    VARIANT_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

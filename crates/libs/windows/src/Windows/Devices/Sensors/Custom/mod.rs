@@ -1,3 +1,109 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICustomSensor(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICustomSensor {
+    type Vtable = ICustomSensor_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICustomSensor_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetCurrentReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MinimumReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub SetReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub ReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReadingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReadingChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveReadingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveReadingChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICustomSensor2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICustomSensor2 {
+    type Vtable = ICustomSensor2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20db3111_ec58_4d9f_bfbd_e77825088510);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICustomSensor2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SetReportLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub ReportLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub MaxBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICustomSensorReading(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICustomSensorReading {
+    type Vtable = ICustomSensorReading_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICustomSensorReading_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Timestamp: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICustomSensorReading2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICustomSensorReading2 {
+    type Vtable = ICustomSensorReading2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x223c98ea_bf73_4992_9a48_d3c897594ccb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICustomSensorReading2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub PerformanceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PerformanceCount: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICustomSensorReadingChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICustomSensorReadingChangedEventArgs {
+    type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICustomSensorReadingChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Reading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICustomSensorStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICustomSensorStatics {
+    type Vtable = ICustomSensorStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x992052cf_f422_4c7d_836b_e7dc74a7124b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICustomSensorStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FromIdAsync: usize,
+}
 #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
 #[repr(transparent)]
 pub struct CustomSensor(::windows::core::IUnknown);
@@ -320,111 +426,5 @@ impl ::core::convert::From<&CustomSensorReadingChangedEventArgs> for &::windows:
 }
 unsafe impl ::core::marker::Send for CustomSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CustomSensorReadingChangedEventArgs {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICustomSensor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICustomSensor {
-    type Vtable = ICustomSensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICustomSensor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetCurrentReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub MinimumReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub SetReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
-    pub ReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReadingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReadingChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveReadingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveReadingChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICustomSensor2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICustomSensor2 {
-    type Vtable = ICustomSensor2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20db3111_ec58_4d9f_bfbd_e77825088510);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICustomSensor2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SetReportLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
-    pub ReportLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub MaxBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICustomSensorReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICustomSensorReading {
-    type Vtable = ICustomSensorReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICustomSensorReading_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Timestamp: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Properties: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICustomSensorReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICustomSensorReading2 {
-    type Vtable = ICustomSensorReading2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x223c98ea_bf73_4992_9a48_d3c897594ccb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICustomSensorReading2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub PerformanceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PerformanceCount: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICustomSensorReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICustomSensorReadingChangedEventArgs {
-    type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICustomSensorReadingChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Reading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICustomSensorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICustomSensorStatics {
-    type Vtable = ICustomSensorStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x992052cf_f422_4c7d_836b_e7dc74a7124b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICustomSensorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

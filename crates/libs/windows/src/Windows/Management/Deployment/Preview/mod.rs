@@ -1,21 +1,3 @@
-#[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
-pub struct ClassicAppManager;
-impl ClassicAppManager {
-    pub fn FindInstalledApp(appuninstallkey: &::windows::core::HSTRING) -> ::windows::core::Result<InstalledClassicAppInfo> {
-        Self::IClassicAppManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindInstalledApp)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appuninstallkey), result__.as_mut_ptr()).from_abi::<InstalledClassicAppInfo>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IClassicAppManagerStatics<R, F: FnOnce(&IClassicAppManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ClassicAppManager, IClassicAppManagerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for ClassicAppManager {
-    const NAME: &'static str = "Windows.Management.Deployment.Preview.ClassicAppManager";
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClassicAppManagerStatics(::windows::core::IUnknown);
@@ -42,6 +24,24 @@ pub struct IInstalledClassicAppInfo_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
+pub struct ClassicAppManager;
+impl ClassicAppManager {
+    pub fn FindInstalledApp(appuninstallkey: &::windows::core::HSTRING) -> ::windows::core::Result<InstalledClassicAppInfo> {
+        Self::IClassicAppManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FindInstalledApp)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appuninstallkey), result__.as_mut_ptr()).from_abi::<InstalledClassicAppInfo>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IClassicAppManagerStatics<R, F: FnOnce(&IClassicAppManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ClassicAppManager, IClassicAppManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for ClassicAppManager {
+    const NAME: &'static str = "Windows.Management.Deployment.Preview.ClassicAppManager";
 }
 #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
 #[repr(transparent)]

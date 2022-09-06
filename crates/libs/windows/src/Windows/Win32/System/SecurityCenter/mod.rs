@@ -1,3 +1,63 @@
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
+#[inline]
+pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core::PWSTR> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WscGetAntiMalwareUri(ppszuri: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WscGetAntiMalwareUri(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
+#[inline]
+pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: &mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::HRESULT;
+    }
+    WscGetSecurityProviderHealth(providers, ::core::mem::transmute(phealth)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
+#[inline]
+pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WscQueryAntiMalwareUri() -> ::windows::core::HRESULT;
+    }
+    WscQueryAntiMalwareUri().ok()
+}
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+#[inline]
+pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: &mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    WscRegisterForChanges(::core::mem::transmute(reserved), ::core::mem::transmute(phcallbackregistration), ::core::mem::transmute(lpcallbackaddress), ::core::mem::transmute(pcontext)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
+#[inline]
+pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WscRegisterForUserNotifications() -> ::windows::core::HRESULT;
+    }
+    WscRegisterForUserNotifications().ok()
+}
+#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WscUnRegisterChanges<'a, P0>(hregistrationhandle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
+    }
+    WscUnRegisterChanges(hregistrationhandle.into()).ok()
+}
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -648,6 +708,8 @@ pub struct IWscProduct3_Vtbl {
     pub base__: IWscProduct2_Vtbl,
     pub AntivirusDaysUntilExpired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdays: *mut u32) -> ::windows::core::HRESULT,
 }
+pub const WSCDefaultProduct: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
+pub const WSCProductList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -677,8 +739,6 @@ impl ::core::fmt::Debug for SECURITY_PRODUCT_TYPE {
         f.debug_tuple("SECURITY_PRODUCT_TYPE").field(&self.0).finish()
     }
 }
-pub const WSCDefaultProduct: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2981a36e_f22d_11e5_9ce9_5e5517507c66);
-pub const WSCProductList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -839,66 +899,6 @@ impl ::core::fmt::Debug for WSC_SECURITY_SIGNATURE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WSC_SECURITY_SIGNATURE_STATUS").field(&self.0).finish()
     }
-}
-#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
-pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WscGetAntiMalwareUri(ppszuri: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WscGetAntiMalwareUri(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
-pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: &mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::HRESULT;
-    }
-    WscGetSecurityProviderHealth(providers, ::core::mem::transmute(phealth)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
-pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WscQueryAntiMalwareUri() -> ::windows::core::HRESULT;
-    }
-    WscQueryAntiMalwareUri().ok()
-}
-#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-#[inline]
-pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: &mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    WscRegisterForChanges(::core::mem::transmute(reserved), ::core::mem::transmute(phcallbackregistration), ::core::mem::transmute(lpcallbackaddress), ::core::mem::transmute(pcontext)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-#[inline]
-pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WscRegisterForUserNotifications() -> ::windows::core::HRESULT;
-    }
-    WscRegisterForUserNotifications().ok()
-}
-#[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WscUnRegisterChanges<'a, P0>(hregistrationhandle: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-    }
-    WscUnRegisterChanges(hregistrationhandle.into()).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

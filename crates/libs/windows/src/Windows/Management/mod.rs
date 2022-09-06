@@ -231,79 +231,6 @@ impl ::core::convert::From<&MdmAlert> for &::windows::core::IInspectable {
 }
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MdmAlertDataType(pub i32);
-impl MdmAlertDataType {
-    pub const String: Self = Self(0i32);
-    pub const Base64: Self = Self(1i32);
-    pub const Boolean: Self = Self(2i32);
-    pub const Integer: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MdmAlertDataType {}
-impl ::core::clone::Clone for MdmAlertDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MdmAlertDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MdmAlertDataType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MdmAlertDataType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MdmAlertDataType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MdmAlertMark(pub i32);
-impl MdmAlertMark {
-    pub const None: Self = Self(0i32);
-    pub const Fatal: Self = Self(1i32);
-    pub const Critical: Self = Self(2i32);
-    pub const Warning: Self = Self(3i32);
-    pub const Informational: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MdmAlertMark {}
-impl ::core::clone::Clone for MdmAlertMark {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MdmAlertMark {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MdmAlertMark {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MdmAlertMark {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MdmAlertMark").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MdmAlertMark {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Management\"`*"]
-#[repr(transparent)]
 pub struct MdmSession(::windows::core::IUnknown);
 impl MdmSession {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -466,6 +393,79 @@ impl MdmSessionManager {
 }
 impl ::windows::core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
+}
+#[doc = "*Required features: `\"Management\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MdmAlertDataType(pub i32);
+impl MdmAlertDataType {
+    pub const String: Self = Self(0i32);
+    pub const Base64: Self = Self(1i32);
+    pub const Boolean: Self = Self(2i32);
+    pub const Integer: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MdmAlertDataType {}
+impl ::core::clone::Clone for MdmAlertDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MdmAlertDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MdmAlertDataType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MdmAlertDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MdmAlertDataType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Management\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MdmAlertMark(pub i32);
+impl MdmAlertMark {
+    pub const None: Self = Self(0i32);
+    pub const Fatal: Self = Self(1i32);
+    pub const Critical: Self = Self(2i32);
+    pub const Warning: Self = Self(3i32);
+    pub const Informational: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MdmAlertMark {}
+impl ::core::clone::Clone for MdmAlertMark {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MdmAlertMark {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MdmAlertMark {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MdmAlertMark {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MdmAlertMark").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MdmAlertMark {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]

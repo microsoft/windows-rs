@@ -490,80 +490,6 @@ pub struct ISceneVisualStatics_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SceneAlphaMode(pub i32);
-impl SceneAlphaMode {
-    pub const Opaque: Self = Self(0i32);
-    pub const AlphaTest: Self = Self(1i32);
-    pub const Blend: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SceneAlphaMode {}
-impl ::core::clone::Clone for SceneAlphaMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneAlphaMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SceneAlphaMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneAlphaMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAlphaMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SceneAlphaMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SceneAttributeSemantic(pub i32);
-impl SceneAttributeSemantic {
-    pub const Index: Self = Self(0i32);
-    pub const Vertex: Self = Self(1i32);
-    pub const Normal: Self = Self(2i32);
-    pub const TexCoord0: Self = Self(3i32);
-    pub const TexCoord1: Self = Self(4i32);
-    pub const Color: Self = Self(5i32);
-    pub const Tangent: Self = Self(6i32);
-}
-impl ::core::marker::Copy for SceneAttributeSemantic {}
-impl ::core::clone::Clone for SceneAttributeSemantic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneAttributeSemantic {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SceneAttributeSemantic {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneAttributeSemantic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAttributeSemantic").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SceneAttributeSemantic {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-#[repr(transparent)]
 pub struct SceneBoundingBox(::windows::core::IUnknown);
 impl SceneBoundingBox {
     pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
@@ -1534,39 +1460,6 @@ impl<'a> ::core::convert::From<&SceneComponentCollection> for ::windows::core::I
 unsafe impl ::core::marker::Send for SceneComponentCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for SceneComponentCollection {}
-#[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SceneComponentType(pub i32);
-impl SceneComponentType {
-    pub const MeshRendererComponent: Self = Self(0i32);
-}
-impl ::core::marker::Copy for SceneComponentType {}
-impl ::core::clone::Clone for SceneComponentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneComponentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SceneComponentType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneComponentType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SceneComponentType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
 pub struct SceneMaterial(::windows::core::IUnknown);
@@ -6307,6 +6200,113 @@ impl<'a> ::core::convert::From<&SceneVisual> for ::windows::core::InParam<'a, su
 }
 unsafe impl ::core::marker::Send for SceneVisual {}
 unsafe impl ::core::marker::Sync for SceneVisual {}
+#[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SceneAlphaMode(pub i32);
+impl SceneAlphaMode {
+    pub const Opaque: Self = Self(0i32);
+    pub const AlphaTest: Self = Self(1i32);
+    pub const Blend: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SceneAlphaMode {}
+impl ::core::clone::Clone for SceneAlphaMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SceneAlphaMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SceneAlphaMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SceneAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAlphaMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SceneAlphaMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SceneAttributeSemantic(pub i32);
+impl SceneAttributeSemantic {
+    pub const Index: Self = Self(0i32);
+    pub const Vertex: Self = Self(1i32);
+    pub const Normal: Self = Self(2i32);
+    pub const TexCoord0: Self = Self(3i32);
+    pub const TexCoord1: Self = Self(4i32);
+    pub const Color: Self = Self(5i32);
+    pub const Tangent: Self = Self(6i32);
+}
+impl ::core::marker::Copy for SceneAttributeSemantic {}
+impl ::core::clone::Clone for SceneAttributeSemantic {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SceneAttributeSemantic {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SceneAttributeSemantic {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SceneAttributeSemantic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneAttributeSemantic").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SceneAttributeSemantic {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SceneComponentType(pub i32);
+impl SceneComponentType {
+    pub const MeshRendererComponent: Self = Self(0i32);
+}
+impl ::core::marker::Copy for SceneComponentType {}
+impl ::core::clone::Clone for SceneComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SceneComponentType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SceneComponentType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SceneComponentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneComponentType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SceneComponentType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

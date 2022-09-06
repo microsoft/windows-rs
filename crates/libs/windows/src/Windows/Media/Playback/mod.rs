@@ -1,247 +1,3 @@
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutoLoadedDisplayPropertyKind(pub i32);
-impl AutoLoadedDisplayPropertyKind {
-    pub const None: Self = Self(0i32);
-    pub const MusicOrVideo: Self = Self(1i32);
-    pub const Music: Self = Self(2i32);
-    pub const Video: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AutoLoadedDisplayPropertyKind {}
-impl ::core::clone::Clone for AutoLoadedDisplayPropertyKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutoLoadedDisplayPropertyKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AutoLoadedDisplayPropertyKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AutoLoadedDisplayPropertyKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutoLoadedDisplayPropertyKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AutoLoadedDisplayPropertyKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.AutoLoadedDisplayPropertyKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-pub struct BackgroundMediaPlayer;
-#[cfg(feature = "deprecated")]
-impl BackgroundMediaPlayer {
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn Current() -> ::windows::core::Result<MediaPlayer> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayer>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn MessageReceivedFromBackground<'a, P0>(value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>,
-    {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveMessageReceivedFromBackground(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), token).ok() })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn MessageReceivedFromForeground<'a, P0>(value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>,
-    {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveMessageReceivedFromForeground(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), token).ok() })
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn SendMessageToBackground<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
-    {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToBackground)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn SendMessageToForeground<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
-    {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToForeground)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn IsMediaPlaying() -> ::windows::core::Result<bool> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsMediaPlaying)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"deprecated\"`*"]
-    #[cfg(feature = "deprecated")]
-    pub fn Shutdown() -> ::windows::core::Result<()> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Shutdown)(::windows::core::Interface::as_raw(this)).ok() })
-    }
-    #[doc(hidden)]
-    #[cfg(feature = "deprecated")]
-    pub fn IBackgroundMediaPlayerStatics<R, F: FnOnce(&IBackgroundMediaPlayerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BackgroundMediaPlayer, IBackgroundMediaPlayerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::RuntimeName for BackgroundMediaPlayer {
-    const NAME: &'static str = "Windows.Media.Playback.BackgroundMediaPlayer";
-}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-pub struct CurrentMediaPlaybackItemChangedEventArgs(::windows::core::IUnknown);
-impl CurrentMediaPlaybackItemChangedEventArgs {
-    pub fn NewItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NewItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
-        }
-    }
-    pub fn OldItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OldItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
-        }
-    }
-    pub fn Reason(&self) -> ::windows::core::Result<MediaPlaybackItemChangedReason> {
-        let this = &::windows::core::Interface::cast::<ICurrentMediaPlaybackItemChangedEventArgs2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItemChangedReason>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CurrentMediaPlaybackItemChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CurrentMediaPlaybackItemChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrentMediaPlaybackItemChangedEventArgs {}
-impl ::core::fmt::Debug for CurrentMediaPlaybackItemChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CurrentMediaPlaybackItemChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CurrentMediaPlaybackItemChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs;{1743a892-5c43-4a15-967a-572d2d0f26c6})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CurrentMediaPlaybackItemChangedEventArgs {
-    type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICurrentMediaPlaybackItemChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CurrentMediaPlaybackItemChangedEventArgs {
-    const NAME: &'static str = "Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs";
-}
-impl ::core::convert::From<CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
-unsafe impl ::core::marker::Sync for CurrentMediaPlaybackItemChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FailedMediaStreamKind(pub i32);
-impl FailedMediaStreamKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Audio: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-}
-impl ::core::marker::Copy for FailedMediaStreamKind {}
-impl ::core::clone::Clone for FailedMediaStreamKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FailedMediaStreamKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FailedMediaStreamKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FailedMediaStreamKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FailedMediaStreamKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FailedMediaStreamKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.FailedMediaStreamKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -2153,6 +1909,179 @@ pub struct ITimedMetadataPresentationModeChangedEventArgs_Vtbl {
     pub OldPresentationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT,
     pub NewPresentationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+pub struct BackgroundMediaPlayer;
+#[cfg(feature = "deprecated")]
+impl BackgroundMediaPlayer {
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn Current() -> ::windows::core::Result<MediaPlayer> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayer>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn MessageReceivedFromBackground<'a, P0>(value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>,
+    {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn RemoveMessageReceivedFromBackground(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), token).ok() })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn MessageReceivedFromForeground<'a, P0>(value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>,
+    {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn RemoveMessageReceivedFromForeground(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), token).ok() })
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn SendMessageToBackground<'a, P0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
+    {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToBackground)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn SendMessageToForeground<'a, P0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
+    {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToForeground)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn IsMediaPlaying() -> ::windows::core::Result<bool> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsMediaPlaying)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
+    pub fn Shutdown() -> ::windows::core::Result<()> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Shutdown)(::windows::core::Interface::as_raw(this)).ok() })
+    }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
+    pub fn IBackgroundMediaPlayerStatics<R, F: FnOnce(&IBackgroundMediaPlayerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<BackgroundMediaPlayer, IBackgroundMediaPlayerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::windows::core::RuntimeName for BackgroundMediaPlayer {
+    const NAME: &'static str = "Windows.Media.Playback.BackgroundMediaPlayer";
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+pub struct CurrentMediaPlaybackItemChangedEventArgs(::windows::core::IUnknown);
+impl CurrentMediaPlaybackItemChangedEventArgs {
+    pub fn NewItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NewItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
+        }
+    }
+    pub fn OldItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OldItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
+        }
+    }
+    pub fn Reason(&self) -> ::windows::core::Result<MediaPlaybackItemChangedReason> {
+        let this = &::windows::core::Interface::cast::<ICurrentMediaPlaybackItemChangedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItemChangedReason>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CurrentMediaPlaybackItemChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CurrentMediaPlaybackItemChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CurrentMediaPlaybackItemChangedEventArgs {}
+impl ::core::fmt::Debug for CurrentMediaPlaybackItemChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrentMediaPlaybackItemChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CurrentMediaPlaybackItemChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs;{1743a892-5c43-4a15-967a-572d2d0f26c6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CurrentMediaPlaybackItemChangedEventArgs {
+    type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICurrentMediaPlaybackItemChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CurrentMediaPlaybackItemChangedEventArgs {
+    const NAME: &'static str = "Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs";
+}
+impl ::core::convert::From<CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CurrentMediaPlaybackItemChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaBreak(::windows::core::IUnknown);
@@ -2356,40 +2285,6 @@ impl ::core::convert::From<&MediaBreakEndedEventArgs> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for MediaBreakEndedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakEndedEventArgs {}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaBreakInsertionMethod(pub i32);
-impl MediaBreakInsertionMethod {
-    pub const Interrupt: Self = Self(0i32);
-    pub const Replace: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaBreakInsertionMethod {}
-impl ::core::clone::Clone for MediaBreakInsertionMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaBreakInsertionMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaBreakInsertionMethod {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaBreakInsertionMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreakInsertionMethod").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaBreakInsertionMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaBreakInsertionMethod;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaBreakManager(::windows::core::IUnknown);
@@ -2939,41 +2834,6 @@ impl ::core::convert::From<&MediaBreakStartedEventArgs> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for MediaBreakStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakStartedEventArgs {}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaCommandEnablingRule(pub i32);
-impl MediaCommandEnablingRule {
-    pub const Auto: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
-    pub const Never: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaCommandEnablingRule {}
-impl ::core::clone::Clone for MediaCommandEnablingRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCommandEnablingRule {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaCommandEnablingRule {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaCommandEnablingRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCommandEnablingRule").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaCommandEnablingRule {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaCommandEnablingRule;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaItemDisplayProperties(::windows::core::IUnknown);
@@ -4996,42 +4856,6 @@ unsafe impl ::core::marker::Send for MediaPlaybackItem {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItem {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlaybackItemChangedReason(pub i32);
-impl MediaPlaybackItemChangedReason {
-    pub const InitialItem: Self = Self(0i32);
-    pub const EndOfStream: Self = Self(1i32);
-    pub const Error: Self = Self(2i32);
-    pub const AppRequested: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaPlaybackItemChangedReason {}
-impl ::core::clone::Clone for MediaPlaybackItemChangedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackItemChangedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlaybackItemChangedReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlaybackItemChangedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackItemChangedReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemChangedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemChangedReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
 pub struct MediaPlaybackItemError(::windows::core::IUnknown);
 impl MediaPlaybackItemError {
     pub fn ErrorCode(&self) -> ::windows::core::Result<MediaPlaybackItemErrorCode> {
@@ -5111,44 +4935,6 @@ impl ::core::convert::From<&MediaPlaybackItemError> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItemError {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemError {}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlaybackItemErrorCode(pub i32);
-impl MediaPlaybackItemErrorCode {
-    pub const None: Self = Self(0i32);
-    pub const Aborted: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const DecodeError: Self = Self(3i32);
-    pub const SourceNotSupportedError: Self = Self(4i32);
-    pub const EncryptionError: Self = Self(5i32);
-}
-impl ::core::marker::Copy for MediaPlaybackItemErrorCode {}
-impl ::core::clone::Clone for MediaPlaybackItemErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackItemErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlaybackItemErrorCode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlaybackItemErrorCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackItemErrorCode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemErrorCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemErrorCode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemFailedEventArgs(::windows::core::IUnknown);
@@ -6259,45 +6045,6 @@ unsafe impl ::core::marker::Send for MediaPlaybackSessionOutputDegradationPolicy
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlaybackSessionVideoConstrictionReason(pub i32);
-impl MediaPlaybackSessionVideoConstrictionReason {
-    pub const None: Self = Self(0i32);
-    pub const VirtualMachine: Self = Self(1i32);
-    pub const UnsupportedDisplayAdapter: Self = Self(2i32);
-    pub const UnsignedDriver: Self = Self(3i32);
-    pub const FrameServerEnabled: Self = Self(4i32);
-    pub const OutputProtectionFailed: Self = Self(5i32);
-    pub const Unknown: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MediaPlaybackSessionVideoConstrictionReason {}
-impl ::core::clone::Clone for MediaPlaybackSessionVideoConstrictionReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackSessionVideoConstrictionReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlaybackSessionVideoConstrictionReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlaybackSessionVideoConstrictionReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackSessionVideoConstrictionReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlaybackSessionVideoConstrictionReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackSessionVideoConstrictionReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
 pub struct MediaPlaybackSphericalVideoProjection(::windows::core::IUnknown);
 impl MediaPlaybackSphericalVideoProjection {
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
@@ -6426,43 +6173,6 @@ impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for &::window
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSphericalVideoProjection {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSphericalVideoProjection {}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlaybackState(pub i32);
-impl MediaPlaybackState {
-    pub const None: Self = Self(0i32);
-    pub const Opening: Self = Self(1i32);
-    pub const Buffering: Self = Self(2i32);
-    pub const Playing: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaPlaybackState {}
-impl ::core::clone::Clone for MediaPlaybackState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlaybackState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlaybackState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlaybackState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
@@ -7771,83 +7481,6 @@ unsafe impl ::core::marker::Send for MediaPlayer {}
 unsafe impl ::core::marker::Sync for MediaPlayer {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlayerAudioCategory(pub i32);
-impl MediaPlayerAudioCategory {
-    pub const Other: Self = Self(0i32);
-    pub const Communications: Self = Self(3i32);
-    pub const Alerts: Self = Self(4i32);
-    pub const SoundEffects: Self = Self(5i32);
-    pub const GameEffects: Self = Self(6i32);
-    pub const GameMedia: Self = Self(7i32);
-    pub const GameChat: Self = Self(8i32);
-    pub const Speech: Self = Self(9i32);
-    pub const Movie: Self = Self(10i32);
-    pub const Media: Self = Self(11i32);
-}
-impl ::core::marker::Copy for MediaPlayerAudioCategory {}
-impl ::core::clone::Clone for MediaPlayerAudioCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlayerAudioCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlayerAudioCategory {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlayerAudioCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerAudioCategory").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlayerAudioCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioCategory;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlayerAudioDeviceType(pub i32);
-impl MediaPlayerAudioDeviceType {
-    pub const Console: Self = Self(0i32);
-    pub const Multimedia: Self = Self(1i32);
-    pub const Communications: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaPlayerAudioDeviceType {}
-impl ::core::clone::Clone for MediaPlayerAudioDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlayerAudioDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlayerAudioDeviceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlayerAudioDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerAudioDeviceType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlayerAudioDeviceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioDeviceType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
 pub struct MediaPlayerDataReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlayerDataReceivedEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7922,43 +7555,6 @@ impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for MediaPlayerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerDataReceivedEventArgs {}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlayerError(pub i32);
-impl MediaPlayerError {
-    pub const Unknown: Self = Self(0i32);
-    pub const Aborted: Self = Self(1i32);
-    pub const NetworkError: Self = Self(2i32);
-    pub const DecodingError: Self = Self(3i32);
-    pub const SourceNotSupported: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaPlayerError {}
-impl ::core::clone::Clone for MediaPlayerError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlayerError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaPlayerError {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaPlayerError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerError").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaPlayerError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerError;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlayerFailedEventArgs(::windows::core::IUnknown);
@@ -8121,52 +7717,6 @@ impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerRateChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaPlayerState(pub i32);
-#[cfg(feature = "deprecated")]
-impl MediaPlayerState {
-    pub const Closed: Self = Self(0i32);
-    pub const Opening: Self = Self(1i32);
-    pub const Buffering: Self = Self(2i32);
-    pub const Playing: Self = Self(3i32);
-    pub const Paused: Self = Self(4i32);
-    pub const Stopped: Self = Self(5i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for MediaPlayerState {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for MediaPlayerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for MediaPlayerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for MediaPlayerState {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for MediaPlayerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for MediaPlayerState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 pub struct MediaPlayerSurface(::windows::core::IUnknown);
@@ -8606,74 +8156,6 @@ unsafe impl ::core::marker::Send for PlaybackMediaMarkerSequence {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarkerSequence {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SphericalVideoProjectionMode(pub i32);
-impl SphericalVideoProjectionMode {
-    pub const Spherical: Self = Self(0i32);
-    pub const Flat: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SphericalVideoProjectionMode {}
-impl ::core::clone::Clone for SphericalVideoProjectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SphericalVideoProjectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SphericalVideoProjectionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SphericalVideoProjectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SphericalVideoProjectionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SphericalVideoProjectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.SphericalVideoProjectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StereoscopicVideoRenderMode(pub i32);
-impl StereoscopicVideoRenderMode {
-    pub const Mono: Self = Self(0i32);
-    pub const Stereo: Self = Self(1i32);
-}
-impl ::core::marker::Copy for StereoscopicVideoRenderMode {}
-impl ::core::clone::Clone for StereoscopicVideoRenderMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StereoscopicVideoRenderMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StereoscopicVideoRenderMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StereoscopicVideoRenderMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StereoscopicVideoRenderMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StereoscopicVideoRenderMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.StereoscopicVideoRenderMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Playback\"`*"]
-#[repr(transparent)]
 pub struct TimedMetadataPresentationModeChangedEventArgs(::windows::core::IUnknown);
 impl TimedMetadataPresentationModeChangedEventArgs {
     #[doc = "*Required features: `\"Media_Core\"`*"]
@@ -8762,6 +8244,524 @@ impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for &
 }
 unsafe impl ::core::marker::Send for TimedMetadataPresentationModeChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimedMetadataPresentationModeChangedEventArgs {}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutoLoadedDisplayPropertyKind(pub i32);
+impl AutoLoadedDisplayPropertyKind {
+    pub const None: Self = Self(0i32);
+    pub const MusicOrVideo: Self = Self(1i32);
+    pub const Music: Self = Self(2i32);
+    pub const Video: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AutoLoadedDisplayPropertyKind {}
+impl ::core::clone::Clone for AutoLoadedDisplayPropertyKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AutoLoadedDisplayPropertyKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AutoLoadedDisplayPropertyKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutoLoadedDisplayPropertyKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoLoadedDisplayPropertyKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AutoLoadedDisplayPropertyKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.AutoLoadedDisplayPropertyKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FailedMediaStreamKind(pub i32);
+impl FailedMediaStreamKind {
+    pub const Unknown: Self = Self(0i32);
+    pub const Audio: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+impl ::core::marker::Copy for FailedMediaStreamKind {}
+impl ::core::clone::Clone for FailedMediaStreamKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FailedMediaStreamKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FailedMediaStreamKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FailedMediaStreamKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FailedMediaStreamKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FailedMediaStreamKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.FailedMediaStreamKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaBreakInsertionMethod(pub i32);
+impl MediaBreakInsertionMethod {
+    pub const Interrupt: Self = Self(0i32);
+    pub const Replace: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaBreakInsertionMethod {}
+impl ::core::clone::Clone for MediaBreakInsertionMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaBreakInsertionMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaBreakInsertionMethod {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaBreakInsertionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakInsertionMethod").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaBreakInsertionMethod {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaBreakInsertionMethod;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaCommandEnablingRule(pub i32);
+impl MediaCommandEnablingRule {
+    pub const Auto: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
+    pub const Never: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MediaCommandEnablingRule {}
+impl ::core::clone::Clone for MediaCommandEnablingRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaCommandEnablingRule {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaCommandEnablingRule {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaCommandEnablingRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCommandEnablingRule").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaCommandEnablingRule {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaCommandEnablingRule;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlaybackItemChangedReason(pub i32);
+impl MediaPlaybackItemChangedReason {
+    pub const InitialItem: Self = Self(0i32);
+    pub const EndOfStream: Self = Self(1i32);
+    pub const Error: Self = Self(2i32);
+    pub const AppRequested: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MediaPlaybackItemChangedReason {}
+impl ::core::clone::Clone for MediaPlaybackItemChangedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackItemChangedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlaybackItemChangedReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlaybackItemChangedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItemChangedReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemChangedReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemChangedReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlaybackItemErrorCode(pub i32);
+impl MediaPlaybackItemErrorCode {
+    pub const None: Self = Self(0i32);
+    pub const Aborted: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const DecodeError: Self = Self(3i32);
+    pub const SourceNotSupportedError: Self = Self(4i32);
+    pub const EncryptionError: Self = Self(5i32);
+}
+impl ::core::marker::Copy for MediaPlaybackItemErrorCode {}
+impl ::core::clone::Clone for MediaPlaybackItemErrorCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackItemErrorCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlaybackItemErrorCode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlaybackItemErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItemErrorCode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemErrorCode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackItemErrorCode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlaybackSessionVideoConstrictionReason(pub i32);
+impl MediaPlaybackSessionVideoConstrictionReason {
+    pub const None: Self = Self(0i32);
+    pub const VirtualMachine: Self = Self(1i32);
+    pub const UnsupportedDisplayAdapter: Self = Self(2i32);
+    pub const UnsignedDriver: Self = Self(3i32);
+    pub const FrameServerEnabled: Self = Self(4i32);
+    pub const OutputProtectionFailed: Self = Self(5i32);
+    pub const Unknown: Self = Self(6i32);
+}
+impl ::core::marker::Copy for MediaPlaybackSessionVideoConstrictionReason {}
+impl ::core::clone::Clone for MediaPlaybackSessionVideoConstrictionReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackSessionVideoConstrictionReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlaybackSessionVideoConstrictionReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlaybackSessionVideoConstrictionReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackSessionVideoConstrictionReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlaybackSessionVideoConstrictionReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackSessionVideoConstrictionReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlaybackState(pub i32);
+impl MediaPlaybackState {
+    pub const None: Self = Self(0i32);
+    pub const Opening: Self = Self(1i32);
+    pub const Buffering: Self = Self(2i32);
+    pub const Playing: Self = Self(3i32);
+    pub const Paused: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MediaPlaybackState {}
+impl ::core::clone::Clone for MediaPlaybackState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlaybackState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlaybackState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlaybackState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlaybackState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlayerAudioCategory(pub i32);
+impl MediaPlayerAudioCategory {
+    pub const Other: Self = Self(0i32);
+    pub const Communications: Self = Self(3i32);
+    pub const Alerts: Self = Self(4i32);
+    pub const SoundEffects: Self = Self(5i32);
+    pub const GameEffects: Self = Self(6i32);
+    pub const GameMedia: Self = Self(7i32);
+    pub const GameChat: Self = Self(8i32);
+    pub const Speech: Self = Self(9i32);
+    pub const Movie: Self = Self(10i32);
+    pub const Media: Self = Self(11i32);
+}
+impl ::core::marker::Copy for MediaPlayerAudioCategory {}
+impl ::core::clone::Clone for MediaPlayerAudioCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlayerAudioCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlayerAudioCategory {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlayerAudioCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerAudioCategory").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlayerAudioCategory {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioCategory;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlayerAudioDeviceType(pub i32);
+impl MediaPlayerAudioDeviceType {
+    pub const Console: Self = Self(0i32);
+    pub const Multimedia: Self = Self(1i32);
+    pub const Communications: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MediaPlayerAudioDeviceType {}
+impl ::core::clone::Clone for MediaPlayerAudioDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlayerAudioDeviceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlayerAudioDeviceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlayerAudioDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerAudioDeviceType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlayerAudioDeviceType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerAudioDeviceType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlayerError(pub i32);
+impl MediaPlayerError {
+    pub const Unknown: Self = Self(0i32);
+    pub const Aborted: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const DecodingError: Self = Self(3i32);
+    pub const SourceNotSupported: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MediaPlayerError {}
+impl ::core::clone::Clone for MediaPlayerError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaPlayerError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaPlayerError {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaPlayerError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerError").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaPlayerError {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerError;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaPlayerState(pub i32);
+#[cfg(feature = "deprecated")]
+impl MediaPlayerState {
+    pub const Closed: Self = Self(0i32);
+    pub const Opening: Self = Self(1i32);
+    pub const Buffering: Self = Self(2i32);
+    pub const Playing: Self = Self(3i32);
+    pub const Paused: Self = Self(4i32);
+    pub const Stopped: Self = Self(5i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for MediaPlayerState {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for MediaPlayerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for MediaPlayerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for MediaPlayerState {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for MediaPlayerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for MediaPlayerState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SphericalVideoProjectionMode(pub i32);
+impl SphericalVideoProjectionMode {
+    pub const Spherical: Self = Self(0i32);
+    pub const Flat: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SphericalVideoProjectionMode {}
+impl ::core::clone::Clone for SphericalVideoProjectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SphericalVideoProjectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SphericalVideoProjectionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SphericalVideoProjectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SphericalVideoProjectionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SphericalVideoProjectionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.SphericalVideoProjectionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Playback\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StereoscopicVideoRenderMode(pub i32);
+impl StereoscopicVideoRenderMode {
+    pub const Mono: Self = Self(0i32);
+    pub const Stereo: Self = Self(1i32);
+}
+impl ::core::marker::Copy for StereoscopicVideoRenderMode {}
+impl ::core::clone::Clone for StereoscopicVideoRenderMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StereoscopicVideoRenderMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StereoscopicVideoRenderMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StereoscopicVideoRenderMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StereoscopicVideoRenderMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StereoscopicVideoRenderMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.StereoscopicVideoRenderMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

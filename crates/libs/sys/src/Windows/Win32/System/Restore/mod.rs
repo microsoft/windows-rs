@@ -3,9 +3,6 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
@@ -46,6 +43,34 @@ pub const MIN_RPT: u32 = 0u32;
 pub const OE_SETTING: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub const RESTORE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const WINDOWS_BOOT: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const WINDOWS_SHUTDOWN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const WINDOWS_UPDATE: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 102u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const BEGIN_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 100u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 103u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const END_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 101u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub type RESTOREPOINTINFO_TYPE = u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = 0u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const APPLICATION_UNINSTALL: RESTOREPOINTINFO_TYPE = 1u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const DEVICE_DRIVER_INSTALL: RESTOREPOINTINFO_TYPE = 10u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = 12u32;
+#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
+pub const CANCELLED_OPERATION: RESTOREPOINTINFO_TYPE = 13u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -77,28 +102,6 @@ impl ::core::clone::Clone for RESTOREPOINTINFOW {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 102u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const BEGIN_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 100u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 103u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const END_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 101u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub type RESTOREPOINTINFO_TYPE = u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = 0u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const APPLICATION_UNINSTALL: RESTOREPOINTINFO_TYPE = 1u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const DEVICE_DRIVER_INSTALL: RESTOREPOINTINFO_TYPE = 10u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = 12u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const CANCELLED_OPERATION: RESTOREPOINTINFO_TYPE = 13u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub struct STATEMGRSTATUS {
@@ -111,12 +114,6 @@ impl ::core::clone::Clone for STATEMGRSTATUS {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const WINDOWS_BOOT: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const WINDOWS_SHUTDOWN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Restore\"`*"]
-pub const WINDOWS_UPDATE: u32 = 17u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

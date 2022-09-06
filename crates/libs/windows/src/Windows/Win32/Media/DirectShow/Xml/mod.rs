@@ -1,4 +1,3 @@
-pub const CLSID_XMLGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]
 #[repr(transparent)]
 pub struct IXMLGraphBuilder(::windows::core::IUnknown);
@@ -78,5 +77,6 @@ pub struct IXMLGraphBuilder_Vtbl {
     SaveToXML: usize,
     pub BuildFromXMLFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void, wszfilename: ::windows::core::PCWSTR, wszbaseurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
+pub const CLSID_XMLGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

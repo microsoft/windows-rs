@@ -1,3 +1,44 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDataProtectionProvider(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDataProtectionProvider {
+    type Vtable = IDataProtectionProvider_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDataProtectionProvider_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub ProtectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    ProtectAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub UnprotectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    UnprotectAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub ProtectStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, src: *mut ::core::ffi::c_void, dest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    ProtectStreamAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub UnprotectStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, src: *mut ::core::ffi::c_void, dest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    UnprotectStreamAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDataProtectionProviderFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDataProtectionProviderFactory {
+    type Vtable = IDataProtectionProviderFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadf33dac_4932_4cdf_ac41_7214333514ca);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDataProtectionProviderFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateOverloadExplicit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectiondescriptor: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Security_Cryptography_DataProtection\"`*"]
 #[repr(transparent)]
 pub struct DataProtectionProvider(::windows::core::IUnknown);
@@ -139,46 +180,5 @@ impl ::core::convert::From<&DataProtectionProvider> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for DataProtectionProvider {}
 unsafe impl ::core::marker::Sync for DataProtectionProvider {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDataProtectionProvider(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDataProtectionProvider {
-    type Vtable = IDataProtectionProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDataProtectionProvider_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub ProtectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    ProtectAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub UnprotectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    UnprotectAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub ProtectStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, src: *mut ::core::ffi::c_void, dest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    ProtectStreamAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub UnprotectStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, src: *mut ::core::ffi::c_void, dest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    UnprotectStreamAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDataProtectionProviderFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDataProtectionProviderFactory {
-    type Vtable = IDataProtectionProviderFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadf33dac_4932_4cdf_ac41_7214333514ca);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDataProtectionProviderFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateOverloadExplicit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectiondescriptor: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

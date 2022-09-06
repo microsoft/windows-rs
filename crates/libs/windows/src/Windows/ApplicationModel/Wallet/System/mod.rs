@@ -65,41 +65,6 @@ pub struct IWalletManagerSystemStatics_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WalletItemAppAssociation(pub i32);
-impl WalletItemAppAssociation {
-    pub const None: Self = Self(0i32);
-    pub const AppInstalled: Self = Self(1i32);
-    pub const AppNotInstalled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WalletItemAppAssociation {}
-impl ::core::clone::Clone for WalletItemAppAssociation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WalletItemAppAssociation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WalletItemAppAssociation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WalletItemAppAssociation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItemAppAssociation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]
-#[repr(transparent)]
 pub struct WalletItemSystemStore(::windows::core::IUnknown);
 impl WalletItemSystemStore {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -258,6 +223,41 @@ impl WalletManagerSystem {
 }
 impl ::windows::core::RuntimeName for WalletManagerSystem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletManagerSystem";
+}
+#[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WalletItemAppAssociation(pub i32);
+impl WalletItemAppAssociation {
+    pub const None: Self = Self(0i32);
+    pub const AppInstalled: Self = Self(1i32);
+    pub const AppNotInstalled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WalletItemAppAssociation {}
+impl ::core::clone::Clone for WalletItemAppAssociation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WalletItemAppAssociation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WalletItemAppAssociation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WalletItemAppAssociation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WalletItemAppAssociation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
