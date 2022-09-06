@@ -63,9 +63,10 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
             TypeKind::Struct => {
                 if gen.reader.type_def_fields(def).next().is_none() {
                     if let Some(guid) = gen.reader.type_def_guid(def) {
+                        let ident = to_ident(name);
                         let value = gen.guid(&guid);
                         let guid = gen.type_name(&Type::GUID);
-                        let constant = quote! { pub const #name: #guid = #value; };
+                        let constant = quote! { pub const #ident: #guid = #value; };
                         types.entry(TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
                         continue;
                     }
