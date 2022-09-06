@@ -26,8 +26,6 @@ pub mod Printing;
 pub mod Shell;
 #[cfg(feature = "Win32_System_WinRT_Storage")]
 pub mod Storage;
-#[cfg(feature = "Win32_System_WinRT_Xaml")]
-pub mod Xaml;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateControlInput<T>() -> ::windows::core::Result<T>
