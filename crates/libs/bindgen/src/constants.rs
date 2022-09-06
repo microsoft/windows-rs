@@ -24,7 +24,7 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
             let value = if gen.reader.type_underlying_type(&ty) == constant_type {
                 value
             // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1029
-            } else if ty == Type::PCWSTR && constant_type == Type::I32 {
+            } else if ty == Type::PCWSTR && value.0.starts_with("-") {
                 quote! { #value as u16 as _ }
             } else {
                 quote! { #value as _ }
