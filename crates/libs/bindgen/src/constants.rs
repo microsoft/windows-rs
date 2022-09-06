@@ -8,7 +8,9 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
     let features = gen.cfg_features(&cfg);
 
     if let Some(constant) = gen.reader.field_constant(def) {
-        if ty == gen.reader.constant_type(constant) {
+        let constant_type = gen.reader.constant_type(constant);
+
+        if ty == constant_type {
             let value = gen.typed_value(&gen.reader.constant_value(constant));
             quote! {
                 #doc
@@ -19,8 +21,11 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
             let kind = gen.type_default_name(&ty);
             let value = gen.value(&gen.reader.constant_value(constant));
 
-            let value = if gen.reader.type_underlying_type(&ty) == gen.reader.constant_type(constant) {
+            let value = if gen.reader.type_underlying_type(&ty) == constant_type {
                 value
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1029
+            } else if ty == Type::PCWSTR && value.0.starts_with('-') {
+                quote! { #value as u16 as _ }
             } else {
                 quote! { #value as _ }
             };

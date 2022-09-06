@@ -157,6 +157,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_not_dll &&
           cargo test --target ${{ matrix.target }} -p test_properties &&
           cargo test --target ${{ matrix.target }} -p test_query_signature &&
+          cargo test --target ${{ matrix.target }} -p test_resources &&
           cargo test --target ${{ matrix.target }} -p test_return_struct &&
           cargo test --target ${{ matrix.target }} -p test_string_param &&
           cargo test --target ${{ matrix.target }} -p test_structs &&
