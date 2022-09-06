@@ -1,16 +1,16 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer_Impl: Sized {
-    fn AddGame(&self, bstrgdfbinarypath: &super::Foundation::BSTR, bstrgameinstalldirectory: &super::Foundation::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AddGame(&self, bstrgdfbinarypath: &::windows::core::BSTR, bstrgameinstalldirectory: &::windows::core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RemoveGame(&self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn UpdateGame(&self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn VerifyAccess(&self, bstrgdfbinarypath: &super::Foundation::BSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
+    fn VerifyAccess(&self, bstrgdfbinarypath: &::windows::core::BSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IGameExplorer {}
 #[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>() -> IGameExplorer_Vtbl {
-        unsafe extern "system" fn AddGame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<::windows::core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddGame(::core::mem::transmute(&bstrgdfbinarypath), ::core::mem::transmute(&bstrgameinstalldirectory), ::core::mem::transmute_copy(&installscope), ::core::mem::transmute_copy(&pguidinstanceid)).into()
@@ -25,7 +25,7 @@ impl IGameExplorer_Vtbl {
             let this = (*this).get_impl();
             this.UpdateGame(::core::mem::transmute(&guidinstanceid)).into()
         }
-        unsafe extern "system" fn VerifyAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifyAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VerifyAccess(::core::mem::transmute(&bstrgdfbinarypath)) {

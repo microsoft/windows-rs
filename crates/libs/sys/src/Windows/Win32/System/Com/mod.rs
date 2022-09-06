@@ -1696,22 +1696,19 @@ impl ::core::clone::Clone for ELEMDESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
-    pub bstrSource: super::super::Foundation::BSTR,
-    pub bstrDescription: super::super::Foundation::BSTR,
-    pub bstrHelpFile: super::super::Foundation::BSTR,
+    pub bstrSource: ::windows_sys::core::BSTR,
+    pub bstrDescription: ::windows_sys::core::BSTR,
+    pub bstrHelpFile: ::windows_sys::core::BSTR,
     pub dwHelpContext: u32,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
     pub scode: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXCEPINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXCEPINFO {
     fn clone(&self) -> Self {
         *self
@@ -2312,7 +2309,7 @@ pub union VARIANT_0_0_0 {
     pub scode: i32,
     pub cyVal: CY,
     pub date: f64,
-    pub bstrVal: super::super::Foundation::BSTR,
+    pub bstrVal: ::windows_sys::core::BSTR,
     pub punkVal: ::windows_sys::core::IUnknown,
     pub pdispVal: IDispatch,
     pub parray: *mut SAFEARRAY,
@@ -2327,7 +2324,7 @@ pub union VARIANT_0_0_0 {
     pub pscode: *mut i32,
     pub pcyVal: *mut CY,
     pub pdate: *mut f64,
-    pub pbstrVal: *mut super::super::Foundation::BSTR,
+    pub pbstrVal: *mut ::windows_sys::core::BSTR,
     pub ppunkVal: *mut ::windows_sys::core::IUnknown,
     pub ppdispVal: *mut IDispatch,
     pub pparray: *mut *mut SAFEARRAY,
@@ -2495,8 +2492,7 @@ impl ::core::clone::Clone for userSTGMEDIUM_0_0 {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type LPEXCEPFINO_DEFERRED_FILLIN = ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type LPFNCANUNLOADNOW = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;

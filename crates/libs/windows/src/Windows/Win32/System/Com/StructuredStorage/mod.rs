@@ -2148,39 +2148,31 @@ impl ::core::default::Default for CABOOL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct CABSTR {
     pub cElems: u32,
-    pub pElems: *mut super::super::super::Foundation::BSTR,
+    pub pElems: *mut ::windows::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CABSTR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CABSTR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CABSTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CABSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CABSTR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABSTR {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABSTR>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CABSTR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CABSTR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3123,7 +3115,7 @@ pub union PROPVARIANT_0_0_0 {
     pub filetime: super::super::super::Foundation::FILETIME,
     pub puuid: *mut ::windows::core::GUID,
     pub pclipdata: *mut CLIPDATA,
-    pub bstrVal: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>,
+    pub bstrVal: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
     pub bstrblobVal: BSTRBLOB,
     pub blob: super::BLOB,
     pub pszVal: ::windows::core::PSTR,
@@ -3171,7 +3163,7 @@ pub union PROPVARIANT_0_0_0 {
     pub pscode: *mut i32,
     pub pcyVal: *mut super::CY,
     pub pdate: *mut f64,
-    pub pbstrVal: *mut super::super::super::Foundation::BSTR,
+    pub pbstrVal: *mut ::windows::core::BSTR,
     pub ppunkVal: *mut ::core::option::Option<::windows::core::IUnknown>,
     pub ppdispVal: *mut ::core::option::Option<super::IDispatch>,
     pub pparray: *mut *mut super::SAFEARRAY,

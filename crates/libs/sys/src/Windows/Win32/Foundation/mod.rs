@@ -19,25 +19,25 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     pub fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAddRefString(bstrstring: BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn SysAddRefString(bstrstring: ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAllocString(psz: ::windows_sys::core::PCWSTR) -> BSTR;
+    pub fn SysAllocString(psz: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::BSTR;
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAllocStringByteLen(psz: ::windows_sys::core::PCSTR, len: u32) -> BSTR;
+    pub fn SysAllocStringByteLen(psz: ::windows_sys::core::PCSTR, len: u32) -> ::windows_sys::core::BSTR;
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAllocStringLen(strin: ::windows_sys::core::PCWSTR, ui: u32) -> BSTR;
+    pub fn SysAllocStringLen(strin: ::windows_sys::core::PCWSTR, ui: u32) -> ::windows_sys::core::BSTR;
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysFreeString(bstrstring: BSTR);
+    pub fn SysFreeString(bstrstring: ::windows_sys::core::BSTR);
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn SysReAllocString(pbstr: *mut ::windows_sys::core::BSTR, psz: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows_sys::core::PCWSTR, len: u32) -> i32;
+    pub fn SysReAllocStringLen(pbstr: *mut ::windows_sys::core::BSTR, psz: ::windows_sys::core::PCWSTR, len: u32) -> i32;
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysReleaseString(bstrstring: BSTR);
+    pub fn SysReleaseString(bstrstring: ::windows_sys::core::BSTR);
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysStringByteLen(bstr: BSTR) -> u32;
+    pub fn SysStringByteLen(bstr: ::windows_sys::core::BSTR) -> u32;
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysStringLen(pbstr: BSTR) -> u32;
+    pub fn SysStringLen(pbstr: ::windows_sys::core::BSTR) -> u32;
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: i32 = 15705i32;
@@ -19630,7 +19630,6 @@ impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
 }
 pub type BOOL = i32;
 pub type BOOLEAN = u8;
-pub type BSTR = *mut u16;
 pub type CHAR = u8;
 pub type COLORREF = u32;
 #[repr(C)]

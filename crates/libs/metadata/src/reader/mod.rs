@@ -791,13 +791,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_is_blittable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
-            TypeKind::Struct => {
-                if self.type_def_type_name(row) == TypeName::BSTR {
-                    false
-                } else {
-                    self.type_def_fields(row).all(|field| self.field_is_blittable(field, row))
-                }
-            }
+            TypeKind::Struct => self.type_def_fields(row).all(|field| self.field_is_blittable(field, row)),
             TypeKind::Enum => true,
             TypeKind::Delegate => !self.type_def_flags(row).winrt(),
             _ => false,
@@ -860,14 +854,14 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_is_trivially_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
-            TypeKind::Struct => self.type_def_is_handle(row) && self.type_def_type_name(row) != TypeName::BSTR,
+            TypeKind::Struct => self.type_def_is_handle(row),
             _ => false,
         }
     }
     pub fn type_def_is_primitive(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Enum => true,
-            TypeKind::Struct => self.type_def_is_handle(row) && self.type_def_type_name(row) != TypeName::BSTR,
+            TypeKind::Struct => self.type_def_is_handle(row),
             _ => false,
         }
     }
@@ -1429,7 +1423,7 @@ impl<'a> Reader<'a> {
     pub fn type_is_blittable(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_blittable(*row),
-            Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
+            Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
             Type::Win32Array((kind, _)) => self.type_is_blittable(kind),
             Type::WinrtArray(kind) => self.type_is_blittable(kind),
             _ => true,
@@ -1648,4 +1642,4 @@ impl<'a> Reader<'a> {
 // TODO: exclude code gen for all types that are in REMAP_TYPES
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
-pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];
+pub const CORE_TYPES: [(TypeName, Type); 12] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];

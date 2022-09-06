@@ -65,7 +65,7 @@ pub trait IVisualTreeService_Impl: Sized {
     fn AdviseVisualTreeChange(&self, pcallback: &::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
     fn UnadviseVisualTreeChange(&self, pcallback: &::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
     fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()>;
-    fn CreateInstance(&self, typename: &super::super::super::Foundation::BSTR, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<u64>;
+    fn CreateInstance(&self, typename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<u64>;
     fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()>;
     fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()>;
     fn ClearProperty(&self, instancehandle: u64, propertyindex: u32) -> ::windows::core::Result<()>;
@@ -95,7 +95,7 @@ impl IVisualTreeService_Vtbl {
             let this = (*this).get_impl();
             this.GetEnums(::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppenums)).into()
         }
-        unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateInstance(::core::mem::transmute(&typename), ::core::mem::transmute(&value)) {
@@ -284,13 +284,10 @@ impl IVisualTreeService3_Vtbl {
         iid == &<IVisualTreeService3 as ::windows::core::Interface>::IID || iid == &<IVisualTreeService as ::windows::core::Interface>::IID || iid == &<IVisualTreeService2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVisualTreeServiceCallback_Impl: Sized {
     fn OnVisualTreeChange(&self, relation: &ParentChildRelation, element: &VisualElement, mutationtype: VisualMutationType) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVisualTreeServiceCallback {}
-#[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>() -> IVisualTreeServiceCallback_Vtbl {
         unsafe extern "system" fn OnVisualTreeChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT {
@@ -304,13 +301,10 @@ impl IVisualTreeServiceCallback_Vtbl {
         iid == &<IVisualTreeServiceCallback as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVisualTreeServiceCallback2_Impl: Sized + IVisualTreeServiceCallback_Impl {
     fn OnElementStateChanged(&self, element: u64, elementstate: VisualElementState, context: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVisualTreeServiceCallback2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>() -> IVisualTreeServiceCallback2_Vtbl {
         unsafe extern "system" fn OnElementStateChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: u64, elementstate: VisualElementState, context: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -333,7 +327,7 @@ pub trait IXamlDiagnostics_Impl: Sized {
     fn GetHandleFromIInspectable(&self, pinstance: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
     fn HitTest(&self, rect: &super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()>;
     fn RegisterInstance(&self, pinstance: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
-    fn GetInitializationData(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetInitializationData(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IXamlDiagnostics {}
@@ -411,7 +405,7 @@ impl IXamlDiagnostics_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInitializationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinitializationdata: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInitializationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinitializationdata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInitializationData() {

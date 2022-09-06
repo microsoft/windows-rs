@@ -11915,17 +11915,14 @@ impl ::core::clone::Clone for STREAM_ID_MAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct SmartCardApplication {
     pub ApplicationType: ApplicationTypeType,
     pub ApplicationVersion: u16,
-    pub pbstrApplicationName: super::super::Foundation::BSTR,
-    pub pbstrApplicationURL: super::super::Foundation::BSTR,
+    pub pbstrApplicationName: ::windows_sys::core::BSTR,
+    pub pbstrApplicationURL: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SmartCardApplication {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SmartCardApplication {
     fn clone(&self) -> Self {
         *self

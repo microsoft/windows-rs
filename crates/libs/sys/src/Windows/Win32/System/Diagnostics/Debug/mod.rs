@@ -8690,20 +8690,17 @@ impl ::core::clone::Clone for DUMP_HEADER64_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
-    pub m_bstrName: super::super::super::Foundation::BSTR,
-    pub m_bstrType: super::super::super::Foundation::BSTR,
-    pub m_bstrValue: super::super::super::Foundation::BSTR,
-    pub m_bstrFullName: super::super::super::Foundation::BSTR,
+    pub m_bstrName: ::windows_sys::core::BSTR,
+    pub m_bstrType: ::windows_sys::core::BSTR,
+    pub m_bstrValue: ::windows_sys::core::BSTR,
+    pub m_bstrFullName: ::windows_sys::core::BSTR,
     pub m_dwAttrib: u32,
     pub m_pDebugProp: IDebugProperty,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DebugPropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DebugPropertyInfo {
     fn clone(&self) -> Self {
         *self
@@ -10433,18 +10430,15 @@ impl ::core::clone::Clone for JS_NATIVE_FRAME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct JsDebugPropertyInfo {
-    pub name: super::super::super::Foundation::BSTR,
-    pub r#type: super::super::super::Foundation::BSTR,
-    pub value: super::super::super::Foundation::BSTR,
-    pub fullName: super::super::super::Foundation::BSTR,
+    pub name: ::windows_sys::core::BSTR,
+    pub r#type: ::windows_sys::core::BSTR,
+    pub value: ::windows_sys::core::BSTR,
+    pub fullName: ::windows_sys::core::BSTR,
     pub attr: JS_PROPERTY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JsDebugPropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JsDebugPropertyInfo {
     fn clone(&self) -> Self {
         *self
@@ -12709,23 +12703,19 @@ impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     pub infoType: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE,
     pub Anonymous: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub prototype: usize,
     pub functionName: ::windows_sys::core::PCWSTR,
@@ -12741,59 +12731,48 @@ pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub mapCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
     pub setCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub relationshipId: u32,
     pub relationshipInfo: PROFILER_RELATIONSHIP_INFO,
     pub Anonymous: PROFILER_HEAP_OBJECT_RELATIONSHIP_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub numberValue: f64,
     pub stringValue: ::windows_sys::core::PCWSTR,
-    pub bstrValue: super::super::super::Foundation::BSTR,
+    pub bstrValue: ::windows_sys::core::BSTR,
     pub objectId: usize,
     pub externalObjectAddress: *mut ::core::ffi::c_void,
     pub subString: *mut PROFILER_PROPERTY_TYPE_SUBSTRING_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
     pub elements: [PROFILER_HEAP_OBJECT_RELATIONSHIP; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn clone(&self) -> Self {
         *self

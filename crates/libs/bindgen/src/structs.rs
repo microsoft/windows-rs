@@ -5,12 +5,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         return quote! {};
     }
 
-    if !gen.sys {
-        if let Some(replacement) = replacements::gen(gen.reader.type_def_type_name(def)) {
-            return replacement;
-        }
-    }
-
     if gen.reader.type_def_is_handle(def) {
         return handles::gen(gen, def);
     }

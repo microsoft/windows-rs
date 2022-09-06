@@ -3011,10 +3011,10 @@ where
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadGuidsForConnectedNetworks(pcnetworks: ::core::option::Option<&mut u32>, pppwsznetworkguids: ::core::option::Option<&mut *mut ::windows::core::PWSTR>, pppbstrnetworknames: ::core::option::Option<&mut *mut super::super::Foundation::BSTR>, pppwszgwmacs: ::core::option::Option<&mut *mut ::windows::core::PWSTR>, pcgatewaymacs: ::core::option::Option<&mut u32>, pdwflags: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadGuidsForConnectedNetworks(pcnetworks: ::core::option::Option<&mut u32>, pppwsznetworkguids: ::core::option::Option<&mut *mut ::windows::core::PWSTR>, pppbstrnetworknames: ::core::option::Option<&mut *mut ::windows::core::BSTR>, pppwszgwmacs: ::core::option::Option<&mut *mut ::windows::core::PWSTR>, pcgatewaymacs: ::core::option::Option<&mut u32>, pdwflags: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ReadGuidsForConnectedNetworks(pcnetworks: *mut u32, pppwsznetworkguids: *mut *mut ::windows::core::PWSTR, pppbstrnetworknames: *mut *mut super::super::Foundation::BSTR, pppwszgwmacs: *mut *mut ::windows::core::PWSTR, pcgatewaymacs: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL;
+        fn ReadGuidsForConnectedNetworks(pcnetworks: *mut u32, pppwsznetworkguids: *mut *mut ::windows::core::PWSTR, pppbstrnetworknames: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pppwszgwmacs: *mut *mut ::windows::core::PWSTR, pcgatewaymacs: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL;
     }
     ReadGuidsForConnectedNetworks(::core::mem::transmute(pcnetworks), ::core::mem::transmute(pppwsznetworkguids), ::core::mem::transmute(pppbstrnetworknames), ::core::mem::transmute(pppwszgwmacs), ::core::mem::transmute(pcgatewaymacs), ::core::mem::transmute(pdwflags))
 }

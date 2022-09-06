@@ -39,7 +39,7 @@ pub trait ISensor_Impl: Sized {
     fn GetID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetCategory(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn GetProperties(&self, pkeys: &::core::option::Option<super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
     fn GetSupportedDataFields(&self) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceKeyCollection>;
@@ -90,7 +90,7 @@ impl ISensor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfriendlyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFriendlyName() {

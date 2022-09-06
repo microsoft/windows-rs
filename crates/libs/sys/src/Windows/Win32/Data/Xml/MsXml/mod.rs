@@ -1636,21 +1636,18 @@ impl ::core::clone::Clone for XHR_COOKIE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub struct XML_ERROR {
     pub _nLine: u32,
-    pub _pchBuf: super::super::super::Foundation::BSTR,
+    pub _pchBuf: ::windows_sys::core::BSTR,
     pub _cchBuf: u32,
     pub _ich: u32,
-    pub _pszFound: super::super::super::Foundation::BSTR,
-    pub _pszExpected: super::super::super::Foundation::BSTR,
+    pub _pszFound: ::windows_sys::core::BSTR,
+    pub _pszExpected: ::windows_sys::core::BSTR,
     pub _reserved1: u32,
     pub _reserved2: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for XML_ERROR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for XML_ERROR {
     fn clone(&self) -> Self {
         *self

@@ -785,16 +785,13 @@ impl ::core::clone::Clone for BITS_JOB_PROPERTY_VALUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct FILESETINFO {
-    pub bstrRemoteFile: super::super::Foundation::BSTR,
-    pub bstrLocalFile: super::super::Foundation::BSTR,
+    pub bstrRemoteFile: ::windows_sys::core::BSTR,
+    pub bstrLocalFile: ::windows_sys::core::BSTR,
     pub dwSizeHint: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILESETINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILESETINFO {
     fn clone(&self) -> Self {
         *self

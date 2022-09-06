@@ -11,22 +11,19 @@ impl IDummyMBNUCMExt_Vtbl {
         iid == &<IDummyMBNUCMExt as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMbnConnection_Impl: Sized {
-    fn ConnectionID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InterfaceID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ConnectionID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Connect(&self, connectionmode: MBN_CONNECTION_MODE, strprofile: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
     fn Disconnect(&self) -> ::windows::core::Result<u32>;
-    fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetVoiceCallState(&self) -> ::windows::core::Result<MBN_VOICE_CALL_STATE>;
     fn GetActivationNetworkError(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMbnConnection {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMbnConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>() -> IMbnConnection_Vtbl {
-        unsafe extern "system" fn ConnectionID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConnectionID() {
@@ -37,7 +34,7 @@ impl IMbnConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InterfaceID() {
@@ -70,7 +67,7 @@ impl IMbnConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConnectionState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConnectionState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetConnectionState(::core::mem::transmute_copy(&connectionstate), ::core::mem::transmute_copy(&profilename)).into()
@@ -112,14 +109,14 @@ impl IMbnConnection_Vtbl {
         iid == &<IMbnConnection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionContext_Impl: Sized {
     fn GetProvisionedContexts(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetProvisionedContext(&self, provisionedcontexts: &MBN_CONTEXT, providerid: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnConnectionContext {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnConnectionContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionContext_Impl, const OFFSET: isize>() -> IMbnConnectionContext_Vtbl {
         unsafe extern "system" fn GetProvisionedContexts<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provisionedcontexts: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -291,18 +288,15 @@ impl IMbnConnectionManagerEvents_Vtbl {
         iid == &<IMbnConnectionManagerEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMbnConnectionProfile_Impl: Sized {
-    fn GetProfileXmlData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetProfileXmlData(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UpdateProfile(&self, strprofile: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMbnConnectionProfile {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMbnConnectionProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>() -> IMbnConnectionProfile_Vtbl {
-        unsafe extern "system" fn GetProfileXmlData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiledata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProfileXmlData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiledata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProfileXmlData() {
@@ -437,8 +431,8 @@ pub trait IMbnDeviceService_Impl: Sized {
     fn OpenDataSession(&self) -> ::windows::core::Result<u32>;
     fn CloseDataSession(&self) -> ::windows::core::Result<u32>;
     fn WriteData(&self, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>;
-    fn InterfaceID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DeviceServiceID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn DeviceServiceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn IsCommandSessionOpen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsDataSessionOpen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
@@ -535,7 +529,7 @@ impl IMbnDeviceService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InterfaceID() {
@@ -546,7 +540,7 @@ impl IMbnDeviceService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceServiceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceServiceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceServiceID() {
@@ -599,16 +593,13 @@ impl IMbnDeviceService_Vtbl {
         iid == &<IMbnDeviceService as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMbnDeviceServiceStateEvents_Impl: Sized {
-    fn OnSessionsStateChange(&self, interfaceid: &super::super::Foundation::BSTR, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::Result<()>;
+    fn OnSessionsStateChange(&self, interfaceid: &::windows::core::BSTR, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMbnDeviceServiceStateEvents {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMbnDeviceServiceStateEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>() -> IMbnDeviceServiceStateEvents_Vtbl {
-        unsafe extern "system" fn OnSessionsStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnSessionsStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnSessionsStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
@@ -619,16 +610,16 @@ impl IMbnDeviceServiceStateEvents_Vtbl {
         iid == &<IMbnDeviceServiceStateEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceServicesContext_Impl: Sized {
     fn EnumerateDeviceServices(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetDeviceService(&self, deviceserviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMbnDeviceService>;
+    fn GetDeviceService(&self, deviceserviceid: &::windows::core::BSTR) -> ::windows::core::Result<IMbnDeviceService>;
     fn MaxCommandSize(&self) -> ::windows::core::Result<u32>;
     fn MaxDataSize(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnDeviceServicesContext {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnDeviceServicesContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>() -> IMbnDeviceServicesContext_Vtbl {
         unsafe extern "system" fn EnumerateDeviceServices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceservices: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -642,7 +633,7 @@ impl IMbnDeviceServicesContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, mbndeviceservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, mbndeviceservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceService(::core::mem::transmute(&deviceserviceid)) {
@@ -687,7 +678,7 @@ impl IMbnDeviceServicesContext_Vtbl {
         iid == &<IMbnDeviceServicesContext as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceServicesEvents_Impl: Sized {
     fn OnQuerySupportedCommandsComplete(&self, deviceservice: &::core::option::Option<IMbnDeviceService>, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::Result<()>;
     fn OnOpenCommandSessionComplete(&self, deviceservice: &::core::option::Option<IMbnDeviceService>, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::Result<()>;
@@ -699,11 +690,11 @@ pub trait IMbnDeviceServicesEvents_Impl: Sized {
     fn OnCloseDataSessionComplete(&self, deviceservice: &::core::option::Option<IMbnDeviceService>, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::Result<()>;
     fn OnWriteDataComplete(&self, deviceservice: &::core::option::Option<IMbnDeviceService>, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::Result<()>;
     fn OnReadData(&self, deviceservice: &::core::option::Option<IMbnDeviceService>, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn OnInterfaceStateChange(&self, interfaceid: &super::super::Foundation::BSTR, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::Result<()>;
+    fn OnInterfaceStateChange(&self, interfaceid: &::windows::core::BSTR, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnDeviceServicesEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnDeviceServicesEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>() -> IMbnDeviceServicesEvents_Vtbl {
         unsafe extern "system" fn OnQuerySupportedCommandsComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceservice: *mut ::core::ffi::c_void, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::HRESULT {
@@ -756,7 +747,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
             let this = (*this).get_impl();
             this.OnReadData(::core::mem::transmute(&deviceservice), ::core::mem::transmute_copy(&deviceservicedata)).into()
         }
-        unsafe extern "system" fn OnInterfaceStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInterfaceStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnInterfaceStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
@@ -780,16 +771,13 @@ impl IMbnDeviceServicesEvents_Vtbl {
         iid == &<IMbnDeviceServicesEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMbnDeviceServicesManager_Impl: Sized {
-    fn GetDeviceServicesContext(&self, networkinterfaceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMbnDeviceServicesContext>;
+    fn GetDeviceServicesContext(&self, networkinterfaceid: &::windows::core::BSTR) -> ::windows::core::Result<IMbnDeviceServicesContext>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMbnDeviceServicesManager {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMbnDeviceServicesManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>() -> IMbnDeviceServicesManager_Vtbl {
-        unsafe extern "system" fn GetDeviceServicesContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, mbndevicescontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceServicesContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, mbndevicescontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceServicesContext(::core::mem::transmute(&networkinterfaceid)) {
@@ -806,9 +794,9 @@ impl IMbnDeviceServicesManager_Vtbl {
         iid == &<IMbnDeviceServicesManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnInterface_Impl: Sized {
-    fn InterfaceID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetInterfaceCapability(&self) -> ::windows::core::Result<MBN_INTERFACE_CAPS>;
     fn GetSubscriberInformation(&self) -> ::windows::core::Result<IMbnSubscriberInformation>;
     fn GetReadyState(&self) -> ::windows::core::Result<MBN_READY_STATE>;
@@ -820,12 +808,12 @@ pub trait IMbnInterface_Impl: Sized {
     fn ScanNetwork(&self) -> ::windows::core::Result<u32>;
     fn GetConnection(&self) -> ::windows::core::Result<IMbnConnection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnInterface {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>() -> IMbnInterface_Vtbl {
-        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InterfaceID() {
@@ -1097,7 +1085,7 @@ impl IMbnInterfaceManagerEvents_Vtbl {
         iid == &<IMbnInterfaceManagerEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnMultiCarrier_Impl: Sized {
     fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> ::windows::core::Result<u32>;
     fn GetPreferredProviders(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -1106,9 +1094,9 @@ pub trait IMbnMultiCarrier_Impl: Sized {
     fn GetCurrentCellularClass(&self) -> ::windows::core::Result<MBN_CELLULAR_CLASS>;
     fn ScanNetwork(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnMultiCarrier {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnMultiCarrier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnMultiCarrier_Impl, const OFFSET: isize>() -> IMbnMultiCarrier_Vtbl {
         unsafe extern "system" fn SetHomeProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnMultiCarrier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, homeprovider: *const MBN_PROVIDER2, requestid: *mut u32) -> ::windows::core::HRESULT {
@@ -1598,22 +1586,19 @@ impl IMbnRadioEvents_Vtbl {
         iid == &<IMbnRadioEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMbnRegistration_Impl: Sized {
     fn GetRegisterState(&self) -> ::windows::core::Result<MBN_REGISTER_STATE>;
     fn GetRegisterMode(&self) -> ::windows::core::Result<MBN_REGISTER_MODE>;
-    fn GetProviderID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRoamingText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetProviderID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetRoamingText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetAvailableDataClasses(&self) -> ::windows::core::Result<u32>;
     fn GetCurrentDataClass(&self) -> ::windows::core::Result<u32>;
     fn GetRegistrationNetworkError(&self) -> ::windows::core::Result<u32>;
     fn GetPacketAttachNetworkError(&self) -> ::windows::core::Result<u32>;
     fn SetRegisterMode(&self, registermode: MBN_REGISTER_MODE, providerid: &::windows::core::PCWSTR, dataclass: u32) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMbnRegistration {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMbnRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>() -> IMbnRegistration_Vtbl {
         unsafe extern "system" fn GetRegisterState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registerstate: *mut MBN_REGISTER_STATE) -> ::windows::core::HRESULT {
@@ -1638,7 +1623,7 @@ impl IMbnRegistration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProviderID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProviderID() {
@@ -1649,7 +1634,7 @@ impl IMbnRegistration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProviderName() {
@@ -1660,7 +1645,7 @@ impl IMbnRegistration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRoamingText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, roamingtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRoamingText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, roamingtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRoamingText() {
@@ -2007,21 +1992,18 @@ impl IMbnSms_Vtbl {
         iid == &<IMbnSms as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMbnSmsConfiguration_Impl: Sized {
-    fn ServiceCenterAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ServiceCenterAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetServiceCenterAddress(&self, scaddress: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn MaxMessageIndex(&self) -> ::windows::core::Result<u32>;
     fn CdmaShortMsgSize(&self) -> ::windows::core::Result<u32>;
     fn SmsFormat(&self) -> ::windows::core::Result<MBN_SMS_FORMAT>;
     fn SetSmsFormat(&self, smsformat: MBN_SMS_FORMAT) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMbnSmsConfiguration {}
-#[cfg(feature = "Win32_Foundation")]
 impl IMbnSmsConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>() -> IMbnSmsConfiguration_Vtbl {
-        unsafe extern "system" fn ServiceCenterAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceCenterAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceCenterAddress() {
@@ -2154,16 +2136,16 @@ impl IMbnSmsEvents_Vtbl {
         iid == &<IMbnSmsEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSmsReadMsgPdu_Impl: Sized {
     fn Index(&self) -> ::windows::core::Result<u32>;
     fn Status(&self) -> ::windows::core::Result<MBN_MSG_STATUS>;
-    fn PduData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PduData(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Message(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnSmsReadMsgPdu {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnSmsReadMsgPdu_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>() -> IMbnSmsReadMsgPdu_Vtbl {
         unsafe extern "system" fn Index<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT {
@@ -2188,7 +2170,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PduData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdudata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PduData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdudata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PduData() {
@@ -2222,20 +2204,20 @@ impl IMbnSmsReadMsgPdu_Vtbl {
         iid == &<IMbnSmsReadMsgPdu as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSmsReadMsgTextCdma_Impl: Sized {
     fn Index(&self) -> ::windows::core::Result<u32>;
     fn Status(&self) -> ::windows::core::Result<MBN_MSG_STATUS>;
-    fn Address(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Address(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Timestamp(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn EncodingID(&self) -> ::windows::core::Result<MBN_SMS_CDMA_ENCODING>;
     fn LanguageID(&self) -> ::windows::core::Result<MBN_SMS_CDMA_LANG>;
     fn SizeInCharacters(&self) -> ::windows::core::Result<u32>;
     fn Message(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnSmsReadMsgTextCdma {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnSmsReadMsgTextCdma_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>() -> IMbnSmsReadMsgTextCdma_Vtbl {
         unsafe extern "system" fn Index<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT {
@@ -2260,7 +2242,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Address() {
@@ -2271,7 +2253,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Timestamp() {
@@ -2342,18 +2324,18 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
         iid == &<IMbnSmsReadMsgTextCdma as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSubscriberInformation_Impl: Sized {
-    fn SubscriberID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SimIccID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SubscriberID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SimIccID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn TelephoneNumbers(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMbnSubscriberInformation {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnSubscriberInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>() -> IMbnSubscriberInformation_Vtbl {
-        unsafe extern "system" fn SubscriberID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriberid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscriberID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriberid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SubscriberID() {
@@ -2364,7 +2346,7 @@ impl IMbnSubscriberInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimIccID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, simiccid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimIccID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, simiccid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SimIccID() {

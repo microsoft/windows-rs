@@ -1457,24 +1457,21 @@ pub const WTSVirtualClientData: WTS_VIRTUAL_CLASS = 0i32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct AAAccountingData {
-    pub userName: super::super::Foundation::BSTR,
-    pub clientName: super::super::Foundation::BSTR,
+    pub userName: ::windows_sys::core::BSTR,
+    pub clientName: ::windows_sys::core::BSTR,
     pub authType: AAAuthSchemes,
-    pub resourceName: super::super::Foundation::BSTR,
+    pub resourceName: ::windows_sys::core::BSTR,
     pub portNumber: i32,
-    pub protocolName: super::super::Foundation::BSTR,
+    pub protocolName: ::windows_sys::core::BSTR,
     pub numberOfBytesReceived: i32,
     pub numberOfBytesTransfered: i32,
-    pub reasonForDisconnect: super::super::Foundation::BSTR,
+    pub reasonForDisconnect: ::windows_sys::core::BSTR,
     pub mainSessionId: ::windows_sys::core::GUID,
     pub subSessionId: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AAAccountingData {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AAAccountingData {
     fn clone(&self) -> Self {
         *self

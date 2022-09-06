@@ -6113,12 +6113,10 @@ pub struct IErrorLookup(::windows::core::IUnknown);
 impl IErrorLookup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetErrorDescription(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: &super::Com::DISPPARAMS, lcid: u32, pbstrsource: ::core::option::Option<&mut super::super::Foundation::BSTR>, pbstrdescription: ::core::option::Option<&mut super::super::Foundation::BSTR>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetErrorDescription(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: &super::Com::DISPPARAMS, lcid: u32, pbstrsource: ::core::option::Option<&mut ::windows::core::BSTR>, pbstrdescription: ::core::option::Option<&mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetErrorDescription)(::windows::core::Interface::as_raw(self), hrerror, dwlookupid, ::core::mem::transmute(pdispparams), lcid, ::core::mem::transmute(pbstrsource), ::core::mem::transmute(pbstrdescription)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHelpInfo(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: ::core::option::Option<&mut super::super::Foundation::BSTR>, pdwhelpcontext: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetHelpInfo(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: ::core::option::Option<&mut ::windows::core::BSTR>, pdwhelpcontext: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetHelpInfo)(::windows::core::Interface::as_raw(self), hrerror, dwlookupid, lcid, ::core::mem::transmute(pbstrhelpfile), ::core::mem::transmute(pdwhelpcontext)).ok()
     }
     pub unsafe fn ReleaseErrors(&self, dwdynamicerrorid: u32) -> ::windows::core::Result<()> {
@@ -6165,13 +6163,10 @@ unsafe impl ::windows::core::Interface for IErrorLookup {
 pub struct IErrorLookup_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut super::super::Foundation::BSTR, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetErrorDescription: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetHelpInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut super::super::Foundation::BSTR, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetHelpInfo: usize,
+    pub GetHelpInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT,
     pub ReleaseErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10401,9 +10396,7 @@ pub struct IRowsetWithParameters_Vtbl {
 #[repr(transparent)]
 pub struct ISQLErrorInfo(::windows::core::IUnknown);
 impl ISQLErrorInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSQLInfo(&self, pbstrsqlstate: &mut super::super::Foundation::BSTR, plnativeerror: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSQLInfo(&self, pbstrsqlstate: &mut ::windows::core::BSTR, plnativeerror: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSQLInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsqlstate), ::core::mem::transmute(plnativeerror)).ok()
     }
 }
@@ -10446,10 +10439,7 @@ unsafe impl ::windows::core::Interface for ISQLErrorInfo {
 #[doc(hidden)]
 pub struct ISQLErrorInfo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetSQLInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsqlstate: *mut super::super::Foundation::BSTR, plnativeerror: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetSQLInfo: usize,
+    pub GetSQLInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsqlstate: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, plnativeerror: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -15869,11 +15859,9 @@ impl OLEDBSimpleProvider {
     {
         (::windows::core::Interface::vtable(self).setVariant)(::windows::core::Interface::as_raw(self), irow, icolumn, format, var.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getLocale(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn getLocale(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).getLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).getLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     pub unsafe fn deleteRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<isize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15968,10 +15956,7 @@ pub struct OLEDBSimpleProvider_Vtbl {
     pub setVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, var: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setVariant: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub getLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlocale: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    getLocale: usize,
+    pub getLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlocale: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub deleteRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, crows: isize, pcrowsdeleted: *mut isize) -> ::windows::core::HRESULT,
     pub insertRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, crows: isize, pcrowsinserted: *mut isize) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -30681,7 +30666,7 @@ pub struct RMTPACK {
     pub pISeqStream: ::core::option::Option<super::Com::ISequentialStream>,
     pub cbData: u32,
     pub cBSTR: u32,
-    pub rgBSTR: *mut super::super::Foundation::BSTR,
+    pub rgBSTR: *mut ::windows::core::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Com::VARIANT,
     pub cIDISPATCH: u32,
@@ -30745,7 +30730,7 @@ pub struct RMTPACK {
     pub pISeqStream: ::core::option::Option<super::Com::ISequentialStream>,
     pub cbData: u32,
     pub cBSTR: u32,
-    pub rgBSTR: *mut super::super::Foundation::BSTR,
+    pub rgBSTR: *mut ::windows::core::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Com::VARIANT,
     pub cIDISPATCH: u32,
@@ -31527,9 +31512,9 @@ pub struct SUBSCRIPTIONINFO {
     pub bChangesOnly: super::super::Foundation::BOOL,
     pub bNeedPassword: super::super::Foundation::BOOL,
     pub fChannelFlags: u32,
-    pub bstrUserName: super::super::Foundation::BSTR,
-    pub bstrPassword: super::super::Foundation::BSTR,
-    pub bstrFriendlyName: super::super::Foundation::BSTR,
+    pub bstrUserName: ::windows::core::BSTR,
+    pub bstrPassword: ::windows::core::BSTR,
+    pub bstrFriendlyName: ::windows::core::BSTR,
     pub dwMaxSizeKB: u32,
     pub subType: SUBSCRIPTIONTYPE,
     pub fTaskFlags: u32,

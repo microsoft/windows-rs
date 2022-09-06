@@ -348,14 +348,11 @@ pub struct IMILBitmapEffectConnectorInfo_Vtbl {
 #[repr(transparent)]
 pub struct IMILBitmapEffectEvents(::windows::core::IUnknown);
 impl IMILBitmapEffectEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PropertyChange<'a, P0, P1>(&self, peffect: P0, bstrpropertyname: P1) -> ::windows::core::Result<()>
+    pub unsafe fn PropertyChange<'a, P0>(&self, peffect: P0, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffect>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).PropertyChange)(::windows::core::Interface::as_raw(self), peffect.into().abi(), bstrpropertyname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).PropertyChange)(::windows::core::Interface::as_raw(self), peffect.into().abi(), ::core::mem::transmute_copy(bstrpropertyname)).ok()
     }
     pub unsafe fn DirtyRegion<'a, P0>(&self, peffect: P0, prect: &MilRectD) -> ::windows::core::Result<()>
     where
@@ -403,10 +400,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectEvents {
 #[doc(hidden)]
 pub struct IMILBitmapEffectEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub PropertyChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    PropertyChange: usize,
+    pub PropertyChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub DirtyRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]

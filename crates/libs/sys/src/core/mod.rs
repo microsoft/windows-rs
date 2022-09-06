@@ -20,3 +20,4 @@ pub type PSTR = *mut u8;
 pub type PWSTR = *mut u16;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
+pub type BSTR = *const u16;

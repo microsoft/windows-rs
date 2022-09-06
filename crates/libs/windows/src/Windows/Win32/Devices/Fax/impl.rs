@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccount_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AccountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AccountName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Folders(&self) -> ::windows::core::Result<IFaxAccountFolders>;
     fn ListenToAccountEvents(&self, eventtypes: FAX_ACCOUNT_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()>;
     fn RegisteredEvents(&self) -> ::windows::core::Result<FAX_ACCOUNT_EVENTS_TYPE_ENUM>;
@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IFaxAccount {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccount_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccount_Impl, const OFFSET: isize>() -> IFaxAccount_Vtbl {
-        unsafe extern "system" fn AccountName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraccountname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AccountName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraccountname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AccountName() {
@@ -134,7 +134,7 @@ pub trait IFaxAccountIncomingArchive_Impl: Sized + super::super::System::Com::ID
     fn SizeHigh(&self) -> ::windows::core::Result<i32>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator>;
-    fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
+    fn GetMessage(&self, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxAccountIncomingArchive {}
@@ -179,7 +179,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxincomingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMessage(::core::mem::transmute(&bstrmessageid)) {
@@ -206,7 +206,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountIncomingQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetJobs(&self) -> ::windows::core::Result<IFaxIncomingJobs>;
-    fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
+    fn GetJob(&self, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxAccountIncomingQueue {}
@@ -224,7 +224,7 @@ impl IFaxAccountIncomingQueue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountIncomingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxincomingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetJob(::core::mem::transmute(&bstrjobid)) {
@@ -264,7 +264,7 @@ pub trait IFaxAccountOutgoingArchive_Impl: Sized + super::super::System::Com::ID
     fn SizeHigh(&self) -> ::windows::core::Result<i32>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator>;
-    fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
+    fn GetMessage(&self, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxAccountOutgoingArchive {}
@@ -309,7 +309,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxoutgoingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMessage(::core::mem::transmute(&bstrmessageid)) {
@@ -336,7 +336,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountOutgoingQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetJobs(&self) -> ::windows::core::Result<IFaxOutgoingJobs>;
-    fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
+    fn GetJob(&self, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxAccountOutgoingQueue {}
@@ -354,7 +354,7 @@ impl IFaxAccountOutgoingQueue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountOutgoingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxoutgoingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetJob(::core::mem::transmute(&bstrjobid)) {
@@ -378,9 +378,9 @@ impl IFaxAccountOutgoingQueue_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountSet_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetAccounts(&self) -> ::windows::core::Result<IFaxAccounts>;
-    fn GetAccount(&self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxAccount>;
-    fn AddAccount(&self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxAccount>;
-    fn RemoveAccount(&self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetAccount(&self, bstraccountname: &::windows::core::BSTR) -> ::windows::core::Result<IFaxAccount>;
+    fn AddAccount(&self, bstraccountname: &::windows::core::BSTR) -> ::windows::core::Result<IFaxAccount>;
+    fn RemoveAccount(&self, bstraccountname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxAccountSet {}
@@ -398,7 +398,7 @@ impl IFaxAccountSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxaccount: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxaccount: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAccount(::core::mem::transmute(&bstraccountname)) {
@@ -409,7 +409,7 @@ impl IFaxAccountSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxaccount: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxaccount: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddAccount(::core::mem::transmute(&bstraccountname)) {
@@ -420,7 +420,7 @@ impl IFaxAccountSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveAccount(::core::mem::transmute(&bstraccountname)).into()
@@ -573,8 +573,8 @@ pub trait IFaxActivityLogging_Impl: Sized + super::super::System::Com::IDispatch
     fn SetLogIncoming(&self, blogincoming: i16) -> ::windows::core::Result<()>;
     fn LogOutgoing(&self) -> ::windows::core::Result<i16>;
     fn SetLogOutgoing(&self, blogoutgoing: i16) -> ::windows::core::Result<()>;
-    fn DatabasePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDatabasePath(&self, bstrdatabasepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DatabasePath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetDatabasePath(&self, bstrdatabasepath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
 }
@@ -615,7 +615,7 @@ impl IFaxActivityLogging_Vtbl {
             let this = (*this).get_impl();
             this.SetLogOutgoing(::core::mem::transmute_copy(&blogoutgoing)).into()
         }
-        unsafe extern "system" fn DatabasePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdatabasepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DatabasePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdatabasepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DatabasePath() {
@@ -626,7 +626,7 @@ impl IFaxActivityLogging_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDatabasePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdatabasepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDatabasePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdatabasepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDatabasePath(::core::mem::transmute(&bstrdatabasepath)).into()
@@ -661,8 +661,8 @@ impl IFaxActivityLogging_Vtbl {
 pub trait IFaxConfiguration_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UseArchive(&self) -> ::windows::core::Result<i16>;
     fn SetUseArchive(&self, busearchive: i16) -> ::windows::core::Result<()>;
-    fn ArchiveLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetArchiveLocation(&self, bstrarchivelocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ArchiveLocation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetArchiveLocation(&self, bstrarchivelocation: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SizeQuotaWarning(&self) -> ::windows::core::Result<i16>;
     fn SetSizeQuotaWarning(&self, bsizequotawarning: i16) -> ::windows::core::Result<()>;
     fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32>;
@@ -723,7 +723,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             this.SetUseArchive(::core::mem::transmute_copy(&busearchive)).into()
         }
-        unsafe extern "system" fn ArchiveLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivelocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ArchiveLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivelocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ArchiveLocation() {
@@ -734,7 +734,7 @@ impl IFaxConfiguration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArchiveLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivelocation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetArchiveLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivelocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetArchiveLocation(::core::mem::transmute(&bstrarchivelocation)).into()
@@ -1096,29 +1096,29 @@ impl IFaxConfiguration_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows::core::Result<i32>;
-    fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProviderUniqueName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DeviceName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ProviderUniqueName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn PoweredOff(&self) -> ::windows::core::Result<i16>;
     fn ReceivingNow(&self) -> ::windows::core::Result<i16>;
     fn SendingNow(&self) -> ::windows::core::Result<i16>;
     fn UsedRoutingMethods(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SendEnabled(&self) -> ::windows::core::Result<i16>;
     fn SetSendEnabled(&self, bsendenabled: i16) -> ::windows::core::Result<()>;
     fn ReceiveMode(&self) -> ::windows::core::Result<FAX_DEVICE_RECEIVE_MODE_ENUM>;
     fn SetReceiveMode(&self, receivemode: FAX_DEVICE_RECEIVE_MODE_ENUM) -> ::windows::core::Result<()>;
     fn RingsBeforeAnswer(&self) -> ::windows::core::Result<i32>;
     fn SetRingsBeforeAnswer(&self, lringsbeforeanswer: i32) -> ::windows::core::Result<()>;
-    fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCSID(&self, bstrcsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTSID(&self, bstrtsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetCSID(&self, bstrcsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn TSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetTSID(&self, bstrtsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
-    fn GetExtensionProperty(&self, bstrguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetExtensionProperty(&self, bstrguid: &super::super::Foundation::BSTR, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn UseRoutingMethod(&self, bstrmethodguid: &super::super::Foundation::BSTR, buse: i16) -> ::windows::core::Result<()>;
+    fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn UseRoutingMethod(&self, bstrmethodguid: &::windows::core::BSTR, buse: i16) -> ::windows::core::Result<()>;
     fn RingingNow(&self) -> ::windows::core::Result<i16>;
     fn AnswerCall(&self) -> ::windows::core::Result<()>;
 }
@@ -1138,7 +1138,7 @@ impl IFaxDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceName() {
@@ -1149,7 +1149,7 @@ impl IFaxDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderUniqueName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprovideruniquename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProviderUniqueName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprovideruniquename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ProviderUniqueName() {
@@ -1204,7 +1204,7 @@ impl IFaxDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Description() {
@@ -1215,7 +1215,7 @@ impl IFaxDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
@@ -1268,7 +1268,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             this.SetRingsBeforeAnswer(::core::mem::transmute_copy(&lringsbeforeanswer)).into()
         }
-        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CSID() {
@@ -1279,12 +1279,12 @@ impl IFaxDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCSID(::core::mem::transmute(&bstrcsid)).into()
         }
-        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TSID() {
@@ -1295,7 +1295,7 @@ impl IFaxDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTSID(::core::mem::transmute(&bstrtsid)).into()
@@ -1310,7 +1310,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             this.Save().into()
         }
-        unsafe extern "system" fn GetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetExtensionProperty(::core::mem::transmute(&bstrguid)) {
@@ -1321,12 +1321,12 @@ impl IFaxDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetExtensionProperty(::core::mem::transmute(&bstrguid), ::core::mem::transmute(&vproperty)).into()
         }
-        unsafe extern "system" fn UseRoutingMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethodguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, buse: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UseRoutingMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethodguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, buse: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UseRoutingMethod(::core::mem::transmute(&bstrmethodguid), ::core::mem::transmute_copy(&buse)).into()
@@ -1459,10 +1459,10 @@ impl IFaxDeviceIds_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDeviceProvider_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ImageName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UniqueName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TapiProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ImageName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn UniqueName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn TapiProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn MajorVersion(&self) -> ::windows::core::Result<i32>;
     fn MinorVersion(&self) -> ::windows::core::Result<i32>;
     fn MajorBuild(&self) -> ::windows::core::Result<i32>;
@@ -1477,7 +1477,7 @@ impl ::windows::core::RuntimeName for IFaxDeviceProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDeviceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>() -> IFaxDeviceProvider_Vtbl {
-        unsafe extern "system" fn FriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FriendlyName() {
@@ -1488,7 +1488,7 @@ impl IFaxDeviceProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrimagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrimagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImageName() {
@@ -1499,7 +1499,7 @@ impl IFaxDeviceProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UniqueName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruniquename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UniqueName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruniquename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UniqueName() {
@@ -1510,7 +1510,7 @@ impl IFaxDeviceProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TapiProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtapiprovidername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TapiProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtapiprovidername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TapiProviderName() {
@@ -1754,22 +1754,22 @@ impl IFaxDevices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDocument_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Body(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBody(&self, bstrbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Body(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetBody(&self, bstrbody: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Sender(&self) -> ::windows::core::Result<IFaxSender>;
     fn Recipients(&self) -> ::windows::core::Result<IFaxRecipients>;
-    fn CoverPage(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCoverPage(&self, bstrcoverpage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSubject(&self, bstrsubject: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Note(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNote(&self, bstrnote: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CoverPage(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetCoverPage(&self, bstrcoverpage: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Subject(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSubject(&self, bstrsubject: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Note(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetNote(&self, bstrnote: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ScheduleTime(&self) -> ::windows::core::Result<f64>;
     fn SetScheduleTime(&self, datescheduletime: f64) -> ::windows::core::Result<()>;
-    fn ReceiptAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetReceiptAddress(&self, bstrreceiptaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDocumentName(&self, bstrdocumentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReceiptAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetReceiptAddress(&self, bstrreceiptaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn DocumentName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetDocumentName(&self, bstrdocumentname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn CallHandle(&self) -> ::windows::core::Result<i32>;
     fn SetCallHandle(&self, lcallhandle: i32) -> ::windows::core::Result<()>;
     fn CoverPageType(&self) -> ::windows::core::Result<FAX_COVERPAGE_TYPE_ENUM>;
@@ -1784,7 +1784,7 @@ pub trait IFaxDocument_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::Result<()>;
     fn TapiConnection(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn putref_TapiConnection(&self, ptapiconnection: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn Submit(&self, bstrfaxservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Submit(&self, bstrfaxservername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn ConnectedSubmit(&self, pfaxserver: &::core::option::Option<IFaxServer>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn AttachFaxToReceipt(&self) -> ::windows::core::Result<i16>;
     fn SetAttachFaxToReceipt(&self, battachfax: i16) -> ::windows::core::Result<()>;
@@ -1794,7 +1794,7 @@ impl ::windows::core::RuntimeName for IFaxDocument {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDocument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>() -> IFaxDocument_Vtbl {
-        unsafe extern "system" fn Body<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbody: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Body<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbody: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Body() {
@@ -1805,7 +1805,7 @@ impl IFaxDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbody: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBody(::core::mem::transmute(&bstrbody)).into()
@@ -1832,7 +1832,7 @@ impl IFaxDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CoverPage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcoverpage: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CoverPage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcoverpage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CoverPage() {
@@ -1843,12 +1843,12 @@ impl IFaxDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCoverPage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcoverpage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoverPage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcoverpage: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCoverPage(::core::mem::transmute(&bstrcoverpage)).into()
         }
-        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Subject() {
@@ -1859,12 +1859,12 @@ impl IFaxDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSubject(::core::mem::transmute(&bstrsubject)).into()
         }
-        unsafe extern "system" fn Note<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnote: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Note<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnote: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Note() {
@@ -1875,7 +1875,7 @@ impl IFaxDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNote<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnote: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNote<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnote: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNote(::core::mem::transmute(&bstrnote)).into()
@@ -1896,7 +1896,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             this.SetScheduleTime(::core::mem::transmute_copy(&datescheduletime)).into()
         }
-        unsafe extern "system" fn ReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReceiptAddress() {
@@ -1907,12 +1907,12 @@ impl IFaxDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreceiptaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreceiptaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetReceiptAddress(::core::mem::transmute(&bstrreceiptaddress)).into()
         }
-        unsafe extern "system" fn DocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DocumentName() {
@@ -1923,7 +1923,7 @@ impl IFaxDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdocumentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdocumentname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDocumentName(::core::mem::transmute(&bstrdocumentname)).into()
@@ -2040,7 +2040,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             this.putref_TapiConnection(::core::mem::transmute(&ptapiconnection)).into()
         }
-        unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Submit(::core::mem::transmute(&bstrfaxservername)) {
@@ -2122,10 +2122,10 @@ impl IFaxDocument_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDocument2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxDocument_Impl {
-    fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SubmissionId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Bodies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetBodies(&self, vbodies: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit2(&self, bstrfaxservername: &super::super::Foundation::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
+    fn Submit2(&self, bstrfaxservername: &::windows::core::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
     fn ConnectedSubmit2(&self, pfaxserver: &::core::option::Option<IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2133,7 +2133,7 @@ impl ::windows::core::RuntimeName for IFaxDocument2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDocument2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>() -> IFaxDocument2_Vtbl {
-        unsafe extern "system" fn SubmissionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubmissionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SubmissionId() {
@@ -2160,7 +2160,7 @@ impl IFaxDocument2_Vtbl {
             let this = (*this).get_impl();
             this.SetBodies(::core::mem::transmute(&vbodies)).into()
         }
-        unsafe extern "system" fn Submit2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Submit2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Submit2(::core::mem::transmute(&bstrfaxservername), ::core::mem::transmute_copy(&pvfaxoutgoingjobids), ::core::mem::transmute_copy(&plerrorbodyfile)).into()
@@ -2405,9 +2405,9 @@ impl IFaxInboundRouting_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxInboundRoutingExtension_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ImageName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UniqueName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ImageName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn UniqueName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn MajorVersion(&self) -> ::windows::core::Result<i32>;
     fn MinorVersion(&self) -> ::windows::core::Result<i32>;
     fn MajorBuild(&self) -> ::windows::core::Result<i32>;
@@ -2422,7 +2422,7 @@ impl ::windows::core::RuntimeName for IFaxInboundRoutingExtension {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxInboundRoutingExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>() -> IFaxInboundRoutingExtension_Vtbl {
-        unsafe extern "system" fn FriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FriendlyName() {
@@ -2433,7 +2433,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrimagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrimagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ImageName() {
@@ -2444,7 +2444,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UniqueName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruniquename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UniqueName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruniquename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UniqueName() {
@@ -2619,11 +2619,11 @@ impl IFaxInboundRoutingExtensions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxInboundRoutingMethod_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn FunctionName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ExtensionFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ExtensionImageName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GUID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn FunctionName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ExtensionFriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ExtensionImageName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Priority(&self) -> ::windows::core::Result<i32>;
     fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
@@ -2634,7 +2634,7 @@ impl ::windows::core::RuntimeName for IFaxInboundRoutingMethod {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxInboundRoutingMethod_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>() -> IFaxInboundRoutingMethod_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -2645,7 +2645,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GUID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GUID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GUID() {
@@ -2656,7 +2656,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FunctionName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfunctionname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FunctionName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfunctionname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FunctionName() {
@@ -2667,7 +2667,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtensionFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextensionfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtensionFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextensionfriendlyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExtensionFriendlyName() {
@@ -2678,7 +2678,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtensionImageName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextensionimagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtensionImageName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextensionimagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExtensionImageName() {
@@ -2791,8 +2791,8 @@ impl IFaxInboundRoutingMethods_Vtbl {
 pub trait IFaxIncomingArchive_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UseArchive(&self) -> ::windows::core::Result<i16>;
     fn SetUseArchive(&self, busearchive: i16) -> ::windows::core::Result<()>;
-    fn ArchiveFolder(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetArchiveFolder(&self, bstrarchivefolder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ArchiveFolder(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetArchiveFolder(&self, bstrarchivefolder: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SizeQuotaWarning(&self) -> ::windows::core::Result<i16>;
     fn SetSizeQuotaWarning(&self, bsizequotawarning: i16) -> ::windows::core::Result<()>;
     fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32>;
@@ -2806,7 +2806,7 @@ pub trait IFaxIncomingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator>;
-    fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
+    fn GetMessage(&self, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxIncomingArchive {}
@@ -2829,7 +2829,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             this.SetUseArchive(::core::mem::transmute_copy(&busearchive)).into()
         }
-        unsafe extern "system" fn ArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivefolder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivefolder: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ArchiveFolder() {
@@ -2840,7 +2840,7 @@ impl IFaxIncomingArchive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetArchiveFolder(::core::mem::transmute(&bstrarchivefolder)).into()
@@ -2952,7 +2952,7 @@ impl IFaxIncomingArchive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxincomingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMessage(::core::mem::transmute(&bstrmessageid)) {
@@ -2992,24 +2992,24 @@ impl IFaxIncomingArchive_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxIncomingJob_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Size(&self) -> ::windows::core::Result<i32>;
-    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CurrentPage(&self) -> ::windows::core::Result<i32>;
     fn DeviceId(&self) -> ::windows::core::Result<i32>;
     fn Status(&self) -> ::windows::core::Result<FAX_JOB_STATUS_ENUM>;
     fn ExtendedStatusCode(&self) -> ::windows::core::Result<FAX_JOB_EXTENDED_STATUS_ENUM>;
-    fn ExtendedStatus(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ExtendedStatus(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AvailableOperations(&self) -> ::windows::core::Result<FAX_JOB_OPERATIONS_ENUM>;
     fn Retries(&self) -> ::windows::core::Result<i32>;
     fn TransmissionStart(&self) -> ::windows::core::Result<f64>;
     fn TransmissionEnd(&self) -> ::windows::core::Result<f64>;
-    fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn TSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn CallerId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn RoutingInformation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn JobType(&self) -> ::windows::core::Result<FAX_JOB_TYPE_ENUM>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn CopyTiff(&self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyTiff(&self, bstrtiffpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxIncomingJob {}
@@ -3027,7 +3027,7 @@ impl IFaxIncomingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Id() {
@@ -3082,7 +3082,7 @@ impl IFaxIncomingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExtendedStatus() {
@@ -3137,7 +3137,7 @@ impl IFaxIncomingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CSID() {
@@ -3148,7 +3148,7 @@ impl IFaxIncomingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TSID() {
@@ -3159,7 +3159,7 @@ impl IFaxIncomingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallerId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CallerId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CallerId() {
@@ -3170,7 +3170,7 @@ impl IFaxIncomingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoutingInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RoutingInformation() {
@@ -3202,7 +3202,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
@@ -3291,18 +3291,18 @@ impl IFaxIncomingJobs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxIncomingMessage_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Pages(&self) -> ::windows::core::Result<i32>;
     fn Size(&self) -> ::windows::core::Result<i32>;
-    fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DeviceName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Retries(&self) -> ::windows::core::Result<i32>;
     fn TransmissionStart(&self) -> ::windows::core::Result<f64>;
     fn TransmissionEnd(&self) -> ::windows::core::Result<f64>;
-    fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CopyTiff(&self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn TSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn CallerId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn RoutingInformation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn CopyTiff(&self, bstrtiffpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3310,7 +3310,7 @@ impl ::windows::core::RuntimeName for IFaxIncomingMessage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>() -> IFaxIncomingMessage_Vtbl {
-        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Id() {
@@ -3343,7 +3343,7 @@ impl IFaxIncomingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceName() {
@@ -3387,7 +3387,7 @@ impl IFaxIncomingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CSID() {
@@ -3398,7 +3398,7 @@ impl IFaxIncomingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TSID() {
@@ -3409,7 +3409,7 @@ impl IFaxIncomingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallerId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CallerId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CallerId() {
@@ -3420,7 +3420,7 @@ impl IFaxIncomingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoutingInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RoutingInformation() {
@@ -3431,7 +3431,7 @@ impl IFaxIncomingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
@@ -3464,16 +3464,16 @@ impl IFaxIncomingMessage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxIncomingMessage2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxIncomingMessage_Impl {
-    fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSubject(&self, bstrsubject: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SenderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSenderName(&self, bstrsendername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SenderFaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSenderFaxNumber(&self, bstrsenderfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Subject(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSubject(&self, bstrsubject: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn SenderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSenderName(&self, bstrsendername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn SenderFaxNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSenderFaxNumber(&self, bstrsenderfaxnumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn HasCoverPage(&self) -> ::windows::core::Result<i16>;
     fn SetHasCoverPage(&self, bhascoverpage: i16) -> ::windows::core::Result<()>;
-    fn Recipients(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRecipients(&self, bstrrecipients: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Recipients(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetRecipients(&self, bstrrecipients: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn WasReAssigned(&self) -> ::windows::core::Result<i16>;
     fn Read(&self) -> ::windows::core::Result<i16>;
     fn SetRead(&self, bread: i16) -> ::windows::core::Result<()>;
@@ -3486,7 +3486,7 @@ impl ::windows::core::RuntimeName for IFaxIncomingMessage2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingMessage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>() -> IFaxIncomingMessage2_Vtbl {
-        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Subject() {
@@ -3497,12 +3497,12 @@ impl IFaxIncomingMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSubject(::core::mem::transmute(&bstrsubject)).into()
         }
-        unsafe extern "system" fn SenderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsendername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SenderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsendername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SenderName() {
@@ -3513,12 +3513,12 @@ impl IFaxIncomingMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsendername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSenderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsendername: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSenderName(::core::mem::transmute(&bstrsendername)).into()
         }
-        unsafe extern "system" fn SenderFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsenderfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SenderFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsenderfaxnumber: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SenderFaxNumber() {
@@ -3529,7 +3529,7 @@ impl IFaxIncomingMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsenderfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSenderFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsenderfaxnumber: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSenderFaxNumber(::core::mem::transmute(&bstrsenderfaxnumber)).into()
@@ -3550,7 +3550,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             this.SetHasCoverPage(::core::mem::transmute_copy(&bhascoverpage)).into()
         }
-        unsafe extern "system" fn Recipients<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrecipients: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Recipients<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrecipients: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Recipients() {
@@ -3561,7 +3561,7 @@ impl IFaxIncomingMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRecipients<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrecipients: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRecipients<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrecipients: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRecipients(::core::mem::transmute(&bstrrecipients)).into()
@@ -3715,7 +3715,7 @@ pub trait IFaxIncomingQueue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
     fn GetJobs(&self) -> ::windows::core::Result<IFaxIncomingJobs>;
-    fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
+    fn GetJob(&self, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxIncomingQueue {}
@@ -3759,7 +3759,7 @@ impl IFaxIncomingQueue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxIncomingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxincomingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetJob(::core::mem::transmute(&bstrjobid)) {
@@ -3791,18 +3791,18 @@ pub trait IFaxJobStatus_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Size(&self) -> ::windows::core::Result<i32>;
     fn CurrentPage(&self) -> ::windows::core::Result<i32>;
     fn DeviceId(&self) -> ::windows::core::Result<i32>;
-    fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn TSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ExtendedStatusCode(&self) -> ::windows::core::Result<FAX_JOB_EXTENDED_STATUS_ENUM>;
-    fn ExtendedStatus(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ExtendedStatus(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AvailableOperations(&self) -> ::windows::core::Result<FAX_JOB_OPERATIONS_ENUM>;
     fn Retries(&self) -> ::windows::core::Result<i32>;
     fn JobType(&self) -> ::windows::core::Result<FAX_JOB_TYPE_ENUM>;
     fn ScheduledTime(&self) -> ::windows::core::Result<f64>;
     fn TransmissionStart(&self) -> ::windows::core::Result<f64>;
     fn TransmissionEnd(&self) -> ::windows::core::Result<f64>;
-    fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CallerId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn RoutingInformation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxJobStatus {}
@@ -3864,7 +3864,7 @@ impl IFaxJobStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CSID() {
@@ -3875,7 +3875,7 @@ impl IFaxJobStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TSID() {
@@ -3897,7 +3897,7 @@ impl IFaxJobStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExtendedStatus() {
@@ -3974,7 +3974,7 @@ impl IFaxJobStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallerId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CallerId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CallerId() {
@@ -3985,7 +3985,7 @@ impl IFaxJobStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoutingInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxJobStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RoutingInformation() {
@@ -4107,7 +4107,7 @@ impl IFaxOutboundRouting_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutboundRoutingGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Status(&self) -> ::windows::core::Result<FAX_GROUP_STATUS_ENUM>;
     fn DeviceIds(&self) -> ::windows::core::Result<IFaxDeviceIds>;
 }
@@ -4116,7 +4116,7 @@ impl ::windows::core::RuntimeName for IFaxOutboundRoutingGroup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRoutingGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroup_Impl, const OFFSET: isize>() -> IFaxOutboundRoutingGroup_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -4165,7 +4165,7 @@ pub trait IFaxOutboundRoutingGroups_Impl: Sized + super::super::System::Com::IDi
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
+    fn Add(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
     fn Remove(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4206,7 +4206,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutboundroutinggroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxoutboundroutinggroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&bstrname)) {
@@ -4244,8 +4244,8 @@ pub trait IFaxOutboundRoutingRule_Impl: Sized + super::super::System::Com::IDisp
     fn SetUseDevice(&self, busedevice: i16) -> ::windows::core::Result<()>;
     fn DeviceId(&self) -> ::windows::core::Result<i32>;
     fn SetDeviceId(&self, deviceid: i32) -> ::windows::core::Result<()>;
-    fn GroupName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetGroupName(&self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GroupName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetGroupName(&self, bstrgroupname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
 }
@@ -4319,7 +4319,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             this.SetDeviceId(::core::mem::transmute_copy(&deviceid)).into()
         }
-        unsafe extern "system" fn GroupName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgroupname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GroupName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgroupname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GroupName() {
@@ -4330,7 +4330,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroupName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGroupName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGroupName(::core::mem::transmute(&bstrgroupname)).into()
@@ -4372,7 +4372,7 @@ pub trait IFaxOutboundRoutingRules_Impl: Sized + super::super::System::Com::IDis
     fn ItemByCountryAndArea(&self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
     fn RemoveByCountryAndArea(&self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<()>;
     fn Remove(&self, lindex: i32) -> ::windows::core::Result<()>;
-    fn Add(&self, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: &super::super::Foundation::BSTR, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
+    fn Add(&self, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: &::windows::core::BSTR, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxOutboundRoutingRules {}
@@ -4433,7 +4433,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute_copy(&lindex)).into()
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldeviceid: i32, pfaxoutboundroutingrule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ldeviceid: i32, pfaxoutboundroutingrule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute_copy(&lcountrycode), ::core::mem::transmute_copy(&lareacode), ::core::mem::transmute_copy(&busedevice), ::core::mem::transmute(&bstrgroupname), ::core::mem::transmute_copy(&ldeviceid)) {
@@ -4463,8 +4463,8 @@ impl IFaxOutboundRoutingRules_Vtbl {
 pub trait IFaxOutgoingArchive_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UseArchive(&self) -> ::windows::core::Result<i16>;
     fn SetUseArchive(&self, busearchive: i16) -> ::windows::core::Result<()>;
-    fn ArchiveFolder(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetArchiveFolder(&self, bstrarchivefolder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ArchiveFolder(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetArchiveFolder(&self, bstrarchivefolder: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SizeQuotaWarning(&self) -> ::windows::core::Result<i16>;
     fn SetSizeQuotaWarning(&self, bsizequotawarning: i16) -> ::windows::core::Result<()>;
     fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32>;
@@ -4478,7 +4478,7 @@ pub trait IFaxOutgoingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator>;
-    fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
+    fn GetMessage(&self, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxOutgoingArchive {}
@@ -4501,7 +4501,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             this.SetUseArchive(::core::mem::transmute_copy(&busearchive)).into()
         }
-        unsafe extern "system" fn ArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivefolder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivefolder: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ArchiveFolder() {
@@ -4512,7 +4512,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetArchiveFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetArchiveFolder(::core::mem::transmute(&bstrarchivefolder)).into()
@@ -4624,7 +4624,7 @@ impl IFaxOutgoingArchive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxoutgoingmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMessage(::core::mem::transmute(&bstrmessageid)) {
@@ -4663,12 +4663,12 @@ impl IFaxOutgoingArchive_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutgoingJob_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Subject(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn DocumentName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Pages(&self) -> ::windows::core::Result<i32>;
     fn Size(&self) -> ::windows::core::Result<i32>;
-    fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SubmissionId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn OriginalScheduledTime(&self) -> ::windows::core::Result<f64>;
     fn SubmissionTime(&self) -> ::windows::core::Result<f64>;
     fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM>;
@@ -4679,19 +4679,19 @@ pub trait IFaxOutgoingJob_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn DeviceId(&self) -> ::windows::core::Result<i32>;
     fn Status(&self) -> ::windows::core::Result<FAX_JOB_STATUS_ENUM>;
     fn ExtendedStatusCode(&self) -> ::windows::core::Result<FAX_JOB_EXTENDED_STATUS_ENUM>;
-    fn ExtendedStatus(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ExtendedStatus(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AvailableOperations(&self) -> ::windows::core::Result<FAX_JOB_OPERATIONS_ENUM>;
     fn Retries(&self) -> ::windows::core::Result<i32>;
     fn ScheduledTime(&self) -> ::windows::core::Result<f64>;
     fn TransmissionStart(&self) -> ::windows::core::Result<f64>;
     fn TransmissionEnd(&self) -> ::windows::core::Result<f64>;
-    fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn TSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GroupBroadcastReceipts(&self) -> ::windows::core::Result<i16>;
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn Restart(&self) -> ::windows::core::Result<()>;
-    fn CopyTiff(&self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyTiff(&self, bstrtiffpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
@@ -4700,7 +4700,7 @@ impl ::windows::core::RuntimeName for IFaxOutgoingJob {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>() -> IFaxOutgoingJob_Vtbl {
-        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Subject() {
@@ -4711,7 +4711,7 @@ impl IFaxOutgoingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DocumentName() {
@@ -4744,7 +4744,7 @@ impl IFaxOutgoingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubmissionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubmissionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SubmissionId() {
@@ -4755,7 +4755,7 @@ impl IFaxOutgoingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Id() {
@@ -4876,7 +4876,7 @@ impl IFaxOutgoingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExtendedStatus() {
@@ -4942,7 +4942,7 @@ impl IFaxOutgoingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CSID() {
@@ -4953,7 +4953,7 @@ impl IFaxOutgoingJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TSID() {
@@ -4990,7 +4990,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             this.Restart().into()
         }
-        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
@@ -5047,7 +5047,7 @@ impl IFaxOutgoingJob_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutgoingJob2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxOutgoingJob_Impl {
     fn HasCoverPage(&self) -> ::windows::core::Result<i16>;
-    fn ReceiptAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ReceiptAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5066,7 +5066,7 @@ impl IFaxOutgoingJob2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReceiptAddress() {
@@ -5156,10 +5156,10 @@ impl IFaxOutgoingJobs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutgoingMessage_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SubmissionId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Subject(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn DocumentName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Retries(&self) -> ::windows::core::Result<i32>;
     fn Pages(&self) -> ::windows::core::Result<i32>;
     fn Size(&self) -> ::windows::core::Result<i32>;
@@ -5168,12 +5168,12 @@ pub trait IFaxOutgoingMessage_Impl: Sized + super::super::System::Com::IDispatch
     fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM>;
     fn Sender(&self) -> ::windows::core::Result<IFaxSender>;
     fn Recipient(&self) -> ::windows::core::Result<IFaxRecipient>;
-    fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DeviceName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn TransmissionStart(&self) -> ::windows::core::Result<f64>;
     fn TransmissionEnd(&self) -> ::windows::core::Result<f64>;
-    fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CopyTiff(&self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn TSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn CopyTiff(&self, bstrtiffpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5181,7 +5181,7 @@ impl ::windows::core::RuntimeName for IFaxOutgoingMessage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>() -> IFaxOutgoingMessage_Vtbl {
-        unsafe extern "system" fn SubmissionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubmissionId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SubmissionId() {
@@ -5192,7 +5192,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Id() {
@@ -5203,7 +5203,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Subject() {
@@ -5214,7 +5214,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DocumentName() {
@@ -5313,7 +5313,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceName() {
@@ -5346,7 +5346,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CSID() {
@@ -5357,7 +5357,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TSID() {
@@ -5368,7 +5368,7 @@ impl IFaxOutgoingMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
@@ -5409,7 +5409,7 @@ impl IFaxOutgoingMessage_Vtbl {
 pub trait IFaxOutgoingMessage2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxOutgoingMessage_Impl {
     fn HasCoverPage(&self) -> ::windows::core::Result<i16>;
     fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM>;
-    fn ReceiptAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ReceiptAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Read(&self) -> ::windows::core::Result<i16>;
     fn SetRead(&self, bread: i16) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
@@ -5442,7 +5442,7 @@ impl IFaxOutgoingMessage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReceiptAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReceiptAddress() {
@@ -5595,7 +5595,7 @@ pub trait IFaxOutgoingQueue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
     fn GetJobs(&self) -> ::windows::core::Result<IFaxOutgoingJobs>;
-    fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
+    fn GetJob(&self, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxOutgoingQueue {}
@@ -5783,7 +5783,7 @@ impl IFaxOutgoingQueue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxOutgoingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfaxoutgoingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetJob(::core::mem::transmute(&bstrjobid)) {
@@ -5830,18 +5830,18 @@ impl IFaxOutgoingQueue_Vtbl {
 pub trait IFaxReceiptOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AuthenticationType(&self) -> ::windows::core::Result<FAX_SMTP_AUTHENTICATION_TYPE_ENUM>;
     fn SetAuthenticationType(&self, r#type: FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::Result<()>;
-    fn SMTPServer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPServer(&self, bstrsmtpserver: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SMTPServer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSMTPServer(&self, bstrsmtpserver: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SMTPPort(&self) -> ::windows::core::Result<i32>;
     fn SetSMTPPort(&self, lsmtpport: i32) -> ::windows::core::Result<()>;
-    fn SMTPSender(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPSender(&self, bstrsmtpsender: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SMTPUser(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPUser(&self, bstrsmtpuser: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SMTPSender(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSMTPSender(&self, bstrsmtpsender: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn SMTPUser(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSMTPUser(&self, bstrsmtpuser: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AllowedReceipts(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM>;
     fn SetAllowedReceipts(&self, allowedreceipts: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()>;
-    fn SMTPPassword(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPPassword(&self, bstrsmtppassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SMTPPassword(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetSMTPPassword(&self, bstrsmtppassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
     fn UseForInboundRouting(&self) -> ::windows::core::Result<i16>;
@@ -5868,7 +5868,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             this.SetAuthenticationType(::core::mem::transmute_copy(&r#type)).into()
         }
-        unsafe extern "system" fn SMTPServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpserver: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SMTPServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpserver: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SMTPServer() {
@@ -5879,7 +5879,7 @@ impl IFaxReceiptOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSMTPServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpserver: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSMTPServer(::core::mem::transmute(&bstrsmtpserver)).into()
@@ -5900,7 +5900,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             this.SetSMTPPort(::core::mem::transmute_copy(&lsmtpport)).into()
         }
-        unsafe extern "system" fn SMTPSender<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpsender: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SMTPSender<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpsender: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SMTPSender() {
@@ -5911,12 +5911,12 @@ impl IFaxReceiptOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPSender<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpsender: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSMTPSender<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpsender: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSMTPSender(::core::mem::transmute(&bstrsmtpsender)).into()
         }
-        unsafe extern "system" fn SMTPUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpuser: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SMTPUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpuser: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SMTPUser() {
@@ -5927,7 +5927,7 @@ impl IFaxReceiptOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSMTPUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpuser: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSMTPUser(::core::mem::transmute(&bstrsmtpuser)).into()
@@ -5948,7 +5948,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             this.SetAllowedReceipts(::core::mem::transmute_copy(&allowedreceipts)).into()
         }
-        unsafe extern "system" fn SMTPPassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtppassword: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SMTPPassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtppassword: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SMTPPassword() {
@@ -5959,7 +5959,7 @@ impl IFaxReceiptOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSMTPPassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtppassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSMTPPassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtppassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSMTPPassword(::core::mem::transmute(&bstrsmtppassword)).into()
@@ -6018,17 +6018,17 @@ impl IFaxReceiptOptions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxRecipient_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFaxNumber(&self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FaxNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFaxNumber(&self, bstrfaxnumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetName(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxRecipient {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxRecipient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>() -> IFaxRecipient_Vtbl {
-        unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FaxNumber() {
@@ -6039,12 +6039,12 @@ impl IFaxRecipient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFaxNumber(::core::mem::transmute(&bstrfaxnumber)).into()
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -6055,7 +6055,7 @@ impl IFaxRecipient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
@@ -6077,7 +6077,7 @@ pub trait IFaxRecipients_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn get_Item(&self, lindex: i32) -> ::windows::core::Result<IFaxRecipient>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, bstrfaxnumber: &super::super::Foundation::BSTR, bstrrecipientname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxRecipient>;
+    fn Add(&self, bstrfaxnumber: &::windows::core::BSTR, bstrrecipientname: &::windows::core::BSTR) -> ::windows::core::Result<IFaxRecipient>;
     fn Remove(&self, lindex: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6118,7 +6118,7 @@ impl IFaxRecipients_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipients_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrecipientname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfaxrecipient: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxRecipients_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrrecipientname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppfaxrecipient: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&bstrfaxnumber), ::core::mem::transmute(&bstrrecipientname)) {
@@ -6315,38 +6315,38 @@ impl IFaxSecurity2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxSender_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn BillingCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBillingCode(&self, bstrbillingcode: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn City(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCity(&self, bstrcity: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Company(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCompany(&self, bstrcompany: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Country(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCountry(&self, bstrcountry: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Department(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDepartment(&self, bstrdepartment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Email(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEmail(&self, bstremail: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFaxNumber(&self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn HomePhone(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHomePhone(&self, bstrhomephone: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTSID(&self, bstrtsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OfficePhone(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOfficePhone(&self, bstrofficephone: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OfficeLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOfficeLocation(&self, bstrofficelocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn State(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetState(&self, bstrstate: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StreetAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStreetAddress(&self, bstrstreetaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTitle(&self, bstrtitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ZipCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetZipCode(&self, bstrzipcode: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BillingCode(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetBillingCode(&self, bstrbillingcode: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn City(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetCity(&self, bstrcity: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Company(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetCompany(&self, bstrcompany: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Country(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetCountry(&self, bstrcountry: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Department(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetDepartment(&self, bstrdepartment: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Email(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetEmail(&self, bstremail: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn FaxNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFaxNumber(&self, bstrfaxnumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn HomePhone(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetHomePhone(&self, bstrhomephone: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetName(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn TSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetTSID(&self, bstrtsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OfficePhone(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetOfficePhone(&self, bstrofficephone: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OfficeLocation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetOfficeLocation(&self, bstrofficelocation: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn State(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetState(&self, bstrstate: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn StreetAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetStreetAddress(&self, bstrstreetaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn Title(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetTitle(&self, bstrtitle: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ZipCode(&self) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetZipCode(&self, bstrzipcode: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn LoadDefaultSender(&self) -> ::windows::core::Result<()>;
     fn SaveDefaultSender(&self) -> ::windows::core::Result<()>;
 }
@@ -6355,7 +6355,7 @@ impl ::windows::core::RuntimeName for IFaxSender {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxSender_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>() -> IFaxSender_Vtbl {
-        unsafe extern "system" fn BillingCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbillingcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BillingCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbillingcode: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BillingCode() {
@@ -6366,12 +6366,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBillingCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbillingcode: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBillingCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbillingcode: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBillingCode(::core::mem::transmute(&bstrbillingcode)).into()
         }
-        unsafe extern "system" fn City<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcity: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn City<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcity: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.City() {
@@ -6382,12 +6382,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcity: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcity: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCity(::core::mem::transmute(&bstrcity)).into()
         }
-        unsafe extern "system" fn Company<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcompany: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Company<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcompany: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Company() {
@@ -6398,12 +6398,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCompany<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcompany: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCompany<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcompany: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCompany(::core::mem::transmute(&bstrcompany)).into()
         }
-        unsafe extern "system" fn Country<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcountry: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Country<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcountry: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Country() {
@@ -6414,12 +6414,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCountry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcountry: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCountry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcountry: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCountry(::core::mem::transmute(&bstrcountry)).into()
         }
-        unsafe extern "system" fn Department<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdepartment: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Department<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdepartment: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Department() {
@@ -6430,12 +6430,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDepartment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdepartment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDepartment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdepartment: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDepartment(::core::mem::transmute(&bstrdepartment)).into()
         }
-        unsafe extern "system" fn Email<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstremail: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Email<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstremail: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Email() {
@@ -6446,12 +6446,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEmail<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstremail: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEmail<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstremail: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEmail(::core::mem::transmute(&bstremail)).into()
         }
-        unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FaxNumber() {
@@ -6462,12 +6462,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFaxNumber(::core::mem::transmute(&bstrfaxnumber)).into()
         }
-        unsafe extern "system" fn HomePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrhomephone: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HomePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrhomephone: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HomePhone() {
@@ -6478,12 +6478,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHomePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhomephone: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHomePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhomephone: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHomePhone(::core::mem::transmute(&bstrhomephone)).into()
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -6494,12 +6494,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
-        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TSID() {
@@ -6510,12 +6510,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTSID(::core::mem::transmute(&bstrtsid)).into()
         }
-        unsafe extern "system" fn OfficePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficephone: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OfficePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficephone: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OfficePhone() {
@@ -6526,12 +6526,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOfficePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficephone: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOfficePhone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficephone: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOfficePhone(::core::mem::transmute(&bstrofficephone)).into()
         }
-        unsafe extern "system" fn OfficeLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficelocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OfficeLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficelocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OfficeLocation() {
@@ -6542,12 +6542,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOfficeLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficelocation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOfficeLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficelocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOfficeLocation(::core::mem::transmute(&bstrofficelocation)).into()
         }
-        unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstate: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstate: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.State() {
@@ -6558,12 +6558,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstate: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstate: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetState(::core::mem::transmute(&bstrstate)).into()
         }
-        unsafe extern "system" fn StreetAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstreetaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreetAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstreetaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StreetAddress() {
@@ -6574,12 +6574,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreetAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstreetaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStreetAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstreetaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStreetAddress(::core::mem::transmute(&bstrstreetaddress)).into()
         }
-        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtitle: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Title() {
@@ -6590,12 +6590,12 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtitle: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTitle(::core::mem::transmute(&bstrtitle)).into()
         }
-        unsafe extern "system" fn ZipCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrzipcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ZipCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrzipcode: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ZipCode() {
@@ -6606,7 +6606,7 @@ impl IFaxSender_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetZipCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrzipcode: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetZipCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrzipcode: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetZipCode(::core::mem::transmute(&bstrzipcode)).into()
@@ -6665,8 +6665,8 @@ impl IFaxSender_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxServer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Connect(&self, bstrservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ServerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Connect(&self, bstrservername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ServerName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetDeviceProviders(&self) -> ::windows::core::Result<IFaxDeviceProviders>;
     fn GetDevices(&self) -> ::windows::core::Result<IFaxDevices>;
     fn InboundRouting(&self) -> ::windows::core::Result<IFaxInboundRouting>;
@@ -6682,13 +6682,13 @@ pub trait IFaxServer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ReceiptOptions(&self) -> ::windows::core::Result<IFaxReceiptOptions>;
     fn Security(&self) -> ::windows::core::Result<IFaxSecurity>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
-    fn GetExtensionProperty(&self, bstrguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetExtensionProperty(&self, bstrguid: &super::super::Foundation::BSTR, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()>;
-    fn RegisterDeviceProvider(&self, bstrguid: &super::super::Foundation::BSTR, bstrfriendlyname: &super::super::Foundation::BSTR, bstrimagename: &super::super::Foundation::BSTR, tspname: &super::super::Foundation::BSTR, lfspiversion: i32) -> ::windows::core::Result<()>;
-    fn UnregisterDeviceProvider(&self, bstruniquename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RegisterInboundRoutingExtension(&self, bstrextensionname: &super::super::Foundation::BSTR, bstrfriendlyname: &super::super::Foundation::BSTR, bstrimagename: &super::super::Foundation::BSTR, vmethods: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn UnregisterInboundRoutingExtension(&self, bstrextensionuniquename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterDeviceProvider(&self, bstrguid: &::windows::core::BSTR, bstrfriendlyname: &::windows::core::BSTR, bstrimagename: &::windows::core::BSTR, tspname: &::windows::core::BSTR, lfspiversion: i32) -> ::windows::core::Result<()>;
+    fn UnregisterDeviceProvider(&self, bstruniquename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterInboundRoutingExtension(&self, bstrextensionname: &::windows::core::BSTR, bstrfriendlyname: &::windows::core::BSTR, bstrimagename: &::windows::core::BSTR, vmethods: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn UnregisterInboundRoutingExtension(&self, bstrextensionuniquename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn RegisteredEvents(&self) -> ::windows::core::Result<FAX_SERVER_EVENTS_TYPE_ENUM>;
     fn APIVersion(&self) -> ::windows::core::Result<FAX_SERVER_APIVERSION_ENUM>;
 }
@@ -6697,12 +6697,12 @@ impl ::windows::core::RuntimeName for IFaxServer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>() -> IFaxServer_Vtbl {
-        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Connect(::core::mem::transmute(&bstrservername)).into()
         }
-        unsafe extern "system" fn ServerName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrservername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrservername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServerName() {
@@ -6872,7 +6872,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             this.Disconnect().into()
         }
-        unsafe extern "system" fn GetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetExtensionProperty(::core::mem::transmute(&bstrguid)) {
@@ -6883,7 +6883,7 @@ impl IFaxServer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExtensionProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetExtensionProperty(::core::mem::transmute(&bstrguid), ::core::mem::transmute(&vproperty)).into()
@@ -6893,22 +6893,22 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             this.ListenToServerEvents(::core::mem::transmute_copy(&eventtypes)).into()
         }
-        unsafe extern "system" fn RegisterDeviceProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, tspname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lfspiversion: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterDeviceProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, tspname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lfspiversion: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RegisterDeviceProvider(::core::mem::transmute(&bstrguid), ::core::mem::transmute(&bstrfriendlyname), ::core::mem::transmute(&bstrimagename), ::core::mem::transmute(&tspname), ::core::mem::transmute_copy(&lfspiversion)).into()
         }
-        unsafe extern "system" fn UnregisterDeviceProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruniquename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterDeviceProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruniquename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UnregisterDeviceProvider(::core::mem::transmute(&bstruniquename)).into()
         }
-        unsafe extern "system" fn RegisterInboundRoutingExtension<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vmethods: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterInboundRoutingExtension<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vmethods: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RegisterInboundRoutingExtension(::core::mem::transmute(&bstrextensionname), ::core::mem::transmute(&bstrfriendlyname), ::core::mem::transmute(&bstrimagename), ::core::mem::transmute(&vmethods)).into()
         }
-        unsafe extern "system" fn UnregisterInboundRoutingExtension<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionuniquename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterInboundRoutingExtension<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionuniquename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UnregisterInboundRoutingExtension(::core::mem::transmute(&bstrextensionuniquename)).into()
@@ -7590,16 +7590,16 @@ impl IStillImageW_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IFaxAccountNotify_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR, faddedtoreceivefolder: i16) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR, fremovedfromreceivefolder: i16) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR, faddedtoreceivefolder: i16) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR, fremovedfromreceivefolder: i16) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn OnServerShutDown(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7607,52 +7607,52 @@ impl ::windows::core::RuntimeName for _IFaxAccountNotify {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IFaxAccountNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>() -> _IFaxAccountNotify_Vtbl {
-        unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, faddedtoreceivefolder: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, faddedtoreceivefolder: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&faddedtoreceivefolder)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fremovedfromreceivefolder: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fremovedfromreceivefolder: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
@@ -7683,16 +7683,16 @@ impl _IFaxAccountNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IFaxServerNotify2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn OnReceiptOptionsChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
     fn OnActivityLoggingConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
     fn OnSecurityConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
@@ -7705,7 +7705,7 @@ pub trait _IFaxServerNotify2_Impl: Sized + super::super::System::Com::IDispatch_
     fn OnOutboundRoutingRulesConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
     fn OnServerActivityChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::Result<()>;
     fn OnQueuesStatusChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>, boutgoingqueueblocked: i16, boutgoingqueuepaused: i16, bincomingqueueblocked: i16) -> ::windows::core::Result<()>;
-    fn OnNewCall(&self, pfaxserver: &::core::option::Option<IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnNewCall(&self, pfaxserver: &::core::option::Option<IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn OnServerShutDown(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
     fn OnDeviceStatusChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>, ldeviceid: i32, bpoweredoff: i16, bsending: i16, breceiving: i16, bringing: i16) -> ::windows::core::Result<()>;
     fn OnGeneralServerConfigChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
@@ -7715,52 +7715,52 @@ impl ::windows::core::RuntimeName for _IFaxServerNotify2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IFaxServerNotify2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>() -> _IFaxServerNotify2_Vtbl {
-        unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
-        unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnIncomingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
-        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
@@ -7825,7 +7825,7 @@ impl _IFaxServerNotify2_Vtbl {
             let this = (*this).get_impl();
             this.OnQueuesStatusChange(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&boutgoingqueueblocked), ::core::mem::transmute_copy(&boutgoingqueuepaused), ::core::mem::transmute_copy(&bincomingqueueblocked)).into()
         }
-        unsafe extern "system" fn OnNewCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, lcallid: i32, ldeviceid: i32, bstrcallerid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnNewCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, lcallid: i32, ldeviceid: i32, bstrcallerid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnNewCall(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&lcallid), ::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute(&bstrcallerid)).into()

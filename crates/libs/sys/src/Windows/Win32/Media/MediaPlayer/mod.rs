@@ -1884,16 +1884,13 @@ impl ::core::clone::Clone for TimedLevel {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub struct WMPContextMenuInfo {
     pub dwID: u32,
-    pub bstrMenuText: super::super::Foundation::BSTR,
-    pub bstrHelpText: super::super::Foundation::BSTR,
+    pub bstrMenuText: ::windows_sys::core::BSTR,
+    pub bstrHelpText: ::windows_sys::core::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WMPContextMenuInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WMPContextMenuInfo {
     fn clone(&self) -> Self {
         *self

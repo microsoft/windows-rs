@@ -2009,18 +2009,15 @@ impl IFEDictionary_Vtbl {
         iid == &<IFEDictionary as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IFELanguage_Impl: Sized {
     fn Open(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
     fn GetJMorphResult(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: &::windows::core::PCWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()>;
     fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPhonetic(&self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetConversion(&self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetPhonetic(&self, string: &::windows::core::BSTR, start: i32, length: i32, phonetic: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn GetConversion(&self, string: &::windows::core::BSTR, start: i32, length: i32, result: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IFELanguage {}
-#[cfg(feature = "Win32_Foundation")]
 impl IFELanguage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFELanguage_Impl, const OFFSET: isize>() -> IFELanguage_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2043,12 +2040,12 @@ impl IFELanguage_Vtbl {
             let this = (*this).get_impl();
             this.GetConversionModeCaps(::core::mem::transmute_copy(&pdwcaps)).into()
         }
-        unsafe extern "system" fn GetPhonetic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPhonetic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<::windows::core::BSTR>, start: i32, length: i32, phonetic: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPhonetic(::core::mem::transmute(&string), ::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&phonetic)).into()
         }
-        unsafe extern "system" fn GetConversion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConversion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<::windows::core::BSTR>, start: i32, length: i32, result: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetConversion(::core::mem::transmute(&string), ::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&result)).into()
@@ -2138,14 +2135,14 @@ impl IImePadApplet_Vtbl {
         iid == &<IImePadApplet as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IImePlugInDictDictionaryList_Impl: Sized {
     fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn DeleteDictionary(&self, bstrdictionaryguid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteDictionary(&self, bstrdictionaryguid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IImePlugInDictDictionaryList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IImePlugInDictDictionaryList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>() -> IImePlugInDictDictionaryList_Vtbl {
         unsafe extern "system" fn GetDictionariesInUse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -2153,7 +2150,7 @@ impl IImePlugInDictDictionaryList_Vtbl {
             let this = (*this).get_impl();
             this.GetDictionariesInUse(::core::mem::transmute_copy(&prgdictionaryguid), ::core::mem::transmute_copy(&prgdatecreated), ::core::mem::transmute_copy(&prgfencrypted)).into()
         }
-        unsafe extern "system" fn DeleteDictionary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdictionaryguid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteDictionary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdictionaryguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteDictionary(::core::mem::transmute(&bstrdictionaryguid)).into()

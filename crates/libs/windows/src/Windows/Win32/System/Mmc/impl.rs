@@ -13,7 +13,7 @@ impl AppEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Column_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Width(&self) -> ::windows::core::Result<i32>;
     fn SetWidth(&self, width: i32) -> ::windows::core::Result<()>;
     fn DisplayPosition(&self) -> ::windows::core::Result<i32>;
@@ -28,7 +28,7 @@ impl ::windows::core::RuntimeName for Column {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Column_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>() -> Column_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Column_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -233,13 +233,13 @@ impl ContextMenu_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Document_Impl: Sized + super::Com::IDispatch_Impl {
     fn Save(&self) -> ::windows::core::Result<()>;
-    fn SaveAs(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SaveAs(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Close(&self, savechanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Views(&self) -> ::windows::core::Result<Views>;
     fn SnapIns(&self) -> ::windows::core::Result<SnapIns>;
     fn ActiveView(&self) -> ::windows::core::Result<View>;
     fn Name(&self) -> ::windows::core::Result<*mut u16>;
-    fn SetName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Location(&self) -> ::windows::core::Result<*mut u16>;
     fn IsSaved(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Mode(&self) -> ::windows::core::Result<_DocumentMode>;
@@ -259,7 +259,7 @@ impl Document_Vtbl {
             let this = (*this).get_impl();
             this.Save().into()
         }
-        unsafe extern "system" fn SaveAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SaveAs(::core::mem::transmute(&filename)).into()
@@ -313,7 +313,7 @@ impl Document_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&name)).into()
@@ -1983,16 +1983,16 @@ impl IMessageView_Vtbl {
         iid == &<IMessageView as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait INodeProperties_Impl: Sized {
-    fn GetProperty(&self, pdataobject: &::core::option::Option<super::Com::IDataObject>, szpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
+    fn GetProperty(&self, pdataobject: &::core::option::Option<super::Com::IDataObject>, szpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for INodeProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl INodeProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INodeProperties_Impl, const OFFSET: isize>() -> INodeProperties_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INodeProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, szpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INodeProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, szpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute(&pdataobject), ::core::mem::transmute(&szpropertyname)) {
@@ -2817,7 +2817,7 @@ impl MenuItem_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Node_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<*mut u16>;
-    fn get_Property(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
+    fn get_Property(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16>;
     fn Bookmark(&self) -> ::windows::core::Result<*mut u16>;
     fn IsScopeNode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Nodetype(&self) -> ::windows::core::Result<*mut u16>;
@@ -2838,7 +2838,7 @@ impl Node_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Node_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Property(::core::mem::transmute(&propertyname)) {
@@ -2953,9 +2953,9 @@ impl Nodes_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Properties_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<Property>;
+    fn Item(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<Property>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Remove(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Remove(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for Properties {}
@@ -2973,7 +2973,7 @@ impl Properties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, property: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, property: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&name)) {
@@ -2995,7 +2995,7 @@ impl Properties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&name)).into()
@@ -3242,7 +3242,7 @@ pub trait SnapIns_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows::core::Result<SnapIn>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, snapinnameorclsid: &super::super::Foundation::BSTR, parentsnapin: &super::Com::VARIANT, properties: &super::Com::VARIANT) -> ::windows::core::Result<SnapIn>;
+    fn Add(&self, snapinnameorclsid: &::windows::core::BSTR, parentsnapin: &super::Com::VARIANT, properties: &super::Com::VARIANT) -> ::windows::core::Result<SnapIn>;
     fn Remove(&self, snapin: &::core::option::Option<SnapIn>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3283,7 +3283,7 @@ impl SnapIns_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: SnapIns_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapinnameorclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, parentsnapin: ::core::mem::ManuallyDrop<super::Com::VARIANT>, properties: ::core::mem::ManuallyDrop<super::Com::VARIANT>, snapin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: SnapIns_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapinnameorclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, parentsnapin: ::core::mem::ManuallyDrop<super::Com::VARIANT>, properties: ::core::mem::ManuallyDrop<super::Com::VARIANT>, snapin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&snapinnameorclsid), ::core::mem::transmute(&parentsnapin), ::core::mem::transmute(&properties)) {
@@ -3332,27 +3332,27 @@ pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
     fn CopySelection(&self) -> ::windows::core::Result<()>;
     fn DeleteScopeNode(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn DeleteSelection(&self) -> ::windows::core::Result<()>;
-    fn RenameScopeNode(&self, newname: &super::super::Foundation::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn RenameSelectedItem(&self, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RenameScopeNode(&self, newname: &::windows::core::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RenameSelectedItem(&self, newname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_ScopeNodeContextMenu(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<ContextMenu>;
     fn SelectionContextMenu(&self) -> ::windows::core::Result<ContextMenu>;
     fn RefreshScopeNode(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn RefreshSelection(&self) -> ::windows::core::Result<()>;
-    fn ExecuteSelectionMenuItem(&self, menuitempath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExecuteScopeNodeMenuItem(&self, menuitempath: &super::super::Foundation::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ExecuteShellCommand(&self, command: &super::super::Foundation::BSTR, directory: &super::super::Foundation::BSTR, parameters: &super::super::Foundation::BSTR, windowstate: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExecuteSelectionMenuItem(&self, menuitempath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ExecuteScopeNodeMenuItem(&self, menuitempath: &::windows::core::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ExecuteShellCommand(&self, command: &::windows::core::BSTR, directory: &::windows::core::BSTR, parameters: &::windows::core::BSTR, windowstate: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Frame(&self) -> ::windows::core::Result<Frame>;
     fn Close(&self) -> ::windows::core::Result<()>;
     fn ScopeTreeVisible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetScopeTreeVisible(&self, visible: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Back(&self) -> ::windows::core::Result<()>;
     fn Forward(&self) -> ::windows::core::Result<()>;
-    fn SetStatusBarText(&self, statusbartext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetStatusBarText(&self, statusbartext: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Memento(&self) -> ::windows::core::Result<*mut u16>;
-    fn ViewMemento(&self, memento: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ViewMemento(&self, memento: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Columns(&self) -> ::windows::core::Result<Columns>;
     fn get_CellContents(&self, node: &::core::option::Option<Node>, column: i32) -> ::windows::core::Result<*mut u16>;
-    fn ExportList(&self, file: &super::super::Foundation::BSTR, exportoptions: _ExportListOptions) -> ::windows::core::Result<()>;
+    fn ExportList(&self, file: &::windows::core::BSTR, exportoptions: _ExportListOptions) -> ::windows::core::Result<()>;
     fn ListViewMode(&self) -> ::windows::core::Result<_ListViewMode>;
     fn SetListViewMode(&self, mode: _ListViewMode) -> ::windows::core::Result<()>;
     fn ControlObject(&self) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -3500,12 +3500,12 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             this.DeleteSelection().into()
         }
-        unsafe extern "system" fn RenameScopeNode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenameScopeNode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RenameScopeNode(::core::mem::transmute(&newname), ::core::mem::transmute(&scopenode)).into()
         }
-        unsafe extern "system" fn RenameSelectedItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenameSelectedItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RenameSelectedItem(::core::mem::transmute(&newname)).into()
@@ -3542,17 +3542,17 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             this.RefreshSelection().into()
         }
-        unsafe extern "system" fn ExecuteSelectionMenuItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecuteSelectionMenuItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExecuteSelectionMenuItem(::core::mem::transmute(&menuitempath)).into()
         }
-        unsafe extern "system" fn ExecuteScopeNodeMenuItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecuteScopeNodeMenuItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExecuteScopeNodeMenuItem(::core::mem::transmute(&menuitempath), ::core::mem::transmute(&scopenode)).into()
         }
-        unsafe extern "system" fn ExecuteShellCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, command: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, directory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, parameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, windowstate: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecuteShellCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, command: ::core::mem::ManuallyDrop<::windows::core::BSTR>, directory: ::core::mem::ManuallyDrop<::windows::core::BSTR>, parameters: ::core::mem::ManuallyDrop<::windows::core::BSTR>, windowstate: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExecuteShellCommand(::core::mem::transmute(&command), ::core::mem::transmute(&directory), ::core::mem::transmute(&parameters), ::core::mem::transmute(&windowstate)).into()
@@ -3599,7 +3599,7 @@ impl View_Vtbl {
             let this = (*this).get_impl();
             this.Forward().into()
         }
-        unsafe extern "system" fn SetStatusBarText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statusbartext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStatusBarText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statusbartext: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStatusBarText(::core::mem::transmute(&statusbartext)).into()
@@ -3615,7 +3615,7 @@ impl View_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ViewMemento<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, memento: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewMemento<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, memento: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ViewMemento(::core::mem::transmute(&memento)).into()
@@ -3642,7 +3642,7 @@ impl View_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, exportoptions: _ExportListOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::core::mem::ManuallyDrop<::windows::core::BSTR>, exportoptions: _ExportListOptions) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExportList(::core::mem::transmute(&file), ::core::mem::transmute_copy(&exportoptions)).into()
@@ -3891,7 +3891,7 @@ pub trait _Application_Impl: Sized + super::Com::IDispatch_Impl {
     fn Help(&self);
     fn Quit(&self);
     fn Document(&self) -> ::windows::core::Result<Document>;
-    fn Load(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Load(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Frame(&self) -> ::windows::core::Result<Frame>;
     fn Visible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Show(&self) -> ::windows::core::Result<()>;
@@ -3927,7 +3927,7 @@ impl _Application_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _Application_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _Application_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Load(::core::mem::transmute(&filename)).into()
