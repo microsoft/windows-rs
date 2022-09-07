@@ -7,6 +7,18 @@ use super::*;
 #[repr(transparent)]
 pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 
+impl IUnknown {
+    /// Creates an `IUnknown` value by taking ownership of the `raw` pointer.
+    pub unsafe fn from_raw_owned(raw: *mut core::ffi::c_void) -> Self {
+        std::mem::transmute(raw)
+    }
+
+    /// Creates a borrowed `IUnknown` that is valid so long as the `raw` pointer is valid.
+    pub unsafe fn from_raw_borrowed<'a>(raw: &'a *mut core::ffi::c_void) -> &'a Self {
+        std::mem::transmute(raw)
+    }
+}
+
 #[doc(hidden)]
 #[repr(C)]
 pub struct IUnknownVtbl {

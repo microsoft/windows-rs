@@ -7,6 +7,8 @@ edition = "2018"
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
+    "implement",
+    "interface",
     "Win32_Foundation",
     "Win32_System_WinRT",
 ]
