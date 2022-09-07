@@ -8,12 +8,22 @@ use super::*;
 pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 
 impl IUnknown {
-    /// Creates an `IUnknown` value by taking ownership of the `raw` pointer.
-    pub unsafe fn from_raw_owned(raw: *mut core::ffi::c_void) -> Self {
+    /// Creates an `IUnknown` value by taking ownership of the `raw` COM interface pointer.
+    ///
+    /// # Safety
+    ///
+    /// The `raw` pointer must be owned by the caller and represent a valid COM interface pointer. In other words,
+    /// it must point to a vtable beginning with the `IUnknown` function pointers.
+    pub unsafe fn from_raw(raw: *mut core::ffi::c_void) -> Self {
         std::mem::transmute(raw)
     }
 
-    /// Creates a borrowed `IUnknown` that is valid so long as the `raw` pointer is valid.
+    /// Creates a borrowed `IUnknown` that is valid so long as the `raw` COM interface pointer is valid.
+    ///
+    /// # Safety
+    ///
+    /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
+    /// beginning with the `IUnknown` function pointers.
     pub unsafe fn from_raw_borrowed<'a>(raw: &'a *mut core::ffi::c_void) -> &'a Self {
         std::mem::transmute(raw)
     }

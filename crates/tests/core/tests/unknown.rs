@@ -40,8 +40,8 @@ fn test() {
             assert_eq!(test_query.Test(), 0);
         }
         {
-            let raw_owned: *mut std::ffi::c_void = std::mem::transmute(test.clone());
-            let unknown_owned: IUnknown = IUnknown::from_raw_owned(raw_owned);
+            let raw_owned: *mut std::ffi::c_void = test.clone().into_raw();
+            let unknown_owned: IUnknown = IUnknown::from_raw(raw_owned);
             assert_eq!(unknown_owned.as_raw(), test.as_raw());
             let test_query: ITest = unknown_owned.cast().unwrap();
             assert_eq!(test_query.Test(), 0);
