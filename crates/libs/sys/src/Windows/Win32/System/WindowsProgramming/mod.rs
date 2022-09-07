@@ -497,7 +497,7 @@ extern "system" {
     pub fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
+    pub fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub fn TranslateInfStringA(pszinffilename: ::windows_sys::core::PCSTR, pszinstallsection: ::windows_sys::core::PCSTR, psztranslatesection: ::windows_sys::core::PCSTR, psztranslatekey: ::windows_sys::core::PCSTR, pszbuffer: ::windows_sys::core::PSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
