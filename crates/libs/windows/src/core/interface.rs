@@ -48,6 +48,26 @@ pub unsafe trait Interface: Sized {
         raw
     }
 
+    /// Creates an `Interface` by taking ownership of the `raw` COM interface pointer.
+    ///
+    /// # Safety
+    ///
+    /// The `raw` pointer must be owned by the caller and represent a valid COM interface pointer. In other words,
+    /// it must point to a vtable beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
+    unsafe fn from_raw(raw: *mut core::ffi::c_void) -> Self {
+        std::mem::transmute_copy(&raw)
+    }
+
+    /// Creates an `Interface` that is valid so long as the `raw` COM interface pointer is valid.
+    ///
+    /// # Safety
+    ///
+    /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
+    /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
+    unsafe fn from_raw_borrowed<'a>(raw: &'a *mut core::ffi::c_void) -> &'a Self {
+        std::mem::transmute_copy(&raw)
+    }
+
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
         self.cast::<IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
