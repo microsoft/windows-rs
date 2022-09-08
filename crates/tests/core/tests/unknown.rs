@@ -54,7 +54,7 @@ fn test_unknown() {
 }
 
 #[test]
-fn test_test() {
+fn test_pointer_conversion_functions() {
     unsafe {
         let mut dropped = 0;
         let test: ITest = Test { drop: &mut dropped }.into();
