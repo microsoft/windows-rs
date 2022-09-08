@@ -22,9 +22,21 @@ fn writer() {
         def.flags.set_public();
         def.flags.set_winrt();
         def.extends = Some(TypeRef::system_value_type());
-        let mut field = Field::new("Height");
-        field.flags.set_public();
+        let mut field = Field::new("X");
         field.ty = Type::F32;
+        field.flags.set_public();
+        def.field_list.push(field);
+        let mut field = Field::new("Y");
+        field.ty = Type::F32;
+        field.flags.set_public();
+        def.field_list.push(field);
+        let mut field = Field::new("Width");
+        field.ty = Type::F32;
+        field.flags.set_public();
+        def.field_list.push(field);
+        let mut field = Field::new("Height");
+        field.ty = Type::F32;
+        field.flags.set_public();
         def.field_list.push(field);
         tables.type_def.push(def);
 
@@ -40,7 +52,7 @@ fn writer() {
     {
         use metadata::reader::*;
 
-        let files = vec![File::new(temp_file.to_str().unwrap()).unwrap()];
+        let files = vec![File::new(temp_file.to_str().unwrap()).unwrap(), File::new("../../libs/metadata/default/Windows.winmd").unwrap()];
         let reader = &Reader::new(&files);
         let def = reader.get(TypeName::new("TestWindows.Foundation", "IStringable")).next().unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Interface);
@@ -57,11 +69,23 @@ fn writer() {
         assert_eq!(reader.type_def_kind(def), TypeKind::Struct);
         assert!(reader.type_def_flags(def).winrt());
 
-        let field = reader.type_def_fields(def).next().unwrap();
-        assert_eq!(reader.field_name(field), "Height");
-        assert!(reader.field_type(field, Some(def)) == Type::F32);
+        let mut fields = reader.type_def_fields(def);
+        let field = fields.next().unwrap();
+        assert_eq!(reader.field_name(field), "X");
+        assert!(reader.field_type(field, None) == Type::F32);
         assert!(reader.field_flags(field).public());
-        assert!(!reader.field_flags(field).literal());
+        let field = fields.next().unwrap();
+        assert_eq!(reader.field_name(field), "Y");
+        assert!(reader.field_type(field, None) == Type::F32);
+        assert!(reader.field_flags(field).public());
+        let field = fields.next().unwrap();
+        assert_eq!(reader.field_name(field), "Width");
+        assert!(reader.field_type(field, None) == Type::F32);
+        assert!(reader.field_flags(field).public());
+        let field = fields.next().unwrap();
+        assert_eq!(reader.field_name(field), "Height");
+        assert!(reader.field_type(field, None) == Type::F32);
+        assert!(reader.field_flags(field).public());
 
         let def = reader.get(TypeName::new("TestWindows.Foundation", "AsyncStatus")).next().unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Enum);
