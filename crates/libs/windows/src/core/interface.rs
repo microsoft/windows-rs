@@ -33,11 +33,39 @@ pub unsafe trait Interface: Sized {
         unsafe { self.query(&T::IID, &mut result as *mut _ as _).and_some(result) }
     }
 
-    /// Turn this interface into a raw pointer
+    /// Returns the raw COM interface pointer. The resulting pointer continues to be owned by the `Interface` implementation.
     #[inline(always)]
     fn as_raw(&self) -> *mut core::ffi::c_void {
         // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
         unsafe { core::mem::transmute_copy(self) }
+    }
+
+    /// Returns the raw COM interface pointer and releases ownership. It the caller's responsibility to release the COM interface pointer.
+    fn into_raw(self) -> *mut core::ffi::c_void {
+        // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
+        let raw = self.as_raw();
+        std::mem::forget(self);
+        raw
+    }
+
+    /// Creates an `Interface` by taking ownership of the `raw` COM interface pointer.
+    ///
+    /// # Safety
+    ///
+    /// The `raw` pointer must be owned by the caller and represent a valid COM interface pointer. In other words,
+    /// it must point to a vtable beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
+    unsafe fn from_raw(raw: *mut core::ffi::c_void) -> Self {
+        std::mem::transmute_copy(&raw)
+    }
+
+    /// Creates an `Interface` that is valid so long as the `raw` COM interface pointer is valid.
+    ///
+    /// # Safety
+    ///
+    /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
+    /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
+    unsafe fn from_raw_borrowed<'a>(raw: &'a *mut core::ffi::c_void) -> &'a Self {
+        std::mem::transmute_copy(&raw)
     }
 
     /// Attempts to create a [`Weak`] reference to this object.
