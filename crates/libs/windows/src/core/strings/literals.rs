@@ -2,7 +2,7 @@
 #[macro_export]
 macro_rules! s {
     ($s:literal) => {
-        ::windows::core::PCSTR::from_raw(::std::concat!($s, '\0').as_ptr())
+        $crate::core::PCSTR::from_raw(::std::concat!($s, '\0').as_ptr())
     };
 }
 
@@ -15,8 +15,8 @@ macro_rules! s {
 macro_rules! w {
     ($s:literal) => {{
         const INPUT: &[u8] = $s.as_bytes();
-        const OUTPUT_LEN: usize = ::windows::core::utf16_len(INPUT) + 1;
-        const RESULT: ::windows::core::HSTRING = {
+        const OUTPUT_LEN: usize = $crate::core::utf16_len(INPUT) + 1;
+        const RESULT: $crate::core::HSTRING = {
             if OUTPUT_LEN == 1 {
                 unsafe { ::std::mem::transmute(::std::ptr::null::<u16>()) }
             } else {
@@ -24,7 +24,7 @@ macro_rules! w {
                     let mut buffer = [0; OUTPUT_LEN];
                     let mut input_pos = 0;
                     let mut output_pos = 0;
-                    while let Some((mut code_point, new_pos)) = ::windows::core::decode_utf8_char(INPUT, input_pos) {
+                    while let Some((mut code_point, new_pos)) = $crate::core::decode_utf8_char(INPUT, input_pos) {
                         input_pos = new_pos;
                         if code_point <= 0xffff {
                             buffer[output_pos] = code_point as u16;
@@ -39,9 +39,9 @@ macro_rules! w {
                     }
                     &{ buffer }
                 };
-                const HEADER: ::windows::core::HSTRING_HEADER = ::windows::core::HSTRING_HEADER { flags: 0x11, len: (OUTPUT_LEN - 1) as u32, padding1: 0, padding2: 0, ptr: OUTPUT.as_ptr() };
+                const HEADER: $crate::core::HSTRING_HEADER = $crate::core::HSTRING_HEADER { flags: 0x11, len: (OUTPUT_LEN - 1) as u32, padding1: 0, padding2: 0, ptr: OUTPUT.as_ptr() };
                 // SAFETY: an `HSTRING` is exactly equivalent to a pointer to an `HSTRING_HEADER`
-                unsafe { ::std::mem::transmute::<&::windows::core::HSTRING_HEADER, ::windows::core::HSTRING>(&HEADER) }
+                unsafe { ::std::mem::transmute::<&$crate::core::HSTRING_HEADER, $crate::core::HSTRING>(&HEADER) }
             }
         };
         &RESULT
