@@ -105,7 +105,7 @@ impl Tables {
         }
 
         for field in &self.field {
-            buffer.write(&0u16); // Flags
+            buffer.write(&(field.flags.0 as u16));
             buffer.write(&strings.insert(&field.name));
             buffer.write(&blobs.insert(&field.ty.to_field_sig()));
         }

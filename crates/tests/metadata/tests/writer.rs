@@ -22,7 +22,10 @@ fn writer() {
         def.flags.set_public();
         def.flags.set_winrt();
         def.extends = Some(TypeRef::system_value_type());
-        def.field_list.push(Field::new("Height"));
+        let mut field = Field::new("Height");
+        field.flags.set_public();
+        field.ty = Type::F32;
+        def.field_list.push(field);
         tables.type_def.push(def);
 
         let mut def = TypeDef::new(TypeName::new("TestWindows.Foundation", "AsyncStatus"));
@@ -56,6 +59,9 @@ fn writer() {
 
         let field = reader.type_def_fields(def).next().unwrap();
         assert_eq!(reader.field_name(field), "Height");
+        assert!(reader.field_type(field, Some(def)) == Type::F32);
+        assert!(reader.field_flags(field).public());
+        assert!(!reader.field_flags(field).literal());
 
         let def = reader.get(TypeName::new("TestWindows.Foundation", "AsyncStatus")).next().unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Enum);
