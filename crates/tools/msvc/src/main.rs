@@ -1,5 +1,7 @@
 use std::collections::BTreeMap;
 use std::io::prelude::*;
+use std::io::SeekFrom;
+use std::str::FromStr;
 
 fn main() {
     let platform = if let Some(platform) = option_env!("Platform") {
@@ -39,6 +41,31 @@ fn main() {
 
     for library in libraries.keys() {
         std::fs::remove_file(output.join(format!("{}.lib", library))).unwrap();
+    }
+
+    // Clear out timestamps in the resulting library.
+    let mut archive = std::fs::File::options().read(true).write(true).open(output.join("windows.lib")).unwrap();
+    let len = archive.metadata().unwrap().len();
+    let mut header = [0u8; 8];
+    archive.read_exact(&mut header).unwrap();
+    assert_eq!(&header, b"!<arch>\n");
+    for num in 1.. {
+        archive.seek(SeekFrom::Current(16)).unwrap(); // identifier
+        assert_eq!(archive.write(b"-1          ").unwrap(), 12); // replace archive timestamp
+        let mut buf = [0u8; 32];
+        archive.read_exact(&mut buf).unwrap(); // remainder of the archive member header
+        let mut size = i64::from_str(std::str::from_utf8(buf[20..][..10].split(u8::is_ascii_whitespace).next().unwrap()).unwrap()).unwrap();
+        // The first two members are indexes, skip them.
+        if num > 3 {
+            archive.read_exact(&mut buf[..4]).unwrap(); // member header
+            let timestamp_offset = if buf[..4] == [0, 0, 0xff, 0xff] { 4 } else { 0 };
+            archive.seek(SeekFrom::Current(timestamp_offset)).unwrap();
+            archive.write_all(&[0; 4]).unwrap(); // replace member timestamp
+            size -= timestamp_offset + 8;
+        }
+        if archive.seek(SeekFrom::Current((size + 1) & !1)).unwrap() >= len {
+            break;
+        }
     }
 }
 
