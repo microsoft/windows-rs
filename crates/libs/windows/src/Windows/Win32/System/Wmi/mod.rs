@@ -9467,26 +9467,59 @@ impl ::core::fmt::Debug for WBEM_LIMITS {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_LOCKING(pub i32);
+pub struct WBEM_LOCKING_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ALLOW_READ: WBEM_LOCKING = WBEM_LOCKING(1i32);
-impl ::core::marker::Copy for WBEM_LOCKING {}
-impl ::core::clone::Clone for WBEM_LOCKING {
+pub const WBEM_FLAG_ALLOW_READ: WBEM_LOCKING_FLAG_TYPE = WBEM_LOCKING_FLAG_TYPE(1i32);
+impl ::core::marker::Copy for WBEM_LOCKING_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_LOCKING_FLAG_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for WBEM_LOCKING {
+impl ::core::default::Default for WBEM_LOCKING_FLAG_TYPE {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WBEM_LOCKING {
+unsafe impl ::windows::core::Abi for WBEM_LOCKING_FLAG_TYPE {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for WBEM_LOCKING {
+impl ::core::fmt::Debug for WBEM_LOCKING_FLAG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_LOCKING").field(&self.0).finish()
+        f.debug_tuple("WBEM_LOCKING_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_LOGIN_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_INPROC_LOGIN: WBEM_LOGIN_TYPE = WBEM_LOGIN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_LOCAL_LOGIN: WBEM_LOGIN_TYPE = WBEM_LOGIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_REMOTE_LOGIN: WBEM_LOGIN_TYPE = WBEM_LOGIN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_AUTHENTICATION_METHOD_MASK: WBEM_LOGIN_TYPE = WBEM_LOGIN_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_USE_MULTIPLE_CHALLENGES: WBEM_LOGIN_TYPE = WBEM_LOGIN_TYPE(16i32);
+impl ::core::marker::Copy for WBEM_LOGIN_TYPE {}
+impl ::core::clone::Clone for WBEM_LOGIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_LOGIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_LOGIN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_LOGIN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_LOGIN_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -10065,52 +10098,52 @@ impl ::core::fmt::Debug for WMIQ_LANGUAGE_FEATURES {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMIQ_RPNQ_FEATURE(pub i32);
+pub struct WMIQ_RPNF_FEATURE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1i32);
+pub const WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(1i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_QUERY_IS_CONJUNCTIVE: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(2i32);
+pub const WMIQ_RPNF_QUERY_IS_CONJUNCTIVE: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(2i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_QUERY_IS_DISJUNCTIVE: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(4i32);
+pub const WMIQ_RPNF_QUERY_IS_DISJUNCTIVE: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(4i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_PROJECTION: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(8i32);
+pub const WMIQ_RPNF_PROJECTION: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(8i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_FEATURE_SELECT_STAR: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(16i32);
+pub const WMIQ_RPNF_FEATURE_SELECT_STAR: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(16i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_EQUALITY_TESTS_ONLY: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(32i32);
+pub const WMIQ_RPNF_EQUALITY_TESTS_ONLY: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(32i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_COUNT_STAR: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(64i32);
+pub const WMIQ_RPNF_COUNT_STAR: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(64i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_QUALIFIED_NAMES_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(128i32);
+pub const WMIQ_RPNF_QUALIFIED_NAMES_USED: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(128i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_SYSPROP_CLASS_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(256i32);
+pub const WMIQ_RPNF_SYSPROP_CLASS_USED: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(256i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_PROP_TO_PROP_TESTS: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(512i32);
+pub const WMIQ_RPNF_PROP_TO_PROP_TESTS: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(512i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_ORDER_BY: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1024i32);
+pub const WMIQ_RPNF_ORDER_BY: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(1024i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_ISA_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(2048i32);
+pub const WMIQ_RPNF_ISA_USED: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(2048i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_GROUP_BY_HAVING: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(4096i32);
+pub const WMIQ_RPNF_GROUP_BY_HAVING: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(4096i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_ARRAY_ACCESS_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(8192i32);
-impl ::core::marker::Copy for WMIQ_RPNQ_FEATURE {}
-impl ::core::clone::Clone for WMIQ_RPNQ_FEATURE {
+pub const WMIQ_RPNF_ARRAY_ACCESS_USED: WMIQ_RPNF_FEATURE = WMIQ_RPNF_FEATURE(8192i32);
+impl ::core::marker::Copy for WMIQ_RPNF_FEATURE {}
+impl ::core::clone::Clone for WMIQ_RPNF_FEATURE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for WMIQ_RPNQ_FEATURE {
+impl ::core::default::Default for WMIQ_RPNF_FEATURE {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WMIQ_RPNQ_FEATURE {
+unsafe impl ::windows::core::Abi for WMIQ_RPNF_FEATURE {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for WMIQ_RPNQ_FEATURE {
+impl ::core::fmt::Debug for WMIQ_RPNF_FEATURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMIQ_RPNQ_FEATURE").field(&self.0).finish()
+        f.debug_tuple("WMIQ_RPNF_FEATURE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -10988,39 +11021,6 @@ unsafe impl ::windows::core::Abi for WbemTimeout {
 impl ::core::fmt::Debug for WbemTimeout {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WbemTimeout").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct tag_WBEM_LOGIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_INPROC_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_LOCAL_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_REMOTE_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_AUTHENTICATION_METHOD_MASK: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_USE_MULTIPLE_CHALLENGES: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(16i32);
-impl ::core::marker::Copy for tag_WBEM_LOGIN_TYPE {}
-impl ::core::clone::Clone for tag_WBEM_LOGIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for tag_WBEM_LOGIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for tag_WBEM_LOGIN_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for tag_WBEM_LOGIN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("tag_WBEM_LOGIN_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]

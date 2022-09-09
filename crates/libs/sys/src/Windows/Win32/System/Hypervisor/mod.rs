@@ -1,15 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-    pub fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-    pub fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-    pub fn WHvCancelPartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-    pub fn WHvCompletePartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
     pub fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows_sys::core::HRESULT;
@@ -43,6 +32,8 @@ extern "system" {
     pub fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memorychunkpagesize: *mut u64, memorychunks: *mut GPA_MEMORY_CHUNK, memorychunkcount: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
     pub fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, guestrawsavedmemorysize: *mut u64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+    pub fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
@@ -130,6 +121,8 @@ extern "system" {
     pub fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
     pub fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: u64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+    pub fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WHvAcceptPartitionMigration(migrationhandle: super::super::Foundation::HANDLE, partition: *mut WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT;
@@ -139,7 +132,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WHvAllocateVpciResource(providerid: *const ::windows_sys::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::core::ffi::c_void, resourcedescriptorsizeinbytes: u32, vpciresource: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+    pub fn WHvCancelPartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
     pub fn WHvCancelRunVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: u32, flags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+    pub fn WHvCompletePartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WHvCreateNotificationPort(partition: WHV_PARTITION_HANDLE, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: super::super::Foundation::HANDLE, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -781,8 +778,6 @@ pub const WHvCacheTypeUncached: WHV_CACHE_TYPE = 0i32;
 pub const WHvCacheTypeWriteCombining: WHV_CACHE_TYPE = 1i32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeWriteThrough: WHV_CACHE_TYPE = 4i32;
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCacheTypeWriteProtected: WHV_CACHE_TYPE = 5i32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeWriteBack: WHV_CACHE_TYPE = 6i32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]

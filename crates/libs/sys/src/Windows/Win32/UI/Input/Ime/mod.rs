@@ -2091,6 +2091,19 @@ impl ::core::clone::Clone for IMEDP {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub struct IMEFAREASTINFO {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub dwData: [u32; 1],
+}
+impl ::core::marker::Copy for IMEFAREASTINFO {}
+impl ::core::clone::Clone for IMEFAREASTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -2346,7 +2359,7 @@ impl ::core::clone::Clone for IMESTRINGCANDIDATE {
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub struct IMESTRINGCANDIDATEINFO {
     pub dwFarEastId: u32,
-    pub lpFarEastInfo: *mut tabIMEFAREASTINFO,
+    pub lpFarEastInfo: *mut IMEFAREASTINFO,
     pub fInfoMask: u32,
     pub iSelIndex: i32,
     pub uCount: u32,
@@ -2354,6 +2367,18 @@ pub struct IMESTRINGCANDIDATEINFO {
 }
 impl ::core::marker::Copy for IMESTRINGCANDIDATEINFO {}
 impl ::core::clone::Clone for IMESTRINGCANDIDATEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub struct IMESTRINGINFO {
+    pub dwFarEastId: u32,
+    pub lpwstr: ::windows_sys::core::PWSTR,
+}
+impl ::core::marker::Copy for IMESTRINGINFO {}
+impl ::core::clone::Clone for IMESTRINGINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2665,31 +2690,6 @@ pub union WDD_1 {
 }
 impl ::core::marker::Copy for WDD_1 {}
 impl ::core::clone::Clone for WDD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub struct tabIMEFAREASTINFO {
-    pub dwSize: u32,
-    pub dwType: u32,
-    pub dwData: [u32; 1],
-}
-impl ::core::marker::Copy for tabIMEFAREASTINFO {}
-impl ::core::clone::Clone for tabIMEFAREASTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub struct tabIMESTRINGINFO {
-    pub dwFarEastId: u32,
-    pub lpwstr: ::windows_sys::core::PWSTR,
-}
-impl ::core::marker::Copy for tabIMESTRINGINFO {}
-impl ::core::clone::Clone for tabIMESTRINGINFO {
     fn clone(&self) -> Self {
         *self
     }

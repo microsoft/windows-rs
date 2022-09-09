@@ -160,6 +160,42 @@ impl ::core::default::Default for RESTOREPOINTINFOA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESTOREPOINTINFOEX {
+    pub ftCreation: super::super::Foundation::FILETIME,
+    pub dwEventType: u32,
+    pub dwRestorePtType: u32,
+    pub dwRPNum: u32,
+    pub szDescription: [u16; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESTOREPOINTINFOEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESTOREPOINTINFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RESTOREPOINTINFOEX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RESTOREPOINTINFOEX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESTOREPOINTINFOEX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RESTOREPOINTINFOEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RESTOREPOINTINFOEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
@@ -209,42 +245,6 @@ impl ::core::cmp::PartialEq for STATEMGRSTATUS {
 }
 impl ::core::cmp::Eq for STATEMGRSTATUS {}
 impl ::core::default::Default for STATEMGRSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _RESTOREPTINFOEX {
-    pub ftCreation: super::super::Foundation::FILETIME,
-    pub dwEventType: u32,
-    pub dwRestorePtType: u32,
-    pub dwRPNum: u32,
-    pub szDescription: [u16; 256],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _RESTOREPTINFOEX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _RESTOREPTINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _RESTOREPTINFOEX {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _RESTOREPTINFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_RESTOREPTINFOEX>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _RESTOREPTINFOEX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for _RESTOREPTINFOEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

@@ -183,7 +183,7 @@ pub unsafe fn HSTRING_UserSize64(param0: &u32, param1: u32, param2: &::windows::
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn HSTRING_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut ::windows::core::HSTRING) -> *mut u8 {
+pub unsafe fn HSTRING_UserUnmarshal(param0: &u32, param1: &u8, param2: &mut ::windows::core::HSTRING) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> *mut u8;
@@ -192,7 +192,7 @@ pub unsafe fn HSTRING_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mu
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn HSTRING_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut ::windows::core::HSTRING) -> *mut u8 {
+pub unsafe fn HSTRING_UserUnmarshal64(param0: &u32, param1: &u8, param2: &mut ::windows::core::HSTRING) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> *mut u8;

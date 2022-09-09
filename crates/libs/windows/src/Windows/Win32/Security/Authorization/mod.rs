@@ -746,10 +746,10 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn FreeInheritedFromArray(pinheritarray: &[INHERITED_FROMW], pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTIONS>) -> u32 {
+pub unsafe fn FreeInheritedFromArray(pinheritarray: &[INHERITED_FROMW], pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTS>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS) -> u32;
+        fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTS) -> u32;
     }
     FreeInheritedFromArray(::core::mem::transmute(pinheritarray.as_ptr()), pinheritarray.len() as _, ::core::mem::transmute(pfnarray))
 }
@@ -810,28 +810,28 @@ pub unsafe fn GetExplicitEntriesFromAclW(pacl: &super::ACL, pccountofexplicitent
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInheritanceSourceA<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: &super::ACL, pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTIONS>, pgenericmapping: &super::GENERIC_MAPPING, pinheritarray: &mut INHERITED_FROMA) -> u32
+pub unsafe fn GetInheritanceSourceA<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: &super::ACL, pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTS>, pgenericmapping: &super::GENERIC_MAPPING, pinheritarray: &mut INHERITED_FROMA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetInheritanceSourceA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32;
+        fn GetInheritanceSourceA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32;
     }
     GetInheritanceSourceA(pobjectname.into(), objecttype, securityinfo, container.into(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pacl), ::core::mem::transmute(pfnarray), ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pinheritarray))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInheritanceSourceW<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: &super::ACL, pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTIONS>, pgenericmapping: &super::GENERIC_MAPPING, pinheritarray: &mut INHERITED_FROMW) -> u32
+pub unsafe fn GetInheritanceSourceW<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: &super::ACL, pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTS>, pgenericmapping: &super::GENERIC_MAPPING, pinheritarray: &mut INHERITED_FROMW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetInheritanceSourceW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32;
+        fn GetInheritanceSourceW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32;
     }
     GetInheritanceSourceW(pobjectname.into(), objecttype, securityinfo, container.into(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pacl), ::core::mem::transmute(pfnarray), ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pinheritarray))
 }
@@ -12971,30 +12971,30 @@ impl ::core::default::Default for EXPLICIT_ACCESS_W {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct FN_OBJECT_MGR_FUNCTIONS {
+pub struct FN_OBJECT_MGR_FUNCTS {
     pub Placeholder: u32,
 }
-impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTIONS {}
-impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTIONS {
+impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTS {}
+impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FN_OBJECT_MGR_FUNCTIONS {
+impl ::core::fmt::Debug for FN_OBJECT_MGR_FUNCTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FN_OBJECT_MGR_FUNCTIONS").field("Placeholder", &self.Placeholder).finish()
+        f.debug_struct("FN_OBJECT_MGR_FUNCTS").field("Placeholder", &self.Placeholder).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FN_OBJECT_MGR_FUNCTIONS {
+unsafe impl ::windows::core::Abi for FN_OBJECT_MGR_FUNCTS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FN_OBJECT_MGR_FUNCTIONS {
+impl ::core::cmp::PartialEq for FN_OBJECT_MGR_FUNCTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FN_OBJECT_MGR_FUNCTIONS>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FN_OBJECT_MGR_FUNCTS>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for FN_OBJECT_MGR_FUNCTIONS {}
-impl ::core::default::Default for FN_OBJECT_MGR_FUNCTIONS {
+impl ::core::cmp::Eq for FN_OBJECT_MGR_FUNCTS {}
+impl ::core::default::Default for FN_OBJECT_MGR_FUNCTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

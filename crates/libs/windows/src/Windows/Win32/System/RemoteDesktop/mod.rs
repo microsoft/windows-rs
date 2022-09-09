@@ -1,39 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WTSEnableChildSessions<'a, P0>(benable: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSEnableChildSessions(benable.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSGetChildSessionId(psessionid: &mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSGetChildSessionId(::core::mem::transmute(psessionid))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: &mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -123,6 +90,19 @@ where
         fn WTSDisconnectSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
     WTSDisconnectSession(hserver.into(), sessionid, bwait.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnableChildSessions<'a, P0>(benable: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    WTSEnableChildSessions(benable.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -318,6 +298,16 @@ pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
     }
     WTSGetActiveConsoleSessionId()
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSGetChildSessionId(psessionid: &mut u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSGetChildSessionId(::core::mem::transmute(psessionid))
+}
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -345,6 +335,16 @@ where
         fn WTSGetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
     WTSGetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11662,6 +11662,76 @@ impl ::core::convert::From<::core::option::Option<HwtsVirtualChannelHandle>> for
 unsafe impl ::windows::core::Abi for HwtsVirtualChannelHandle {
     type Abi = Self;
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRODUCT_INFOA {
+    pub CompanyName: [super::super::Foundation::CHAR; 256],
+    pub ProductID: [super::super::Foundation::CHAR; 4],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRODUCT_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRODUCT_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PRODUCT_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRODUCT_INFOA").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PRODUCT_INFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PRODUCT_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRODUCT_INFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PRODUCT_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PRODUCT_INFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct PRODUCT_INFOW {
+    pub CompanyName: [u16; 256],
+    pub ProductID: [u16; 4],
+}
+impl ::core::marker::Copy for PRODUCT_INFOW {}
+impl ::core::clone::Clone for PRODUCT_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PRODUCT_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PRODUCT_INFOW").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PRODUCT_INFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PRODUCT_INFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRODUCT_INFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PRODUCT_INFOW {}
+impl ::core::default::Default for PRODUCT_INFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15066,7 +15136,7 @@ impl ::core::default::Default for WTS_USER_DATA {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_VALIDATION_INFORMATIONA {
-    pub ProductInfo: _WTS_PRODUCT_INFOA,
+    pub ProductInfo: PRODUCT_INFOA,
     pub License: [u8; 16384],
     pub LicenseLength: u32,
     pub HardwareID: [u8; 20],
@@ -15107,7 +15177,7 @@ impl ::core::default::Default for WTS_VALIDATION_INFORMATIONA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_VALIDATION_INFORMATIONW {
-    pub ProductInfo: _WTS_PRODUCT_INFOW,
+    pub ProductInfo: PRODUCT_INFOW,
     pub License: [u8; 16384],
     pub LicenseLength: u32,
     pub HardwareID: [u8; 20],
@@ -15134,76 +15204,6 @@ impl ::core::cmp::PartialEq for WTS_VALIDATION_INFORMATIONW {
 }
 impl ::core::cmp::Eq for WTS_VALIDATION_INFORMATIONW {}
 impl ::core::default::Default for WTS_VALIDATION_INFORMATIONW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _WTS_PRODUCT_INFOA {
-    pub CompanyName: [super::super::Foundation::CHAR; 256],
-    pub ProductID: [super::super::Foundation::CHAR; 4],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _WTS_PRODUCT_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _WTS_PRODUCT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for _WTS_PRODUCT_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_WTS_PRODUCT_INFOA").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _WTS_PRODUCT_INFOA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _WTS_PRODUCT_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_WTS_PRODUCT_INFOA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _WTS_PRODUCT_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for _WTS_PRODUCT_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct _WTS_PRODUCT_INFOW {
-    pub CompanyName: [u16; 256],
-    pub ProductID: [u16; 4],
-}
-impl ::core::marker::Copy for _WTS_PRODUCT_INFOW {}
-impl ::core::clone::Clone for _WTS_PRODUCT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _WTS_PRODUCT_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_WTS_PRODUCT_INFOW").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _WTS_PRODUCT_INFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _WTS_PRODUCT_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_WTS_PRODUCT_INFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _WTS_PRODUCT_INFOW {}
-impl ::core::default::Default for _WTS_PRODUCT_INFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

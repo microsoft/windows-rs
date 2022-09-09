@@ -1826,6 +1826,103 @@ impl ::core::default::Default for INPUT_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct KBDNLSTABLES {
+    pub OEMIdentifier: u16,
+    pub LayoutInformation: u16,
+    pub NumOfVkToF: u32,
+    pub pVkToF: *mut VK_F,
+    pub NumOfMouseVKey: i32,
+    pub pusMouseVKey: *mut u16,
+}
+impl ::core::marker::Copy for KBDNLSTABLES {}
+impl ::core::clone::Clone for KBDNLSTABLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KBDNLSTABLES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBDNLSTABLES").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KBDNLSTABLES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KBDNLSTABLES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDNLSTABLES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KBDNLSTABLES {}
+impl ::core::default::Default for KBDNLSTABLES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct KBDTABLES {
+    pub pCharModifiers: *mut MODIFIERS,
+    pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
+    pub pDeadKey: *mut DEADKEY,
+    pub pKeyNames: *mut VSC_LPWSTR,
+    pub pKeyNamesExt: *mut VSC_LPWSTR,
+    pub pKeyNamesDead: *mut *mut u16,
+    pub pusVSCtoVK: *mut u16,
+    pub bMaxVSCtoVK: u8,
+    pub pVSCtoVK_E0: *mut VSC_VK,
+    pub pVSCtoVK_E1: *mut VSC_VK,
+    pub fLocaleFlags: u32,
+    pub nLgMax: u8,
+    pub cbLgEntry: u8,
+    pub pLigature: *mut LIGATURE1,
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+impl ::core::marker::Copy for KBDTABLES {}
+impl ::core::clone::Clone for KBDTABLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KBDTABLES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KBDTABLES")
+            .field("pCharModifiers", &self.pCharModifiers)
+            .field("pVkToWcharTable", &self.pVkToWcharTable)
+            .field("pDeadKey", &self.pDeadKey)
+            .field("pKeyNames", &self.pKeyNames)
+            .field("pKeyNamesExt", &self.pKeyNamesExt)
+            .field("pKeyNamesDead", &self.pKeyNamesDead)
+            .field("pusVSCtoVK", &self.pusVSCtoVK)
+            .field("bMaxVSCtoVK", &self.bMaxVSCtoVK)
+            .field("pVSCtoVK_E0", &self.pVSCtoVK_E0)
+            .field("pVSCtoVK_E1", &self.pVSCtoVK_E1)
+            .field("fLocaleFlags", &self.fLocaleFlags)
+            .field("nLgMax", &self.nLgMax)
+            .field("cbLgEntry", &self.cbLgEntry)
+            .field("pLigature", &self.pLigature)
+            .field("dwType", &self.dwType)
+            .field("dwSubType", &self.dwSubType)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KBDTABLES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KBDTABLES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KBDTABLES {}
+impl ::core::default::Default for KBDTABLES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub struct KBDTABLE_DESC {
     pub wszDllName: [u16; 32],
     pub dwType: u32,
@@ -2281,6 +2378,72 @@ impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
 impl ::core::cmp::Eq for TRACKMOUSEEVENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TRACKMOUSEEVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct VK_F {
+    pub Vk: u8,
+    pub NLSFEProcType: u8,
+    pub NLSFEProcCurrent: u8,
+    pub NLSFEProcSwitch: u8,
+    pub NLSFEProc: [VK_FPARAM; 8],
+    pub NLSFEProcAlt: [VK_FPARAM; 8],
+}
+impl ::core::marker::Copy for VK_F {}
+impl ::core::clone::Clone for VK_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VK_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_F").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VK_F {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VK_F {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_F>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VK_F {}
+impl ::core::default::Default for VK_F {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct VK_FPARAM {
+    pub NLSFEProcIndex: u8,
+    pub NLSFEProcParam: u32,
+}
+impl ::core::marker::Copy for VK_FPARAM {}
+impl ::core::clone::Clone for VK_FPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VK_FPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VK_FPARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for VK_FPARAM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VK_FPARAM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_FPARAM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VK_FPARAM {}
+impl ::core::default::Default for VK_FPARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -2757,169 +2920,6 @@ impl ::core::cmp::PartialEq for VSC_VK {
 }
 impl ::core::cmp::Eq for VSC_VK {}
 impl ::core::default::Default for VSC_VK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct _VK_FUNCTION_PARAM {
-    pub NLSFEProcIndex: u8,
-    pub NLSFEProcParam: u32,
-}
-impl ::core::marker::Copy for _VK_FUNCTION_PARAM {}
-impl ::core::clone::Clone for _VK_FUNCTION_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _VK_FUNCTION_PARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_VK_FUNCTION_PARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _VK_FUNCTION_PARAM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _VK_FUNCTION_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_VK_FUNCTION_PARAM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _VK_FUNCTION_PARAM {}
-impl ::core::default::Default for _VK_FUNCTION_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct _VK_TO_FUNCTION_TABLE {
-    pub Vk: u8,
-    pub NLSFEProcType: u8,
-    pub NLSFEProcCurrent: u8,
-    pub NLSFEProcSwitch: u8,
-    pub NLSFEProc: [_VK_FUNCTION_PARAM; 8],
-    pub NLSFEProcAlt: [_VK_FUNCTION_PARAM; 8],
-}
-impl ::core::marker::Copy for _VK_TO_FUNCTION_TABLE {}
-impl ::core::clone::Clone for _VK_TO_FUNCTION_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _VK_TO_FUNCTION_TABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_VK_TO_FUNCTION_TABLE").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _VK_TO_FUNCTION_TABLE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _VK_TO_FUNCTION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_VK_TO_FUNCTION_TABLE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _VK_TO_FUNCTION_TABLE {}
-impl ::core::default::Default for _VK_TO_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct tagKbdLayer {
-    pub pCharModifiers: *mut MODIFIERS,
-    pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
-    pub pDeadKey: *mut DEADKEY,
-    pub pKeyNames: *mut VSC_LPWSTR,
-    pub pKeyNamesExt: *mut VSC_LPWSTR,
-    pub pKeyNamesDead: *mut *mut u16,
-    pub pusVSCtoVK: *mut u16,
-    pub bMaxVSCtoVK: u8,
-    pub pVSCtoVK_E0: *mut VSC_VK,
-    pub pVSCtoVK_E1: *mut VSC_VK,
-    pub fLocaleFlags: u32,
-    pub nLgMax: u8,
-    pub cbLgEntry: u8,
-    pub pLigature: *mut LIGATURE1,
-    pub dwType: u32,
-    pub dwSubType: u32,
-}
-impl ::core::marker::Copy for tagKbdLayer {}
-impl ::core::clone::Clone for tagKbdLayer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tagKbdLayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tagKbdLayer")
-            .field("pCharModifiers", &self.pCharModifiers)
-            .field("pVkToWcharTable", &self.pVkToWcharTable)
-            .field("pDeadKey", &self.pDeadKey)
-            .field("pKeyNames", &self.pKeyNames)
-            .field("pKeyNamesExt", &self.pKeyNamesExt)
-            .field("pKeyNamesDead", &self.pKeyNamesDead)
-            .field("pusVSCtoVK", &self.pusVSCtoVK)
-            .field("bMaxVSCtoVK", &self.bMaxVSCtoVK)
-            .field("pVSCtoVK_E0", &self.pVSCtoVK_E0)
-            .field("pVSCtoVK_E1", &self.pVSCtoVK_E1)
-            .field("fLocaleFlags", &self.fLocaleFlags)
-            .field("nLgMax", &self.nLgMax)
-            .field("cbLgEntry", &self.cbLgEntry)
-            .field("pLigature", &self.pLigature)
-            .field("dwType", &self.dwType)
-            .field("dwSubType", &self.dwSubType)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tagKbdLayer {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tagKbdLayer {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagKbdLayer>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tagKbdLayer {}
-impl ::core::default::Default for tagKbdLayer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct tagKbdNlsLayer {
-    pub OEMIdentifier: u16,
-    pub LayoutInformation: u16,
-    pub NumOfVkToF: u32,
-    pub pVkToF: *mut _VK_TO_FUNCTION_TABLE,
-    pub NumOfMouseVKey: i32,
-    pub pusMouseVKey: *mut u16,
-}
-impl ::core::marker::Copy for tagKbdNlsLayer {}
-impl ::core::clone::Clone for tagKbdNlsLayer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tagKbdNlsLayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tagKbdNlsLayer").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tagKbdNlsLayer {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tagKbdNlsLayer {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagKbdNlsLayer>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tagKbdNlsLayer {}
-impl ::core::default::Default for tagKbdNlsLayer {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

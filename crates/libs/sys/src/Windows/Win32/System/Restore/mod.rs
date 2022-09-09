@@ -89,6 +89,24 @@ impl ::core::clone::Clone for RESTOREPOINTINFOA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESTOREPOINTINFOEX {
+    pub ftCreation: super::super::Foundation::FILETIME,
+    pub dwEventType: u32,
+    pub dwRestorePtType: u32,
+    pub dwRPNum: u32,
+    pub szDescription: [u16; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESTOREPOINTINFOEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESTOREPOINTINFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
@@ -110,24 +128,6 @@ pub struct STATEMGRSTATUS {
 }
 impl ::core::marker::Copy for STATEMGRSTATUS {}
 impl ::core::clone::Clone for STATEMGRSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _RESTOREPTINFOEX {
-    pub ftCreation: super::super::Foundation::FILETIME,
-    pub dwEventType: u32,
-    pub dwRestorePtType: u32,
-    pub dwRPNum: u32,
-    pub szDescription: [u16; 256],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _RESTOREPTINFOEX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _RESTOREPTINFOEX {
     fn clone(&self) -> Self {
         *self
     }

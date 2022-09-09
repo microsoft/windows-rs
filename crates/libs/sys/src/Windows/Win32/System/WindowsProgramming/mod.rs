@@ -1,35 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    pub fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    pub fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    pub fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: ::windows_sys::core::PCSTR);
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    pub fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void);
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    pub fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    pub fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    pub fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    pub fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    pub fn uaw_wcslen(string: *const u16) -> usize;
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    pub fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub fn AddDelBackupEntryA(lpcszfilelist: ::windows_sys::core::PCSTR, lpcszbackupdir: ::windows_sys::core::PCSTR, lpcszbasename: ::windows_sys::core::PCSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
@@ -160,6 +129,11 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetDCRegionData(hdc: super::super::Graphics::Gdi::HDC, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    pub fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub fn GetFirmwareEnvironmentVariableA(lpname: ::windows_sys::core::PCSTR, lpguid: ::windows_sys::core::PCSTR, pbuffer: *mut ::core::ffi::c_void, nsize: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -373,6 +347,10 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RebootCheckOnInstallW(hwnd: super::super::Foundation::HWND, pszinf: ::windows_sys::core::PCWSTR, pszsec: ::windows_sys::core::PCWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    pub fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    pub fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: ::windows_sys::core::PCSTR);
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegInstallA(hmod: super::super::Foundation::HINSTANCE, pszsection: ::windows_sys::core::PCSTR, psttable: *const STRTABLEA) -> ::windows_sys::core::HRESULT;
@@ -499,6 +477,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    pub fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void);
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub fn TranslateInfStringA(pszinffilename: ::windows_sys::core::PCSTR, pszinstallsection: ::windows_sys::core::PCSTR, psztranslatesection: ::windows_sys::core::PCSTR, psztranslatekey: ::windows_sys::core::PCSTR, pszbuffer: ::windows_sys::core::PSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub fn TranslateInfStringExA(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows_sys::core::PCSTR, psztranslatesection: ::windows_sys::core::PCSTR, psztranslatekey: ::windows_sys::core::PCSTR, pszbuffer: ::windows_sys::core::PSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -506,6 +486,8 @@ extern "system" {
     pub fn TranslateInfStringExW(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows_sys::core::PCWSTR, psztranslatesection: ::windows_sys::core::PCWSTR, psztranslatekey: ::windows_sys::core::PCWSTR, pszbuffer: ::windows_sys::core::PWSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub fn TranslateInfStringW(pszinffilename: ::windows_sys::core::PCWSTR, pszinstallsection: ::windows_sys::core::PCWSTR, psztranslatesection: ::windows_sys::core::PCWSTR, psztranslatekey: ::windows_sys::core::PCWSTR, pszbuffer: ::windows_sys::core::PWSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    pub fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UserInstStubWrapperA(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows_sys::core::PCSTR, nshow: i32) -> ::windows_sys::core::HRESULT;
@@ -613,6 +595,21 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
     pub fn uaw_lstrlenW(string: *const u16) -> i32;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    pub fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    pub fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    pub fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    pub fn uaw_wcslen(string: *const u16) -> usize;
+    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    pub fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
 }
 pub type ICameraUIControl = *mut ::core::ffi::c_void;
 pub type ICameraUIControlEventCallback = *mut ::core::ffi::c_void;
@@ -3045,6 +3042,58 @@ impl ::core::clone::Clone for SYSTEM_TIMEOFDAY_INFORMATION {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    pub ID: TDIObjectID,
+    pub Context: [u32; 4],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    pub ID: TDIObjectID,
+    pub Context: [u8; 16],
+}
+impl ::core::marker::Copy for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {}
+impl ::core::clone::Clone for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    pub ID: TDIObjectID,
+    pub Context: [usize; 4],
+}
+impl ::core::marker::Copy for TCP_REQUEST_QUERY_INFORMATION_EX_XP {}
+impl ::core::clone::Clone for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct TCP_REQUEST_SET_INFORMATION_EX {
+    pub ID: TDIObjectID,
+    pub BufferSize: u32,
+    pub Buffer: [u8; 1],
+}
+impl ::core::marker::Copy for TCP_REQUEST_SET_INFORMATION_EX {}
+impl ::core::clone::Clone for TCP_REQUEST_SET_INFORMATION_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct TDIEntityID {
     pub tei_entity: TDIENTITY_ENTITY_TYPE,
     pub tei_instance: u32,
@@ -3184,58 +3233,6 @@ impl ::core::clone::Clone for WLDP_HOST_INFORMATION {
 pub struct _D3DHAL_CALLBACKS(pub u8);
 #[repr(C)]
 pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct tcp_request_query_information_ex32_xp {
-    pub ID: TDIObjectID,
-    pub Context: [u32; 4],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for tcp_request_query_information_ex32_xp {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for tcp_request_query_information_ex32_xp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct tcp_request_query_information_ex_w2k {
-    pub ID: TDIObjectID,
-    pub Context: [u8; 16],
-}
-impl ::core::marker::Copy for tcp_request_query_information_ex_w2k {}
-impl ::core::clone::Clone for tcp_request_query_information_ex_w2k {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct tcp_request_query_information_ex_xp {
-    pub ID: TDIObjectID,
-    pub Context: [usize; 2],
-}
-impl ::core::marker::Copy for tcp_request_query_information_ex_xp {}
-impl ::core::clone::Clone for tcp_request_query_information_ex_xp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct tcp_request_set_information_ex {
-    pub ID: TDIObjectID,
-    pub BufferSize: u32,
-    pub Buffer: [u8; 1],
-}
-impl ::core::marker::Copy for tcp_request_set_information_ex {}
-impl ::core::clone::Clone for tcp_request_set_information_ex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]

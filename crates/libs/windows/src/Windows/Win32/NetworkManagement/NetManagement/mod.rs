@@ -1,188 +1,3 @@
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn LogErrorW(dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR], dwerrorcode: u32) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR, dwerrorcode: u32);
-    }
-    LogErrorW(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR]) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR);
-    }
-    LogEventW(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetAddServiceAccount<'a, P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetAddServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NetAddServiceAccount(servername.into(), accountname.into(), password.into(), flags).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetEnumerateServiceAccounts<'a, P0>(servername: P0, flags: u32, accountscount: &mut u32, accounts: &mut *mut *mut u16) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetEnumerateServiceAccounts(servername: ::windows::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
-    }
-    NetEnumerateServiceAccounts(servername.into(), flags, ::core::mem::transmute(accountscount), ::core::mem::transmute(accounts)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetIsServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, isservice: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetIsServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
-    }
-    NetIsServiceAccount(servername.into(), accountname.into(), ::core::mem::transmute(isservice)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetQueryServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: &mut *mut u8) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetQueryServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
-    }
-    NetQueryServiceAccount(servername.into(), accountname.into(), infolevel, ::core::mem::transmute(buffer)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetRemoveServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, flags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetRemoveServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NetRemoveServiceAccount(servername.into(), accountname.into(), flags).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn RouterAssert<'a, P0, P1, P2>(pszfailedassertion: P0, pszfilename: P1, dwlinenumber: u32, pszmessage: P2)
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterAssert(pszfailedassertion: ::windows::core::PCSTR, pszfilename: ::windows::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows::core::PCSTR);
-    }
-    RouterAssert(pszfailedassertion.into(), pszfilename.into(), dwlinenumber, pszmessage.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: &mut ::windows::core::PSTR) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows::core::PSTR) -> u32;
-    }
-    RouterGetErrorStringA(dwerrorcode, ::core::mem::transmute(lplpszerrorstring))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[inline]
-pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: &mut ::windows::core::PWSTR) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows::core::PWSTR) -> u32;
-    }
-    RouterGetErrorStringW(dwerrorcode, ::core::mem::transmute(lplpwszerrorstring))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogDeregisterA<'a, P0>(hloghandle: P0)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
-    }
-    RouterLogDeregisterA(hloghandle.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogDeregisterW<'a, P0>(hloghandle: P0)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
-    }
-    RouterLogDeregisterW(hloghandle.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwerrorcode: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32);
-    }
-    RouterLogEventA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventDataA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
-    }
-    RouterLogEventDataA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventDataW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
-    }
-    RouterLogEventDataW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -210,99 +25,6 @@ where
         fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR);
     }
     RouterLogEventExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventStringA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PSTR], dwerrorcode: u32, dwerrorindex: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
-    }
-    RouterLogEventStringA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventStringW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PWSTR], dwerrorcode: u32, dwerrorindex: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
-    }
-    RouterLogEventStringW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventValistExA<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR, arglist: *mut i8);
-    }
-    RouterLogEventValistExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventValistExW<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR, arglist: *mut i8);
-    }
-    RouterLogEventValistExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogEventW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwerrorcode: u32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32);
-    }
-    RouterLogEventW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogRegisterA<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogRegisterA(lpszsource: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    RouterLogRegisterA(lpszsource.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterLogRegisterW<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterLogRegisterW(lpszsource: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-    }
-    RouterLogRegisterW(lpszsource.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -387,12 +109,30 @@ pub unsafe fn LogErrorA(dwmessageid: u32, plpwssubstrings: &[::windows::core::PS
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
+pub unsafe fn LogErrorW(dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR], dwerrorcode: u32) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR, dwerrorcode: u32);
+    }
+    LogErrorW(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), dwerrorcode)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
 pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PSTR]) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR);
     }
     LogEventA(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR]) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR);
+    }
+    LogEventW(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -504,6 +244,21 @@ where
         fn NetAddAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
     }
     NetAddAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetAddServiceAccount<'a, P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetAddServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NetAddServiceAccount(servername.into(), accountname.into(), password.into(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -666,6 +421,19 @@ where
         fn NetEnumerateComputerNames(server: ::windows::core::PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32;
     }
     NetEnumerateComputerNames(server.into(), nametype, reserved, ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetEnumerateServiceAccounts<'a, P0>(servername: P0, flags: u32, accountscount: &mut u32, accounts: &mut *mut *mut u16) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetEnumerateServiceAccounts(servername: ::windows::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
+    }
+    NetEnumerateServiceAccounts(servername.into(), flags, ::core::mem::transmute(accountscount), ::core::mem::transmute(accounts)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -911,6 +679,20 @@ where
         fn NetGroupSetUsers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
     }
     NetGroupSetUsers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetIsServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, isservice: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetIsServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
+    }
+    NetIsServiceAccount(servername.into(), accountname.into(), ::core::mem::transmute(isservice)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1165,6 +947,20 @@ where
     }
     NetQueryDisplayInformation(servername.into(), level, index, entriesrequested, preferredmaximumlength, ::core::mem::transmute(returnedentrycount), ::core::mem::transmute(sortedbuffer))
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetQueryServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: &mut *mut u8) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetQueryServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
+    }
+    NetQueryServiceAccount(servername.into(), accountname.into(), infolevel, ::core::mem::transmute(buffer)).ok()
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
 pub unsafe fn NetRemoteComputerSupports<'a, P0>(uncservername: P0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: &mut u32) -> u32
@@ -1203,6 +999,20 @@ where
         fn NetRemoveAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
     }
     NetRemoveAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetRemoveServiceAccount<'a, P0, P1>(servername: P0, accountname: P1, flags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetRemoveServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NetRemoveServiceAccount(servername.into(), accountname.into(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1998,6 +1808,196 @@ where
         fn NetWkstaUserSetInfo(reserved: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
     NetWkstaUserSetInfo(reserved.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn RouterAssert<'a, P0, P1, P2>(pszfailedassertion: P0, pszfilename: P1, dwlinenumber: u32, pszmessage: P2)
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterAssert(pszfailedassertion: ::windows::core::PCSTR, pszfilename: ::windows::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows::core::PCSTR);
+    }
+    RouterAssert(pszfailedassertion.into(), pszfilename.into(), dwlinenumber, pszmessage.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: &mut ::windows::core::PSTR) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows::core::PSTR) -> u32;
+    }
+    RouterGetErrorStringA(dwerrorcode, ::core::mem::transmute(lplpszerrorstring))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[inline]
+pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: &mut ::windows::core::PWSTR) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows::core::PWSTR) -> u32;
+    }
+    RouterGetErrorStringW(dwerrorcode, ::core::mem::transmute(lplpwszerrorstring))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogDeregisterA<'a, P0>(hloghandle: P0)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
+    }
+    RouterLogDeregisterA(hloghandle.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogDeregisterW<'a, P0>(hloghandle: P0)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
+    }
+    RouterLogDeregisterW(hloghandle.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwerrorcode: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32);
+    }
+    RouterLogEventA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventDataA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    }
+    RouterLogEventDataA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventDataW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwdatabytes: u32, lpdatabytes: &mut u8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    }
+    RouterLogEventDataW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, ::core::mem::transmute(lpdatabytes))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventStringA<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PSTR], dwerrorcode: u32, dwerrorindex: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
+    }
+    RouterLogEventStringA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventStringW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PWSTR], dwerrorcode: u32, dwerrorindex: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
+    }
+    RouterLogEventStringW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventValistExA<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR, arglist: *mut i8);
+    }
+    RouterLogEventValistExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventValistExW<'a, P0, P1>(hloghandle: P0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: P1, arglist: &mut i8)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR, arglist: *mut i8);
+    }
+    RouterLogEventValistExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogEventW<'a, P0>(hloghandle: P0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: ::core::option::Option<&[::windows::core::PWSTR]>, dwerrorcode: u32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32);
+    }
+    RouterLogEventW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plpszsubstringarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogRegisterA<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogRegisterA(lpszsource: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    RouterLogRegisterA(lpszsource.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterLogRegisterW<'a, P0>(lpszsource: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterLogRegisterW(lpszsource: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    }
+    RouterLogRegisterW(lpszsource.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9103,6 +9103,61 @@ impl ::core::fmt::Debug for OBO_TOKEN_TYPE {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RASCON_UIINFO_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_VPN: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_NOT_ADMIN: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_STATICADDRESS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_NAME_SERVERS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_HEADER_COMPRESSION: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_DISABLE_REGISTER_DNS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_ENABLE_NBT: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_STATICADDRESS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_NAME_SERVERS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(32768i32);
+impl ::core::marker::Copy for RASCON_UIINFO_FLAGS {}
+impl ::core::clone::Clone for RASCON_UIINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RASCON_UIINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RASCON_UIINFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RASCON_UIINFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RASCON_UIINFO_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVER_INFO_HIDDEN(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0u32);
@@ -9380,61 +9435,6 @@ unsafe impl ::windows::core::Abi for USE_INFO_ASG_TYPE {
 impl ::core::fmt::Debug for USE_INFO_ASG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("USE_INFO_ASG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct tagRASCON_IPUI_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_VPN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DEMAND_DIAL: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_NOT_ADMIN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_HEADER_COMPRESSION: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_DISABLE_REGISTER_DNS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_ENABLE_NBT: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32768i32);
-impl ::core::marker::Copy for tagRASCON_IPUI_FLAGS {}
-impl ::core::clone::Clone for tagRASCON_IPUI_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for tagRASCON_IPUI_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for tagRASCON_IPUI_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for tagRASCON_IPUI_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("tagRASCON_IPUI_FLAGS").field(&self.0).finish()
     }
 }
 #[repr(C)]

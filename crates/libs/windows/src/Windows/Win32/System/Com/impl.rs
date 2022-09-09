@@ -3776,9 +3776,9 @@ pub trait IStream_Impl: Sized + ISequentialStream_Impl {
     fn CopyTo(&self, pstm: &::core::option::Option<IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()>;
     fn Commit(&self, grfcommitflags: STGC) -> ::windows::core::Result<()>;
     fn Revert(&self) -> ::windows::core::Result<()>;
-    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
+    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: LOCKTYPE) -> ::windows::core::Result<()>;
     fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
-    fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
+    fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: STATFLAG) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IStream>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3817,7 +3817,7 @@ impl IStream_Vtbl {
             let this = (*this).get_impl();
             this.Revert().into()
         }
-        unsafe extern "system" fn LockRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LockRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: LOCKTYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LockRegion(::core::mem::transmute_copy(&liboffset), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&dwlocktype)).into()
@@ -3827,7 +3827,7 @@ impl IStream_Vtbl {
             let this = (*this).get_impl();
             this.UnlockRegion(::core::mem::transmute_copy(&liboffset), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&dwlocktype)).into()
         }
-        unsafe extern "system" fn Stat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: STATFLAG) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Stat(::core::mem::transmute_copy(&pstatstg), ::core::mem::transmute_copy(&grfstatflag)).into()

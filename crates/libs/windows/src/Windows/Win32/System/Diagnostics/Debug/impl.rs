@@ -3343,7 +3343,7 @@ pub trait IDebugApplication32_Impl: Sized + IRemoteDebugApplication_Impl {
     fn StepOutComplete(&self) -> ::windows::core::Result<()>;
     fn DebugOutput(&self, pstr: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn StartDebugSession(&self) -> ::windows::core::Result<()>;
-    fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUME_ACTION>;
+    fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUMEACTION>;
     fn Close(&self) -> ::windows::core::Result<()>;
     fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: *mut ::core::option::Option<IRemoteDebugApplicationThread>) -> ::windows::core::Result<()>;
     fn GetCurrentThread(&self) -> ::windows::core::Result<IDebugApplicationThread>;
@@ -3354,7 +3354,7 @@ pub trait IDebugApplication32_Impl: Sized + IRemoteDebugApplication_Impl {
     fn SynchronousCallInDebuggerThread(&self, pptc: &::core::option::Option<IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> ::windows::core::Result<()>;
     fn CreateApplicationNode(&self) -> ::windows::core::Result<IDebugApplicationNode>;
     fn FireDebuggerEvent(&self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn HandleRuntimeError(&self, perrordebug: &::core::option::Option<IActiveScriptErrorDebug>, pscriptsite: &::core::option::Option<IActiveScriptSite>, pbra: *mut BREAKRESUME_ACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn HandleRuntimeError(&self, perrordebug: &::core::option::Option<IActiveScriptErrorDebug>, pscriptsite: &::core::option::Option<IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn FCanJitDebug(&self) -> super::super::super::Foundation::BOOL;
     fn FIsAutoJitDebugEnabled(&self) -> super::super::super::Foundation::BOOL;
     fn AddGlobalExpressionContextProvider(&self, pdsfs: &::core::option::Option<IProvideExpressionContexts>) -> ::windows::core::Result<u32>;
@@ -3385,7 +3385,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             this.StartDebugSession().into()
         }
-        unsafe extern "system" fn HandleBreakPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUME_ACTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleBreakPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUMEACTION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HandleBreakPoint(::core::mem::transmute_copy(&br)) {
@@ -3470,7 +3470,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             this.FireDebuggerEvent(::core::mem::transmute_copy(&riid), ::core::mem::transmute(&punk)).into()
         }
-        unsafe extern "system" fn HandleRuntimeError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUME_ACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleRuntimeError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleRuntimeError(::core::mem::transmute(&perrordebug), ::core::mem::transmute(&pscriptsite), ::core::mem::transmute_copy(&pbra), ::core::mem::transmute_copy(&perra), ::core::mem::transmute_copy(&pfcallonscripterror)).into()
@@ -3535,7 +3535,7 @@ pub trait IDebugApplication64_Impl: Sized + IRemoteDebugApplication_Impl {
     fn StepOutComplete(&self) -> ::windows::core::Result<()>;
     fn DebugOutput(&self, pstr: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn StartDebugSession(&self) -> ::windows::core::Result<()>;
-    fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUME_ACTION>;
+    fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUMEACTION>;
     fn Close(&self) -> ::windows::core::Result<()>;
     fn GetBreakFlags(&self, pabf: *mut u32, pprdatsteppingthread: *mut ::core::option::Option<IRemoteDebugApplicationThread>) -> ::windows::core::Result<()>;
     fn GetCurrentThread(&self) -> ::windows::core::Result<IDebugApplicationThread>;
@@ -3546,7 +3546,7 @@ pub trait IDebugApplication64_Impl: Sized + IRemoteDebugApplication_Impl {
     fn SynchronousCallInDebuggerThread(&self, pptc: &::core::option::Option<IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows::core::Result<()>;
     fn CreateApplicationNode(&self) -> ::windows::core::Result<IDebugApplicationNode>;
     fn FireDebuggerEvent(&self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn HandleRuntimeError(&self, perrordebug: &::core::option::Option<IActiveScriptErrorDebug>, pscriptsite: &::core::option::Option<IActiveScriptSite>, pbra: *mut BREAKRESUME_ACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn HandleRuntimeError(&self, perrordebug: &::core::option::Option<IActiveScriptErrorDebug>, pscriptsite: &::core::option::Option<IActiveScriptSite>, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn FCanJitDebug(&self) -> super::super::super::Foundation::BOOL;
     fn FIsAutoJitDebugEnabled(&self) -> super::super::super::Foundation::BOOL;
     fn AddGlobalExpressionContextProvider(&self, pdsfs: &::core::option::Option<IProvideExpressionContexts>) -> ::windows::core::Result<u64>;
@@ -3577,7 +3577,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             this.StartDebugSession().into()
         }
-        unsafe extern "system" fn HandleBreakPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUME_ACTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleBreakPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUMEACTION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HandleBreakPoint(::core::mem::transmute_copy(&br)) {
@@ -3662,7 +3662,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             this.FireDebuggerEvent(::core::mem::transmute_copy(&riid), ::core::mem::transmute(&punk)).into()
         }
-        unsafe extern "system" fn HandleRuntimeError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUME_ACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleRuntimeError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugApplication64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleRuntimeError(::core::mem::transmute(&perrordebug), ::core::mem::transmute(&pscriptsite), ::core::mem::transmute_copy(&pbra), ::core::mem::transmute_copy(&perra), ::core::mem::transmute_copy(&pfcallonscripterror)).into()
@@ -31962,7 +31962,7 @@ impl IRawEnumerator_Vtbl {
     }
 }
 pub trait IRemoteDebugApplication_Impl: Sized {
-    fn ResumeFromBreakPoint(&self, prptfocus: &::core::option::Option<IRemoteDebugApplicationThread>, bra: BREAKRESUME_ACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>;
+    fn ResumeFromBreakPoint(&self, prptfocus: &::core::option::Option<IRemoteDebugApplicationThread>, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>;
     fn CauseBreak(&self) -> ::windows::core::Result<()>;
     fn ConnectDebugger(&self, pad: &::core::option::Option<IApplicationDebugger>) -> ::windows::core::Result<()>;
     fn DisconnectDebugger(&self) -> ::windows::core::Result<()>;
@@ -31977,7 +31977,7 @@ pub trait IRemoteDebugApplication_Impl: Sized {
 impl ::windows::core::RuntimeName for IRemoteDebugApplication {}
 impl IRemoteDebugApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteDebugApplication_Impl, const OFFSET: isize>() -> IRemoteDebugApplication_Vtbl {
-        unsafe extern "system" fn ResumeFromBreakPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteDebugApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prptfocus: *mut ::core::ffi::c_void, bra: BREAKRESUME_ACTION, era: ERRORRESUMEACTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResumeFromBreakPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteDebugApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prptfocus: *mut ::core::ffi::c_void, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResumeFromBreakPoint(::core::mem::transmute(&prptfocus), ::core::mem::transmute_copy(&bra), ::core::mem::transmute_copy(&era)).into()

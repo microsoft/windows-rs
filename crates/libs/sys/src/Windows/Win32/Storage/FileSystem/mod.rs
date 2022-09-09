@@ -1,13 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -385,6 +376,9 @@ extern "system" {
     pub fn GetCompressedFileSizeW(lpfilename: ::windows_sys::core::PCWSTR, lpfilesizehigh: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub fn GetDiskFreeSpaceA(lprootpathname: ::windows_sys::core::PCSTR, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -563,6 +557,9 @@ extern "system" {
     pub fn GetTransactionInformation(transactionhandle: super::super::Foundation::HANDLE, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, bufferlength: u32, description: ::windows_sys::core::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub fn GetVolumeInformationA(lprootpathname: ::windows_sys::core::PCSTR, lpvolumenamebuffer: ::windows_sys::core::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: ::windows_sys::core::PSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -733,7 +730,7 @@ extern "system" {
     pub fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenFile(lpfilename: ::windows_sys::core::PCSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32;
+    pub fn OpenFile(lpfilename: ::windows_sys::core::PCSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: u32) -> i32;
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn OpenFileById(hvolumehint: super::super::Foundation::HANDLE, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
@@ -2248,39 +2245,39 @@ pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub type LZOPENFILE_STYLE = u32;
+pub type LZOPENFILE_STYLE = u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_CANCEL: LZOPENFILE_STYLE = 2048u32;
+pub const OF_CANCEL: LZOPENFILE_STYLE = 2048u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_CREATE: LZOPENFILE_STYLE = 4096u32;
+pub const OF_CREATE: LZOPENFILE_STYLE = 4096u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_DELETE: LZOPENFILE_STYLE = 512u32;
+pub const OF_DELETE: LZOPENFILE_STYLE = 512u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_EXIST: LZOPENFILE_STYLE = 16384u32;
+pub const OF_EXIST: LZOPENFILE_STYLE = 16384u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_PARSE: LZOPENFILE_STYLE = 256u32;
+pub const OF_PARSE: LZOPENFILE_STYLE = 256u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_PROMPT: LZOPENFILE_STYLE = 8192u32;
+pub const OF_PROMPT: LZOPENFILE_STYLE = 8192u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_READ: LZOPENFILE_STYLE = 0u32;
+pub const OF_READ: LZOPENFILE_STYLE = 0u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_READWRITE: LZOPENFILE_STYLE = 2u32;
+pub const OF_READWRITE: LZOPENFILE_STYLE = 2u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_REOPEN: LZOPENFILE_STYLE = 32768u32;
+pub const OF_REOPEN: LZOPENFILE_STYLE = 32768u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = 64u32;
+pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = 64u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = 48u32;
+pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = 48u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = 32u32;
+pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = 32u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = 16u32;
+pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = 16u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_WRITE: LZOPENFILE_STYLE = 1u32;
+pub const OF_WRITE: LZOPENFILE_STYLE = 1u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = 0u32;
+pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = 0u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_VERIFY: LZOPENFILE_STYLE = 1024u32;
+pub const OF_VERIFY: LZOPENFILE_STYLE = 1024u16;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type MOVE_FILE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -6380,7 +6377,7 @@ impl ::core::clone::Clone for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
@@ -6403,7 +6400,7 @@ impl ::core::clone::Clone for TXF_ID_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
@@ -6420,7 +6417,7 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_AFFECTED_FILE {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,

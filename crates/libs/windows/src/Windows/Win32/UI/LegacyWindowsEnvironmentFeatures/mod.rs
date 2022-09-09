@@ -605,40 +605,40 @@ pub const STATEBITS_FLAT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _reconcilef(pub i32);
+pub struct RECONCILEF(pub i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = _reconcilef(1i32);
+pub const RECONCILEF_MAYBOTHERUSER: RECONCILEF = RECONCILEF(1i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const RECONCILEF_FEEDBACKWINDOWVALID: _reconcilef = _reconcilef(2i32);
+pub const RECONCILEF_FEEDBACKWINDOWVALID: RECONCILEF = RECONCILEF(2i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const RECONCILEF_NORESIDUESOK: _reconcilef = _reconcilef(4i32);
+pub const RECONCILEF_NORESIDUESOK: RECONCILEF = RECONCILEF(4i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const RECONCILEF_OMITSELFRESIDUE: _reconcilef = _reconcilef(8i32);
+pub const RECONCILEF_OMITSELFRESIDUE: RECONCILEF = RECONCILEF(8i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = _reconcilef(16i32);
+pub const RECONCILEF_RESUMERECONCILIATION: RECONCILEF = RECONCILEF(16i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = _reconcilef(32i32);
+pub const RECONCILEF_YOUMAYDOTHEUPDATES: RECONCILEF = RECONCILEF(32i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = _reconcilef(64i32);
+pub const RECONCILEF_ONLYYOUWERECHANGED: RECONCILEF = RECONCILEF(64i32);
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-pub const ALL_RECONCILE_FLAGS: _reconcilef = _reconcilef(127i32);
-impl ::core::marker::Copy for _reconcilef {}
-impl ::core::clone::Clone for _reconcilef {
+pub const ALL_RECONCILE_FLAGS: RECONCILEF = RECONCILEF(127i32);
+impl ::core::marker::Copy for RECONCILEF {}
+impl ::core::clone::Clone for RECONCILEF {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for _reconcilef {
+impl ::core::default::Default for RECONCILEF {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _reconcilef {
+unsafe impl ::windows::core::Abi for RECONCILEF {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for _reconcilef {
+impl ::core::fmt::Debug for RECONCILEF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_reconcilef").field(&self.0).finish()
+        f.debug_tuple("RECONCILEF").field(&self.0).finish()
     }
 }
 #[cfg(feature = "implement")]

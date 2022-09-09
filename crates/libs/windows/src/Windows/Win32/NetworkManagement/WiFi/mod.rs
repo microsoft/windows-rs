@@ -14801,6 +14801,38 @@ impl ::core::default::Default for DOT11_WME_AC_PARAMETERS {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11_WME_AC_PARAMETERS_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
+}
+impl ::core::marker::Copy for DOT11_WME_AC_PARAMETERS_LIST {}
+impl ::core::clone::Clone for DOT11_WME_AC_PARAMETERS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DOT11_WME_AC_PARAMETERS_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOT11_WME_AC_PARAMETERS_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11WMEACParameters", &self.dot11WMEACParameters).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DOT11_WME_AC_PARAMETERS_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DOT11_WME_AC_PARAMETERS_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOT11_WME_AC_PARAMETERS_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DOT11_WME_AC_PARAMETERS_LIST {}
+impl ::core::default::Default for DOT11_WME_AC_PARAMETERS_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub struct DOT11_WME_UPDATE_IE {
     pub uParamElemMinBeaconIntervals: u32,
     pub uWMEInfoElemOffset: u32,
@@ -16782,38 +16814,6 @@ impl ::core::cmp::PartialEq for WLAN_STATISTICS {
 }
 impl ::core::cmp::Eq for WLAN_STATISTICS {}
 impl ::core::default::Default for WLAN_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
-pub struct _DOT11_WME_AC_PARAMTERS_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
-    pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
-}
-impl ::core::marker::Copy for _DOT11_WME_AC_PARAMTERS_LIST {}
-impl ::core::clone::Clone for _DOT11_WME_AC_PARAMTERS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _DOT11_WME_AC_PARAMTERS_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_DOT11_WME_AC_PARAMTERS_LIST").field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("dot11WMEACParameters", &self.dot11WMEACParameters).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _DOT11_WME_AC_PARAMTERS_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _DOT11_WME_AC_PARAMTERS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_DOT11_WME_AC_PARAMTERS_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _DOT11_WME_AC_PARAMTERS_LIST {}
-impl ::core::default::Default for _DOT11_WME_AC_PARAMTERS_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

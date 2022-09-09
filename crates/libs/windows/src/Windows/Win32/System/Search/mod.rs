@@ -2506,23 +2506,32 @@ pub struct DataSourceObject_Vtbl {
 #[repr(transparent)]
 pub struct IAccessor(::windows::core::IUnknown);
 impl IAccessor {
-    pub unsafe fn AddRefAccessor(&self, haccessor: usize) -> ::windows::core::Result<u32> {
+    pub unsafe fn AddRefAccessor<'a, P0>(&self, haccessor: P0) -> ::windows::core::Result<u32>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).AddRefAccessor)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AddRefAccessor)(::windows::core::Interface::as_raw(self), haccessor.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: &mut usize, rgstatus: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: &mut HACCESSOR, rgstatus: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateAccessor)(::windows::core::Interface::as_raw(self), dwaccessorflags, ::core::mem::transmute(cbindings), ::core::mem::transmute(rgbindings), cbrowsize, ::core::mem::transmute(phaccessor), ::core::mem::transmute(rgstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBindings(&self, haccessor: usize, pdwaccessorflags: &mut u32, pcbindings: ::core::option::Option<&mut usize>, prgbindings: ::core::option::Option<&mut *mut DBBINDING>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBindings)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(pdwaccessorflags), ::core::mem::transmute(pcbindings), ::core::mem::transmute(prgbindings)).ok()
+    pub unsafe fn GetBindings<'a, P0>(&self, haccessor: P0, pdwaccessorflags: &mut u32, pcbindings: ::core::option::Option<&mut usize>, prgbindings: ::core::option::Option<&mut *mut DBBINDING>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).GetBindings)(::windows::core::Interface::as_raw(self), haccessor.into(), ::core::mem::transmute(pdwaccessorflags), ::core::mem::transmute(pcbindings), ::core::mem::transmute(prgbindings)).ok()
     }
-    pub unsafe fn ReleaseAccessor(&self, haccessor: usize) -> ::windows::core::Result<u32> {
+    pub unsafe fn ReleaseAccessor<'a, P0>(&self, haccessor: P0) -> ::windows::core::Result<u32>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ReleaseAccessor)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ReleaseAccessor)(::windows::core::Interface::as_raw(self), haccessor.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IAccessor> for ::windows::core::IUnknown {
@@ -2564,16 +2573,16 @@ unsafe impl ::windows::core::Interface for IAccessor {
 #[doc(hidden)]
 pub struct IAccessor_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub AddRefAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
+    pub AddRefAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut usize, rgstatus: *mut u32) -> ::windows::core::HRESULT,
+    pub CreateAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateAccessor: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBindings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT,
+    pub GetBindings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBindings: usize,
-    pub ReleaseAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
+    pub ReleaseAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -5648,12 +5657,19 @@ pub struct IDataInitialize_Vtbl {
 pub struct IDataSourceLocator(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataSourceLocator {
-    pub unsafe fn hWnd(&self) -> ::windows::core::Result<i64> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn hWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).hWnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+        (::windows::core::Interface::vtable(self).hWnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    pub unsafe fn SethWnd(&self, hwndparent: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SethWnd)(::windows::core::Interface::as_raw(self), hwndparent).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SethWnd<'a, P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
+        (::windows::core::Interface::vtable(self).SethWnd)(::windows::core::Interface::as_raw(self), hwndparent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5733,8 +5749,14 @@ unsafe impl ::windows::core::Interface for IDataSourceLocator {
 #[doc(hidden)]
 pub struct IDataSourceLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwndparent: *mut i64) -> ::windows::core::HRESULT,
-    pub SethWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwndparent: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    hWnd: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SethWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SethWnd: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub PromptNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppadoconnection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6795,8 +6817,11 @@ impl IMDDataset {
     {
         (::windows::core::Interface::vtable(self).GetAxisRowset)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), iaxis, ::core::mem::transmute(riid), cpropertysets, ::core::mem::transmute(rgpropertysets), ::core::mem::transmute(pprowset)).ok()
     }
-    pub unsafe fn GetCellData(&self, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCellData)(::windows::core::Interface::as_raw(self), haccessor, ulstartcell, ulendcell, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetCellData<'a, P0>(&self, haccessor: P0, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).GetCellData)(::windows::core::Interface::as_raw(self), haccessor.into(), ulstartcell, ulendcell, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn GetSpecification(&self, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6848,7 +6873,7 @@ pub struct IMDDataset_Vtbl {
     pub GetAxisRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, iaxis: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAxisRowset: usize,
-    pub GetCellData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCellData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSpecification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -7894,8 +7919,11 @@ pub struct IQuerySolution_Vtbl {
 #[repr(transparent)]
 pub struct IReadData(::windows::core::IUnknown);
 impl IReadData {
-    pub unsafe fn ReadData(&self, hchapter: usize, cbbookmark: usize, pbookmark: &u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: &mut usize, ppfixeddata: &mut *mut u8, pcbvariabletotal: &mut usize, ppvariabledata: &mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), hchapter, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, haccessor, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(ppfixeddata), ::core::mem::transmute(pcbvariabletotal), ::core::mem::transmute(ppvariabledata)).ok()
+    pub unsafe fn ReadData<'a, P0>(&self, hchapter: usize, cbbookmark: usize, pbookmark: &u8, lrowsoffset: isize, haccessor: P0, crows: isize, pcrowsobtained: &mut usize, ppfixeddata: &mut *mut u8, pcbvariabletotal: &mut usize, ppvariabledata: &mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), hchapter, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, haccessor.into(), crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(ppfixeddata), ::core::mem::transmute(pcbvariabletotal), ::core::mem::transmute(ppvariabledata)).ok()
     }
     pub unsafe fn ReleaseChapter(&self, hchapter: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseChapter)(::windows::core::Interface::as_raw(self), hchapter).ok()
@@ -7940,7 +7968,7 @@ unsafe impl ::windows::core::Interface for IReadData {
 #[doc(hidden)]
 pub struct IReadData_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub ReadData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub ReadData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: HACCESSOR, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub ReleaseChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -8483,8 +8511,11 @@ impl IRowset {
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: &usize, rgrefcounts: &mut u32, rgrowstatus: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddRefRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
-    pub unsafe fn GetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: &mut usize, prghrows: &mut *mut usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNextRows)(::windows::core::Interface::as_raw(self), hreserved, lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
@@ -8536,7 +8567,7 @@ unsafe impl ::windows::core::Interface for IRowset {
 pub struct IRowset_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub AddRefRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::HRESULT,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNextRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT,
     pub ReleaseRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::HRESULT,
     pub RestartPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize) -> ::windows::core::HRESULT,
@@ -8655,11 +8686,17 @@ impl IRowsetChange {
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: &usize, rgrowstatus: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteRows)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
     }
-    pub unsafe fn SetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn SetData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn InsertRow(&self, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: &mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), hreserved, haccessor, ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
+    pub unsafe fn InsertRow<'a, P0>(&self, hreserved: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void, phrow: &mut usize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), hreserved, haccessor.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
     }
 }
 impl ::core::convert::From<IRowsetChange> for ::windows::core::IUnknown {
@@ -8702,8 +8739,8 @@ unsafe impl ::windows::core::Interface for IRowsetChange {
 pub struct IRowsetChange_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub DeleteRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::core::HRESULT,
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub InsertRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT,
+    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -8880,11 +8917,17 @@ impl IRowsetCurrentIndex {
     pub unsafe fn GetIndexInfo(&self, pckeycolumns: &mut usize, prgindexcolumndesc: &mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: &mut u32, prgindexpropertysets: &mut *mut DBPROPSET) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetIndexInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pckeycolumns), ::core::mem::transmute(prgindexcolumndesc), ::core::mem::transmute(pcindexpropertysets), ::core::mem::transmute(prgindexpropertysets)).ok()
     }
-    pub unsafe fn Seek(&self, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), haccessor, ckeyvalues, ::core::mem::transmute(pdata), dwseekoptions).ok()
+    pub unsafe fn Seek<'a, P0>(&self, haccessor: P0, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), haccessor.into(), ckeyvalues, ::core::mem::transmute(pdata), dwseekoptions).ok()
     }
-    pub unsafe fn SetRange(&self, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRange)(::windows::core::Interface::as_raw(self), haccessor, cstartkeycolumns, ::core::mem::transmute(pstartdata), cendkeycolumns, ::core::mem::transmute(penddata), dwrangeoptions).ok()
+    pub unsafe fn SetRange<'a, P0>(&self, haccessor: P0, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetRange)(::windows::core::Interface::as_raw(self), haccessor.into(), cstartkeycolumns, ::core::mem::transmute(pstartdata), cendkeycolumns, ::core::mem::transmute(penddata), dwrangeoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -9045,8 +9088,11 @@ pub struct IRowsetEvents_Vtbl {
 #[repr(transparent)]
 pub struct IRowsetFastLoad(::windows::core::IUnknown);
 impl IRowsetFastLoad {
-    pub unsafe fn InsertRow(&self, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn InsertRow<'a, P0>(&self, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).InsertRow)(::windows::core::Interface::as_raw(self), haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9096,7 +9142,7 @@ unsafe impl ::windows::core::Interface for IRowsetFastLoad {
 #[doc(hidden)]
 pub struct IRowsetFastLoad_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub InsertRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9106,8 +9152,11 @@ pub struct IRowsetFastLoad_Vtbl {
 #[repr(transparent)]
 pub struct IRowsetFind(::windows::core::IUnknown);
 impl IRowsetFind {
-    pub unsafe fn FindNextRow(&self, hchapter: usize, haccessor: usize, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: &u8, lrowsoffset: isize, crows: isize, pcrowsobtained: &mut usize, prghrows: &mut *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindNextRow)(::windows::core::Interface::as_raw(self), hchapter, haccessor, ::core::mem::transmute(pfindvalue), compareop, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
+    pub unsafe fn FindNextRow<'a, P0>(&self, hchapter: usize, haccessor: P0, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: &u8, lrowsoffset: isize, crows: isize, pcrowsobtained: &mut usize, prghrows: &mut *mut usize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).FindNextRow)(::windows::core::Interface::as_raw(self), hchapter, haccessor.into(), ::core::mem::transmute(pfindvalue), compareop, cbbookmark, ::core::mem::transmute(pbookmark), lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
     }
 }
 impl ::core::convert::From<IRowsetFind> for ::windows::core::IUnknown {
@@ -9149,7 +9198,7 @@ unsafe impl ::windows::core::Interface for IRowsetFind {
 #[doc(hidden)]
 pub struct IRowsetFind_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub FindNextRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, haccessor: usize, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT,
+    pub FindNextRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, haccessor: HACCESSOR, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -9209,11 +9258,17 @@ impl IRowsetIndex {
     pub unsafe fn GetIndexInfo(&self, pckeycolumns: &mut usize, prgindexcolumndesc: &mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: &mut u32, prgindexpropertysets: &mut *mut DBPROPSET) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIndexInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pckeycolumns), ::core::mem::transmute(prgindexcolumndesc), ::core::mem::transmute(pcindexpropertysets), ::core::mem::transmute(prgindexpropertysets)).ok()
     }
-    pub unsafe fn Seek(&self, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), haccessor, ckeyvalues, ::core::mem::transmute(pdata), dwseekoptions).ok()
+    pub unsafe fn Seek<'a, P0>(&self, haccessor: P0, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), haccessor.into(), ckeyvalues, ::core::mem::transmute(pdata), dwseekoptions).ok()
     }
-    pub unsafe fn SetRange(&self, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRange)(::windows::core::Interface::as_raw(self), haccessor, cstartkeycolumns, ::core::mem::transmute(pstartdata), cendkeycolumns, ::core::mem::transmute(penddata), dwrangeoptions).ok()
+    pub unsafe fn SetRange<'a, P0>(&self, haccessor: P0, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).SetRange)(::windows::core::Interface::as_raw(self), haccessor.into(), cstartkeycolumns, ::core::mem::transmute(pstartdata), cendkeycolumns, ::core::mem::transmute(penddata), dwrangeoptions).ok()
     }
 }
 impl ::core::convert::From<IRowsetIndex> for ::windows::core::IUnknown {
@@ -9259,8 +9314,8 @@ pub struct IRowsetIndex_Vtbl {
     pub GetIndexInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetIndexInfo: usize,
-    pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::HRESULT,
-    pub SetRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::HRESULT,
+    pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::HRESULT,
+    pub SetRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -9382,8 +9437,11 @@ impl IRowsetLocate {
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: &usize, rgrefcounts: &mut u32, rgrowstatus: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.AddRefRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
-    pub unsafe fn GetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: &mut usize, prghrows: &mut *mut usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetNextRows)(::windows::core::Interface::as_raw(self), hreserved, lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
@@ -9470,8 +9528,11 @@ pub struct IRowsetLocate_Vtbl {
 #[repr(transparent)]
 pub struct IRowsetNewRowAfter(::windows::core::IUnknown);
 impl IRowsetNewRowAfter {
-    pub unsafe fn SetNewDataAfter(&self, hchapter: usize, cbbmprevious: u32, pbmprevious: &u8, haccessor: usize, pdata: &mut u8, phrow: &mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNewDataAfter)(::windows::core::Interface::as_raw(self), hchapter, cbbmprevious, ::core::mem::transmute(pbmprevious), haccessor, ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
+    pub unsafe fn SetNewDataAfter<'a, P0>(&self, hchapter: usize, cbbmprevious: u32, pbmprevious: &u8, haccessor: P0, pdata: &mut u8, phrow: &mut usize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).SetNewDataAfter)(::windows::core::Interface::as_raw(self), hchapter, cbbmprevious, ::core::mem::transmute(pbmprevious), haccessor.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
     }
 }
 impl ::core::convert::From<IRowsetNewRowAfter> for ::windows::core::IUnknown {
@@ -9513,7 +9574,7 @@ unsafe impl ::windows::core::Interface for IRowsetNewRowAfter {
 #[doc(hidden)]
 pub struct IRowsetNewRowAfter_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub SetNewDataAfter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: usize, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::HRESULT,
+    pub SetNewDataAfter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: HACCESSOR, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -9774,8 +9835,11 @@ impl IRowsetRefresh {
     {
         (::windows::core::Interface::vtable(self).RefreshVisibleData)(::windows::core::Interface::as_raw(self), hchapter, crows, ::core::mem::transmute(rghrows), foverwrite.into(), ::core::mem::transmute(pcrowsrefreshed), ::core::mem::transmute(prghrowsrefreshed), ::core::mem::transmute(prgrowstatus)).ok()
     }
-    pub unsafe fn GetLastVisibleData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLastVisibleData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetLastVisibleData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).GetLastVisibleData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
 }
 impl ::core::convert::From<IRowsetRefresh> for ::windows::core::IUnknown {
@@ -9821,14 +9885,17 @@ pub struct IRowsetRefresh_Vtbl {
     pub RefreshVisibleData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, crows: usize, rghrows: *const usize, foverwrite: super::super::Foundation::BOOL, pcrowsrefreshed: *mut usize, prghrowsrefreshed: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RefreshVisibleData: usize,
-    pub GetLastVisibleData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetLastVisibleData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
 pub struct IRowsetResynch(::windows::core::IUnknown);
 impl IRowsetResynch {
-    pub unsafe fn GetVisibleData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVisibleData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetVisibleData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).GetVisibleData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn ResynchRows(&self, crows: usize, rghrows: &usize, pcrowsresynched: &mut usize, prghrowsresynched: &mut *mut usize, prgrowstatus: &mut *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ResynchRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(pcrowsresynched), ::core::mem::transmute(prghrowsresynched), ::core::mem::transmute(prgrowstatus)).ok()
@@ -9873,7 +9940,7 @@ unsafe impl ::windows::core::Interface for IRowsetResynch {
 #[doc(hidden)]
 pub struct IRowsetResynch_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub GetVisibleData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetVisibleData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ResynchRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, pcrowsresynched: *mut usize, prghrowsresynched: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -9883,8 +9950,11 @@ impl IRowsetScroll {
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: &usize, rgrefcounts: &mut u32, rgrowstatus: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.AddRefRows)(::windows::core::Interface::as_raw(self), crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrefcounts), ::core::mem::transmute(rgrowstatus)).ok()
     }
-    pub unsafe fn GetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.GetData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: &mut usize, prghrows: &mut *mut usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetNextRows)(::windows::core::Interface::as_raw(self), hreserved, lrowsoffset, crows, ::core::mem::transmute(pcrowsobtained), ::core::mem::transmute(prghrows)).ok()
@@ -9993,14 +10063,23 @@ impl IRowsetUpdate {
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: &usize, rgrowstatus: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DeleteRows)(::windows::core::Interface::as_raw(self), hreserved, crows, ::core::mem::transmute(rghrows), ::core::mem::transmute(rgrowstatus)).ok()
     }
-    pub unsafe fn SetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn SetData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn InsertRow(&self, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: &mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InsertRow)(::windows::core::Interface::as_raw(self), hreserved, haccessor, ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
+    pub unsafe fn InsertRow<'a, P0>(&self, hreserved: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void, phrow: &mut usize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.InsertRow)(::windows::core::Interface::as_raw(self), hreserved, haccessor.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(phrow)).ok()
     }
-    pub unsafe fn GetOriginalData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOriginalData)(::windows::core::Interface::as_raw(self), hrow, haccessor, ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetOriginalData<'a, P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).GetOriginalData)(::windows::core::Interface::as_raw(self), hrow, haccessor.into(), ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn GetPendingRows(&self, hreserved: usize, dwrowstatus: u32, pcpendingrows: &mut usize, prgpendingrows: &mut *mut usize, prgpendingstatus: &mut *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPendingRows)(::windows::core::Interface::as_raw(self), hreserved, dwrowstatus, ::core::mem::transmute(pcpendingrows), ::core::mem::transmute(prgpendingrows), ::core::mem::transmute(prgpendingstatus)).ok()
@@ -10069,7 +10148,7 @@ unsafe impl ::windows::core::Interface for IRowsetUpdate {
 #[doc(hidden)]
 pub struct IRowsetUpdate_Vtbl {
     pub base__: IRowsetChange_Vtbl,
-    pub GetOriginalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetOriginalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPendingRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, dwrowstatus: u32, pcpendingrows: *mut usize, prgpendingrows: *mut *mut usize, prgpendingstatus: *mut *mut u32) -> ::windows::core::HRESULT,
     pub GetRowStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, rgpendingstatus: *mut u32) -> ::windows::core::HRESULT,
     pub Undo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
@@ -10266,7 +10345,7 @@ impl IRowsetWatchRegion {
     pub unsafe fn GetWatchRegionInfo(&self, hregion: usize, pdwwatchmode: &mut u32, phchapter: &mut usize, pcbbookmark: &mut usize, ppbookmark: &mut *mut u8, pcrows: &mut isize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWatchRegionInfo)(::windows::core::Interface::as_raw(self), hregion, ::core::mem::transmute(pdwwatchmode), ::core::mem::transmute(phchapter), ::core::mem::transmute(pcbbookmark), ::core::mem::transmute(ppbookmark), ::core::mem::transmute(pcrows)).ok()
     }
-    pub unsafe fn Refresh(&self, pcchangesobtained: &mut usize, prgchanges: &mut *mut tagDBROWWATCHRANGE) -> ::windows::core::Result<()> {
+    pub unsafe fn Refresh(&self, pcchangesobtained: &mut usize, prgchanges: &mut *mut DBROWWATCHCHANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcchangesobtained), ::core::mem::transmute(prgchanges)).ok()
     }
     pub unsafe fn ShrinkWatchRegion(&self, hregion: usize, hchapter: usize, cbbookmark: usize, pbookmark: &mut u8, crows: isize) -> ::windows::core::Result<()> {
@@ -10331,7 +10410,7 @@ pub struct IRowsetWatchRegion_Vtbl {
     pub ChangeWatchMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hregion: usize, dwwatchmode: u32) -> ::windows::core::HRESULT,
     pub DeleteWatchRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hregion: usize) -> ::windows::core::HRESULT,
     pub GetWatchRegionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hregion: usize, pdwwatchmode: *mut u32, phchapter: *mut usize, pcbbookmark: *mut usize, ppbookmark: *mut *mut u8, pcrows: *mut isize) -> ::windows::core::HRESULT,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcchangesobtained: *mut usize, prgchanges: *mut *mut tagDBROWWATCHRANGE) -> ::windows::core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcchangesobtained: *mut usize, prgchanges: *mut *mut DBROWWATCHCHANGE) -> ::windows::core::HRESULT,
     pub ShrinkWatchRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hregion: usize, hchapter: usize, cbbookmark: usize, pbookmark: *mut u8, crows: isize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10553,7 +10632,7 @@ pub struct ISQLRequestDiagFields_Vtbl {
 #[repr(transparent)]
 pub struct ISQLServerErrorInfo(::windows::core::IUnknown);
 impl ISQLServerErrorInfo {
-    pub unsafe fn GetErrorInfo(&self, pperrorinfo: &mut *mut tagSSErrorInfo, ppstringsbuffer: &mut *mut u16) -> ::windows::core::Result<()> {
+    pub unsafe fn GetErrorInfo(&self, pperrorinfo: &mut *mut SSERRORINFO, ppstringsbuffer: &mut *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pperrorinfo), ::core::mem::transmute(ppstringsbuffer)).ok()
     }
 }
@@ -10596,7 +10675,7 @@ unsafe impl ::windows::core::Interface for ISQLServerErrorInfo {
 #[doc(hidden)]
 pub struct ISQLServerErrorInfo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut tagSSErrorInfo, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut SSERRORINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -15442,16 +15521,22 @@ pub struct IViewChapter_Vtbl {
 #[repr(transparent)]
 pub struct IViewFilter(::windows::core::IUnknown);
 impl IViewFilter {
-    pub unsafe fn GetFilter(&self, haccessor: usize, pcrows: &mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), haccessor, ::core::mem::transmute(pcrows), ::core::mem::transmute(pcompareops), ::core::mem::transmute(pcriteriadata)).ok()
+    pub unsafe fn GetFilter<'a, P0>(&self, haccessor: P0, pcrows: &mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), haccessor.into(), ::core::mem::transmute(pcrows), ::core::mem::transmute(pcompareops), ::core::mem::transmute(pcriteriadata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFilterBindings(&self, pcbindings: &mut usize, prgbindings: ::core::option::Option<&mut *mut DBBINDING>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFilterBindings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbindings), ::core::mem::transmute(prgbindings)).ok()
     }
-    pub unsafe fn SetFilter(&self, haccessor: usize, compareops: &[u32], pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), haccessor, compareops.len() as _, ::core::mem::transmute(compareops.as_ptr()), ::core::mem::transmute(pcriteriadata)).ok()
+    pub unsafe fn SetFilter<'a, P0>(&self, haccessor: P0, compareops: &[u32], pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HACCESSOR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), haccessor.into(), compareops.len() as _, ::core::mem::transmute(compareops.as_ptr()), ::core::mem::transmute(pcriteriadata)).ok()
     }
 }
 impl ::core::convert::From<IViewFilter> for ::windows::core::IUnknown {
@@ -15493,12 +15578,12 @@ unsafe impl ::windows::core::Interface for IViewFilter {
 #[doc(hidden)]
 pub struct IViewFilter_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub GetFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetFilterBindings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetFilterBindings: usize,
-    pub SetFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -28650,6 +28735,68 @@ impl ::core::default::Default for DBDATE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBDATETIM4 {
+    pub numdays: u16,
+    pub nummins: u16,
+}
+impl ::core::marker::Copy for DBDATETIM4 {}
+impl ::core::clone::Clone for DBDATETIM4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DBDATETIM4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DBDATETIM4").field("numdays", &self.numdays).field("nummins", &self.nummins).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DBDATETIM4 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DBDATETIM4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBDATETIM4>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DBDATETIM4 {}
+impl ::core::default::Default for DBDATETIM4 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBDATETIME {
+    pub dtdays: i32,
+    pub dttime: u32,
+}
+impl ::core::marker::Copy for DBDATETIME {}
+impl ::core::clone::Clone for DBDATETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DBDATETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DBDATETIME").field("dtdays", &self.dtdays).field("dttime", &self.dttime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DBDATETIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DBDATETIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBDATETIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DBDATETIME {}
+impl ::core::default::Default for DBDATETIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
@@ -28944,6 +29091,37 @@ impl ::core::default::Default for DBLITERALINFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBMONEY {
+    pub mnyhigh: i32,
+    pub mnylow: u32,
+}
+impl ::core::marker::Copy for DBMONEY {}
+impl ::core::clone::Clone for DBMONEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DBMONEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DBMONEY").field("mnyhigh", &self.mnyhigh).field("mnylow", &self.mnylow).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DBMONEY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DBMONEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBMONEY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DBMONEY {}
+impl ::core::default::Default for DBMONEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBOBJECT {
     pub dwFlags: u32,
@@ -29176,7 +29354,7 @@ impl ::core::default::Default for DBPARAMINFO {
 pub struct DBPARAMS {
     pub pData: *mut ::core::ffi::c_void,
     pub cParamSets: usize,
-    pub hAccessor: usize,
+    pub hAccessor: HACCESSOR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DBPARAMS {}
@@ -29210,7 +29388,7 @@ impl ::core::default::Default for DBPARAMS {
 pub struct DBPARAMS {
     pub pData: *mut ::core::ffi::c_void,
     pub cParamSets: usize,
-    pub hAccessor: usize,
+    pub hAccessor: HACCESSOR,
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for DBPARAMS {}
@@ -29624,6 +29802,76 @@ impl ::core::default::Default for DBPROPSET {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct DBROWWATCHCHANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for DBROWWATCHCHANGE {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for DBROWWATCHCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+unsafe impl ::windows::core::Abi for DBROWWATCHCHANGE {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::PartialEq for DBROWWATCHCHANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBROWWATCHCHANGE>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::Eq for DBROWWATCHCHANGE {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for DBROWWATCHCHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct DBROWWATCHCHANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for DBROWWATCHCHANGE {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for DBROWWATCHCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+unsafe impl ::windows::core::Abi for DBROWWATCHCHANGE {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::PartialEq for DBROWWATCHCHANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBROWWATCHCHANGE>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::Eq for DBROWWATCHCHANGE {}
+#[cfg(target_arch = "x86")]
+impl ::core::default::Default for DBROWWATCHCHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
@@ -29726,6 +29974,68 @@ impl ::core::cmp::PartialEq for DBTIMESTAMP {
 impl ::core::cmp::Eq for DBTIMESTAMP {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBTIMESTAMP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBVARYBIN {
+    pub len: i16,
+    pub array: [u8; 8001],
+}
+impl ::core::marker::Copy for DBVARYBIN {}
+impl ::core::clone::Clone for DBVARYBIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DBVARYBIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DBVARYBIN").field("len", &self.len).field("array", &self.array).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DBVARYBIN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DBVARYBIN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBVARYBIN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DBVARYBIN {}
+impl ::core::default::Default for DBVARYBIN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBVARYCHAR {
+    pub len: i16,
+    pub str: [i8; 8001],
+}
+impl ::core::marker::Copy for DBVARYCHAR {}
+impl ::core::clone::Clone for DBVARYCHAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DBVARYCHAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DBVARYCHAR").field("len", &self.len).field("str", &self.str).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DBVARYCHAR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DBVARYCHAR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBVARYCHAR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DBVARYCHAR {}
+impl ::core::default::Default for DBVARYCHAR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -29997,6 +30307,38 @@ impl ::core::default::Default for FILTERED_DATA_SOURCES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HACCESSOR(pub usize);
+impl HACCESSOR {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for HACCESSOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HACCESSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HACCESSOR {}
+impl ::core::fmt::Debug for HACCESSOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HACCESSOR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HACCESSOR>> for HACCESSOR {
+    fn from(optional: ::core::option::Option<HACCESSOR>) -> HACCESSOR {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HACCESSOR {
+    type Abi = Self;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -31136,6 +31478,136 @@ impl ::core::default::Default for SORTSET {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SQLPERF {
+    pub TimerResolution: u32,
+    pub SQLidu: u32,
+    pub SQLiduRows: u32,
+    pub SQLSelects: u32,
+    pub SQLSelectRows: u32,
+    pub Transactions: u32,
+    pub SQLPrepares: u32,
+    pub ExecDirects: u32,
+    pub SQLExecutes: u32,
+    pub CursorOpens: u32,
+    pub CursorSize: u32,
+    pub CursorUsed: u32,
+    pub PercentCursorUsed: f64,
+    pub AvgFetchTime: f64,
+    pub AvgCursorSize: f64,
+    pub AvgCursorUsed: f64,
+    pub SQLFetchTime: u32,
+    pub SQLFetchCount: u32,
+    pub CurrentStmtCount: u32,
+    pub MaxOpenStmt: u32,
+    pub SumOpenStmt: u32,
+    pub CurrentConnectionCount: u32,
+    pub MaxConnectionsOpened: u32,
+    pub SumConnectionsOpened: u32,
+    pub SumConnectiontime: u32,
+    pub AvgTimeOpened: f64,
+    pub ServerRndTrips: u32,
+    pub BuffersSent: u32,
+    pub BuffersRec: u32,
+    pub BytesSent: u32,
+    pub BytesRec: u32,
+    pub msExecutionTime: u32,
+    pub msNetWorkServerTime: u32,
+}
+impl ::core::marker::Copy for SQLPERF {}
+impl ::core::clone::Clone for SQLPERF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SQLPERF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SQLPERF")
+            .field("TimerResolution", &self.TimerResolution)
+            .field("SQLidu", &self.SQLidu)
+            .field("SQLiduRows", &self.SQLiduRows)
+            .field("SQLSelects", &self.SQLSelects)
+            .field("SQLSelectRows", &self.SQLSelectRows)
+            .field("Transactions", &self.Transactions)
+            .field("SQLPrepares", &self.SQLPrepares)
+            .field("ExecDirects", &self.ExecDirects)
+            .field("SQLExecutes", &self.SQLExecutes)
+            .field("CursorOpens", &self.CursorOpens)
+            .field("CursorSize", &self.CursorSize)
+            .field("CursorUsed", &self.CursorUsed)
+            .field("PercentCursorUsed", &self.PercentCursorUsed)
+            .field("AvgFetchTime", &self.AvgFetchTime)
+            .field("AvgCursorSize", &self.AvgCursorSize)
+            .field("AvgCursorUsed", &self.AvgCursorUsed)
+            .field("SQLFetchTime", &self.SQLFetchTime)
+            .field("SQLFetchCount", &self.SQLFetchCount)
+            .field("CurrentStmtCount", &self.CurrentStmtCount)
+            .field("MaxOpenStmt", &self.MaxOpenStmt)
+            .field("SumOpenStmt", &self.SumOpenStmt)
+            .field("CurrentConnectionCount", &self.CurrentConnectionCount)
+            .field("MaxConnectionsOpened", &self.MaxConnectionsOpened)
+            .field("SumConnectionsOpened", &self.SumConnectionsOpened)
+            .field("SumConnectiontime", &self.SumConnectiontime)
+            .field("AvgTimeOpened", &self.AvgTimeOpened)
+            .field("ServerRndTrips", &self.ServerRndTrips)
+            .field("BuffersSent", &self.BuffersSent)
+            .field("BuffersRec", &self.BuffersRec)
+            .field("BytesSent", &self.BytesSent)
+            .field("BytesRec", &self.BytesRec)
+            .field("msExecutionTime", &self.msExecutionTime)
+            .field("msNetWorkServerTime", &self.msNetWorkServerTime)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SQLPERF {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SQLPERF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQLPERF>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SQLPERF {}
+impl ::core::default::Default for SQLPERF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SQL_DAY_SECOND_STRUCT {
+    pub day: u32,
+    pub hour: u32,
+    pub minute: u32,
+    pub second: u32,
+    pub fraction: u32,
+}
+impl ::core::marker::Copy for SQL_DAY_SECOND_STRUCT {}
+impl ::core::clone::Clone for SQL_DAY_SECOND_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SQL_DAY_SECOND_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SQL_DAY_SECOND_STRUCT").field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("fraction", &self.fraction).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SQL_DAY_SECOND_STRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SQL_DAY_SECOND_STRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQL_DAY_SECOND_STRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SQL_DAY_SECOND_STRUCT {}
+impl ::core::default::Default for SQL_DAY_SECOND_STRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub struct SQL_INTERVAL_STRUCT {
     pub interval_type: SQLINTERVAL,
     pub interval_sign: i16,
@@ -31164,8 +31636,8 @@ impl ::core::default::Default for SQL_INTERVAL_STRUCT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub union SQL_INTERVAL_STRUCT_0 {
-    pub year_month: tagSQL_YEAR_MONTH,
-    pub day_second: tagSQL_DAY_SECOND,
+    pub year_month: SQL_YEAR_MONTH_STRUCT,
+    pub day_second: SQL_DAY_SECOND_STRUCT,
 }
 impl ::core::marker::Copy for SQL_INTERVAL_STRUCT_0 {}
 impl ::core::clone::Clone for SQL_INTERVAL_STRUCT_0 {
@@ -31216,6 +31688,73 @@ impl ::core::cmp::PartialEq for SQL_NUMERIC_STRUCT {
 }
 impl ::core::cmp::Eq for SQL_NUMERIC_STRUCT {}
 impl ::core::default::Default for SQL_NUMERIC_STRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SQL_YEAR_MONTH_STRUCT {
+    pub year: u32,
+    pub month: u32,
+}
+impl ::core::marker::Copy for SQL_YEAR_MONTH_STRUCT {}
+impl ::core::clone::Clone for SQL_YEAR_MONTH_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SQL_YEAR_MONTH_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SQL_YEAR_MONTH_STRUCT").field("year", &self.year).field("month", &self.month).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SQL_YEAR_MONTH_STRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SQL_YEAR_MONTH_STRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQL_YEAR_MONTH_STRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SQL_YEAR_MONTH_STRUCT {}
+impl ::core::default::Default for SQL_YEAR_MONTH_STRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SSERRORINFO {
+    pub pwszMessage: ::windows::core::PWSTR,
+    pub pwszServer: ::windows::core::PWSTR,
+    pub pwszProcedure: ::windows::core::PWSTR,
+    pub lNative: i32,
+    pub bState: u8,
+    pub bClass: u8,
+    pub wLineNumber: u16,
+}
+impl ::core::marker::Copy for SSERRORINFO {}
+impl ::core::clone::Clone for SSERRORINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SSERRORINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SSERRORINFO").field("pwszMessage", &self.pwszMessage).field("pwszServer", &self.pwszServer).field("pwszProcedure", &self.pwszProcedure).field("lNative", &self.lNative).field("bState", &self.bState).field("bClass", &self.bClass).field("wLineNumber", &self.wLineNumber).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SSERRORINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SSERRORINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSERRORINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SSERRORINFO {}
+impl ::core::default::Default for SSERRORINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -31810,428 +32349,6 @@ impl ::core::cmp::PartialEq for VECTORRESTRICTION {
 impl ::core::cmp::Eq for VECTORRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for VECTORRESTRICTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbdatetime {
-    pub dtdays: i32,
-    pub dttime: u32,
-}
-impl ::core::marker::Copy for dbdatetime {}
-impl ::core::clone::Clone for dbdatetime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for dbdatetime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("dbdatetime").field("dtdays", &self.dtdays).field("dttime", &self.dttime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for dbdatetime {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for dbdatetime {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<dbdatetime>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for dbdatetime {}
-impl ::core::default::Default for dbdatetime {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbdatetime4 {
-    pub numdays: u16,
-    pub nummins: u16,
-}
-impl ::core::marker::Copy for dbdatetime4 {}
-impl ::core::clone::Clone for dbdatetime4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for dbdatetime4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("dbdatetime4").field("numdays", &self.numdays).field("nummins", &self.nummins).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for dbdatetime4 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for dbdatetime4 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<dbdatetime4>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for dbdatetime4 {}
-impl ::core::default::Default for dbdatetime4 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbmoney {
-    pub mnyhigh: i32,
-    pub mnylow: u32,
-}
-impl ::core::marker::Copy for dbmoney {}
-impl ::core::clone::Clone for dbmoney {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for dbmoney {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("dbmoney").field("mnyhigh", &self.mnyhigh).field("mnylow", &self.mnylow).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for dbmoney {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for dbmoney {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<dbmoney>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for dbmoney {}
-impl ::core::default::Default for dbmoney {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbvarybin {
-    pub len: i16,
-    pub array: [u8; 8001],
-}
-impl ::core::marker::Copy for dbvarybin {}
-impl ::core::clone::Clone for dbvarybin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for dbvarybin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("dbvarybin").field("len", &self.len).field("array", &self.array).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for dbvarybin {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for dbvarybin {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<dbvarybin>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for dbvarybin {}
-impl ::core::default::Default for dbvarybin {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbvarychar {
-    pub len: i16,
-    pub str: [i8; 8001],
-}
-impl ::core::marker::Copy for dbvarychar {}
-impl ::core::clone::Clone for dbvarychar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for dbvarychar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("dbvarychar").field("len", &self.len).field("str", &self.str).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for dbvarychar {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for dbvarychar {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<dbvarychar>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for dbvarychar {}
-impl ::core::default::Default for dbvarychar {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct sqlperf {
-    pub TimerResolution: u32,
-    pub SQLidu: u32,
-    pub SQLiduRows: u32,
-    pub SQLSelects: u32,
-    pub SQLSelectRows: u32,
-    pub Transactions: u32,
-    pub SQLPrepares: u32,
-    pub ExecDirects: u32,
-    pub SQLExecutes: u32,
-    pub CursorOpens: u32,
-    pub CursorSize: u32,
-    pub CursorUsed: u32,
-    pub PercentCursorUsed: f64,
-    pub AvgFetchTime: f64,
-    pub AvgCursorSize: f64,
-    pub AvgCursorUsed: f64,
-    pub SQLFetchTime: u32,
-    pub SQLFetchCount: u32,
-    pub CurrentStmtCount: u32,
-    pub MaxOpenStmt: u32,
-    pub SumOpenStmt: u32,
-    pub CurrentConnectionCount: u32,
-    pub MaxConnectionsOpened: u32,
-    pub SumConnectionsOpened: u32,
-    pub SumConnectiontime: u32,
-    pub AvgTimeOpened: f64,
-    pub ServerRndTrips: u32,
-    pub BuffersSent: u32,
-    pub BuffersRec: u32,
-    pub BytesSent: u32,
-    pub BytesRec: u32,
-    pub msExecutionTime: u32,
-    pub msNetWorkServerTime: u32,
-}
-impl ::core::marker::Copy for sqlperf {}
-impl ::core::clone::Clone for sqlperf {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for sqlperf {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("sqlperf")
-            .field("TimerResolution", &self.TimerResolution)
-            .field("SQLidu", &self.SQLidu)
-            .field("SQLiduRows", &self.SQLiduRows)
-            .field("SQLSelects", &self.SQLSelects)
-            .field("SQLSelectRows", &self.SQLSelectRows)
-            .field("Transactions", &self.Transactions)
-            .field("SQLPrepares", &self.SQLPrepares)
-            .field("ExecDirects", &self.ExecDirects)
-            .field("SQLExecutes", &self.SQLExecutes)
-            .field("CursorOpens", &self.CursorOpens)
-            .field("CursorSize", &self.CursorSize)
-            .field("CursorUsed", &self.CursorUsed)
-            .field("PercentCursorUsed", &self.PercentCursorUsed)
-            .field("AvgFetchTime", &self.AvgFetchTime)
-            .field("AvgCursorSize", &self.AvgCursorSize)
-            .field("AvgCursorUsed", &self.AvgCursorUsed)
-            .field("SQLFetchTime", &self.SQLFetchTime)
-            .field("SQLFetchCount", &self.SQLFetchCount)
-            .field("CurrentStmtCount", &self.CurrentStmtCount)
-            .field("MaxOpenStmt", &self.MaxOpenStmt)
-            .field("SumOpenStmt", &self.SumOpenStmt)
-            .field("CurrentConnectionCount", &self.CurrentConnectionCount)
-            .field("MaxConnectionsOpened", &self.MaxConnectionsOpened)
-            .field("SumConnectionsOpened", &self.SumConnectionsOpened)
-            .field("SumConnectiontime", &self.SumConnectiontime)
-            .field("AvgTimeOpened", &self.AvgTimeOpened)
-            .field("ServerRndTrips", &self.ServerRndTrips)
-            .field("BuffersSent", &self.BuffersSent)
-            .field("BuffersRec", &self.BuffersRec)
-            .field("BytesSent", &self.BytesSent)
-            .field("BytesRec", &self.BytesRec)
-            .field("msExecutionTime", &self.msExecutionTime)
-            .field("msNetWorkServerTime", &self.msNetWorkServerTime)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for sqlperf {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for sqlperf {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlperf>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for sqlperf {}
-impl ::core::default::Default for sqlperf {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct tagDBROWWATCHRANGE {
-    pub hRegion: usize,
-    pub eChangeKind: u32,
-    pub hRow: usize,
-    pub iRow: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for tagDBROWWATCHRANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for tagDBROWWATCHRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for tagDBROWWATCHRANGE {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for tagDBROWWATCHRANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagDBROWWATCHRANGE>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for tagDBROWWATCHRANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for tagDBROWWATCHRANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[cfg(target_arch = "x86")]
-pub struct tagDBROWWATCHRANGE {
-    pub hRegion: usize,
-    pub eChangeKind: u32,
-    pub hRow: usize,
-    pub iRow: usize,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for tagDBROWWATCHRANGE {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for tagDBROWWATCHRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for tagDBROWWATCHRANGE {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for tagDBROWWATCHRANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagDBROWWATCHRANGE>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for tagDBROWWATCHRANGE {}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for tagDBROWWATCHRANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct tagSQL_DAY_SECOND {
-    pub day: u32,
-    pub hour: u32,
-    pub minute: u32,
-    pub second: u32,
-    pub fraction: u32,
-}
-impl ::core::marker::Copy for tagSQL_DAY_SECOND {}
-impl ::core::clone::Clone for tagSQL_DAY_SECOND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tagSQL_DAY_SECOND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tagSQL_DAY_SECOND").field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("fraction", &self.fraction).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tagSQL_DAY_SECOND {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tagSQL_DAY_SECOND {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagSQL_DAY_SECOND>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tagSQL_DAY_SECOND {}
-impl ::core::default::Default for tagSQL_DAY_SECOND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct tagSQL_YEAR_MONTH {
-    pub year: u32,
-    pub month: u32,
-}
-impl ::core::marker::Copy for tagSQL_YEAR_MONTH {}
-impl ::core::clone::Clone for tagSQL_YEAR_MONTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tagSQL_YEAR_MONTH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tagSQL_YEAR_MONTH").field("year", &self.year).field("month", &self.month).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tagSQL_YEAR_MONTH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tagSQL_YEAR_MONTH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagSQL_YEAR_MONTH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tagSQL_YEAR_MONTH {}
-impl ::core::default::Default for tagSQL_YEAR_MONTH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct tagSSErrorInfo {
-    pub pwszMessage: ::windows::core::PWSTR,
-    pub pwszServer: ::windows::core::PWSTR,
-    pub pwszProcedure: ::windows::core::PWSTR,
-    pub lNative: i32,
-    pub bState: u8,
-    pub bClass: u8,
-    pub wLineNumber: u16,
-}
-impl ::core::marker::Copy for tagSSErrorInfo {}
-impl ::core::clone::Clone for tagSSErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tagSSErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tagSSErrorInfo").field("pwszMessage", &self.pwszMessage).field("pwszServer", &self.pwszServer).field("pwszProcedure", &self.pwszProcedure).field("lNative", &self.lNative).field("bState", &self.bState).field("bClass", &self.bClass).field("wLineNumber", &self.wLineNumber).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tagSSErrorInfo {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tagSSErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagSSErrorInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tagSSErrorInfo {}
-impl ::core::default::Default for tagSSErrorInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

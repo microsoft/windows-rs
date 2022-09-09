@@ -1,9 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-    pub fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32;
@@ -278,6 +273,8 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+    pub fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
@@ -349,7 +346,7 @@ extern "system" {
     pub fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_WindowsProgramming\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
-    pub fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+    pub fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IcmpCloseHandle(icmphandle: IcmpHandle) -> super::super::Foundation::BOOL;
@@ -358,13 +355,13 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
     pub fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-    pub fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+    pub fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-    pub fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+    pub fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-    pub fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+    pub fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
     pub fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2);
@@ -384,7 +381,7 @@ extern "system" {
     pub fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
+    pub fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
@@ -1760,6 +1757,18 @@ pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = 1i32;
 pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct ARP_SEND_REPLY {
+    pub DestAddress: u32,
+    pub SrcAddress: u32,
+}
+impl ::core::marker::Copy for ARP_SEND_REPLY {}
+impl ::core::clone::Clone for ARP_SEND_REPLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: ::windows_sys::core::PWSTR,
     pub Flags: u64,
@@ -1908,6 +1917,56 @@ impl ::core::clone::Clone for FIXED_INFO_W2KSP1 {
     }
 }
 pub type HIFTIMESTAMPCHANGE = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct ICMPV6_ECHO_REPLY_LH {
+    pub Address: IPV6_ADDRESS_EX,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+}
+impl ::core::marker::Copy for ICMPV6_ECHO_REPLY_LH {}
+impl ::core::clone::Clone for ICMPV6_ECHO_REPLY_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct ICMP_ECHO_REPLY {
+    pub Address: u32,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+    pub DataSize: u16,
+    pub Reserved: u16,
+    pub Data: *mut ::core::ffi::c_void,
+    pub Options: IP_OPTION_INFORMATION,
+}
+impl ::core::marker::Copy for ICMP_ECHO_REPLY {}
+impl ::core::clone::Clone for ICMP_ECHO_REPLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct ICMP_ECHO_REPLY32 {
+    pub Address: u32,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+    pub DataSize: u16,
+    pub Reserved: u16,
+    pub Data: *mut ::core::ffi::c_void,
+    pub Options: IP_OPTION_INFORMATION32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for ICMP_ECHO_REPLY32 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for ICMP_ECHO_REPLY32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
@@ -2671,6 +2730,22 @@ impl ::core::clone::Clone for IP_INTERFACE_INFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
+    pub Index: u32,
+    pub MediaType: u32,
+    pub ConnectionType: u8,
+    pub AccessType: u8,
+    pub DeviceGuid: ::windows_sys::core::GUID,
+    pub InterfaceGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for IP_INTERFACE_NAME_INFO_W2KSP1 {}
+impl ::core::clone::Clone for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct IP_MCAST_COUNTER_INFO {
     pub InMcastOctets: u64,
     pub OutMcastOctets: u64,
@@ -2679,6 +2754,39 @@ pub struct IP_MCAST_COUNTER_INFO {
 }
 impl ::core::marker::Copy for IP_MCAST_COUNTER_INFO {}
 impl ::core::clone::Clone for IP_MCAST_COUNTER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct IP_OPTION_INFORMATION {
+    pub Ttl: u8,
+    pub Tos: u8,
+    pub Flags: u8,
+    pub OptionsSize: u8,
+    pub OptionsData: *mut u8,
+}
+impl ::core::marker::Copy for IP_OPTION_INFORMATION {}
+impl ::core::clone::Clone for IP_OPTION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct IP_OPTION_INFORMATION32 {
+    pub Ttl: u8,
+    pub Tos: u8,
+    pub Flags: u8,
+    pub OptionsSize: u8,
+    pub OptionsData: *mut u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for IP_OPTION_INFORMATION32 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for IP_OPTION_INFORMATION32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5143,123 +5251,12 @@ impl ::core::clone::Clone for TCP_ESTATS_SYN_OPTS_ROS_v0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct arp_send_reply {
-    pub DestAddress: u32,
-    pub SrcAddress: u32,
-}
-impl ::core::marker::Copy for arp_send_reply {}
-impl ::core::clone::Clone for arp_send_reply {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct icmp_echo_reply {
-    pub Address: u32,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut ::core::ffi::c_void,
-    pub Options: ip_option_information,
-}
-impl ::core::marker::Copy for icmp_echo_reply {}
-impl ::core::clone::Clone for icmp_echo_reply {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct icmp_echo_reply32 {
-    pub Address: u32,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut ::core::ffi::c_void,
-    pub Options: ip_option_information32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for icmp_echo_reply32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for icmp_echo_reply32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct icmpv6_echo_reply_lh {
-    pub Address: IPV6_ADDRESS_EX,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-}
-impl ::core::marker::Copy for icmpv6_echo_reply_lh {}
-impl ::core::clone::Clone for icmpv6_echo_reply_lh {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct ip_interface_name_info_w2ksp1 {
-    pub Index: u32,
-    pub MediaType: u32,
-    pub ConnectionType: u8,
-    pub AccessType: u8,
-    pub DeviceGuid: ::windows_sys::core::GUID,
-    pub InterfaceGuid: ::windows_sys::core::GUID,
-}
-impl ::core::marker::Copy for ip_interface_name_info_w2ksp1 {}
-impl ::core::clone::Clone for ip_interface_name_info_w2ksp1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct ip_option_information {
-    pub Ttl: u8,
-    pub Tos: u8,
-    pub Flags: u8,
-    pub OptionsSize: u8,
-    pub OptionsData: *mut u8,
-}
-impl ::core::marker::Copy for ip_option_information {}
-impl ::core::clone::Clone for ip_option_information {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct ip_option_information32 {
-    pub Ttl: u8,
-    pub Tos: u8,
-    pub Flags: u8,
-    pub OptionsSize: u8,
-    pub OptionsData: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for ip_option_information32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for ip_option_information32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct tcp_reserve_port_range {
+pub struct TCP_RESERVE_PORT_RANGE {
     pub UpperRange: u16,
     pub LowerRange: u16,
 }
-impl ::core::marker::Copy for tcp_reserve_port_range {}
-impl ::core::clone::Clone for tcp_reserve_port_range {
+impl ::core::marker::Copy for TCP_RESERVE_PORT_RANGE {}
+impl ::core::clone::Clone for TCP_RESERVE_PORT_RANGE {
     fn clone(&self) -> Self {
         *self
     }

@@ -4979,9 +4979,9 @@ impl IMMDevice {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, dwclsctx, ::core::mem::transmute(pactivationparams), &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::StructuredStorage::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    pub unsafe fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OpenPropertyStore)(::windows::core::Interface::as_raw(self), stgmaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
@@ -5037,9 +5037,9 @@ pub struct IMMDevice_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     Activate: usize,
-    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub OpenPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stgmaccess: super::super::System::Com::StructuredStorage::STGM, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    pub OpenPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stgmaccess: super::super::System::Com::STGM, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     OpenPropertyStore: usize,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstrid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
@@ -9513,6 +9513,72 @@ impl ::core::default::Default for ACMDRVFORMATSUGGEST {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub struct ACMDRVOPENDESCA {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: u32,
+    pub pszSectionName: ::windows::core::PCSTR,
+    pub pszAliasName: ::windows::core::PCSTR,
+    pub dnDevNode: u32,
+}
+impl ::core::marker::Copy for ACMDRVOPENDESCA {}
+impl ::core::clone::Clone for ACMDRVOPENDESCA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACMDRVOPENDESCA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACMDRVOPENDESCA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACMDRVOPENDESCA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACMDRVOPENDESCA {}
+impl ::core::default::Default for ACMDRVOPENDESCA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub struct ACMDRVOPENDESCW {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: u32,
+    pub pszSectionName: ::windows::core::PCWSTR,
+    pub pszAliasName: ::windows::core::PCWSTR,
+    pub dnDevNode: u32,
+}
+impl ::core::marker::Copy for ACMDRVOPENDESCW {}
+impl ::core::clone::Clone for ACMDRVOPENDESCW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACMDRVOPENDESCW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACMDRVOPENDESCW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACMDRVOPENDESCW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACMDRVOPENDESCW {}
+impl ::core::default::Default for ACMDRVOPENDESCW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMDRVSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -13343,72 +13409,6 @@ impl ::core::cmp::PartialEq for WAVEOUTCAPSW {
 }
 impl ::core::cmp::Eq for WAVEOUTCAPSW {}
 impl ::core::default::Default for WAVEOUTCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub struct tACMDRVOPENDESCA {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: u32,
-    pub pszSectionName: ::windows::core::PCSTR,
-    pub pszAliasName: ::windows::core::PCSTR,
-    pub dnDevNode: u32,
-}
-impl ::core::marker::Copy for tACMDRVOPENDESCA {}
-impl ::core::clone::Clone for tACMDRVOPENDESCA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tACMDRVOPENDESCA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tACMDRVOPENDESCA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tACMDRVOPENDESCA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tACMDRVOPENDESCA {}
-impl ::core::default::Default for tACMDRVOPENDESCA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub struct tACMDRVOPENDESCW {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: u32,
-    pub pszSectionName: ::windows::core::PCWSTR,
-    pub pszAliasName: ::windows::core::PCWSTR,
-    pub dnDevNode: u32,
-}
-impl ::core::marker::Copy for tACMDRVOPENDESCW {}
-impl ::core::clone::Clone for tACMDRVOPENDESCW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tACMDRVOPENDESCW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tACMDRVOPENDESCW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tACMDRVOPENDESCW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tACMDRVOPENDESCW {}
-impl ::core::default::Default for tACMDRVOPENDESCW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

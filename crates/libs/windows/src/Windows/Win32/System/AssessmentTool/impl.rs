@@ -247,12 +247,12 @@ impl IQueryAllWinSATAssessments_Vtbl {
     }
 }
 pub trait IQueryOEMWinSATCustomization_Impl: Sized {
-    fn GetOEMPrePopulationInfo(&self) -> ::windows::core::Result<WINSAT_OEM_DATA_TYPE>;
+    fn GetOEMPrePopulationInfo(&self) -> ::windows::core::Result<WINSAT_OEM_CUSTOMIZATION_STATE>;
 }
 impl ::windows::core::RuntimeName for IQueryOEMWinSATCustomization {}
 impl IQueryOEMWinSATCustomization_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>() -> IQueryOEMWinSATCustomization_Vtbl {
-        unsafe extern "system" fn GetOEMPrePopulationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_DATA_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOEMPrePopulationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetOEMPrePopulationInfo() {

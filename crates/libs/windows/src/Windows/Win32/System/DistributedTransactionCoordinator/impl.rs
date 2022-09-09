@@ -55,12 +55,12 @@ impl IDtcLuRecoveryFactory_Vtbl {
     }
 }
 pub trait IDtcLuRecoveryInitiatedByDtc_Impl: Sized {
-    fn GetWork(&self, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetWork(&self, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDtcLuRecoveryInitiatedByDtc {}
 impl IDtcLuRecoveryInitiatedByDtc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtc_Impl, const OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtc_Vtbl {
-        unsafe extern "system" fn GetWork<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWork<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetWork(::core::mem::transmute_copy(&pwork), ::core::mem::transmute_copy(&ppv)).into()
@@ -91,15 +91,15 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: Sized {
     fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOurXln(&self, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()>;
-    fn HandleConfirmationFromOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()>;
-    fn HandleTheirXlnResponse(&self, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()>;
-    fn HandleErrorFromOurXln(&self, error: _DtcLu_Xln_Error) -> ::windows::core::Result<()>;
+    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()>;
+    fn HandleConfirmationFromOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()>;
+    fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()>;
+    fn HandleErrorFromOurXln(&self, error: DTCLUXLNERROR) -> ::windows::core::Result<()>;
     fn CheckForCompareStates(&self, fcomparestates: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetOurTransIdSize(&self, pcbourtransid: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::Result<()>;
-    fn HandleTheirCompareStatesResponse(&self, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()>;
-    fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()>;
+    fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::Result<()>;
+    fn HandleTheirCompareStatesResponse(&self, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::Result<()>;
+    fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::Result<()>;
     fn ConversationLost(&self) -> ::windows::core::Result<()>;
     fn GetRecoverySeqNum(&self, plrecoveryseqnum: *mut i32) -> ::windows::core::Result<()>;
     fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: i32) -> ::windows::core::Result<()>;
@@ -114,22 +114,22 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
             let this = (*this).get_impl();
             this.GetLogNameSizes(::core::mem::transmute_copy(&pcbourlogname), ::core::mem::transmute_copy(&pcbremotelogname)).into()
         }
-        unsafe extern "system" fn GetOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetOurXln(::core::mem::transmute_copy(&pxln), ::core::mem::transmute_copy(&pourlogname), ::core::mem::transmute_copy(&premotelogname), ::core::mem::transmute_copy(&pdwprotocol)).into()
         }
-        unsafe extern "system" fn HandleConfirmationFromOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleConfirmationFromOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleConfirmationFromOurXln(::core::mem::transmute_copy(&confirmation)).into()
         }
-        unsafe extern "system" fn HandleTheirXlnResponse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleTheirXlnResponse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleTheirXlnResponse(::core::mem::transmute_copy(&xln), ::core::mem::transmute_copy(&premotelogname), ::core::mem::transmute_copy(&cbremotelogname), ::core::mem::transmute_copy(&dwprotocol), ::core::mem::transmute_copy(&pconfirmation)).into()
         }
-        unsafe extern "system" fn HandleErrorFromOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_Xln_Error) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleErrorFromOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: DTCLUXLNERROR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleErrorFromOurXln(::core::mem::transmute_copy(&error)).into()
@@ -144,17 +144,17 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
             let this = (*this).get_impl();
             this.GetOurTransIdSize(::core::mem::transmute_copy(&pcbourtransid)).into()
         }
-        unsafe extern "system" fn GetOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetOurCompareStates(::core::mem::transmute_copy(&pourtransid), ::core::mem::transmute_copy(&pcomparestate)).into()
         }
-        unsafe extern "system" fn HandleTheirCompareStatesResponse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleTheirCompareStatesResponse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleTheirCompareStatesResponse(::core::mem::transmute_copy(&comparestate), ::core::mem::transmute_copy(&pconfirmation)).into()
         }
-        unsafe extern "system" fn HandleErrorFromOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleErrorFromOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleErrorFromOurCompareStates(::core::mem::transmute_copy(&error)).into()
@@ -222,19 +222,19 @@ impl IDtcLuRecoveryInitiatedByLu_Vtbl {
     }
 }
 pub trait IDtcLuRecoveryInitiatedByLuWork_Impl: Sized {
-    fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::Result<()>;
+    fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut DTCLUXLNRESPONSE) -> ::windows::core::Result<()>;
     fn GetOurLogNameSize(&self, pcbourlogname: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOurXln(&self, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()>;
-    fn HandleConfirmationOfOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()>;
-    fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::Result<()>;
-    fn HandleConfirmationOfOurCompareStates(&self, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()>;
-    fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()>;
+    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()>;
+    fn HandleConfirmationOfOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()>;
+    fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::Result<()>;
+    fn HandleConfirmationOfOurCompareStates(&self, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::Result<()>;
+    fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::Result<()>;
     fn ConversationLost(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDtcLuRecoveryInitiatedByLuWork {}
 impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>() -> IDtcLuRecoveryInitiatedByLuWork_Vtbl {
-        unsafe extern "system" fn HandleTheirXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleTheirXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut DTCLUXLNRESPONSE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleTheirXln(::core::mem::transmute_copy(&lrecoveryseqnum), ::core::mem::transmute_copy(&xln), ::core::mem::transmute_copy(&premotelogname), ::core::mem::transmute_copy(&cbremotelogname), ::core::mem::transmute_copy(&pourlogname), ::core::mem::transmute_copy(&cbourlogname), ::core::mem::transmute_copy(&dwprotocol), ::core::mem::transmute_copy(&presponse)).into()
@@ -244,27 +244,27 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
             let this = (*this).get_impl();
             this.GetOurLogNameSize(::core::mem::transmute_copy(&pcbourlogname)).into()
         }
-        unsafe extern "system" fn GetOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetOurXln(::core::mem::transmute_copy(&pxln), ::core::mem::transmute_copy(&pourlogname), ::core::mem::transmute_copy(&pdwprotocol)).into()
         }
-        unsafe extern "system" fn HandleConfirmationOfOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleConfirmationOfOurXln<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleConfirmationOfOurXln(::core::mem::transmute_copy(&confirmation)).into()
         }
-        unsafe extern "system" fn HandleTheirCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleTheirCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleTheirCompareStates(::core::mem::transmute_copy(&premotetransid), ::core::mem::transmute_copy(&cbremotetransid), ::core::mem::transmute_copy(&comparestate), ::core::mem::transmute_copy(&presponse), ::core::mem::transmute_copy(&pcomparestate)).into()
         }
-        unsafe extern "system" fn HandleConfirmationOfOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleConfirmationOfOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleConfirmationOfOurCompareStates(::core::mem::transmute_copy(&confirmation)).into()
         }
-        unsafe extern "system" fn HandleErrorFromOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleErrorFromOurCompareStates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HandleErrorFromOurCompareStates(::core::mem::transmute_copy(&error)).into()
@@ -851,7 +851,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelper_Impl: Sized {
     fn Close(&self, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn TranslateTridToXid(&self, pitransaction: &::core::option::Option<ITransaction>, pguidbqual: *const ::windows::core::GUID) -> ::windows::core::Result<xid_t>;
+    fn TranslateTridToXid(&self, pitransaction: &::core::option::Option<ITransaction>, pguidbqual: *const ::windows::core::GUID) -> ::windows::core::Result<XID>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDtcToXaHelper {}
@@ -863,7 +863,7 @@ impl IDtcToXaHelper_Vtbl {
             let this = (*this).get_impl();
             this.Close(::core::mem::transmute_copy(&i_fdorecovery)).into()
         }
-        unsafe extern "system" fn TranslateTridToXid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitransaction: *mut ::core::ffi::c_void, pguidbqual: *const ::windows::core::GUID, pxid: *mut xid_t) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateTridToXid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitransaction: *mut ::core::ffi::c_void, pguidbqual: *const ::windows::core::GUID, pxid: *mut XID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TranslateTridToXid(::core::mem::transmute(&pitransaction), ::core::mem::transmute_copy(&pguidbqual)) {
@@ -904,7 +904,7 @@ impl IDtcToXaHelperFactory_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelperSinglePipe_Impl: Sized {
     fn XARMCreate(&self, pszdsn: &::windows::core::PCSTR, pszclientdll: &::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
-    fn ConvertTridToXID(&self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()>;
+    fn ConvertTridToXID(&self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::Result<()>;
     fn EnlistWithRM(&self, dwrmcookie: u32, i_pitransaction: &::core::option::Option<ITransaction>, i_pitransres: &::core::option::Option<ITransactionResourceAsync>) -> ::windows::core::Result<ITransactionEnlistmentAsync>;
     fn ReleaseRMCookie(&self, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL);
 }
@@ -918,7 +918,7 @@ impl IDtcToXaHelperSinglePipe_Vtbl {
             let this = (*this).get_impl();
             this.XARMCreate(::core::mem::transmute(&pszdsn), ::core::mem::transmute(&pszclientdll), ::core::mem::transmute_copy(&pdwrmcookie)).into()
         }
-        unsafe extern "system" fn ConvertTridToXID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertTridToXID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ConvertTridToXID(::core::mem::transmute_copy(&pdwitrans), ::core::mem::transmute_copy(&dwrmcookie), ::core::mem::transmute_copy(&pxid)).into()
@@ -954,7 +954,7 @@ impl IDtcToXaHelperSinglePipe_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaMapper_Impl: Sized {
     fn RequestNewResourceManager(&self, pszdsn: &::windows::core::PCSTR, pszclientdllname: &::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
-    fn TranslateTridToXid(&self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()>;
+    fn TranslateTridToXid(&self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::Result<()>;
     fn EnlistResourceManager(&self, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::Result<()>;
     fn ReleaseResourceManager(&self, dwrmcookie: u32) -> ::windows::core::Result<()>;
 }
@@ -968,7 +968,7 @@ impl IDtcToXaMapper_Vtbl {
             let this = (*this).get_impl();
             this.RequestNewResourceManager(::core::mem::transmute(&pszdsn), ::core::mem::transmute(&pszclientdllname), ::core::mem::transmute_copy(&pdwrmcookie)).into()
         }
-        unsafe extern "system" fn TranslateTridToXid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateTridToXid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TranslateTridToXid(::core::mem::transmute_copy(&pdwitransaction), ::core::mem::transmute_copy(&dwrmcookie), ::core::mem::transmute_copy(&pxid)).into()
@@ -1204,20 +1204,20 @@ impl IResourceManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResourceManager2_Impl: Sized + IResourceManager_Impl {
-    fn Enlist2(&self, ptransaction: &::core::option::Option<ITransaction>, presasync: &::core::option::Option<ITransactionResourceAsync>, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>;
-    fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT>;
+    fn Enlist2(&self, ptransaction: &::core::option::Option<ITransaction>, presasync: &::core::option::Option<ITransactionResourceAsync>, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>;
+    fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IResourceManager2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IResourceManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManager2_Impl, const OFFSET: isize>() -> IResourceManager2_Vtbl {
-        unsafe extern "system" fn Enlist2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, presasync: *mut ::core::ffi::c_void, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enlist2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, presasync: *mut ::core::ffi::c_void, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Enlist2(::core::mem::transmute(&ptransaction), ::core::mem::transmute(&presasync), ::core::mem::transmute_copy(&puow), ::core::mem::transmute_copy(&pisolevel), ::core::mem::transmute_copy(&pxid), ::core::mem::transmute_copy(&ppenlist)).into()
         }
-        unsafe extern "system" fn Reenlist2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const xid_t, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reenlist2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const XID, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Reenlist2(::core::mem::transmute_copy(&pxid), ::core::mem::transmute_copy(&dwtimeout)) {
@@ -2347,14 +2347,14 @@ impl IXATransLookup_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXATransLookup2_Impl: Sized {
-    fn Lookup(&self, pxid: *const xid_t) -> ::windows::core::Result<ITransaction>;
+    fn Lookup(&self, pxid: *const XID) -> ::windows::core::Result<ITransaction>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IXATransLookup2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IXATransLookup2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXATransLookup2_Impl, const OFFSET: isize>() -> IXATransLookup2_Vtbl {
-        unsafe extern "system" fn Lookup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXATransLookup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const xid_t, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Lookup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXATransLookup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const XID, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Lookup(::core::mem::transmute_copy(&pxid)) {

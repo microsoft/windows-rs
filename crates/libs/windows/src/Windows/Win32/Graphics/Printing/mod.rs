@@ -3,358 +3,6 @@ pub mod PrintTicket;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppendPrinterNotifyInfoData(pinfodest: &PRINTER_NOTIFY_INFO, pdatasrc: ::core::option::Option<&PRINTER_NOTIFY_INFO_DATA>, fdwflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA, fdwflags: u32) -> super::super::Foundation::BOOL;
-    }
-    AppendPrinterNotifyInfoData(::core::mem::transmute(pinfodest), ::core::mem::transmute(pdatasrc), fdwflags)
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn CallRouterFindFirstPrinterChangeNotification<'a, P0, P1>(hprinterrpc: P0, fdwfilterflags: u32, fdwoptions: u32, hnotify: P1, pprinternotifyoptions: &PRINTER_NOTIFY_OPTIONS) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn CallRouterFindFirstPrinterChangeNotification(hprinterrpc: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const PRINTER_NOTIFY_OPTIONS) -> u32;
-    }
-    CallRouterFindFirstPrinterChangeNotification(hprinterrpc.into(), fdwfilterflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn CreatePrinterIC<'a, P0>(hprinter: P0, pdevmode: ::core::option::Option<&super::Gdi::DEVMODEW>) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn CreatePrinterIC(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEW) -> super::super::Foundation::HANDLE;
-    }
-    CreatePrinterIC(hprinter.into(), ::core::mem::transmute(pdevmode))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn DeletePrinterIC<'a, P0>(hprinteric: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn DeletePrinterIC(hprinteric: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    DeletePrinterIC(hprinteric.into())
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn DevQueryPrint<'a, P0>(hprinter: P0, pdevmode: &super::Gdi::DEVMODEA, presid: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn DevQueryPrint(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    DevQueryPrint(hprinter.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(presid))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ExtDeviceMode<'a, P0, P1, P2, P3, P4>(hwnd: P0, hinst: P1, pdevmodeoutput: ::core::option::Option<&mut super::Gdi::DEVMODEA>, pdevicename: P2, pport: P3, pdevmodeinput: ::core::option::Option<&super::Gdi::DEVMODEA>, pprofile: P4, fmode: u32) -> i32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
-    P4: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ExtDeviceMode(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HANDLE, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: ::windows::core::PCSTR, pport: ::windows::core::PCSTR, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: ::windows::core::PCSTR, fmode: u32) -> i32;
-    }
-    ExtDeviceMode(hwnd.into(), hinst.into(), ::core::mem::transmute(pdevmodeoutput), pdevicename.into(), pport.into(), ::core::mem::transmute(pdevmodeinput), pprofile.into(), fmode)
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn GetJobAttributes<'a, P0>(pprintername: P0, pdevmode: &super::Gdi::DEVMODEW, pattributeinfo: &mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetJobAttributes(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL;
-    }
-    GetJobAttributes(pprintername.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pattributeinfo))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn GetJobAttributesEx<'a, P0>(pprintername: P0, pdevmode: &super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: &mut [u8], dwflags: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetJobAttributesEx(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL;
-    }
-    GetJobAttributesEx(pprintername.into(), ::core::mem::transmute(pdevmode), dwlevel, ::core::mem::transmute(pattributeinfo.as_ptr()), pattributeinfo.len() as _, dwflags)
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ImpersonatePrinterClient<'a, P0>(htoken: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ImpersonatePrinterClient(htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    ImpersonatePrinterClient(htoken.into())
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PartialReplyPrinterChangeNotification<'a, P0>(hprinter: P0, pdatasrc: ::core::option::Option<&PRINTER_NOTIFY_INFO_DATA>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PartialReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation::BOOL;
-    }
-    PartialReplyPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pdatasrc))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PlayGdiScriptOnPrinterIC<'a, P0>(hprinteric: P0, pin: &[u8], pout: &mut [u8], ul: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PlayGdiScriptOnPrinterIC(hprinteric: super::super::Foundation::HANDLE, pin: *const u8, cin: u32, pout: *mut u8, cout: u32, ul: u32) -> super::super::Foundation::BOOL;
-    }
-    PlayGdiScriptOnPrinterIC(hprinteric.into(), ::core::mem::transmute(pin.as_ptr()), pin.len() as _, ::core::mem::transmute(pout.as_ptr()), pout.len() as _, ul)
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ProvidorFindClosePrinterChangeNotification<'a, P0>(hprinter: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ProvidorFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    ProvidorFindClosePrinterChangeNotification(hprinter.into())
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ProvidorFindFirstPrinterChangeNotification<'a, P0, P1>(hprinter: P0, fdwflags: u32, fdwoptions: u32, hnotify: P1, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ProvidorFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    }
-    ProvidorFindFirstPrinterChangeNotification(hprinter.into(), fdwflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved1))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ReplyPrinterChangeNotification<'a, P0>(hprinter: P0, fdwchangeflags: u32, pdwresult: ::core::option::Option<&mut u32>, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwchangeflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    }
-    ReplyPrinterChangeNotification(hprinter.into(), fdwchangeflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ReplyPrinterChangeNotificationEx<'a, P0>(hnotify: P0, dwcolor: u32, fdwflags: u32, pdwresult: &mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ReplyPrinterChangeNotificationEx(hnotify: super::super::Foundation::HANDLE, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    }
-    ReplyPrinterChangeNotificationEx(hnotify.into(), dwcolor, fdwflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE;
-    }
-    RevertToPrinterSelf()
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-#[inline]
-pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void;
-    }
-    RouterAllocBidiMem(numbytes)
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER;
-    }
-    RouterAllocBidiResponseContainer(count)
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-#[inline]
-pub unsafe fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO;
-    }
-    RouterAllocPrinterNotifyInfo(cprinternotifyinfodata)
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-#[inline]
-pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void);
-    }
-    RouterFreeBidiMem(::core::mem::transmute(pmempointer))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterFreeBidiResponseContainer(pdata: &BIDI_RESPONSE_CONTAINER) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32;
-    }
-    RouterFreeBidiResponseContainer(::core::mem::transmute(pdata))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RouterFreePrinterNotifyInfo(pinfo: ::core::option::Option<&PRINTER_NOTIFY_INFO>) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
-    }
-    RouterFreePrinterNotifyInfo(::core::mem::transmute(pinfo))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SplIsSessionZero<'a, P0>(hprinter: P0, jobid: u32, pissessionzero: &mut super::super::Foundation::BOOL) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SplIsSessionZero(hprinter: super::super::Foundation::HANDLE, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32;
-    }
-    SplIsSessionZero(hprinter.into(), jobid, ::core::mem::transmute(pissessionzero))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SplPromptUIInUsersSession<'a, P0>(hprinter: P0, jobid: u32, puiparams: &SHOWUIPARAMS, presponse: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SplPromptUIInUsersSession(hprinter: super::super::Foundation::HANDLE, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    SplPromptUIInUsersSession(hprinter.into(), jobid, ::core::mem::transmute(puiparams), ::core::mem::transmute(presponse))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SpoolerFindClosePrinterChangeNotification<'a, P0>(hprinter: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SpoolerFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    SpoolerFindClosePrinterChangeNotification(hprinter.into())
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SpoolerFindFirstPrinterChangeNotification<'a, P0>(hprinter: P0, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: ::core::option::Option<&mut super::super::Foundation::HANDLE>, phevent: ::core::option::Option<&mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SpoolerFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    SpoolerFindFirstPrinterChangeNotification(hprinter.into(), fdwfilterflags, fdwoptions, ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved), ::core::mem::transmute(pnotificationconfig), ::core::mem::transmute(phnotify), ::core::mem::transmute(phevent))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SpoolerFindNextPrinterChangeNotification<'a, P0>(hprinter: P0, pfdwchange: &mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SpoolerFindNextPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pfdwchange: *mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    }
-    SpoolerFindNextPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pfdwchange), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(ppprinternotifyinfo))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-#[inline]
-pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: &PRINTER_NOTIFY_INFO) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO);
-    }
-    SpoolerFreePrinterNotifyInfo(::core::mem::transmute(pinfo))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SpoolerRefreshPrinterChangeNotification<'a, P0>(hprinter: P0, dwcolor: u32, poptions: &PRINTER_NOTIFY_OPTIONS, ppinfo: ::core::option::Option<&mut *mut PRINTER_NOTIFY_INFO>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SpoolerRefreshPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
-    }
-    SpoolerRefreshPrinterChangeNotification(hprinter.into(), dwcolor, ::core::mem::transmute(poptions), ::core::mem::transmute(ppinfo))
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AbortPrinter<'a, P0>(hprinter: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -710,6 +358,30 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn AppendPrinterNotifyInfoData(pinfodest: &PRINTER_NOTIFY_INFO, pdatasrc: ::core::option::Option<&PRINTER_NOTIFY_INFO_DATA>, fdwflags: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA, fdwflags: u32) -> super::super::Foundation::BOOL;
+    }
+    AppendPrinterNotifyInfoData(::core::mem::transmute(pinfodest), ::core::mem::transmute(pdatasrc), fdwflags)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn CallRouterFindFirstPrinterChangeNotification<'a, P0, P1>(hprinterrpc: P0, fdwfilterflags: u32, fdwoptions: u32, hnotify: P1, pprinternotifyoptions: &PRINTER_NOTIFY_OPTIONS) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CallRouterFindFirstPrinterChangeNotification(hprinterrpc: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const PRINTER_NOTIFY_OPTIONS) -> u32;
+    }
+    CallRouterFindFirstPrinterChangeNotification(hprinterrpc.into(), fdwfilterflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ClosePrinter<'a, P0>(hprinter: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -862,6 +534,19 @@ where
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreatePrintAsyncNotifyChannel(pszname.into(), ::core::mem::transmute(pnotificationtype), euserfilter, econversationstyle, pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyChannel>(result__)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn CreatePrinterIC<'a, P0>(hprinter: P0, pdevmode: ::core::option::Option<&super::Gdi::DEVMODEW>) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreatePrinterIC(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEW) -> super::super::Foundation::HANDLE;
+    }
+    CreatePrinterIC(hprinter.into(), ::core::mem::transmute(pdevmode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1213,6 +898,19 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn DeletePrinterIC<'a, P0>(hprinteric: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeletePrinterIC(hprinteric: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    DeletePrinterIC(hprinteric.into())
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterKeyA<'a, P0, P1>(hprinter: P0, pkeyname: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1237,6 +935,19 @@ where
         fn DeletePrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR) -> u32;
     }
     DeletePrinterKeyW(hprinter.into(), pkeyname.into())
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn DevQueryPrint<'a, P0>(hprinter: P0, pdevmode: &super::Gdi::DEVMODEA, presid: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DevQueryPrint(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    DevQueryPrint(hprinter.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(presid))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1613,6 +1324,23 @@ where
     }
     EnumPrintersW(flags, name.into(), level, ::core::mem::transmute(pprinterenum.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pprinterenum.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned))
 }
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ExtDeviceMode<'a, P0, P1, P2, P3, P4>(hwnd: P0, hinst: P1, pdevmodeoutput: ::core::option::Option<&mut super::Gdi::DEVMODEA>, pdevicename: P2, pport: P3, pdevmodeinput: ::core::option::Option<&super::Gdi::DEVMODEA>, pprofile: P4, fmode: u32) -> i32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P4: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExtDeviceMode(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HANDLE, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: ::windows::core::PCSTR, pport: ::windows::core::PCSTR, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: ::windows::core::PCSTR, fmode: u32) -> i32;
+    }
+    ExtDeviceMode(hwnd.into(), hinst.into(), ::core::mem::transmute(pdevmodeoutput), pdevicename.into(), pport.into(), ::core::mem::transmute(pdevmodeinput), pprofile.into(), fmode)
+}
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1968,6 +1696,32 @@ where
     }
     GetJobA(hprinter.into(), jobid, level, ::core::mem::transmute(pjob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbneeded))
 }
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn GetJobAttributes<'a, P0>(pprintername: P0, pdevmode: &super::Gdi::DEVMODEW, pattributeinfo: &mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetJobAttributes(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL;
+    }
+    GetJobAttributes(pprintername.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pattributeinfo))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn GetJobAttributesEx<'a, P0>(pprintername: P0, pdevmode: &super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: &mut [u8], dwflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetJobAttributesEx(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    }
+    GetJobAttributesEx(pprintername.into(), ::core::mem::transmute(pdevmode), dwlevel, ::core::mem::transmute(pattributeinfo.as_ptr()), pattributeinfo.len() as _, dwflags)
+}
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2260,6 +2014,19 @@ where
     }
     GetSpoolFileHandle(hprinter.into())
 }
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ImpersonatePrinterClient<'a, P0>(htoken: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ImpersonatePrinterClient(htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    ImpersonatePrinterClient(htoken.into())
+}
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
 pub unsafe fn InstallPrinterDriverFromPackageA<'a, P0, P1, P2, P3>(pszserver: P0, pszinfpath: P1, pszdrivername: P2, pszenvironment: P3, dwflags: u32) -> ::windows::core::Result<()>
@@ -2365,6 +2132,32 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn PartialReplyPrinterChangeNotification<'a, P0>(hprinter: P0, pdatasrc: ::core::option::Option<&PRINTER_NOTIFY_INFO_DATA>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PartialReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation::BOOL;
+    }
+    PartialReplyPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pdatasrc))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PlayGdiScriptOnPrinterIC<'a, P0>(hprinteric: P0, pin: &[u8], pout: &mut [u8], ul: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PlayGdiScriptOnPrinterIC(hprinteric: super::super::Foundation::HANDLE, pin: *const u8, cin: u32, pout: *mut u8, cout: u32, ul: u32) -> super::super::Foundation::BOOL;
+    }
+    PlayGdiScriptOnPrinterIC(hprinteric.into(), ::core::mem::transmute(pin.as_ptr()), pin.len() as _, ::core::mem::transmute(pout.as_ptr()), pout.len() as _, ul)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrinterMessageBoxA<'a, P0, P1, P2, P3>(hprinter: P0, error: u32, hwnd: P1, ptext: P2, pcaption: P3, dwtype: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2411,6 +2204,33 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn ProvidorFindClosePrinterChangeNotification<'a, P0>(hprinter: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ProvidorFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    ProvidorFindClosePrinterChangeNotification(hprinter.into())
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ProvidorFindFirstPrinterChangeNotification<'a, P0, P1>(hprinter: P0, fdwflags: u32, fdwoptions: u32, hnotify: P1, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ProvidorFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    }
+    ProvidorFindFirstPrinterChangeNotification(hprinter.into(), fdwflags, fdwoptions, hnotify.into(), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved1))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadPrinter<'a, P0>(hprinter: P0, pbuf: &mut [u8], pnobytesread: &mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2452,6 +2272,32 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn ReplyPrinterChangeNotification<'a, P0>(hprinter: P0, fdwchangeflags: u32, pdwresult: ::core::option::Option<&mut u32>, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwchangeflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    }
+    ReplyPrinterChangeNotification(hprinter.into(), fdwchangeflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ReplyPrinterChangeNotificationEx<'a, P0>(hnotify: P0, dwcolor: u32, fdwflags: u32, pdwresult: &mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReplyPrinterChangeNotificationEx(hnotify: super::super::Foundation::HANDLE, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    }
+    ReplyPrinterChangeNotificationEx(hnotify.into(), dwcolor, fdwflags, ::core::mem::transmute(pdwresult), ::core::mem::transmute(pprinternotifyinfo))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportJobProcessingProgress<'a, P0>(printerhandle: P0, jobid: u32, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -2487,6 +2333,73 @@ where
         fn ResetPrinterW(hprinter: super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
     }
     ResetPrinterW(hprinter.into(), ::core::mem::transmute(pdefault))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE;
+    }
+    RevertToPrinterSelf()
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[inline]
+pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void;
+    }
+    RouterAllocBidiMem(numbytes)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER;
+    }
+    RouterAllocBidiResponseContainer(count)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[inline]
+pub unsafe fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO;
+    }
+    RouterAllocPrinterNotifyInfo(cprinternotifyinfodata)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[inline]
+pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void);
+    }
+    RouterFreeBidiMem(::core::mem::transmute(pmempointer))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterFreeBidiResponseContainer(pdata: &BIDI_RESPONSE_CONTAINER) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32;
+    }
+    RouterFreeBidiResponseContainer(::core::mem::transmute(pdata))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RouterFreePrinterNotifyInfo(pinfo: ::core::option::Option<&PRINTER_NOTIFY_INFO>) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
+    }
+    RouterFreePrinterNotifyInfo(::core::mem::transmute(pinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2722,6 +2635,32 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn SplIsSessionZero<'a, P0>(hprinter: P0, jobid: u32, pissessionzero: &mut super::super::Foundation::BOOL) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SplIsSessionZero(hprinter: super::super::Foundation::HANDLE, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32;
+    }
+    SplIsSessionZero(hprinter.into(), jobid, ::core::mem::transmute(pissessionzero))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SplPromptUIInUsersSession<'a, P0>(hprinter: P0, jobid: u32, puiparams: &SHOWUIPARAMS, presponse: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SplPromptUIInUsersSession(hprinter: super::super::Foundation::HANDLE, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    SplPromptUIInUsersSession(hprinter.into(), jobid, ::core::mem::transmute(puiparams), ::core::mem::transmute(presponse))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SpoolerCopyFileEvent<'a, P0, P1>(pszprintername: P0, pszkey: P1, dwcopyfileevent: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2732,6 +2671,67 @@ where
         fn SpoolerCopyFileEvent(pszprintername: ::windows::core::PCWSTR, pszkey: ::windows::core::PCWSTR, dwcopyfileevent: u32) -> super::super::Foundation::BOOL;
     }
     SpoolerCopyFileEvent(pszprintername.into(), pszkey.into(), dwcopyfileevent)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SpoolerFindClosePrinterChangeNotification<'a, P0>(hprinter: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SpoolerFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    SpoolerFindClosePrinterChangeNotification(hprinter.into())
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SpoolerFindFirstPrinterChangeNotification<'a, P0>(hprinter: P0, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: ::core::option::Option<&mut super::super::Foundation::HANDLE>, phevent: ::core::option::Option<&mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SpoolerFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    SpoolerFindFirstPrinterChangeNotification(hprinter.into(), fdwfilterflags, fdwoptions, ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved), ::core::mem::transmute(pnotificationconfig), ::core::mem::transmute(phnotify), ::core::mem::transmute(phevent))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SpoolerFindNextPrinterChangeNotification<'a, P0>(hprinter: P0, pfdwchange: &mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SpoolerFindNextPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pfdwchange: *mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    }
+    SpoolerFindNextPrinterChangeNotification(hprinter.into(), ::core::mem::transmute(pfdwchange), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(ppprinternotifyinfo))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[inline]
+pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: &PRINTER_NOTIFY_INFO) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO);
+    }
+    SpoolerFreePrinterNotifyInfo(::core::mem::transmute(pinfo))
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SpoolerRefreshPrinterChangeNotification<'a, P0>(hprinter: P0, dwcolor: u32, poptions: &PRINTER_NOTIFY_OPTIONS, ppinfo: ::core::option::Option<&mut *mut PRINTER_NOTIFY_INFO>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SpoolerRefreshPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
+    }
+    SpoolerRefreshPrinterChangeNotification(hprinter.into(), dwcolor, ::core::mem::transmute(poptions), ::core::mem::transmute(ppinfo))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15510,104 +15510,104 @@ impl ::core::fmt::Debug for EXpsJobConsumption {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MxdcImageTypeEnums(pub i32);
+pub struct MXDC_IMAGE_TYPE_ENUMS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(1i32);
+pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(2i32);
+pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(3i32);
+pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = MxdcImageTypeEnums(4i32);
-impl ::core::marker::Copy for MxdcImageTypeEnums {}
-impl ::core::clone::Clone for MxdcImageTypeEnums {
+pub const MXDC_IMAGETYPE_PNG: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(4i32);
+impl ::core::marker::Copy for MXDC_IMAGE_TYPE_ENUMS {}
+impl ::core::clone::Clone for MXDC_IMAGE_TYPE_ENUMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for MxdcImageTypeEnums {
+impl ::core::default::Default for MXDC_IMAGE_TYPE_ENUMS {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MxdcImageTypeEnums {
+unsafe impl ::windows::core::Abi for MXDC_IMAGE_TYPE_ENUMS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for MxdcImageTypeEnums {
+impl ::core::fmt::Debug for MXDC_IMAGE_TYPE_ENUMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MxdcImageTypeEnums").field(&self.0).finish()
+        f.debug_tuple("MXDC_IMAGE_TYPE_ENUMS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MxdcLandscapeRotationEnums(pub i32);
+pub struct MXDC_LANDSCAPE_ROTATION_ENUMS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(90i32);
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(90i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(0i32);
+pub const MXDC_LANDSCAPE_ROTATE_NONE: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(-90i32);
-impl ::core::marker::Copy for MxdcLandscapeRotationEnums {}
-impl ::core::clone::Clone for MxdcLandscapeRotationEnums {
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(-90i32);
+impl ::core::marker::Copy for MXDC_LANDSCAPE_ROTATION_ENUMS {}
+impl ::core::clone::Clone for MXDC_LANDSCAPE_ROTATION_ENUMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for MxdcLandscapeRotationEnums {
+impl ::core::default::Default for MXDC_LANDSCAPE_ROTATION_ENUMS {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MxdcLandscapeRotationEnums {
+unsafe impl ::windows::core::Abi for MXDC_LANDSCAPE_ROTATION_ENUMS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for MxdcLandscapeRotationEnums {
+impl ::core::fmt::Debug for MXDC_LANDSCAPE_ROTATION_ENUMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MxdcLandscapeRotationEnums").field(&self.0).finish()
+        f.debug_tuple("MXDC_LANDSCAPE_ROTATION_ENUMS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MxdcS0PageEnums(pub i32);
+pub struct MXDC_S0_PAGE_ENUMS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = MxdcS0PageEnums(0i32);
+pub const MXDC_RESOURCE_TTF: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_JPEG: MxdcS0PageEnums = MxdcS0PageEnums(1i32);
+pub const MXDC_RESOURCE_JPEG: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_PNG: MxdcS0PageEnums = MxdcS0PageEnums(2i32);
+pub const MXDC_RESOURCE_PNG: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_TIFF: MxdcS0PageEnums = MxdcS0PageEnums(3i32);
+pub const MXDC_RESOURCE_TIFF: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_WDP: MxdcS0PageEnums = MxdcS0PageEnums(4i32);
+pub const MXDC_RESOURCE_WDP: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = MxdcS0PageEnums(5i32);
+pub const MXDC_RESOURCE_DICTIONARY: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = MxdcS0PageEnums(6i32);
+pub const MXDC_RESOURCE_ICC_PROFILE: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(6i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(7i32);
+pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(8i32);
+pub const MXDC_RESOURCE_PNG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = MxdcS0PageEnums(9i32);
-impl ::core::marker::Copy for MxdcS0PageEnums {}
-impl ::core::clone::Clone for MxdcS0PageEnums {
+pub const MXDC_RESOURCE_MAX: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(9i32);
+impl ::core::marker::Copy for MXDC_S0_PAGE_ENUMS {}
+impl ::core::clone::Clone for MXDC_S0_PAGE_ENUMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for MxdcS0PageEnums {
+impl ::core::default::Default for MXDC_S0_PAGE_ENUMS {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MxdcS0PageEnums {
+unsafe impl ::windows::core::Abi for MXDC_S0_PAGE_ENUMS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for MxdcS0PageEnums {
+impl ::core::fmt::Debug for MXDC_S0_PAGE_ENUMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MxdcS0PageEnums").field(&self.0).finish()
+        f.debug_tuple("MXDC_S0_PAGE_ENUMS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -20335,212 +20335,212 @@ impl ::core::default::Default for MONITOR_INFO_2W {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcEscapeHeader {
+pub struct MXDC_ESCAPE_HEADER_T {
     pub cbInput: u32,
     pub cbOutput: u32,
     pub opCode: u32,
 }
-impl ::core::marker::Copy for MxdcEscapeHeader {}
-impl ::core::clone::Clone for MxdcEscapeHeader {
+impl ::core::marker::Copy for MXDC_ESCAPE_HEADER_T {}
+impl ::core::clone::Clone for MXDC_ESCAPE_HEADER_T {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MxdcEscapeHeader {
+unsafe impl ::windows::core::Abi for MXDC_ESCAPE_HEADER_T {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MxdcEscapeHeader {
+impl ::core::cmp::PartialEq for MXDC_ESCAPE_HEADER_T {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcEscapeHeader>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_ESCAPE_HEADER_T>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for MxdcEscapeHeader {}
-impl ::core::default::Default for MxdcEscapeHeader {
+impl ::core::cmp::Eq for MXDC_ESCAPE_HEADER_T {}
+impl ::core::default::Default for MXDC_ESCAPE_HEADER_T {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcGetFileNameData {
+pub struct MXDC_GET_FILENAME_DATA_T {
     pub cbOutput: u32,
     pub wszData: [u16; 1],
 }
-impl ::core::marker::Copy for MxdcGetFileNameData {}
-impl ::core::clone::Clone for MxdcGetFileNameData {
+impl ::core::marker::Copy for MXDC_GET_FILENAME_DATA_T {}
+impl ::core::clone::Clone for MXDC_GET_FILENAME_DATA_T {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MxdcGetFileNameData {
+unsafe impl ::windows::core::Abi for MXDC_GET_FILENAME_DATA_T {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MxdcGetFileNameData {
+impl ::core::cmp::PartialEq for MXDC_GET_FILENAME_DATA_T {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcGetFileNameData>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_GET_FILENAME_DATA_T>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for MxdcGetFileNameData {}
-impl ::core::default::Default for MxdcGetFileNameData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcPrintTicketEscape {
-    pub mxdcEscape: MxdcEscapeHeader,
-    pub printTicketData: MxdcPrintTicketPassthrough,
-}
-impl ::core::marker::Copy for MxdcPrintTicketEscape {}
-impl ::core::clone::Clone for MxdcPrintTicketEscape {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MxdcPrintTicketEscape {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MxdcPrintTicketEscape {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcPrintTicketEscape>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MxdcPrintTicketEscape {}
-impl ::core::default::Default for MxdcPrintTicketEscape {
+impl ::core::cmp::Eq for MXDC_GET_FILENAME_DATA_T {}
+impl ::core::default::Default for MXDC_GET_FILENAME_DATA_T {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcPrintTicketPassthrough {
+pub struct MXDC_PRINTTICKET_DATA_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
-impl ::core::marker::Copy for MxdcPrintTicketPassthrough {}
-impl ::core::clone::Clone for MxdcPrintTicketPassthrough {
+impl ::core::marker::Copy for MXDC_PRINTTICKET_DATA_T {}
+impl ::core::clone::Clone for MXDC_PRINTTICKET_DATA_T {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MxdcPrintTicketPassthrough {
+unsafe impl ::windows::core::Abi for MXDC_PRINTTICKET_DATA_T {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MxdcPrintTicketPassthrough {
+impl ::core::cmp::PartialEq for MXDC_PRINTTICKET_DATA_T {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcPrintTicketPassthrough>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_PRINTTICKET_DATA_T>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for MxdcPrintTicketPassthrough {}
-impl ::core::default::Default for MxdcPrintTicketPassthrough {
+impl ::core::cmp::Eq for MXDC_PRINTTICKET_DATA_T {}
+impl ::core::default::Default for MXDC_PRINTTICKET_DATA_T {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcS0PageData {
+pub struct MXDC_PRINTTICKET_ESCAPE_T {
+    pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
+    pub printTicketData: MXDC_PRINTTICKET_DATA_T,
+}
+impl ::core::marker::Copy for MXDC_PRINTTICKET_ESCAPE_T {}
+impl ::core::clone::Clone for MXDC_PRINTTICKET_ESCAPE_T {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MXDC_PRINTTICKET_ESCAPE_T {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MXDC_PRINTTICKET_ESCAPE_T {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_PRINTTICKET_ESCAPE_T>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MXDC_PRINTTICKET_ESCAPE_T {}
+impl ::core::default::Default for MXDC_PRINTTICKET_ESCAPE_T {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub struct MXDC_S0PAGE_DATA_T {
     pub dwSize: u32,
     pub bData: [u8; 1],
 }
-impl ::core::marker::Copy for MxdcS0PageData {}
-impl ::core::clone::Clone for MxdcS0PageData {
+impl ::core::marker::Copy for MXDC_S0PAGE_DATA_T {}
+impl ::core::clone::Clone for MXDC_S0PAGE_DATA_T {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MxdcS0PageData {
+unsafe impl ::windows::core::Abi for MXDC_S0PAGE_DATA_T {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MxdcS0PageData {
+impl ::core::cmp::PartialEq for MXDC_S0PAGE_DATA_T {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcS0PageData>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_S0PAGE_DATA_T>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for MxdcS0PageData {}
-impl ::core::default::Default for MxdcS0PageData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcS0PagePassthroughEscape {
-    pub mxdcEscape: MxdcEscapeHeader,
-    pub xpsS0PageData: MxdcS0PageData,
-}
-impl ::core::marker::Copy for MxdcS0PagePassthroughEscape {}
-impl ::core::clone::Clone for MxdcS0PagePassthroughEscape {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MxdcS0PagePassthroughEscape {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MxdcS0PagePassthroughEscape {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcS0PagePassthroughEscape>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MxdcS0PagePassthroughEscape {}
-impl ::core::default::Default for MxdcS0PagePassthroughEscape {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcS0PageResourceEscape {
-    pub mxdcEscape: MxdcEscapeHeader,
-    pub xpsS0PageResourcePassthrough: MxdcXpsS0PageResource,
-}
-impl ::core::marker::Copy for MxdcS0PageResourceEscape {}
-impl ::core::clone::Clone for MxdcS0PageResourceEscape {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MxdcS0PageResourceEscape {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MxdcS0PageResourceEscape {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcS0PageResourceEscape>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MxdcS0PageResourceEscape {}
-impl ::core::default::Default for MxdcS0PageResourceEscape {
+impl ::core::cmp::Eq for MXDC_S0PAGE_DATA_T {}
+impl ::core::default::Default for MXDC_S0PAGE_DATA_T {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct MxdcXpsS0PageResource {
+pub struct MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
+    pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
+    pub xpsS0PageData: MXDC_S0PAGE_DATA_T,
+}
+impl ::core::marker::Copy for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {}
+impl ::core::clone::Clone for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {}
+impl ::core::default::Default for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
+    pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
+    pub xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T,
+}
+impl ::core::marker::Copy for MXDC_S0PAGE_RESOURCE_ESCAPE_T {}
+impl ::core::clone::Clone for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_S0PAGE_RESOURCE_ESCAPE_T>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MXDC_S0PAGE_RESOURCE_ESCAPE_T {}
+impl ::core::default::Default for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwSize: u32,
     pub dwResourceType: u32,
     pub szUri: [u8; 260],
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
-impl ::core::marker::Copy for MxdcXpsS0PageResource {}
-impl ::core::clone::Clone for MxdcXpsS0PageResource {
+impl ::core::marker::Copy for MXDC_XPS_S0PAGE_RESOURCE_T {}
+impl ::core::clone::Clone for MXDC_XPS_S0PAGE_RESOURCE_T {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MxdcXpsS0PageResource {
+unsafe impl ::windows::core::Abi for MXDC_XPS_S0PAGE_RESOURCE_T {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MxdcXpsS0PageResource {
+impl ::core::cmp::PartialEq for MXDC_XPS_S0PAGE_RESOURCE_T {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MxdcXpsS0PageResource>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MXDC_XPS_S0PAGE_RESOURCE_T>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for MxdcXpsS0PageResource {}
-impl ::core::default::Default for MxdcXpsS0PageResource {
+impl ::core::cmp::Eq for MXDC_XPS_S0PAGE_RESOURCE_T {}
+impl ::core::default::Default for MXDC_XPS_S0PAGE_RESOURCE_T {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -24013,6 +24013,112 @@ impl ::core::default::Default for SPLCLIENT_INFO_1 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub struct SPLCLIENT_INFO_2_W2K {
+    pub hSplPrinter: usize,
+}
+impl ::core::marker::Copy for SPLCLIENT_INFO_2_W2K {}
+impl ::core::clone::Clone for SPLCLIENT_INFO_2_W2K {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPLCLIENT_INFO_2_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPLCLIENT_INFO_2_W2K").field("hSplPrinter", &self.hSplPrinter).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_2_W2K {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SPLCLIENT_INFO_2_W2K {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPLCLIENT_INFO_2_W2K>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SPLCLIENT_INFO_2_W2K {}
+impl ::core::default::Default for SPLCLIENT_INFO_2_W2K {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct SPLCLIENT_INFO_2_WINXP {
+    pub hSplPrinter: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for SPLCLIENT_INFO_2_WINXP {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for SPLCLIENT_INFO_2_WINXP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for SPLCLIENT_INFO_2_WINXP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPLCLIENT_INFO_2_WINXP").field("hSplPrinter", &self.hSplPrinter).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_2_WINXP {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::PartialEq for SPLCLIENT_INFO_2_WINXP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPLCLIENT_INFO_2_WINXP>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::Eq for SPLCLIENT_INFO_2_WINXP {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for SPLCLIENT_INFO_2_WINXP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct SPLCLIENT_INFO_2_WINXP {
+    pub hSplPrinter: u32,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for SPLCLIENT_INFO_2_WINXP {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for SPLCLIENT_INFO_2_WINXP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::fmt::Debug for SPLCLIENT_INFO_2_WINXP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPLCLIENT_INFO_2_WINXP").field("hSplPrinter", &self.hSplPrinter).finish()
+    }
+}
+#[cfg(target_arch = "x86")]
+unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_2_WINXP {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::PartialEq for SPLCLIENT_INFO_2_WINXP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPLCLIENT_INFO_2_WINXP>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::Eq for SPLCLIENT_INFO_2_WINXP {}
+#[cfg(target_arch = "x86")]
+impl ::core::default::Default for SPLCLIENT_INFO_2_WINXP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct SPLCLIENT_INFO_3_VISTA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -24471,112 +24577,6 @@ impl ::core::cmp::PartialEq for WIDTHTABLE {
 }
 impl ::core::cmp::Eq for WIDTHTABLE {}
 impl ::core::default::Default for WIDTHTABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub struct _SPLCLIENT_INFO_2_V1 {
-    pub hSplPrinter: usize,
-}
-impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V1 {}
-impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_SPLCLIENT_INFO_2_V1").field("hSplPrinter", &self.hSplPrinter).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _SPLCLIENT_INFO_2_V1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _SPLCLIENT_INFO_2_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_SPLCLIENT_INFO_2_V1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _SPLCLIENT_INFO_2_V1 {}
-impl ::core::default::Default for _SPLCLIENT_INFO_2_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct _SPLCLIENT_INFO_2_V2 {
-    pub hSplPrinter: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for _SPLCLIENT_INFO_2_V2 {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for _SPLCLIENT_INFO_2_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_SPLCLIENT_INFO_2_V2>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for _SPLCLIENT_INFO_2_V2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for _SPLCLIENT_INFO_2_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-#[cfg(target_arch = "x86")]
-pub struct _SPLCLIENT_INFO_2_V2 {
-    pub hSplPrinter: u32,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V2 {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for _SPLCLIENT_INFO_2_V2 {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for _SPLCLIENT_INFO_2_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_SPLCLIENT_INFO_2_V2>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for _SPLCLIENT_INFO_2_V2 {}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for _SPLCLIENT_INFO_2_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

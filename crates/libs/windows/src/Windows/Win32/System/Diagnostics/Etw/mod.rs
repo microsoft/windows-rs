@@ -11,16 +11,6 @@ pub unsafe fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS,
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: &::windows::core::GUID, messagenumber: u16, messagearglist: &i8) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::core::GUID, messagenumber: u16, messagearglist: *const i8) -> super::super::super::Foundation::WIN32_ERROR;
-    }
-    TraceMessageVa(loggerhandle, messageflags, ::core::mem::transmute(messageguid), messagenumber, ::core::mem::transmute(messagearglist))
-}
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn CloseTrace<'a, P0>(tracehandle: P0) -> super::super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<PROCESSTRACE_HANDLE>,
@@ -815,6 +805,16 @@ pub unsafe fn TraceEventInstance(tracehandle: u64, eventtrace: &EVENT_INSTANCE_H
         fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
     }
     TraceEventInstance(tracehandle, ::core::mem::transmute(eventtrace), ::core::mem::transmute(instinfo), ::core::mem::transmute(parentinstinfo))
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: &::windows::core::GUID, messagenumber: u16, messagearglist: &i8) -> super::super::super::Foundation::WIN32_ERROR {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::core::GUID, messagenumber: u16, messagearglist: *const i8) -> super::super::super::Foundation::WIN32_ERROR;
+    }
+    TraceMessageVa(loggerhandle, messageflags, ::core::mem::transmute(messageguid), messagenumber, ::core::mem::transmute(messagearglist))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

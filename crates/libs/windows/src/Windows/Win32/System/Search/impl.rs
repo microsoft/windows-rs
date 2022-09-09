@@ -113,17 +113,17 @@ impl DataSourceObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessor_Impl: Sized {
-    fn AddRefAccessor(&self, haccessor: usize) -> ::windows::core::Result<u32>;
-    fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut usize, rgstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn GetBindings(&self, haccessor: usize, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::Result<()>;
-    fn ReleaseAccessor(&self, haccessor: usize) -> ::windows::core::Result<u32>;
+    fn AddRefAccessor(&self, haccessor: HACCESSOR) -> ::windows::core::Result<u32>;
+    fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::Result<()>;
+    fn ReleaseAccessor(&self, haccessor: HACCESSOR) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IAccessor {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>() -> IAccessor_Vtbl {
-        unsafe extern "system" fn AddRefAccessor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRefAccessor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddRefAccessor(::core::mem::transmute_copy(&haccessor)) {
@@ -134,17 +134,17 @@ impl IAccessor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAccessor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut usize, rgstatus: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAccessor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateAccessor(::core::mem::transmute_copy(&dwaccessorflags), ::core::mem::transmute_copy(&cbindings), ::core::mem::transmute_copy(&rgbindings), ::core::mem::transmute_copy(&cbrowsize), ::core::mem::transmute_copy(&phaccessor), ::core::mem::transmute_copy(&rgstatus)).into()
         }
-        unsafe extern "system" fn GetBindings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBindings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBindings(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdwaccessorflags), ::core::mem::transmute_copy(&pcbindings), ::core::mem::transmute_copy(&prgbindings)).into()
         }
-        unsafe extern "system" fn ReleaseAccessor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseAccessor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReleaseAccessor(::core::mem::transmute_copy(&haccessor)) {
@@ -1636,8 +1636,8 @@ impl IDataInitialize_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataSourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
-    fn hWnd(&self) -> ::windows::core::Result<i64>;
-    fn SethWnd(&self, hwndparent: i64) -> ::windows::core::Result<()>;
+    fn hWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
+    fn SethWnd(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn PromptNew(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn PromptEdit(&self, ppadoconnection: *mut ::core::option::Option<super::Com::IDispatch>, pbsuccess: *mut i16) -> ::windows::core::Result<()>;
 }
@@ -1646,7 +1646,7 @@ impl ::windows::core::RuntimeName for IDataSourceLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataSourceLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>() -> IDataSourceLocator_Vtbl {
-        unsafe extern "system" fn hWnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwndparent: *mut i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn hWnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwndparent: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.hWnd() {
@@ -1657,7 +1657,7 @@ impl IDataSourceLocator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SethWnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SethWnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SethWnd(::core::mem::transmute_copy(&hwndparent)).into()
@@ -2354,7 +2354,7 @@ pub trait IMDDataset_Impl: Sized {
     fn FreeAxisInfo(&self, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows::core::Result<()>;
     fn GetAxisInfo(&self, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows::core::Result<()>;
     fn GetAxisRowset(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, iaxis: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetCellData(&self, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCellData(&self, haccessor: HACCESSOR, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2377,7 +2377,7 @@ impl IMDDataset_Vtbl {
             let this = (*this).get_impl();
             this.GetAxisRowset(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&iaxis), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets), ::core::mem::transmute_copy(&pprowset)).into()
         }
-        unsafe extern "system" fn GetCellData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDDataset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCellData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDDataset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCellData(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&ulstartcell), ::core::mem::transmute_copy(&ulendcell), ::core::mem::transmute_copy(&pdata)).into()
@@ -2915,13 +2915,13 @@ impl IQuerySolution_Vtbl {
     }
 }
 pub trait IReadData_Impl: Sized {
-    fn ReadData(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn ReadData(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: HACCESSOR, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::Result<()>;
     fn ReleaseChapter(&self, hchapter: usize) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IReadData {}
 impl IReadData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReadData_Impl, const OFFSET: isize>() -> IReadData_Vtbl {
-        unsafe extern "system" fn ReadData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReadData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReadData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: HACCESSOR, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReadData(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&cbbookmark), ::core::mem::transmute_copy(&pbookmark), ::core::mem::transmute_copy(&lrowsoffset), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&pcrowsobtained), ::core::mem::transmute_copy(&ppfixeddata), ::core::mem::transmute_copy(&pcbvariabletotal), ::core::mem::transmute_copy(&ppvariabledata)).into()
@@ -3245,7 +3245,7 @@ impl IRowSchemaChange_Vtbl {
 }
 pub trait IRowset_Impl: Sized {
     fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn GetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()>;
     fn ReleaseRows(&self, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::Result<()>;
     fn RestartPosition(&self, hreserved: usize) -> ::windows::core::Result<()>;
@@ -3258,7 +3258,7 @@ impl IRowset_Vtbl {
             let this = (*this).get_impl();
             this.AddRefRows(::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rghrows), ::core::mem::transmute_copy(&rgrefcounts), ::core::mem::transmute_copy(&rgrowstatus)).into()
         }
-        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetData(::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata)).into()
@@ -3340,8 +3340,8 @@ impl IRowsetBookmark_Vtbl {
 }
 pub trait IRowsetChange_Impl: Sized {
     fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn SetData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn InsertRow(&self, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::Result<()>;
+    fn SetData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn InsertRow(&self, hreserved: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRowsetChange {}
 impl IRowsetChange_Vtbl {
@@ -3351,12 +3351,12 @@ impl IRowsetChange_Vtbl {
             let this = (*this).get_impl();
             this.DeleteRows(::core::mem::transmute_copy(&hreserved), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rghrows), ::core::mem::transmute_copy(&rgrowstatus)).into()
         }
-        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetData(::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn InsertRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InsertRow(::core::mem::transmute_copy(&hreserved), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&phrow)).into()
@@ -3533,7 +3533,7 @@ impl IRowsetEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowsetFastLoad_Impl: Sized {
-    fn InsertRow(&self, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn InsertRow(&self, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Commit(&self, fdone: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3541,7 +3541,7 @@ impl ::windows::core::RuntimeName for IRowsetFastLoad {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRowsetFastLoad_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetFastLoad_Impl, const OFFSET: isize>() -> IRowsetFastLoad_Vtbl {
-        unsafe extern "system" fn InsertRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetFastLoad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetFastLoad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InsertRow(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata)).into()
@@ -3562,12 +3562,12 @@ impl IRowsetFastLoad_Vtbl {
     }
 }
 pub trait IRowsetFind_Impl: Sized {
-    fn FindNextRow(&self, hchapter: usize, haccessor: usize, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()>;
+    fn FindNextRow(&self, hchapter: usize, haccessor: HACCESSOR, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRowsetFind {}
 impl IRowsetFind_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetFind_Impl, const OFFSET: isize>() -> IRowsetFind_Vtbl {
-        unsafe extern "system" fn FindNextRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetFind_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, haccessor: usize, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindNextRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetFind_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, haccessor: HACCESSOR, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FindNextRow(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pfindvalue), ::core::mem::transmute_copy(&compareop), ::core::mem::transmute_copy(&cbbookmark), ::core::mem::transmute_copy(&pbookmark), ::core::mem::transmute_copy(&lrowsoffset), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&pcrowsobtained), ::core::mem::transmute_copy(&prghrows)).into()
@@ -3598,8 +3598,8 @@ impl IRowsetIdentity_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRowsetIndex_Impl: Sized {
     fn GetIndexInfo(&self, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
-    fn Seek(&self, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()>;
-    fn SetRange(&self, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()>;
+    fn Seek(&self, haccessor: HACCESSOR, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()>;
+    fn SetRange(&self, haccessor: HACCESSOR, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IRowsetIndex {}
@@ -3611,12 +3611,12 @@ impl IRowsetIndex_Vtbl {
             let this = (*this).get_impl();
             this.GetIndexInfo(::core::mem::transmute_copy(&pckeycolumns), ::core::mem::transmute_copy(&prgindexcolumndesc), ::core::mem::transmute_copy(&pcindexpropertysets), ::core::mem::transmute_copy(&prgindexpropertysets)).into()
         }
-        unsafe extern "system" fn Seek<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Seek<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Seek(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&ckeyvalues), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&dwseekoptions)).into()
         }
-        unsafe extern "system" fn SetRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRange(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&cstartkeycolumns), ::core::mem::transmute_copy(&pstartdata), ::core::mem::transmute_copy(&cendkeycolumns), ::core::mem::transmute_copy(&penddata), ::core::mem::transmute_copy(&dwrangeoptions)).into()
@@ -3740,12 +3740,12 @@ impl IRowsetLocate_Vtbl {
     }
 }
 pub trait IRowsetNewRowAfter_Impl: Sized {
-    fn SetNewDataAfter(&self, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: usize, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::Result<()>;
+    fn SetNewDataAfter(&self, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: HACCESSOR, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRowsetNewRowAfter {}
 impl IRowsetNewRowAfter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetNewRowAfter_Impl, const OFFSET: isize>() -> IRowsetNewRowAfter_Vtbl {
-        unsafe extern "system" fn SetNewDataAfter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetNewRowAfter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: usize, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNewDataAfter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetNewRowAfter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: HACCESSOR, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNewDataAfter(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&cbbmprevious), ::core::mem::transmute_copy(&pbmprevious), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&phrow)).into()
@@ -3880,7 +3880,7 @@ impl IRowsetQueryStatus_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowsetRefresh_Impl: Sized {
     fn RefreshVisibleData(&self, hchapter: usize, crows: usize, rghrows: *const usize, foverwrite: super::super::Foundation::BOOL, pcrowsrefreshed: *mut usize, prghrowsrefreshed: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::Result<()>;
-    fn GetLastVisibleData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetLastVisibleData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRowsetRefresh {}
@@ -3892,7 +3892,7 @@ impl IRowsetRefresh_Vtbl {
             let this = (*this).get_impl();
             this.RefreshVisibleData(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rghrows), ::core::mem::transmute_copy(&foverwrite), ::core::mem::transmute_copy(&pcrowsrefreshed), ::core::mem::transmute_copy(&prghrowsrefreshed), ::core::mem::transmute_copy(&prgrowstatus)).into()
         }
-        unsafe extern "system" fn GetLastVisibleData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetRefresh_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLastVisibleData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetRefresh_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLastVisibleData(::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata)).into()
@@ -3908,13 +3908,13 @@ impl IRowsetRefresh_Vtbl {
     }
 }
 pub trait IRowsetResynch_Impl: Sized {
-    fn GetVisibleData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetVisibleData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ResynchRows(&self, crows: usize, rghrows: *const usize, pcrowsresynched: *mut usize, prghrowsresynched: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRowsetResynch {}
 impl IRowsetResynch_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetResynch_Impl, const OFFSET: isize>() -> IRowsetResynch_Vtbl {
-        unsafe extern "system" fn GetVisibleData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetResynch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVisibleData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetResynch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetVisibleData(::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata)).into()
@@ -3962,7 +3962,7 @@ impl IRowsetScroll_Vtbl {
     }
 }
 pub trait IRowsetUpdate_Impl: Sized + IRowsetChange_Impl {
-    fn GetOriginalData(&self, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetOriginalData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPendingRows(&self, hreserved: usize, dwrowstatus: u32, pcpendingrows: *mut usize, prgpendingrows: *mut *mut usize, prgpendingstatus: *mut *mut u32) -> ::windows::core::Result<()>;
     fn GetRowStatus(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgpendingstatus: *mut u32) -> ::windows::core::Result<()>;
     fn Undo(&self, hreserved: usize, crows: usize, rghrows: *const usize, pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::Result<()>;
@@ -3971,7 +3971,7 @@ pub trait IRowsetUpdate_Impl: Sized + IRowsetChange_Impl {
 impl ::windows::core::RuntimeName for IRowsetUpdate {}
 impl IRowsetUpdate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetUpdate_Impl, const OFFSET: isize>() -> IRowsetUpdate_Vtbl {
-        unsafe extern "system" fn GetOriginalData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOriginalData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetUpdate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetOriginalData(::core::mem::transmute_copy(&hrow), ::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdata)).into()
@@ -4098,7 +4098,7 @@ pub trait IRowsetWatchRegion_Impl: Sized + IRowsetWatchAll_Impl {
     fn ChangeWatchMode(&self, hregion: usize, dwwatchmode: u32) -> ::windows::core::Result<()>;
     fn DeleteWatchRegion(&self, hregion: usize) -> ::windows::core::Result<()>;
     fn GetWatchRegionInfo(&self, hregion: usize, pdwwatchmode: *mut u32, phchapter: *mut usize, pcbbookmark: *mut usize, ppbookmark: *mut *mut u8, pcrows: *mut isize) -> ::windows::core::Result<()>;
-    fn Refresh(&self, pcchangesobtained: *mut usize, prgchanges: *mut *mut tagDBROWWATCHRANGE) -> ::windows::core::Result<()>;
+    fn Refresh(&self, pcchangesobtained: *mut usize, prgchanges: *mut *mut DBROWWATCHCHANGE) -> ::windows::core::Result<()>;
     fn ShrinkWatchRegion(&self, hregion: usize, hchapter: usize, cbbookmark: usize, pbookmark: *mut u8, crows: isize) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRowsetWatchRegion {}
@@ -4124,7 +4124,7 @@ impl IRowsetWatchRegion_Vtbl {
             let this = (*this).get_impl();
             this.GetWatchRegionInfo(::core::mem::transmute_copy(&hregion), ::core::mem::transmute_copy(&pdwwatchmode), ::core::mem::transmute_copy(&phchapter), ::core::mem::transmute_copy(&pcbbookmark), ::core::mem::transmute_copy(&ppbookmark), ::core::mem::transmute_copy(&pcrows)).into()
         }
-        unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetWatchRegion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcchangesobtained: *mut usize, prgchanges: *mut *mut tagDBROWWATCHRANGE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetWatchRegion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcchangesobtained: *mut usize, prgchanges: *mut *mut DBROWWATCHCHANGE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Refresh(::core::mem::transmute_copy(&pcchangesobtained), ::core::mem::transmute_copy(&prgchanges)).into()
@@ -4236,12 +4236,12 @@ impl ISQLRequestDiagFields_Vtbl {
     }
 }
 pub trait ISQLServerErrorInfo_Impl: Sized {
-    fn GetErrorInfo(&self, pperrorinfo: *mut *mut tagSSErrorInfo, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn GetErrorInfo(&self, pperrorinfo: *mut *mut SSERRORINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISQLServerErrorInfo {}
 impl ISQLServerErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLServerErrorInfo_Impl, const OFFSET: isize>() -> ISQLServerErrorInfo_Vtbl {
-        unsafe extern "system" fn GetErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLServerErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut tagSSErrorInfo, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLServerErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut SSERRORINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetErrorInfo(::core::mem::transmute_copy(&pperrorinfo), ::core::mem::transmute_copy(&ppstringsbuffer)).into()
@@ -7101,16 +7101,16 @@ impl IViewChapter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IViewFilter_Impl: Sized {
-    fn GetFilter(&self, haccessor: usize, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetFilter(&self, haccessor: HACCESSOR, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetFilterBindings(&self, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::Result<()>;
-    fn SetFilter(&self, haccessor: usize, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetFilter(&self, haccessor: HACCESSOR, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IViewFilter {}
 #[cfg(feature = "Win32_System_Com")]
 impl IViewFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IViewFilter_Impl, const OFFSET: isize>() -> IViewFilter_Vtbl {
-        unsafe extern "system" fn GetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IViewFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IViewFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFilter(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pcrows), ::core::mem::transmute_copy(&pcompareops), ::core::mem::transmute_copy(&pcriteriadata)).into()
@@ -7120,7 +7120,7 @@ impl IViewFilter_Vtbl {
             let this = (*this).get_impl();
             this.GetFilterBindings(::core::mem::transmute_copy(&pcbindings), ::core::mem::transmute_copy(&prgbindings)).into()
         }
-        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IViewFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IViewFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFilter(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&compareops), ::core::mem::transmute_copy(&pcriteriadata)).into()

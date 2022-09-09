@@ -1261,25 +1261,25 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnableLogA<'a, P0>(dwlogmode: INSTALLOGMODE, szlogfile: P0, dwlogattributes: u32) -> u32
+pub unsafe fn MsiEnableLogA<'a, P0>(dwlogmode: INSTALLLOGMODE, szlogfile: P0, dwlogattributes: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn MsiEnableLogA(dwlogmode: INSTALLOGMODE, szlogfile: ::windows::core::PCSTR, dwlogattributes: u32) -> u32;
+        fn MsiEnableLogA(dwlogmode: INSTALLLOGMODE, szlogfile: ::windows::core::PCSTR, dwlogattributes: u32) -> u32;
     }
     MsiEnableLogA(dwlogmode, szlogfile.into(), dwlogattributes)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnableLogW<'a, P0>(dwlogmode: INSTALLOGMODE, szlogfile: P0, dwlogattributes: u32) -> u32
+pub unsafe fn MsiEnableLogW<'a, P0>(dwlogmode: INSTALLLOGMODE, szlogfile: P0, dwlogattributes: u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn MsiEnableLogW(dwlogmode: INSTALLOGMODE, szlogfile: ::windows::core::PCWSTR, dwlogattributes: u32) -> u32;
+        fn MsiEnableLogW(dwlogmode: INSTALLLOGMODE, szlogfile: ::windows::core::PCWSTR, dwlogattributes: u32) -> u32;
     }
     MsiEnableLogW(dwlogmode, szlogfile.into(), dwlogattributes)
 }
@@ -9661,6 +9661,75 @@ impl ::core::fmt::Debug for INSTALLLOGATTRIBUTES {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INSTALLLOGMODE(pub i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_FATALEXIT: INSTALLLOGMODE = INSTALLLOGMODE(1i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_ERROR: INSTALLLOGMODE = INSTALLLOGMODE(2i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_WARNING: INSTALLLOGMODE = INSTALLLOGMODE(4i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_USER: INSTALLLOGMODE = INSTALLLOGMODE(8i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INFO: INSTALLLOGMODE = INSTALLLOGMODE(16i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_RESOLVESOURCE: INSTALLLOGMODE = INSTALLLOGMODE(64i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_OUTOFDISKSPACE: INSTALLLOGMODE = INSTALLLOGMODE(128i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_ACTIONSTART: INSTALLLOGMODE = INSTALLLOGMODE(256i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_ACTIONDATA: INSTALLLOGMODE = INSTALLLOGMODE(512i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_COMMONDATA: INSTALLLOGMODE = INSTALLLOGMODE(2048i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_PROPERTYDUMP: INSTALLLOGMODE = INSTALLLOGMODE(1024i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_VERBOSE: INSTALLLOGMODE = INSTALLLOGMODE(4096i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_EXTRADEBUG: INSTALLLOGMODE = INSTALLLOGMODE(8192i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_LOGONLYONERROR: INSTALLLOGMODE = INSTALLLOGMODE(16384i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_LOGPERFORMANCE: INSTALLLOGMODE = INSTALLLOGMODE(32768i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_PROGRESS: INSTALLLOGMODE = INSTALLLOGMODE(1024i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INITIALIZE: INSTALLLOGMODE = INSTALLLOGMODE(4096i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_TERMINATE: INSTALLLOGMODE = INSTALLLOGMODE(8192i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_SHOWDIALOG: INSTALLLOGMODE = INSTALLLOGMODE(16384i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_FILESINUSE: INSTALLLOGMODE = INSTALLLOGMODE(32i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_RMFILESINUSE: INSTALLLOGMODE = INSTALLLOGMODE(33554432i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INSTALLSTART: INSTALLLOGMODE = INSTALLLOGMODE(67108864i32);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INSTALLEND: INSTALLLOGMODE = INSTALLLOGMODE(134217728i32);
+impl ::core::marker::Copy for INSTALLLOGMODE {}
+impl ::core::clone::Clone for INSTALLLOGMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INSTALLLOGMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INSTALLLOGMODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INSTALLLOGMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INSTALLLOGMODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSTALLMESSAGE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const INSTALLMESSAGE_FATALEXIT: INSTALLMESSAGE = INSTALLMESSAGE(0i32);
@@ -9750,75 +9819,6 @@ unsafe impl ::windows::core::Abi for INSTALLMODE {
 impl ::core::fmt::Debug for INSTALLMODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("INSTALLMODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INSTALLOGMODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_FATALEXIT: INSTALLOGMODE = INSTALLOGMODE(1i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_ERROR: INSTALLOGMODE = INSTALLOGMODE(2i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_WARNING: INSTALLOGMODE = INSTALLOGMODE(4i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_USER: INSTALLOGMODE = INSTALLOGMODE(8i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INFO: INSTALLOGMODE = INSTALLOGMODE(16i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_RESOLVESOURCE: INSTALLOGMODE = INSTALLOGMODE(64i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_OUTOFDISKSPACE: INSTALLOGMODE = INSTALLOGMODE(128i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_ACTIONSTART: INSTALLOGMODE = INSTALLOGMODE(256i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_ACTIONDATA: INSTALLOGMODE = INSTALLOGMODE(512i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_COMMONDATA: INSTALLOGMODE = INSTALLOGMODE(2048i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_PROPERTYDUMP: INSTALLOGMODE = INSTALLOGMODE(1024i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_VERBOSE: INSTALLOGMODE = INSTALLOGMODE(4096i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_EXTRADEBUG: INSTALLOGMODE = INSTALLOGMODE(8192i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_LOGONLYONERROR: INSTALLOGMODE = INSTALLOGMODE(16384i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_LOGPERFORMANCE: INSTALLOGMODE = INSTALLOGMODE(32768i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_PROGRESS: INSTALLOGMODE = INSTALLOGMODE(1024i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INITIALIZE: INSTALLOGMODE = INSTALLOGMODE(4096i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_TERMINATE: INSTALLOGMODE = INSTALLOGMODE(8192i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_SHOWDIALOG: INSTALLOGMODE = INSTALLOGMODE(16384i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_FILESINUSE: INSTALLOGMODE = INSTALLOGMODE(32i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_RMFILESINUSE: INSTALLOGMODE = INSTALLOGMODE(33554432i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INSTALLSTART: INSTALLOGMODE = INSTALLOGMODE(67108864i32);
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INSTALLEND: INSTALLOGMODE = INSTALLOGMODE(134217728i32);
-impl ::core::marker::Copy for INSTALLOGMODE {}
-impl ::core::clone::Clone for INSTALLOGMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INSTALLOGMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INSTALLOGMODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INSTALLOGMODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INSTALLOGMODE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -13882,6 +13882,37 @@ impl ::core::default::Default for PMSIHANDLE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub struct PM_APPTASKTYPE {
+    pub ProductID: ::windows::core::GUID,
+    pub TaskType: PM_TASK_TYPE,
+}
+impl ::core::marker::Copy for PM_APPTASKTYPE {}
+impl ::core::clone::Clone for PM_APPTASKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PM_APPTASKTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PM_APPTASKTYPE").field("ProductID", &self.ProductID).field("TaskType", &self.TaskType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PM_APPTASKTYPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PM_APPTASKTYPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_APPTASKTYPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PM_APPTASKTYPE {}
+impl ::core::default::Default for PM_APPTASKTYPE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BSATASKID {
     pub ProductID: ::windows::core::GUID,
     pub TaskID: ::windows::core::BSTR,
@@ -13975,7 +14006,7 @@ pub union PM_ENUM_FILTER_0 {
     pub Tasktype: PM_TASK_TYPE,
     pub TaskProductID: ::windows::core::GUID,
     pub TileProductID: ::windows::core::GUID,
-    pub AppTaskType: _tagAPPTASKTYPE,
+    pub AppTaskType: PM_APPTASKTYPE,
     pub Consumer: ::core::mem::ManuallyDrop<PM_EXTENSIONCONSUMER>,
     pub BSATask: ::core::mem::ManuallyDrop<PM_BSATASKID>,
     pub BSAProductID: ::windows::core::GUID,
@@ -14364,37 +14395,6 @@ impl ::core::cmp::PartialEq for PROTECTED_FILE_DATA {
 }
 impl ::core::cmp::Eq for PROTECTED_FILE_DATA {}
 impl ::core::default::Default for PROTECTED_FILE_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub struct _tagAPPTASKTYPE {
-    pub ProductID: ::windows::core::GUID,
-    pub TaskType: PM_TASK_TYPE,
-}
-impl ::core::marker::Copy for _tagAPPTASKTYPE {}
-impl ::core::clone::Clone for _tagAPPTASKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _tagAPPTASKTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_tagAPPTASKTYPE").field("ProductID", &self.ProductID).field("TaskType", &self.TaskType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _tagAPPTASKTYPE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _tagAPPTASKTYPE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_tagAPPTASKTYPE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _tagAPPTASKTYPE {}
-impl ::core::default::Default for _tagAPPTASKTYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

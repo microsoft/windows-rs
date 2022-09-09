@@ -11558,6 +11558,72 @@ impl ::core::fmt::Debug for TransactionVote {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct APPDATA {
+    pub m_idApp: u32,
+    pub m_szAppGuid: [u16; 40],
+    pub m_dwAppProcessId: u32,
+    pub m_AppStatistics: APPSTATISTICS,
+}
+impl ::core::marker::Copy for APPDATA {}
+impl ::core::clone::Clone for APPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for APPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPDATA").field("m_idApp", &self.m_idApp).field("m_szAppGuid", &self.m_szAppGuid).field("m_dwAppProcessId", &self.m_dwAppProcessId).field("m_AppStatistics", &self.m_AppStatistics).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for APPDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for APPDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APPDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for APPDATA {}
+impl ::core::default::Default for APPDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct APPSTATISTICS {
+    pub m_cTotalCalls: u32,
+    pub m_cTotalInstances: u32,
+    pub m_cTotalClasses: u32,
+    pub m_cCallsPerSecond: u32,
+}
+impl ::core::marker::Copy for APPSTATISTICS {}
+impl ::core::clone::Clone for APPSTATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for APPSTATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APPSTATISTICS").field("m_cTotalCalls", &self.m_cTotalCalls).field("m_cTotalInstances", &self.m_cTotalInstances).field("m_cTotalClasses", &self.m_cTotalClasses).field("m_cCallsPerSecond", &self.m_cCallsPerSecond).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for APPSTATISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for APPSTATISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APPSTATISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for APPSTATISTICS {}
+impl ::core::default::Default for APPSTATISTICS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo {
@@ -11754,73 +11820,7 @@ impl ::core::default::Default for ApplicationSummary {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CAppData {
-    pub m_idApp: u32,
-    pub m_szAppGuid: [u16; 40],
-    pub m_dwAppProcessId: u32,
-    pub m_AppStatistics: CAppStatistics,
-}
-impl ::core::marker::Copy for CAppData {}
-impl ::core::clone::Clone for CAppData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAppData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAppData").field("m_idApp", &self.m_idApp).field("m_szAppGuid", &self.m_szAppGuid).field("m_dwAppProcessId", &self.m_dwAppProcessId).field("m_AppStatistics", &self.m_AppStatistics).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAppData {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAppData {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAppData>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAppData {}
-impl ::core::default::Default for CAppData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CAppStatistics {
-    pub m_cTotalCalls: u32,
-    pub m_cTotalInstances: u32,
-    pub m_cTotalClasses: u32,
-    pub m_cCallsPerSecond: u32,
-}
-impl ::core::marker::Copy for CAppStatistics {}
-impl ::core::clone::Clone for CAppStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAppStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAppStatistics").field("m_cTotalCalls", &self.m_cTotalCalls).field("m_cTotalInstances", &self.m_cTotalInstances).field("m_cTotalClasses", &self.m_cTotalClasses).field("m_cCallsPerSecond", &self.m_cCallsPerSecond).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAppStatistics {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAppStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAppStatistics>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAppStatistics {}
-impl ::core::default::Default for CAppStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CCLSIDData {
+pub struct CLSIDDATA {
     pub m_clsid: ::windows::core::GUID,
     pub m_cReferences: u32,
     pub m_cBound: u32,
@@ -11830,34 +11830,34 @@ pub struct CCLSIDData {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl ::core::marker::Copy for CCLSIDData {}
-impl ::core::clone::Clone for CCLSIDData {
+impl ::core::marker::Copy for CLSIDDATA {}
+impl ::core::clone::Clone for CLSIDDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for CCLSIDData {
+impl ::core::fmt::Debug for CLSIDDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CCLSIDData").field("m_clsid", &self.m_clsid).field("m_cReferences", &self.m_cReferences).field("m_cBound", &self.m_cBound).field("m_cPooled", &self.m_cPooled).field("m_cInCall", &self.m_cInCall).field("m_dwRespTime", &self.m_dwRespTime).field("m_cCallsCompleted", &self.m_cCallsCompleted).field("m_cCallsFailed", &self.m_cCallsFailed).finish()
+        f.debug_struct("CLSIDDATA").field("m_clsid", &self.m_clsid).field("m_cReferences", &self.m_cReferences).field("m_cBound", &self.m_cBound).field("m_cPooled", &self.m_cPooled).field("m_cInCall", &self.m_cInCall).field("m_dwRespTime", &self.m_dwRespTime).field("m_cCallsCompleted", &self.m_cCallsCompleted).field("m_cCallsFailed", &self.m_cCallsFailed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CCLSIDData {
+unsafe impl ::windows::core::Abi for CLSIDDATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CCLSIDData {
+impl ::core::cmp::PartialEq for CLSIDDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCLSIDData>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLSIDDATA>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for CCLSIDData {}
-impl ::core::default::Default for CCLSIDData {
+impl ::core::cmp::Eq for CLSIDDATA {}
+impl ::core::default::Default for CLSIDDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CCLSIDData2 {
+pub struct CLSIDDATA2 {
     pub m_clsid: ::windows::core::GUID,
     pub m_appid: ::windows::core::GUID,
     pub m_partid: ::windows::core::GUID,
@@ -11872,15 +11872,15 @@ pub struct CCLSIDData2 {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl ::core::marker::Copy for CCLSIDData2 {}
-impl ::core::clone::Clone for CCLSIDData2 {
+impl ::core::marker::Copy for CLSIDDATA2 {}
+impl ::core::clone::Clone for CLSIDDATA2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for CCLSIDData2 {
+impl ::core::fmt::Debug for CLSIDDATA2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CCLSIDData2")
+        f.debug_struct("CLSIDDATA2")
             .field("m_clsid", &self.m_clsid)
             .field("m_appid", &self.m_appid)
             .field("m_partid", &self.m_partid)
@@ -11897,16 +11897,16 @@ impl ::core::fmt::Debug for CCLSIDData2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CCLSIDData2 {
+unsafe impl ::windows::core::Abi for CLSIDDATA2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CCLSIDData2 {
+impl ::core::cmp::PartialEq for CLSIDDATA2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCLSIDData2>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLSIDDATA2>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for CCLSIDData2 {}
-impl ::core::default::Default for CCLSIDData2 {
+impl ::core::cmp::Eq for CLSIDDATA2 {}
+impl ::core::default::Default for CLSIDDATA2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

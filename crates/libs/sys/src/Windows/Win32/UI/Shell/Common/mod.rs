@@ -146,7 +146,7 @@ impl ::core::clone::Clone for COMDLG_FILTERSPEC {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,

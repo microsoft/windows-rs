@@ -3,7 +3,7 @@ use windows::{
     Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT, WAIT_OBJECT_0},
     Win32::Gaming::HasExpandedResources,
     Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
-    Win32::Networking::Ldap::ldapsearch,
+    Win32::Networking::Ldap::LDAPSearch,
     Win32::Security::Authorization::*,
     Win32::System::Com::StructuredStorage::*,
     Win32::System::Com::*,
@@ -225,9 +225,9 @@ extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> B
 
 #[test]
 fn empty_struct() {
-    let ldap = ldapsearch(123);
+    let ldap = LDAPSearch(123);
     assert!(ldap.0 == 123);
-    assert!(core::mem::size_of::<ldapsearch>() == 1);
+    assert!(core::mem::size_of::<LDAPSearch>() == 1);
 
     assert!(UIAnimationManager == GUID::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
 }

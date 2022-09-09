@@ -36,8 +36,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSystemDpiForProcess(hprocess: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-    pub fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32;
+    #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub fn GetSystemMetricsForDpi(nindex: super::WindowsAndMessaging::SYSTEM_METRICS_INDEX, dpi: u32) -> i32;
     #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
     pub fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT;
     #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]

@@ -853,6 +853,72 @@ impl ::core::fmt::Debug for CTL_MODIFY_REQUEST_OPERATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
+pub struct CERT_FILTER_DATA {
+    pub dwSize: u32,
+    pub cExtensionChecks: u32,
+    pub arrayExtensionChecks: *mut CERT_FILTER_EXTENSION_MATCH,
+    pub dwCheckingFlags: u32,
+}
+impl ::core::marker::Copy for CERT_FILTER_DATA {}
+impl ::core::clone::Clone for CERT_FILTER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CERT_FILTER_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CERT_FILTER_DATA").field("dwSize", &self.dwSize).field("cExtensionChecks", &self.cExtensionChecks).field("arrayExtensionChecks", &self.arrayExtensionChecks).field("dwCheckingFlags", &self.dwCheckingFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_FILTER_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CERT_FILTER_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CERT_FILTER_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CERT_FILTER_DATA {}
+impl ::core::default::Default for CERT_FILTER_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
+pub struct CERT_FILTER_EXTENSION_MATCH {
+    pub szExtensionOID: ::windows::core::PCSTR,
+    pub dwTestOperation: u32,
+    pub pbTestData: *mut u8,
+    pub cbTestData: u32,
+}
+impl ::core::marker::Copy for CERT_FILTER_EXTENSION_MATCH {}
+impl ::core::clone::Clone for CERT_FILTER_EXTENSION_MATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CERT_FILTER_EXTENSION_MATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CERT_FILTER_EXTENSION_MATCH").field("szExtensionOID", &self.szExtensionOID).field("dwTestOperation", &self.dwTestOperation).field("pbTestData", &self.pbTestData).field("cbTestData", &self.cbTestData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_FILTER_EXTENSION_MATCH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CERT_FILTER_EXTENSION_MATCH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CERT_FILTER_EXTENSION_MATCH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CERT_FILTER_EXTENSION_MATCH {}
+impl ::core::default::Default for CERT_FILTER_EXTENSION_MATCH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECTUI_INPUT {
@@ -1272,72 +1338,6 @@ impl ::core::cmp::PartialEq for CERT_VIEWPROPERTIES_STRUCT_W {
 impl ::core::cmp::Eq for CERT_VIEWPROPERTIES_STRUCT_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
-pub struct CMFLTR {
-    pub dwSize: u32,
-    pub cExtensionChecks: u32,
-    pub arrayExtensionChecks: *mut CMOID,
-    pub dwCheckingFlags: u32,
-}
-impl ::core::marker::Copy for CMFLTR {}
-impl ::core::clone::Clone for CMFLTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CMFLTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMFLTR").field("dwSize", &self.dwSize).field("cExtensionChecks", &self.cExtensionChecks).field("arrayExtensionChecks", &self.arrayExtensionChecks).field("dwCheckingFlags", &self.dwCheckingFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CMFLTR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CMFLTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMFLTR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CMFLTR {}
-impl ::core::default::Default for CMFLTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
-pub struct CMOID {
-    pub szExtensionOID: ::windows::core::PCSTR,
-    pub dwTestOperation: u32,
-    pub pbTestData: *mut u8,
-    pub cbTestData: u32,
-}
-impl ::core::marker::Copy for CMOID {}
-impl ::core::clone::Clone for CMOID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CMOID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMOID").field("szExtensionOID", &self.szExtensionOID).field("dwTestOperation", &self.dwTestOperation).field("pbTestData", &self.pbTestData).field("cbTestData", &self.cbTestData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CMOID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CMOID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMOID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CMOID {}
-impl ::core::default::Default for CMOID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

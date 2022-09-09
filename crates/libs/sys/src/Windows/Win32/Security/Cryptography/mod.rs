@@ -13069,15 +13069,15 @@ pub type HCRYPTPROV_LEGACY = usize;
 pub type HCRYPTPROV_OR_NCRYPT_KEY_HANDLE = usize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub struct HMAC_Info {
+pub struct HMAC_INFO {
     pub HashAlgid: u32,
     pub pbInnerString: *mut u8,
     pub cbInnerString: u32,
     pub pbOuterString: *mut u8,
     pub cbOuterString: u32,
 }
-impl ::core::marker::Copy for HMAC_Info {}
-impl ::core::clone::Clone for HMAC_Info {
+impl ::core::marker::Copy for HMAC_INFO {}
+impl ::core::clone::Clone for HMAC_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -13326,12 +13326,12 @@ impl ::core::clone::Clone for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub struct NCRYPT_PCP_RAW_POLICYDIGEST {
+pub struct NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     pub dwVersion: u32,
     pub cbDigest: u32,
 }
-impl ::core::marker::Copy for NCRYPT_PCP_RAW_POLICYDIGEST {}
-impl ::core::clone::Clone for NCRYPT_PCP_RAW_POLICYDIGEST {
+impl ::core::marker::Copy for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {}
+impl ::core::clone::Clone for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn clone(&self) -> Self {
         *self
     }

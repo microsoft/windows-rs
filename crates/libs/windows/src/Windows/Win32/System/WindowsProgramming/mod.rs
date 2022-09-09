@@ -1,116 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
-    }
-    GetFeatureEnabledState(featureid, changetime)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: &mut u32, hasnotification: &mut super::super::Foundation::BOOL) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
-    }
-    GetFeatureVariant(featureid, changetime, ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RecordFeatureError(featureid: u32, error: &FEATURE_ERROR) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
-    }
-    RecordFeatureError(featureid, ::core::mem::transmute(error))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RecordFeatureUsage<'a, P0>(featureid: u32, kind: u32, addend: u32, originname: P0)
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: ::windows::core::PCSTR);
-    }
-    RecordFeatureUsage(featureid, kind, addend, originname.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: &mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void);
-    }
-    SubscribeFeatureStateChangeNotification(::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn UnsubscribeFeatureStateChangeNotification<'a, P0>(subscription: P0)
-where
-    P0: ::std::convert::Into<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
-    }
-    UnsubscribeFeatureStateChangeNotification(subscription.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcschr(string: &u16, character: u16) -> *mut u16 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
-    }
-    uaw_wcschr(::core::mem::transmute(string), character)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcscpy(destination: &mut u16, source: &u16) -> *mut u16 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
-    }
-    uaw_wcscpy(::core::mem::transmute(destination), ::core::mem::transmute(source))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcsicmp(string1: &u16, string2: &u16) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
-    }
-    uaw_wcsicmp(::core::mem::transmute(string1), ::core::mem::transmute(string2))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcslen(string: &u16) -> usize {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcslen(string: *const u16) -> usize;
-    }
-    uaw_wcslen(::core::mem::transmute(string))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcsrchr(string: &u16, character: u16) -> *mut u16 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
-    }
-    uaw_wcsrchr(::core::mem::transmute(string), character)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
 pub unsafe fn AddDelBackupEntryA<'a, P0, P1, P2>(lpcszfilelist: P0, lpcszbackupdir: P1, lpcszbasename: P2, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -696,6 +585,25 @@ where
         fn GetDCRegionData(hdc: super::super::Graphics::Gdi::HDC, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
     }
     GetDCRegionData(hdc.into(), size, ::core::mem::transmute(prd))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
+    }
+    GetFeatureEnabledState(featureid, changetime)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: &mut u32, hasnotification: &mut super::super::Foundation::BOOL) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
+    }
+    GetFeatureVariant(featureid, changetime, ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -1696,6 +1604,27 @@ where
     }
     RebootCheckOnInstallW(hwnd.into(), pszinf.into(), pszsec.into(), dwreserved).ok()
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RecordFeatureError(featureid: u32, error: &FEATURE_ERROR) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
+    }
+    RecordFeatureError(featureid, ::core::mem::transmute(error))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RecordFeatureUsage<'a, P0>(featureid: u32, kind: u32, addend: u32, originname: P0)
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: ::windows::core::PCSTR);
+    }
+    RecordFeatureUsage(featureid, kind, addend, originname.into())
+}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2242,6 +2171,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
+pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: &mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void);
+    }
+    SubscribeFeatureStateChangeNotification(::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
 pub unsafe fn TranslateInfStringA<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u8]>, pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2297,6 +2235,18 @@ where
         fn TranslateInfStringW(pszinffilename: ::windows::core::PCWSTR, pszinstallsection: ::windows::core::PCWSTR, psztranslatesection: ::windows::core::PCWSTR, psztranslatekey: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     TranslateInfStringW(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn UnsubscribeFeatureStateChangeNotification<'a, P0>(subscription: P0)
+where
+    P0: ::std::convert::Into<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
+    }
+    UnsubscribeFeatureStateChangeNotification(subscription.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2786,6 +2736,56 @@ pub unsafe fn uaw_lstrlenW(string: &u16) -> i32 {
         fn uaw_lstrlenW(string: *const u16) -> i32;
     }
     uaw_lstrlenW(::core::mem::transmute(string))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcschr(string: &u16, character: u16) -> *mut u16 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
+    }
+    uaw_wcschr(::core::mem::transmute(string), character)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcscpy(destination: &mut u16, source: &u16) -> *mut u16 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
+    }
+    uaw_wcscpy(::core::mem::transmute(destination), ::core::mem::transmute(source))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcsicmp(string1: &u16, string2: &u16) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
+    }
+    uaw_wcsicmp(::core::mem::transmute(string1), ::core::mem::transmute(string2))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcslen(string: &u16) -> usize {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_wcslen(string: *const u16) -> usize;
+    }
+    uaw_wcslen(::core::mem::transmute(string))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcsrchr(string: &u16, character: u16) -> *mut u16 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
+    }
+    uaw_wcsrchr(::core::mem::transmute(string), character)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
@@ -7615,6 +7615,139 @@ impl ::core::default::Default for SYSTEM_TIMEOFDAY_INFORMATION {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    pub ID: TDIObjectID,
+    pub Context: [u32; 4],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_REQUEST_QUERY_INFORMATION_EX32_XP").field("ID", &self.ID).field("Context", &self.Context).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+unsafe impl ::windows::core::Abi for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TCP_REQUEST_QUERY_INFORMATION_EX32_XP>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::Eq for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    pub ID: TDIObjectID,
+    pub Context: [u8; 16],
+}
+impl ::core::marker::Copy for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {}
+impl ::core::clone::Clone for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_REQUEST_QUERY_INFORMATION_EX_W2K").field("ID", &self.ID).field("Context", &self.Context).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TCP_REQUEST_QUERY_INFORMATION_EX_W2K>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {}
+impl ::core::default::Default for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    pub ID: TDIObjectID,
+    pub Context: [usize; 4],
+}
+impl ::core::marker::Copy for TCP_REQUEST_QUERY_INFORMATION_EX_XP {}
+impl ::core::clone::Clone for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_REQUEST_QUERY_INFORMATION_EX_XP").field("ID", &self.ID).field("Context", &self.Context).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TCP_REQUEST_QUERY_INFORMATION_EX_XP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TCP_REQUEST_QUERY_INFORMATION_EX_XP {}
+impl ::core::default::Default for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct TCP_REQUEST_SET_INFORMATION_EX {
+    pub ID: TDIObjectID,
+    pub BufferSize: u32,
+    pub Buffer: [u8; 1],
+}
+impl ::core::marker::Copy for TCP_REQUEST_SET_INFORMATION_EX {}
+impl ::core::clone::Clone for TCP_REQUEST_SET_INFORMATION_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TCP_REQUEST_SET_INFORMATION_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TCP_REQUEST_SET_INFORMATION_EX").field("ID", &self.ID).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_REQUEST_SET_INFORMATION_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TCP_REQUEST_SET_INFORMATION_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TCP_REQUEST_SET_INFORMATION_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TCP_REQUEST_SET_INFORMATION_EX {}
+impl ::core::default::Default for TCP_REQUEST_SET_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct TDIEntityID {
     pub tei_entity: TDIENTITY_ENTITY_TYPE,
     pub tei_instance: u32,
@@ -7940,139 +8073,6 @@ impl ::core::default::Default for WLDP_HOST_INFORMATION {
 pub struct _D3DHAL_CALLBACKS(pub u8);
 #[repr(C)]
 pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct tcp_request_query_information_ex32_xp {
-    pub ID: TDIObjectID,
-    pub Context: [u32; 4],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for tcp_request_query_information_ex32_xp {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for tcp_request_query_information_ex32_xp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for tcp_request_query_information_ex32_xp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_request_query_information_ex32_xp").field("ID", &self.ID).field("Context", &self.Context).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for tcp_request_query_information_ex32_xp {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for tcp_request_query_information_ex32_xp {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tcp_request_query_information_ex32_xp>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for tcp_request_query_information_ex32_xp {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for tcp_request_query_information_ex32_xp {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct tcp_request_query_information_ex_w2k {
-    pub ID: TDIObjectID,
-    pub Context: [u8; 16],
-}
-impl ::core::marker::Copy for tcp_request_query_information_ex_w2k {}
-impl ::core::clone::Clone for tcp_request_query_information_ex_w2k {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tcp_request_query_information_ex_w2k {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_request_query_information_ex_w2k").field("ID", &self.ID).field("Context", &self.Context).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tcp_request_query_information_ex_w2k {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tcp_request_query_information_ex_w2k {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tcp_request_query_information_ex_w2k>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tcp_request_query_information_ex_w2k {}
-impl ::core::default::Default for tcp_request_query_information_ex_w2k {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct tcp_request_query_information_ex_xp {
-    pub ID: TDIObjectID,
-    pub Context: [usize; 2],
-}
-impl ::core::marker::Copy for tcp_request_query_information_ex_xp {}
-impl ::core::clone::Clone for tcp_request_query_information_ex_xp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tcp_request_query_information_ex_xp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_request_query_information_ex_xp").field("ID", &self.ID).field("Context", &self.Context).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tcp_request_query_information_ex_xp {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tcp_request_query_information_ex_xp {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tcp_request_query_information_ex_xp>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tcp_request_query_information_ex_xp {}
-impl ::core::default::Default for tcp_request_query_information_ex_xp {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct tcp_request_set_information_ex {
-    pub ID: TDIObjectID,
-    pub BufferSize: u32,
-    pub Buffer: [u8; 1],
-}
-impl ::core::marker::Copy for tcp_request_set_information_ex {}
-impl ::core::clone::Clone for tcp_request_set_information_ex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tcp_request_set_information_ex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_request_set_information_ex").field("ID", &self.ID).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tcp_request_set_information_ex {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tcp_request_set_information_ex {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tcp_request_set_information_ex>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tcp_request_set_information_ex {}
-impl ::core::default::Default for tcp_request_set_information_ex {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]

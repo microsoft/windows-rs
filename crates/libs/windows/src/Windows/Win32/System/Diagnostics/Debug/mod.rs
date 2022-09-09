@@ -1,61 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: usize) -> super::super::super::Foundation::BOOLEAN;
-    }
-    RtlAddFunctionTable(::core::mem::transmute(functiontable.as_ptr()), functiontable.len() as _, baseaddress)
-}
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86_64")]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: u64) -> super::super::super::Foundation::BOOLEAN;
-    }
-    RtlAddFunctionTable(::core::mem::transmute(functiontable.as_ptr()), functiontable.len() as _, baseaddress)
-}
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlDeleteFunctionTable(functiontable: &IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
-    }
-    RtlDeleteFunctionTable(::core::mem::transmute(functiontable))
-}
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86_64")]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlDeleteFunctionTable(functiontable: &IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
-    }
-    RtlDeleteFunctionTable(::core::mem::transmute(functiontable))
-}
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<'a, P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, outofprocesscallbackdll: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOLEAN;
-    }
-    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, ::core::mem::transmute(callback), ::core::mem::transmute(context), outofprocesscallbackdll.into())
-}
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -1111,13 +1053,13 @@ where
     }
     MapFileAndCheckSumW(filename.into(), ::core::mem::transmute(headersum), ::core::mem::transmute(checksum))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL;
+        fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> super::super::super::Foundation::BOOL;
     }
     MessageBeep(utype)
 }
@@ -1360,6 +1302,28 @@ where
     }
     ReportSymbolLoadSummary(hprocess.into(), ploadmodule.into(), ::core::mem::transmute(psymboldata))
 }
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: usize) -> super::super::super::Foundation::BOOLEAN;
+    }
+    RtlAddFunctionTable(::core::mem::transmute(functiontable.as_ptr()), functiontable.len() as _, baseaddress)
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: u64) -> super::super::super::Foundation::BOOLEAN;
+    }
+    RtlAddFunctionTable(::core::mem::transmute(functiontable.as_ptr()), functiontable.len() as _, baseaddress)
+}
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[inline]
@@ -1410,6 +1374,28 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut 
     }
     RtlCaptureStackBackTrace(framestoskip, backtrace.len() as _, ::core::mem::transmute(backtrace.as_ptr()), ::core::mem::transmute(backtracehash))
 }
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlDeleteFunctionTable(functiontable: &IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
+    }
+    RtlDeleteFunctionTable(::core::mem::transmute(functiontable))
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlDeleteFunctionTable(functiontable: &IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
+    }
+    RtlDeleteFunctionTable(::core::mem::transmute(functiontable))
+}
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
@@ -1429,6 +1415,34 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newen
         fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32);
     }
     RtlGrowFunctionTable(::core::mem::transmute(dynamictable), newentrycount)
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlInstallFunctionTableCallback<'a, P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, outofprocesscallbackdll: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOLEAN;
+    }
+    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, ::core::mem::transmute(callback), ::core::mem::transmute(context), outofprocesscallbackdll.into())
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlInstallFunctionTableCallback<'a, P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, outofprocesscallbackdll: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOLEAN;
+    }
+    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, ::core::mem::transmute(callback), ::core::mem::transmute(context), outofprocesscallbackdll.into())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
@@ -10148,7 +10162,7 @@ pub struct IDebugApplication11064_Vtbl {
 #[repr(transparent)]
 pub struct IDebugApplication32(::windows::core::IUnknown);
 impl IDebugApplication32 {
-    pub unsafe fn ResumeFromBreakPoint<'a, P0>(&self, prptfocus: P0, bra: BREAKRESUME_ACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>
+    pub unsafe fn ResumeFromBreakPoint<'a, P0>(&self, prptfocus: P0, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRemoteDebugApplicationThread>>,
     {
@@ -10214,9 +10228,9 @@ impl IDebugApplication32 {
     pub unsafe fn StartDebugSession(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StartDebugSession)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUME_ACTION> {
+    pub unsafe fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUMEACTION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).HandleBreakPoint)(::windows::core::Interface::as_raw(self), br, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BREAKRESUME_ACTION>(result__)
+        (::windows::core::Interface::vtable(self).HandleBreakPoint)(::windows::core::Interface::as_raw(self), br, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BREAKRESUMEACTION>(result__)
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -10266,7 +10280,7 @@ impl IDebugApplication32 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HandleRuntimeError<'a, P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: &mut BREAKRESUME_ACTION, perra: &mut ERRORRESUMEACTION, pfcallonscripterror: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn HandleRuntimeError<'a, P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: &mut BREAKRESUMEACTION, perra: &mut ERRORRESUMEACTION, pfcallonscripterror: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IActiveScriptErrorDebug>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IActiveScriptSite>>,
@@ -10352,7 +10366,7 @@ pub struct IDebugApplication32_Vtbl {
     pub StepOutComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstr: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub StartDebugSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub HandleBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUME_ACTION) -> ::windows::core::HRESULT,
+    pub HandleBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUMEACTION) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetBreakFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pabf: *mut u32, pprdatsteppingthread: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10364,7 +10378,7 @@ pub struct IDebugApplication32_Vtbl {
     pub CreateApplicationNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdannew: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FireDebuggerEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub HandleRuntimeError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUME_ACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub HandleRuntimeError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     HandleRuntimeError: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -10382,7 +10396,7 @@ pub struct IDebugApplication32_Vtbl {
 #[repr(transparent)]
 pub struct IDebugApplication64(::windows::core::IUnknown);
 impl IDebugApplication64 {
-    pub unsafe fn ResumeFromBreakPoint<'a, P0>(&self, prptfocus: P0, bra: BREAKRESUME_ACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>
+    pub unsafe fn ResumeFromBreakPoint<'a, P0>(&self, prptfocus: P0, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRemoteDebugApplicationThread>>,
     {
@@ -10448,9 +10462,9 @@ impl IDebugApplication64 {
     pub unsafe fn StartDebugSession(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StartDebugSession)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUME_ACTION> {
+    pub unsafe fn HandleBreakPoint(&self, br: BREAKREASON) -> ::windows::core::Result<BREAKRESUMEACTION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).HandleBreakPoint)(::windows::core::Interface::as_raw(self), br, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BREAKRESUME_ACTION>(result__)
+        (::windows::core::Interface::vtable(self).HandleBreakPoint)(::windows::core::Interface::as_raw(self), br, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BREAKRESUMEACTION>(result__)
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -10500,7 +10514,7 @@ impl IDebugApplication64 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HandleRuntimeError<'a, P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: &mut BREAKRESUME_ACTION, perra: &mut ERRORRESUMEACTION, pfcallonscripterror: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn HandleRuntimeError<'a, P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: &mut BREAKRESUMEACTION, perra: &mut ERRORRESUMEACTION, pfcallonscripterror: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IActiveScriptErrorDebug>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IActiveScriptSite>>,
@@ -10586,7 +10600,7 @@ pub struct IDebugApplication64_Vtbl {
     pub StepOutComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstr: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub StartDebugSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub HandleBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUME_ACTION) -> ::windows::core::HRESULT,
+    pub HandleBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, br: BREAKREASON, pbra: *mut BREAKRESUMEACTION) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetBreakFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pabf: *mut u32, pprdatsteppingthread: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10598,7 +10612,7 @@ pub struct IDebugApplication64_Vtbl {
     pub CreateApplicationNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdannew: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FireDebuggerEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub HandleRuntimeError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUME_ACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub HandleRuntimeError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pscriptsite: *mut ::core::ffi::c_void, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     HandleRuntimeError: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -35848,7 +35862,7 @@ pub struct IRawEnumerator_Vtbl {
 #[repr(transparent)]
 pub struct IRemoteDebugApplication(::windows::core::IUnknown);
 impl IRemoteDebugApplication {
-    pub unsafe fn ResumeFromBreakPoint<'a, P0>(&self, prptfocus: P0, bra: BREAKRESUME_ACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>
+    pub unsafe fn ResumeFromBreakPoint<'a, P0>(&self, prptfocus: P0, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRemoteDebugApplicationThread>>,
     {
@@ -35936,7 +35950,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugApplication {
 #[doc(hidden)]
 pub struct IRemoteDebugApplication_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub ResumeFromBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prptfocus: *mut ::core::ffi::c_void, bra: BREAKRESUME_ACTION, era: ERRORRESUMEACTION) -> ::windows::core::HRESULT,
+    pub ResumeFromBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prptfocus: *mut ::core::ffi::c_void, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows::core::HRESULT,
     pub CauseBreak: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ConnectDebugger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pad: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisconnectDebugger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -39931,38 +39945,38 @@ impl ::core::fmt::Debug for BREAKREASON {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BREAKRESUME_ACTION(pub i32);
+pub struct BREAKRESUMEACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_ABORT: BREAKRESUME_ACTION = BREAKRESUME_ACTION(0i32);
+pub const BREAKRESUMEACTION_ABORT: BREAKRESUMEACTION = BREAKRESUMEACTION(0i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUME_ACTION = BREAKRESUME_ACTION(1i32);
+pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUMEACTION = BREAKRESUMEACTION(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUME_ACTION = BREAKRESUME_ACTION(2i32);
+pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUMEACTION = BREAKRESUMEACTION(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUME_ACTION = BREAKRESUME_ACTION(3i32);
+pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUMEACTION = BREAKRESUMEACTION(3i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUME_ACTION = BREAKRESUME_ACTION(4i32);
+pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUMEACTION = BREAKRESUMEACTION(4i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_IGNORE: BREAKRESUME_ACTION = BREAKRESUME_ACTION(5i32);
+pub const BREAKRESUMEACTION_IGNORE: BREAKRESUMEACTION = BREAKRESUMEACTION(5i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUME_ACTION = BREAKRESUME_ACTION(6i32);
-impl ::core::marker::Copy for BREAKRESUME_ACTION {}
-impl ::core::clone::Clone for BREAKRESUME_ACTION {
+pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUMEACTION = BREAKRESUMEACTION(6i32);
+impl ::core::marker::Copy for BREAKRESUMEACTION {}
+impl ::core::clone::Clone for BREAKRESUMEACTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for BREAKRESUME_ACTION {
+impl ::core::default::Default for BREAKRESUMEACTION {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BREAKRESUME_ACTION {
+unsafe impl ::windows::core::Abi for BREAKRESUMEACTION {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for BREAKRESUME_ACTION {
+impl ::core::fmt::Debug for BREAKRESUMEACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BREAKRESUME_ACTION").field(&self.0).finish()
+        f.debug_tuple("BREAKRESUMEACTION").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -41408,6 +41422,47 @@ unsafe impl ::windows::core::Abi for DOCUMENTNAMETYPE {
 impl ::core::fmt::Debug for DOCUMENTNAMETYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DOCUMENTNAMETYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DUMP_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_INVALID: DUMP_TYPE = DUMP_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_UNKNOWN: DUMP_TYPE = DUMP_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_FULL: DUMP_TYPE = DUMP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_SUMMARY: DUMP_TYPE = DUMP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_HEADER: DUMP_TYPE = DUMP_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_TRIAGE: DUMP_TYPE = DUMP_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_BITMAP_FULL: DUMP_TYPE = DUMP_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_BITMAP_KERNEL: DUMP_TYPE = DUMP_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_AUTOMATIC: DUMP_TYPE = DUMP_TYPE(7i32);
+impl ::core::marker::Copy for DUMP_TYPE {}
+impl ::core::clone::Clone for DUMP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DUMP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DUMP_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DUMP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DUMP_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -43609,122 +43664,94 @@ impl ::core::fmt::Debug for ModelObjectKind {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OBJECT_ATTRIB_FLAG(pub u32);
+pub struct OBJECT_ATTRIB_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_ATTRIB: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(0u32);
+pub const OBJECT_ATTRIB_NO_ATTRIB: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_NAME: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(1u32);
+pub const OBJECT_ATTRIB_NO_NAME: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_TYPE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(2u32);
+pub const OBJECT_ATTRIB_NO_TYPE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_VALUE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(4u32);
+pub const OBJECT_ATTRIB_NO_VALUE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_INVALID: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(8u32);
+pub const OBJECT_ATTRIB_VALUE_IS_INVALID: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_OBJECT: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(16u32);
+pub const OBJECT_ATTRIB_VALUE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_ENUM: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(32u32);
+pub const OBJECT_ATTRIB_VALUE_IS_ENUM: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(32i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_CUSTOM: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(64u32);
+pub const OBJECT_ATTRIB_VALUE_IS_CUSTOM: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(64i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(112u32);
+pub const OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(112i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_HAS_CODE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(128u32);
+pub const OBJECT_ATTRIB_VALUE_HAS_CODE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(128i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_OBJECT: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(256u32);
+pub const OBJECT_ATTRIB_TYPE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_HAS_CODE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(512u32);
+pub const OBJECT_ATTRIB_TYPE_HAS_CODE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(512i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_EXPANDABLE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(256u32);
+pub const OBJECT_ATTRIB_TYPE_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_SLOT_IS_CATEGORY: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(1024u32);
+pub const OBJECT_ATTRIB_SLOT_IS_CATEGORY: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1024i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(2048u32);
+pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(2048i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_PUBLIC: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(4096u32);
+pub const OBJECT_ATTRIB_ACCESS_PUBLIC: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(4096i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(8192u32);
+pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(8192i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_PROTECTED: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(16384u32);
+pub const OBJECT_ATTRIB_ACCESS_PROTECTED: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(16384i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(32768u32);
+pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(32768i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_GLOBAL: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(65536u32);
+pub const OBJECT_ATTRIB_STORAGE_GLOBAL: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(65536i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_STATIC: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(131072u32);
+pub const OBJECT_ATTRIB_STORAGE_STATIC: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(131072i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_FIELD: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(262144u32);
+pub const OBJECT_ATTRIB_STORAGE_FIELD: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(262144i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_VIRTUAL: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(524288u32);
+pub const OBJECT_ATTRIB_STORAGE_VIRTUAL: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(524288i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_CONSTANT: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(1048576u32);
+pub const OBJECT_ATTRIB_TYPE_IS_CONSTANT: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1048576i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(2097152u32);
+pub const OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(2097152i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_VOLATILE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(4194304u32);
+pub const OBJECT_ATTRIB_TYPE_IS_VOLATILE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(4194304i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(8388608u32);
+pub const OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(8388608i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_CLASS: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(16777216u32);
+pub const OBJECT_ATTRIB_IS_CLASS: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(16777216i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_FUNCTION: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(33554432u32);
+pub const OBJECT_ATTRIB_IS_FUNCTION: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(33554432i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_VARIABLE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(67108864u32);
+pub const OBJECT_ATTRIB_IS_VARIABLE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(67108864i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_PROPERTY: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(134217728u32);
+pub const OBJECT_ATTRIB_IS_PROPERTY: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(134217728i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(268435456u32);
+pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(268435456i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(536870912u32);
+pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(536870912i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(1073741824u32);
+pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1073741824i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(2147483648u32);
-impl ::core::marker::Copy for OBJECT_ATTRIB_FLAG {}
-impl ::core::clone::Clone for OBJECT_ATTRIB_FLAG {
+pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(-2147483648i32);
+impl ::core::marker::Copy for OBJECT_ATTRIB_FLAGS {}
+impl ::core::clone::Clone for OBJECT_ATTRIB_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for OBJECT_ATTRIB_FLAG {
+impl ::core::default::Default for OBJECT_ATTRIB_FLAGS {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OBJECT_ATTRIB_FLAG {
+unsafe impl ::windows::core::Abi for OBJECT_ATTRIB_FLAGS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for OBJECT_ATTRIB_FLAG {
+impl ::core::fmt::Debug for OBJECT_ATTRIB_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OBJECT_ATTRIB_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for OBJECT_ATTRIB_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for OBJECT_ATTRIB_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OBJECT_ATTRIB_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OBJECT_ATTRIB_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for OBJECT_ATTRIB_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
+        f.debug_tuple("OBJECT_ATTRIB_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -45624,47 +45651,6 @@ impl ::core::fmt::Debug for WHEA_ERROR_SOURCE_TYPE {
         f.debug_tuple("WHEA_ERROR_SOURCE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DUMP_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_INVALID: _DUMP_TYPES = _DUMP_TYPES(-1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_UNKNOWN: _DUMP_TYPES = _DUMP_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_FULL: _DUMP_TYPES = _DUMP_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_SUMMARY: _DUMP_TYPES = _DUMP_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_HEADER: _DUMP_TYPES = _DUMP_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_TRIAGE: _DUMP_TYPES = _DUMP_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_BITMAP_FULL: _DUMP_TYPES = _DUMP_TYPES(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_BITMAP_KERNEL: _DUMP_TYPES = _DUMP_TYPES(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_AUTOMATIC: _DUMP_TYPES = _DUMP_TYPES(7i32);
-impl ::core::marker::Copy for _DUMP_TYPES {}
-impl ::core::clone::Clone for _DUMP_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DUMP_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DUMP_TYPES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DUMP_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DUMP_TYPES").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -46187,6 +46173,41 @@ impl ::core::cmp::PartialEq for ArrayDimension {
 }
 impl ::core::cmp::Eq for ArrayDimension {}
 impl ::core::default::Default for ArrayDimension {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct BUSDATA {
+    pub BusDataType: u32,
+    pub BusNumber: u32,
+    pub SlotNumber: u32,
+    pub Buffer: *mut ::core::ffi::c_void,
+    pub Offset: u32,
+    pub Length: u32,
+}
+impl ::core::marker::Copy for BUSDATA {}
+impl ::core::clone::Clone for BUSDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BUSDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BUSDATA").field("BusDataType", &self.BusDataType).field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BUSDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BUSDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BUSDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BUSDATA {}
+impl ::core::default::Default for BUSDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -50619,6 +50640,38 @@ impl ::core::default::Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct IMAGEHLP_JIT_SYMBOLMAP {
+    pub SizeOfStruct: u32,
+    pub Address: u64,
+    pub BaseOfImage: u64,
+}
+impl ::core::marker::Copy for IMAGEHLP_JIT_SYMBOLMAP {}
+impl ::core::clone::Clone for IMAGEHLP_JIT_SYMBOLMAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IMAGEHLP_JIT_SYMBOLMAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMAGEHLP_JIT_SYMBOLMAP").field("SizeOfStruct", &self.SizeOfStruct).field("Address", &self.Address).field("BaseOfImage", &self.BaseOfImage).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IMAGEHLP_JIT_SYMBOLMAP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IMAGEHLP_JIT_SYMBOLMAP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_JIT_SYMBOLMAP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IMAGEHLP_JIT_SYMBOLMAP {}
+impl ::core::default::Default for IMAGEHLP_JIT_SYMBOLMAP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
@@ -54433,7 +54486,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_CALLBACK_INPUT {
@@ -54511,7 +54564,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INPUT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
@@ -54543,7 +54596,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
@@ -54761,7 +54814,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
@@ -54771,11 +54824,6 @@ impl ::core::marker::Copy for MINIDUMP_DIRECTORY {}
 impl ::core::clone::Clone for MINIDUMP_DIRECTORY {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_DIRECTORY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_DIRECTORY").field("StreamType", &self.StreamType).field("Location", &self.Location).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_DIRECTORY {
@@ -54892,7 +54940,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
@@ -54949,7 +54997,7 @@ impl ::core::default::Default for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
@@ -54963,11 +55011,6 @@ impl ::core::marker::Copy for MINIDUMP_FUNCTION_TABLE_STREAM {}
 impl ::core::clone::Clone for MINIDUMP_FUNCTION_TABLE_STREAM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_FUNCTION_TABLE_STREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_FUNCTION_TABLE_STREAM").field("SizeOfHeader", &self.SizeOfHeader).field("SizeOfDescriptor", &self.SizeOfDescriptor).field("SizeOfNativeDescriptor", &self.SizeOfNativeDescriptor).field("SizeOfFunctionEntry", &self.SizeOfFunctionEntry).field("NumberOfDescriptors", &self.NumberOfDescriptors).field("SizeOfAlignPad", &self.SizeOfAlignPad).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_FUNCTION_TABLE_STREAM {
@@ -54984,7 +55027,7 @@ impl ::core::default::Default for MINIDUMP_FUNCTION_TABLE_STREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
@@ -54996,11 +55039,6 @@ impl ::core::marker::Copy for MINIDUMP_HANDLE_DATA_STREAM {}
 impl ::core::clone::Clone for MINIDUMP_HANDLE_DATA_STREAM {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_HANDLE_DATA_STREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_HANDLE_DATA_STREAM").field("SizeOfHeader", &self.SizeOfHeader).field("SizeOfDescriptor", &self.SizeOfDescriptor).field("NumberOfDescriptors", &self.NumberOfDescriptors).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_HANDLE_DATA_STREAM {
@@ -55081,7 +55119,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_DESCRIPTOR_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
@@ -55092,11 +55130,6 @@ impl ::core::marker::Copy for MINIDUMP_HANDLE_OBJECT_INFORMATION {}
 impl ::core::clone::Clone for MINIDUMP_HANDLE_OBJECT_INFORMATION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_HANDLE_OBJECT_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_HANDLE_OBJECT_INFORMATION").field("NextInfoRva", &self.NextInfoRva).field("InfoType", &self.InfoType).field("SizeOfInfo", &self.SizeOfInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_HANDLE_OBJECT_INFORMATION {
@@ -55113,7 +55146,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_OBJECT_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
@@ -55125,11 +55158,6 @@ impl ::core::marker::Copy for MINIDUMP_HANDLE_OPERATION_LIST {}
 impl ::core::clone::Clone for MINIDUMP_HANDLE_OPERATION_LIST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_HANDLE_OPERATION_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_HANDLE_OPERATION_LIST").field("SizeOfHeader", &self.SizeOfHeader).field("SizeOfEntry", &self.SizeOfEntry).field("NumberOfEntries", &self.NumberOfEntries).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_HANDLE_OPERATION_LIST {
@@ -55228,7 +55256,7 @@ impl ::core::default::Default for MINIDUMP_INCLUDE_MODULE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -55237,11 +55265,6 @@ impl ::core::marker::Copy for MINIDUMP_INCLUDE_THREAD_CALLBACK {}
 impl ::core::clone::Clone for MINIDUMP_INCLUDE_THREAD_CALLBACK {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_INCLUDE_THREAD_CALLBACK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_INCLUDE_THREAD_CALLBACK").field("ThreadId", &self.ThreadId).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_INCLUDE_THREAD_CALLBACK {
@@ -55293,7 +55316,7 @@ impl ::core::default::Default for MINIDUMP_IO_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
@@ -55303,11 +55326,6 @@ impl ::core::marker::Copy for MINIDUMP_LOCATION_DESCRIPTOR {}
 impl ::core::clone::Clone for MINIDUMP_LOCATION_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_LOCATION_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_LOCATION_DESCRIPTOR").field("DataSize", &self.DataSize).field("Rva", &self.Rva).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_LOCATION_DESCRIPTOR {
@@ -55496,7 +55514,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_INFO_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
@@ -55522,7 +55540,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
@@ -55536,11 +55554,6 @@ impl ::core::marker::Copy for MINIDUMP_MISC_INFO {}
 impl ::core::clone::Clone for MINIDUMP_MISC_INFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_MISC_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_MISC_INFO").field("SizeOfInfo", &self.SizeOfInfo).field("Flags1", &self.Flags1).field("ProcessId", &self.ProcessId).field("ProcessCreateTime", &self.ProcessCreateTime).field("ProcessUserTime", &self.ProcessUserTime).field("ProcessKernelTime", &self.ProcessKernelTime).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_MISC_INFO {
@@ -55557,7 +55570,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
@@ -55578,23 +55591,6 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_2 {
         *self
     }
 }
-impl ::core::fmt::Debug for MINIDUMP_MISC_INFO_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_MISC_INFO_2")
-            .field("SizeOfInfo", &self.SizeOfInfo)
-            .field("Flags1", &self.Flags1)
-            .field("ProcessId", &self.ProcessId)
-            .field("ProcessCreateTime", &self.ProcessCreateTime)
-            .field("ProcessUserTime", &self.ProcessUserTime)
-            .field("ProcessKernelTime", &self.ProcessKernelTime)
-            .field("ProcessorMaxMhz", &self.ProcessorMaxMhz)
-            .field("ProcessorCurrentMhz", &self.ProcessorCurrentMhz)
-            .field("ProcessorMhzLimit", &self.ProcessorMhzLimit)
-            .field("ProcessorMaxIdleState", &self.ProcessorMaxIdleState)
-            .field("ProcessorCurrentIdleState", &self.ProcessorCurrentIdleState)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MINIDUMP_MISC_INFO_2 {
     type Abi = Self;
 }
@@ -55609,7 +55605,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_3 {
@@ -55639,29 +55635,6 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::fmt::Debug for MINIDUMP_MISC_INFO_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_MISC_INFO_3")
-            .field("SizeOfInfo", &self.SizeOfInfo)
-            .field("Flags1", &self.Flags1)
-            .field("ProcessId", &self.ProcessId)
-            .field("ProcessCreateTime", &self.ProcessCreateTime)
-            .field("ProcessUserTime", &self.ProcessUserTime)
-            .field("ProcessKernelTime", &self.ProcessKernelTime)
-            .field("ProcessorMaxMhz", &self.ProcessorMaxMhz)
-            .field("ProcessorCurrentMhz", &self.ProcessorCurrentMhz)
-            .field("ProcessorMhzLimit", &self.ProcessorMhzLimit)
-            .field("ProcessorMaxIdleState", &self.ProcessorMaxIdleState)
-            .field("ProcessorCurrentIdleState", &self.ProcessorCurrentIdleState)
-            .field("ProcessIntegrityLevel", &self.ProcessIntegrityLevel)
-            .field("ProcessExecuteFlags", &self.ProcessExecuteFlags)
-            .field("ProtectedProcess", &self.ProtectedProcess)
-            .field("TimeZoneId", &self.TimeZoneId)
-            .field("TimeZone", &self.TimeZone)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_MISC_INFO_3 {
     type Abi = Self;
 }
@@ -55679,7 +55652,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_3 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_4 {
@@ -55711,31 +55684,6 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::fmt::Debug for MINIDUMP_MISC_INFO_4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_MISC_INFO_4")
-            .field("SizeOfInfo", &self.SizeOfInfo)
-            .field("Flags1", &self.Flags1)
-            .field("ProcessId", &self.ProcessId)
-            .field("ProcessCreateTime", &self.ProcessCreateTime)
-            .field("ProcessUserTime", &self.ProcessUserTime)
-            .field("ProcessKernelTime", &self.ProcessKernelTime)
-            .field("ProcessorMaxMhz", &self.ProcessorMaxMhz)
-            .field("ProcessorCurrentMhz", &self.ProcessorCurrentMhz)
-            .field("ProcessorMhzLimit", &self.ProcessorMhzLimit)
-            .field("ProcessorMaxIdleState", &self.ProcessorMaxIdleState)
-            .field("ProcessorCurrentIdleState", &self.ProcessorCurrentIdleState)
-            .field("ProcessIntegrityLevel", &self.ProcessIntegrityLevel)
-            .field("ProcessExecuteFlags", &self.ProcessExecuteFlags)
-            .field("ProtectedProcess", &self.ProtectedProcess)
-            .field("TimeZoneId", &self.TimeZoneId)
-            .field("TimeZone", &self.TimeZone)
-            .field("BuildString", &self.BuildString)
-            .field("DbgBldStr", &self.DbgBldStr)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_MISC_INFO_4 {
     type Abi = Self;
 }
@@ -55753,7 +55701,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_5 {
@@ -55886,7 +55834,7 @@ impl ::core::default::Default for MINIDUMP_MODULE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_LIST {
@@ -56026,7 +55974,7 @@ impl ::core::default::Default for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
@@ -56036,11 +55984,6 @@ impl ::core::marker::Copy for MINIDUMP_STRING {}
 impl ::core::clone::Clone for MINIDUMP_STRING {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_STRING").field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_STRING {
@@ -56152,7 +56095,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: PROCESSOR_ARCHITECTURE,
@@ -56301,7 +56244,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_1_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
@@ -56464,7 +56407,7 @@ impl ::core::default::Default for MINIDUMP_THREAD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -56509,53 +56452,9 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub struct MINIDUMP_THREAD_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::super::super::Foundation::HANDLE,
-    pub Context: CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_CALLBACK {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for MINIDUMP_THREAD_CALLBACK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_CALLBACK>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -56565,32 +56464,32 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_CALLBACK {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_CALLBACK>()) == 0 }
     }
 }
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
@@ -56629,7 +56528,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -56676,9 +56575,9 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -56690,32 +56589,32 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_EX_CALLBACK {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_EX_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_EX_CALLBACK>()) == 0 }
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
@@ -56723,52 +56622,6 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub struct MINIDUMP_THREAD_EX_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::super::super::Foundation::HANDLE,
-    pub Context: CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-    pub BackingStoreBase: u64,
-    pub BackingStoreEnd: u64,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_EX_CALLBACK {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for MINIDUMP_THREAD_EX_CALLBACK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_EX_CALLBACK>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
@@ -56828,7 +56681,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
@@ -56839,11 +56692,6 @@ impl ::core::marker::Copy for MINIDUMP_THREAD_INFO_LIST {}
 impl ::core::clone::Clone for MINIDUMP_THREAD_INFO_LIST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_THREAD_INFO_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_THREAD_INFO_LIST").field("SizeOfHeader", &self.SizeOfHeader).field("SizeOfEntry", &self.SizeOfEntry).field("NumberOfEntries", &self.NumberOfEntries).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_INFO_LIST {
@@ -56860,7 +56708,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_INFO_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
@@ -56912,7 +56760,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
@@ -56965,7 +56813,7 @@ impl ::core::default::Default for MINIDUMP_TOKEN_INFO_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
@@ -56977,11 +56825,6 @@ impl ::core::marker::Copy for MINIDUMP_TOKEN_INFO_LIST {}
 impl ::core::clone::Clone for MINIDUMP_TOKEN_INFO_LIST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_TOKEN_INFO_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_TOKEN_INFO_LIST").field("TokenListSize", &self.TokenListSize).field("TokenListEntries", &self.TokenListEntries).field("ListHeaderSize", &self.ListHeaderSize).field("ElementHeaderSize", &self.ElementHeaderSize).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_TOKEN_INFO_LIST {
@@ -57027,7 +56870,7 @@ impl ::core::default::Default for MINIDUMP_UNLOADED_MODULE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
@@ -57038,11 +56881,6 @@ impl ::core::marker::Copy for MINIDUMP_UNLOADED_MODULE_LIST {}
 impl ::core::clone::Clone for MINIDUMP_UNLOADED_MODULE_LIST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_UNLOADED_MODULE_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_UNLOADED_MODULE_LIST").field("SizeOfHeader", &self.SizeOfHeader).field("SizeOfEntry", &self.SizeOfEntry).field("NumberOfEntries", &self.NumberOfEntries).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_UNLOADED_MODULE_LIST {
@@ -57059,7 +56897,7 @@ impl ::core::default::Default for MINIDUMP_UNLOADED_MODULE_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
@@ -57069,11 +56907,6 @@ impl ::core::marker::Copy for MINIDUMP_USER_RECORD {}
 impl ::core::clone::Clone for MINIDUMP_USER_RECORD {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for MINIDUMP_USER_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MINIDUMP_USER_RECORD").field("Type", &self.Type).field("Memory", &self.Memory).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MINIDUMP_USER_RECORD {
@@ -61990,73 +61823,6 @@ impl ::core::cmp::PartialEq for XSTATE_FEATURE {
 }
 impl ::core::cmp::Eq for XSTATE_FEATURE {}
 impl ::core::default::Default for XSTATE_FEATURE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub struct _GETSETBUSDATA {
-    pub BusDataType: u32,
-    pub BusNumber: u32,
-    pub SlotNumber: u32,
-    pub Buffer: *mut ::core::ffi::c_void,
-    pub Offset: u32,
-    pub Length: u32,
-}
-impl ::core::marker::Copy for _GETSETBUSDATA {}
-impl ::core::clone::Clone for _GETSETBUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _GETSETBUSDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_GETSETBUSDATA").field("BusDataType", &self.BusDataType).field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _GETSETBUSDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _GETSETBUSDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_GETSETBUSDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _GETSETBUSDATA {}
-impl ::core::default::Default for _GETSETBUSDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub struct _IMAGEHLP_JIT_SYMBOL_MAP {
-    pub SizeOfStruct: u32,
-    pub Address: u64,
-    pub BaseOfImage: u64,
-}
-impl ::core::marker::Copy for _IMAGEHLP_JIT_SYMBOL_MAP {}
-impl ::core::clone::Clone for _IMAGEHLP_JIT_SYMBOL_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _IMAGEHLP_JIT_SYMBOL_MAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_IMAGEHLP_JIT_SYMBOL_MAP").field("SizeOfStruct", &self.SizeOfStruct).field("Address", &self.Address).field("BaseOfImage", &self.BaseOfImage).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _IMAGEHLP_JIT_SYMBOL_MAP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _IMAGEHLP_JIT_SYMBOL_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_IMAGEHLP_JIT_SYMBOL_MAP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _IMAGEHLP_JIT_SYMBOL_MAP {}
-impl ::core::default::Default for _IMAGEHLP_JIT_SYMBOL_MAP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

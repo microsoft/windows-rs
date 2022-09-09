@@ -378,6 +378,34 @@ pub const CTL_MODIFY_REQUEST_ADD_NOT_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = 1u3
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CTL_MODIFY_REQUEST_REMOVE: CTL_MODIFY_REQUEST_OPERATION = 2u32;
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
+pub struct CERT_FILTER_DATA {
+    pub dwSize: u32,
+    pub cExtensionChecks: u32,
+    pub arrayExtensionChecks: *mut CERT_FILTER_EXTENSION_MATCH,
+    pub dwCheckingFlags: u32,
+}
+impl ::core::marker::Copy for CERT_FILTER_DATA {}
+impl ::core::clone::Clone for CERT_FILTER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
+pub struct CERT_FILTER_EXTENSION_MATCH {
+    pub szExtensionOID: ::windows_sys::core::PCSTR,
+    pub dwTestOperation: u32,
+    pub pbTestData: *mut u8,
+    pub cbTestData: u32,
+}
+impl ::core::marker::Copy for CERT_FILTER_EXTENSION_MATCH {}
+impl ::core::clone::Clone for CERT_FILTER_EXTENSION_MATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECTUI_INPUT {
@@ -551,34 +579,6 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_W {
 impl ::core::marker::Copy for CERT_VIEWPROPERTIES_STRUCT_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for CERT_VIEWPROPERTIES_STRUCT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
-pub struct CMFLTR {
-    pub dwSize: u32,
-    pub cExtensionChecks: u32,
-    pub arrayExtensionChecks: *mut CMOID,
-    pub dwCheckingFlags: u32,
-}
-impl ::core::marker::Copy for CMFLTR {}
-impl ::core::clone::Clone for CMFLTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
-pub struct CMOID {
-    pub szExtensionOID: ::windows_sys::core::PCSTR,
-    pub dwTestOperation: u32,
-    pub pbTestData: *mut u8,
-    pub cbTestData: u32,
-}
-impl ::core::marker::Copy for CMOID {}
-impl ::core::clone::Clone for CMOID {
     fn clone(&self) -> Self {
         *self
     }

@@ -1,157 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerFreeString<'a, P0>(pwszstr: P0)
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerFreeString(pwszstr: ::windows::core::PCWSTR);
-    }
-    WerFreeString(pwszstr.into())
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStoreClose<'a, P0>(hreportstore: P0)
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreClose(hreportstore: HREPORTSTORE);
-    }
-    WerStoreClose(hreportstore.into())
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStoreGetFirstReportKey<'a, P0>(hreportstore: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetFirstReportKey(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStoreGetNextReportKey<'a, P0>(hreportstore: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetNextReportKey(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStoreGetReportCount<'a, P0>(hreportstore: P0) -> ::windows::core::Result<u32>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetReportCount(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStoreGetSizeOnDisk<'a, P0>(hreportstore: P0) -> ::windows::core::Result<u64>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetSizeOnDisk(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core::Result<HREPORTSTORE> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreOpen(repstoretype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORTSTORE>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStorePurge() -> ::windows::core::HRESULT;
-    }
-    WerStorePurge().ok()
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WerStoreQueryReportMetadataV1<'a, P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V1>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreQueryReportMetadataV1(hreportstore.into(), pszreportkey.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V1>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WerStoreQueryReportMetadataV2<'a, P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V2>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreQueryReportMetadataV2(hreportstore.into(), pszreportkey.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V2>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WerStoreQueryReportMetadataV3<'a, P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V3>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreQueryReportMetadataV3(hreportstore.into(), pszreportkey.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V3>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-#[inline]
-pub unsafe fn WerStoreUploadReport<'a, P0, P1>(hreportstore: P0, pszreportkey: P1, dwflags: u32) -> ::windows::core::Result<WER_SUBMIT_RESULT>
-where
-    P0: ::std::convert::Into<HREPORTSTORE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreUploadReport(hreportstore.into(), pszreportkey.into(), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
-}
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -201,6 +47,18 @@ where
         fn WerAddExcludedApplication(pwzexename: ::windows::core::PCWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     WerAddExcludedApplication(pwzexename.into(), ballusers.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerFreeString<'a, P0>(pwszstr: P0)
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerFreeString(pwszstr: ::windows::core::PCWSTR);
+    }
+    WerFreeString(pwszstr.into())
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -422,6 +280,148 @@ pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::Resu
         fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
     }
     WerSetFlags(dwflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStoreClose<'a, P0>(hreportstore: P0)
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreClose(hreportstore: HREPORTSTORE);
+    }
+    WerStoreClose(hreportstore.into())
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStoreGetFirstReportKey<'a, P0>(hreportstore: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreGetFirstReportKey(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStoreGetNextReportKey<'a, P0>(hreportstore: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreGetNextReportKey(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStoreGetReportCount<'a, P0>(hreportstore: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreGetReportCount(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStoreGetSizeOnDisk<'a, P0>(hreportstore: P0) -> ::windows::core::Result<u64>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreGetSizeOnDisk(hreportstore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core::Result<HREPORTSTORE> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreOpen(repstoretype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORTSTORE>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStorePurge() -> ::windows::core::HRESULT;
+    }
+    WerStorePurge().ok()
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WerStoreQueryReportMetadataV1<'a, P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V1>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreQueryReportMetadataV1(hreportstore.into(), pszreportkey.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V1>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WerStoreQueryReportMetadataV2<'a, P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V2>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreQueryReportMetadataV2(hreportstore.into(), pszreportkey.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V2>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WerStoreQueryReportMetadataV3<'a, P0, P1>(hreportstore: P0, pszreportkey: P1) -> ::windows::core::Result<WER_REPORT_METADATA_V3>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreQueryReportMetadataV3(hreportstore.into(), pszreportkey.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V3>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+#[inline]
+pub unsafe fn WerStoreUploadReport<'a, P0, P1>(hreportstore: P0, pszreportkey: P1, dwflags: u32) -> ::windows::core::Result<WER_SUBMIT_RESULT>
+where
+    P0: ::std::convert::Into<HREPORTSTORE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WerStoreUploadReport(hreportstore.into(), pszreportkey.into(), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]

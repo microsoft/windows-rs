@@ -3812,13 +3812,13 @@ pub const TELEPHONY_PROVIDERCHANGEOP_BEGIN: TELEPHONY_PROVIDERCHANGEOP = 1i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const TELEPHONY_PROVIDERCHANGEOP_CANCEL: TELEPHONY_PROVIDERCHANGEOP = 2i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub type _TunerDecoderLockType = i32;
+pub type TunerLockType = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_None: _TunerDecoderLockType = 0i32;
+pub const Tuner_LockType_None: TunerLockType = 0i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_Within_Scan_Sensing_Range: _TunerDecoderLockType = 1i32;
+pub const Tuner_LockType_Within_Scan_Sensing_Range: TunerLockType = 1i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_Locked: _TunerDecoderLockType = 2i32;
+pub const Tuner_LockType_Locked: TunerLockType = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct ALLOCATOR_PROPERTIES_EX {
@@ -4404,7 +4404,7 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
     pub PacketSizeFileAlignment: u32,
     pub Reserved: u32,
     pub NumProcessingModeConstraints: u32,
-    pub ProcessingModeConstraints: [_KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT; 1],
+    pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
 impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS {}
 impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS {
@@ -4419,10 +4419,23 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     pub PacketSizeFileAlignment: u32,
     pub MaxPacketSizeInBytes: u32,
     pub NumProcessingModeConstraints: u32,
-    pub ProcessingModeConstraints: [_KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT; 1],
+    pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
 impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {}
 impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+    pub ProcessingMode: ::windows_sys::core::GUID,
+    pub SamplesPerProcessingPacket: u32,
+    pub ProcessingPacketDurationInHns: u32,
+}
+impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {}
+impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -6809,7 +6822,7 @@ impl ::core::clone::Clone for KSPROPERTY_TUNER_SCAN_CAPS_S {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_TUNER_SCAN_STATUS_S {
     pub Property: KSIDENTIFIER,
-    pub LockStatus: _TunerDecoderLockType,
+    pub LockStatus: TunerLockType,
     pub CurrentFrequency: u32,
 }
 impl ::core::marker::Copy for KSPROPERTY_TUNER_SCAN_STATUS_S {}
@@ -8105,7 +8118,7 @@ impl ::core::clone::Clone for KS_AM_SimpleRateChange {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct KS_AnalogVideoInfo {
+pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
     pub dwActiveWidth: u32,
@@ -8113,9 +8126,9 @@ pub struct KS_AnalogVideoInfo {
     pub AvgTimePerFrame: i64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for KS_AnalogVideoInfo {}
+impl ::core::marker::Copy for KS_ANALOGVIDEOINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for KS_AnalogVideoInfo {
+impl ::core::clone::Clone for KS_ANALOGVIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -8280,7 +8293,7 @@ impl ::core::clone::Clone for KS_DATAFORMAT_VIDEOINFO_PALETTE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub AnalogVideoInfo: KS_AnalogVideoInfo,
+    pub AnalogVideoInfo: KS_ANALOGVIDEOINFO,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KS_DATARANGE_ANALOGVIDEO {}
@@ -8722,20 +8735,6 @@ impl ::core::clone::Clone for KS_H264VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct KS_MPEAUDIOINFO {
-    pub dwFlags: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-}
-impl ::core::marker::Copy for KS_MPEAUDIOINFO {}
-impl ::core::clone::Clone for KS_MPEAUDIOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_MPEG1VIDEOINFO {
@@ -8748,6 +8747,20 @@ pub struct KS_MPEG1VIDEOINFO {
 impl ::core::marker::Copy for KS_MPEG1VIDEOINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KS_MPEG1VIDEOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KS_MPEGAUDIOINFO {
+    pub dwFlags: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+}
+impl ::core::marker::Copy for KS_MPEGAUDIOINFO {}
+impl ::core::clone::Clone for KS_MPEGAUDIOINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -9487,19 +9500,6 @@ pub struct WST_BUFFER_LINE {
 }
 impl ::core::marker::Copy for WST_BUFFER_LINE {}
 impl ::core::clone::Clone for WST_BUFFER_LINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
-    pub ProcessingMode: ::windows_sys::core::GUID,
-    pub SamplesPerProcessingPacket: u32,
-    pub ProcessingPacketDurationInHns: u32,
-}
-impl ::core::marker::Copy for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {}
-impl ::core::clone::Clone for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
     fn clone(&self) -> Self {
         *self
     }

@@ -1,5 +1,5 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
@@ -45,15 +45,6 @@ extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
-    #[cfg(feature = "Win32_Networking_WinSock")]
-    pub fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
-    #[cfg(feature = "Win32_Networking_WinSock")]
-    pub fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
     pub fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -583,6 +574,12 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
     pub fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -3248,11 +3245,31 @@ impl ::core::clone::Clone for MPR_TRANSPORT_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct MPR_VPN_TRAFFIC_SELECTOR {
+    pub r#type: MPR_VPN_TS_TYPE,
+    pub protocolId: u8,
+    pub portStart: u16,
+    pub portEnd: u16,
+    pub tsPayloadId: u16,
+    pub addrStart: VPN_TS_IP_ADDRESS,
+    pub addrEnd: VPN_TS_IP_ADDRESS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MPR_VPN_TRAFFIC_SELECTOR {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for MPR_VPN_TRAFFIC_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
     pub numTsr: u32,
-    pub tsI: *mut _MPR_VPN_SELECTOR,
-    pub tsR: *mut _MPR_VPN_SELECTOR,
+    pub tsI: *mut MPR_VPN_TRAFFIC_SELECTOR,
+    pub tsR: *mut MPR_VPN_TRAFFIC_SELECTOR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for MPR_VPN_TRAFFIC_SELECTORS {}
@@ -5411,26 +5428,6 @@ pub union VPN_TS_IP_ADDRESS_0 {
 impl ::core::marker::Copy for VPN_TS_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for VPN_TS_IP_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub struct _MPR_VPN_SELECTOR {
-    pub r#type: MPR_VPN_TS_TYPE,
-    pub protocolId: u8,
-    pub portStart: u16,
-    pub portEnd: u16,
-    pub tsPayloadId: u16,
-    pub addrStart: VPN_TS_IP_ADDRESS,
-    pub addrEnd: VPN_TS_IP_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for _MPR_VPN_SELECTOR {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for _MPR_VPN_SELECTOR {
     fn clone(&self) -> Self {
         *self
     }

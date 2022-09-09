@@ -1,20 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DoConnectoidsExist() -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsProfilesEnabled() -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PerformOperationOverUrlCacheA(pszurlsearchpattern: ::windows_sys::core::PCSTR, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: CACHE_OPERATOR, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-    pub fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-    pub fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub fn AppCacheCheckManifest(pwszmasterurl: ::windows_sys::core::PCWSTR, pwszmanifesturl: ::windows_sys::core::PCWSTR, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pbmanifestresponseheaders: *const u8, dwmanifestresponseheaderssize: u32, pestate: *mut APP_CACHE_STATE, phnewappcache: *mut *mut ::core::ffi::c_void) -> u32;
@@ -114,6 +98,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DetectAutoProxyUrl(pszautoproxyurl: ::windows_sys::core::PSTR, cchautoproxyurl: u32, dwdetectflags: PROXY_AUTO_DETECT_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DoConnectoidsExist() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ExportCookieFileA(szfilename: ::windows_sys::core::PCSTR, fappend: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -695,6 +682,9 @@ extern "system" {
     pub fn IsHostInProxyBypassList(tscheme: INTERNET_SCHEME, lpszhost: ::windows_sys::core::PCSTR, cchhost: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
+    pub fn IsProfilesEnabled() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub fn IsUrlCacheEntryExpiredA(lpszurlname: ::windows_sys::core::PCSTR, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -704,6 +694,9 @@ extern "system" {
     pub fn LoadUrlCacheContent() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbcert: u32, lpszlistboxentry: ::windows_sys::core::PSTR, lpdwlistboxentry: *mut u32) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PerformOperationOverUrlCacheA(pszurlsearchpattern: ::windows_sys::core::PCSTR, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: CACHE_OPERATOR, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: *mut u32, pszbuffer: ::windows_sys::core::PWSTR, pdwbufferlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -811,10 +804,14 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO);
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+    pub fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub fn UrlCacheGetContentPaths(pppwszdirectories: *mut *mut ::windows_sys::core::PWSTR, pcdirectories: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UrlCacheGetEntryInfo(happcache: *const ::core::ffi::c_void, pcwszurl: ::windows_sys::core::PCWSTR, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+    pub fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub fn UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit: *mut u64) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]

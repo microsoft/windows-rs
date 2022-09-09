@@ -398,7 +398,7 @@ impl ::core::default::Default for COMDLG_FILTERSPEC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,

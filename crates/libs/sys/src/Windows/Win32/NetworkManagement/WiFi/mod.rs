@@ -6722,6 +6722,19 @@ impl ::core::clone::Clone for DOT11_WME_AC_PARAMETERS {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11_WME_AC_PARAMETERS_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
+}
+impl ::core::marker::Copy for DOT11_WME_AC_PARAMETERS_LIST {}
+impl ::core::clone::Clone for DOT11_WME_AC_PARAMETERS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub struct DOT11_WME_UPDATE_IE {
     pub uParamElemMinBeaconIntervals: u32,
     pub uWMEInfoElemOffset: u32,
@@ -7548,19 +7561,6 @@ pub struct WLAN_STATISTICS {
 }
 impl ::core::marker::Copy for WLAN_STATISTICS {}
 impl ::core::clone::Clone for WLAN_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
-pub struct _DOT11_WME_AC_PARAMTERS_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
-    pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
-}
-impl ::core::marker::Copy for _DOT11_WME_AC_PARAMTERS_LIST {}
-impl ::core::clone::Clone for _DOT11_WME_AC_PARAMTERS_LIST {
     fn clone(&self) -> Self {
         *self
     }

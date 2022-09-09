@@ -1979,7 +1979,7 @@ impl ::core::clone::Clone for USBSCAN_TIMEOUT {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_BANDWIDTH_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -1991,7 +1991,7 @@ impl ::core::clone::Clone for USBUSER_BANDWIDTH_INFO_REQUEST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_BUS_STATISTICS_0_REQUEST {
@@ -2006,7 +2006,7 @@ impl ::core::clone::Clone for USBUSER_BUS_STATISTICS_0_REQUEST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_CLOSE_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2018,7 +2018,7 @@ impl ::core::clone::Clone for USBUSER_CLOSE_RAW_DEVICE {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_CONTROLLER_INFO_0 {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2030,7 +2030,7 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_INFO_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_CONTROLLER_UNICODE_NAME {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2042,7 +2042,7 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_UNICODE_NAME {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_GET_DRIVER_VERSION {
@@ -2057,7 +2057,7 @@ impl ::core::clone::Clone for USBUSER_GET_DRIVER_VERSION {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_GET_USB2HW_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2069,7 +2069,7 @@ impl ::core::clone::Clone for USBUSER_GET_USB2HW_VERSION {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_OPEN_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2081,7 +2081,7 @@ impl ::core::clone::Clone for USBUSER_OPEN_RAW_DEVICE {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_PASS_THRU_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2093,7 +2093,7 @@ impl ::core::clone::Clone for USBUSER_PASS_THRU_REQUEST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_POWER_INFO_REQUEST {
@@ -2108,7 +2108,7 @@ impl ::core::clone::Clone for USBUSER_POWER_INFO_REQUEST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_RAW_RESET_ROOT_PORT {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2146,7 +2146,7 @@ impl ::core::clone::Clone for USBUSER_REQUEST_HEADER {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_ROOTPORT_FEATURE_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2158,7 +2158,7 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_FEATURE_REQUEST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_ROOTPORT_PARAMETERS {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2170,7 +2170,7 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_PARAMETERS {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_SEND_ONE_PACKET {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -2182,7 +2182,7 @@ impl ::core::clone::Clone for USBUSER_SEND_ONE_PACKET {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_SEND_RAW_COMMAND {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3560,7 +3560,7 @@ impl ::core::clone::Clone for USB_UNICODE_NAME {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USB_USB2HW_VERSION_PARAMETERS {
     pub Usb2HwRevision: u8,

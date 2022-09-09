@@ -2162,6 +2162,105 @@ impl ::core::default::Default for FLOWDESCRIPTOR {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct FLOW_DESC {
+    pub u1: FLOW_DESC_0,
+    pub u2: FLOW_DESC_1,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for FLOW_DESC {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for FLOW_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for FLOW_DESC {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for FLOW_DESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOW_DESC>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for FLOW_DESC {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for FLOW_DESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union FLOW_DESC_0 {
+    pub stspec: *mut SENDER_TSPEC,
+    pub isflow: *mut IS_FLOWSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for FLOW_DESC_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for FLOW_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for FLOW_DESC_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for FLOW_DESC_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOW_DESC_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for FLOW_DESC_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for FLOW_DESC_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union FLOW_DESC_1 {
+    pub stemp: *mut FILTER_SPEC,
+    pub fspec: *mut FILTER_SPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for FLOW_DESC_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for FLOW_DESC_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for FLOW_DESC_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for FLOW_DESC_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOW_DESC_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for FLOW_DESC_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for FLOW_DESC_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Filter_Spec_IPv4 {
     pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
     pub filt_unused: u16,
@@ -3009,6 +3108,41 @@ impl ::core::default::Default for IntServTspecBody_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct LPMIPTABLE {
+    pub ulIfIndex: u32,
+    pub MediaType: u32,
+    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
+    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for LPMIPTABLE {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for LPMIPTABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for LPMIPTABLE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for LPMIPTABLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LPMIPTABLE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for LPMIPTABLE {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for LPMIPTABLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LPM_HANDLE(pub isize);
@@ -3137,6 +3271,38 @@ impl ::core::cmp::PartialEq for POLICY_DATA {
 }
 impl ::core::cmp::Eq for POLICY_DATA {}
 impl ::core::default::Default for POLICY_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct POLICY_DECISION {
+    pub lpvResult: u32,
+    pub wPolicyErrCode: u16,
+    pub wPolicyErrValue: u16,
+}
+impl ::core::marker::Copy for POLICY_DECISION {}
+impl ::core::clone::Clone for POLICY_DECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POLICY_DECISION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POLICY_DECISION").field("lpvResult", &self.lpvResult).field("wPolicyErrCode", &self.wPolicyErrCode).field("wPolicyErrValue", &self.wPolicyErrValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for POLICY_DECISION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for POLICY_DECISION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_DECISION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for POLICY_DECISION {}
+impl ::core::default::Default for POLICY_DECISION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -4098,7 +4264,7 @@ pub struct RSVP_MSG_OBJS {
     pub pResvStyle: *mut RESV_STYLE,
     pub pRsvpScope: *mut RSVP_SCOPE,
     pub FlowDescCount: i32,
-    pub pFlowDescs: *mut flow_desc,
+    pub pFlowDescs: *mut FLOW_DESC,
     pub PdObjectCount: i32,
     pub ppPdObjects: *mut *mut POLICY_DATA,
     pub pErrorSpec: *mut ERROR_SPEC,
@@ -4510,6 +4676,200 @@ impl ::core::default::Default for SENDER_TSPEC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    pub SignAlgID: u32,
+    pub SignatureLength: u32,
+    pub Signature: [u8; 1],
+}
+impl ::core::marker::Copy for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
+impl ::core::clone::Clone for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIPAEVENT_KSR_SIGNATURE_PAYLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
+impl ::core::default::Default for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    pub CreationTime: i64,
+    pub DigestLength: u32,
+    pub HashAlgID: u16,
+    pub Digest: [u8; 1],
+}
+impl ::core::marker::Copy for SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
+impl ::core::clone::Clone for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIPAEVENT_REVOCATION_LIST_PAYLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
+impl ::core::default::Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    pub PayloadVersion: u32,
+    pub VarDataOffset: u32,
+    pub HashAlgID: u16,
+    pub DigestLength: u16,
+    pub Options: u32,
+    pub SignersCount: u32,
+    pub VarData: [u8; 1],
+}
+impl ::core::marker::Copy for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
+impl ::core::clone::Clone for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIPAEVENT_SBCP_INFO_PAYLOAD_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
+impl ::core::default::Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
+    pub PolicyVersion: u64,
+    pub PolicyNameLength: u16,
+    pub HashAlgID: u16,
+    pub DigestLength: u32,
+    pub VarLengthData: [u8; 1],
+}
+impl ::core::marker::Copy for SIPAEVENT_SI_POLICY_PAYLOAD {}
+impl ::core::clone::Clone for SIPAEVENT_SI_POLICY_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIPAEVENT_SI_POLICY_PAYLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIPAEVENT_SI_POLICY_PAYLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIPAEVENT_SI_POLICY_PAYLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIPAEVENT_SI_POLICY_PAYLOAD {}
+impl ::core::default::Default for SIPAEVENT_SI_POLICY_PAYLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    pub KeyAlgID: u32,
+    pub Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
+}
+impl ::core::marker::Copy for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
+impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIPAEVENT_VSM_IDK_INFO_PAYLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
+impl ::core::default::Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub union SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    pub RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO,
+}
+impl ::core::marker::Copy for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
+impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
+impl ::core::default::Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
+    pub KeyBitLength: u32,
+    pub PublicExpLengthBytes: u32,
+    pub ModulusSizeBytes: u32,
+    pub PublicKeyData: [u8; 1],
+}
+impl ::core::marker::Copy for SIPAEVENT_VSM_IDK_RSA_INFO {}
+impl ::core::clone::Clone for SIPAEVENT_VSM_IDK_RSA_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIPAEVENT_VSM_IDK_RSA_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIPAEVENT_VSM_IDK_RSA_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIPAEVENT_VSM_IDK_RSA_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIPAEVENT_VSM_IDK_RSA_INFO {}
+impl ::core::default::Default for SIPAEVENT_VSM_IDK_RSA_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4892,368 +5252,8 @@ impl ::core::default::Default for WBCL_LogHdr {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub struct flow_desc {
-    pub u1: flow_desc_0,
-    pub u2: flow_desc_1,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for flow_desc {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for flow_desc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for flow_desc {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for flow_desc {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<flow_desc>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for flow_desc {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for flow_desc {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub union flow_desc_0 {
-    pub stspec: *mut SENDER_TSPEC,
-    pub isflow: *mut IS_FLOWSPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for flow_desc_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for flow_desc_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for flow_desc_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for flow_desc_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<flow_desc_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for flow_desc_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for flow_desc_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub union flow_desc_1 {
-    pub stemp: *mut FILTER_SPEC,
-    pub fspec: *mut FILTER_SPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for flow_desc_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for flow_desc_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for flow_desc_1 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for flow_desc_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<flow_desc_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for flow_desc_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for flow_desc_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub struct lpmiptable {
-    pub ulIfIndex: u32,
-    pub MediaType: u32,
-    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
-    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for lpmiptable {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for lpmiptable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for lpmiptable {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for lpmiptable {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<lpmiptable>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for lpmiptable {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for lpmiptable {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct policy_decision {
-    pub lpvResult: u32,
-    pub wPolicyErrCode: u16,
-    pub wPolicyErrValue: u16,
-}
-impl ::core::marker::Copy for policy_decision {}
-impl ::core::clone::Clone for policy_decision {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for policy_decision {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("policy_decision").field("lpvResult", &self.lpvResult).field("wPolicyErrCode", &self.wPolicyErrCode).field("wPolicyErrValue", &self.wPolicyErrValue).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for policy_decision {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for policy_decision {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<policy_decision>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for policy_decision {}
-impl ::core::default::Default for policy_decision {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    pub SignAlgID: u32,
-    pub SignatureLength: u32,
-    pub Signature: [u8; 1],
-}
-impl ::core::marker::Copy for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
-impl ::core::clone::Clone for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
-impl ::core::default::Default for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    pub CreationTime: i64,
-    pub DigestLength: u32,
-    pub HashAlgID: u16,
-    pub Digest: [u8; 1],
-}
-impl ::core::marker::Copy for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
-impl ::core::clone::Clone for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
-impl ::core::default::Default for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    pub PayloadVersion: u32,
-    pub VarDataOffset: u32,
-    pub HashAlgID: u16,
-    pub DigestLength: u16,
-    pub Options: u32,
-    pub SignersCount: u32,
-    pub VarData: [u8; 1],
-}
-impl ::core::marker::Copy for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
-impl ::core::clone::Clone for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
-impl ::core::default::Default for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD {
-    pub PolicyVersion: u64,
-    pub PolicyNameLength: u16,
-    pub HashAlgID: u16,
-    pub DigestLength: u32,
-    pub VarLengthData: [u8; 1],
-}
-impl ::core::marker::Copy for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
-impl ::core::clone::Clone for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tag_SIPAEVENT_SI_POLICY_PAYLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
-impl ::core::default::Default for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    pub KeyAlgID: u32,
-    pub Anonymous: tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
-}
-impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
-impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
-impl ::core::default::Default for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub union tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    pub RsaKeyInfo: tag_SIPAEVENT_VSM_IDK_RSA_INFO,
-}
-impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
-impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
-impl ::core::default::Default for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO {
-    pub KeyBitLength: u32,
-    pub PublicExpLengthBytes: u32,
-    pub ModulusSizeBytes: u32,
-    pub PublicKeyData: [u8; 1],
-}
-impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
-impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tag_SIPAEVENT_VSM_IDK_RSA_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
-impl ::core::default::Default for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub type CBADMITRESULT = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut policy_decision) -> *mut u32>;
+pub type CBADMITRESULT = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub type CBGETRSVPOBJECTS = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]

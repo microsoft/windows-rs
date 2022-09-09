@@ -179,7 +179,7 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetInPlaceContext(&self, lplpframe: &mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: &mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: &mut super::super::super::System::Ole::OIFI) -> ::windows::core::Result<()> {
+    pub unsafe fn GetInPlaceContext(&self, lplpframe: &mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: &mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: &mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInPlaceContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lplpframe), ::core::mem::transmute(lplpdoc), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -206,9 +206,9 @@ impl IRichEditOleCallback {
     {
         (::windows::core::Interface::vtable(self).DeleteObject)(::windows::core::Interface::as_raw(self), lpoleobj.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn QueryAcceptData<'a, P0, P1>(&self, lpdataobj: P0, lpcfformat: &mut u16, reco: u32, freally: P1, hmetapict: isize) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
+    pub unsafe fn QueryAcceptData<'a, P0, P1>(&self, lpdataobj: P0, lpcfformat: &mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P1, hmetapict: isize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
@@ -228,9 +228,9 @@ impl IRichEditOleCallback {
     pub unsafe fn GetClipboardData(&self, lpchrg: &mut CHARRANGE, reco: u32, lplpdataobj: &mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClipboardData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpchrg), reco, ::core::mem::transmute(lplpdataobj)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn GetDragDropEffect<'a, P0>(&self, fdrag: P0, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: &mut u32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
+    pub unsafe fn GetDragDropEffect<'a, P0>(&self, fdrag: P0, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: &mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
@@ -289,7 +289,7 @@ pub struct IRichEditOleCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     GetNewStorage: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub GetInPlaceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lplpframe: *mut *mut ::core::ffi::c_void, lplpdoc: *mut *mut ::core::ffi::c_void, lpframeinfo: *mut super::super::super::System::Ole::OIFI) -> ::windows::core::HRESULT,
+    pub GetInPlaceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lplpframe: *mut *mut ::core::ffi::c_void, lplpdoc: *mut *mut ::core::ffi::c_void, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
     GetInPlaceContext: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -304,9 +304,9 @@ pub struct IRichEditOleCallback_Vtbl {
     pub DeleteObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpoleobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     DeleteObject: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub QueryAcceptData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: u32, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
+    pub QueryAcceptData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
     QueryAcceptData: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub ContextSensitiveHelp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -316,9 +316,9 @@ pub struct IRichEditOleCallback_Vtbl {
     pub GetClipboardData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetClipboardData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-    pub GetDragDropEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
+    pub GetDragDropEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices")))]
     GetDragDropEffect: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub GetContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: *mut ::core::ffi::c_void, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
@@ -497,12 +497,12 @@ impl ITextDocument {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
@@ -622,11 +622,11 @@ pub struct ITextDocument_Vtbl {
     pub SetDefaultTabStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub New: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Open: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::HRESULT,
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Save: usize,
     pub Freeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
@@ -689,12 +689,12 @@ impl ITextDocument2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
@@ -1127,12 +1127,12 @@ impl ITextDocument2Old {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
@@ -2407,8 +2407,8 @@ impl ITextHost {
     pub unsafe fn TxGetViewInset(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetViewInset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn TxGetCharFormat(&self, ppcf: &*const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetCharFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppcf)).ok()
     }
@@ -2441,8 +2441,8 @@ impl ITextHost {
     pub unsafe fn TxGetExtent(&self, lpextent: &mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpextent)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: &CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnTxCharFormatChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcf)).ok()
     }
@@ -2591,9 +2591,9 @@ pub struct ITextHost_Vtbl {
     pub TxGetViewInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     TxGetViewInset: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub TxGetCharFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcf: *const *const CHARFORMATW) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     TxGetCharFormat: usize,
     pub TxGetParaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppf: *const *const PARAFORMAT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2609,9 +2609,9 @@ pub struct ITextHost_Vtbl {
     pub TxGetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     TxGetExtent: usize,
-    #[cfg(feature = "Win32_Foundation")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub OnTxCharFormatChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: *const CHARFORMATW) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     OnTxCharFormatChange: usize,
     pub OnTxParaFormatChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppf: *const PARAFORMAT) -> ::windows::core::HRESULT,
     pub TxGetPropertyBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::HRESULT,
@@ -2771,8 +2771,8 @@ impl ITextHost2 {
     pub unsafe fn TxGetViewInset(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetViewInset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn TxGetCharFormat(&self, ppcf: &*const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetCharFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppcf)).ok()
     }
@@ -2805,8 +2805,8 @@ impl ITextHost2 {
     pub unsafe fn TxGetExtent(&self, lpextent: &mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpextent)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: &CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnTxCharFormatChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcf)).ok()
     }
@@ -3841,15 +3841,15 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -3884,13 +3884,13 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CanEdit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn ChangeCase(&self, r#type: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ChangeCase)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
-    pub unsafe fn GetPoint(&self, r#type: i32, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPoint(&self, r#type: tomConstants, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPoint)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPoint)(::windows::core::Interface::as_raw(self), x, y, r#type, extend).ok()
     }
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
@@ -4052,9 +4052,9 @@ pub struct ITextRange_Vtbl {
     pub MoveEndUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     MoveEndUntil: usize,
-    pub FindText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: i32, plength: *mut i32) -> ::windows::core::HRESULT,
-    pub FindTextStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: i32, plength: *mut i32) -> ::windows::core::HRESULT,
-    pub FindTextEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: i32, plength: *mut i32) -> ::windows::core::HRESULT,
+    pub FindText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT,
+    pub FindTextStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT,
+    pub FindTextEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -4073,9 +4073,9 @@ pub struct ITextRange_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CanPaste: usize,
     pub CanEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
-    pub ChangeCase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32) -> ::windows::core::HRESULT,
-    pub GetPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::HRESULT,
+    pub ChangeCase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: tomConstants) -> ::windows::core::HRESULT,
+    pub GetPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::HRESULT,
+    pub SetPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::HRESULT,
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub GetEmbeddedObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4272,15 +4272,15 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -4315,13 +4315,13 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CanEdit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn ChangeCase(&self, r#type: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.ChangeCase)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
-    pub unsafe fn GetPoint(&self, r#type: i32, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPoint(&self, r#type: tomConstants, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPoint)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetPoint)(::windows::core::Interface::as_raw(self), x, y, r#type, extend).ok()
     }
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
@@ -5195,15 +5195,15 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -5238,13 +5238,13 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CanEdit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn ChangeCase(&self, r#type: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ChangeCase)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
-    pub unsafe fn GetPoint(&self, r#type: i32, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPoint(&self, r#type: tomConstants, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPoint)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPoint)(::windows::core::Interface::as_raw(self), x, y, r#type, extend).ok()
     }
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
@@ -5581,15 +5581,15 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -5624,13 +5624,13 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CanEdit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn ChangeCase(&self, r#type: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.ChangeCase)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
-    pub unsafe fn GetPoint(&self, r#type: i32, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPoint(&self, r#type: tomConstants, px: &mut i32, py: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPoint)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPoint)(::windows::core::Interface::as_raw(self), x, y, r#type, extend).ok()
     }
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
@@ -7479,28 +7479,6 @@ pub const PFM_TABLEROWDELIMITER: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_TEXTWRAPPINGBREAK: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_ARABIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_BULLET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_LCLETTER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_LCROMAN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_UCLETTER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_UCROMAN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_COPY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_CUT: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_DRAG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_DROP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_PASTE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_NULL: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_READWRITEMASK: i32 = 2047i32;
@@ -8557,6 +8535,69 @@ impl ::core::ops::BitAndAssign for PARAFORMAT_MASK {
     }
 }
 impl ::core::ops::Not for PARAFORMAT_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PARAFORMAT_NUMBERING(pub u16);
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_BULLET: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(1u16);
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_ARABIC: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(2u16);
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_LCLETTER: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(3u16);
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_UCLETTER: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(4u16);
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_LCROMAN: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(5u16);
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_UCROMAN: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(6u16);
+impl ::core::marker::Copy for PARAFORMAT_NUMBERING {}
+impl ::core::clone::Clone for PARAFORMAT_NUMBERING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PARAFORMAT_NUMBERING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PARAFORMAT_NUMBERING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PARAFORMAT_NUMBERING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PARAFORMAT_NUMBERING").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PARAFORMAT_NUMBERING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PARAFORMAT_NUMBERING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PARAFORMAT_NUMBERING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PARAFORMAT_NUMBERING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PARAFORMAT_NUMBERING {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -10341,8 +10382,8 @@ impl ::core::default::Default for CHANGENOTIFY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMAT2A {
     pub Base: CHARFORMATA,
     pub wWeight: u16,
@@ -10357,68 +10398,68 @@ pub struct CHARFORMAT2A {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2A {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHARFORMAT2A {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHARFORMAT2A {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMAT2A>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHARFORMAT2A {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHARFORMAT2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2A_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHARFORMAT2A_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHARFORMAT2A_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMAT2A_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHARFORMAT2A_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHARFORMAT2A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMAT2W {
     pub Base: CHARFORMATW,
     pub wWeight: u16,
@@ -10433,68 +10474,68 @@ pub struct CHARFORMAT2W {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2W {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2W {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHARFORMAT2W {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHARFORMAT2W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMAT2W>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHARFORMAT2W {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHARFORMAT2W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2W_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHARFORMAT2W_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHARFORMAT2W_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMAT2W_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHARFORMAT2W_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHARFORMAT2W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMATA {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -10502,45 +10543,45 @@ pub struct CHARFORMATA {
     pub yHeight: i32,
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: u8,
-    pub bPitchAndFamily: u8,
+    pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
+    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
     pub szFaceName: [super::super::super::Foundation::CHAR; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMATA {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for CHARFORMATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHARFORMATA").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("dwEffects", &self.dwEffects).field("yHeight", &self.yHeight).field("yOffset", &self.yOffset).field("crTextColor", &self.crTextColor).field("bCharSet", &self.bCharSet).field("bPitchAndFamily", &self.bPitchAndFamily).field("szFaceName", &self.szFaceName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHARFORMATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHARFORMATA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMATA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHARFORMATA {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHARFORMATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMATW {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -10548,37 +10589,37 @@ pub struct CHARFORMATW {
     pub yHeight: i32,
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: u8,
-    pub bPitchAndFamily: u8,
+    pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
+    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
     pub szFaceName: [u16; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMATW {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMATW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for CHARFORMATW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHARFORMATW").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("dwEffects", &self.dwEffects).field("yHeight", &self.yHeight).field("yOffset", &self.yOffset).field("crTextColor", &self.crTextColor).field("bCharSet", &self.bCharSet).field("bPitchAndFamily", &self.bPitchAndFamily).field("szFaceName", &self.szFaceName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHARFORMATW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHARFORMATW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMATW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHARFORMATW {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHARFORMATW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11229,6 +11270,39 @@ impl ::core::default::Default for GETTEXTLENGTHEX {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GROUPTYPINGCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub fGroupTyping: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GROUPTYPINGCHANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GROUPTYPINGCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for GROUPTYPINGCHANGE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for GROUPTYPINGCHANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUPTYPINGCHANGE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for GROUPTYPINGCHANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for GROUPTYPINGCHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
@@ -11251,6 +11325,38 @@ impl ::core::cmp::PartialEq for HYPHENATEINFO {
 }
 impl ::core::cmp::Eq for HYPHENATEINFO {}
 impl ::core::default::Default for HYPHENATEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub struct HYPHRESULT {
+    pub khyph: KHYPH,
+    pub ichHyph: i32,
+    pub chHyph: u16,
+}
+impl ::core::marker::Copy for HYPHRESULT {}
+impl ::core::clone::Clone for HYPHRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HYPHRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYPHRESULT").field("khyph", &self.khyph).field("ichHyph", &self.ichHyph).field("chHyph", &self.chHyph).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HYPHRESULT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HYPHRESULT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HYPHRESULT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HYPHRESULT {}
+impl ::core::default::Default for HYPHRESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -11360,7 +11466,7 @@ impl ::core::default::Default for OBJECTPOSITIONS {
 pub struct PARAFORMAT {
     pub cbSize: u32,
     pub dwMask: PARAFORMAT_MASK,
-    pub wNumbering: u16,
+    pub wNumbering: PARAFORMAT_NUMBERING,
     pub Anonymous: PARAFORMAT_0,
     pub dxStartIndent: i32,
     pub dxRightIndent: i32,
@@ -11848,71 +11954,6 @@ impl ::core::cmp::PartialEq for TEXTRANGEW {
 }
 impl ::core::cmp::Eq for TEXTRANGEW {}
 impl ::core::default::Default for TEXTRANGEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _grouptypingchange {
-    pub nmhdr: super::NMHDR,
-    pub fGroupTyping: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _grouptypingchange {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _grouptypingchange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _grouptypingchange {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _grouptypingchange {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_grouptypingchange>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _grouptypingchange {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for _grouptypingchange {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub struct hyphresult {
-    pub khyph: KHYPH,
-    pub ichHyph: i32,
-    pub chHyph: u16,
-}
-impl ::core::marker::Copy for hyphresult {}
-impl ::core::clone::Clone for hyphresult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for hyphresult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("hyphresult").field("khyph", &self.khyph).field("ichHyph", &self.ichHyph).field("chHyph", &self.chHyph).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for hyphresult {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for hyphresult {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<hyphresult>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for hyphresult {}
-impl ::core::default::Default for hyphresult {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

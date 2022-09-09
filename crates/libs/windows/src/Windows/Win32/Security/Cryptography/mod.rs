@@ -26941,34 +26941,34 @@ unsafe impl ::windows::core::Abi for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub struct HMAC_Info {
+pub struct HMAC_INFO {
     pub HashAlgid: u32,
     pub pbInnerString: *mut u8,
     pub cbInnerString: u32,
     pub pbOuterString: *mut u8,
     pub cbOuterString: u32,
 }
-impl ::core::marker::Copy for HMAC_Info {}
-impl ::core::clone::Clone for HMAC_Info {
+impl ::core::marker::Copy for HMAC_INFO {}
+impl ::core::clone::Clone for HMAC_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for HMAC_Info {
+impl ::core::fmt::Debug for HMAC_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HMAC_Info").field("HashAlgid", &self.HashAlgid).field("pbInnerString", &self.pbInnerString).field("cbInnerString", &self.cbInnerString).field("pbOuterString", &self.pbOuterString).field("cbOuterString", &self.cbOuterString).finish()
+        f.debug_struct("HMAC_INFO").field("HashAlgid", &self.HashAlgid).field("pbInnerString", &self.pbInnerString).field("cbInnerString", &self.cbInnerString).field("pbOuterString", &self.pbOuterString).field("cbOuterString", &self.cbOuterString).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HMAC_Info {
+unsafe impl ::windows::core::Abi for HMAC_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HMAC_Info {
+impl ::core::cmp::PartialEq for HMAC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HMAC_Info>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HMAC_INFO>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for HMAC_Info {}
-impl ::core::default::Default for HMAC_Info {
+impl ::core::cmp::Eq for HMAC_INFO {}
+impl ::core::default::Default for HMAC_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -27633,31 +27633,31 @@ impl ::core::default::Default for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub struct NCRYPT_PCP_RAW_POLICYDIGEST {
+pub struct NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     pub dwVersion: u32,
     pub cbDigest: u32,
 }
-impl ::core::marker::Copy for NCRYPT_PCP_RAW_POLICYDIGEST {}
-impl ::core::clone::Clone for NCRYPT_PCP_RAW_POLICYDIGEST {
+impl ::core::marker::Copy for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {}
+impl ::core::clone::Clone for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NCRYPT_PCP_RAW_POLICYDIGEST {
+impl ::core::fmt::Debug for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NCRYPT_PCP_RAW_POLICYDIGEST").field("dwVersion", &self.dwVersion).field("cbDigest", &self.cbDigest).finish()
+        f.debug_struct("NCRYPT_PCP_RAW_POLICYDIGEST_INFO").field("dwVersion", &self.dwVersion).field("cbDigest", &self.cbDigest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_PCP_RAW_POLICYDIGEST {
+unsafe impl ::windows::core::Abi for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NCRYPT_PCP_RAW_POLICYDIGEST {
+impl ::core::cmp::PartialEq for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NCRYPT_PCP_RAW_POLICYDIGEST>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NCRYPT_PCP_RAW_POLICYDIGEST_INFO>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for NCRYPT_PCP_RAW_POLICYDIGEST {}
-impl ::core::default::Default for NCRYPT_PCP_RAW_POLICYDIGEST {
+impl ::core::cmp::Eq for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {}
+impl ::core::default::Default for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

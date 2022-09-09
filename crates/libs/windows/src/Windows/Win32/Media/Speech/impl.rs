@@ -1915,7 +1915,7 @@ pub trait ISpRecognizer_Impl: Sized + ISpProperties_Impl {
     fn GetRecoState(&self, pstate: *mut SPRECOSTATE) -> ::windows::core::Result<()>;
     fn SetRecoState(&self, newstate: SPRECOSTATE) -> ::windows::core::Result<()>;
     fn GetStatus(&self, pstatus: *mut SPRECOGNIZERSTATUS) -> ::windows::core::Result<()>;
-    fn GetFormat(&self, waveformattype: SPWAVEFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetFormat(&self, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn IsUISupported(&self, psztypeofui: &::windows::core::PCWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn DisplayUI(&self, hwndparent: super::super::Foundation::HWND, psztitle: &::windows::core::PCWSTR, psztypeofui: &::windows::core::PCWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()>;
     fn EmulateRecognition(&self, pphrase: &::core::option::Option<ISpPhrase>) -> ::windows::core::Result<()>;
@@ -2015,7 +2015,7 @@ impl ISpRecognizer_Vtbl {
             let this = (*this).get_impl();
             this.GetStatus(::core::mem::transmute_copy(&pstatus)).into()
         }
-        unsafe extern "system" fn GetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, waveformattype: SPWAVEFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFormat(::core::mem::transmute_copy(&waveformattype), ::core::mem::transmute_copy(&pformatid), ::core::mem::transmute_copy(&ppcomemwfex)).into()

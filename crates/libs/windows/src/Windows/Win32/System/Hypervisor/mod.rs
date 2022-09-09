@@ -1,47 +1,5 @@
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: &mut u64) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows::core::HRESULT;
-    }
-    GetMemoryBlockCacheLimit(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(memoryblockcachelimit)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[inline]
-pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    SetSavedStateSymbolProviderDebugInfoCallback(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(callback)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[inline]
-pub unsafe fn WHvCancelPartitionMigration<'a, P0>(partition: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WHvCancelPartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
-    }
-    WHvCancelPartitionMigration(partition.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[inline]
-pub unsafe fn WHvCompletePartitionMigration<'a, P0>(partition: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WHvCompletePartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
-    }
-    WHvCompletePartitionMigration(partition.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[inline]
 pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -186,6 +144,15 @@ pub unsafe fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ff
         fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, guestrawsavedmemorysize: *mut u64) -> ::windows::core::HRESULT;
     }
     GetGuestRawSavedMemorySize(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(guestrawsavedmemorysize)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[inline]
+pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: &mut u64) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows::core::HRESULT;
+    }
+    GetMemoryBlockCacheLimit(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(memoryblockcachelimit)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -587,6 +554,15 @@ pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
     }
     SetMemoryBlockCacheLimit(::core::mem::transmute(vmsavedstatedumphandle), memoryblockcachelimit).ok()
 }
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[inline]
+pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    SetSavedStateSymbolProviderDebugInfoCallback(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(callback)).ok()
+}
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -626,6 +602,18 @@ pub unsafe fn WHvAllocateVpciResource(providerid: ::core::option::Option<&::wind
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
+pub unsafe fn WHvCancelPartitionMigration<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WHvCancelPartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
+    }
+    WHvCancelPartitionMigration(partition.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[inline]
 pub unsafe fn WHvCancelRunVirtualProcessor<'a, P0>(partition: P0, vpindex: u32, flags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
@@ -635,6 +623,18 @@ where
         fn WHvCancelRunVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: u32, flags: u32) -> ::windows::core::HRESULT;
     }
     WHvCancelRunVirtualProcessor(partition.into(), vpindex, flags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[inline]
+pub unsafe fn WHvCompletePartitionMigration<'a, P0>(partition: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WHvCompletePartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
+    }
+    WHvCompletePartitionMigration(partition.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2261,8 +2261,6 @@ pub const WHvCacheTypeUncached: WHV_CACHE_TYPE = WHV_CACHE_TYPE(0i32);
 pub const WHvCacheTypeWriteCombining: WHV_CACHE_TYPE = WHV_CACHE_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeWriteThrough: WHV_CACHE_TYPE = WHV_CACHE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCacheTypeWriteProtected: WHV_CACHE_TYPE = WHV_CACHE_TYPE(5i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeWriteBack: WHV_CACHE_TYPE = WHV_CACHE_TYPE(6i32);
 impl ::core::marker::Copy for WHV_CACHE_TYPE {}

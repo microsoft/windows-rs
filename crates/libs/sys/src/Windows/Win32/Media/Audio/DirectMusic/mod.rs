@@ -794,6 +794,27 @@ impl ::core::clone::Clone for DMUS_PORTCAPS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DMUS_PORTPARAMS7 {
+    pub dwSize: u32,
+    pub dwValidParams: u32,
+    pub dwVoices: u32,
+    pub dwChannelGroups: u32,
+    pub dwAudioChannels: u32,
+    pub dwSampleRate: u32,
+    pub dwEffectFlags: u32,
+    pub fShare: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DMUS_PORTPARAMS7 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DMUS_PORTPARAMS7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DMUS_PORTPARAMS8 {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -824,8 +845,8 @@ pub struct DMUS_REGION {
     pub ulNextRegionIdx: u32,
     pub ulFirstExtCkIdx: u32,
     pub WaveLink: WAVELINK,
-    pub WSMP: _rwsmp,
-    pub WLOOP: [_rloop; 1],
+    pub WSMP: WSMPL,
+    pub WLOOP: [WLOOP; 1],
 }
 impl ::core::marker::Copy for DMUS_REGION {}
 impl ::core::clone::Clone for DMUS_REGION {
@@ -1096,6 +1117,23 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_D
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DVAudInfo {
+    pub bAudStyle: [u8; 2],
+    pub bAudQu: [u8; 2],
+    pub bNumAudPin: u8,
+    pub wAvgSamplesPerPinPerFrm: [u16; 2],
+    pub wBlkMode: u16,
+    pub wDIFMode: u16,
+    pub wBlkDiv: u16,
+}
+impl ::core::marker::Copy for DVAudInfo {}
+impl ::core::clone::Clone for DVAudInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct INSTHEADER {
     pub cRegions: u32,
     pub Locale: MIDILOCALE,
@@ -1200,23 +1238,6 @@ impl ::core::clone::Clone for RGNRANGE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct Tag_DVAudInfo {
-    pub bAudStyle: [u8; 2],
-    pub bAudQu: [u8; 2],
-    pub bNumAudPin: u8,
-    pub wAvgSamplesPerPinPerFrm: [u16; 2],
-    pub wBlkMode: u16,
-    pub wDIFMode: u16,
-    pub wBlkDiv: u16,
-}
-impl ::core::marker::Copy for Tag_DVAudInfo {}
-impl ::core::clone::Clone for Tag_DVAudInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct WAVELINK {
     pub fusOptions: u16,
     pub usPhaseGroup: u16,
@@ -1230,43 +1251,22 @@ impl ::core::clone::Clone for WAVELINK {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _DMUS_PORTPARAMS {
-    pub dwSize: u32,
-    pub dwValidParams: u32,
-    pub dwVoices: u32,
-    pub dwChannelGroups: u32,
-    pub dwAudioChannels: u32,
-    pub dwSampleRate: u32,
-    pub dwEffectFlags: u32,
-    pub fShare: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _DMUS_PORTPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _DMUS_PORTPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct _rloop {
+pub struct WLOOP {
     pub cbSize: u32,
     pub ulType: u32,
     pub ulStart: u32,
     pub ulLength: u32,
 }
-impl ::core::marker::Copy for _rloop {}
-impl ::core::clone::Clone for _rloop {
+impl ::core::marker::Copy for WLOOP {}
+impl ::core::clone::Clone for WLOOP {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct _rwsmp {
+pub struct WSMPL {
     pub cbSize: u32,
     pub usUnityNote: u16,
     pub sFineTune: i16,
@@ -1274,8 +1274,8 @@ pub struct _rwsmp {
     pub fulOptions: u32,
     pub cSampleLoops: u32,
 }
-impl ::core::marker::Copy for _rwsmp {}
-impl ::core::clone::Clone for _rwsmp {
+impl ::core::marker::Copy for WSMPL {}
+impl ::core::clone::Clone for WSMPL {
     fn clone(&self) -> Self {
         *self
     }

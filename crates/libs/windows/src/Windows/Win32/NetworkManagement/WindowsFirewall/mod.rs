@@ -5,7 +5,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;
     }
     NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into(), ::core::mem::transmute(netisoerror))
@@ -15,7 +15,7 @@ where
 #[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: &mut u32, pppublicappcs: &mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32;
     }
     NetworkIsolationEnumAppContainers(flags, ::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(pppublicappcs))
@@ -25,7 +25,7 @@ pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: &
 #[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: &INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
     }
     NetworkIsolationFreeAppContainers(::core::mem::transmute(ppublicappcs))
@@ -35,7 +35,7 @@ pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: &INET_FIREWALL_APP
 #[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: &mut u32, appcontainersids: &mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
     }
     NetworkIsolationGetAppContainerConfig(::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(appcontainersids))
@@ -45,7 +45,7 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: &mut u32,
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *const ::core::ffi::c_void, registrationobject: &mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32;
     }
     NetworkIsolationRegisterForAppContainerChanges(flags, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationobject))
@@ -55,7 +55,7 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callbac
 #[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32;
     }
     NetworkIsolationSetAppContainerConfig(appcontainersids.len() as _, ::core::mem::transmute(appcontainersids.as_ptr()))
@@ -72,7 +72,7 @@ where
     P4: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, packagefolder: ::windows::core::PCWSTR, displayname: ::windows::core::PCWSTR, bbinariesfullycomputed: super::super::Foundation::BOOL, binaries: *const ::windows::core::PWSTR, binariescount: u32) -> ::windows::core::HRESULT;
     }
     NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), packagefullname.into(), packagefolder.into(), displayname.into(), bbinariesfullycomputed.into(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
@@ -85,7 +85,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
     }
     NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into())
@@ -5109,6 +5109,145 @@ pub const UPnPNAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(3u32);
+impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {}
+impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(1u32);
+impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {}
+impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(2i32);
+impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {}
+impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FW_DYNAMIC_KEYWORD_ORIGIN_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICS_TARGETTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const ICSTT_NAME: ICS_TARGETTYPE = ICS_TARGETTYPE(0i32);
@@ -5966,87 +6105,70 @@ impl ::core::fmt::Debug for SHARINGCONNECTION_ENUM_FLAGS {
         f.debug_tuple("SHARINGCONNECTION_ENUM_FLAGS").field(&self.0).finish()
     }
 }
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(3i32);
-impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {}
-impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    pub id: ::windows::core::GUID,
+    pub keyword: ::windows::core::PCWSTR,
+    pub flags: u32,
+    pub addresses: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS0 {}
+impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
+impl ::core::fmt::Debug for FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FW_DYNAMIC_KEYWORD_ADDRESS0").field("id", &self.id).field("keyword", &self.keyword).field("flags", &self.flags).field("addresses", &self.addresses).finish()
     }
 }
-unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+unsafe impl ::windows::core::Abi for FW_DYNAMIC_KEYWORD_ADDRESS0 {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS").field(&self.0).finish()
+impl ::core::cmp::PartialEq for FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FW_DYNAMIC_KEYWORD_ADDRESS0>()) == 0 }
     }
 }
+impl ::core::cmp::Eq for FW_DYNAMIC_KEYWORD_ADDRESS0 {}
+impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(1i32);
-impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {}
-impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    pub dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
+    pub next: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
+    pub schemaVersion: u16,
+    pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
+}
+impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
+impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
+impl ::core::fmt::Debug for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FW_DYNAMIC_KEYWORD_ADDRESS_DATA0").field("dynamicKeywordAddress", &self.dynamicKeywordAddress).field("next", &self.next).field("schemaVersion", &self.schemaVersion).field("originType", &self.originType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+unsafe impl ::windows::core::Abi for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS").field(&self.0).finish()
+impl ::core::cmp::PartialEq for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FW_DYNAMIC_KEYWORD_ADDRESS_DATA0>()) == 0 }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(2i32);
-impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {}
-impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+impl ::core::cmp::Eq for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
+impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE").field(&self.0).finish()
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6272,85 +6394,19 @@ impl ::core::default::Default for NETCON_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    pub id: ::windows::core::GUID,
-    pub keyword: ::windows::core::PCWSTR,
-    pub flags: u32,
-    pub addresses: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
-impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_tag_FW_DYNAMIC_KEYWORD_ADDRESS0").field("id", &self.id).field("keyword", &self.keyword).field("flags", &self.flags).field("addresses", &self.addresses).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_tag_FW_DYNAMIC_KEYWORD_ADDRESS0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
-impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    pub dynamicKeywordAddress: _tag_FW_DYNAMIC_KEYWORD_ADDRESS0,
-    pub next: *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
-    pub schemaVersion: u16,
-    pub originType: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
-}
-impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
-impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0").field("dynamicKeywordAddress", &self.dynamicKeywordAddress).field("next", &self.next).field("schemaVersion", &self.schemaVersion).field("originType", &self.originType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
-impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type PAC_CHANGES_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddress: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
+pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddress: *const FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = ::core::option::Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = ::core::option::Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, updatedaddresses: ::windows::core::PCWSTR, append: super::super::Foundation::BOOL) -> u32>;

@@ -3146,7 +3146,7 @@ impl ::core::default::Default for USBSCAN_TIMEOUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_BANDWIDTH_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3172,7 +3172,7 @@ impl ::core::default::Default for USBUSER_BANDWIDTH_INFO_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_BUS_STATISTICS_0_REQUEST {
@@ -3205,7 +3205,7 @@ impl ::core::default::Default for USBUSER_BUS_STATISTICS_0_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_CLOSE_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3231,7 +3231,7 @@ impl ::core::default::Default for USBUSER_CLOSE_RAW_DEVICE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_CONTROLLER_INFO_0 {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3257,7 +3257,7 @@ impl ::core::default::Default for USBUSER_CONTROLLER_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_CONTROLLER_UNICODE_NAME {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3283,7 +3283,7 @@ impl ::core::default::Default for USBUSER_CONTROLLER_UNICODE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_GET_DRIVER_VERSION {
@@ -3316,7 +3316,7 @@ impl ::core::default::Default for USBUSER_GET_DRIVER_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_GET_USB2HW_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3342,7 +3342,7 @@ impl ::core::default::Default for USBUSER_GET_USB2HW_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_OPEN_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3368,7 +3368,7 @@ impl ::core::default::Default for USBUSER_OPEN_RAW_DEVICE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_PASS_THRU_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3394,7 +3394,7 @@ impl ::core::default::Default for USBUSER_PASS_THRU_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_POWER_INFO_REQUEST {
@@ -3427,7 +3427,7 @@ impl ::core::default::Default for USBUSER_POWER_INFO_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_RAW_RESET_ROOT_PORT {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3507,7 +3507,7 @@ impl ::core::default::Default for USBUSER_REQUEST_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_ROOTPORT_FEATURE_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3533,7 +3533,7 @@ impl ::core::default::Default for USBUSER_ROOTPORT_FEATURE_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_ROOTPORT_PARAMETERS {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3559,7 +3559,7 @@ impl ::core::default::Default for USBUSER_ROOTPORT_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_SEND_ONE_PACKET {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -3585,7 +3585,7 @@ impl ::core::default::Default for USBUSER_SEND_ONE_PACKET {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USBUSER_SEND_RAW_COMMAND {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -6433,7 +6433,7 @@ impl ::core::default::Default for USB_UNICODE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USB_USB2HW_VERSION_PARAMETERS {
     pub Usb2HwRevision: u8,
@@ -6442,11 +6442,6 @@ impl ::core::marker::Copy for USB_USB2HW_VERSION_PARAMETERS {}
 impl ::core::clone::Clone for USB_USB2HW_VERSION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for USB_USB2HW_VERSION_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USB_USB2HW_VERSION_PARAMETERS").field("Usb2HwRevision", &self.Usb2HwRevision).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_USB2HW_VERSION_PARAMETERS {

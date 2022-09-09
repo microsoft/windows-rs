@@ -4,7 +4,7 @@ dependent crate or workspace has an empty or non-existent `.windows/winmd` direc
 
 ## Windows.Win32.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/
-- Version: 31.0.4-preview
+- Version: 32.0.17-preview
 
 ## Windows.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts

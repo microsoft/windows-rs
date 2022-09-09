@@ -1,43 +1,3 @@
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[inline]
-pub unsafe fn MFCreateD3D12SynchronizationObject<'a, P0>(pdevice: P0, riid: &::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn MFCreateD3D12SynchronizationObject(pdevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    MFCreateD3D12SynchronizationObject(pdevice.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[inline]
-pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
-    }
-    OPMXboxEnableHDCP(hdcptype).ok()
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[inline]
-pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: &mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::HRESULT;
-    }
-    OPMXboxGetHDCPStatus(::core::mem::transmute(phdcpstatus)).ok()
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[inline]
-pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: &mut OPM_HDCP_STATUS, phdcptype: &mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
-    }
-    OPMXboxGetHDCPStatusAndType(::core::mem::transmute(phdcpstatus), ::core::mem::transmute(phdcptype)).ok()
-}
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
@@ -687,6 +647,19 @@ pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredent
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     MFCreateCredentialCache(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFNetCredentialCache>(result__)
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[inline]
+pub unsafe fn MFCreateD3D12SynchronizationObject<'a, P0>(pdevice: P0, riid: &::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateD3D12SynchronizationObject(pdevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    MFCreateD3D12SynchronizationObject(pdevice.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -2843,6 +2816,33 @@ where
         fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: *mut ::core::ffi::c_void, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9.into().abi(), vos, ::core::mem::transmute(pulnumvideooutputs), ::core::mem::transmute(pppopmvideooutputarray)).ok()
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[inline]
+pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
+    }
+    OPMXboxEnableHDCP(hdcptype).ok()
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[inline]
+pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: &mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::HRESULT;
+    }
+    OPMXboxGetHDCPStatus(::core::mem::transmute(phdcpstatus)).ok()
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[inline]
+pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: &mut OPM_HDCP_STATUS, phdcptype: &mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
+    }
+    OPMXboxGetHDCPStatusAndType(::core::mem::transmute(phdcpstatus), ::core::mem::transmute(phdcptype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]

@@ -6776,100 +6776,42 @@ impl ::core::fmt::Debug for CLIPBOARD_FORMATS {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CM_ERROR_CONTROL_TYPE(pub i32);
+pub struct DESKTOP_ACCESS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IgnoreError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(0i32);
+pub const DESKTOP_READOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const NormalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(1i32);
+pub const DESKTOP_CREATEWINDOW: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SevereError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(2i32);
+pub const DESKTOP_CREATEMENU: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CriticalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(3i32);
-impl ::core::marker::Copy for CM_ERROR_CONTROL_TYPE {}
-impl ::core::clone::Clone for CM_ERROR_CONTROL_TYPE {
+pub const DESKTOP_HOOKCONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DESKTOP_JOURNALRECORD: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DESKTOP_JOURNALPLAYBACK: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DESKTOP_ENUMERATE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DESKTOP_WRITEOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DESKTOP_SWITCHDESKTOP: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(256u32);
+impl ::core::marker::Copy for DESKTOP_ACCESS_FLAGS {}
+impl ::core::clone::Clone for DESKTOP_ACCESS_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for CM_ERROR_CONTROL_TYPE {
+impl ::core::default::Default for DESKTOP_ACCESS_FLAGS {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CM_ERROR_CONTROL_TYPE {
+unsafe impl ::windows::core::Abi for DESKTOP_ACCESS_FLAGS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for CM_ERROR_CONTROL_TYPE {
+impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CM_ERROR_CONTROL_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CM_SERVICE_LOAD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const BootLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SystemLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AutoLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DemandLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DisableLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(4i32);
-impl ::core::marker::Copy for CM_SERVICE_LOAD_TYPE {}
-impl ::core::clone::Clone for CM_SERVICE_LOAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_SERVICE_LOAD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CM_SERVICE_LOAD_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CM_SERVICE_LOAD_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CM_SERVICE_LOAD_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CM_SERVICE_NODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DriverType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const FileSystemType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const Win32ServiceOwnProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const Win32ServiceShareProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AdapterType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RecognizerType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(8i32);
-impl ::core::marker::Copy for CM_SERVICE_NODE_TYPE {}
-impl ::core::clone::Clone for CM_SERVICE_NODE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_SERVICE_NODE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CM_SERVICE_NODE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CM_SERVICE_NODE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CM_SERVICE_NODE_TYPE").field(&self.0).finish()
+        f.debug_tuple("DESKTOP_ACCESS_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -7723,6 +7665,67 @@ impl ::core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RECO_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_PASTE: RECO_FLAGS = RECO_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_DROP: RECO_FLAGS = RECO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_COPY: RECO_FLAGS = RECO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_CUT: RECO_FLAGS = RECO_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_DRAG: RECO_FLAGS = RECO_FLAGS(4u32);
+impl ::core::marker::Copy for RECO_FLAGS {}
+impl ::core::clone::Clone for RECO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RECO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RECO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RECO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RECO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RECO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RECO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RECO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RECO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RECO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
@@ -7950,6 +7953,105 @@ impl ::core::fmt::Debug for SERVERSILO_STATE {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SERVICE_ERROR_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IgnoreError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const NormalError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SevereError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CriticalError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(3i32);
+impl ::core::marker::Copy for SERVICE_ERROR_TYPE {}
+impl ::core::clone::Clone for SERVICE_ERROR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_ERROR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_ERROR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_ERROR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_ERROR_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SERVICE_LOAD_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const BootLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SystemLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AutoLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DemandLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DisableLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(4i32);
+impl ::core::marker::Copy for SERVICE_LOAD_TYPE {}
+impl ::core::clone::Clone for SERVICE_LOAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_LOAD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_LOAD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_LOAD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_LOAD_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SERVICE_NODE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DriverType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FileSystemType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const Win32ServiceOwnProcess: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const Win32ServiceShareProcess: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AdapterType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RecognizerType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(8i32);
+impl ::core::marker::Copy for SERVICE_NODE_TYPE {}
+impl ::core::clone::Clone for SERVICE_NODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_NODE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_NODE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_NODE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_NODE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(0i32);
@@ -8013,6 +8115,129 @@ unsafe impl ::windows::core::Abi for SE_LEARNING_MODE_DATA_TYPE {
 impl ::core::fmt::Debug for SE_LEARNING_MODE_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SE_LEARNING_MODE_DATA_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SFGAO_FLAGS(pub u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANCOPY: SFGAO_FLAGS = SFGAO_FLAGS(1u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANMOVE: SFGAO_FLAGS = SFGAO_FLAGS(2u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANLINK: SFGAO_FLAGS = SFGAO_FLAGS(4u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STORAGE: SFGAO_FLAGS = SFGAO_FLAGS(8u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANRENAME: SFGAO_FLAGS = SFGAO_FLAGS(16u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANDELETE: SFGAO_FLAGS = SFGAO_FLAGS(32u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HASPROPSHEET: SFGAO_FLAGS = SFGAO_FLAGS(64u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_DROPTARGET: SFGAO_FLAGS = SFGAO_FLAGS(256u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CAPABILITYMASK: SFGAO_FLAGS = SFGAO_FLAGS(375u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_PLACEHOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2048u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_SYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(4096u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_ENCRYPTED: SFGAO_FLAGS = SFGAO_FLAGS(8192u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_ISSLOW: SFGAO_FLAGS = SFGAO_FLAGS(16384u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_GHOSTED: SFGAO_FLAGS = SFGAO_FLAGS(32768u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_LINK: SFGAO_FLAGS = SFGAO_FLAGS(65536u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_SHARE: SFGAO_FLAGS = SFGAO_FLAGS(131072u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_READONLY: SFGAO_FLAGS = SFGAO_FLAGS(262144u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HIDDEN: SFGAO_FLAGS = SFGAO_FLAGS(524288u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_DISPLAYATTRMASK: SFGAO_FLAGS = SFGAO_FLAGS(1032192u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_FILESYSANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(268435456u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_FOLDER: SFGAO_FLAGS = SFGAO_FLAGS(536870912u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_FILESYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(1073741824u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HASSUBFOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CONTENTSMASK: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_VALIDATE: SFGAO_FLAGS = SFGAO_FLAGS(16777216u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_REMOVABLE: SFGAO_FLAGS = SFGAO_FLAGS(33554432u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_COMPRESSED: SFGAO_FLAGS = SFGAO_FLAGS(67108864u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_BROWSABLE: SFGAO_FLAGS = SFGAO_FLAGS(134217728u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_NONENUMERATED: SFGAO_FLAGS = SFGAO_FLAGS(1048576u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_NEWCONTENT: SFGAO_FLAGS = SFGAO_FLAGS(2097152u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANMONIKER: SFGAO_FLAGS = SFGAO_FLAGS(4194304u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HASSTORAGE: SFGAO_FLAGS = SFGAO_FLAGS(4194304u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STREAM: SFGAO_FLAGS = SFGAO_FLAGS(4194304u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STORAGEANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(8388608u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STORAGECAPMASK: SFGAO_FLAGS = SFGAO_FLAGS(1891958792u64);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_PKEYSFGAOMASK: SFGAO_FLAGS = SFGAO_FLAGS(2164539392u64);
+impl ::core::marker::Copy for SFGAO_FLAGS {}
+impl ::core::clone::Clone for SFGAO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SFGAO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SFGAO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SFGAO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SFGAO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SFGAO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SFGAO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SFGAO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SFGAO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SFGAO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -12158,6 +12383,50 @@ impl ::core::default::Default for IMPORT_OBJECT_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_System_JobObjects\"`*"]
+#[cfg(feature = "Win32_System_JobObjects")]
+pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    pub MaxIops: i64,
+    pub MaxBandwidth: i64,
+    pub ReservationIops: i64,
+    pub VolumeName: ::windows::core::PWSTR,
+    pub BaseIoSize: u32,
+    pub ControlFlags: super::JobObjects::JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
+    pub VolumeNameLength: u16,
+}
+#[cfg(feature = "Win32_System_JobObjects")]
+impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
+#[cfg(feature = "Win32_System_JobObjects")]
+impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_JobObjects")]
+impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).field("VolumeNameLength", &self.VolumeNameLength).finish()
+    }
+}
+#[cfg(feature = "Win32_System_JobObjects")]
+unsafe impl ::windows::core::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_JobObjects")]
+impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_JobObjects")]
+impl ::core::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
+#[cfg(feature = "Win32_System_JobObjects")]
+impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct KERNEL_CET_CONTEXT {
     pub Ssp: u64,
@@ -15481,37 +15750,6 @@ impl ::core::default::Default for RESUME_PERFORMANCE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub struct RemBRUSH {
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-impl ::core::marker::Copy for RemBRUSH {}
-impl ::core::clone::Clone for RemBRUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RemBRUSH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RemBRUSH").field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RemBRUSH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RemBRUSH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemBRUSH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RemBRUSH {}
-impl ::core::default::Default for RemBRUSH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct RemHBITMAP {
     pub cbData: u32,
     pub data: [u8; 1],
@@ -15537,6 +15775,37 @@ impl ::core::cmp::PartialEq for RemHBITMAP {
 }
 impl ::core::cmp::Eq for RemHBITMAP {}
 impl ::core::default::Default for RemHBITMAP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct RemHBRUSH {
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+impl ::core::marker::Copy for RemHBRUSH {}
+impl ::core::clone::Clone for RemHBRUSH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RemHBRUSH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RemHBRUSH").field("cbData", &self.cbData).field("data", &self.data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RemHBRUSH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RemHBRUSH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemHBRUSH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RemHBRUSH {}
+impl ::core::default::Default for RemHBRUSH {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

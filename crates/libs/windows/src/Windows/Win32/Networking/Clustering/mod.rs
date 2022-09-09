@@ -1,87 +1,3 @@
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ClusWorkersTerminate<'a, P0>(clusworkers: &mut [*mut CLUS_WORKER], timeoutinmilliseconds: u32, waitonly: P0) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
-    }
-    ClusWorkersTerminate(::core::mem::transmute(clusworkers.as_ptr()), clusworkers.len() as _, timeoutinmilliseconds, waitonly.into())
-}
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-#[inline]
-pub unsafe fn FreeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEALTH_FAULT) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
-    }
-    FreeClusterHealthFault(::core::mem::transmute(clusterhealthfault))
-}
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-#[inline]
-pub unsafe fn FreeClusterHealthFaultArray(clusterhealthfaultarray: &mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
-    }
-    FreeClusterHealthFaultArray(::core::mem::transmute(clusterhealthfaultarray))
-}
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-#[inline]
-pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEALTH_FAULT) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
-    }
-    InitializeClusterHealthFault(::core::mem::transmute(clusterhealthfault))
-}
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-#[inline]
-pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: &mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
-    }
-    InitializeClusterHealthFaultArray(::core::mem::transmute(clusterhealthfaultarray))
-}
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: &PaxosTagCStruct, right: &PaxosTagCStruct) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
-    }
-    ResUtilLeftPaxosIsLessThanRight(::core::mem::transmute(left), ::core::mem::transmute(right))
-}
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ResUtilPaxosComparer(left: &PaxosTagCStruct, right: &PaxosTagCStruct) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
-    }
-    ResUtilPaxosComparer(::core::mem::transmute(left), ::core::mem::transmute(right))
-}
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[inline]
-pub unsafe fn ResUtilsDeleteKeyTree<'a, P0, P1, P2>(key: P0, keyname: P1, treatnokeyaserror: P2) -> u32
-where
-    P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn ResUtilsDeleteKeyTree(key: super::super::System::Registry::HKEY, keyname: ::windows::core::PCWSTR, treatnokeyaserror: super::super::Foundation::BOOL) -> u32;
-    }
-    ResUtilsDeleteKeyTree(key.into(), keyname.into(), treatnokeyaserror.into())
-}
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn AddClusterGroupDependency(hdependentgroup: &_HGROUP, hprovidergroup: &_HGROUP) -> u32 {
@@ -400,6 +316,19 @@ where
         fn ClusWorkerTerminateEx(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
     }
     ClusWorkerTerminateEx(::core::mem::transmute(clusworker), timeoutinmilliseconds, waitonly.into())
+}
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ClusWorkersTerminate<'a, P0>(clusworkers: &mut [*mut CLUS_WORKER], timeoutinmilliseconds: u32, waitonly: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
+    }
+    ClusWorkersTerminate(::core::mem::transmute(clusworkers.as_ptr()), clusworkers.len() as _, timeoutinmilliseconds, waitonly.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -1724,6 +1653,24 @@ pub unsafe fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
+pub unsafe fn FreeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEALTH_FAULT) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
+    }
+    FreeClusterHealthFault(::core::mem::transmute(clusterhealthfault))
+}
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+#[inline]
+pub unsafe fn FreeClusterHealthFaultArray(clusterhealthfaultarray: &mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
+    }
+    FreeClusterHealthFaultArray(::core::mem::transmute(clusterhealthfaultarray))
+}
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+#[inline]
 pub unsafe fn GetClusterFromGroup(hgroup: &_HGROUP) -> *mut _HCLUSTER {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2026,6 +1973,24 @@ pub unsafe fn GetNotifyEventHandle(hchange: &_HCHANGE, lphtargetevent: &mut supe
         fn GetNotifyEventHandle(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32;
     }
     GetNotifyEventHandle(::core::mem::transmute(hchange), ::core::mem::transmute(lphtargetevent))
+}
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+#[inline]
+pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEALTH_FAULT) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
+    }
+    InitializeClusterHealthFault(::core::mem::transmute(clusterhealthfault))
+}
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+#[inline]
+pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: &mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
+    }
+    InitializeClusterHealthFaultArray(::core::mem::transmute(clusterhealthfaultarray))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3225,6 +3190,16 @@ pub unsafe fn ResUtilIsResourceClassEqual(prci: &mut CLUS_RESOURCE_CLASS_INFO, h
     }
     ResUtilIsResourceClassEqual(::core::mem::transmute(prci), ::core::mem::transmute(hresource))
 }
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: &PaxosTagCStruct, right: &PaxosTagCStruct) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
+    }
+    ResUtilLeftPaxosIsLessThanRight(::core::mem::transmute(left), ::core::mem::transmute(right))
+}
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
 pub unsafe fn ResUtilNodeEnum(hcluster: &mut _HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: *mut ::core::ffi::c_void) -> u32 {
@@ -3233,6 +3208,16 @@ pub unsafe fn ResUtilNodeEnum(hcluster: &mut _HCLUSTER, pnodecallback: LPNODE_CA
         fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: *mut ::core::ffi::c_void, pparameter: *mut ::core::ffi::c_void) -> u32;
     }
     ResUtilNodeEnum(::core::mem::transmute(hcluster), ::core::mem::transmute(pnodecallback), ::core::mem::transmute(pparameter))
+}
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ResUtilPaxosComparer(left: &PaxosTagCStruct, right: &PaxosTagCStruct) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
+    }
+    ResUtilPaxosComparer(::core::mem::transmute(left), ::core::mem::transmute(right))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3615,6 +3600,21 @@ pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: &mut u
         fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u32) -> u32;
     }
     ResUtilVerifyShutdownSafe(flags, reason, ::core::mem::transmute(presult))
+}
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
+pub unsafe fn ResUtilsDeleteKeyTree<'a, P0, P1, P2>(key: P0, keyname: P1, treatnokeyaserror: P2) -> u32
+where
+    P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResUtilsDeleteKeyTree(key: super::super::System::Registry::HKEY, keyname: ::windows::core::PCWSTR, treatnokeyaserror: super::super::Foundation::BOOL) -> u32;
+    }
+    ResUtilsDeleteKeyTree(key.into(), keyname.into(), treatnokeyaserror.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]

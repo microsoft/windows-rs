@@ -3284,25 +3284,25 @@ pub const AM_SEEKING_CanDoSegments: AM_SEEKING_SEEKING_CAPABILITIES = 128i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub type AM_SEEKING_SeekingFlags = i32;
+pub type AM_SEEKING_SEEKING_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_NoPositioning: AM_SEEKING_SeekingFlags = 0i32;
+pub const AM_SEEKING_NoPositioning: AM_SEEKING_SEEKING_FLAGS = 0i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SeekingFlags = 1i32;
+pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SEEKING_FLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SeekingFlags = 2i32;
+pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SEEKING_FLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SeekingFlags = 3i32;
+pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SEEKING_FLAGS = 3i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SeekingFlags = 3i32;
+pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SEEKING_FLAGS = 3i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SeekingFlags = 4i32;
+pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SEEKING_FLAGS = 4i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_ReturnTime: AM_SEEKING_SeekingFlags = 8i32;
+pub const AM_SEEKING_ReturnTime: AM_SEEKING_SEEKING_FLAGS = 8i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_Segment: AM_SEEKING_SeekingFlags = 16i32;
+pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_NoFlush: AM_SEEKING_SeekingFlags = 32i32;
+pub const AM_SEEKING_NoFlush: AM_SEEKING_SEEKING_FLAGS = 32i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub type AM_STREAM_INFO_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -8611,6 +8611,26 @@ impl ::core::clone::Clone for AVIStreamHeader {
 }
 #[repr(C, packed(2))]
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub struct AVITCDLINDEX {
+    pub fcc: u32,
+    pub cb: u32,
+    pub wLongsPerEntry: u16,
+    pub bIndexSubType: u8,
+    pub bIndexType: u8,
+    pub nEntriesInUse: u32,
+    pub dwChunkId: u32,
+    pub dwReserved: [u32; 3],
+    pub aIndex: [AVITCDLINDEX_ENTRY; 584],
+    pub adwTrailingFill: [u32; 3512],
+}
+impl ::core::marker::Copy for AVITCDLINDEX {}
+impl ::core::clone::Clone for AVITCDLINDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVITCDLINDEX_ENTRY {
     pub dwTick: u32,
     pub time: super::TIMECODE,
@@ -8639,6 +8659,27 @@ pub struct AVITIMECODEINDEX {
 }
 impl ::core::marker::Copy for AVITIMECODEINDEX {}
 impl ::core::clone::Clone for AVITIMECODEINDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub struct AVITIMEDINDEX {
+    pub fcc: u32,
+    pub cb: u32,
+    pub wLongsPerEntry: u16,
+    pub bIndexSubType: u8,
+    pub bIndexType: u8,
+    pub nEntriesInUse: u32,
+    pub dwChunkId: u32,
+    pub qwBaseOffset: u64,
+    pub dwReserved_3: u32,
+    pub aIndex: [AVITIMEDINDEX_ENTRY; 1362],
+    pub adwTrailingFill: [u32; 2734],
+}
+impl ::core::marker::Copy for AVITIMEDINDEX {}
+impl ::core::clone::Clone for AVITIMEDINDEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -11221,7 +11262,7 @@ impl ::core::clone::Clone for MPEG_DATE {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct MPEG_DATE_AND_TIME {
     pub D: MPEG_DATE,
@@ -11364,7 +11405,7 @@ impl ::core::clone::Clone for MPEG_STREAM_FILTER {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct MPEG_TIME {
     pub Hours: u8,
@@ -11861,7 +11902,7 @@ impl ::core::clone::Clone for SBE_PIN_DATA {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct SECTION {
     pub TableId: u8,
@@ -12538,47 +12579,6 @@ pub struct WMDRMProtectionInfo {
 }
 impl ::core::marker::Copy for WMDRMProtectionInfo {}
 impl ::core::clone::Clone for WMDRMProtectionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub struct _avitcdlindex {
-    pub fcc: u32,
-    pub cb: u32,
-    pub wLongsPerEntry: u16,
-    pub bIndexSubType: u8,
-    pub bIndexType: u8,
-    pub nEntriesInUse: u32,
-    pub dwChunkId: u32,
-    pub dwReserved: [u32; 3],
-    pub aIndex: [AVITCDLINDEX_ENTRY; 584],
-    pub adwTrailingFill: [u32; 3512],
-}
-impl ::core::marker::Copy for _avitcdlindex {}
-impl ::core::clone::Clone for _avitcdlindex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub struct _avitimedindex {
-    pub fcc: u32,
-    pub cb: u32,
-    pub wLongsPerEntry: u16,
-    pub bIndexSubType: u8,
-    pub bIndexType: u8,
-    pub nEntriesInUse: u32,
-    pub dwChunkId: u32,
-    pub qwBaseOffset: u64,
-    pub dwReserved_3: u32,
-    pub aIndex: [AVITIMEDINDEX_ENTRY; 1362],
-    pub adwTrailingFill: [u32; 2734],
-}
-impl ::core::marker::Copy for _avitimedindex {}
-impl ::core::clone::Clone for _avitimedindex {
     fn clone(&self) -> Self {
         *self
     }

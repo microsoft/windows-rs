@@ -2,16 +2,16 @@
 extern "system" {
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: ::windows_sys::core::PCWSTR, ulpasskeylength: u32) -> u32;
+    pub fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO_STRUCT, pszpasskey: ::windows_sys::core::PCWSTR, ulpasskeylength: u32) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
+    pub fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO_STRUCT, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothAuthenticateMultipleDevices(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
+    pub fn BluetoothAuthenticateMultipleDevices(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothDisplayDeviceProperties(hwndparent: super::super::Foundation::HWND, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
+    pub fn BluetoothDisplayDeviceProperties(hwndparent: super::super::Foundation::HWND, pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothEnableDiscovery(hradio: super::super::Foundation::HANDLE, fenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -20,19 +20,19 @@ extern "system" {
     pub fn BluetoothEnableIncomingConnections(hradio: super::super::Foundation::HANDLE, fenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothEnumerateInstalledServices(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pcserviceinout: *mut u32, pguidservices: *mut ::windows_sys::core::GUID) -> u32;
+    pub fn BluetoothEnumerateInstalledServices(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, pcserviceinout: *mut u32, pguidservices: *mut ::windows_sys::core::GUID) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> isize;
+    pub fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> isize;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS, phradio: *mut super::super::Foundation::HANDLE) -> isize;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
+    pub fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothFindNextRadio(hfind: isize, phradio: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
@@ -79,7 +79,7 @@ extern "system" {
     pub fn BluetoothGATTUnregisterEvent(eventhandle: isize, flags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothGetDeviceInfo(hradio: super::super::Foundation::HANDLE, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
+    pub fn BluetoothGetDeviceInfo(hradio: super::super::Foundation::HANDLE, pbtdi: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothGetRadioInfo(hradio: super::super::Foundation::HANDLE, pradioinfo: *mut BLUETOOTH_RADIO_INFO) -> u32;
@@ -94,12 +94,12 @@ extern "system" {
     pub fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: PFN_AUTHENTICATION_CALLBACK, pvparam: *const ::core::ffi::c_void) -> u32;
+    pub fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, phreghandle: *mut isize, pfncallback: PFN_AUTHENTICATION_CALLBACK, pvparam: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: PFN_AUTHENTICATION_CALLBACK_EX, pvparam: *const ::core::ffi::c_void) -> u32;
+    pub fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO_STRUCT, phreghandleout: *mut isize, pfncallbackin: PFN_AUTHENTICATION_CALLBACK_EX, pvparam: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-    pub fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32;
+    pub fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS_STRUCT) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -122,22 +122,22 @@ extern "system" {
     pub fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: ::windows_sys::core::PCWSTR) -> u32;
+    pub fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, pszpasskey: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothSendAuthenticationResponseEx(hradioin: super::super::Foundation::HANDLE, pauthresponse: *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothSetLocalServiceInfo(hradioin: super::super::Foundation::HANDLE, pclassguid: *const ::windows_sys::core::GUID, ulinstance: u32, pserviceinfoin: *const BLUETOOTH_LOCAL_SERVICE_INFO) -> u32;
+    pub fn BluetoothSetLocalServiceInfo(hradioin: super::super::Foundation::HANDLE, pclassguid: *const ::windows_sys::core::GUID, ulinstance: u32, pserviceinfoin: *const BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothSetServiceState(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pguidservice: *const ::windows_sys::core::GUID, dwserviceflags: u32) -> u32;
+    pub fn BluetoothSetServiceState(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT, pguidservice: *const ::windows_sys::core::GUID, dwserviceflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothUnregisterAuthentication(hreghandle: isize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -> u32;
+    pub fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO_STRUCT) -> u32;
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const A2DP_SINK_SUPPORTED_FEATURES_AMPLIFIER: u32 = 8u32;
@@ -1831,23 +1831,23 @@ pub const SDP_TYPE_URL: SDP_TYPE = 8i32;
 pub const SDP_TYPE_CONTAINER: SDP_TYPE = 32i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub struct BLUETOOTH_ADDRESS {
-    pub Anonymous: BLUETOOTH_ADDRESS_0,
+pub struct BLUETOOTH_ADDRESS_STRUCT {
+    pub Anonymous: BLUETOOTH_ADDRESS_STRUCT_0,
 }
-impl ::core::marker::Copy for BLUETOOTH_ADDRESS {}
-impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
+impl ::core::marker::Copy for BLUETOOTH_ADDRESS_STRUCT {}
+impl ::core::clone::Clone for BLUETOOTH_ADDRESS_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub union BLUETOOTH_ADDRESS_0 {
+pub union BLUETOOTH_ADDRESS_STRUCT_0 {
     pub ullLong: u64,
     pub rgBytes: [u8; 6],
 }
-impl ::core::marker::Copy for BLUETOOTH_ADDRESS_0 {}
-impl ::core::clone::Clone for BLUETOOTH_ADDRESS_0 {
+impl ::core::marker::Copy for BLUETOOTH_ADDRESS_STRUCT_0 {}
+impl ::core::clone::Clone for BLUETOOTH_ADDRESS_STRUCT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1855,7 +1855,7 @@ impl ::core::clone::Clone for BLUETOOTH_ADDRESS_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
-    pub bthAddressRemote: BLUETOOTH_ADDRESS,
+    pub bthAddressRemote: BLUETOOTH_ADDRESS_STRUCT,
     pub authMethod: BLUETOOTH_AUTHENTICATION_METHOD,
     pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
     pub negativeResponse: u8,
@@ -1884,7 +1884,7 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    pub deviceInfo: BLUETOOTH_DEVICE_INFO,
+    pub deviceInfo: BLUETOOTH_DEVICE_INFO_STRUCT,
     pub authenticationMethod: BLUETOOTH_AUTHENTICATION_METHOD,
     pub ioCapability: BLUETOOTH_IO_CAPABILITY,
     pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
@@ -1928,9 +1928,9 @@ impl ::core::clone::Clone for BLUETOOTH_COD_PAIRS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct BLUETOOTH_DEVICE_INFO {
+pub struct BLUETOOTH_DEVICE_INFO_STRUCT {
     pub dwSize: u32,
-    pub Address: BLUETOOTH_ADDRESS,
+    pub Address: BLUETOOTH_ADDRESS_STRUCT,
     pub ulClassofDevice: u32,
     pub fConnected: super::super::Foundation::BOOL,
     pub fRemembered: super::super::Foundation::BOOL,
@@ -1940,9 +1940,9 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub szName: [u16; 248],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BLUETOOTH_DEVICE_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_DEVICE_INFO_STRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
+impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2010,16 +2010,16 @@ impl ::core::clone::Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
+pub struct BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT {
     pub Enabled: super::super::Foundation::BOOL,
-    pub btAddr: BLUETOOTH_ADDRESS,
+    pub btAddr: BLUETOOTH_ADDRESS_STRUCT,
     pub szName: [u16; 256],
     pub szDeviceString: [u16; 256],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
+impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2074,7 +2074,7 @@ impl ::core::clone::Clone for BLUETOOTH_PIN_INFO {
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct BLUETOOTH_RADIO_INFO {
     pub dwSize: u32,
-    pub address: BLUETOOTH_ADDRESS,
+    pub address: BLUETOOTH_ADDRESS_STRUCT,
     pub szName: [u16; 248],
     pub ulClassofDevice: u32,
     pub lmpSubversion: u16,
@@ -2104,7 +2104,7 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
     pub pvParam: *mut ::core::ffi::c_void,
     pub cNumDevices: u32,
-    pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
+    pub pDevices: *mut BLUETOOTH_DEVICE_INFO_STRUCT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BLUETOOTH_SELECT_DEVICE_PARAMS {}
@@ -2743,7 +2743,7 @@ impl ::core::clone::Clone for SdpQueryUuidUnion {
 pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_AUTHENTICATION_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(pvparam: *const ::core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL>;
@@ -2752,4 +2752,4 @@ pub type PFN_AUTHENTICATION_CALLBACK_EX = ::core::option::Option<unsafe extern "
 pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DEVICE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_DEVICE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO_STRUCT) -> super::super::Foundation::BOOL>;

@@ -1,32 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCurrentClockTransactionManager<'a, P0>(transactionmanagerhandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
-    }
-    GetCurrentClockTransactionManager(transactionmanagerhandle.into(), ::core::mem::transmute(tmvirtualclock))
-}
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetTransactionManagerId<'a, P0>(transactionmanagerhandle: P0, transactionmanagerid: &mut ::windows::core::GUID) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
-    }
-    GetTransactionManagerId(transactionmanagerhandle.into(), ::core::mem::transmute(transactionmanagerid))
-}
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AddLogContainer<'a, P0, P1>(hlog: P0, pcbcontainer: ::core::option::Option<&u64>, pwszcontainerpath: P1, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1722,6 +1696,19 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn GetCurrentClockTransactionManager<'a, P0>(transactionmanagerhandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
+    }
+    GetCurrentClockTransactionManager(transactionmanagerhandle.into(), ::core::mem::transmute(tmvirtualclock))
+}
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskFreeSpaceA<'a, P0>(lprootpathname: P0, lpsectorspercluster: ::core::option::Option<&mut u32>, lpbytespersector: ::core::option::Option<&mut u32>, lpnumberoffreeclusters: ::core::option::Option<&mut u32>, lptotalnumberofclusters: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2572,6 +2559,19 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn GetTransactionManagerId<'a, P0>(transactionmanagerhandle: P0, transactionmanagerid: &mut ::windows::core::GUID) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
+    }
+    GetTransactionManagerId(transactionmanagerhandle.into(), ::core::mem::transmute(transactionmanagerid))
+}
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumeInformationA<'a, P0>(lprootpathname: P0, lpvolumenamebuffer: ::core::option::Option<&mut [u8]>, lpvolumeserialnumber: ::core::option::Option<&mut u32>, lpmaximumcomponentlength: ::core::option::Option<&mut u32>, lpfilesystemflags: ::core::option::Option<&mut u32>, lpfilesystemnamebuffer: ::core::option::Option<&mut [u8]>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -3412,13 +3412,13 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenFile<'a, P0>(lpfilename: P0, lpreopenbuff: &mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32
+pub unsafe fn OpenFile<'a, P0>(lpfilename: P0, lpreopenbuff: &mut OFSTRUCT, ustyle: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OpenFile(lpfilename: ::windows::core::PCSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32;
+        fn OpenFile(lpfilename: ::windows::core::PCSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: u32) -> i32;
     }
     OpenFile(lpfilename.into(), ::core::mem::transmute(lpreopenbuff), ustyle)
 }
@@ -7998,39 +7998,39 @@ impl ::core::fmt::Debug for LPPROGRESS_ROUTINE_CALLBACK_REASON {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LZOPENFILE_STYLE(pub u32);
+pub struct LZOPENFILE_STYLE(pub u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u32);
+pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u32);
+pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u32);
+pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u32);
+pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u32);
+pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u32);
+pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
+pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u32);
+pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u32);
+pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u32);
+pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u32);
+pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u32);
+pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u32);
+pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u32);
+pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
+pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u32);
+pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u16);
 impl ::core::marker::Copy for LZOPENFILE_STYLE {}
 impl ::core::clone::Clone for LZOPENFILE_STYLE {
     fn clone(&self) -> Self {
@@ -18326,7 +18326,7 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
@@ -18377,7 +18377,7 @@ impl ::core::default::Default for TXF_ID_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
@@ -18408,7 +18408,7 @@ impl ::core::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
@@ -18419,11 +18419,6 @@ impl ::core::marker::Copy for TXF_LOG_RECORD_BASE {}
 impl ::core::clone::Clone for TXF_LOG_RECORD_BASE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for TXF_LOG_RECORD_BASE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TXF_LOG_RECORD_BASE").field("Version", &self.Version).field("RecordType", &self.RecordType).field("RecordLength", &self.RecordLength).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_BASE {

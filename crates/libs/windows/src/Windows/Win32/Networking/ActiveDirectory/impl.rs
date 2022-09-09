@@ -7055,15 +7055,15 @@ impl IDirectorySchemaMgmt_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectorySearch_Impl: Sized {
-    fn SetSearchPreference(&self, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()>;
+    fn SetSearchPreference(&self, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> ::windows::core::Result<()>;
     fn ExecuteSearch(&self, pszsearchfilter: &::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<ADS_SEARCH_HANDLE>;
     fn AbandonSearch(&self, phsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::Result<()>;
     fn GetFirstRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
     fn GetNextRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
     fn GetPreviousRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
     fn GetNextColumnName(&self, hsearchhandle: ADS_SEARCH_HANDLE, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    fn GetColumn(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: &::windows::core::PCWSTR) -> ::windows::core::Result<ads_search_column>;
-    fn FreeColumn(&self, psearchcolumn: *const ads_search_column) -> ::windows::core::Result<()>;
+    fn GetColumn(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: &::windows::core::PCWSTR) -> ::windows::core::Result<ADS_SEARCH_COLUMN>;
+    fn FreeColumn(&self, psearchcolumn: *const ADS_SEARCH_COLUMN) -> ::windows::core::Result<()>;
     fn CloseSearchHandle(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7071,7 +7071,7 @@ impl ::windows::core::RuntimeName for IDirectorySearch {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectorySearch_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>() -> IDirectorySearch_Vtbl {
-        unsafe extern "system" fn SetSearchPreference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSearchPreference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSearchPreference(::core::mem::transmute_copy(&psearchprefs), ::core::mem::transmute_copy(&dwnumprefs)).into()
@@ -7112,7 +7112,7 @@ impl IDirectorySearch_Vtbl {
             let this = (*this).get_impl();
             this.GetNextColumnName(::core::mem::transmute_copy(&hsearchhandle), ::core::mem::transmute_copy(&ppszcolumnname))
         }
-        unsafe extern "system" fn GetColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ads_search_column) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetColumn(::core::mem::transmute_copy(&hsearchresult), ::core::mem::transmute(&szcolumnname)) {
@@ -7123,7 +7123,7 @@ impl IDirectorySearch_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FreeColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psearchcolumn: *const ads_search_column) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FreeColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psearchcolumn: *const ADS_SEARCH_COLUMN) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FreeColumn(::core::mem::transmute_copy(&psearchcolumn)).into()
@@ -7409,7 +7409,7 @@ pub trait IDsDisplaySpecifier_Impl: Sized {
     fn IsClassContainer(&self, pszobjectclass: &::windows::core::PCWSTR, pszadspath: &::windows::core::PCWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
     fn GetClassCreationInfo(&self, pszobjectclass: &::windows::core::PCWSTR, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> ::windows::core::Result<()>;
     fn EnumClassAttributes(&self, pszobjectclass: &::windows::core::PCWSTR, pcbenum: &LPDSENUMATTRIBUTES, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn GetAttributeADsType(&self, pszattributename: &::windows::core::PCWSTR) -> ADSTYPEENUM;
+    fn GetAttributeADsType(&self, pszattributename: &::windows::core::PCWSTR) -> ADSTYPE;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IDsDisplaySpecifier {}
@@ -7466,7 +7466,7 @@ impl IDsDisplaySpecifier_Vtbl {
             let this = (*this).get_impl();
             this.EnumClassAttributes(::core::mem::transmute(&pszobjectclass), ::core::mem::transmute(&pcbenum), ::core::mem::transmute_copy(&lparam)).into()
         }
-        unsafe extern "system" fn GetAttributeADsType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDsDisplaySpecifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszattributename: ::windows::core::PCWSTR) -> ADSTYPEENUM {
+        unsafe extern "system" fn GetAttributeADsType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDsDisplaySpecifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszattributename: ::windows::core::PCWSTR) -> ADSTYPE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetAttributeADsType(::core::mem::transmute(&pszattributename))

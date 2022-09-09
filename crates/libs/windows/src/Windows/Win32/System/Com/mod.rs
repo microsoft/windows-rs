@@ -7541,7 +7541,7 @@ impl IStream {
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Revert)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: LOCKTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
@@ -7549,7 +7549,7 @@ impl IStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Stat(&self, pstatstg: &mut STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: &mut STATSTG, grfstatflag: STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IStream> {
@@ -7616,10 +7616,10 @@ pub struct IStream_Vtbl {
     pub CopyTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfcommitflags: STGC) -> ::windows::core::HRESULT,
     pub Revert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub LockRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::HRESULT,
+    pub LockRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: LOCKTYPE) -> ::windows::core::HRESULT,
     pub UnlockRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Stat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: u32) -> ::windows::core::HRESULT,
+    pub Stat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: STATFLAG) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Stat: usize,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9579,6 +9579,81 @@ pub const STG_TOEND: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADVANCED_FEATURE_FLAGS(pub u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_AUTO: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_STATIC: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_EMBEDDED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_FIXEDSIZE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(16u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_RECORD: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(32u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_HAVEIID: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(64u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_HAVEVARTYPE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(128u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_BSTR: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(256u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(512u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_DISPATCH: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1024u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_VARIANT: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2048u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_RESERVED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(61448u16);
+impl ::core::marker::Copy for ADVANCED_FEATURE_FLAGS {}
+impl ::core::clone::Clone for ADVANCED_FEATURE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADVANCED_FEATURE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADVANCED_FEATURE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADVANCED_FEATURE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADVANCED_FEATURE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ADVANCED_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ADVANCED_FEATURE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ADVANCED_FEATURE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ADVANCED_FEATURE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ADVANCED_FEATURE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADVF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ADVF_NODATA: ADVF = ADVF(1i32);
@@ -10637,6 +10712,35 @@ impl ::core::fmt::Debug for INVOKEKIND {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LOCKTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
+impl ::core::marker::Copy for LOCKTYPE {}
+impl ::core::clone::Clone for LOCKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LOCKTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LOCKTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCKTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCKTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEMCTX(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
@@ -10670,32 +10774,32 @@ impl ::core::fmt::Debug for MEMCTX {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MKREDUCE(pub i32);
+pub struct MKRREDUCE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_ONE: MKREDUCE = MKREDUCE(196608i32);
+pub const MKRREDUCE_ONE: MKRREDUCE = MKRREDUCE(196608i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_TOUSER: MKREDUCE = MKREDUCE(131072i32);
+pub const MKRREDUCE_TOUSER: MKRREDUCE = MKRREDUCE(131072i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_THROUGHUSER: MKREDUCE = MKREDUCE(65536i32);
+pub const MKRREDUCE_THROUGHUSER: MKRREDUCE = MKRREDUCE(65536i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_ALL: MKREDUCE = MKREDUCE(0i32);
-impl ::core::marker::Copy for MKREDUCE {}
-impl ::core::clone::Clone for MKREDUCE {
+pub const MKRREDUCE_ALL: MKRREDUCE = MKRREDUCE(0i32);
+impl ::core::marker::Copy for MKRREDUCE {}
+impl ::core::clone::Clone for MKRREDUCE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for MKREDUCE {
+impl ::core::default::Default for MKRREDUCE {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MKREDUCE {
+unsafe impl ::windows::core::Abi for MKRREDUCE {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for MKREDUCE {
+impl ::core::fmt::Debug for MKRREDUCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MKREDUCE").field(&self.0).finish()
+        f.debug_tuple("MKRREDUCE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -11127,6 +11231,35 @@ impl ::core::fmt::Debug for SERVERCALL {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STATFLAG(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
+impl ::core::marker::Copy for STATFLAG {}
+impl ::core::clone::Clone for STATFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STATFLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STATFLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STATFLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STATFLAG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGC(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STGC_DEFAULT: STGC = STGC(0u32);
@@ -11180,6 +11313,93 @@ impl ::core::ops::BitAndAssign for STGC {
     }
 }
 impl ::core::ops::Not for STGC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STGM(pub u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DIRECT: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_TRANSACTED: STGM = STGM(65536u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SIMPLE: STGM = STGM(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_READ: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_WRITE: STGM = STGM(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_READWRITE: STGM = STGM(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_PRIORITY: STGM = STGM(262144u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_CREATE: STGM = STGM(4096u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_CONVERT: STGM = STGM(131072u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
+impl ::core::marker::Copy for STGM {}
+impl ::core::clone::Clone for STGM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STGM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STGM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGM").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STGM {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STGM {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STGM {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STGM {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STGM {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -11728,6 +11948,55 @@ unsafe impl ::windows::core::Abi for VARENUM {
 impl ::core::fmt::Debug for VARENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VARENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VARFLAGS(pub u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FSOURCE: VARFLAGS = VARFLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FBINDABLE: VARFLAGS = VARFLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREQUESTEDIT: VARFLAGS = VARFLAGS(8u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDISPLAYBIND: VARFLAGS = VARFLAGS(16u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDEFAULTBIND: VARFLAGS = VARFLAGS(32u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FHIDDEN: VARFLAGS = VARFLAGS(64u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FRESTRICTED: VARFLAGS = VARFLAGS(128u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = VARFLAGS(256u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096u16);
+impl ::core::marker::Copy for VARFLAGS {}
+impl ::core::clone::Clone for VARFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VARFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VARFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VARFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VARFLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12612,6 +12881,37 @@ impl ::core::default::Default for DWORD_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct DWORD_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u32,
+}
+impl ::core::marker::Copy for DWORD_SIZEDARR {}
+impl ::core::clone::Clone for DWORD_SIZEDARR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DWORD_SIZEDARR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWORD_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DWORD_SIZEDARR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DWORD_SIZEDARR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWORD_SIZEDARR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DWORD_SIZEDARR {}
+impl ::core::default::Default for DWORD_SIZEDARR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct ELEMDESC {
@@ -13063,37 +13363,6 @@ impl ::core::default::Default for INTERFACEINFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct LONG_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u32,
-}
-impl ::core::marker::Copy for LONG_SIZEDARR {}
-impl ::core::clone::Clone for LONG_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LONG_SIZEDARR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LONG_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LONG_SIZEDARR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LONG_SIZEDARR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LONG_SIZEDARR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LONG_SIZEDARR {}
-impl ::core::default::Default for LONG_SIZEDARR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct MULTI_QI {
     pub pIID: *const ::windows::core::GUID,
     pub pItf: ::core::option::Option<::windows::core::IUnknown>,
@@ -13226,7 +13495,7 @@ impl ::core::default::Default for RPCOLEMESSAGE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct RemSTGMEDIUM {
-    pub tymed: u32,
+    pub tymed: TYMED,
     pub dwHandleType: u32,
     pub pData: u32,
     pub pUnkForRelease: u32,
@@ -13262,7 +13531,7 @@ impl ::core::default::Default for RemSTGMEDIUM {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct SAFEARRAY {
     pub cDims: u16,
-    pub fFeatures: u16,
+    pub fFeatures: ADVANCED_FEATURE_FLAGS,
     pub cbElements: u32,
     pub cLocks: u32,
     pub pvData: *mut ::core::ffi::c_void,
@@ -13355,37 +13624,6 @@ impl ::core::cmp::PartialEq for SChannelHookCallInfo {
 }
 impl ::core::cmp::Eq for SChannelHookCallInfo {}
 impl ::core::default::Default for SChannelHookCallInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SHORT_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u16,
-}
-impl ::core::marker::Copy for SHORT_SIZEDARR {}
-impl ::core::clone::Clone for SHORT_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SHORT_SIZEDARR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SHORT_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SHORT_SIZEDARR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SHORT_SIZEDARR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHORT_SIZEDARR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SHORT_SIZEDARR {}
-impl ::core::default::Default for SHORT_SIZEDARR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -13528,8 +13766,8 @@ pub struct STATSTG {
     pub mtime: super::super::Foundation::FILETIME,
     pub ctime: super::super::Foundation::FILETIME,
     pub atime: super::super::Foundation::FILETIME,
-    pub grfMode: u32,
-    pub grfLocksSupported: u32,
+    pub grfMode: STGM,
+    pub grfLocksSupported: LOCKTYPE,
     pub clsid: ::windows::core::GUID,
     pub grfStateBits: u32,
     pub reserved: u32,
@@ -13570,7 +13808,7 @@ impl ::core::default::Default for STATSTG {
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STGMEDIUM {
-    pub tymed: u32,
+    pub tymed: TYMED,
     pub Anonymous: STGMEDIUM_0,
     pub pUnkForRelease: ::core::option::Option<::windows::core::IUnknown>,
 }
@@ -13826,7 +14064,7 @@ pub struct VARDESC {
     pub lpstrSchema: ::windows::core::PWSTR,
     pub Anonymous: VARDESC_0,
     pub elemdescVar: ELEMDESC,
-    pub wVarFlags: u16,
+    pub wVarFlags: VARFLAGS,
     pub varkind: VARKIND,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -14122,6 +14360,37 @@ impl ::core::cmp::PartialEq for WORD_BLOB {
 }
 impl ::core::cmp::Eq for WORD_BLOB {}
 impl ::core::default::Default for WORD_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct WORD_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u16,
+}
+impl ::core::marker::Copy for WORD_SIZEDARR {}
+impl ::core::clone::Clone for WORD_SIZEDARR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WORD_SIZEDARR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WORD_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WORD_SIZEDARR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WORD_SIZEDARR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WORD_SIZEDARR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WORD_SIZEDARR {}
+impl ::core::default::Default for WORD_SIZEDARR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

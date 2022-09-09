@@ -497,23 +497,6 @@ impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
-pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
-    pub MaxIops: i64,
-    pub MaxBandwidth: i64,
-    pub ReservationIops: i64,
-    pub VolumeName: ::windows_sys::core::PWSTR,
-    pub BaseIoSize: u32,
-    pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
-    pub VolumeNameLength: u16,
-}
-impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {}
-impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,

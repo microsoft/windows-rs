@@ -2718,6 +2718,36 @@ impl ::core::default::Default for WINHTTP_PROXY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub struct WINHTTP_PROXY_NETWORKING_KEY {
+    pub pbBuffer: [u8; 128],
+}
+impl ::core::marker::Copy for WINHTTP_PROXY_NETWORKING_KEY {}
+impl ::core::clone::Clone for WINHTTP_PROXY_NETWORKING_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WINHTTP_PROXY_NETWORKING_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WINHTTP_PROXY_NETWORKING_KEY").field("pbBuffer", &self.pbBuffer).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for WINHTTP_PROXY_NETWORKING_KEY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINHTTP_PROXY_NETWORKING_KEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_PROXY_NETWORKING_KEY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINHTTP_PROXY_NETWORKING_KEY {}
+impl ::core::default::Default for WINHTTP_PROXY_NETWORKING_KEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT {
@@ -2858,7 +2888,7 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub dwDetectedInterfaceIpCount: u32,
     pub pdwDetectedInterfaceIp: *mut u32,
     pub cNetworkKeys: u32,
-    pub pNetworkKeys: *mut _WinHttpProxyNetworkKey,
+    pub pNetworkKeys: *mut WINHTTP_PROXY_NETWORKING_KEY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINHTTP_PROXY_SETTINGS {}
@@ -3208,36 +3238,6 @@ impl ::core::cmp::PartialEq for WINHTTP_WEB_SOCKET_STATUS {
 }
 impl ::core::cmp::Eq for WINHTTP_WEB_SOCKET_STATUS {}
 impl ::core::default::Default for WINHTTP_WEB_SOCKET_STATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub struct _WinHttpProxyNetworkKey {
-    pub pbBuffer: [u8; 128],
-}
-impl ::core::marker::Copy for _WinHttpProxyNetworkKey {}
-impl ::core::clone::Clone for _WinHttpProxyNetworkKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _WinHttpProxyNetworkKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_WinHttpProxyNetworkKey").field("pbBuffer", &self.pbBuffer).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _WinHttpProxyNetworkKey {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _WinHttpProxyNetworkKey {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_WinHttpProxyNetworkKey>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _WinHttpProxyNetworkKey {}
-impl ::core::default::Default for _WinHttpProxyNetworkKey {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

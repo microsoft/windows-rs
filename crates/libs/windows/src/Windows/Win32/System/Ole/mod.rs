@@ -293,7 +293,7 @@ pub unsafe fn HRGN_UserSize64(param0: &u32, param1: u32, param2: &super::super::
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn HRGN_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
+pub unsafe fn HRGN_UserUnmarshal(param0: &u32, param1: &u8, param2: &mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8;
@@ -303,7 +303,7 @@ pub unsafe fn HRGN_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut s
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn HRGN_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
+pub unsafe fn HRGN_UserUnmarshal64(param0: &u32, param1: &u8, param2: &mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8;
@@ -638,13 +638,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn OleCreateMenuDescriptor<'a, P0>(hmenucombined: P0, lpmenuwidths: &OleMenuGroupWidths) -> isize
+pub unsafe fn OleCreateMenuDescriptor<'a, P0>(hmenucombined: P0, lpmenuwidths: &OLEMENUGROUPWIDTHS) -> isize
 where
     P0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HMENU>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleCreateMenuDescriptor(hmenucombined: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *const OleMenuGroupWidths) -> isize;
+        fn OleCreateMenuDescriptor(hmenucombined: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *const OLEMENUGROUPWIDTHS) -> isize;
     }
     OleCreateMenuDescriptor(hmenucombined.into(), ::core::mem::transmute(lpmenuwidths))
 }
@@ -1066,10 +1066,10 @@ pub unsafe fn OleRegGetMiscStatus(clsid: &::windows::core::GUID, dwaspect: u32) 
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
-pub unsafe fn OleRegGetUserType(clsid: &::windows::core::GUID, dwformoftype: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn OleRegGetUserType(clsid: &::windows::core::GUID, dwformoftype: USERCLASSTYPE) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: u32, pszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: USERCLASSTYPE, pszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     OleRegGetUserType(::core::mem::transmute(clsid), dwformoftype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -1183,13 +1183,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn OleTranslateAccelerator<'a, P0>(lpframe: P0, lpframeinfo: &OIFI, lpmsg: &super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()>
+pub unsafe fn OleTranslateAccelerator<'a, P0>(lpframe: P0, lpframeinfo: &OLEINPLACEFRAMEINFO, lpmsg: &super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IOleInPlaceFrame>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleTranslateAccelerator(lpframe: *mut ::core::ffi::c_void, lpframeinfo: *const OIFI, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT;
+        fn OleTranslateAccelerator(lpframe: *mut ::core::ffi::c_void, lpframeinfo: *const OLEINPLACEFRAMEINFO, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT;
     }
     OleTranslateAccelerator(lpframe.into().abi(), ::core::mem::transmute(lpframeinfo), ::core::mem::transmute(lpmsg)).ok()
 }
@@ -1768,13 +1768,13 @@ pub unsafe fn SafeArrayGetUBound(psa: &super::Com::SAFEARRAY, ndim: u32) -> ::wi
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayGetVartype(psa: &super::Com::SAFEARRAY) -> ::windows::core::Result<u16> {
+pub unsafe fn SafeArrayGetVartype(psa: &super::Com::SAFEARRAY) -> ::windows::core::Result<super::Com::VARENUM> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY, pvt: *mut u16) -> ::windows::core::HRESULT;
+        fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY, pvt: *mut super::Com::VARENUM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayGetVartype(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    SafeArrayGetVartype(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARENUM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6426,7 +6426,7 @@ impl IDropSource {
     {
         (::windows::core::Interface::vtable(self).QueryContinueDrag)(::windows::core::Interface::as_raw(self), fescapepressed.into(), grfkeystate).ok()
     }
-    pub unsafe fn GiveFeedback(&self, dweffect: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GiveFeedback(&self, dweffect: DROPEFFECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GiveFeedback)(::windows::core::Interface::as_raw(self), dweffect).ok()
     }
 }
@@ -6473,7 +6473,7 @@ pub struct IDropSource_Vtbl {
     pub QueryContinueDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))]
     QueryContinueDrag: usize,
-    pub GiveFeedback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffect: u32) -> ::windows::core::HRESULT,
+    pub GiveFeedback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffect: DROPEFFECT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -6542,7 +6542,7 @@ pub struct IDropTarget(::windows::core::IUnknown);
 impl IDropTarget {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn DragEnter<'a, P0>(&self, pdataobj: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn DragEnter<'a, P0>(&self, pdataobj: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut DROPEFFECT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
@@ -6550,7 +6550,7 @@ impl IDropTarget {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn DragOver(&self, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DragOver(&self, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut DROPEFFECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DragOver)(::windows::core::Interface::as_raw(self), grfkeystate, ::core::mem::transmute(pt), ::core::mem::transmute(pdweffect)).ok()
     }
     pub unsafe fn DragLeave(&self) -> ::windows::core::Result<()> {
@@ -6558,7 +6558,7 @@ impl IDropTarget {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn Drop<'a, P0>(&self, pdataobj: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn Drop<'a, P0>(&self, pdataobj: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: &mut DROPEFFECT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
@@ -6605,16 +6605,16 @@ unsafe impl ::windows::core::Interface for IDropTarget {
 pub struct IDropTarget_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
     DragEnter: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-    pub DragOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    pub DragOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))]
     DragOver: usize,
     pub DragLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub Drop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT,
+    pub Drop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
     Drop: usize,
 }
@@ -6684,6 +6684,8 @@ pub struct IEnterpriseDropTarget_Vtbl {
 #[repr(transparent)]
 pub struct IEnumOLEVERB(::windows::core::IUnknown);
 impl IEnumOLEVERB {
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn Next(&self, rgelt: &mut [OLEVERB], pceltfetched: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
@@ -6737,7 +6739,10 @@ unsafe impl ::windows::core::Interface for IEnumOLEVERB {
 #[doc(hidden)]
 pub struct IEnumOLEVERB_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
+    Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7902,7 +7907,7 @@ impl IOleClientSite {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> ::windows::core::Result<super::Com::IMoniker> {
+    pub unsafe fn GetMoniker(&self, dwassign: OLEGETMONIKER, dwwhichmoniker: OLEWHICHMK) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMoniker)(::windows::core::Interface::as_raw(self), dwassign, dwwhichmoniker, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IMoniker>(result__)
     }
@@ -7966,7 +7971,7 @@ pub struct IOleClientSite_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub SaveObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: u32, dwwhichmoniker: u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: OLEGETMONIKER, dwwhichmoniker: OLEWHICHMK, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetMoniker: usize,
     pub GetContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontainer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8050,7 +8055,7 @@ impl IOleContainer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumObjects(&self, grfflags: u32) -> ::windows::core::Result<super::Com::IEnumUnknown> {
+    pub unsafe fn EnumObjects(&self, grfflags: OLECONTF) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumObjects)(::windows::core::Interface::as_raw(self), grfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumUnknown>(result__)
     }
@@ -8118,7 +8123,7 @@ unsafe impl ::windows::core::Interface for IOleContainer {
 pub struct IOleContainer_Vtbl {
     pub base__: IParseDisplayName_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: OLECONTF, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumObjects: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -8233,7 +8238,7 @@ impl IOleControlSite {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TranslateAccelerator(&self, pmsg: &super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn TranslateAccelerator(&self, pmsg: &super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: KEYMODIFIERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TranslateAccelerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmsg), grfmodifiers).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8301,7 +8306,7 @@ pub struct IOleControlSite_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     TransformCoords: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows::core::HRESULT,
+    pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsg: *const super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: KEYMODIFIERS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     TranslateAccelerator: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -8759,7 +8764,7 @@ impl IOleInPlaceFrame {
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn InsertMenus<'a, P0>(&self, hmenushared: P0, lpmenuwidths: &mut OleMenuGroupWidths) -> ::windows::core::Result<()>
+    pub unsafe fn InsertMenus<'a, P0>(&self, hmenushared: P0, lpmenuwidths: &mut OLEMENUGROUPWIDTHS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HMENU>,
     {
@@ -8872,7 +8877,7 @@ unsafe impl ::windows::core::Interface for IOleInPlaceFrame {
 pub struct IOleInPlaceFrame_Vtbl {
     pub base__: IOleInPlaceUIWindow_Vtbl,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub InsertMenus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OleMenuGroupWidths) -> ::windows::core::HRESULT,
+    pub InsertMenus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OLEMENUGROUPWIDTHS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     InsertMenus: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -9139,7 +9144,7 @@ impl IOleInPlaceSite {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetWindowContext(&self, ppframe: &mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: &mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: &mut super::super::Foundation::RECT, lprccliprect: &mut super::super::Foundation::RECT, lpframeinfo: &mut OIFI) -> ::windows::core::Result<()> {
+    pub unsafe fn GetWindowContext(&self, ppframe: &mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: &mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: &mut super::super::Foundation::RECT, lprccliprect: &mut super::super::Foundation::RECT, lpframeinfo: &mut OLEINPLACEFRAMEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWindowContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9228,7 +9233,7 @@ pub struct IOleInPlaceSite_Vtbl {
     pub OnInPlaceActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnUIActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub GetWindowContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut *mut ::core::ffi::c_void, ppdoc: *mut *mut ::core::ffi::c_void, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::HRESULT,
+    pub GetWindowContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut *mut ::core::ffi::c_void, ppdoc: *mut *mut ::core::ffi::c_void, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OLEINPLACEFRAMEINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     GetWindowContext: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -9276,7 +9281,7 @@ impl IOleInPlaceSiteEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetWindowContext(&self, ppframe: &mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: &mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: &mut super::super::Foundation::RECT, lprccliprect: &mut super::super::Foundation::RECT, lpframeinfo: &mut OIFI) -> ::windows::core::Result<()> {
+    pub unsafe fn GetWindowContext(&self, ppframe: &mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: &mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: &mut super::super::Foundation::RECT, lprccliprect: &mut super::super::Foundation::RECT, lpframeinfo: &mut OLEINPLACEFRAMEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetWindowContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9431,7 +9436,7 @@ impl IOleInPlaceSiteWindowless {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetWindowContext(&self, ppframe: &mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: &mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: &mut super::super::Foundation::RECT, lprccliprect: &mut super::super::Foundation::RECT, lpframeinfo: &mut OIFI) -> ::windows::core::Result<()> {
+    pub unsafe fn GetWindowContext(&self, ppframe: &mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: &mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: &mut super::super::Foundation::RECT, lprccliprect: &mut super::super::Foundation::RECT, lpframeinfo: &mut OLEINPLACEFRAMEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetWindowContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppframe), ::core::mem::transmute(ppdoc), ::core::mem::transmute(lprcposrect), ::core::mem::transmute(lprccliprect), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9803,7 +9808,7 @@ impl IOleItemContainer {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumObjects(&self, grfflags: u32) -> ::windows::core::Result<super::Com::IEnumUnknown> {
+    pub unsafe fn EnumObjects(&self, grfflags: OLECONTF) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumObjects)(::windows::core::Interface::as_raw(self), grfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumUnknown>(result__)
     }
@@ -10069,12 +10074,12 @@ impl IOleObject {
     {
         (::windows::core::Interface::vtable(self).SetHostNames)(::windows::core::Interface::as_raw(self), szcontainerapp.into(), szcontainerobj.into()).ok()
     }
-    pub unsafe fn Close(&self, dwsaveoption: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Close(&self, dwsaveoption: OLECLOSE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self), dwsaveoption).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMoniker<'a, P0>(&self, dwwhichmoniker: u32, pmk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMoniker<'a, P0>(&self, dwwhichmoniker: OLEWHICHMK, pmk: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IMoniker>>,
     {
@@ -10082,7 +10087,7 @@ impl IOleObject {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> ::windows::core::Result<super::Com::IMoniker> {
+    pub unsafe fn GetMoniker(&self, dwassign: OLEGETMONIKER, dwwhichmoniker: OLEWHICHMK) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMoniker)(::windows::core::Interface::as_raw(self), dwassign, dwwhichmoniker, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IMoniker>(result__)
     }
@@ -10124,7 +10129,7 @@ impl IOleObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUserClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    pub unsafe fn GetUserType(&self, dwformoftype: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
+    pub unsafe fn GetUserType(&self, dwformoftype: USERCLASSTYPE) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUserType)(::windows::core::Interface::as_raw(self), dwformoftype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
@@ -10157,9 +10162,9 @@ impl IOleObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumAdvise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
-    pub unsafe fn GetMiscStatus(&self, dwaspect: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetMiscStatus(&self, dwaspect: u32) -> ::windows::core::Result<OLEMISC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetMiscStatus)(::windows::core::Interface::as_raw(self), dwaspect, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMiscStatus)(::windows::core::Interface::as_raw(self), dwaspect, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLEMISC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -10209,13 +10214,13 @@ pub struct IOleObject_Vtbl {
     pub SetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclientsite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclientsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetHostNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcontainerapp: ::windows::core::PCWSTR, szcontainerobj: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsaveoption: u32) -> ::windows::core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsaveoption: OLECLOSE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwhichmoniker: u32, pmk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwhichmoniker: OLEWHICHMK, pmk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetMoniker: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: u32, dwwhichmoniker: u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: OLEGETMONIKER, dwwhichmoniker: OLEWHICHMK, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetMoniker: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10234,7 +10239,7 @@ pub struct IOleObject_Vtbl {
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsUpToDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetUserClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetUserType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwformoftype: u32, pszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub GetUserType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwformoftype: USERCLASSTYPE, pszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10252,7 +10257,7 @@ pub struct IOleObject_Vtbl {
     pub EnumAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumadvise: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumAdvise: usize,
-    pub GetMiscStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
+    pub GetMiscStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, pdwstatus: *mut OLEMISC) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub SetColorScheme: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogpal: *const super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
@@ -11937,9 +11942,9 @@ pub struct IPictureDisp_Vtbl {
 #[repr(transparent)]
 pub struct IPointerInactive(::windows::core::IUnknown);
 impl IPointerInactive {
-    pub unsafe fn GetActivationPolicy(&self) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetActivationPolicy(&self) -> ::windows::core::Result<POINTERINACTIVE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetActivationPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetActivationPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<POINTERINACTIVE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11994,7 +11999,7 @@ unsafe impl ::windows::core::Interface for IPointerInactive {
 #[doc(hidden)]
 pub struct IPointerInactive_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub GetActivationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpolicy: *mut u32) -> ::windows::core::HRESULT,
+    pub GetActivationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpolicy: *mut POINTERINACTIVE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub OnInactiveMouseMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12960,7 +12965,7 @@ impl IRecordInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn PutField<'a, P0>(&self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: &super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn PutField<'a, P0>(&self, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: &super::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -12968,7 +12973,7 @@ impl IRecordInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn PutFieldNoCopy<'a, P0>(&self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: &super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn PutFieldNoCopy<'a, P0>(&self, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: &super::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -13053,11 +13058,11 @@ pub struct IRecordInfo_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFieldNoCopy: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     PutField: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     PutFieldNoCopy: usize,
     pub GetFieldNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnames: *mut u32, rgbstrnames: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -13822,7 +13827,7 @@ impl IViewObjectEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn GetNaturalExtent<'a, P0>(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: &super::Com::DVTARGETDEVICE, hictargetdev: P0, pextentinfo: &ExtentInfo) -> ::windows::core::Result<super::super::Foundation::SIZE>
+    pub unsafe fn GetNaturalExtent<'a, P0>(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: &super::Com::DVTARGETDEVICE, hictargetdev: P0, pextentinfo: &DVEXTENTINFO) -> ::windows::core::Result<super::super::Foundation::SIZE>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
@@ -13913,7 +13918,7 @@ pub struct IViewObjectEx_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     QueryHitRect: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub GetNaturalExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, pextentinfo: *const ExtentInfo, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
+    pub GetNaturalExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, pextentinfo: *const DVEXTENTINFO, psizel: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
     GetNaturalExtent: usize,
 }
@@ -14311,30 +14316,6 @@ pub const EMBDHLP_DELAYCREATE: i32 = 65536i32;
 pub const EMBDHLP_INPROC_HANDLER: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const EMBDHLP_INPROC_SERVER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_AUTO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_BSTR: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_DISPATCH: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_EMBEDDED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_FIXEDSIZE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_HAVEIID: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_HAVEVARTYPE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_RECORD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_RESERVED: u32 = 61448u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_STATIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_UNKNOWN: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_VARIANT: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GC_WCH_SIBLING: i32 = 1i32;
 pub const GUID_CHECKVALUEEXCLUSIVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6650430c_be0f_101a_8bbb_00aa00300cab);
@@ -15204,31 +15185,6 @@ impl ::core::fmt::Debug for ACTIVATEFLAGS {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AspectInfoFlag(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVASPECTINFOFLAG_CANOPTIMIZE: AspectInfoFlag = AspectInfoFlag(1i32);
-impl ::core::marker::Copy for AspectInfoFlag {}
-impl ::core::clone::Clone for AspectInfoFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AspectInfoFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AspectInfoFlag {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AspectInfoFlag {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AspectInfoFlag").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDSPEED(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const BINDSPEED_INDEFINITE: BINDSPEED = BINDSPEED(1i32);
@@ -15470,6 +15426,58 @@ impl ::core::fmt::Debug for DVASPECT2 {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DVASPECTINFOFLAG(pub i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = DVASPECTINFOFLAG(1i32);
+impl ::core::marker::Copy for DVASPECTINFOFLAG {}
+impl ::core::clone::Clone for DVASPECTINFOFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DVASPECTINFOFLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DVASPECTINFOFLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DVASPECTINFOFLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DVASPECTINFOFLAG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DVEXTENTMODE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVEXTENT_CONTENT: DVEXTENTMODE = DVEXTENTMODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = DVEXTENTMODE(1i32);
+impl ::core::marker::Copy for DVEXTENTMODE {}
+impl ::core::clone::Clone for DVEXTENTMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DVEXTENTMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DVEXTENTMODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DVEXTENTMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DVEXTENTMODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1u32);
@@ -15509,60 +15517,33 @@ impl ::core::fmt::Debug for ENUM_CONTROLS_WHICH_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ExtentMode(pub i32);
+pub struct FUNCFLAGS(pub u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVEXTENT_CONTENT: ExtentMode = ExtentMode(0i32);
+pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVEXTENT_INTEGRAL: ExtentMode = ExtentMode(1i32);
-impl ::core::marker::Copy for ExtentMode {}
-impl ::core::clone::Clone for ExtentMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtentMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ExtentMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ExtentMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtentMode").field(&self.0).finish()
-    }
-}
+pub const FUNCFLAG_FSOURCE: FUNCFLAGS = FUNCFLAGS(2u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FUNCFLAGS(pub i32);
+pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = FUNCFLAGS(4u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1i32);
+pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = FUNCFLAGS(8u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FSOURCE: FUNCFLAGS = FUNCFLAGS(2i32);
+pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = FUNCFLAGS(16u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = FUNCFLAGS(4i32);
+pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = FUNCFLAGS(32u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = FUNCFLAGS(8i32);
+pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = FUNCFLAGS(64u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = FUNCFLAGS(16i32);
+pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = FUNCFLAGS(128u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = FUNCFLAGS(32i32);
+pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = FUNCFLAGS(256u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = FUNCFLAGS(64i32);
+pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = FUNCFLAGS(128i32);
+pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = FUNCFLAGS(256i32);
+pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096i32);
+pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096u16);
 impl ::core::marker::Copy for FUNCFLAGS {}
 impl ::core::clone::Clone for FUNCFLAGS {
     fn clone(&self) -> Self {
@@ -15663,6 +15644,63 @@ unsafe impl ::windows::core::Abi for IGNOREMIME {
 impl ::core::fmt::Debug for IGNOREMIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IGNOREMIME").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KEYMODIFIERS(pub u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_SHIFT: KEYMODIFIERS = KEYMODIFIERS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_CONTROL: KEYMODIFIERS = KEYMODIFIERS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_ALT: KEYMODIFIERS = KEYMODIFIERS(4u32);
+impl ::core::marker::Copy for KEYMODIFIERS {}
+impl ::core::clone::Clone for KEYMODIFIERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KEYMODIFIERS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KEYMODIFIERS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KEYMODIFIERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KEYMODIFIERS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for KEYMODIFIERS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KEYMODIFIERS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KEYMODIFIERS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KEYMODIFIERS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KEYMODIFIERS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -16768,6 +16806,33 @@ impl ::core::fmt::Debug for PAGEACTION_UI {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PICTUREATTRIBUTES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = PICTUREATTRIBUTES(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = PICTUREATTRIBUTES(2i32);
+impl ::core::marker::Copy for PICTUREATTRIBUTES {}
+impl ::core::clone::Clone for PICTUREATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PICTUREATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PICTUREATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PICTUREATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PICTUREATTRIBUTES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTERINACTIVE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = POINTERINACTIVE(1i32);
@@ -16923,33 +16988,6 @@ unsafe impl ::windows::core::Abi for PROPPAGESTATUS {
 impl ::core::fmt::Debug for PROPPAGESTATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROPPAGESTATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PictureAttributes(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTURE_SCALABLE: PictureAttributes = PictureAttributes(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTURE_TRANSPARENT: PictureAttributes = PictureAttributes(2i32);
-impl ::core::marker::Copy for PictureAttributes {}
-impl ::core::clone::Clone for PictureAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PictureAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PictureAttributes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PictureAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PictureAttributes").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -17283,55 +17321,6 @@ impl ::core::fmt::Debug for USERCLASSTYPE {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VARFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FSOURCE: VARFLAGS = VARFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FBINDABLE: VARFLAGS = VARFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FREQUESTEDIT: VARFLAGS = VARFLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FDISPLAYBIND: VARFLAGS = VARFLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FDEFAULTBIND: VARFLAGS = VARFLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FHIDDEN: VARFLAGS = VARFLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FRESTRICTED: VARFLAGS = VARFLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = VARFLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096i32);
-impl ::core::marker::Copy for VARFLAGS {}
-impl ::core::clone::Clone for VARFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VARFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VARFLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VARFLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VARFLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIEWSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = VIEWSTATUS(1i32);
@@ -17454,37 +17443,6 @@ impl ::core::cmp::PartialEq for ARRAYDESC {
 impl ::core::cmp::Eq for ARRAYDESC {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for ARRAYDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct AspectInfo {
-    pub cb: u32,
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for AspectInfo {}
-impl ::core::clone::Clone for AspectInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AspectInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AspectInfo").field("cb", &self.cb).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AspectInfo {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AspectInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AspectInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AspectInfo {}
-impl ::core::default::Default for AspectInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -17655,41 +17613,72 @@ impl ::core::default::Default for CONTROLINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct DVASPECTINFO {
+    pub cb: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for DVASPECTINFO {}
+impl ::core::clone::Clone for DVASPECTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DVASPECTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DVASPECTINFO").field("cb", &self.cb).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DVASPECTINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DVASPECTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVASPECTINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DVASPECTINFO {}
+impl ::core::default::Default for DVASPECTINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct ExtentInfo {
+pub struct DVEXTENTINFO {
     pub cb: u32,
     pub dwExtentMode: u32,
     pub sizelProposed: super::super::Foundation::SIZE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ExtentInfo {}
+impl ::core::marker::Copy for DVEXTENTINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ExtentInfo {
+impl ::core::clone::Clone for DVEXTENTINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ExtentInfo {
+impl ::core::fmt::Debug for DVEXTENTINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ExtentInfo").field("cb", &self.cb).field("dwExtentMode", &self.dwExtentMode).field("sizelProposed", &self.sizelProposed).finish()
+        f.debug_struct("DVEXTENTINFO").field("cb", &self.cb).field("dwExtentMode", &self.dwExtentMode).field("sizelProposed", &self.sizelProposed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ExtentInfo {
+unsafe impl ::windows::core::Abi for DVEXTENTINFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ExtentInfo {
+impl ::core::cmp::PartialEq for DVEXTENTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ExtentInfo>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVEXTENTINFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ExtentInfo {}
+impl ::core::cmp::Eq for DVEXTENTINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ExtentInfo {
+impl ::core::default::Default for DVEXTENTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -17986,52 +17975,10 @@ impl ::core::default::Default for OCPFIPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub struct OIFI {
-    pub cb: u32,
-    pub fMDIApp: super::super::Foundation::BOOL,
-    pub hwndFrame: super::super::Foundation::HWND,
-    pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
-    pub cAccelEntries: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for OIFI {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for OIFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for OIFI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OIFI").field("cb", &self.cb).field("fMDIApp", &self.fMDIApp).field("hwndFrame", &self.hwndFrame).field("haccel", &self.haccel).field("cAccelEntries", &self.cAccelEntries).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for OIFI {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OIFI {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OIFI>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OIFI {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for OIFI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct OLECMD {
-    pub cmdID: u32,
-    pub cmdf: u32,
+    pub cmdID: OLECMDID,
+    pub cmdf: OLECMDF,
 }
 impl ::core::marker::Copy for OLECMD {}
 impl ::core::clone::Clone for OLECMD {
@@ -18087,6 +18034,78 @@ impl ::core::cmp::PartialEq for OLECMDTEXT {
 }
 impl ::core::cmp::Eq for OLECMDTEXT {}
 impl ::core::default::Default for OLECMDTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct OLEINPLACEFRAMEINFO {
+    pub cb: u32,
+    pub fMDIApp: super::super::Foundation::BOOL,
+    pub hwndFrame: super::super::Foundation::HWND,
+    pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
+    pub cAccelEntries: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OLEINPLACEFRAMEINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OLEINPLACEFRAMEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for OLEINPLACEFRAMEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEINPLACEFRAMEINFO").field("cb", &self.cb).field("fMDIApp", &self.fMDIApp).field("hwndFrame", &self.hwndFrame).field("haccel", &self.haccel).field("cAccelEntries", &self.cAccelEntries).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::core::Abi for OLEINPLACEFRAMEINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::PartialEq for OLEINPLACEFRAMEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEINPLACEFRAMEINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::Eq for OLEINPLACEFRAMEINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::default::Default for OLEINPLACEFRAMEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct OLEMENUGROUPWIDTHS {
+    pub width: [i32; 6],
+}
+impl ::core::marker::Copy for OLEMENUGROUPWIDTHS {}
+impl ::core::clone::Clone for OLEMENUGROUPWIDTHS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OLEMENUGROUPWIDTHS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OLEMENUGROUPWIDTHS").field("width", &self.width).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OLEMENUGROUPWIDTHS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OLEMENUGROUPWIDTHS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEMENUGROUPWIDTHS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OLEMENUGROUPWIDTHS {}
+impl ::core::default::Default for OLEMENUGROUPWIDTHS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -19712,64 +19731,42 @@ impl ::core::default::Default for OLEUIVIEWPROPSW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct OLEVERB {
     pub lVerb: i32,
     pub lpszVerbName: ::windows::core::PWSTR,
-    pub fuFlags: u32,
-    pub grfAttribs: u32,
+    pub fuFlags: super::super::UI::WindowsAndMessaging::MENU_ITEM_FLAGS,
+    pub grfAttribs: OLEVERBATTRIB,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for OLEVERB {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for OLEVERB {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::fmt::Debug for OLEVERB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OLEVERB").field("lVerb", &self.lVerb).field("lpszVerbName", &self.lpszVerbName).field("fuFlags", &self.fuFlags).field("grfAttribs", &self.grfAttribs).finish()
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::core::Abi for OLEVERB {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::PartialEq for OLEVERB {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEVERB>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::Eq for OLEVERB {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for OLEVERB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct OleMenuGroupWidths {
-    pub width: [i32; 6],
-}
-impl ::core::marker::Copy for OleMenuGroupWidths {}
-impl ::core::clone::Clone for OleMenuGroupWidths {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OleMenuGroupWidths {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OleMenuGroupWidths").field("width", &self.width).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OleMenuGroupWidths {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OleMenuGroupWidths {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OleMenuGroupWidths>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OleMenuGroupWidths {}
-impl ::core::default::Default for OleMenuGroupWidths {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -20263,7 +20260,7 @@ pub struct QACONTAINER {
     pub pAdviseSink: ::core::option::Option<IAdviseSinkEx>,
     pub pPropertyNotifySink: ::core::option::Option<IPropertyNotifySink>,
     pub pUnkEventSink: ::core::option::Option<::windows::core::IUnknown>,
-    pub dwAmbientFlags: u32,
+    pub dwAmbientFlags: QACONTAINERFLAGS,
     pub colorFore: u32,
     pub colorBack: u32,
     pub pFont: ::core::option::Option<IFont>,
@@ -20343,11 +20340,11 @@ impl ::core::default::Default for QACONTAINER {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct QACONTROL {
     pub cbSize: u32,
-    pub dwMiscStatus: u32,
-    pub dwViewStatus: u32,
+    pub dwMiscStatus: OLEMISC,
+    pub dwViewStatus: VIEWSTATUS,
     pub dwEventCookie: u32,
     pub dwPropNotifyCookie: u32,
-    pub dwPointerActivationPolicy: u32,
+    pub dwPointerActivationPolicy: POINTERINACTIVE,
 }
 impl ::core::marker::Copy for QACONTROL {}
 impl ::core::clone::Clone for QACONTROL {
@@ -20370,6 +20367,291 @@ impl ::core::cmp::PartialEq for QACONTROL {
 }
 impl ::core::cmp::Eq for QACONTROL {}
 impl ::core::default::Default for QACONTROL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SAFEARRAYUNION {
+    pub sfType: u32,
+    pub u: SAFEARRAYUNION_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SAFEARRAYUNION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SAFEARRAYUNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+unsafe impl ::windows::core::Abi for SAFEARRAYUNION {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::PartialEq for SAFEARRAYUNION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAYUNION>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::Eq for SAFEARRAYUNION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::default::Default for SAFEARRAYUNION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub union SAFEARRAYUNION_0 {
+    pub BstrStr: SAFEARR_BSTR,
+    pub UnknownStr: SAFEARR_UNKNOWN,
+    pub DispatchStr: SAFEARR_DISPATCH,
+    pub VariantStr: SAFEARR_VARIANT,
+    pub RecordStr: SAFEARR_BRECORD,
+    pub HaveIidStr: SAFEARR_HAVEIID,
+    pub ByteStr: super::Com::BYTE_SIZEDARR,
+    pub WordStr: super::Com::WORD_SIZEDARR,
+    pub LongStr: super::Com::DWORD_SIZEDARR,
+    pub HyperStr: super::Com::HYPER_SIZEDARR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SAFEARRAYUNION_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SAFEARRAYUNION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+unsafe impl ::windows::core::Abi for SAFEARRAYUNION_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::PartialEq for SAFEARRAYUNION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAYUNION_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::Eq for SAFEARRAYUNION_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::default::Default for SAFEARRAYUNION_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct SAFEARR_BRECORD {
+    pub Size: u32,
+    pub aRecord: *mut *mut _wireBRECORD,
+}
+impl ::core::marker::Copy for SAFEARR_BRECORD {}
+impl ::core::clone::Clone for SAFEARR_BRECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SAFEARR_BRECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARR_BRECORD").field("Size", &self.Size).field("aRecord", &self.aRecord).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SAFEARR_BRECORD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SAFEARR_BRECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_BRECORD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SAFEARR_BRECORD {}
+impl ::core::default::Default for SAFEARR_BRECORD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub struct SAFEARR_BSTR {
+    pub Size: u32,
+    pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for SAFEARR_BSTR {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for SAFEARR_BSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for SAFEARR_BSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARR_BSTR").field("Size", &self.Size).field("aBstr", &self.aBstr).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for SAFEARR_BSTR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for SAFEARR_BSTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_BSTR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for SAFEARR_BSTR {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::default::Default for SAFEARR_BSTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub struct SAFEARR_DISPATCH {
+    pub Size: u32,
+    pub apDispatch: *mut ::core::option::Option<super::Com::IDispatch>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for SAFEARR_DISPATCH {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for SAFEARR_DISPATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for SAFEARR_DISPATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARR_DISPATCH").field("Size", &self.Size).field("apDispatch", &self.apDispatch).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for SAFEARR_DISPATCH {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for SAFEARR_DISPATCH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_DISPATCH>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for SAFEARR_DISPATCH {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::default::Default for SAFEARR_DISPATCH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct SAFEARR_HAVEIID {
+    pub Size: u32,
+    pub apUnknown: *mut ::core::option::Option<::windows::core::IUnknown>,
+    pub iid: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for SAFEARR_HAVEIID {}
+impl ::core::clone::Clone for SAFEARR_HAVEIID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SAFEARR_HAVEIID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARR_HAVEIID").field("Size", &self.Size).field("apUnknown", &self.apUnknown).field("iid", &self.iid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SAFEARR_HAVEIID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SAFEARR_HAVEIID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_HAVEIID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SAFEARR_HAVEIID {}
+impl ::core::default::Default for SAFEARR_HAVEIID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct SAFEARR_UNKNOWN {
+    pub Size: u32,
+    pub apUnknown: *mut ::core::option::Option<::windows::core::IUnknown>,
+}
+impl ::core::marker::Copy for SAFEARR_UNKNOWN {}
+impl ::core::clone::Clone for SAFEARR_UNKNOWN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SAFEARR_UNKNOWN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARR_UNKNOWN").field("Size", &self.Size).field("apUnknown", &self.apUnknown).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SAFEARR_UNKNOWN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SAFEARR_UNKNOWN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_UNKNOWN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SAFEARR_UNKNOWN {}
+impl ::core::default::Default for SAFEARR_UNKNOWN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SAFEARR_VARIANT {
+    pub Size: u32,
+    pub aVariant: *mut *mut _wireVARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SAFEARR_VARIANT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SAFEARR_VARIANT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::fmt::Debug for SAFEARR_VARIANT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARR_VARIANT").field("Size", &self.Size).field("aVariant", &self.aVariant).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+unsafe impl ::windows::core::Abi for SAFEARR_VARIANT {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::PartialEq for SAFEARR_VARIANT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_VARIANT>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::cmp::Eq for SAFEARR_VARIANT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::default::Default for SAFEARR_VARIANT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -20453,7 +20735,7 @@ pub struct _wireSAFEARRAY {
     pub fFeatures: u16,
     pub cbElements: u32,
     pub cLocks: u32,
-    pub uArrayStructs: _wireSAFEARRAY_UNION,
+    pub uArrayStructs: SAFEARRAYUNION,
     pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -20478,291 +20760,6 @@ impl ::core::cmp::PartialEq for _wireSAFEARRAY {
 impl ::core::cmp::Eq for _wireSAFEARRAY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for _wireSAFEARRAY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub struct _wireSAFEARRAY_UNION {
-    pub sfType: u32,
-    pub u: _wireSAFEARRAY_UNION_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _wireSAFEARRAY_UNION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _wireSAFEARRAY_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for _wireSAFEARRAY_UNION {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for _wireSAFEARRAY_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARRAY_UNION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for _wireSAFEARRAY_UNION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::default::Default for _wireSAFEARRAY_UNION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub union _wireSAFEARRAY_UNION_0 {
-    pub BstrStr: _wireSAFEARR_BSTR,
-    pub UnknownStr: _wireSAFEARR_UNKNOWN,
-    pub DispatchStr: _wireSAFEARR_DISPATCH,
-    pub VariantStr: _wireSAFEARR_VARIANT,
-    pub RecordStr: _wireSAFEARR_BRECORD,
-    pub HaveIidStr: _wireSAFEARR_HAVEIID,
-    pub ByteStr: super::Com::BYTE_SIZEDARR,
-    pub WordStr: super::Com::SHORT_SIZEDARR,
-    pub LongStr: super::Com::LONG_SIZEDARR,
-    pub HyperStr: super::Com::HYPER_SIZEDARR,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _wireSAFEARRAY_UNION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _wireSAFEARRAY_UNION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for _wireSAFEARRAY_UNION_0 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for _wireSAFEARRAY_UNION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARRAY_UNION_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for _wireSAFEARRAY_UNION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::default::Default for _wireSAFEARRAY_UNION_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct _wireSAFEARR_BRECORD {
-    pub Size: u32,
-    pub aRecord: *mut *mut _wireBRECORD,
-}
-impl ::core::marker::Copy for _wireSAFEARR_BRECORD {}
-impl ::core::clone::Clone for _wireSAFEARR_BRECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _wireSAFEARR_BRECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARR_BRECORD").field("Size", &self.Size).field("aRecord", &self.aRecord).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _wireSAFEARR_BRECORD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _wireSAFEARR_BRECORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARR_BRECORD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _wireSAFEARR_BRECORD {}
-impl ::core::default::Default for _wireSAFEARR_BRECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-pub struct _wireSAFEARR_BSTR {
-    pub Size: u32,
-    pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for _wireSAFEARR_BSTR {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _wireSAFEARR_BSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _wireSAFEARR_BSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARR_BSTR").field("Size", &self.Size).field("aBstr", &self.aBstr).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for _wireSAFEARR_BSTR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _wireSAFEARR_BSTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARR_BSTR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _wireSAFEARR_BSTR {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for _wireSAFEARR_BSTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-pub struct _wireSAFEARR_DISPATCH {
-    pub Size: u32,
-    pub apDispatch: *mut ::core::option::Option<super::Com::IDispatch>,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for _wireSAFEARR_DISPATCH {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _wireSAFEARR_DISPATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _wireSAFEARR_DISPATCH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARR_DISPATCH").field("Size", &self.Size).field("apDispatch", &self.apDispatch).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for _wireSAFEARR_DISPATCH {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _wireSAFEARR_DISPATCH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARR_DISPATCH>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _wireSAFEARR_DISPATCH {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for _wireSAFEARR_DISPATCH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct _wireSAFEARR_HAVEIID {
-    pub Size: u32,
-    pub apUnknown: *mut ::core::option::Option<::windows::core::IUnknown>,
-    pub iid: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for _wireSAFEARR_HAVEIID {}
-impl ::core::clone::Clone for _wireSAFEARR_HAVEIID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _wireSAFEARR_HAVEIID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARR_HAVEIID").field("Size", &self.Size).field("apUnknown", &self.apUnknown).field("iid", &self.iid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _wireSAFEARR_HAVEIID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _wireSAFEARR_HAVEIID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARR_HAVEIID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _wireSAFEARR_HAVEIID {}
-impl ::core::default::Default for _wireSAFEARR_HAVEIID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct _wireSAFEARR_UNKNOWN {
-    pub Size: u32,
-    pub apUnknown: *mut ::core::option::Option<::windows::core::IUnknown>,
-}
-impl ::core::marker::Copy for _wireSAFEARR_UNKNOWN {}
-impl ::core::clone::Clone for _wireSAFEARR_UNKNOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _wireSAFEARR_UNKNOWN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARR_UNKNOWN").field("Size", &self.Size).field("apUnknown", &self.apUnknown).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _wireSAFEARR_UNKNOWN {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _wireSAFEARR_UNKNOWN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARR_UNKNOWN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _wireSAFEARR_UNKNOWN {}
-impl ::core::default::Default for _wireSAFEARR_UNKNOWN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub struct _wireSAFEARR_VARIANT {
-    pub Size: u32,
-    pub aVariant: *mut *mut _wireVARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _wireSAFEARR_VARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _wireSAFEARR_VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for _wireSAFEARR_VARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_wireSAFEARR_VARIANT").field("Size", &self.Size).field("aVariant", &self.aVariant).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for _wireSAFEARR_VARIANT {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for _wireSAFEARR_VARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARR_VARIANT>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for _wireSAFEARR_VARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::default::Default for _wireSAFEARR_VARIANT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

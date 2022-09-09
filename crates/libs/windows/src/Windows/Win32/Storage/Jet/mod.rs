@@ -294,26 +294,26 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCompactA<'a, P0>(sesid: P0, szdatabasesrc: &i8, szdatabasedest: &i8, pfnstatus: JET_PFNSTATUS, pconvert: ::core::option::Option<&CONVERT_A>, grbit: u32) -> i32
+pub unsafe fn JetCompactA<'a, P0>(sesid: P0, szdatabasesrc: &i8, szdatabasedest: &i8, pfnstatus: JET_PFNSTATUS, pconvert: ::core::option::Option<&JET_CONVERT_A>, grbit: u32) -> i32
 where
     P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_A, grbit: u32) -> i32;
+        fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const JET_CONVERT_A, grbit: u32) -> i32;
     }
     JetCompactA(sesid.into(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), grbit)
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCompactW<'a, P0>(sesid: P0, szdatabasesrc: &u16, szdatabasedest: &u16, pfnstatus: JET_PFNSTATUS, pconvert: ::core::option::Option<&CONVERT_W>, grbit: u32) -> i32
+pub unsafe fn JetCompactW<'a, P0>(sesid: P0, szdatabasesrc: &u16, szdatabasedest: &u16, pfnstatus: JET_PFNSTATUS, pconvert: ::core::option::Option<&JET_CONVERT_W>, grbit: u32) -> i32
 where
     P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_W, grbit: u32) -> i32;
+        fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const JET_CONVERT_W, grbit: u32) -> i32;
     }
     JetCompactW(sesid.into(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), grbit)
 }
@@ -4972,170 +4972,6 @@ impl ::core::fmt::Debug for JET_RELOP {
         f.debug_tuple("JET_RELOP").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_A {
-    pub szOldDll: ::windows::core::PSTR,
-    pub Anonymous: CONVERT_A_0,
-}
-impl ::core::marker::Copy for CONVERT_A {}
-impl ::core::clone::Clone for CONVERT_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for CONVERT_A {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONVERT_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONVERT_A {}
-impl ::core::default::Default for CONVERT_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub union CONVERT_A_0 {
-    pub fFlags: u32,
-    pub Anonymous: CONVERT_A_0_0,
-}
-impl ::core::marker::Copy for CONVERT_A_0 {}
-impl ::core::clone::Clone for CONVERT_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for CONVERT_A_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONVERT_A_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_A_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONVERT_A_0 {}
-impl ::core::default::Default for CONVERT_A_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_A_0_0 {
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for CONVERT_A_0_0 {}
-impl ::core::clone::Clone for CONVERT_A_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CONVERT_A_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONVERT_A_0_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONVERT_A_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONVERT_A_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_A_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONVERT_A_0_0 {}
-impl ::core::default::Default for CONVERT_A_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_W {
-    pub szOldDll: ::windows::core::PWSTR,
-    pub Anonymous: CONVERT_W_0,
-}
-impl ::core::marker::Copy for CONVERT_W {}
-impl ::core::clone::Clone for CONVERT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for CONVERT_W {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONVERT_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONVERT_W {}
-impl ::core::default::Default for CONVERT_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub union CONVERT_W_0 {
-    pub fFlags: u32,
-    pub Anonymous: CONVERT_W_0_0,
-}
-impl ::core::marker::Copy for CONVERT_W_0 {}
-impl ::core::clone::Clone for CONVERT_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for CONVERT_W_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONVERT_W_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_W_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONVERT_W_0 {}
-impl ::core::default::Default for CONVERT_W_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_W_0_0 {
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for CONVERT_W_0_0 {}
-impl ::core::clone::Clone for CONVERT_W_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CONVERT_W_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONVERT_W_0_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONVERT_W_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONVERT_W_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_W_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONVERT_W_0_0 {}
-impl ::core::default::Default for CONVERT_W_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5803,6 +5639,170 @@ impl ::core::cmp::PartialEq for JET_CONDITIONALCOLUMN_W {
 }
 impl ::core::cmp::Eq for JET_CONDITIONALCOLUMN_W {}
 impl ::core::default::Default for JET_CONDITIONALCOLUMN_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_A {
+    pub szOldDll: ::windows::core::PSTR,
+    pub Anonymous: JET_CONVERT_A_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_A {}
+impl ::core::clone::Clone for JET_CONVERT_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JET_CONVERT_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JET_CONVERT_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JET_CONVERT_A {}
+impl ::core::default::Default for JET_CONVERT_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub union JET_CONVERT_A_0 {
+    pub fFlags: u32,
+    pub Anonymous: JET_CONVERT_A_0_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_A_0 {}
+impl ::core::clone::Clone for JET_CONVERT_A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JET_CONVERT_A_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JET_CONVERT_A_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_A_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JET_CONVERT_A_0 {}
+impl ::core::default::Default for JET_CONVERT_A_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_A_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for JET_CONVERT_A_0_0 {}
+impl ::core::clone::Clone for JET_CONVERT_A_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for JET_CONVERT_A_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_CONVERT_A_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for JET_CONVERT_A_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JET_CONVERT_A_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_A_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JET_CONVERT_A_0_0 {}
+impl ::core::default::Default for JET_CONVERT_A_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_W {
+    pub szOldDll: ::windows::core::PWSTR,
+    pub Anonymous: JET_CONVERT_W_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_W {}
+impl ::core::clone::Clone for JET_CONVERT_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JET_CONVERT_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JET_CONVERT_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JET_CONVERT_W {}
+impl ::core::default::Default for JET_CONVERT_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub union JET_CONVERT_W_0 {
+    pub fFlags: u32,
+    pub Anonymous: JET_CONVERT_W_0_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_W_0 {}
+impl ::core::clone::Clone for JET_CONVERT_W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JET_CONVERT_W_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JET_CONVERT_W_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_W_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JET_CONVERT_W_0 {}
+impl ::core::default::Default for JET_CONVERT_W_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_W_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for JET_CONVERT_W_0_0 {}
+impl ::core::clone::Clone for JET_CONVERT_W_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for JET_CONVERT_W_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("JET_CONVERT_W_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for JET_CONVERT_W_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JET_CONVERT_W_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_W_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JET_CONVERT_W_0_0 {}
+impl ::core::default::Default for JET_CONVERT_W_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
