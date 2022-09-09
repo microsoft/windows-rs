@@ -1870,6 +1870,44 @@ impl ::core::clone::Clone for ACMDRVFORMATSUGGEST {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub struct ACMDRVOPENDESCA {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: u32,
+    pub pszSectionName: ::windows_sys::core::PCSTR,
+    pub pszAliasName: ::windows_sys::core::PCSTR,
+    pub dnDevNode: u32,
+}
+impl ::core::marker::Copy for ACMDRVOPENDESCA {}
+impl ::core::clone::Clone for ACMDRVOPENDESCA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub struct ACMDRVOPENDESCW {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: u32,
+    pub pszSectionName: ::windows_sys::core::PCWSTR,
+    pub pszAliasName: ::windows_sys::core::PCWSTR,
+    pub dnDevNode: u32,
+}
+impl ::core::marker::Copy for ACMDRVOPENDESCW {}
+impl ::core::clone::Clone for ACMDRVOPENDESCW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMDRVSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -3689,44 +3727,6 @@ pub struct WAVEOUTCAPSW {
 }
 impl ::core::marker::Copy for WAVEOUTCAPSW {}
 impl ::core::clone::Clone for WAVEOUTCAPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub struct tACMDRVOPENDESCA {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: u32,
-    pub pszSectionName: ::windows_sys::core::PCSTR,
-    pub pszAliasName: ::windows_sys::core::PCSTR,
-    pub dnDevNode: u32,
-}
-impl ::core::marker::Copy for tACMDRVOPENDESCA {}
-impl ::core::clone::Clone for tACMDRVOPENDESCA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub struct tACMDRVOPENDESCW {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: u32,
-    pub pszSectionName: ::windows_sys::core::PCWSTR,
-    pub pszAliasName: ::windows_sys::core::PCWSTR,
-    pub dnDevNode: u32,
-}
-impl ::core::marker::Copy for tACMDRVOPENDESCW {}
-impl ::core::clone::Clone for tACMDRVOPENDESCW {
     fn clone(&self) -> Self {
         *self
     }

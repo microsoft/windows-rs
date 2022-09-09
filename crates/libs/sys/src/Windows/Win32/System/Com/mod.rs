@@ -440,6 +440,32 @@ pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STG_TOEND: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type ADVANCED_FEATURE_FLAGS = u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_AUTO: ADVANCED_FEATURE_FLAGS = 1u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_STATIC: ADVANCED_FEATURE_FLAGS = 2u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_EMBEDDED: ADVANCED_FEATURE_FLAGS = 4u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_FIXEDSIZE: ADVANCED_FEATURE_FLAGS = 16u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_RECORD: ADVANCED_FEATURE_FLAGS = 32u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_HAVEIID: ADVANCED_FEATURE_FLAGS = 64u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_HAVEVARTYPE: ADVANCED_FEATURE_FLAGS = 128u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_BSTR: ADVANCED_FEATURE_FLAGS = 256u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = 512u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_DISPATCH: ADVANCED_FEATURE_FLAGS = 1024u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_VARIANT: ADVANCED_FEATURE_FLAGS = 2048u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_RESERVED: ADVANCED_FEATURE_FLAGS = 61448u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type ADVF = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ADVF_NODATA: ADVF = 1i32;
@@ -854,6 +880,14 @@ pub const INVOKE_PROPERTYPUT: INVOKEKIND = 4i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = 8i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type LOCKTYPE = i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_WRITE: LOCKTYPE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_EXCLUSIVE: LOCKTYPE = 2i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_ONLYONCE: LOCKTYPE = 4i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type MEMCTX = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MEMCTX_TASK: MEMCTX = 1i32;
@@ -866,15 +900,15 @@ pub const MEMCTX_UNKNOWN: MEMCTX = -1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MEMCTX_SAME: MEMCTX = -2i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub type MKREDUCE = i32;
+pub type MKRREDUCE = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_ONE: MKREDUCE = 196608i32;
+pub const MKRREDUCE_ONE: MKRREDUCE = 196608i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_TOUSER: MKREDUCE = 131072i32;
+pub const MKRREDUCE_TOUSER: MKRREDUCE = 131072i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_THROUGHUSER: MKREDUCE = 65536i32;
+pub const MKRREDUCE_THROUGHUSER: MKRREDUCE = 65536i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_ALL: MKREDUCE = 0i32;
+pub const MKRREDUCE_ALL: MKRREDUCE = 0i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type MKSYS = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1022,6 +1056,14 @@ pub const SERVERCALL_REJECTED: SERVERCALL = 1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const SERVERCALL_RETRYLATER: SERVERCALL = 2i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type STATFLAG = i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_DEFAULT: STATFLAG = 0i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_NONAME: STATFLAG = 1i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_NOOPEN: STATFLAG = 2i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type STGC = u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STGC_DEFAULT: STGC = 0u32;
@@ -1033,6 +1075,44 @@ pub const STGC_ONLYIFCURRENT: STGC = 2u32;
 pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STGC_CONSOLIDATE: STGC = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type STGM = u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DIRECT: STGM = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_TRANSACTED: STGM = 65536u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SIMPLE: STGM = 134217728u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_READ: STGM = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_WRITE: STGM = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_READWRITE: STGM = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_NONE: STGM = 64u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_READ: STGM = 48u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_WRITE: STGM = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_EXCLUSIVE: STGM = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_PRIORITY: STGM = 262144u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DELETEONRELEASE: STGM = 67108864u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_NOSCRATCH: STGM = 1048576u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_CREATE: STGM = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_CONVERT: STGM = 131072u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_FAILIFTHERE: STGM = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_NOSNAPSHOT: STGM = 2097152u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DIRECT_SWMR: STGM = 4194304u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type STGTY = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1319,6 +1399,34 @@ pub const VT_ILLEGAL: VARENUM = 65535u16;
 pub const VT_ILLEGALMASKED: VARENUM = 4095u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const VT_TYPEMASK: VARENUM = 4095u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type VARFLAGS = u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREADONLY: VARFLAGS = 1u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FSOURCE: VARFLAGS = 2u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FBINDABLE: VARFLAGS = 4u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREQUESTEDIT: VARFLAGS = 8u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDISPLAYBIND: VARFLAGS = 16u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDEFAULTBIND: VARFLAGS = 32u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FHIDDEN: VARFLAGS = 64u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FRESTRICTED: VARFLAGS = 128u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = 256u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FUIDEFAULT: VARFLAGS = 512u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FNONBROWSABLE: VARFLAGS = 1024u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREPLACEABLE: VARFLAGS = 2048u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = 4096u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type VARKIND = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1666,6 +1774,18 @@ impl ::core::clone::Clone for DWORD_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct DWORD_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u32,
+}
+impl ::core::marker::Copy for DWORD_SIZEDARR {}
+impl ::core::clone::Clone for DWORD_SIZEDARR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct ELEMDESC {
@@ -1870,18 +1990,6 @@ impl ::core::clone::Clone for INTERFACEINFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct LONG_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u32,
-}
-impl ::core::marker::Copy for LONG_SIZEDARR {}
-impl ::core::clone::Clone for LONG_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct MULTI_QI {
     pub pIID: *const ::windows_sys::core::GUID,
     pub pItf: ::windows_sys::core::IUnknown,
@@ -1939,7 +2047,7 @@ impl ::core::clone::Clone for RPCOLEMESSAGE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct RemSTGMEDIUM {
-    pub tymed: u32,
+    pub tymed: TYMED,
     pub dwHandleType: u32,
     pub pData: u32,
     pub pUnkForRelease: u32,
@@ -1956,7 +2064,7 @@ impl ::core::clone::Clone for RemSTGMEDIUM {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct SAFEARRAY {
     pub cDims: u16,
-    pub fFeatures: u16,
+    pub fFeatures: ADVANCED_FEATURE_FLAGS,
     pub cbElements: u32,
     pub cLocks: u32,
     pub pvData: *mut ::core::ffi::c_void,
@@ -1992,18 +2100,6 @@ pub struct SChannelHookCallInfo {
 }
 impl ::core::marker::Copy for SChannelHookCallInfo {}
 impl ::core::clone::Clone for SChannelHookCallInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SHORT_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u16,
-}
-impl ::core::marker::Copy for SHORT_SIZEDARR {}
-impl ::core::clone::Clone for SHORT_SIZEDARR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2071,8 +2167,8 @@ pub struct STATSTG {
     pub mtime: super::super::Foundation::FILETIME,
     pub ctime: super::super::Foundation::FILETIME,
     pub atime: super::super::Foundation::FILETIME,
-    pub grfMode: u32,
-    pub grfLocksSupported: u32,
+    pub grfMode: STGM,
+    pub grfLocksSupported: LOCKTYPE,
     pub clsid: ::windows_sys::core::GUID,
     pub grfStateBits: u32,
     pub reserved: u32,
@@ -2089,7 +2185,7 @@ impl ::core::clone::Clone for STATSTG {
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STGMEDIUM {
-    pub tymed: u32,
+    pub tymed: TYMED,
     pub Anonymous: STGMEDIUM_0,
     pub pUnkForRelease: ::windows_sys::core::IUnknown,
 }
@@ -2221,7 +2317,7 @@ pub struct VARDESC {
     pub lpstrSchema: ::windows_sys::core::PWSTR,
     pub Anonymous: VARDESC_0,
     pub elemdescVar: ELEMDESC,
-    pub wVarFlags: u16,
+    pub wVarFlags: VARFLAGS,
     pub varkind: VARKIND,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -2376,6 +2472,18 @@ pub struct WORD_BLOB {
 }
 impl ::core::marker::Copy for WORD_BLOB {}
 impl ::core::clone::Clone for WORD_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct WORD_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u16,
+}
+impl ::core::marker::Copy for WORD_SIZEDARR {}
+impl ::core::clone::Clone for WORD_SIZEDARR {
     fn clone(&self) -> Self {
         *self
     }

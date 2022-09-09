@@ -201,7 +201,7 @@ pub struct IDtcLuRecoveryFactory_Vtbl {
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtc(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtc {
-    pub unsafe fn GetWork(&self, pwork: &mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetWork(&self, pwork: &mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWork)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwork), ::core::mem::transmute(ppv)).ok()
     }
 }
@@ -244,7 +244,7 @@ unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtc {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtc_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub GetWork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetWork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[repr(transparent)]
@@ -302,16 +302,16 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
     pub unsafe fn GetLogNameSizes(&self, pcbourlogname: &mut u32, pcbremotelogname: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLogNameSizes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbourlogname), ::core::mem::transmute(pcbremotelogname)).ok()
     }
-    pub unsafe fn GetOurXln(&self, pxln: &mut _DtcLu_Xln, pourlogname: &mut u8, premotelogname: &mut u8, pdwprotocol: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetOurXln(&self, pxln: &mut DTCLUXLN, pourlogname: &mut u8, premotelogname: &mut u8, pdwprotocol: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxln), ::core::mem::transmute(pourlogname), ::core::mem::transmute(premotelogname), ::core::mem::transmute(pdwprotocol)).ok()
     }
-    pub unsafe fn HandleConfirmationFromOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleConfirmationFromOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleConfirmationFromOurXln)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
-    pub unsafe fn HandleTheirXlnResponse(&self, xln: _DtcLu_Xln, premotelogname: &mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: &mut _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: &mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: &mut DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleTheirXlnResponse)(::windows::core::Interface::as_raw(self), xln, ::core::mem::transmute(premotelogname), cbremotelogname, dwprotocol, ::core::mem::transmute(pconfirmation)).ok()
     }
-    pub unsafe fn HandleErrorFromOurXln(&self, error: _DtcLu_Xln_Error) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleErrorFromOurXln(&self, error: DTCLUXLNERROR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleErrorFromOurXln)(::windows::core::Interface::as_raw(self), error).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -322,13 +322,13 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
     pub unsafe fn GetOurTransIdSize(&self, pcbourtransid: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOurTransIdSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbourtransid)).ok()
     }
-    pub unsafe fn GetOurCompareStates(&self, pourtransid: &mut u8, pcomparestate: &mut _DtcLu_CompareState) -> ::windows::core::Result<()> {
+    pub unsafe fn GetOurCompareStates(&self, pourtransid: &mut u8, pcomparestate: &mut DTCLUCOMPARESTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pourtransid), ::core::mem::transmute(pcomparestate)).ok()
     }
-    pub unsafe fn HandleTheirCompareStatesResponse(&self, comparestate: _DtcLu_CompareState, pconfirmation: &mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleTheirCompareStatesResponse(&self, comparestate: DTCLUCOMPARESTATE, pconfirmation: &mut DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleTheirCompareStatesResponse)(::windows::core::Interface::as_raw(self), comparestate, ::core::mem::transmute(pconfirmation)).ok()
     }
-    pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error).ok()
     }
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
@@ -381,18 +381,18 @@ unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtcTransWork
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetLogNameSizes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows::core::HRESULT,
-    pub GetOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT,
-    pub HandleConfirmationFromOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT,
-    pub HandleTheirXlnResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT,
-    pub HandleErrorFromOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: _DtcLu_Xln_Error) -> ::windows::core::HRESULT,
+    pub GetOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT,
+    pub HandleConfirmationFromOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::HRESULT,
+    pub HandleTheirXlnResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> ::windows::core::HRESULT,
+    pub HandleErrorFromOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: DTCLUXLNERROR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CheckForCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcomparestates: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CheckForCompareStates: usize,
     pub GetOurTransIdSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbourtransid: *mut u32) -> ::windows::core::HRESULT,
-    pub GetOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT,
-    pub HandleTheirCompareStatesResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT,
-    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT,
+    pub GetOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::HRESULT,
+    pub HandleTheirCompareStatesResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::HRESULT,
+    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::HRESULT,
     pub ConversationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRecoverySeqNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plrecoveryseqnum: *mut i32) -> ::windows::core::HRESULT,
     pub ObsoleteRecoverySeqNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnewrecoveryseqnum: i32) -> ::windows::core::HRESULT,
@@ -451,25 +451,25 @@ pub struct IDtcLuRecoveryInitiatedByLu_Vtbl {
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByLuWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
-    pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: &mut u8, cbremotelogname: u32, pourlogname: &mut u8, cbourlogname: u32, dwprotocol: u32, presponse: &mut _DtcLu_Xln_Response) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: &mut u8, cbremotelogname: u32, pourlogname: &mut u8, cbourlogname: u32, dwprotocol: u32, presponse: &mut DTCLUXLNRESPONSE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleTheirXln)(::windows::core::Interface::as_raw(self), lrecoveryseqnum, xln, ::core::mem::transmute(premotelogname), cbremotelogname, ::core::mem::transmute(pourlogname), cbourlogname, dwprotocol, ::core::mem::transmute(presponse)).ok()
     }
     pub unsafe fn GetOurLogNameSize(&self, pcbourlogname: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOurLogNameSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbourlogname)).ok()
     }
-    pub unsafe fn GetOurXln(&self, pxln: &mut _DtcLu_Xln, pourlogname: &mut u8, pdwprotocol: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetOurXln(&self, pxln: &mut DTCLUXLN, pourlogname: &mut u8, pdwprotocol: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxln), ::core::mem::transmute(pourlogname), ::core::mem::transmute(pdwprotocol)).ok()
     }
-    pub unsafe fn HandleConfirmationOfOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleConfirmationOfOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleConfirmationOfOurXln)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
-    pub unsafe fn HandleTheirCompareStates(&self, premotetransid: &mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: &mut _DtcLu_CompareStates_Response, pcomparestate: &mut _DtcLu_CompareState) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleTheirCompareStates(&self, premotetransid: &mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: &mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: &mut DTCLUCOMPARESTATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleTheirCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(premotetransid), cbremotetransid, comparestate, ::core::mem::transmute(presponse), ::core::mem::transmute(pcomparestate)).ok()
     }
-    pub unsafe fn HandleConfirmationOfOurCompareStates(&self, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleConfirmationOfOurCompareStates(&self, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleConfirmationOfOurCompareStates)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
-    pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()> {
+    pub unsafe fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error).ok()
     }
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
@@ -515,13 +515,13 @@ unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByLuWork {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByLuWork_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub HandleTheirXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::HRESULT,
+    pub HandleTheirXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut DTCLUXLNRESPONSE) -> ::windows::core::HRESULT,
     pub GetOurLogNameSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32) -> ::windows::core::HRESULT,
-    pub GetOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT,
-    pub HandleConfirmationOfOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT,
-    pub HandleTheirCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT,
-    pub HandleConfirmationOfOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT,
-    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT,
+    pub GetOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT,
+    pub HandleConfirmationOfOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::HRESULT,
+    pub HandleTheirCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::HRESULT,
+    pub HandleConfirmationOfOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::HRESULT,
+    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::HRESULT,
     pub ConversationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -1561,12 +1561,12 @@ impl IDtcToXaHelper {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TranslateTridToXid<'a, P0>(&self, pitransaction: P0, pguidbqual: &::windows::core::GUID) -> ::windows::core::Result<xid_t>
+    pub unsafe fn TranslateTridToXid<'a, P0>(&self, pitransaction: P0, pguidbqual: &::windows::core::GUID) -> ::windows::core::Result<XID>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITransaction>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).TranslateTridToXid)(::windows::core::Interface::as_raw(self), pitransaction.into().abi(), ::core::mem::transmute(pguidbqual), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<xid_t>(result__)
+        (::windows::core::Interface::vtable(self).TranslateTridToXid)(::windows::core::Interface::as_raw(self), pitransaction.into().abi(), ::core::mem::transmute(pguidbqual), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XID>(result__)
     }
 }
 impl ::core::convert::From<IDtcToXaHelper> for ::windows::core::IUnknown {
@@ -1613,7 +1613,7 @@ pub struct IDtcToXaHelper_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Close: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub TranslateTridToXid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitransaction: *mut ::core::ffi::c_void, pguidbqual: *const ::windows::core::GUID, pxid: *mut xid_t) -> ::windows::core::HRESULT,
+    pub TranslateTridToXid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitransaction: *mut ::core::ffi::c_void, pguidbqual: *const ::windows::core::GUID, pxid: *mut XID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     TranslateTridToXid: usize,
 }
@@ -1683,7 +1683,7 @@ impl IDtcToXaHelperSinglePipe {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConvertTridToXID(&self, pdwitrans: &mut u32, dwrmcookie: u32, pxid: &mut xid_t) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertTridToXID(&self, pdwitrans: &mut u32, dwrmcookie: u32, pxid: &mut XID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertTridToXID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwitrans), dwrmcookie, ::core::mem::transmute(pxid)).ok()
     }
     pub unsafe fn EnlistWithRM<'a, P0, P1>(&self, dwrmcookie: u32, i_pitransaction: P0, i_pitransres: P1) -> ::windows::core::Result<ITransactionEnlistmentAsync>
@@ -1744,7 +1744,7 @@ pub struct IDtcToXaHelperSinglePipe_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub XARMCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdsn: ::windows::core::PCSTR, pszclientdll: ::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub ConvertTridToXID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT,
+    pub ConvertTridToXID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ConvertTridToXID: usize,
     pub EnlistWithRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrmcookie: u32, i_pitransaction: *mut ::core::ffi::c_void, i_pitransres: *mut ::core::ffi::c_void, o_ppitransenslitment: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1766,7 +1766,7 @@ impl IDtcToXaMapper {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TranslateTridToXid(&self, pdwitransaction: &u32, dwrmcookie: u32, pxid: &mut xid_t) -> ::windows::core::Result<()> {
+    pub unsafe fn TranslateTridToXid(&self, pdwitransaction: &u32, dwrmcookie: u32, pxid: &mut XID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TranslateTridToXid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwitransaction), dwrmcookie, ::core::mem::transmute(pxid)).ok()
     }
     pub unsafe fn EnlistResourceManager(&self, dwrmcookie: u32, pdwitransaction: &u32) -> ::windows::core::Result<()> {
@@ -1817,7 +1817,7 @@ pub struct IDtcToXaMapper_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub RequestNewResourceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdsn: ::windows::core::PCSTR, pszclientdllname: ::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub TranslateTridToXid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT,
+    pub TranslateTridToXid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     TranslateTridToXid: usize,
     pub EnlistResourceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::HRESULT,
@@ -2239,7 +2239,7 @@ impl IResourceManager2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enlist2<'a, P0, P1>(&self, ptransaction: P0, presasync: P1, puow: &mut BOID, pisolevel: &mut i32, pxid: &mut xid_t, ppenlist: &mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
+    pub unsafe fn Enlist2<'a, P0, P1>(&self, ptransaction: P0, presasync: P1, puow: &mut BOID, pisolevel: &mut i32, pxid: &mut XID, ppenlist: &mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITransaction>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITransactionResourceAsync>>,
@@ -2248,7 +2248,7 @@ impl IResourceManager2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Reenlist2(&self, pxid: &xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Reenlist2(&self, pxid: &XID, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Reenlist2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxid), dwtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
@@ -2308,11 +2308,11 @@ unsafe impl ::windows::core::Interface for IResourceManager2 {
 pub struct IResourceManager2_Vtbl {
     pub base__: IResourceManager_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Enlist2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, presasync: *mut ::core::ffi::c_void, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Enlist2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, presasync: *mut ::core::ffi::c_void, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Enlist2: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Reenlist2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxid: *const xid_t, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT,
+    pub Reenlist2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxid: *const XID, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Reenlist2: usize,
 }
@@ -2469,7 +2469,7 @@ impl IResourceManagerRejoinable {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enlist2<'a, P0, P1>(&self, ptransaction: P0, presasync: P1, puow: &mut BOID, pisolevel: &mut i32, pxid: &mut xid_t, ppenlist: &mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
+    pub unsafe fn Enlist2<'a, P0, P1>(&self, ptransaction: P0, presasync: P1, puow: &mut BOID, pisolevel: &mut i32, pxid: &mut XID, ppenlist: &mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITransaction>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITransactionResourceAsync>>,
@@ -2478,7 +2478,7 @@ impl IResourceManagerRejoinable {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Reenlist2(&self, pxid: &xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Reenlist2(&self, pxid: &XID, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Reenlist2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxid), dwtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
@@ -4592,7 +4592,7 @@ pub struct IXATransLookup2(::windows::core::IUnknown);
 impl IXATransLookup2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lookup(&self, pxid: &xid_t) -> ::windows::core::Result<ITransaction> {
+    pub unsafe fn Lookup(&self, pxid: &XID) -> ::windows::core::Result<ITransaction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Lookup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
     }
@@ -4637,7 +4637,7 @@ unsafe impl ::windows::core::Interface for IXATransLookup2 {
 pub struct IXATransLookup2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxid: *const xid_t, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxid: *const XID, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Lookup: usize,
 }
@@ -4831,6 +4831,267 @@ unsafe impl ::windows::core::Abi for AUTHENTICATION_LEVEL {
 impl ::core::fmt::Debug for AUTHENTICATION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AUTHENTICATION_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCINITIATEDRECOVERYWORK(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: DTCINITIATEDRECOVERYWORK = DTCINITIATEDRECOVERYWORK(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCINITIATEDRECOVERYWORK_TRANS: DTCINITIATEDRECOVERYWORK = DTCINITIATEDRECOVERYWORK(2i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCINITIATEDRECOVERYWORK_TMDOWN: DTCINITIATEDRECOVERYWORK = DTCINITIATEDRECOVERYWORK(3i32);
+impl ::core::marker::Copy for DTCINITIATEDRECOVERYWORK {}
+impl ::core::clone::Clone for DTCINITIATEDRECOVERYWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCINITIATEDRECOVERYWORK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCINITIATEDRECOVERYWORK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCINITIATEDRECOVERYWORK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCINITIATEDRECOVERYWORK").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUCOMPARESTATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATE_COMMITTED: DTCLUCOMPARESTATE = DTCLUCOMPARESTATE(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATE_HEURISTICCOMMITTED: DTCLUCOMPARESTATE = DTCLUCOMPARESTATE(2i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATE_HEURISTICMIXED: DTCLUCOMPARESTATE = DTCLUCOMPARESTATE(3i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATE_HEURISTICRESET: DTCLUCOMPARESTATE = DTCLUCOMPARESTATE(4i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATE_INDOUBT: DTCLUCOMPARESTATE = DTCLUCOMPARESTATE(5i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATE_RESET: DTCLUCOMPARESTATE = DTCLUCOMPARESTATE(6i32);
+impl ::core::marker::Copy for DTCLUCOMPARESTATE {}
+impl ::core::clone::Clone for DTCLUCOMPARESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUCOMPARESTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUCOMPARESTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUCOMPARESTATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUCOMPARESTATESCONFIRMATION(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: DTCLUCOMPARESTATESCONFIRMATION = DTCLUCOMPARESTATESCONFIRMATION(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: DTCLUCOMPARESTATESCONFIRMATION = DTCLUCOMPARESTATESCONFIRMATION(2i32);
+impl ::core::marker::Copy for DTCLUCOMPARESTATESCONFIRMATION {}
+impl ::core::clone::Clone for DTCLUCOMPARESTATESCONFIRMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUCOMPARESTATESCONFIRMATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATESCONFIRMATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUCOMPARESTATESCONFIRMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUCOMPARESTATESCONFIRMATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUCOMPARESTATESERROR(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATESERROR_PROTOCOL: DTCLUCOMPARESTATESERROR = DTCLUCOMPARESTATESERROR(1i32);
+impl ::core::marker::Copy for DTCLUCOMPARESTATESERROR {}
+impl ::core::clone::Clone for DTCLUCOMPARESTATESERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUCOMPARESTATESERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATESERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUCOMPARESTATESERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUCOMPARESTATESERROR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUCOMPARESTATESRESPONSE(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATESRESPONSE_OK: DTCLUCOMPARESTATESRESPONSE = DTCLUCOMPARESTATESRESPONSE(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: DTCLUCOMPARESTATESRESPONSE = DTCLUCOMPARESTATESRESPONSE(2i32);
+impl ::core::marker::Copy for DTCLUCOMPARESTATESRESPONSE {}
+impl ::core::clone::Clone for DTCLUCOMPARESTATESRESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUCOMPARESTATESRESPONSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATESRESPONSE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUCOMPARESTATESRESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUCOMPARESTATESRESPONSE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUXLN(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLN_COLD: DTCLUXLN = DTCLUXLN(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLN_WARM: DTCLUXLN = DTCLUXLN(2i32);
+impl ::core::marker::Copy for DTCLUXLN {}
+impl ::core::clone::Clone for DTCLUXLN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUXLN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUXLN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUXLN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUXLN").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUXLNCONFIRMATION(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNCONFIRMATION_CONFIRM: DTCLUXLNCONFIRMATION = DTCLUXLNCONFIRMATION(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: DTCLUXLNCONFIRMATION = DTCLUXLNCONFIRMATION(2i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: DTCLUXLNCONFIRMATION = DTCLUXLNCONFIRMATION(3i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNCONFIRMATION_OBSOLETE: DTCLUXLNCONFIRMATION = DTCLUXLNCONFIRMATION(4i32);
+impl ::core::marker::Copy for DTCLUXLNCONFIRMATION {}
+impl ::core::clone::Clone for DTCLUXLNCONFIRMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUXLNCONFIRMATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUXLNCONFIRMATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUXLNCONFIRMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUXLNCONFIRMATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUXLNERROR(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNERROR_PROTOCOL: DTCLUXLNERROR = DTCLUXLNERROR(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNERROR_LOGNAMEMISMATCH: DTCLUXLNERROR = DTCLUXLNERROR(2i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNERROR_COLDWARMMISMATCH: DTCLUXLNERROR = DTCLUXLNERROR(3i32);
+impl ::core::marker::Copy for DTCLUXLNERROR {}
+impl ::core::clone::Clone for DTCLUXLNERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUXLNERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUXLNERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUXLNERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUXLNERROR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTCLUXLNRESPONSE(pub i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: DTCLUXLNRESPONSE = DTCLUXLNRESPONSE(1i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: DTCLUXLNRESPONSE = DTCLUXLNRESPONSE(2i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: DTCLUXLNRESPONSE = DTCLUXLNRESPONSE(3i32);
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: DTCLUXLNRESPONSE = DTCLUXLNRESPONSE(4i32);
+impl ::core::marker::Copy for DTCLUXLNRESPONSE {}
+impl ::core::clone::Clone for DTCLUXLNRESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTCLUXLNRESPONSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTCLUXLNRESPONSE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTCLUXLNRESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTCLUXLNRESPONSE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -5243,267 +5504,6 @@ impl ::core::fmt::Debug for XACT_DTC_CONSTANTS {
         f.debug_tuple("XACT_DTC_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_CompareState(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATE_COMMITTED: _DtcLu_CompareState = _DtcLu_CompareState(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATE_HEURISTICCOMMITTED: _DtcLu_CompareState = _DtcLu_CompareState(2i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATE_HEURISTICMIXED: _DtcLu_CompareState = _DtcLu_CompareState(3i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATE_HEURISTICRESET: _DtcLu_CompareState = _DtcLu_CompareState(4i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATE_INDOUBT: _DtcLu_CompareState = _DtcLu_CompareState(5i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATE_RESET: _DtcLu_CompareState = _DtcLu_CompareState(6i32);
-impl ::core::marker::Copy for _DtcLu_CompareState {}
-impl ::core::clone::Clone for _DtcLu_CompareState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_CompareState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_CompareState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_CompareState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_CompareState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_CompareStates_Confirmation(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: _DtcLu_CompareStates_Confirmation = _DtcLu_CompareStates_Confirmation(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: _DtcLu_CompareStates_Confirmation = _DtcLu_CompareStates_Confirmation(2i32);
-impl ::core::marker::Copy for _DtcLu_CompareStates_Confirmation {}
-impl ::core::clone::Clone for _DtcLu_CompareStates_Confirmation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_CompareStates_Confirmation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Confirmation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_CompareStates_Confirmation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_CompareStates_Confirmation").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_CompareStates_Error(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATESERROR_PROTOCOL: _DtcLu_CompareStates_Error = _DtcLu_CompareStates_Error(1i32);
-impl ::core::marker::Copy for _DtcLu_CompareStates_Error {}
-impl ::core::clone::Clone for _DtcLu_CompareStates_Error {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_CompareStates_Error {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Error {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_CompareStates_Error {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_CompareStates_Error").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_CompareStates_Response(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATESRESPONSE_OK: _DtcLu_CompareStates_Response = _DtcLu_CompareStates_Response(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: _DtcLu_CompareStates_Response = _DtcLu_CompareStates_Response(2i32);
-impl ::core::marker::Copy for _DtcLu_CompareStates_Response {}
-impl ::core::clone::Clone for _DtcLu_CompareStates_Response {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_CompareStates_Response {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Response {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_CompareStates_Response {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_CompareStates_Response").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_LocalRecovery_Work(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCINITIATEDRECOVERYWORK_TRANS: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(2i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCINITIATEDRECOVERYWORK_TMDOWN: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(3i32);
-impl ::core::marker::Copy for _DtcLu_LocalRecovery_Work {}
-impl ::core::clone::Clone for _DtcLu_LocalRecovery_Work {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_LocalRecovery_Work {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_LocalRecovery_Work {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_LocalRecovery_Work {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_LocalRecovery_Work").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_Xln(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLN_COLD: _DtcLu_Xln = _DtcLu_Xln(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLN_WARM: _DtcLu_Xln = _DtcLu_Xln(2i32);
-impl ::core::marker::Copy for _DtcLu_Xln {}
-impl ::core::clone::Clone for _DtcLu_Xln {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_Xln {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_Xln {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_Xln {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_Xln").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_Xln_Confirmation(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNCONFIRMATION_CONFIRM: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(2i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(3i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNCONFIRMATION_OBSOLETE: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(4i32);
-impl ::core::marker::Copy for _DtcLu_Xln_Confirmation {}
-impl ::core::clone::Clone for _DtcLu_Xln_Confirmation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_Xln_Confirmation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_Xln_Confirmation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_Xln_Confirmation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_Xln_Confirmation").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_Xln_Error(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNERROR_PROTOCOL: _DtcLu_Xln_Error = _DtcLu_Xln_Error(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNERROR_LOGNAMEMISMATCH: _DtcLu_Xln_Error = _DtcLu_Xln_Error(2i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNERROR_COLDWARMMISMATCH: _DtcLu_Xln_Error = _DtcLu_Xln_Error(3i32);
-impl ::core::marker::Copy for _DtcLu_Xln_Error {}
-impl ::core::clone::Clone for _DtcLu_Xln_Error {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_Xln_Error {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_Xln_Error {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_Xln_Error {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_Xln_Error").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DtcLu_Xln_Response(pub i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: _DtcLu_Xln_Response = _DtcLu_Xln_Response(1i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: _DtcLu_Xln_Response = _DtcLu_Xln_Response(2i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(3i32);
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(4i32);
-impl ::core::marker::Copy for _DtcLu_Xln_Response {}
-impl ::core::clone::Clone for _DtcLu_Xln_Response {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DtcLu_Xln_Response {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DtcLu_Xln_Response {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DtcLu_Xln_Response {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DtcLu_Xln_Response").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 pub struct BOID {
@@ -5594,6 +5594,36 @@ impl ::core::cmp::PartialEq for OLE_TM_CONFIG_PARAMS_V2 {
 }
 impl ::core::cmp::Eq for OLE_TM_CONFIG_PARAMS_V2 {}
 impl ::core::default::Default for OLE_TM_CONFIG_PARAMS_V2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
+pub struct PROXY_CONFIG_PARAMS {
+    pub wcThreadsMax: u16,
+}
+impl ::core::marker::Copy for PROXY_CONFIG_PARAMS {}
+impl ::core::clone::Clone for PROXY_CONFIG_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PROXY_CONFIG_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROXY_CONFIG_PARAMS").field("wcThreadsMax", &self.wcThreadsMax).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PROXY_CONFIG_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROXY_CONFIG_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROXY_CONFIG_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROXY_CONFIG_PARAMS {}
+impl ::core::default::Default for PROXY_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -5711,31 +5741,42 @@ impl ::core::default::Default for XACTTRANSINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-pub struct _ProxyConfigParams {
-    pub wcThreadsMax: u16,
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct XID {
+    pub formatID: i32,
+    pub gtrid_length: i32,
+    pub bqual_length: i32,
+    pub data: [super::super::Foundation::CHAR; 128],
 }
-impl ::core::marker::Copy for _ProxyConfigParams {}
-impl ::core::clone::Clone for _ProxyConfigParams {
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for XID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for XID {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for _ProxyConfigParams {
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for XID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_ProxyConfigParams").field("wcThreadsMax", &self.wcThreadsMax).finish()
+        f.debug_struct("XID").field("formatID", &self.formatID).field("gtrid_length", &self.gtrid_length).field("bqual_length", &self.bqual_length).field("data", &self.data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for _ProxyConfigParams {
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for XID {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for _ProxyConfigParams {
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for XID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_ProxyConfigParams>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XID>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for _ProxyConfigParams {}
-impl ::core::default::Default for _ProxyConfigParams {
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for XID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for XID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -5804,47 +5845,6 @@ impl ::core::default::Default for xa_switch_t {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct xid_t {
-    pub formatID: i32,
-    pub gtrid_length: i32,
-    pub bqual_length: i32,
-    pub data: [super::super::Foundation::CHAR; 128],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for xid_t {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for xid_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for xid_t {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("xid_t").field("formatID", &self.formatID).field("gtrid_length", &self.gtrid_length).field("bqual_length", &self.bqual_length).field("data", &self.data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for xid_t {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for xid_t {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<xid_t>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for xid_t {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for xid_t {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 pub type DTC_GET_TRANSACTION_MANAGER = ::core::option::Option<unsafe extern "system" fn(pszhost: ::windows::core::PCSTR, psztmname: ::windows::core::PCSTR, rid: *const ::windows::core::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut ::core::ffi::c_void, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -5857,28 +5857,28 @@ pub type DTC_INSTALL_CLIENT = ::core::option::Option<unsafe extern "system" fn(i
 pub type XA_CLOSE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: i32, param2: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type XA_COMMIT_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+pub type XA_COMMIT_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 pub type XA_COMPLETE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type XA_END_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+pub type XA_END_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type XA_FORGET_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+pub type XA_FORGET_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 pub type XA_OPEN_EPT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: i32, param2: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type XA_PREPARE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+pub type XA_PREPARE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type XA_RECOVER_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32, param3: i32) -> i32>;
+pub type XA_RECOVER_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32, param3: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type XA_ROLLBACK_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+pub type XA_ROLLBACK_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type XA_START_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+pub type XA_START_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut XID, param1: i32, param2: i32) -> i32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

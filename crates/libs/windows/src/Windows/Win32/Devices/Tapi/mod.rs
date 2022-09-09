@@ -19834,6 +19834,79 @@ impl ::core::fmt::Debug for TERMINAL_TYPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRALIAS {
+    pub rgchName: [super::super::Foundation::CHAR; 41],
+    pub rgchEName: [super::super::Foundation::CHAR; 11],
+    pub rgchSrvr: [super::super::Foundation::CHAR; 12],
+    pub dibDetail: u32,
+    pub r#type: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRALIAS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRALIAS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRALIAS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRALIAS").field("rgchName", &self.rgchName).field("rgchEName", &self.rgchEName).field("rgchSrvr", &self.rgchSrvr).field("dibDetail", &self.dibDetail).field("type", &self.r#type).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRALIAS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRALIAS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRALIAS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRALIAS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRALIAS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub struct DTR {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wDayOfWeek: u16,
+}
+impl ::core::marker::Copy for DTR {}
+impl ::core::clone::Clone for DTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DTR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DTR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DTR {}
+impl ::core::default::Default for DTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct HDRVCALL__ {
     pub unused: i32,
@@ -22584,6 +22657,34 @@ impl ::core::default::Default for LINEREQMAKECALL {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub struct LINEREQMAKECALLW {
+    pub szDestAddress: [u16; 80],
+    pub szAppName: [u16; 40],
+    pub szCalledParty: [u16; 40],
+    pub szComment: [u16; 80],
+}
+impl ::core::marker::Copy for LINEREQMAKECALLW {}
+impl ::core::clone::Clone for LINEREQMAKECALLW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LINEREQMAKECALLW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LINEREQMAKECALLW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEREQMAKECALLW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LINEREQMAKECALLW {}
+impl ::core::default::Default for LINEREQMAKECALLW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINEREQMEDIACALL {
@@ -22620,6 +22721,47 @@ impl ::core::cmp::PartialEq for LINEREQMEDIACALL {
 impl ::core::cmp::Eq for LINEREQMEDIACALL {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LINEREQMEDIACALL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LINEREQMEDIACALLW {
+    pub hWnd: super::super::Foundation::HWND,
+    pub wRequestID: super::super::Foundation::WPARAM,
+    pub szDeviceClass: [u16; 40],
+    pub ucDeviceID: [u8; 40],
+    pub dwSize: u32,
+    pub dwSecure: u32,
+    pub szDestAddress: [u16; 80],
+    pub szAppName: [u16; 40],
+    pub szCalledParty: [u16; 40],
+    pub szComment: [u16; 80],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LINEREQMEDIACALLW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LINEREQMEDIACALLW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for LINEREQMEDIACALLW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LINEREQMEDIACALLW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEREQMEDIACALLW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LINEREQMEDIACALLW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for LINEREQMEDIACALLW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -23140,7 +23282,7 @@ impl ::core::default::Default for NSID {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NSID_0 {
-    pub alias: _ADDR_ALIAS,
+    pub alias: ADDRALIAS,
     pub rgchInterNet: [super::super::Foundation::CHAR; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23451,6 +23593,35 @@ impl ::core::default::Default for PHONESTATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub struct RENDDATA {
+    pub atyp: u16,
+    pub ulPosition: u32,
+    pub dxWidth: u16,
+    pub dyHeight: u16,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for RENDDATA {}
+impl ::core::clone::Clone for RENDDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RENDDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RENDDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RENDDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RENDDATA {}
+impl ::core::default::Default for RENDDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct STnefProblem {
@@ -23584,6 +23755,39 @@ impl ::core::default::Default for TAPI_DETECTTONE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub struct TRP {
+    pub trpid: u16,
+    pub cbgrtrp: u16,
+    pub cch: u16,
+    pub cbRgb: u16,
+}
+impl ::core::marker::Copy for TRP {}
+impl ::core::clone::Clone for TRP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TRP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRP").field("trpid", &self.trpid).field("cbgrtrp", &self.cbgrtrp).field("cch", &self.cch).field("cbRgb", &self.cbRgb).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TRP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRP {}
+impl ::core::default::Default for TRP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
     pub hdDlgInst: *mut HDRVDIALOGINSTANCE__,
@@ -23643,210 +23847,6 @@ impl ::core::cmp::PartialEq for VARSTRING {
 }
 impl ::core::cmp::Eq for VARSTRING {}
 impl ::core::default::Default for VARSTRING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _ADDR_ALIAS {
-    pub rgchName: [super::super::Foundation::CHAR; 41],
-    pub rgchEName: [super::super::Foundation::CHAR; 11],
-    pub rgchSrvr: [super::super::Foundation::CHAR; 12],
-    pub dibDetail: u32,
-    pub r#type: u16,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _ADDR_ALIAS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _ADDR_ALIAS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for _ADDR_ALIAS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_ADDR_ALIAS").field("rgchName", &self.rgchName).field("rgchEName", &self.rgchEName).field("rgchSrvr", &self.rgchSrvr).field("dibDetail", &self.dibDetail).field("type", &self.r#type).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _ADDR_ALIAS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _ADDR_ALIAS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_ADDR_ALIAS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _ADDR_ALIAS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for _ADDR_ALIAS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct _dtr {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wDayOfWeek: u16,
-}
-impl ::core::marker::Copy for _dtr {}
-impl ::core::clone::Clone for _dtr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for _dtr {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _dtr {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_dtr>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _dtr {}
-impl ::core::default::Default for _dtr {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct _renddata {
-    pub atyp: u16,
-    pub ulPosition: u32,
-    pub dxWidth: u16,
-    pub dyHeight: u16,
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for _renddata {}
-impl ::core::clone::Clone for _renddata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for _renddata {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _renddata {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_renddata>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _renddata {}
-impl ::core::default::Default for _renddata {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct _trp {
-    pub trpid: u16,
-    pub cbgrtrp: u16,
-    pub cch: u16,
-    pub cbRgb: u16,
-}
-impl ::core::marker::Copy for _trp {}
-impl ::core::clone::Clone for _trp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _trp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_trp").field("trpid", &self.trpid).field("cbgrtrp", &self.cbgrtrp).field("cch", &self.cch).field("cbRgb", &self.cbRgb).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _trp {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _trp {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_trp>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _trp {}
-impl ::core::default::Default for _trp {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct linereqmakecallW_tag {
-    pub szDestAddress: [u16; 80],
-    pub szAppName: [u16; 40],
-    pub szCalledParty: [u16; 40],
-    pub szComment: [u16; 80],
-}
-impl ::core::marker::Copy for linereqmakecallW_tag {}
-impl ::core::clone::Clone for linereqmakecallW_tag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for linereqmakecallW_tag {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for linereqmakecallW_tag {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<linereqmakecallW_tag>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for linereqmakecallW_tag {}
-impl ::core::default::Default for linereqmakecallW_tag {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct linereqmediacallW_tag {
-    pub hWnd: super::super::Foundation::HWND,
-    pub wRequestID: super::super::Foundation::WPARAM,
-    pub szDeviceClass: [u16; 40],
-    pub ucDeviceID: [u8; 40],
-    pub dwSize: u32,
-    pub dwSecure: u32,
-    pub szDestAddress: [u16; 80],
-    pub szAppName: [u16; 40],
-    pub szCalledParty: [u16; 40],
-    pub szComment: [u16; 80],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for linereqmediacallW_tag {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for linereqmediacallW_tag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for linereqmediacallW_tag {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for linereqmediacallW_tag {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<linereqmediacallW_tag>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for linereqmediacallW_tag {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for linereqmediacallW_tag {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

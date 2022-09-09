@@ -12266,7 +12266,7 @@ pub struct IDirectorySearch(::windows::core::IUnknown);
 impl IDirectorySearch {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSearchPreference(&self, psearchprefs: &ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSearchPreference(&self, psearchprefs: &ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchprefs), dwnumprefs).ok()
     }
     pub unsafe fn ExecuteSearch<'a, P0>(&self, pszsearchfilter: P0, pattributenames: &::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<ADS_SEARCH_HANDLE>
@@ -12308,17 +12308,17 @@ impl IDirectorySearch {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetColumn<'a, P0, P1>(&self, hsearchresult: P0, szcolumnname: P1) -> ::windows::core::Result<ads_search_column>
+    pub unsafe fn GetColumn<'a, P0, P1>(&self, hsearchresult: P0, szcolumnname: P1) -> ::windows::core::Result<ADS_SEARCH_COLUMN>
     where
         P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), hsearchresult.into(), szcolumnname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ads_search_column>(result__)
+        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), hsearchresult.into(), szcolumnname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ADS_SEARCH_COLUMN>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FreeColumn(&self, psearchcolumn: &ads_search_column) -> ::windows::core::Result<()> {
+    pub unsafe fn FreeColumn(&self, psearchcolumn: &ADS_SEARCH_COLUMN) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FreeColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchcolumn)).ok()
     }
     pub unsafe fn CloseSearchHandle<'a, P0>(&self, hsearchresult: P0) -> ::windows::core::Result<()>
@@ -12368,7 +12368,7 @@ unsafe impl ::windows::core::Interface for IDirectorySearch {
 pub struct IDirectorySearch_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetSearchPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::HRESULT,
+    pub SetSearchPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSearchPreference: usize,
     pub ExecuteSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsearchfilter: ::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, phsearchresult: *mut ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
@@ -12378,11 +12378,11 @@ pub struct IDirectorySearch_Vtbl {
     pub GetPreviousRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
     pub GetNextColumnName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchhandle: ADS_SEARCH_HANDLE, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ads_search_column) -> ::windows::core::HRESULT,
+    pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ADS_SEARCH_COLUMN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetColumn: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub FreeColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchcolumn: *const ads_search_column) -> ::windows::core::HRESULT,
+    pub FreeColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchcolumn: *const ADS_SEARCH_COLUMN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     FreeColumn: usize,
     pub CloseSearchHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
@@ -12926,7 +12926,7 @@ impl IDsDisplaySpecifier {
     {
         (::windows::core::Interface::vtable(self).EnumClassAttributes)(::windows::core::Interface::as_raw(self), pszobjectclass.into(), ::core::mem::transmute(pcbenum), lparam.into()).ok()
     }
-    pub unsafe fn GetAttributeADsType<'a, P0>(&self, pszattributename: P0) -> ADSTYPEENUM
+    pub unsafe fn GetAttributeADsType<'a, P0>(&self, pszattributename: P0) -> ADSTYPE
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -12991,7 +12991,7 @@ pub struct IDsDisplaySpecifier_Vtbl {
     pub EnumClassAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectclass: ::windows::core::PCWSTR, pcbenum: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumClassAttributes: usize,
-    pub GetAttributeADsType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszattributename: ::windows::core::PCWSTR) -> ADSTYPEENUM,
+    pub GetAttributeADsType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszattributename: ::windows::core::PCWSTR) -> ADSTYPE,
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
@@ -14920,82 +14920,82 @@ impl ::core::fmt::Debug for ADSI_DIALECT_ENUM {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADSTYPEENUM(pub i32);
+pub struct ADSTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_INVALID: ADSTYPEENUM = ADSTYPEENUM(0i32);
+pub const ADSTYPE_INVALID: ADSTYPE = ADSTYPE(0i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_STRING: ADSTYPEENUM = ADSTYPEENUM(1i32);
+pub const ADSTYPE_DN_STRING: ADSTYPE = ADSTYPE(1i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPEENUM = ADSTYPEENUM(2i32);
+pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPE = ADSTYPE(2i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPEENUM = ADSTYPEENUM(3i32);
+pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPE = ADSTYPE(3i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PRINTABLE_STRING: ADSTYPEENUM = ADSTYPEENUM(4i32);
+pub const ADSTYPE_PRINTABLE_STRING: ADSTYPE = ADSTYPE(4i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NUMERIC_STRING: ADSTYPEENUM = ADSTYPEENUM(5i32);
+pub const ADSTYPE_NUMERIC_STRING: ADSTYPE = ADSTYPE(5i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_BOOLEAN: ADSTYPEENUM = ADSTYPEENUM(6i32);
+pub const ADSTYPE_BOOLEAN: ADSTYPE = ADSTYPE(6i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_INTEGER: ADSTYPEENUM = ADSTYPEENUM(7i32);
+pub const ADSTYPE_INTEGER: ADSTYPE = ADSTYPE(7i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OCTET_STRING: ADSTYPEENUM = ADSTYPEENUM(8i32);
+pub const ADSTYPE_OCTET_STRING: ADSTYPE = ADSTYPE(8i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = ADSTYPEENUM(9i32);
+pub const ADSTYPE_UTC_TIME: ADSTYPE = ADSTYPE(9i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_LARGE_INTEGER: ADSTYPEENUM = ADSTYPEENUM(10i32);
+pub const ADSTYPE_LARGE_INTEGER: ADSTYPE = ADSTYPE(10i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PROV_SPECIFIC: ADSTYPEENUM = ADSTYPEENUM(11i32);
+pub const ADSTYPE_PROV_SPECIFIC: ADSTYPE = ADSTYPE(11i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OBJECT_CLASS: ADSTYPEENUM = ADSTYPEENUM(12i32);
+pub const ADSTYPE_OBJECT_CLASS: ADSTYPE = ADSTYPE(12i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPEENUM = ADSTYPEENUM(13i32);
+pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPE = ADSTYPE(13i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OCTET_LIST: ADSTYPEENUM = ADSTYPEENUM(14i32);
+pub const ADSTYPE_OCTET_LIST: ADSTYPE = ADSTYPE(14i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PATH: ADSTYPEENUM = ADSTYPEENUM(15i32);
+pub const ADSTYPE_PATH: ADSTYPE = ADSTYPE(15i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_POSTALADDRESS: ADSTYPEENUM = ADSTYPEENUM(16i32);
+pub const ADSTYPE_POSTALADDRESS: ADSTYPE = ADSTYPE(16i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_TIMESTAMP: ADSTYPEENUM = ADSTYPEENUM(17i32);
+pub const ADSTYPE_TIMESTAMP: ADSTYPE = ADSTYPE(17i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_BACKLINK: ADSTYPEENUM = ADSTYPEENUM(18i32);
+pub const ADSTYPE_BACKLINK: ADSTYPE = ADSTYPE(18i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = ADSTYPEENUM(19i32);
+pub const ADSTYPE_TYPEDNAME: ADSTYPE = ADSTYPE(19i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_HOLD: ADSTYPEENUM = ADSTYPEENUM(20i32);
+pub const ADSTYPE_HOLD: ADSTYPE = ADSTYPE(20i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NETADDRESS: ADSTYPEENUM = ADSTYPEENUM(21i32);
+pub const ADSTYPE_NETADDRESS: ADSTYPE = ADSTYPE(21i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_REPLICAPOINTER: ADSTYPEENUM = ADSTYPEENUM(22i32);
+pub const ADSTYPE_REPLICAPOINTER: ADSTYPE = ADSTYPE(22i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_FAXNUMBER: ADSTYPEENUM = ADSTYPEENUM(23i32);
+pub const ADSTYPE_FAXNUMBER: ADSTYPE = ADSTYPE(23i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_EMAIL: ADSTYPEENUM = ADSTYPEENUM(24i32);
+pub const ADSTYPE_EMAIL: ADSTYPE = ADSTYPE(24i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPEENUM = ADSTYPEENUM(25i32);
+pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPE = ADSTYPE(25i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = ADSTYPEENUM(26i32);
+pub const ADSTYPE_UNKNOWN: ADSTYPE = ADSTYPE(26i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_WITH_BINARY: ADSTYPEENUM = ADSTYPEENUM(27i32);
+pub const ADSTYPE_DN_WITH_BINARY: ADSTYPE = ADSTYPE(27i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_WITH_STRING: ADSTYPEENUM = ADSTYPEENUM(28i32);
-impl ::core::marker::Copy for ADSTYPEENUM {}
-impl ::core::clone::Clone for ADSTYPEENUM {
+pub const ADSTYPE_DN_WITH_STRING: ADSTYPE = ADSTYPE(28i32);
+impl ::core::marker::Copy for ADSTYPE {}
+impl ::core::clone::Clone for ADSTYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for ADSTYPEENUM {
+impl ::core::default::Default for ADSTYPE {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ADSTYPEENUM {
+unsafe impl ::windows::core::Abi for ADSTYPE {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for ADSTYPEENUM {
+impl ::core::fmt::Debug for ADSTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADSTYPEENUM").field(&self.0).finish()
+        f.debug_tuple("ADSTYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -16657,7 +16657,7 @@ impl ::core::default::Default for ADSPROPINITPARAMS {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSVALUE {
-    pub dwType: ADSTYPEENUM,
+    pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16749,7 +16749,7 @@ impl ::core::default::Default for ADSVALUE_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: ::windows::core::PWSTR,
-    pub dwADsType: ADSTYPEENUM,
+    pub dwADsType: ADSTYPE,
     pub dwMinRange: u32,
     pub dwMaxRange: u32,
     pub fMultiValued: super::super::Foundation::BOOL,
@@ -16792,7 +16792,7 @@ impl ::core::default::Default for ADS_ATTR_DEF {
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: ::windows::core::PWSTR,
     pub dwControlCode: u32,
-    pub dwADsType: ADSTYPEENUM,
+    pub dwADsType: ADSTYPE,
     pub pADsValues: *mut ADSVALUE,
     pub dwNumValues: u32,
 }
@@ -17388,6 +17388,82 @@ impl ::core::cmp::PartialEq for ADS_REPLICAPOINTER {
 }
 impl ::core::cmp::Eq for ADS_REPLICAPOINTER {}
 impl ::core::default::Default for ADS_REPLICAPOINTER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_SEARCHPREF_INFO {
+    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
+    pub vValue: ADSVALUE,
+    pub dwStatus: ADS_STATUSENUM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_SEARCHPREF_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_SEARCHPREF_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADS_SEARCHPREF_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADS_SEARCHPREF_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_SEARCHPREF_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADS_SEARCHPREF_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADS_SEARCHPREF_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_SEARCH_COLUMN {
+    pub pszAttrName: ::windows::core::PWSTR,
+    pub dwADsType: ADSTYPE,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+    pub hReserved: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_SEARCH_COLUMN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_SEARCH_COLUMN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADS_SEARCH_COLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_SEARCH_COLUMN").field("pszAttrName", &self.pszAttrName).field("dwADsType", &self.dwADsType).field("pADsValues", &self.pADsValues).field("dwNumValues", &self.dwNumValues).field("hReserved", &self.hReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADS_SEARCH_COLUMN {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADS_SEARCH_COLUMN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_SEARCH_COLUMN>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADS_SEARCH_COLUMN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADS_SEARCH_COLUMN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -21129,82 +21205,6 @@ impl ::core::cmp::PartialEq for SCHEDULE_HEADER {
 }
 impl ::core::cmp::Eq for SCHEDULE_HEADER {}
 impl ::core::default::Default for SCHEDULE_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ads_search_column {
-    pub pszAttrName: ::windows::core::PWSTR,
-    pub dwADsType: ADSTYPEENUM,
-    pub pADsValues: *mut ADSVALUE,
-    pub dwNumValues: u32,
-    pub hReserved: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ads_search_column {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ads_search_column {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ads_search_column {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ads_search_column").field("pszAttrName", &self.pszAttrName).field("dwADsType", &self.dwADsType).field("pADsValues", &self.pADsValues).field("dwNumValues", &self.dwNumValues).field("hReserved", &self.hReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ads_search_column {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ads_search_column {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ads_search_column>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ads_search_column {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ads_search_column {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ads_searchpref_info {
-    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
-    pub vValue: ADSVALUE,
-    pub dwStatus: ADS_STATUSENUM,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ads_searchpref_info {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ads_searchpref_info {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ads_searchpref_info {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ads_searchpref_info {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ads_searchpref_info>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ads_searchpref_info {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ads_searchpref_info {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

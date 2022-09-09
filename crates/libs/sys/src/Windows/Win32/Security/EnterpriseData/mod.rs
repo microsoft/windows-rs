@@ -1,12 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-    pub fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
     pub fn ProtectFileToEnterpriseIdentity(fileorfolderpath: ::windows_sys::core::PCWSTR, identity: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
@@ -31,6 +23,11 @@ extern "system" {
     pub fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE, policyflags: *mut ENTERPRISE_DATA_POLICIES) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
     pub fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+    pub fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
+    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SrpSetTokenEnterpriseId(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;

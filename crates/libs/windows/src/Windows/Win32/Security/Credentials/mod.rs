@@ -1,12 +1,3 @@
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-#[inline]
-pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: &KeyCredentialManagerInfo) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
-    }
-    KeyCredentialManagerFreeInformation(::core::mem::transmute(keycredentialmanagerinfo))
-}
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -613,6 +604,15 @@ pub unsafe fn GetOpenCardNameW(param0: &mut OPENCARDNAMEW) -> i32 {
         fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32;
     }
     GetOpenCardNameW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+#[inline]
+pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: &KeyCredentialManagerInfo) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
+    }
+    KeyCredentialManagerFreeInformation(::core::mem::transmute(keycredentialmanagerinfo))
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]

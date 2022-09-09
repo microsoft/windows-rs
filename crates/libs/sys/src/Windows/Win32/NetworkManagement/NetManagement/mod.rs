@@ -1,72 +1,11 @@
 #[cfg_attr(windows, link(name = "windows"))]
 extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-    pub fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PWSTR, dwerrorcode: u32);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-    pub fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PWSTR);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAddServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, password: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetEnumerateServiceAccounts(servername: ::windows_sys::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetIsServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetQueryServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRemoveServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-    pub fn RouterAssert(pszfailedassertion: ::windows_sys::core::PCSTR, pszfilename: ::windows_sys::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows_sys::core::PCSTR);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-    pub fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows_sys::core::PSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-    pub fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows_sys::core::PWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwerrorcode: u32);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RouterLogEventExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCSTR);
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCWSTR);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCSTR, arglist: *mut i8);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCWSTR, arglist: *mut i8);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwerrorcode: u32);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogRegisterA(lpszsource: ::windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogRegisterW(lpszsource: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn TracePrintfA(dwtraceid: u32, lpszformat: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -85,7 +24,11 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PSTR, dwerrorcode: u32);
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PWSTR, dwerrorcode: u32);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PSTR);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PWSTR);
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -104,6 +47,9 @@ extern "system" {
     pub fn NetAccessSetInfo(servername: ::windows_sys::core::PCWSTR, resource: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetAddAlternateComputerName(server: ::windows_sys::core::PCWSTR, alternatename: ::windows_sys::core::PCWSTR, domainaccount: ::windows_sys::core::PCWSTR, domainaccountpassword: ::windows_sys::core::PCWSTR, reserved: u32) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetAddServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, password: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetAlertRaise(alerttype: ::windows_sys::core::PCWSTR, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -132,6 +78,9 @@ extern "system" {
     pub fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetEnumerateComputerNames(server: ::windows_sys::core::PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetEnumerateServiceAccounts(servername: ::windows_sys::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetErrorLogClear(uncservername: ::windows_sys::core::PCWSTR, backupfile: ::windows_sys::core::PCWSTR, reserved: *const u8) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -172,6 +121,9 @@ extern "system" {
     pub fn NetGroupSetInfo(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetGroupSetUsers(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetIsServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetJoinDomain(lpserver: ::windows_sys::core::PCWSTR, lpdomain: ::windows_sys::core::PCWSTR, lpmachineaccountou: ::windows_sys::core::PCWSTR, lpaccount: ::windows_sys::core::PCWSTR, lppassword: ::windows_sys::core::PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -212,12 +164,18 @@ extern "system" {
     pub fn NetProvisionComputerAccount(lpdomain: ::windows_sys::core::PCWSTR, lpmachinename: ::windows_sys::core::PCWSTR, lpmachineaccountou: ::windows_sys::core::PCWSTR, lpdcname: ::windows_sys::core::PCWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetQueryDisplayInformation(servername: ::windows_sys::core::PCWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetQueryServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetRemoteComputerSupports(uncservername: ::windows_sys::core::PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetRemoteTOD(uncservername: ::windows_sys::core::PCWSTR, bufferptr: *mut *mut u8) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetRemoveAlternateComputerName(server: ::windows_sys::core::PCWSTR, alternatename: ::windows_sys::core::PCWSTR, domainaccount: ::windows_sys::core::PCWSTR, domainaccountpassword: ::windows_sys::core::PCWSTR, reserved: u32) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetRemoveServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetRenameMachineInDomain(lpserver: ::windows_sys::core::PCWSTR, lpnewmachinename: ::windows_sys::core::PCWSTR, lpaccount: ::windows_sys::core::PCWSTR, lppassword: ::windows_sys::core::PCWSTR, frenameoptions: u32) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -346,6 +304,48 @@ extern "system" {
     pub fn NetWkstaUserGetInfo(reserved: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn NetWkstaUserSetInfo(reserved: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub fn RouterAssert(pszfailedassertion: ::windows_sys::core::PCSTR, pszfilename: ::windows_sys::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows_sys::core::PCSTR);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows_sys::core::PSTR) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwerrorcode: u32);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCSTR, arglist: *mut i8);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCWSTR, arglist: *mut i8);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwerrorcode: u32);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogRegisterA(lpszsource: ::windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RouterLogRegisterW(lpszsource: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn SetNetScheduleAccountInformation(pwszservername: ::windows_sys::core::PCWSTR, pwszaccount: ::windows_sys::core::PCWSTR, pwszpassword: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -4879,6 +4879,40 @@ pub const OBO_COMPONENT: OBO_TOKEN_TYPE = 2i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub type RASCON_UIINFO_FLAGS = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_VPN: RASCON_UIINFO_FLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_NOT_ADMIN: RASCON_UIINFO_FLAGS = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_STATICADDRESS: RASCON_UIINFO_FLAGS = 8i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_NAME_SERVERS: RASCON_UIINFO_FLAGS = 16i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 32i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 64i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_HEADER_COMPRESSION: RASCON_UIINFO_FLAGS = 128i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_DISABLE_REGISTER_DNS: RASCON_UIINFO_FLAGS = 256i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: RASCON_UIINFO_FLAGS = 512i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_ENABLE_NBT: RASCON_UIINFO_FLAGS = 1024i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_STATICADDRESS: RASCON_UIINFO_FLAGS = 2048i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_NAME_SERVERS: RASCON_UIINFO_FLAGS = 4096i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 8192i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 16384i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = 32768i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub type SERVER_INFO_HIDDEN = u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_VISIBLE: SERVER_INFO_HIDDEN = 0u32;
@@ -4964,40 +4998,6 @@ pub const USE_DISKDEV: USE_INFO_ASG_TYPE = 0u32;
 pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_IPC: USE_INFO_ASG_TYPE = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub type tagRASCON_IPUI_FLAGS = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_VPN: tagRASCON_IPUI_FLAGS = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DEMAND_DIAL: tagRASCON_IPUI_FLAGS = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_NOT_ADMIN: tagRASCON_IPUI_FLAGS = 4i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_STATICADDRESS: tagRASCON_IPUI_FLAGS = 8i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_NAME_SERVERS: tagRASCON_IPUI_FLAGS = 16i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = 32i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = 64i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_HEADER_COMPRESSION: tagRASCON_IPUI_FLAGS = 128i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_DISABLE_REGISTER_DNS: tagRASCON_IPUI_FLAGS = 256i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: tagRASCON_IPUI_FLAGS = 512i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_ENABLE_NBT: tagRASCON_IPUI_FLAGS = 1024i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_STATICADDRESS: tagRASCON_IPUI_FLAGS = 2048i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_NAME_SERVERS: tagRASCON_IPUI_FLAGS = 4096i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = 8192i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = 16384i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = 32768i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct ACCESS_INFO_0 {

@@ -2,9 +2,6 @@
 extern "cdecl" {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
-    #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -67,6 +64,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PxeProviderEnumNext(henum: super::super::Foundation::HANDLE, ppprovider: *mut *mut PXE_PROVIDER) -> u32;
+    #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub fn PxeProviderQueryIndex(pszprovidername: ::windows_sys::core::PCWSTR, puindex: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -920,7 +920,7 @@ impl ::core::clone::Clone for PXE_ADDRESS_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
@@ -935,7 +935,7 @@ impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
@@ -974,7 +974,7 @@ impl ::core::clone::Clone for PXE_DHCPV6_OPTION {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
@@ -1027,7 +1027,7 @@ impl ::core::clone::Clone for PXE_DHCP_MESSAGE_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,

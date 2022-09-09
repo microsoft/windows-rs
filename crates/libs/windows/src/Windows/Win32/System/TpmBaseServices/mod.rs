@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbresult: &mut u32, pfprotectedbytpm: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     GetDeviceID(::core::mem::transmute(pbwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
@@ -13,7 +13,7 @@ pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbre
 #[inline]
 pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: &mut u32, pfprotectedbytpm: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn GetDeviceIDString(pszwindowsaik: ::windows::core::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     GetDeviceIDString(::core::mem::transmute(pszwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
@@ -384,31 +384,31 @@ impl ::core::default::Default for TPM_DEVICE_INFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub struct tdTPM_WNF_PROVISIONING {
+pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
 }
-impl ::core::marker::Copy for tdTPM_WNF_PROVISIONING {}
-impl ::core::clone::Clone for tdTPM_WNF_PROVISIONING {
+impl ::core::marker::Copy for TPM_WNF_PROVISIONING {}
+impl ::core::clone::Clone for TPM_WNF_PROVISIONING {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for tdTPM_WNF_PROVISIONING {
+impl ::core::fmt::Debug for TPM_WNF_PROVISIONING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tdTPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
+        f.debug_struct("TPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
     }
 }
-unsafe impl ::windows::core::Abi for tdTPM_WNF_PROVISIONING {
+unsafe impl ::windows::core::Abi for TPM_WNF_PROVISIONING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for tdTPM_WNF_PROVISIONING {
+impl ::core::cmp::PartialEq for TPM_WNF_PROVISIONING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tdTPM_WNF_PROVISIONING>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TPM_WNF_PROVISIONING>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for tdTPM_WNF_PROVISIONING {}
-impl ::core::default::Default for tdTPM_WNF_PROVISIONING {
+impl ::core::cmp::Eq for TPM_WNF_PROVISIONING {}
+impl ::core::default::Default for TPM_WNF_PROVISIONING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

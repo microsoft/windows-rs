@@ -1,14 +1,9 @@
 #[cfg(feature = "Win32_System_Performance_HardwareCounterProfiling")]
 pub mod HardwareCounterProfiling;
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub fn BackupPerfRegistryToFileW(szfilename: ::windows_sys::core::PCWSTR, szcommentstring: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn RestorePerfRegistryFromFileW(szfilename: ::windows_sys::core::PCWSTR, szlangid: ::windows_sys::core::PCWSTR) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub fn InstallPerfDllA(szcomputername: ::windows_sys::core::PCSTR, lpinifile: ::windows_sys::core::PCSTR, dwflags: usize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -299,6 +294,8 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+    pub fn RestorePerfRegistryFromFileW(szfilename: ::windows_sys::core::PCWSTR, szlangid: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub fn SetServiceAsTrustedA(szreserved: ::windows_sys::core::PCSTR, szservicename: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

@@ -1,16 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderFreeInfo(pprovider: &PXE_PROVIDER) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
-    }
-    PxeProviderFreeInfo(::core::mem::transmute(pprovider))
-}
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn PxeTrace<'a, P0, P1>(hprovider: P0, severity: u32, pszformat: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -277,6 +267,16 @@ where
         fn PxeProviderEnumNext(henum: super::super::Foundation::HANDLE, ppprovider: *mut *mut PXE_PROVIDER) -> u32;
     }
     PxeProviderEnumNext(henum.into(), ::core::mem::transmute(ppprovider))
+}
+#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PxeProviderFreeInfo(pprovider: &PXE_PROVIDER) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
+    }
+    PxeProviderFreeInfo(::core::mem::transmute(pprovider))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -5531,7 +5531,7 @@ impl ::core::default::Default for PXE_ADDRESS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
@@ -5560,7 +5560,7 @@ impl ::core::default::Default for PXE_DHCPV6_MESSAGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
@@ -5570,11 +5570,6 @@ impl ::core::marker::Copy for PXE_DHCPV6_MESSAGE_HEADER {}
 impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE_HEADER {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PXE_DHCPV6_MESSAGE_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PXE_DHCPV6_MESSAGE_HEADER").field("MessageType", &self.MessageType).field("Message", &self.Message).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_MESSAGE_HEADER {
@@ -5651,7 +5646,7 @@ impl ::core::default::Default for PXE_DHCPV6_OPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
@@ -5746,7 +5741,7 @@ impl ::core::default::Default for PXE_DHCP_MESSAGE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
@@ -5757,11 +5752,6 @@ impl ::core::marker::Copy for PXE_DHCP_OPTION {}
 impl ::core::clone::Clone for PXE_DHCP_OPTION {
     fn clone(&self) -> Self {
         *self
-    }
-}
-impl ::core::fmt::Debug for PXE_DHCP_OPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PXE_DHCP_OPTION").field("OptionType", &self.OptionType).field("OptionLength", &self.OptionLength).field("OptionValue", &self.OptionValue).finish()
     }
 }
 unsafe impl ::windows::core::Abi for PXE_DHCP_OPTION {

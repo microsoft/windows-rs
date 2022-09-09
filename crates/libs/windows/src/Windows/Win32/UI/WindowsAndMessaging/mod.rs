@@ -1,26 +1,5 @@
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
-pub unsafe fn DestroyIndexedResults<'a, P0>(resourceuri: P0, qualifiers: ::core::option::Option<&[IndexedResourceQualifier]>)
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn DestroyIndexedResults(resourceuri: ::windows::core::PCWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
-    }
-    DestroyIndexedResults(resourceuri.into(), qualifiers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(qualifiers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
-}
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[inline]
-pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
-    }
-    DestroyResourceIndexer(::core::mem::transmute(resourceindexer))
-}
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[inline]
 pub unsafe fn wsprintfA<'a, P0>(param0: ::windows::core::PSTR, param1: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -1113,6 +1092,18 @@ where
     }
     DestroyIcon(hicon.into())
 }
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[inline]
+pub unsafe fn DestroyIndexedResults<'a, P0>(resourceuri: P0, qualifiers: ::core::option::Option<&[IndexedResourceQualifier]>)
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DestroyIndexedResults(resourceuri: ::windows::core::PCWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
+    }
+    DestroyIndexedResults(resourceuri.into(), qualifiers.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(qualifiers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+}
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1125,6 +1116,15 @@ where
         fn DestroyMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
     }
     DestroyMenu(hmenu.into())
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[inline]
+pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
+    }
+    DestroyResourceIndexer(::core::mem::transmute(resourceindexer))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5561,27 +5561,7 @@ pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DC_HASDEFID: u32 = 21323u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_CREATEMENU: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_CREATEWINDOW: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_ENUMERATE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_HOOKCONTROL: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_JOURNALPLAYBACK: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_JOURNALRECORD: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_READOBJECTS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_SWITCHDESKTOP: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_WRITEOBJECTS: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DIFFERENCE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5935,8 +5915,6 @@ pub const EWX_QUICKRESOLVE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const EWX_SYSTEM_INITIATED: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FALT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FAPPCOMMAND_KEY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FAPPCOMMAND_MASK: u32 = 61440u32;
@@ -5944,8 +5922,6 @@ pub const FAPPCOMMAND_MASK: u32 = 61440u32;
 pub const FAPPCOMMAND_MOUSE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FAPPCOMMAND_OEM: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FCONTROL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FE_FONTSMOOTHINGCLEARTYPE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5968,12 +5944,6 @@ pub const FKF_HOTKEYACTIVE: u32 = 4u32;
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FKF_INDICATOR: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FNOINVERT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FSHIFT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FVIRTKEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -6079,10 +6049,6 @@ pub const HC_SKIP: u32 = 2u32;
 pub const HC_SYSMODALOFF: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const HC_SYSMODALON: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const HELPINFO_MENUITEM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const HELPINFO_WINDOW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const HELP_COMMAND: i32 = 258i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -6707,34 +6673,6 @@ pub const OCR_ICOCUR: u32 = 32647u32;
 pub const OCR_ICON: u32 = 32641u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const OCR_SIZE: u32 = 32640u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODA_DRAWENTIRE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODA_FOCUS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODA_SELECT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_CHECKED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_COMBOBOXEDIT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_DEFAULT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_FOCUS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_GRAYED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_HOTLIGHT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_INACTIVE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_NOACCEL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_NOFOCUSRECT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_SELECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const OIC_BANG: u32 = 32515u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -7999,6 +7937,67 @@ pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
 pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACCEL_VIRT_FLAGS(pub u8);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FVIRTKEY: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(1u8);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FNOINVERT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(2u8);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FSHIFT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(4u8);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FCONTROL: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(8u8);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FALT: ACCEL_VIRT_FLAGS = ACCEL_VIRT_FLAGS(16u8);
+impl ::core::marker::Copy for ACCEL_VIRT_FLAGS {}
+impl ::core::clone::Clone for ACCEL_VIRT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ACCEL_VIRT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ACCEL_VIRT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACCEL_VIRT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACCEL_VIRT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ACCEL_VIRT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ACCEL_VIRT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ACCEL_VIRT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ACCEL_VIRT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ACCEL_VIRT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12089,7 +12088,7 @@ impl ::core::ops::Not for WNDCLASS_STYLES {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct ACCEL {
-    pub fVirt: u8,
+    pub fVirt: ACCEL_VIRT_FLAGS,
     pub key: u16,
     pub cmd: u16,
 }
@@ -14762,6 +14761,39 @@ impl ::core::default::Default for TITLEBARINFOEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct TOUCHPREDICTIONPARAMETERS {
+    pub cbSize: u32,
+    pub dwLatency: u32,
+    pub dwSampleTime: u32,
+    pub bUseHWTimeStamp: u32,
+}
+impl ::core::marker::Copy for TOUCHPREDICTIONPARAMETERS {}
+impl ::core::clone::Clone for TOUCHPREDICTIONPARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TOUCHPREDICTIONPARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOUCHPREDICTIONPARAMETERS").field("cbSize", &self.cbSize).field("dwLatency", &self.dwLatency).field("dwSampleTime", &self.dwSampleTime).field("bUseHWTimeStamp", &self.bUseHWTimeStamp).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TOUCHPREDICTIONPARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TOUCHPREDICTIONPARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOUCHPREDICTIONPARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TOUCHPREDICTIONPARAMETERS {}
+impl ::core::default::Default for TOUCHPREDICTIONPARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TPMPARAMS {
@@ -14796,39 +14828,6 @@ impl ::core::cmp::PartialEq for TPMPARAMS {
 impl ::core::cmp::Eq for TPMPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TPMPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub struct TouchPredictionParameters {
-    pub cbSize: u32,
-    pub dwLatency: u32,
-    pub dwSampleTime: u32,
-    pub bUseHWTimeStamp: u32,
-}
-impl ::core::marker::Copy for TouchPredictionParameters {}
-impl ::core::clone::Clone for TouchPredictionParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TouchPredictionParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TouchPredictionParameters").field("cbSize", &self.cbSize).field("dwLatency", &self.dwLatency).field("dwSampleTime", &self.dwSampleTime).field("bUseHWTimeStamp", &self.bUseHWTimeStamp).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TouchPredictionParameters {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TouchPredictionParameters {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TouchPredictionParameters>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TouchPredictionParameters {}
-impl ::core::default::Default for TouchPredictionParameters {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

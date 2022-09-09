@@ -2224,6 +2224,50 @@ impl ::core::clone::Clone for DSKTLSYSTEMTIME {
 pub type HKEY = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub struct PVALUEA {
+    pub pv_valuename: ::windows_sys::core::PSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
+impl ::core::marker::Copy for PVALUEA {}
+impl ::core::clone::Clone for PVALUEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub struct PVALUEW {
+    pub pv_valuename: ::windows_sys::core::PWSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
+impl ::core::marker::Copy for PVALUEW {}
+impl ::core::clone::Clone for PVALUEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub struct REG_PROVIDER {
+    pub pi_R0_1val: PQUERYHANDLER,
+    pub pi_R0_allvals: PQUERYHANDLER,
+    pub pi_R3_1val: PQUERYHANDLER,
+    pub pi_R3_allvals: PQUERYHANDLER,
+    pub pi_flags: u32,
+    pub pi_key_context: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for REG_PROVIDER {}
+impl ::core::clone::Clone for REG_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub struct VALENTA {
     pub ve_valuename: ::windows_sys::core::PSTR,
     pub ve_valuelen: u32,
@@ -2246,50 +2290,6 @@ pub struct VALENTW {
 }
 impl ::core::marker::Copy for VALENTW {}
 impl ::core::clone::Clone for VALENTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub struct provider_info {
-    pub pi_R0_1val: PQUERYHANDLER,
-    pub pi_R0_allvals: PQUERYHANDLER,
-    pub pi_R3_1val: PQUERYHANDLER,
-    pub pi_R3_allvals: PQUERYHANDLER,
-    pub pi_flags: u32,
-    pub pi_key_context: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for provider_info {}
-impl ::core::clone::Clone for provider_info {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub struct pvalueA {
-    pub pv_valuename: ::windows_sys::core::PSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut ::core::ffi::c_void,
-    pub pv_type: u32,
-}
-impl ::core::marker::Copy for pvalueA {}
-impl ::core::clone::Clone for pvalueA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub struct pvalueW {
-    pub pv_valuename: ::windows_sys::core::PWSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut ::core::ffi::c_void,
-    pub pv_type: u32,
-}
-impl ::core::marker::Copy for pvalueW {}
-impl ::core::clone::Clone for pvalueW {
     fn clone(&self) -> Self {
         *self
     }

@@ -70,10 +70,10 @@ extern "system" {
     pub fn JetCommitTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32;
     #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_A, grbit: u32) -> i32;
+    pub fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const JET_CONVERT_A, grbit: u32) -> i32;
     #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_W, grbit: u32) -> i32;
+    pub fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const JET_CONVERT_W, grbit: u32) -> i32;
     #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetComputeStats(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
@@ -2634,76 +2634,6 @@ pub const JET_relopGreaterThan: JET_RELOP = 6i32;
 pub const JET_relopBitmaskEqualsZero: JET_RELOP = 7i32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = 8i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_A {
-    pub szOldDll: ::windows_sys::core::PSTR,
-    pub Anonymous: CONVERT_A_0,
-}
-impl ::core::marker::Copy for CONVERT_A {}
-impl ::core::clone::Clone for CONVERT_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub union CONVERT_A_0 {
-    pub fFlags: u32,
-    pub Anonymous: CONVERT_A_0_0,
-}
-impl ::core::marker::Copy for CONVERT_A_0 {}
-impl ::core::clone::Clone for CONVERT_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_A_0_0 {
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for CONVERT_A_0_0 {}
-impl ::core::clone::Clone for CONVERT_A_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_W {
-    pub szOldDll: ::windows_sys::core::PWSTR,
-    pub Anonymous: CONVERT_W_0,
-}
-impl ::core::marker::Copy for CONVERT_W {}
-impl ::core::clone::Clone for CONVERT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub union CONVERT_W_0 {
-    pub fFlags: u32,
-    pub Anonymous: CONVERT_W_0_0,
-}
-impl ::core::marker::Copy for CONVERT_W_0 {}
-impl ::core::clone::Clone for CONVERT_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub struct CONVERT_W_0_0 {
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for CONVERT_W_0_0 {}
-impl ::core::clone::Clone for CONVERT_W_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3009,6 +2939,76 @@ pub struct JET_CONDITIONALCOLUMN_W {
 }
 impl ::core::marker::Copy for JET_CONDITIONALCOLUMN_W {}
 impl ::core::clone::Clone for JET_CONDITIONALCOLUMN_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_A {
+    pub szOldDll: ::windows_sys::core::PSTR,
+    pub Anonymous: JET_CONVERT_A_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_A {}
+impl ::core::clone::Clone for JET_CONVERT_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub union JET_CONVERT_A_0 {
+    pub fFlags: u32,
+    pub Anonymous: JET_CONVERT_A_0_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_A_0 {}
+impl ::core::clone::Clone for JET_CONVERT_A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_A_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for JET_CONVERT_A_0_0 {}
+impl ::core::clone::Clone for JET_CONVERT_A_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_W {
+    pub szOldDll: ::windows_sys::core::PWSTR,
+    pub Anonymous: JET_CONVERT_W_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_W {}
+impl ::core::clone::Clone for JET_CONVERT_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub union JET_CONVERT_W_0 {
+    pub fFlags: u32,
+    pub Anonymous: JET_CONVERT_W_0_0,
+}
+impl ::core::marker::Copy for JET_CONVERT_W_0 {}
+impl ::core::clone::Clone for JET_CONVERT_W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub struct JET_CONVERT_W_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for JET_CONVERT_W_0_0 {}
+impl ::core::clone::Clone for JET_CONVERT_W_0_0 {
     fn clone(&self) -> Self {
         *self
     }

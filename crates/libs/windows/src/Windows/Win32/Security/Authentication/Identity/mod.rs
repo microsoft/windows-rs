@@ -1,25 +1,5 @@
 #[cfg(feature = "Win32_Security_Authentication_Identity_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-#[inline]
-pub unsafe fn CredMarshalTargetInfo(intargetinfo: &super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: &mut *mut u16, buffersize: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-    }
-    CredMarshalTargetInfo(::core::mem::transmute(intargetinfo), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-#[inline]
-pub unsafe fn CredUnmarshalTargetInfo(buffer: &[u8], rettargetinfo: ::core::option::Option<&mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW>, retactualsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-    }
-    CredUnmarshalTargetInfo(::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(rettargetinfo), ::core::mem::transmute(retactualsize)).ok()
-}
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
@@ -406,6 +386,26 @@ pub unsafe fn CompleteAuthToken(phcontext: &super::super::Credentials::SecHandle
         fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> ::windows::core::HRESULT;
     }
     CompleteAuthToken(::core::mem::transmute(phcontext), ::core::mem::transmute(ptoken)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
+pub unsafe fn CredMarshalTargetInfo(intargetinfo: &super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: &mut *mut u16, buffersize: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+    }
+    CredMarshalTargetInfo(::core::mem::transmute(intargetinfo), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
+pub unsafe fn CredUnmarshalTargetInfo(buffer: &[u8], rettargetinfo: ::core::option::Option<&mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW>, retactualsize: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+    }
+    CredUnmarshalTargetInfo(::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(rettargetinfo), ::core::mem::transmute(retactualsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -5076,59 +5076,57 @@ pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ASC_REQ_FLAGS(pub u64);
+pub struct ASC_REQ_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_DELEGATE: ASC_REQ_FLAGS = ASC_REQ_FLAGS(1u64);
+pub const ASC_REQ_DELEGATE: ASC_REQ_FLAGS = ASC_REQ_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_MUTUAL_AUTH: ASC_REQ_FLAGS = ASC_REQ_FLAGS(2u64);
+pub const ASC_REQ_MUTUAL_AUTH: ASC_REQ_FLAGS = ASC_REQ_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_REPLAY_DETECT: ASC_REQ_FLAGS = ASC_REQ_FLAGS(4u64);
+pub const ASC_REQ_REPLAY_DETECT: ASC_REQ_FLAGS = ASC_REQ_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_SEQUENCE_DETECT: ASC_REQ_FLAGS = ASC_REQ_FLAGS(8u64);
+pub const ASC_REQ_SEQUENCE_DETECT: ASC_REQ_FLAGS = ASC_REQ_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_CONFIDENTIALITY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(16u64);
+pub const ASC_REQ_CONFIDENTIALITY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(16u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_USE_SESSION_KEY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(32u64);
+pub const ASC_REQ_USE_SESSION_KEY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_SESSION_TICKET: ASC_REQ_FLAGS = ASC_REQ_FLAGS(64u64);
+pub const ASC_REQ_SESSION_TICKET: ASC_REQ_FLAGS = ASC_REQ_FLAGS(64u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOCATE_MEMORY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(256u64);
+pub const ASC_REQ_ALLOCATE_MEMORY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(256u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_USE_DCE_STYLE: ASC_REQ_FLAGS = ASC_REQ_FLAGS(512u64);
+pub const ASC_REQ_USE_DCE_STYLE: ASC_REQ_FLAGS = ASC_REQ_FLAGS(512u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_DATAGRAM: ASC_REQ_FLAGS = ASC_REQ_FLAGS(1024u64);
+pub const ASC_REQ_DATAGRAM: ASC_REQ_FLAGS = ASC_REQ_FLAGS(1024u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_CONNECTION: ASC_REQ_FLAGS = ASC_REQ_FLAGS(2048u64);
+pub const ASC_REQ_CONNECTION: ASC_REQ_FLAGS = ASC_REQ_FLAGS(2048u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_CALL_LEVEL: ASC_REQ_FLAGS = ASC_REQ_FLAGS(4096u64);
+pub const ASC_REQ_CALL_LEVEL: ASC_REQ_FLAGS = ASC_REQ_FLAGS(4096u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_FRAGMENT_SUPPLIED: ASC_REQ_FLAGS = ASC_REQ_FLAGS(8192u64);
+pub const ASC_REQ_FRAGMENT_SUPPLIED: ASC_REQ_FLAGS = ASC_REQ_FLAGS(8192u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_EXTENDED_ERROR: ASC_REQ_FLAGS = ASC_REQ_FLAGS(32768u64);
+pub const ASC_REQ_EXTENDED_ERROR: ASC_REQ_FLAGS = ASC_REQ_FLAGS(32768u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_STREAM: ASC_REQ_FLAGS = ASC_REQ_FLAGS(65536u64);
+pub const ASC_REQ_STREAM: ASC_REQ_FLAGS = ASC_REQ_FLAGS(65536u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_INTEGRITY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(131072u64);
+pub const ASC_REQ_INTEGRITY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(131072u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_LICENSING: ASC_REQ_FLAGS = ASC_REQ_FLAGS(262144u64);
+pub const ASC_REQ_LICENSING: ASC_REQ_FLAGS = ASC_REQ_FLAGS(262144u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_IDENTIFY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(524288u64);
+pub const ASC_REQ_IDENTIFY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(524288u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_NULL_SESSION: ASC_REQ_FLAGS = ASC_REQ_FLAGS(1048576u64);
+pub const ASC_REQ_ALLOW_NULL_SESSION: ASC_REQ_FLAGS = ASC_REQ_FLAGS(1048576u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_NON_USER_LOGONS: ASC_REQ_FLAGS = ASC_REQ_FLAGS(2097152u64);
+pub const ASC_REQ_ALLOW_NON_USER_LOGONS: ASC_REQ_FLAGS = ASC_REQ_FLAGS(2097152u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(4194304u64);
+pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: ASC_REQ_FLAGS = ASC_REQ_FLAGS(4194304u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_FRAGMENT_TO_FIT: ASC_REQ_FLAGS = ASC_REQ_FLAGS(8388608u64);
+pub const ASC_REQ_FRAGMENT_TO_FIT: ASC_REQ_FLAGS = ASC_REQ_FLAGS(8388608u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_NO_TOKEN: ASC_REQ_FLAGS = ASC_REQ_FLAGS(16777216u64);
+pub const ASC_REQ_NO_TOKEN: ASC_REQ_FLAGS = ASC_REQ_FLAGS(16777216u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_PROXY_BINDINGS: ASC_REQ_FLAGS = ASC_REQ_FLAGS(67108864u64);
+pub const ASC_REQ_PROXY_BINDINGS: ASC_REQ_FLAGS = ASC_REQ_FLAGS(67108864u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_MISSING_BINDINGS: ASC_REQ_FLAGS = ASC_REQ_FLAGS(268435456u64);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_MESSAGES: ASC_REQ_FLAGS = ASC_REQ_FLAGS(4294967296u64);
+pub const ASC_REQ_ALLOW_MISSING_BINDINGS: ASC_REQ_FLAGS = ASC_REQ_FLAGS(268435456u32);
 impl ::core::marker::Copy for ASC_REQ_FLAGS {}
 impl ::core::clone::Clone for ASC_REQ_FLAGS {
     fn clone(&self) -> Self {
@@ -5171,6 +5169,59 @@ impl ::core::ops::BitAndAssign for ASC_REQ_FLAGS {
     }
 }
 impl ::core::ops::Not for ASC_REQ_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ASC_REQ_HIGH_FLAGS(pub u64);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_MESSAGES: ASC_REQ_HIGH_FLAGS = ASC_REQ_HIGH_FLAGS(4294967296u64);
+impl ::core::marker::Copy for ASC_REQ_HIGH_FLAGS {}
+impl ::core::clone::Clone for ASC_REQ_HIGH_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ASC_REQ_HIGH_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ASC_REQ_HIGH_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ASC_REQ_HIGH_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ASC_REQ_HIGH_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ASC_REQ_HIGH_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ASC_REQ_HIGH_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ASC_REQ_HIGH_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ASC_REQ_HIGH_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ASC_REQ_HIGH_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -5375,65 +5426,61 @@ impl ::core::fmt::Debug for EXTENDED_NAME_FORMAT {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ISC_REQ_FLAGS(pub u64);
+pub struct ISC_REQ_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_DELEGATE: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1u64);
+pub const ISC_REQ_DELEGATE: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_MUTUAL_AUTH: ISC_REQ_FLAGS = ISC_REQ_FLAGS(2u64);
+pub const ISC_REQ_MUTUAL_AUTH: ISC_REQ_FLAGS = ISC_REQ_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_REPLAY_DETECT: ISC_REQ_FLAGS = ISC_REQ_FLAGS(4u64);
+pub const ISC_REQ_REPLAY_DETECT: ISC_REQ_FLAGS = ISC_REQ_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_SEQUENCE_DETECT: ISC_REQ_FLAGS = ISC_REQ_FLAGS(8u64);
+pub const ISC_REQ_SEQUENCE_DETECT: ISC_REQ_FLAGS = ISC_REQ_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CONFIDENTIALITY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(16u64);
+pub const ISC_REQ_CONFIDENTIALITY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(16u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_SESSION_KEY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(32u64);
+pub const ISC_REQ_USE_SESSION_KEY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_PROMPT_FOR_CREDS: ISC_REQ_FLAGS = ISC_REQ_FLAGS(64u64);
+pub const ISC_REQ_PROMPT_FOR_CREDS: ISC_REQ_FLAGS = ISC_REQ_FLAGS(64u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_SUPPLIED_CREDS: ISC_REQ_FLAGS = ISC_REQ_FLAGS(128u64);
+pub const ISC_REQ_USE_SUPPLIED_CREDS: ISC_REQ_FLAGS = ISC_REQ_FLAGS(128u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_ALLOCATE_MEMORY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(256u64);
+pub const ISC_REQ_ALLOCATE_MEMORY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(256u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_DCE_STYLE: ISC_REQ_FLAGS = ISC_REQ_FLAGS(512u64);
+pub const ISC_REQ_USE_DCE_STYLE: ISC_REQ_FLAGS = ISC_REQ_FLAGS(512u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_DATAGRAM: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1024u64);
+pub const ISC_REQ_DATAGRAM: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1024u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CONNECTION: ISC_REQ_FLAGS = ISC_REQ_FLAGS(2048u64);
+pub const ISC_REQ_CONNECTION: ISC_REQ_FLAGS = ISC_REQ_FLAGS(2048u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CALL_LEVEL: ISC_REQ_FLAGS = ISC_REQ_FLAGS(4096u64);
+pub const ISC_REQ_CALL_LEVEL: ISC_REQ_FLAGS = ISC_REQ_FLAGS(4096u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_FRAGMENT_SUPPLIED: ISC_REQ_FLAGS = ISC_REQ_FLAGS(8192u64);
+pub const ISC_REQ_FRAGMENT_SUPPLIED: ISC_REQ_FLAGS = ISC_REQ_FLAGS(8192u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_EXTENDED_ERROR: ISC_REQ_FLAGS = ISC_REQ_FLAGS(16384u64);
+pub const ISC_REQ_EXTENDED_ERROR: ISC_REQ_FLAGS = ISC_REQ_FLAGS(16384u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_STREAM: ISC_REQ_FLAGS = ISC_REQ_FLAGS(32768u64);
+pub const ISC_REQ_STREAM: ISC_REQ_FLAGS = ISC_REQ_FLAGS(32768u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_INTEGRITY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(65536u64);
+pub const ISC_REQ_INTEGRITY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(65536u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_IDENTIFY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(131072u64);
+pub const ISC_REQ_IDENTIFY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(131072u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_NULL_SESSION: ISC_REQ_FLAGS = ISC_REQ_FLAGS(262144u64);
+pub const ISC_REQ_NULL_SESSION: ISC_REQ_FLAGS = ISC_REQ_FLAGS(262144u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_MANUAL_CRED_VALIDATION: ISC_REQ_FLAGS = ISC_REQ_FLAGS(524288u64);
+pub const ISC_REQ_MANUAL_CRED_VALIDATION: ISC_REQ_FLAGS = ISC_REQ_FLAGS(524288u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_RESERVED1: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1048576u64);
+pub const ISC_REQ_RESERVED1: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1048576u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_FRAGMENT_TO_FIT: ISC_REQ_FLAGS = ISC_REQ_FLAGS(2097152u64);
+pub const ISC_REQ_FRAGMENT_TO_FIT: ISC_REQ_FLAGS = ISC_REQ_FLAGS(2097152u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_FORWARD_CREDENTIALS: ISC_REQ_FLAGS = ISC_REQ_FLAGS(4194304u64);
+pub const ISC_REQ_FORWARD_CREDENTIALS: ISC_REQ_FLAGS = ISC_REQ_FLAGS(4194304u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_NO_INTEGRITY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(8388608u64);
+pub const ISC_REQ_NO_INTEGRITY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(8388608u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_HTTP_STYLE: ISC_REQ_FLAGS = ISC_REQ_FLAGS(16777216u64);
+pub const ISC_REQ_USE_HTTP_STYLE: ISC_REQ_FLAGS = ISC_REQ_FLAGS(16777216u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_UNVERIFIED_TARGET_NAME: ISC_REQ_FLAGS = ISC_REQ_FLAGS(536870912u64);
+pub const ISC_REQ_UNVERIFIED_TARGET_NAME: ISC_REQ_FLAGS = ISC_REQ_FLAGS(536870912u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CONFIDENTIALITY_ONLY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1073741824u64);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_MESSAGES: ISC_REQ_FLAGS = ISC_REQ_FLAGS(4294967296u64);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_DEFERRED_CRED_VALIDATION: ISC_REQ_FLAGS = ISC_REQ_FLAGS(8589934592u64);
+pub const ISC_REQ_CONFIDENTIALITY_ONLY: ISC_REQ_FLAGS = ISC_REQ_FLAGS(1073741824u32);
 impl ::core::marker::Copy for ISC_REQ_FLAGS {}
 impl ::core::clone::Clone for ISC_REQ_FLAGS {
     fn clone(&self) -> Self {
@@ -5476,6 +5523,61 @@ impl ::core::ops::BitAndAssign for ISC_REQ_FLAGS {
     }
 }
 impl ::core::ops::Not for ISC_REQ_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ISC_REQ_HIGH_FLAGS(pub u64);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ISC_REQ_MESSAGES: ISC_REQ_HIGH_FLAGS = ISC_REQ_HIGH_FLAGS(4294967296u64);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ISC_REQ_DEFERRED_CRED_VALIDATION: ISC_REQ_HIGH_FLAGS = ISC_REQ_HIGH_FLAGS(8589934592u64);
+impl ::core::marker::Copy for ISC_REQ_HIGH_FLAGS {}
+impl ::core::clone::Clone for ISC_REQ_HIGH_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ISC_REQ_HIGH_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ISC_REQ_HIGH_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ISC_REQ_HIGH_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISC_REQ_HIGH_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ISC_REQ_HIGH_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ISC_REQ_HIGH_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ISC_REQ_HIGH_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ISC_REQ_HIGH_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ISC_REQ_HIGH_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())

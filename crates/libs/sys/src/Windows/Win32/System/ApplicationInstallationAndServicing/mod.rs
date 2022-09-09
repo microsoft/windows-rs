@@ -236,9 +236,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub fn MsiDoActionW(hinstall: MSIHANDLE, szaction: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub fn MsiEnableLogA(dwlogmode: INSTALLOGMODE, szlogfile: ::windows_sys::core::PCSTR, dwlogattributes: u32) -> u32;
+    pub fn MsiEnableLogA(dwlogmode: INSTALLLOGMODE, szlogfile: ::windows_sys::core::PCSTR, dwlogattributes: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub fn MsiEnableLogW(dwlogmode: INSTALLOGMODE, szlogfile: ::windows_sys::core::PCWSTR, dwlogattributes: u32) -> u32;
+    pub fn MsiEnableLogW(dwlogmode: INSTALLLOGMODE, szlogfile: ::windows_sys::core::PCWSTR, dwlogattributes: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub fn MsiEnableUIPreview(hdatabase: MSIHANDLE, phpreview: *mut MSIHANDLE) -> u32;
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -2152,6 +2152,54 @@ pub const INSTALLLOGATTRIBUTES_APPEND: INSTALLLOGATTRIBUTES = 1i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const INSTALLLOGATTRIBUTES_FLUSHEACHLINE: INSTALLLOGATTRIBUTES = 2i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub type INSTALLLOGMODE = i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_FATALEXIT: INSTALLLOGMODE = 1i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_ERROR: INSTALLLOGMODE = 2i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_WARNING: INSTALLLOGMODE = 4i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_USER: INSTALLLOGMODE = 8i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INFO: INSTALLLOGMODE = 16i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_RESOLVESOURCE: INSTALLLOGMODE = 64i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_OUTOFDISKSPACE: INSTALLLOGMODE = 128i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_ACTIONSTART: INSTALLLOGMODE = 256i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_ACTIONDATA: INSTALLLOGMODE = 512i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_COMMONDATA: INSTALLLOGMODE = 2048i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_PROPERTYDUMP: INSTALLLOGMODE = 1024i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_VERBOSE: INSTALLLOGMODE = 4096i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_EXTRADEBUG: INSTALLLOGMODE = 8192i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_LOGONLYONERROR: INSTALLLOGMODE = 16384i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_LOGPERFORMANCE: INSTALLLOGMODE = 32768i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_PROGRESS: INSTALLLOGMODE = 1024i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INITIALIZE: INSTALLLOGMODE = 4096i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_TERMINATE: INSTALLLOGMODE = 8192i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_SHOWDIALOG: INSTALLLOGMODE = 16384i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_FILESINUSE: INSTALLLOGMODE = 32i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_RMFILESINUSE: INSTALLLOGMODE = 33554432i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INSTALLSTART: INSTALLLOGMODE = 67108864i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const INSTALLLOGMODE_INSTALLEND: INSTALLLOGMODE = 134217728i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub type INSTALLMESSAGE = i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const INSTALLMESSAGE_FATALEXIT: INSTALLMESSAGE = 0i32;
@@ -2203,54 +2251,6 @@ pub const INSTALLMODE_NODETECTION: INSTALLMODE = -2i32;
 pub const INSTALLMODE_EXISTING: INSTALLMODE = -1i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const INSTALLMODE_DEFAULT: INSTALLMODE = 0i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub type INSTALLOGMODE = i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_FATALEXIT: INSTALLOGMODE = 1i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_ERROR: INSTALLOGMODE = 2i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_WARNING: INSTALLOGMODE = 4i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_USER: INSTALLOGMODE = 8i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INFO: INSTALLOGMODE = 16i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_RESOLVESOURCE: INSTALLOGMODE = 64i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_OUTOFDISKSPACE: INSTALLOGMODE = 128i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_ACTIONSTART: INSTALLOGMODE = 256i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_ACTIONDATA: INSTALLOGMODE = 512i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_COMMONDATA: INSTALLOGMODE = 2048i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_PROPERTYDUMP: INSTALLOGMODE = 1024i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_VERBOSE: INSTALLOGMODE = 4096i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_EXTRADEBUG: INSTALLOGMODE = 8192i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_LOGONLYONERROR: INSTALLOGMODE = 16384i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_LOGPERFORMANCE: INSTALLOGMODE = 32768i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_PROGRESS: INSTALLOGMODE = 1024i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INITIALIZE: INSTALLOGMODE = 4096i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_TERMINATE: INSTALLOGMODE = 8192i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_SHOWDIALOG: INSTALLOGMODE = 16384i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_FILESINUSE: INSTALLOGMODE = 32i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_RMFILESINUSE: INSTALLOGMODE = 33554432i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INSTALLSTART: INSTALLOGMODE = 67108864i32;
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const INSTALLLOGMODE_INSTALLEND: INSTALLOGMODE = 134217728i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub type INSTALLSTATE = i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -4007,6 +4007,18 @@ impl ::core::clone::Clone for PMSIHANDLE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub struct PM_APPTASKTYPE {
+    pub ProductID: ::windows_sys::core::GUID,
+    pub TaskType: PM_TASK_TYPE,
+}
+impl ::core::marker::Copy for PM_APPTASKTYPE {}
+impl ::core::clone::Clone for PM_APPTASKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BSATASKID {
     pub ProductID: ::windows_sys::core::GUID,
     pub TaskID: ::windows_sys::core::BSTR,
@@ -4051,7 +4063,7 @@ pub union PM_ENUM_FILTER_0 {
     pub Tasktype: PM_TASK_TYPE,
     pub TaskProductID: ::windows_sys::core::GUID,
     pub TileProductID: ::windows_sys::core::GUID,
-    pub AppTaskType: _tagAPPTASKTYPE,
+    pub AppTaskType: PM_APPTASKTYPE,
     pub Consumer: PM_EXTENSIONCONSUMER,
     pub BSATask: PM_BSATASKID,
     pub BSAProductID: ::windows_sys::core::GUID,
@@ -4205,18 +4217,6 @@ pub struct PROTECTED_FILE_DATA {
 }
 impl ::core::marker::Copy for PROTECTED_FILE_DATA {}
 impl ::core::clone::Clone for PROTECTED_FILE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub struct _tagAPPTASKTYPE {
-    pub ProductID: ::windows_sys::core::GUID,
-    pub TaskType: PM_TASK_TYPE,
-}
-impl ::core::marker::Copy for _tagAPPTASKTYPE {}
-impl ::core::clone::Clone for _tagAPPTASKTYPE {
     fn clone(&self) -> Self {
         *self
     }

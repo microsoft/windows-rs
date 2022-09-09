@@ -1,54 +1,3 @@
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn DoConnectoidsExist() -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn DoConnectoidsExist() -> super::super::Foundation::BOOL;
-    }
-    DoConnectoidsExist()
-}
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsProfilesEnabled() -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn IsProfilesEnabled() -> super::super::Foundation::BOOL;
-    }
-    IsProfilesEnabled()
-}
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PerformOperationOverUrlCacheA<'a, P0>(pszurlsearchpattern: P0, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: &mut u32, preserved3: *mut ::core::ffi::c_void, op: CACHE_OPERATOR, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PerformOperationOverUrlCacheA(pszurlsearchpattern: ::windows::core::PCSTR, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: *mut ::core::ffi::c_void, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    }
-    PerformOperationOverUrlCacheA(pszurlsearchpattern.into(), dwflags, dwfilter, groupid, ::core::mem::transmute(preserved1), ::core::mem::transmute(pdwreserved2), ::core::mem::transmute(preserved3), ::core::mem::transmute(op), ::core::mem::transmute(poperatordata))
-}
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-#[inline]
-pub unsafe fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32;
-    }
-    UrlCacheFreeGlobalSpace(ulltargetsize, dwfilter)
-}
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-#[inline]
-pub unsafe fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: &mut u64, pulllimit: &mut u64) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32;
-    }
-    UrlCacheGetGlobalCacheSize(dwfilter, ::core::mem::transmute(pullsize), ::core::mem::transmute(pulllimit))
-}
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]
 pub unsafe fn AppCacheCheckManifest<'a, P0, P1>(pwszmasterurl: P0, pwszmanifesturl: P1, pbmanifestdata: &[u8], pbmanifestresponseheaders: &[u8], pestate: &mut APP_CACHE_STATE, phnewappcache: *mut *mut ::core::ffi::c_void) -> u32
@@ -488,6 +437,16 @@ pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: &mut [u8], dwdetectflags: PROX
         fn DetectAutoProxyUrl(pszautoproxyurl: ::windows::core::PSTR, cchautoproxyurl: u32, dwdetectflags: PROXY_AUTO_DETECT_TYPE) -> super::super::Foundation::BOOL;
     }
     DetectAutoProxyUrl(::core::mem::transmute(pszautoproxyurl.as_ptr()), pszautoproxyurl.len() as _, dwdetectflags)
+}
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn DoConnectoidsExist() -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DoConnectoidsExist() -> super::super::Foundation::BOOL;
+    }
+    DoConnectoidsExist()
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2945,6 +2904,16 @@ pub unsafe fn IsHostInProxyBypassList(tscheme: INTERNET_SCHEME, lpszhost: &[u8])
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn IsProfilesEnabled() -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsProfilesEnabled() -> super::super::Foundation::BOOL;
+    }
+    IsProfilesEnabled()
+}
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsUrlCacheEntryExpiredA<'a, P0>(lpszurlname: P0, dwflags: u32, pftlastmodified: &mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2986,6 +2955,19 @@ pub unsafe fn ParseX509EncodedCertificateForListBoxEntry(lpcert: &[u8], lpszlist
         fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbcert: u32, lpszlistboxentry: ::windows::core::PSTR, lpdwlistboxentry: *mut u32) -> u32;
     }
     ParseX509EncodedCertificateForListBoxEntry(::core::mem::transmute(lpcert.as_ptr()), lpcert.len() as _, ::core::mem::transmute(lpszlistboxentry), ::core::mem::transmute(lpdwlistboxentry))
+}
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PerformOperationOverUrlCacheA<'a, P0>(pszurlsearchpattern: P0, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: &mut u32, preserved3: *mut ::core::ffi::c_void, op: CACHE_OPERATOR, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PerformOperationOverUrlCacheA(pszurlsearchpattern: ::windows::core::PCSTR, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: *mut ::core::ffi::c_void, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    }
+    PerformOperationOverUrlCacheA(pszurlsearchpattern.into(), dwflags, dwfilter, groupid, ::core::mem::transmute(preserved1), ::core::mem::transmute(pdwreserved2), ::core::mem::transmute(preserved3), ::core::mem::transmute(op), ::core::mem::transmute(poperatordata))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]
@@ -3440,6 +3422,15 @@ pub unsafe fn UrlCacheFreeEntryInfo(pcacheentryinfo: &mut URLCACHE_ENTRY_INFO) {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]
+pub unsafe fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32;
+    }
+    UrlCacheFreeGlobalSpace(ulltargetsize, dwfilter)
+}
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+#[inline]
 pub unsafe fn UrlCacheGetContentPaths(pppwszdirectories: &mut *mut ::windows::core::PWSTR, pcdirectories: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -3459,6 +3450,15 @@ where
         fn UrlCacheGetEntryInfo(happcache: *const ::core::ffi::c_void, pcwszurl: ::windows::core::PCWSTR, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32;
     }
     UrlCacheGetEntryInfo(::core::mem::transmute(happcache), pcwszurl.into(), ::core::mem::transmute(pcacheentryinfo))
+}
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+#[inline]
+pub unsafe fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: &mut u64, pulllimit: &mut u64) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32;
+    }
+    UrlCacheGetGlobalCacheSize(dwfilter, ::core::mem::transmute(pullsize), ::core::mem::transmute(pulllimit))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]

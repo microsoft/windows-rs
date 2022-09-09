@@ -1,34 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerFreeString(pwszstr: ::windows_sys::core::PCWSTR);
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStoreClose(hreportstore: HREPORTSTORE);
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStorePurge() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-    pub fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows_sys::core::HRESULT;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -42,6 +12,8 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerAddExcludedApplication(pwzexename: ::windows_sys::core::PCWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerFreeString(pwszstr: ::windows_sys::core::PCWSTR);
     #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerGetFlags(hprocess: super::super::Foundation::HANDLE, pdwflags: *mut WER_FAULT_REPORTING) -> ::windows_sys::core::HRESULT;
@@ -83,6 +55,31 @@ extern "system" {
     pub fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
     pub fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStoreClose(hreportstore: HREPORTSTORE);
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStorePurge() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
+    pub fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows_sys::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
     pub fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]

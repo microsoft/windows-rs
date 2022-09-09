@@ -2175,14 +2175,14 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ImageList_WriteEx<'a, P0, P1>(himl: P0, dwflags: u32, pstm: P1) -> ::windows::core::Result<()>
+pub unsafe fn ImageList_WriteEx<'a, P0, P1>(himl: P0, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HIMAGELIST>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     ImageList_WriteEx(himl.into(), dwflags, pstm.into().abi()).ok()
 }
@@ -3467,32 +3467,6 @@ pub const CDDS_ITEM: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDDS_POSTERASE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_CHECKED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_DEFAULT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_DROPHILITED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_FOCUS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_GRAYED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_HOT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_INDETERMINATE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_MARKED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_NEARHOT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_OTHERSIDEHOT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_SELECTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_SHOWKEYBOARDCUES: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDRF_DODEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDRF_DOERASE: u32 = 8u32;
@@ -3797,55 +3771,9 @@ pub const GDTR_MIN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GDT_ERROR: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GDT_NONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GDT_VALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GMR_DAYSTATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GMR_VISIBLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_HASNOVALUE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_ISDATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_ISNUMBER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_ISSTRING: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_BITMAP: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_BITMAP_ON_RIGHT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_CENTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_CHECKBOX: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_CHECKED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_FIXEDWIDTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_IMAGE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_JUSTIFYMASK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_LEFT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_OWNERDRAW: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_RIGHT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_RTLREADING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_SORTDOWN: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_SORTUP: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_SPLITBUTTON: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_STRING: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDIS_FOCUSED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDM_CLEARFILTER: u32 = 4632u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3938,32 +3866,6 @@ pub const HDS_HOTTRACK: u32 = 4u32;
 pub const HDS_NOSIZING: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDS_OVERFLOW: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ABOVE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_BELOW: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_NOWHERE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONDIVIDER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONDIVOPEN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONDROPDOWN: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONFILTER: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONFILTERBUTTON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONHEADER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONITEMSTATEICON: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONOVERFLOW: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_TOLEFT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_TORIGHT: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HIST_ADDTOFAVORITES: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4097,10 +3999,6 @@ pub const ILGT_ASYNC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILGT_NORMAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILP_DOWNLEVEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILP_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILR_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILR_HORIZONTAL_CENTER: u32 = 1u32;
@@ -4152,24 +4050,6 @@ pub const I_IMAGENONE: i32 = -2i32;
 pub const I_INDENTCALLBACK: i32 = -1i32;
 pub const ImageList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_ITEMID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_ITEMINDEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_STATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_URL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_DEFAULTCOLORS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_FOCUSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_HOTTRACK: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_VISITED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LM_GETIDEALHEIGHT: u32 = 1793u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LM_GETIDEALSIZE: u32 = 1793u32;
@@ -4188,47 +4068,13 @@ pub const LVA_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVA_SNAPTOGRID: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_FLAG_ALPHABLEND: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_FLAG_TILEOFFSET: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_HBITMAP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_MASK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_URL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_STYLE_MASK: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_STYLE_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_STYLE_TILE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_TYPE_WATERMARK: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVCDRF_NOGROUPFRAME: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVCDRF_NOSELECT: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_FILL: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_LINE_BREAK: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_NO_TITLE: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_WRAP: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVFF_ITEMCOUNT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVFIS_FOCUSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_FOOTER_CENTER: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_FOOTER_LEFT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_FOOTER_RIGHT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGF_ALIGN: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4260,8 +4106,6 @@ pub const LVGGR_LABEL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGGR_SUBSETLINK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGIT_UNFOLDED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGMF_BORDERCOLOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGMF_BORDERSIZE: u32 = 1u32;
@@ -4270,46 +4114,6 @@ pub const LVGMF_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGMF_TEXTCOLOR: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_COLLAPSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_COLLAPSIBLE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_FOCUSED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_HIDDEN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_NOHEADER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_SELECTED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_SUBSETED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_SUBSETLINKFOCUSED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_COLFMT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_COLUMNS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_DI_SETITEM: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_GROUPID: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_IMAGE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_INDENT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_NORECOMPUTE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_PARAM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_STATE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_TEXT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIM_AFTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVIR_BOUNDS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVIR_ICON: u32 = 1u32;
@@ -4317,22 +4121,6 @@ pub const LVIR_ICON: u32 = 1u32;
 pub const LVIR_LABEL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVIR_SELECTBOUNDS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_ACTIVATING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_CUT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_DROPHILITED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_FOCUSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_GLOW: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_OVERLAYMASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_SELECTED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_STATEIMAGEMASK: u32 = 61440u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVKF_ALT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4851,34 +4639,6 @@ pub const MAX_LINKID_TEXT: u32 = 48u32;
 pub const MAX_THEMECOLOR: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MAX_THEMESIZE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDAR: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARBK: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARCONTROL: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_NEXT: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_NOWHERE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_PREV: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLEBK: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TODAYLINK: u32 = 196608u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_CENTURY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_DECADE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_MAX: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_MONTH: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_YEAR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCM_FIRST: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6112,10 +5872,6 @@ pub const TB_THUMBTRACK: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TB_TOP: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIS_BUTTONPRESSED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIS_HIGHLIGHTED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCM_ADJUSTRECT: u32 = 4904u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCM_DELETEALLITEMS: u32 = 4873u32;
@@ -6270,8 +6026,6 @@ pub const TTDT_INITIAL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTDT_RESHOW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_DI_SETITEM: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTM_ACTIVATE: u32 = 1025u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTM_ADDTOOL: u32 = 1074u32;
@@ -6400,22 +6154,6 @@ pub const TTS_USEVISUALSTYLE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVCDRF_NOIMAGES: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVC_BYKEYBOARD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVC_BYMOUSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVC_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_COLLAPSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_COLLAPSERESET: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_EXPAND: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_EXPANDPARTIAL: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_TOGGLE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVGN_CARET: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVGN_CHILD: u32 = 4u32;
@@ -6439,32 +6177,6 @@ pub const TVGN_PREVIOUS: u32 = 2u32;
 pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVGN_ROOT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_BOLD: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_CUT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_DROPHILITED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EXPANDED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EXPANDEDONCE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EXPANDPARTIAL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EX_ALL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EX_DISABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EX_FLAT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_OVERLAYMASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_SELECTED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_STATEIMAGEMASK: u32 = 61440u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_USERMASK: u32 = 61440u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVI_FIRST: HTREEITEM = HTREEITEM(-65535i32 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -11108,6 +10820,117 @@ impl ::core::fmt::Debug for HEADERSTYLESTATES {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADER_CONTROL_FORMAT_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_LEFT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_CENTER: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_JUSTIFYMASK: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_RTLREADING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_BITMAP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_OWNERDRAW: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(32768i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_IMAGE: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_BITMAP_ON_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_SORTDOWN: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_CHECKBOX: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_CHECKED: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_FIXEDWIDTH: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16777216i32);
+impl ::core::marker::Copy for HEADER_CONTROL_FORMAT_FLAGS {}
+impl ::core::clone::Clone for HEADER_CONTROL_FORMAT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADER_CONTROL_FORMAT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADER_CONTROL_FORMAT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADER_CONTROL_FORMAT_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADER_CONTROL_FORMAT_STATE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDIS_FOCUSED: HEADER_CONTROL_FORMAT_STATE = HEADER_CONTROL_FORMAT_STATE(1u32);
+impl ::core::marker::Copy for HEADER_CONTROL_FORMAT_STATE {}
+impl ::core::clone::Clone for HEADER_CONTROL_FORMAT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADER_CONTROL_FORMAT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADER_CONTROL_FORMAT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADER_CONTROL_FORMAT_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADER_CONTROL_FORMAT_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_ISSTRING: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_ISNUMBER: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_ISDATE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_HASNOVALUE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(32768u32);
+impl ::core::marker::Copy for HEADER_CONTROL_FORMAT_TYPE {}
+impl ::core::clone::Clone for HEADER_CONTROL_FORMAT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADER_CONTROL_FORMAT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADER_CONTROL_FORMAT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADER_CONTROL_FORMAT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0u32);
@@ -11132,6 +10955,83 @@ unsafe impl ::windows::core::Abi for HEADER_CONTROL_NOTIFICATION_BUTTON {
 impl ::core::fmt::Debug for HEADER_CONTROL_NOTIFICATION_BUTTON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HEADER_CONTROL_NOTIFICATION_BUTTON").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADER_HITTEST_INFO_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_NOWHERE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONHEADER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONDIVIDER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONDIVOPEN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONFILTER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONFILTERBUTTON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ABOVE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_BELOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_TORIGHT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_TOLEFT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONITEMSTATEICON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONDROPDOWN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONOVERFLOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16384u32);
+impl ::core::marker::Copy for HEADER_HITTEST_INFO_FLAGS {}
+impl ::core::clone::Clone for HEADER_HITTEST_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADER_HITTEST_INFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADER_HITTEST_INFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADER_HITTEST_INFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADER_HITTEST_INFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HEADER_HITTEST_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HEADER_HITTEST_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HEADER_HITTEST_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HEADER_HITTEST_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HEADER_HITTEST_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -11687,6 +11587,61 @@ impl ::core::fmt::Debug for IMAGE_LIST_ITEM_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IMAGE_LIST_WRITE_STREAM_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILP_NORMAL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILP_DOWNLEVEL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(1u32);
+impl ::core::marker::Copy for IMAGE_LIST_WRITE_STREAM_FLAGS {}
+impl ::core::clone::Clone for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAGE_LIST_WRITE_STREAM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INITCOMMONCONTROLSEX_ICC(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(128u32);
@@ -12019,6 +11974,553 @@ unsafe impl ::windows::core::Abi for LISTVIEWPARTS {
 impl ::core::fmt::Debug for LISTVIEWPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LISTVIEWPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_ITEM_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_ITEMINDEX: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_STATE: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_ITEMID: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_URL: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(8u32);
+impl ::core::marker::Copy for LIST_ITEM_FLAGS {}
+impl ::core::clone::Clone for LIST_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_ITEM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_ITEM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_ITEM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_ITEM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_ITEM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_ITEM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_ITEM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_ITEM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_ITEM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_ITEM_STATE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_FOCUSED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_ENABLED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_VISITED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_HOTTRACK: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_DEFAULTCOLORS: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(16u32);
+impl ::core::marker::Copy for LIST_ITEM_STATE_FLAGS {}
+impl ::core::clone::Clone for LIST_ITEM_STATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_ITEM_STATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_ITEM_STATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_ITEM_STATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_ITEM_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_ITEM_STATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_ITEM_STATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_ITEM_STATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_ITEM_STATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_ITEM_STATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_VIEW_BACKGROUND_IMAGE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_NONE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_HBITMAP: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_URL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_STYLE_NORMAL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_STYLE_TILE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_STYLE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_FLAG_TILEOFFSET: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_TYPE_WATERMARK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_FLAG_ALPHABLEND: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(536870912u32);
+impl ::core::marker::Copy for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {}
+impl ::core::clone::Clone for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_VIEW_BACKGROUND_IMAGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_VIEW_GROUP_ALIGN_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_HEADER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_HEADER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_HEADER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_FOOTER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(32u32);
+impl ::core::marker::Copy for LIST_VIEW_GROUP_ALIGN_FLAGS {}
+impl ::core::clone::Clone for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_VIEW_GROUP_ALIGN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_VIEW_GROUP_STATE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_NORMAL: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_COLLAPSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_HIDDEN: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_NOHEADER: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_COLLAPSIBLE: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_FOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(128u32);
+impl ::core::marker::Copy for LIST_VIEW_GROUP_STATE_FLAGS {}
+impl ::core::clone::Clone for LIST_VIEW_GROUP_STATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_VIEW_GROUP_STATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_VIEW_GROUP_STATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_VIEW_GROUP_STATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_VIEW_GROUP_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_VIEW_GROUP_STATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_VIEW_GROUP_STATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_VIEW_GROUP_STATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_VIEW_GROUP_STATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_VIEW_GROUP_STATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_VIEW_INSERT_MARK_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIM_AFTER: LIST_VIEW_INSERT_MARK_FLAGS = LIST_VIEW_INSERT_MARK_FLAGS(1u32);
+impl ::core::marker::Copy for LIST_VIEW_INSERT_MARK_FLAGS {}
+impl ::core::clone::Clone for LIST_VIEW_INSERT_MARK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_VIEW_INSERT_MARK_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_VIEW_INSERT_MARK_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_VIEW_INSERT_MARK_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_VIEW_INSERT_MARK_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_VIEW_INSERT_MARK_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_VIEW_INSERT_MARK_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_VIEW_INSERT_MARK_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_VIEW_INSERT_MARK_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_VIEW_INSERT_MARK_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_LINE_BREAK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(1048576i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_FILL: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(2097152i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_WRAP: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(4194304i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_NO_TITLE: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(8388608i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_TILE_PLACEMENTMASK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(3145728i32);
+impl ::core::marker::Copy for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {}
+impl ::core::clone::Clone for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_VIEW_ITEM_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_IMAGE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_INDENT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_NORECOMPUTE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_GROUPID: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_COLUMNS: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_COLFMT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_DI_SETITEM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4096u32);
+impl ::core::marker::Copy for LIST_VIEW_ITEM_FLAGS {}
+impl ::core::clone::Clone for LIST_VIEW_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_VIEW_ITEM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_VIEW_ITEM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_VIEW_ITEM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_VIEW_ITEM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LIST_VIEW_ITEM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIST_VIEW_ITEM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIST_VIEW_ITEM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIST_VIEW_ITEM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIST_VIEW_ITEM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LIST_VIEW_ITEM_STATE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_FOCUSED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_SELECTED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_CUT: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_DROPHILITED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_GLOW: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_ACTIVATING: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_OVERLAYMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(3840u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_STATEIMAGEMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(61440u32);
+impl ::core::marker::Copy for LIST_VIEW_ITEM_STATE_FLAGS {}
+impl ::core::clone::Clone for LIST_VIEW_ITEM_STATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LIST_VIEW_ITEM_STATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LIST_VIEW_ITEM_STATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LIST_VIEW_ITEM_STATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LIST_VIEW_ITEM_STATE_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -12666,6 +13168,97 @@ impl ::core::fmt::Debug for MCGRIDINFO_PART {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MCHITTESTINFO_HIT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TODAYLINK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(196608u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARCONTROL: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_NEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_PREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33554432u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_NOWHERE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEMONTH: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65537u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEYEAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65538u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEBTNNEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16842755u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEBTNPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33619971u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131073u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATENEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16908289u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATEPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33685505u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDAY: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131074u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARWEEKNUM: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131075u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATEMIN: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131076u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATEMAX: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131077u32);
+impl ::core::marker::Copy for MCHITTESTINFO_HIT_FLAGS {}
+impl ::core::clone::Clone for MCHITTESTINFO_HIT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MCHITTESTINFO_HIT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MCHITTESTINFO_HIT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MCHITTESTINFO_HIT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MCHITTESTINFO_HIT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MCHITTESTINFO_HIT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MCHITTESTINFO_HIT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MCHITTESTINFO_HIT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MCHITTESTINFO_HIT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MCHITTESTINFO_HIT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MDICLOSEBUTTONSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MDCL_NORMAL: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(1i32);
@@ -12984,6 +13577,39 @@ unsafe impl ::windows::core::Abi for MONTHCALPARTS {
 impl ::core::fmt::Debug for MONTHCALPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MONTHCALPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MONTH_CALDENDAR_MESSAGES_VIEW(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_MONTH: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_YEAR: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_DECADE: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_CENTURY: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_MAX: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
+impl ::core::marker::Copy for MONTH_CALDENDAR_MESSAGES_VIEW {}
+impl ::core::clone::Clone for MONTH_CALDENDAR_MESSAGES_VIEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MONTH_CALDENDAR_MESSAGES_VIEW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MONTH_CALDENDAR_MESSAGES_VIEW {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MONTH_CALDENDAR_MESSAGES_VIEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MONTH_CALDENDAR_MESSAGES_VIEW").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -13330,30 +13956,105 @@ impl ::core::fmt::Debug for NMCUSTOMDRAW_DRAW_STAGE {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NMLVCUSTOMDRAW_ALIGN(pub u32);
+pub struct NMCUSTOMDRAW_DRAW_STATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_HEADER_CENTER: NMLVCUSTOMDRAW_ALIGN = NMLVCUSTOMDRAW_ALIGN(2u32);
+pub const CDIS_SELECTED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_HEADER_LEFT: NMLVCUSTOMDRAW_ALIGN = NMLVCUSTOMDRAW_ALIGN(1u32);
+pub const CDIS_GRAYED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_HEADER_RIGHT: NMLVCUSTOMDRAW_ALIGN = NMLVCUSTOMDRAW_ALIGN(4u32);
-impl ::core::marker::Copy for NMLVCUSTOMDRAW_ALIGN {}
-impl ::core::clone::Clone for NMLVCUSTOMDRAW_ALIGN {
+pub const CDIS_DISABLED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_CHECKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_FOCUS: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_DEFAULT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_HOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_MARKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_INDETERMINATE: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_SHOWKEYBOARDCUES: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_NEARHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_OTHERSIDEHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_DROPHILITED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4096u32);
+impl ::core::marker::Copy for NMCUSTOMDRAW_DRAW_STATE_FLAGS {}
+impl ::core::clone::Clone for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for NMLVCUSTOMDRAW_ALIGN {
+impl ::core::default::Default for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NMLVCUSTOMDRAW_ALIGN {
+unsafe impl ::windows::core::Abi for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for NMLVCUSTOMDRAW_ALIGN {
+impl ::core::fmt::Debug for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NMLVCUSTOMDRAW_ALIGN").field(&self.0).finish()
+        f.debug_tuple("NMCUSTOMDRAW_DRAW_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NMDATETIMECHANGE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GDT_NONE: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GDT_VALID: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(0u32);
+impl ::core::marker::Copy for NMDATETIMECHANGE_FLAGS {}
+impl ::core::clone::Clone for NMDATETIMECHANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NMDATETIMECHANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NMDATETIMECHANGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NMDATETIMECHANGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NMDATETIMECHANGE_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -13408,6 +14109,33 @@ unsafe impl ::windows::core::Abi for NMLVEMPTYMARKUP_FLAGS {
 impl ::core::fmt::Debug for NMLVEMPTYMARKUP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NMLVEMPTYMARKUP_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NMLVGETINFOTIP_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGIT_UNFOLDED: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGIT_ZERO: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(0u32);
+impl ::core::marker::Copy for NMLVGETINFOTIP_FLAGS {}
+impl ::core::clone::Clone for NMLVGETINFOTIP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NMLVGETINFOTIP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NMLVGETINFOTIP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NMLVGETINFOTIP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NMLVGETINFOTIP_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -13715,6 +14443,73 @@ impl ::core::ops::Not for NMTBHOTITEM_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NM_TREEVIEW_ACTION(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_COLLAPSE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_EXPAND: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_TOGGLE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_EXPANDPARTIAL: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_COLLAPSERESET: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVC_UNKNOWN: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVC_BYMOUSE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVC_BYKEYBOARD: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(2u32);
+impl ::core::marker::Copy for NM_TREEVIEW_ACTION {}
+impl ::core::clone::Clone for NM_TREEVIEW_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NM_TREEVIEW_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NM_TREEVIEW_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NM_TREEVIEW_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NM_TREEVIEW_ACTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NM_TREEVIEW_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NM_TREEVIEW_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NM_TREEVIEW_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NM_TREEVIEW_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NM_TREEVIEW_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NONESTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DDNONE_HIGHLIGHT: NONESTATES = NONESTATES(1i32);
@@ -13795,6 +14590,80 @@ unsafe impl ::windows::core::Abi for NORMALGROUPEXPANDSTATES {
 impl ::core::fmt::Debug for NORMALGROUPEXPANDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NORMALGROUPEXPANDSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ODA_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODA_DRAWENTIRE: ODA_FLAGS = ODA_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODA_SELECT: ODA_FLAGS = ODA_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODA_FOCUS: ODA_FLAGS = ODA_FLAGS(4u32);
+impl ::core::marker::Copy for ODA_FLAGS {}
+impl ::core::clone::Clone for ODA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ODA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ODA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ODA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ODA_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ODS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_SELECTED: ODS_FLAGS = ODS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_GRAYED: ODS_FLAGS = ODS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_DISABLED: ODS_FLAGS = ODS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_CHECKED: ODS_FLAGS = ODS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_FOCUS: ODS_FLAGS = ODS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_DEFAULT: ODS_FLAGS = ODS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_COMBOBOXEDIT: ODS_FLAGS = ODS_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_HOTLIGHT: ODS_FLAGS = ODS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_INACTIVE: ODS_FLAGS = ODS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_NOACCEL: ODS_FLAGS = ODS_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_NOFOCUSRECT: ODS_FLAGS = ODS_FLAGS(512u32);
+impl ::core::marker::Copy for ODS_FLAGS {}
+impl ::core::clone::Clone for ODS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ODS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ODS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ODS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ODS_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -15560,6 +16429,33 @@ unsafe impl ::windows::core::Abi for TABSTATES {
 impl ::core::fmt::Debug for TABSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TABSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TAB_CONTROL_ITEM_STATE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIS_BUTTONPRESSED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIS_HIGHLIGHTED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(2u32);
+impl ::core::marker::Copy for TAB_CONTROL_ITEM_STATE {}
+impl ::core::clone::Clone for TAB_CONTROL_ITEM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TAB_CONTROL_ITEM_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TAB_CONTROL_ITEM_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TAB_CONTROL_ITEM_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TAB_CONTROL_ITEM_STATE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -17405,6 +18301,75 @@ impl ::core::fmt::Debug for TOOLTIPPARTS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOOLTIP_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_IDISHWND: TOOLTIP_FLAGS = TOOLTIP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_CENTERTIP: TOOLTIP_FLAGS = TOOLTIP_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_RTLREADING: TOOLTIP_FLAGS = TOOLTIP_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_SUBCLASS: TOOLTIP_FLAGS = TOOLTIP_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_TRACK: TOOLTIP_FLAGS = TOOLTIP_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_ABSOLUTE: TOOLTIP_FLAGS = TOOLTIP_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_TRANSPARENT: TOOLTIP_FLAGS = TOOLTIP_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_PARSELINKS: TOOLTIP_FLAGS = TOOLTIP_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_DI_SETITEM: TOOLTIP_FLAGS = TOOLTIP_FLAGS(32768u32);
+impl ::core::marker::Copy for TOOLTIP_FLAGS {}
+impl ::core::clone::Clone for TOOLTIP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOOLTIP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOOLTIP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOOLTIP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOOLTIP_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TOOLTIP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TOOLTIP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TOOLTIP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TOOLTIP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TOOLTIP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOPTABITEMBOTHEDGESTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTIBES_NORMAL: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(1i32);
@@ -17903,6 +18868,55 @@ impl ::core::fmt::Debug for TREEVIEWPARTS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TREE_VIEW_ITEM_STATE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_SELECTED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_CUT: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_DROPHILITED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_BOLD: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EXPANDED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EXPANDEDONCE: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EXPANDPARTIAL: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_OVERLAYMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(3840u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_STATEIMAGEMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_USERMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EX_FLAT: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EX_DISABLED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EX_ALL: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
+impl ::core::marker::Copy for TREE_VIEW_ITEM_STATE_FLAGS {}
+impl ::core::clone::Clone for TREE_VIEW_ITEM_STATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TREE_VIEW_ITEM_STATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TREE_VIEW_ITEM_STATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TREE_VIEW_ITEM_STATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TREE_VIEW_ITEM_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUESIZESCALINGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TSST_NONE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(0i32);
@@ -17927,73 +18941,6 @@ unsafe impl ::windows::core::Abi for TRUESIZESCALINGTYPE {
 impl ::core::fmt::Debug for TRUESIZESCALINGTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TRUESIZESCALINGTYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TTTOOLINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_ABSOLUTE: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_CENTERTIP: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_IDISHWND: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_PARSELINKS: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_RTLREADING: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_SUBCLASS: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_TRACK: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_TRANSPARENT: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(256u32);
-impl ::core::marker::Copy for TTTOOLINFO_FLAGS {}
-impl ::core::clone::Clone for TTTOOLINFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TTTOOLINFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TTTOOLINFO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TTTOOLINFO_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TTTOOLINFO_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TTTOOLINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TTTOOLINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TTTOOLINFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TTTOOLINFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TTTOOLINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -19558,8 +20505,8 @@ pub struct DRAWITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
     pub itemID: u32,
-    pub itemAction: u32,
-    pub itemState: u32,
+    pub itemAction: ODA_FLAGS,
+    pub itemState: ODS_FLAGS,
     pub hwndItem: super::super::Foundation::HWND,
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub rcItem: super::super::Foundation::RECT,
@@ -19743,7 +20690,7 @@ impl ::core::default::Default for EDITBALLOONTIP {
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
-    pub flags: u32,
+    pub flags: HEADER_HITTEST_INFO_FLAGS,
     pub iItem: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19787,13 +20734,13 @@ pub struct HDITEMA {
     pub pszText: ::windows::core::PSTR,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub cchTextMax: i32,
-    pub fmt: i32,
+    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
     pub iOrder: i32,
-    pub r#type: u32,
+    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
     pub pvFilter: *mut ::core::ffi::c_void,
-    pub state: u32,
+    pub state: HEADER_CONTROL_FORMAT_STATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for HDITEMA {}
@@ -19836,13 +20783,13 @@ pub struct HDITEMW {
     pub pszText: ::windows::core::PWSTR,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub cchTextMax: i32,
-    pub fmt: i32,
+    pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
     pub iOrder: i32,
-    pub r#type: u32,
+    pub r#type: HEADER_CONTROL_FORMAT_TYPE,
     pub pvFilter: *mut ::core::ffi::c_void,
-    pub state: u32,
+    pub state: HEADER_CONTROL_FORMAT_STATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for HDITEMW {}
@@ -20415,10 +21362,10 @@ impl ::core::default::Default for LHITTESTINFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct LITEM {
-    pub mask: u32,
+    pub mask: LIST_ITEM_FLAGS,
     pub iLink: i32,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: LIST_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_ITEM_STATE_FLAGS,
     pub szID: [u16; 48],
     pub szUrl: [u16; 2084],
 }
@@ -20451,7 +21398,7 @@ impl ::core::default::Default for LITEM {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LVBKIMAGEA {
-    pub ulFlags: u32,
+    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub pszImage: ::windows::core::PSTR,
     pub cchImageMax: u32,
@@ -20494,7 +21441,7 @@ impl ::core::default::Default for LVBKIMAGEA {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LVBKIMAGEW {
-    pub ulFlags: u32,
+    pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub pszImage: ::windows::core::PWSTR,
     pub cchImageMax: u32,
@@ -20775,9 +21722,9 @@ pub struct LVGROUP {
     pub pszFooter: ::windows::core::PWSTR,
     pub cchFooter: i32,
     pub iGroupId: i32,
-    pub stateMask: u32,
-    pub state: u32,
-    pub uAlign: u32,
+    pub stateMask: LIST_VIEW_GROUP_STATE_FLAGS,
+    pub state: LIST_VIEW_GROUP_STATE_FLAGS,
+    pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
     pub pszSubtitle: ::windows::core::PWSTR,
     pub cchSubtitle: u32,
     pub pszTask: ::windows::core::PWSTR,
@@ -20970,7 +21917,7 @@ impl ::core::default::Default for LVINSERTGROUPSORTED {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct LVINSERTMARK {
     pub cbSize: u32,
-    pub dwFlags: u32,
+    pub dwFlags: LIST_VIEW_INSERT_MARK_FLAGS,
     pub iItem: i32,
     pub dwReserved: u32,
 }
@@ -21003,11 +21950,11 @@ impl ::core::default::Default for LVINSERTMARK {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVITEMA {
-    pub mask: u32,
+    pub mask: LIST_VIEW_ITEM_FLAGS,
     pub iItem: i32,
     pub iSubItem: i32,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
     pub pszText: ::windows::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -21016,7 +21963,7 @@ pub struct LVITEMA {
     pub iGroupId: LVITEMA_GROUP_ID,
     pub cColumns: u32,
     pub puColumns: *mut u32,
-    pub piColFmt: *mut i32,
+    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21102,11 +22049,11 @@ impl ::core::default::Default for LVITEMINDEX {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVITEMW {
-    pub mask: u32,
+    pub mask: LIST_VIEW_ITEM_FLAGS,
     pub iItem: i32,
     pub iSubItem: i32,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
     pub pszText: ::windows::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -21115,7 +22062,7 @@ pub struct LVITEMW {
     pub iGroupId: LVITEMA_GROUP_ID,
     pub cColumns: u32,
     pub puColumns: *mut u32,
-    pub piColFmt: *mut i32,
+    pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21365,7 +22312,7 @@ impl ::core::default::Default for MCGRIDINFO {
 pub struct MCHITTESTINFO {
     pub cbSize: u32,
     pub pt: super::super::Foundation::POINT,
-    pub uHit: u32,
+    pub uHit: MCHITTESTINFO_HIT_FLAGS,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub rc: super::super::Foundation::RECT,
     pub iOffset: i32,
@@ -21809,7 +22756,7 @@ pub struct NMCUSTOMDRAW {
     pub hdc: super::super::Graphics::Gdi::HDC,
     pub rc: super::super::Foundation::RECT,
     pub dwItemSpec: usize,
-    pub uItemState: u32,
+    pub uItemState: NMCUSTOMDRAW_DRAW_STATE_FLAGS,
     pub lItemlParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -21934,7 +22881,7 @@ impl ::core::default::Default for NMCUSTOMTEXT {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMECHANGE {
     pub nmhdr: NMHDR,
-    pub dwFlags: u32,
+    pub dwFlags: NMDATETIMECHANGE_FLAGS,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22762,7 +23709,7 @@ pub struct NMLISTVIEW {
     pub iSubItem: i32,
     pub uNewState: u32,
     pub uOldState: u32,
-    pub uChanged: u32,
+    pub uChanged: LIST_VIEW_ITEM_FLAGS,
     pub ptAction: super::super::Foundation::POINT,
     pub lParam: super::super::Foundation::LPARAM,
 }
@@ -22853,7 +23800,7 @@ pub struct NMLVCUSTOMDRAW {
     pub iPartId: i32,
     pub iStateId: i32,
     pub rcText: super::super::Foundation::RECT,
-    pub uAlign: NMLVCUSTOMDRAW_ALIGN,
+    pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for NMLVCUSTOMDRAW {}
@@ -23090,7 +24037,7 @@ impl ::core::default::Default for NMLVFINDITEMW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVGETINFOTIPA {
     pub hdr: NMHDR,
-    pub dwFlags: u32,
+    pub dwFlags: NMLVGETINFOTIP_FLAGS,
     pub pszText: ::windows::core::PSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
@@ -23134,7 +24081,7 @@ impl ::core::default::Default for NMLVGETINFOTIPA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVGETINFOTIPW {
     pub hdr: NMHDR,
-    pub dwFlags: u32,
+    pub dwFlags: NMLVGETINFOTIP_FLAGS,
     pub pszText: ::windows::core::PWSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
@@ -23255,8 +24202,8 @@ pub struct NMLVODSTATECHANGE {
     pub hdr: NMHDR,
     pub iFrom: i32,
     pub iTo: i32,
-    pub uNewState: u32,
-    pub uOldState: u32,
+    pub uNewState: LIST_VIEW_ITEM_STATE_FLAGS,
+    pub uOldState: LIST_VIEW_ITEM_STATE_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NMLVODSTATECHANGE {}
@@ -24440,7 +25387,7 @@ impl ::core::default::Default for NMTRBTHUMBPOSCHANGING {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTREEVIEWA {
     pub hdr: NMHDR,
-    pub action: u32,
+    pub action: NM_TREEVIEW_ACTION,
     pub itemOld: TVITEMA,
     pub itemNew: TVITEMA,
     pub ptDrag: super::super::Foundation::POINT,
@@ -24482,7 +25429,7 @@ impl ::core::default::Default for NMTREEVIEWA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTREEVIEWW {
     pub hdr: NMHDR,
-    pub action: u32,
+    pub action: NM_TREEVIEW_ACTION,
     pub itemOld: TVITEMW,
     pub itemNew: TVITEMW,
     pub ptDrag: super::super::Foundation::POINT,
@@ -24566,7 +25513,7 @@ pub struct NMTTDISPINFOA {
     pub lpszText: ::windows::core::PSTR,
     pub szText: [super::super::Foundation::CHAR; 80],
     pub hinst: super::super::Foundation::HINSTANCE,
-    pub uFlags: u32,
+    pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -24609,7 +25556,7 @@ pub struct NMTTDISPINFOW {
     pub lpszText: ::windows::core::PWSTR,
     pub szText: [u16; 80],
     pub hinst: super::super::Foundation::HINSTANCE,
-    pub uFlags: u32,
+    pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25132,8 +26079,8 @@ impl ::core::default::Default for NMUPDOWN {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMVIEWCHANGE {
     pub nmhdr: NMHDR,
-    pub dwOldView: u32,
-    pub dwNewView: u32,
+    pub dwOldView: MONTH_CALDENDAR_MESSAGES_VIEW,
+    pub dwNewView: MONTH_CALDENDAR_MESSAGES_VIEW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NMVIEWCHANGE {}
@@ -28079,8 +29026,8 @@ impl ::core::default::Default for TCHITTESTINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMA {
     pub mask: TCITEMHEADERA_MASK,
-    pub dwState: u32,
-    pub dwStateMask: u32,
+    pub dwState: TAB_CONTROL_ITEM_STATE,
+    pub dwStateMask: TAB_CONTROL_ITEM_STATE,
     pub pszText: ::windows::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -28193,8 +29140,8 @@ impl ::core::default::Default for TCITEMHEADERW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMW {
     pub mask: TCITEMHEADERA_MASK,
-    pub dwState: u32,
-    pub dwStateMask: u32,
+    pub dwState: TAB_CONTROL_ITEM_STATE,
+    pub dwStateMask: TAB_CONTROL_ITEM_STATE,
     pub pszText: ::windows::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -28431,7 +29378,7 @@ impl ::core::default::Default for TTHITTESTINFOW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct TTTOOLINFOA {
     pub cbSize: u32,
-    pub uFlags: TTTOOLINFO_FLAGS,
+    pub uFlags: TOOLTIP_FLAGS,
     pub hwnd: super::super::Foundation::HWND,
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
@@ -28477,7 +29424,7 @@ impl ::core::default::Default for TTTOOLINFOA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct TTTOOLINFOW {
     pub cbSize: u32,
-    pub uFlags: TTTOOLINFO_FLAGS,
+    pub uFlags: TOOLTIP_FLAGS,
     pub hwnd: super::super::Foundation::HWND,
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
@@ -28738,8 +29685,8 @@ impl ::core::default::Default for TVINSERTSTRUCTW_0 {
 pub struct TVITEMA {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: TREE_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
     pub pszText: ::windows::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
@@ -28921,8 +29868,8 @@ impl ::core::default::Default for TVITEMEXW {
 pub struct TVITEMW {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
-    pub state: u32,
-    pub stateMask: u32,
+    pub state: TREE_VIEW_ITEM_STATE_FLAGS,
+    pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
     pub pszText: ::windows::core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,

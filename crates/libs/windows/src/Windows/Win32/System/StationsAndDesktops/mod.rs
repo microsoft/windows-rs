@@ -83,14 +83,14 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDesktopA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HDESK>
+pub unsafe fn CreateDesktopA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEA, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateDesktopA(lpszdesktop: ::windows::core::PCSTR, lpszdevice: ::windows::core::PCSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK;
+        fn CreateDesktopA(lpszdesktop: ::windows::core::PCSTR, lpszdevice: ::windows::core::PCSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK;
     }
     let result__ = CreateDesktopA(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -98,14 +98,14 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDesktopExA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
+pub unsafe fn CreateDesktopExA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEA, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateDesktopExA(lpszdesktop: ::windows::core::PCSTR, lpszdevice: ::windows::core::PCSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK;
+        fn CreateDesktopExA(lpszdesktop: ::windows::core::PCSTR, lpszdevice: ::windows::core::PCSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK;
     }
     let result__ = CreateDesktopExA(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa), ulheapsize, ::core::mem::transmute(pvoid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -113,14 +113,14 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDesktopExW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
+pub unsafe fn CreateDesktopExW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEW, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateDesktopExW(lpszdesktop: ::windows::core::PCWSTR, lpszdevice: ::windows::core::PCWSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK;
+        fn CreateDesktopExW(lpszdesktop: ::windows::core::PCWSTR, lpszdevice: ::windows::core::PCWSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK;
     }
     let result__ = CreateDesktopExW(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa), ulheapsize, ::core::mem::transmute(pvoid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -128,14 +128,14 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateDesktopW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HDESK>
+pub unsafe fn CreateDesktopW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEW, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateDesktopW(lpszdesktop: ::windows::core::PCWSTR, lpszdevice: ::windows::core::PCWSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK;
+        fn CreateDesktopW(lpszdesktop: ::windows::core::PCWSTR, lpszdevice: ::windows::core::PCWSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK;
     }
     let result__ = CreateDesktopW(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -285,14 +285,14 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenDesktopA<'a, P0, P1>(lpszdesktop: P0, dwflags: u32, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
+pub unsafe fn OpenDesktopA<'a, P0, P1>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OpenDesktopA(lpszdesktop: ::windows::core::PCSTR, dwflags: u32, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
+        fn OpenDesktopA(lpszdesktop: ::windows::core::PCSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
     }
     let result__ = OpenDesktopA(lpszdesktop.into(), dwflags, finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -300,14 +300,14 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenDesktopW<'a, P0, P1>(lpszdesktop: P0, dwflags: u32, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
+pub unsafe fn OpenDesktopW<'a, P0, P1>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OpenDesktopW(lpszdesktop: ::windows::core::PCWSTR, dwflags: u32, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
+        fn OpenDesktopW(lpszdesktop: ::windows::core::PCWSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
     }
     let result__ = OpenDesktopW(lpszdesktop.into(), dwflags, finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -315,13 +315,13 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenInputDesktop<'a, P0>(dwflags: u32, finherit: P0, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
+pub unsafe fn OpenInputDesktop<'a, P0>(dwflags: DESKTOP_CONTROL_FLAGS, finherit: P0, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OpenInputDesktop(dwflags: u32, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
+        fn OpenInputDesktop(dwflags: DESKTOP_CONTROL_FLAGS, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
     }
     let result__ = OpenInputDesktop(dwflags, finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -549,6 +549,31 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DESKTOP_CONTROL_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DF_ALLOWOTHERACCOUNTHOOK: DESKTOP_CONTROL_FLAGS = DESKTOP_CONTROL_FLAGS(1u32);
+impl ::core::marker::Copy for DESKTOP_CONTROL_FLAGS {}
+impl ::core::clone::Clone for DESKTOP_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DESKTOP_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DESKTOP_CONTROL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DESKTOP_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DESKTOP_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]

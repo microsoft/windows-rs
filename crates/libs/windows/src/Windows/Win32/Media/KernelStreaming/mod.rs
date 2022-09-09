@@ -7682,30 +7682,30 @@ impl ::core::fmt::Debug for TELEPHONY_PROVIDERCHANGEOP {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _TunerDecoderLockType(pub i32);
+pub struct TunerLockType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_None: _TunerDecoderLockType = _TunerDecoderLockType(0i32);
+pub const Tuner_LockType_None: TunerLockType = TunerLockType(0i32);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_Within_Scan_Sensing_Range: _TunerDecoderLockType = _TunerDecoderLockType(1i32);
+pub const Tuner_LockType_Within_Scan_Sensing_Range: TunerLockType = TunerLockType(1i32);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_Locked: _TunerDecoderLockType = _TunerDecoderLockType(2i32);
-impl ::core::marker::Copy for _TunerDecoderLockType {}
-impl ::core::clone::Clone for _TunerDecoderLockType {
+pub const Tuner_LockType_Locked: TunerLockType = TunerLockType(2i32);
+impl ::core::marker::Copy for TunerLockType {}
+impl ::core::clone::Clone for TunerLockType {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for _TunerDecoderLockType {
+impl ::core::default::Default for TunerLockType {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _TunerDecoderLockType {
+unsafe impl ::windows::core::Abi for TunerLockType {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for _TunerDecoderLockType {
+impl ::core::fmt::Debug for TunerLockType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_TunerDecoderLockType").field(&self.0).finish()
+        f.debug_tuple("TunerLockType").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -9068,7 +9068,7 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
     pub PacketSizeFileAlignment: u32,
     pub Reserved: u32,
     pub NumProcessingModeConstraints: u32,
-    pub ProcessingModeConstraints: [_KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT; 1],
+    pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
 impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS {}
 impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS {
@@ -9102,7 +9102,7 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     pub PacketSizeFileAlignment: u32,
     pub MaxPacketSizeInBytes: u32,
     pub NumProcessingModeConstraints: u32,
-    pub ProcessingModeConstraints: [_KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT; 1],
+    pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
 impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {}
 impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
@@ -9125,6 +9125,38 @@ impl ::core::cmp::PartialEq for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
 }
 impl ::core::cmp::Eq for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {}
 impl ::core::default::Default for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+    pub ProcessingMode: ::windows::core::GUID,
+    pub SamplesPerProcessingPacket: u32,
+    pub ProcessingPacketDurationInHns: u32,
+}
+impl ::core::marker::Copy for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {}
+impl ::core::clone::Clone for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT").field("ProcessingMode", &self.ProcessingMode).field("SamplesPerProcessingPacket", &self.SamplesPerProcessingPacket).field("ProcessingPacketDurationInHns", &self.ProcessingPacketDurationInHns).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {}
+impl ::core::default::Default for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -14523,7 +14555,7 @@ impl ::core::default::Default for KSPROPERTY_TUNER_SCAN_CAPS_S {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_TUNER_SCAN_STATUS_S {
     pub Property: KSIDENTIFIER,
-    pub LockStatus: _TunerDecoderLockType,
+    pub LockStatus: TunerLockType,
     pub CurrentFrequency: u32,
 }
 impl ::core::marker::Copy for KSPROPERTY_TUNER_SCAN_STATUS_S {}
@@ -17389,7 +17421,7 @@ impl ::core::default::Default for KS_AM_SimpleRateChange {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct KS_AnalogVideoInfo {
+pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
     pub dwActiveWidth: u32,
@@ -17397,33 +17429,33 @@ pub struct KS_AnalogVideoInfo {
     pub AvgTimePerFrame: i64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for KS_AnalogVideoInfo {}
+impl ::core::marker::Copy for KS_ANALOGVIDEOINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for KS_AnalogVideoInfo {
+impl ::core::clone::Clone for KS_ANALOGVIDEOINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KS_AnalogVideoInfo {
+impl ::core::fmt::Debug for KS_ANALOGVIDEOINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_AnalogVideoInfo").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwActiveWidth", &self.dwActiveWidth).field("dwActiveHeight", &self.dwActiveHeight).field("AvgTimePerFrame", &self.AvgTimePerFrame).finish()
+        f.debug_struct("KS_ANALOGVIDEOINFO").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwActiveWidth", &self.dwActiveWidth).field("dwActiveHeight", &self.dwActiveHeight).field("AvgTimePerFrame", &self.AvgTimePerFrame).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KS_AnalogVideoInfo {
+unsafe impl ::windows::core::Abi for KS_ANALOGVIDEOINFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for KS_AnalogVideoInfo {
+impl ::core::cmp::PartialEq for KS_ANALOGVIDEOINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KS_AnalogVideoInfo>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KS_ANALOGVIDEOINFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for KS_AnalogVideoInfo {}
+impl ::core::cmp::Eq for KS_ANALOGVIDEOINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for KS_AnalogVideoInfo {
+impl ::core::default::Default for KS_ANALOGVIDEOINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -17778,7 +17810,7 @@ impl ::core::default::Default for KS_DATAFORMAT_VIDEOINFO_PALETTE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: KSDATAFORMAT,
-    pub AnalogVideoInfo: KS_AnalogVideoInfo,
+    pub AnalogVideoInfo: KS_ANALOGVIDEOINFO,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KS_DATARANGE_ANALOGVIDEO {}
@@ -18736,39 +18768,6 @@ impl ::core::default::Default for KS_H264VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct KS_MPEAUDIOINFO {
-    pub dwFlags: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-}
-impl ::core::marker::Copy for KS_MPEAUDIOINFO {}
-impl ::core::clone::Clone for KS_MPEAUDIOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for KS_MPEAUDIOINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KS_MPEAUDIOINFO").field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for KS_MPEAUDIOINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for KS_MPEAUDIOINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KS_MPEAUDIOINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for KS_MPEAUDIOINFO {}
-impl ::core::default::Default for KS_MPEAUDIOINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_MPEG1VIDEOINFO {
@@ -18805,6 +18804,39 @@ impl ::core::cmp::PartialEq for KS_MPEG1VIDEOINFO {
 impl ::core::cmp::Eq for KS_MPEG1VIDEOINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KS_MPEG1VIDEOINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KS_MPEGAUDIOINFO {
+    pub dwFlags: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+}
+impl ::core::marker::Copy for KS_MPEGAUDIOINFO {}
+impl ::core::clone::Clone for KS_MPEGAUDIOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KS_MPEGAUDIOINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KS_MPEGAUDIOINFO").field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for KS_MPEGAUDIOINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KS_MPEGAUDIOINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KS_MPEGAUDIOINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KS_MPEGAUDIOINFO {}
+impl ::core::default::Default for KS_MPEGAUDIOINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -20520,38 +20552,6 @@ impl ::core::cmp::PartialEq for WST_BUFFER_LINE {
 }
 impl ::core::cmp::Eq for WST_BUFFER_LINE {}
 impl ::core::default::Default for WST_BUFFER_LINE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
-    pub ProcessingMode: ::windows::core::GUID,
-    pub SamplesPerProcessingPacket: u32,
-    pub ProcessingPacketDurationInHns: u32,
-}
-impl ::core::marker::Copy for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {}
-impl ::core::clone::Clone for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT").field("ProcessingMode", &self.ProcessingMode).field("SamplesPerProcessingPacket", &self.SamplesPerProcessingPacket).field("ProcessingPacketDurationInHns", &self.ProcessingPacketDurationInHns).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {}
-impl ::core::default::Default for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

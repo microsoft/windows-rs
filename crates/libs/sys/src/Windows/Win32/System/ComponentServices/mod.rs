@@ -901,6 +901,34 @@ pub const TxCommit: TransactionVote = 0i32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxAbort: TransactionVote = 1i32;
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct APPDATA {
+    pub m_idApp: u32,
+    pub m_szAppGuid: [u16; 40],
+    pub m_dwAppProcessId: u32,
+    pub m_AppStatistics: APPSTATISTICS,
+}
+impl ::core::marker::Copy for APPDATA {}
+impl ::core::clone::Clone for APPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct APPSTATISTICS {
+    pub m_cTotalCalls: u32,
+    pub m_cTotalInstances: u32,
+    pub m_cTotalClasses: u32,
+    pub m_cCallsPerSecond: u32,
+}
+impl ::core::marker::Copy for APPSTATISTICS {}
+impl ::core::clone::Clone for APPSTATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo {
@@ -986,35 +1014,7 @@ impl ::core::clone::Clone for ApplicationSummary {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CAppData {
-    pub m_idApp: u32,
-    pub m_szAppGuid: [u16; 40],
-    pub m_dwAppProcessId: u32,
-    pub m_AppStatistics: CAppStatistics,
-}
-impl ::core::marker::Copy for CAppData {}
-impl ::core::clone::Clone for CAppData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CAppStatistics {
-    pub m_cTotalCalls: u32,
-    pub m_cTotalInstances: u32,
-    pub m_cTotalClasses: u32,
-    pub m_cCallsPerSecond: u32,
-}
-impl ::core::marker::Copy for CAppStatistics {}
-impl ::core::clone::Clone for CAppStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CCLSIDData {
+pub struct CLSIDDATA {
     pub m_clsid: ::windows_sys::core::GUID,
     pub m_cReferences: u32,
     pub m_cBound: u32,
@@ -1024,15 +1024,15 @@ pub struct CCLSIDData {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl ::core::marker::Copy for CCLSIDData {}
-impl ::core::clone::Clone for CCLSIDData {
+impl ::core::marker::Copy for CLSIDDATA {}
+impl ::core::clone::Clone for CLSIDDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CCLSIDData2 {
+pub struct CLSIDDATA2 {
     pub m_clsid: ::windows_sys::core::GUID,
     pub m_appid: ::windows_sys::core::GUID,
     pub m_partid: ::windows_sys::core::GUID,
@@ -1047,8 +1047,8 @@ pub struct CCLSIDData2 {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl ::core::marker::Copy for CCLSIDData2 {}
-impl ::core::clone::Clone for CCLSIDData2 {
+impl ::core::marker::Copy for CLSIDDATA2 {}
+impl ::core::clone::Clone for CLSIDDATA2 {
     fn clone(&self) -> Self {
         *self
     }

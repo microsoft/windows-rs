@@ -863,6 +863,21 @@ pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = 5i32;
 pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = 6i32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = 7i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MACINFO {
+    pub fUsed: super::super::Foundation::BOOL,
+    pub abMacState: [u8; 36],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MACINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MACINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct MTP_COMMAND_DATA_IN {
@@ -1161,21 +1176,6 @@ pub struct WMFILECAPABILITIES {
 }
 impl ::core::marker::Copy for WMFILECAPABILITIES {}
 impl ::core::clone::Clone for WMFILECAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct __MACINFO {
-    pub fUsed: super::super::Foundation::BOOL,
-    pub abMacState: [u8; 36],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for __MACINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for __MACINFO {
     fn clone(&self) -> Self {
         *self
     }

@@ -6478,6 +6478,45 @@ impl ::core::fmt::Debug for WMDM_TAG_DATATYPE {
         f.debug_tuple("WMDM_TAG_DATATYPE").field(&self.0).finish()
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MACINFO {
+    pub fUsed: super::super::Foundation::BOOL,
+    pub abMacState: [u8; 36],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MACINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MACINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MACINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MACINFO").field("fUsed", &self.fUsed).field("abMacState", &self.abMacState).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MACINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MACINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MACINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MACINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MACINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub struct MTP_COMMAND_DATA_IN {
@@ -7052,45 +7091,6 @@ impl ::core::cmp::PartialEq for WMFILECAPABILITIES {
 }
 impl ::core::cmp::Eq for WMFILECAPABILITIES {}
 impl ::core::default::Default for WMFILECAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct __MACINFO {
-    pub fUsed: super::super::Foundation::BOOL,
-    pub abMacState: [u8; 36],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for __MACINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for __MACINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for __MACINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("__MACINFO").field("fUsed", &self.fUsed).field("abMacState", &self.abMacState).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for __MACINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for __MACINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<__MACINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for __MACINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for __MACINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

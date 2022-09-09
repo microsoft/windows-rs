@@ -135,14 +135,14 @@ impl IRichEditOle_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IRichEditOleCallback_Impl: Sized {
     fn GetNewStorage(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::IStorage>;
-    fn GetInPlaceContext(&self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OIFI) -> ::windows::core::Result<()>;
+    fn GetInPlaceContext(&self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> ::windows::core::Result<()>;
     fn ShowContainerUI(&self, fshow: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn QueryInsertObject(&self, lpclsid: *mut ::windows::core::GUID, lpstg: &::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>, cp: i32) -> ::windows::core::Result<()>;
     fn DeleteObject(&self, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
-    fn QueryAcceptData(&self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: u32, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
+    fn QueryAcceptData(&self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>;
     fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -161,7 +161,7 @@ impl IRichEditOleCallback_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInPlaceContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lplpframe: *mut *mut ::core::ffi::c_void, lplpdoc: *mut *mut ::core::ffi::c_void, lpframeinfo: *mut super::super::super::System::Ole::OIFI) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInPlaceContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lplpframe: *mut *mut ::core::ffi::c_void, lplpdoc: *mut *mut ::core::ffi::c_void, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetInPlaceContext(::core::mem::transmute_copy(&lplpframe), ::core::mem::transmute_copy(&lplpdoc), ::core::mem::transmute_copy(&lpframeinfo)).into()
@@ -181,7 +181,7 @@ impl IRichEditOleCallback_Vtbl {
             let this = (*this).get_impl();
             this.DeleteObject(::core::mem::transmute(&lpoleobj)).into()
         }
-        unsafe extern "system" fn QueryAcceptData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: u32, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryAcceptData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.QueryAcceptData(::core::mem::transmute(&lpdataobj), ::core::mem::transmute_copy(&lpcfformat), ::core::mem::transmute_copy(&reco), ::core::mem::transmute_copy(&freally), ::core::mem::transmute_copy(&hmetapict)).into()
@@ -196,7 +196,7 @@ impl IRichEditOleCallback_Vtbl {
             let this = (*this).get_impl();
             this.GetClipboardData(::core::mem::transmute_copy(&lpchrg), ::core::mem::transmute_copy(&reco), ::core::mem::transmute_copy(&lplpdataobj)).into()
         }
-        unsafe extern "system" fn GetDragDropEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDragDropEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDragDropEffect(::core::mem::transmute_copy(&fdrag), ::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute_copy(&pdweffect)).into()
@@ -268,8 +268,8 @@ pub trait ITextDocument_Impl: Sized + super::super::super::System::Com::IDispatc
     fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32>;
     fn SetDefaultTabStop(&self, value: f32) -> ::windows::core::Result<()>;
     fn New(&self) -> ::windows::core::Result<()>;
-    fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()>;
-    fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()>;
+    fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()>;
+    fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()>;
     fn Freeze(&self) -> ::windows::core::Result<i32>;
     fn Unfreeze(&self) -> ::windows::core::Result<i32>;
     fn BeginEditCollection(&self) -> ::windows::core::Result<()>;
@@ -365,12 +365,12 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             this.New().into()
         }
-        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Open(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&codepage)).into()
         }
-        unsafe extern "system" fn Save<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Save<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Save(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&codepage)).into()
@@ -3335,18 +3335,18 @@ pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
     fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
     fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
-    fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
-    fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
-    fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
+    fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>;
+    fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>;
+    fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>;
     fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
     fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()>;
     fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32>;
     fn CanEdit(&self) -> ::windows::core::Result<i32>;
-    fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()>;
-    fn GetPoint(&self, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()>;
+    fn ChangeCase(&self, r#type: tomConstants) -> ::windows::core::Result<()>;
+    fn GetPoint(&self, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()>;
+    fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()>;
     fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetEmbeddedObject(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -3696,7 +3696,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: i32, plength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindText(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
@@ -3707,7 +3707,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindTextStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: i32, plength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindTextStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindTextStart(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
@@ -3718,7 +3718,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindTextEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: i32, plength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindTextEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindTextEnd(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
@@ -3789,17 +3789,17 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChangeCase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangeCase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: tomConstants) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ChangeCase(::core::mem::transmute_copy(&r#type)).into()
         }
-        unsafe extern "system" fn GetPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&px), ::core::mem::transmute_copy(&py)).into()
         }
-        unsafe extern "system" fn SetPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPoint(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&extend)).into()

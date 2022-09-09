@@ -1913,65 +1913,65 @@ pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = 0i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub type ADSTYPEENUM = i32;
+pub type ADSTYPE = i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_INVALID: ADSTYPEENUM = 0i32;
+pub const ADSTYPE_INVALID: ADSTYPE = 0i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_STRING: ADSTYPEENUM = 1i32;
+pub const ADSTYPE_DN_STRING: ADSTYPE = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPEENUM = 2i32;
+pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPE = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPEENUM = 3i32;
+pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPE = 3i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PRINTABLE_STRING: ADSTYPEENUM = 4i32;
+pub const ADSTYPE_PRINTABLE_STRING: ADSTYPE = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NUMERIC_STRING: ADSTYPEENUM = 5i32;
+pub const ADSTYPE_NUMERIC_STRING: ADSTYPE = 5i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_BOOLEAN: ADSTYPEENUM = 6i32;
+pub const ADSTYPE_BOOLEAN: ADSTYPE = 6i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_INTEGER: ADSTYPEENUM = 7i32;
+pub const ADSTYPE_INTEGER: ADSTYPE = 7i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OCTET_STRING: ADSTYPEENUM = 8i32;
+pub const ADSTYPE_OCTET_STRING: ADSTYPE = 8i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = 9i32;
+pub const ADSTYPE_UTC_TIME: ADSTYPE = 9i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_LARGE_INTEGER: ADSTYPEENUM = 10i32;
+pub const ADSTYPE_LARGE_INTEGER: ADSTYPE = 10i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PROV_SPECIFIC: ADSTYPEENUM = 11i32;
+pub const ADSTYPE_PROV_SPECIFIC: ADSTYPE = 11i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OBJECT_CLASS: ADSTYPEENUM = 12i32;
+pub const ADSTYPE_OBJECT_CLASS: ADSTYPE = 12i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPEENUM = 13i32;
+pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPE = 13i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OCTET_LIST: ADSTYPEENUM = 14i32;
+pub const ADSTYPE_OCTET_LIST: ADSTYPE = 14i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PATH: ADSTYPEENUM = 15i32;
+pub const ADSTYPE_PATH: ADSTYPE = 15i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_POSTALADDRESS: ADSTYPEENUM = 16i32;
+pub const ADSTYPE_POSTALADDRESS: ADSTYPE = 16i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_TIMESTAMP: ADSTYPEENUM = 17i32;
+pub const ADSTYPE_TIMESTAMP: ADSTYPE = 17i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_BACKLINK: ADSTYPEENUM = 18i32;
+pub const ADSTYPE_BACKLINK: ADSTYPE = 18i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = 19i32;
+pub const ADSTYPE_TYPEDNAME: ADSTYPE = 19i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_HOLD: ADSTYPEENUM = 20i32;
+pub const ADSTYPE_HOLD: ADSTYPE = 20i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NETADDRESS: ADSTYPEENUM = 21i32;
+pub const ADSTYPE_NETADDRESS: ADSTYPE = 21i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_REPLICAPOINTER: ADSTYPEENUM = 22i32;
+pub const ADSTYPE_REPLICAPOINTER: ADSTYPE = 22i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_FAXNUMBER: ADSTYPEENUM = 23i32;
+pub const ADSTYPE_FAXNUMBER: ADSTYPE = 23i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_EMAIL: ADSTYPEENUM = 24i32;
+pub const ADSTYPE_EMAIL: ADSTYPE = 24i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPEENUM = 25i32;
+pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPE = 25i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = 26i32;
+pub const ADSTYPE_UNKNOWN: ADSTYPE = 26i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_WITH_BINARY: ADSTYPEENUM = 27i32;
+pub const ADSTYPE_DN_WITH_BINARY: ADSTYPE = 27i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_WITH_STRING: ADSTYPEENUM = 28i32;
+pub const ADSTYPE_DN_WITH_STRING: ADSTYPE = 28i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub type ADS_ACEFLAG_ENUM = i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -2682,7 +2682,7 @@ impl ::core::clone::Clone for ADSPROPINITPARAMS {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSVALUE {
-    pub dwType: ADSTYPEENUM,
+    pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2738,7 +2738,7 @@ impl ::core::clone::Clone for ADSVALUE_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: ::windows_sys::core::PWSTR,
-    pub dwADsType: ADSTYPEENUM,
+    pub dwADsType: ADSTYPE,
     pub dwMinRange: u32,
     pub dwMaxRange: u32,
     pub fMultiValued: super::super::Foundation::BOOL,
@@ -2757,7 +2757,7 @@ impl ::core::clone::Clone for ADS_ATTR_DEF {
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: ::windows_sys::core::PWSTR,
     pub dwControlCode: u32,
-    pub dwADsType: ADSTYPEENUM,
+    pub dwADsType: ADSTYPE,
     pub pADsValues: *mut ADSVALUE,
     pub dwNumValues: u32,
 }
@@ -2990,6 +2990,40 @@ pub struct ADS_REPLICAPOINTER {
 }
 impl ::core::marker::Copy for ADS_REPLICAPOINTER {}
 impl ::core::clone::Clone for ADS_REPLICAPOINTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_SEARCHPREF_INFO {
+    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
+    pub vValue: ADSVALUE,
+    pub dwStatus: ADS_STATUSENUM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_SEARCHPREF_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_SEARCHPREF_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_SEARCH_COLUMN {
+    pub pszAttrName: ::windows_sys::core::PWSTR,
+    pub dwADsType: ADSTYPE,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+    pub hReserved: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_SEARCH_COLUMN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_SEARCH_COLUMN {
     fn clone(&self) -> Self {
         *self
     }
@@ -4557,40 +4591,6 @@ pub struct SCHEDULE_HEADER {
 }
 impl ::core::marker::Copy for SCHEDULE_HEADER {}
 impl ::core::clone::Clone for SCHEDULE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ads_search_column {
-    pub pszAttrName: ::windows_sys::core::PWSTR,
-    pub dwADsType: ADSTYPEENUM,
-    pub pADsValues: *mut ADSVALUE,
-    pub dwNumValues: u32,
-    pub hReserved: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ads_search_column {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ads_search_column {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ads_searchpref_info {
-    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
-    pub vValue: ADSVALUE,
-    pub dwStatus: ADS_STATUSENUM,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ads_searchpref_info {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ads_searchpref_info {
     fn clone(&self) -> Self {
         *self
     }

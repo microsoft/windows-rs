@@ -984,6 +984,18 @@ impl ::core::clone::Clone for FLATMTSIDLIST {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub struct FlagList {
+    pub cFlags: u32,
+    pub ulFlag: [u32; 1],
+}
+impl ::core::marker::Copy for FlagList {}
+impl ::core::clone::Clone for FlagList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub struct MAPIERROR {
     pub ulVersion: u32,
     pub lpszError: *mut i8,
@@ -1414,7 +1426,7 @@ impl ::core::clone::Clone for SPropTagArray {
 pub struct SPropValue {
     pub ulPropTag: u32,
     pub dwAlignPad: u32,
-    pub Value: _PV,
+    pub Value: __UPV,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for SPropValue {}
@@ -1695,9 +1707,11 @@ impl ::core::clone::Clone for WAB_PARAM {
     }
 }
 #[repr(C)]
+pub struct _WABACTIONITEM(pub u8);
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub union _PV {
+pub union __UPV {
     pub i: i16,
     pub l: i32,
     pub ul: u32,
@@ -1728,23 +1742,9 @@ pub union _PV {
     pub x: i32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _PV {}
+impl ::core::marker::Copy for __UPV {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _PV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _WABACTIONITEM(pub u8);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub struct _flaglist {
-    pub cFlags: u32,
-    pub ulFlag: [u32; 1],
-}
-impl ::core::marker::Copy for _flaglist {}
-impl ::core::clone::Clone for _flaglist {
+impl ::core::clone::Clone for __UPV {
     fn clone(&self) -> Self {
         *self
     }

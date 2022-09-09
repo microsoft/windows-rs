@@ -684,9 +684,9 @@ pub struct IQueryAllWinSATAssessments_Vtbl {
 #[repr(transparent)]
 pub struct IQueryOEMWinSATCustomization(::windows::core::IUnknown);
 impl IQueryOEMWinSATCustomization {
-    pub unsafe fn GetOEMPrePopulationInfo(&self) -> ::windows::core::Result<WINSAT_OEM_DATA_TYPE> {
+    pub unsafe fn GetOEMPrePopulationInfo(&self) -> ::windows::core::Result<WINSAT_OEM_CUSTOMIZATION_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetOEMPrePopulationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WINSAT_OEM_DATA_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).GetOEMPrePopulationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WINSAT_OEM_CUSTOMIZATION_STATE>(result__)
     }
 }
 impl ::core::convert::From<IQueryOEMWinSATCustomization> for ::windows::core::IUnknown {
@@ -728,7 +728,7 @@ unsafe impl ::windows::core::Interface for IQueryOEMWinSATCustomization {
 #[doc(hidden)]
 pub struct IQueryOEMWinSATCustomization_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub GetOEMPrePopulationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_DATA_TYPE) -> ::windows::core::HRESULT,
+    pub GetOEMPrePopulationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -989,32 +989,32 @@ impl ::core::fmt::Debug for WINSAT_BITMAP_SIZE {
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WINSAT_OEM_DATA_TYPE(pub i32);
+pub struct WINSAT_OEM_CUSTOMIZATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_DATA_VALID: WINSAT_OEM_DATA_TYPE = WINSAT_OEM_DATA_TYPE(0i32);
+pub const WINSAT_OEM_DATA_VALID: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(0i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_DATA_NON_SYS_CONFIG_MATCH: WINSAT_OEM_DATA_TYPE = WINSAT_OEM_DATA_TYPE(1i32);
+pub const WINSAT_OEM_DATA_NON_SYS_CONFIG_MATCH: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(1i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_DATA_INVALID: WINSAT_OEM_DATA_TYPE = WINSAT_OEM_DATA_TYPE(2i32);
+pub const WINSAT_OEM_DATA_INVALID: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(2i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_NO_DATA_SUPPLIED: WINSAT_OEM_DATA_TYPE = WINSAT_OEM_DATA_TYPE(3i32);
-impl ::core::marker::Copy for WINSAT_OEM_DATA_TYPE {}
-impl ::core::clone::Clone for WINSAT_OEM_DATA_TYPE {
+pub const WINSAT_OEM_NO_DATA_SUPPLIED: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(3i32);
+impl ::core::marker::Copy for WINSAT_OEM_CUSTOMIZATION_STATE {}
+impl ::core::clone::Clone for WINSAT_OEM_CUSTOMIZATION_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for WINSAT_OEM_DATA_TYPE {
+impl ::core::default::Default for WINSAT_OEM_CUSTOMIZATION_STATE {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WINSAT_OEM_DATA_TYPE {
+unsafe impl ::windows::core::Abi for WINSAT_OEM_CUSTOMIZATION_STATE {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for WINSAT_OEM_DATA_TYPE {
+impl ::core::fmt::Debug for WINSAT_OEM_CUSTOMIZATION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WINSAT_OEM_DATA_TYPE").field(&self.0).finish()
+        f.debug_tuple("WINSAT_OEM_CUSTOMIZATION_STATE").field(&self.0).finish()
     }
 }
 #[cfg(feature = "implement")]

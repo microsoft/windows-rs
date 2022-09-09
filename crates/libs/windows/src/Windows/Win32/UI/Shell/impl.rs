@@ -5419,20 +5419,20 @@ impl IDragSourceHelper2_Vtbl {
         iid == &<IDragSourceHelper2 as ::windows::core::Interface>::IID || iid == &<IDragSourceHelper as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDropTargetHelper_Impl: Sized {
-    fn DragEnter(&self, hwndtarget: super::super::Foundation::HWND, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: u32) -> ::windows::core::Result<()>;
+    fn DragEnter(&self, hwndtarget: super::super::Foundation::HWND, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>;
     fn DragLeave(&self) -> ::windows::core::Result<()>;
-    fn DragOver(&self, ppt: *const super::super::Foundation::POINT, dweffect: u32) -> ::windows::core::Result<()>;
-    fn Drop(&self, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: u32) -> ::windows::core::Result<()>;
+    fn DragOver(&self, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>;
+    fn Drop(&self, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>;
     fn Show(&self, fshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDropTargetHelper {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDropTargetHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetHelper_Impl, const OFFSET: isize>() -> IDropTargetHelper_Vtbl {
-        unsafe extern "system" fn DragEnter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndtarget: super::super::Foundation::HWND, pdataobject: *mut ::core::ffi::c_void, ppt: *const super::super::Foundation::POINT, dweffect: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DragEnter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndtarget: super::super::Foundation::HWND, pdataobject: *mut ::core::ffi::c_void, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DragEnter(::core::mem::transmute_copy(&hwndtarget), ::core::mem::transmute(&pdataobject), ::core::mem::transmute_copy(&ppt), ::core::mem::transmute_copy(&dweffect)).into()
@@ -5442,12 +5442,12 @@ impl IDropTargetHelper_Vtbl {
             let this = (*this).get_impl();
             this.DragLeave().into()
         }
-        unsafe extern "system" fn DragOver<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppt: *const super::super::Foundation::POINT, dweffect: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DragOver<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DragOver(::core::mem::transmute_copy(&ppt), ::core::mem::transmute_copy(&dweffect)).into()
         }
-        unsafe extern "system" fn Drop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, ppt: *const super::super::Foundation::POINT, dweffect: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Drop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, ppt: *const super::super::Foundation::POINT, dweffect: super::super::System::Ole::DROPEFFECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Drop(::core::mem::transmute(&pdataobject), ::core::mem::transmute_copy(&ppt), ::core::mem::transmute_copy(&dweffect)).into()
@@ -13644,7 +13644,7 @@ impl IShellApp_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IShellBrowser_Impl: Sized + super::super::System::Ole::IOleWindow_Impl {
-    fn InsertMenusSB(&self, hmenushared: super::WindowsAndMessaging::HMENU, lpmenuwidths: *mut super::super::System::Ole::OleMenuGroupWidths) -> ::windows::core::Result<()>;
+    fn InsertMenusSB(&self, hmenushared: super::WindowsAndMessaging::HMENU, lpmenuwidths: *mut super::super::System::Ole::OLEMENUGROUPWIDTHS) -> ::windows::core::Result<()>;
     fn SetMenuSB(&self, hmenushared: super::WindowsAndMessaging::HMENU, holemenures: isize, hwndactiveobject: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn RemoveMenusSB(&self, hmenushared: super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
     fn SetStatusTextSB(&self, pszstatustext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -13663,7 +13663,7 @@ impl ::windows::core::RuntimeName for IShellBrowser {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IShellBrowser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellBrowser_Impl, const OFFSET: isize>() -> IShellBrowser_Vtbl {
-        unsafe extern "system" fn InsertMenusSB<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenushared: super::WindowsAndMessaging::HMENU, lpmenuwidths: *mut super::super::System::Ole::OleMenuGroupWidths) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertMenusSB<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenushared: super::WindowsAndMessaging::HMENU, lpmenuwidths: *mut super::super::System::Ole::OLEMENUGROUPWIDTHS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InsertMenusSB(::core::mem::transmute_copy(&hmenushared), ::core::mem::transmute_copy(&lpmenuwidths)).into()
@@ -15695,17 +15695,17 @@ impl IShellImageDataFactory_Vtbl {
         iid == &<IShellImageDataFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 pub trait IShellItem_Impl: Sized {
     fn BindToHandler(&self, pbc: &::core::option::Option<super::super::System::Com::IBindCtx>, bhid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetParent(&self) -> ::windows::core::Result<IShellItem>;
     fn GetDisplayName(&self, sigdnname: SIGDN) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn GetAttributes(&self, sfgaomask: u32) -> ::windows::core::Result<u32>;
+    fn GetAttributes(&self, sfgaomask: super::super::System::SystemServices::SFGAO_FLAGS) -> ::windows::core::Result<super::super::System::SystemServices::SFGAO_FLAGS>;
     fn Compare(&self, psi: &::core::option::Option<IShellItem>, hint: u32) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 impl ::windows::core::RuntimeName for IShellItem {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 impl IShellItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItem_Impl, const OFFSET: isize>() -> IShellItem_Vtbl {
         unsafe extern "system" fn BindToHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, bhid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -15735,7 +15735,7 @@ impl IShellItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sfgaomask: u32, psfgaoattribs: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sfgaomask: super::super::System::SystemServices::SFGAO_FLAGS, psfgaoattribs: *mut super::super::System::SystemServices::SFGAO_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAttributes(::core::mem::transmute_copy(&sfgaomask)) {
@@ -15770,7 +15770,7 @@ impl IShellItem_Vtbl {
         iid == &<IShellItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IShellItem2_Impl: Sized + IShellItem_Impl {
     fn GetPropertyStore(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPropertyStoreWithCreateObject(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, punkcreateobject: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -15786,9 +15786,9 @@ pub trait IShellItem2_Impl: Sized + IShellItem_Impl {
     fn GetUInt64(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<u64>;
     fn GetBool(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows::core::RuntimeName for IShellItem2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IShellItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>() -> IShellItem2_Vtbl {
         unsafe extern "system" fn GetPropertyStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -15925,19 +15925,19 @@ impl IShellItem2_Vtbl {
         iid == &<IShellItem2 as ::windows::core::Interface>::IID || iid == &<IShellItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IShellItemArray_Impl: Sized {
     fn BindToHandler(&self, pbc: &::core::option::Option<super::super::System::Com::IBindCtx>, bhid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPropertyStore(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPropertyDescriptionList(&self, keytype: *const PropertiesSystem::PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetAttributes(&self, attribflags: SIATTRIBFLAGS, sfgaomask: u32) -> ::windows::core::Result<u32>;
+    fn GetAttributes(&self, attribflags: SIATTRIBFLAGS, sfgaomask: super::super::System::SystemServices::SFGAO_FLAGS) -> ::windows::core::Result<super::super::System::SystemServices::SFGAO_FLAGS>;
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetItemAt(&self, dwindex: u32) -> ::windows::core::Result<IShellItem>;
     fn EnumItems(&self) -> ::windows::core::Result<IEnumShellItems>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows::core::RuntimeName for IShellItemArray {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IShellItemArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItemArray_Impl, const OFFSET: isize>() -> IShellItemArray_Vtbl {
         unsafe extern "system" fn BindToHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItemArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, bhid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -15955,7 +15955,7 @@ impl IShellItemArray_Vtbl {
             let this = (*this).get_impl();
             this.GetPropertyDescriptionList(::core::mem::transmute_copy(&keytype), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItemArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attribflags: SIATTRIBFLAGS, sfgaomask: u32, psfgaoattribs: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellItemArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attribflags: SIATTRIBFLAGS, sfgaomask: super::super::System::SystemServices::SFGAO_FLAGS, psfgaoattribs: *mut super::super::System::SystemServices::SFGAO_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAttributes(::core::mem::transmute_copy(&attribflags), ::core::mem::transmute_copy(&sfgaomask)) {
@@ -21745,7 +21745,7 @@ impl IURLSearchHook2_Vtbl {
 pub trait IUniformResourceLocatorA_Impl: Sized {
     fn SetURL(&self, pcszurl: &::windows::core::PCSTR, dwinflags: u32) -> ::windows::core::Result<()>;
     fn GetURL(&self) -> ::windows::core::Result<::windows::core::PSTR>;
-    fn InvokeCommand(&self, purlici: *mut urlinvokecommandinfoA) -> ::windows::core::Result<()>;
+    fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IUniformResourceLocatorA {}
@@ -21768,7 +21768,7 @@ impl IUniformResourceLocatorA_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvokeCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purlici: *mut urlinvokecommandinfoA) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvokeCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purlici: *mut URLINVOKECOMMANDINFOA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeCommand(::core::mem::transmute_copy(&purlici)).into()
@@ -21788,7 +21788,7 @@ impl IUniformResourceLocatorA_Vtbl {
 pub trait IUniformResourceLocatorW_Impl: Sized {
     fn SetURL(&self, pcszurl: &::windows::core::PCWSTR, dwinflags: u32) -> ::windows::core::Result<()>;
     fn GetURL(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn InvokeCommand(&self, purlici: *mut urlinvokecommandinfoW) -> ::windows::core::Result<()>;
+    fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOW) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IUniformResourceLocatorW {}
@@ -21811,7 +21811,7 @@ impl IUniformResourceLocatorW_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvokeCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purlici: *mut urlinvokecommandinfoW) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvokeCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purlici: *mut URLINVOKECOMMANDINFOW) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeCommand(::core::mem::transmute_copy(&purlici)).into()

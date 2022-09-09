@@ -1,27 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-    pub fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-    pub fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-    pub fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
-    pub fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn ResUtilsDeleteKeyTree(key: super::super::System::Registry::HKEY, keyname: ::windows_sys::core::PCWSTR, treatnokeyaserror: super::super::Foundation::BOOL) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn AddClusterGroupDependency(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32;
@@ -101,6 +78,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ClusWorkerTerminateEx(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn ClusterAddGroupToAffinityRule(hcluster: *const _HCLUSTER, rulename: ::windows_sys::core::PCWSTR, hgroup: *const _HGROUP) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -382,6 +362,10 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+    pub fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+    pub fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER;
@@ -448,6 +432,10 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNotifyEventHandle(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+    pub fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
+    pub fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsFileOnClusterSharedVolume(lpszpathname: ::windows_sys::core::PCWSTR, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32;
@@ -696,8 +684,14 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ResUtilIsResourceClassEqual(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
@@ -780,6 +774,9 @@ extern "system" {
     pub fn ResUtilVerifyService(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u32) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+    pub fn ResUtilsDeleteKeyTree(key: super::super::System::Registry::HKEY, keyname: ::windows_sys::core::PCWSTR, treatnokeyaserror: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
     pub fn ResetAllAppInstanceVersions() -> u32;
     #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]

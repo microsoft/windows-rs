@@ -163,12 +163,13 @@ where
     }
     GetSystemDpiForProcess(hprocess.into())
 }
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
+pub unsafe fn GetSystemMetricsForDpi(nindex: super::WindowsAndMessaging::SYSTEM_METRICS_INDEX, dpi: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32;
+        fn GetSystemMetricsForDpi(nindex: super::WindowsAndMessaging::SYSTEM_METRICS_INDEX, dpi: u32) -> i32;
     }
     GetSystemMetricsForDpi(nindex, dpi)
 }

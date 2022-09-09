@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
     MgmAddGroupMembershipEntry(hprotocol.into(), dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags)
@@ -19,7 +19,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
     }
     MgmDeRegisterMProtocol(hprotocol.into())
@@ -32,7 +32,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
     MgmDeleteGroupMembershipEntry(hprotocol.into(), dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags)
@@ -41,7 +41,7 @@ where
 #[inline]
 pub unsafe fn MgmGetFirstMfe(pdwbuffersize: &mut u32, pbbuffer: &mut u8, pdwnumentries: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     }
     MgmGetFirstMfe(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries))
@@ -50,7 +50,7 @@ pub unsafe fn MgmGetFirstMfe(pdwbuffersize: &mut u32, pbbuffer: &mut u8, pdwnume
 #[inline]
 pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: &mut u32, pbbuffer: &mut u8, pdwnumentries: &mut u32, dwflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
     }
     MgmGetFirstMfeStats(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), dwflags)
@@ -60,7 +60,7 @@ pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: &mut u32, pbbuffer: &mut u8, pd
 #[inline]
 pub unsafe fn MgmGetMfe(pimm: &mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: &mut u32, pbbuffer: &mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32;
     }
     MgmGetMfe(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer))
@@ -70,7 +70,7 @@ pub unsafe fn MgmGetMfe(pimm: &mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersi
 #[inline]
 pub unsafe fn MgmGetMfeStats(pimm: &mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: &mut u32, pbbuffer: &mut u8, dwflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
     }
     MgmGetMfeStats(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), dwflags)
@@ -80,7 +80,7 @@ pub unsafe fn MgmGetMfeStats(pimm: &mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuf
 #[inline]
 pub unsafe fn MgmGetNextMfe(pimmstart: &mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: &mut u32, pbbuffer: &mut u8, pdwnumentries: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     }
     MgmGetNextMfe(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries))
@@ -90,7 +90,7 @@ pub unsafe fn MgmGetNextMfe(pimmstart: &mut super::IpHelper::MIB_IPMCAST_MFE, pd
 #[inline]
 pub unsafe fn MgmGetNextMfeStats(pimmstart: &mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: &mut u32, pbbuffer: &mut u8, pdwnumentries: &mut u32, dwflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
     }
     MgmGetNextMfeStats(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), dwflags)
@@ -99,7 +99,7 @@ pub unsafe fn MgmGetNextMfeStats(pimmstart: &mut super::IpHelper::MIB_IPMCAST_MF
 #[inline]
 pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: &mut u32, pdwifcomponentid: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
     }
     MgmGetProtocolOnInterface(dwifindex, dwifnexthopaddr, ::core::mem::transmute(pdwifprotocolid), ::core::mem::transmute(pdwifcomponentid))
@@ -112,7 +112,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
     }
     MgmGroupEnumerationEnd(henum.into())
@@ -125,7 +125,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     }
     MgmGroupEnumerationGetNext(henum.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries))
@@ -138,7 +138,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
     MgmGroupEnumerationStart(hprotocol.into(), metenumtype, ::core::mem::transmute(phenumhandle))
@@ -148,7 +148,7 @@ where
 #[inline]
 pub unsafe fn MgmRegisterMProtocol(prpiinfo: &mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: &mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
     }
     MgmRegisterMProtocol(::core::mem::transmute(prpiinfo), dwprotocolid, dwcomponentid, ::core::mem::transmute(phprotocol))
@@ -161,7 +161,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
     MgmReleaseInterfaceOwnership(hprotocol.into(), dwifindex, dwifnexthopaddr)
@@ -174,30 +174,10 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
+    extern "system" {
         fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
     MgmTakeInterfaceOwnership(hprotocol.into(), dwifindex, dwifnexthopaddr)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[inline]
-pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: &mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
-    }
-    RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), ::core::mem::transmute(address), dwlength, dwaddresssize)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[inline]
-pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: &mut RTM_NET_ADDRESS, paddress: &mut super::super::Networking::WinSock::IN6_ADDR, plength: &mut u32, dwaddresssize: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
-    }
-    RtmConvertNetAddressToIpv6AddressAndLength(::core::mem::transmute(pnetaddress), ::core::mem::transmute(paddress), ::core::mem::transmute(plength), dwaddresssize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -2712,6 +2692,26 @@ where
         fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
     }
     RtmBlockMethods(rtmreghandle, targethandle.into(), targettype, blockingflag)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
+pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: &mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
+    }
+    RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), ::core::mem::transmute(address), dwlength, dwaddresssize)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
+pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: &mut RTM_NET_ADDRESS, paddress: &mut super::super::Networking::WinSock::IN6_ADDR, plength: &mut u32, dwaddresssize: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
+    }
+    RtmConvertNetAddressToIpv6AddressAndLength(::core::mem::transmute(pnetaddress), ::core::mem::transmute(paddress), ::core::mem::transmute(plength), dwaddresssize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -7382,11 +7382,49 @@ impl ::core::default::Default for MPR_TRANSPORT_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct MPR_VPN_TRAFFIC_SELECTOR {
+    pub r#type: MPR_VPN_TS_TYPE,
+    pub protocolId: u8,
+    pub portStart: u16,
+    pub portEnd: u16,
+    pub tsPayloadId: u16,
+    pub addrStart: VPN_TS_IP_ADDRESS,
+    pub addrEnd: VPN_TS_IP_ADDRESS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for MPR_VPN_TRAFFIC_SELECTOR {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for MPR_VPN_TRAFFIC_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for MPR_VPN_TRAFFIC_SELECTOR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for MPR_VPN_TRAFFIC_SELECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_VPN_TRAFFIC_SELECTOR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for MPR_VPN_TRAFFIC_SELECTOR {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for MPR_VPN_TRAFFIC_SELECTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
     pub numTsr: u32,
-    pub tsI: *mut _MPR_VPN_SELECTOR,
-    pub tsR: *mut _MPR_VPN_SELECTOR,
+    pub tsI: *mut MPR_VPN_TRAFFIC_SELECTOR,
+    pub tsR: *mut MPR_VPN_TRAFFIC_SELECTOR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for MPR_VPN_TRAFFIC_SELECTORS {}
@@ -11962,44 +12000,6 @@ impl ::core::cmp::PartialEq for VPN_TS_IP_ADDRESS_0 {
 impl ::core::cmp::Eq for VPN_TS_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for VPN_TS_IP_ADDRESS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub struct _MPR_VPN_SELECTOR {
-    pub r#type: MPR_VPN_TS_TYPE,
-    pub protocolId: u8,
-    pub portStart: u16,
-    pub portEnd: u16,
-    pub tsPayloadId: u16,
-    pub addrStart: VPN_TS_IP_ADDRESS,
-    pub addrEnd: VPN_TS_IP_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for _MPR_VPN_SELECTOR {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for _MPR_VPN_SELECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for _MPR_VPN_SELECTOR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for _MPR_VPN_SELECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_MPR_VPN_SELECTOR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for _MPR_VPN_SELECTOR {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for _MPR_VPN_SELECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

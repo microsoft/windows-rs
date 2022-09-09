@@ -1282,14 +1282,6 @@ pub const DMBIN_UPPER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_USER: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_FALSE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_TRUE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_COLOR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_MONOCHROME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDFO_CENTER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDFO_DEFAULT: u32 = 0u32;
@@ -1327,12 +1319,6 @@ pub const DMDO_270: u32 = 3u32;
 pub const DMDO_90: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDO_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_HORIZONTAL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_SIMPLEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_VERTICAL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_DEVICE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -1617,78 +1603,6 @@ pub const DMRES_HIGH: i32 = -4i32;
 pub const DMRES_LOW: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMRES_MEDIUM: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_BITMAP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD_OUTLINE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_SUBDEV: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_BITSPERPEL: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_COLLATE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_COLOR: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_COPIES: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DEFAULTSOURCE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYFIXEDOUTPUT: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYFLAGS: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYFREQUENCY: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYORIENTATION: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DITHERTYPE: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DUPLEX: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_FORMNAME: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_ICMINTENT: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_ICMMETHOD: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_INTERLACED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_LOGPIXELS: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_MEDIATYPE: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_NUP: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_ORIENTATION: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PANNINGHEIGHT: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PANNINGWIDTH: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PAPERLENGTH: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PAPERSIZE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PAPERWIDTH: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PELSHEIGHT: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PELSWIDTH: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_POSITION: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PRINTQUALITY: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_SCALE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_SPECVERSION: u32 = 1025u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_TTOPTION: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_YRESOLUTION: i32 = 8192i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DOWNLOADFACE: u32 = 514u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -3156,19 +3070,19 @@ pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = 512u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_RESET_EX: CDS_TYPE = 536870912u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub type CREATE_FONT_PACKAGE_SUBSET_ENCODING = u32;
+pub type CREATE_FONT_PACKAGE_SUBSET_ENCODING = u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u32;
+pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u32;
+pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 1u32;
+pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 1u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub type CREATE_FONT_PACKAGE_SUBSET_PLATFORM = u32;
+pub type CREATE_FONT_PACKAGE_SUBSET_PLATFORM = u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 0u32;
+pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 0u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 2u32;
+pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 2u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type CREATE_POLYGON_RGN_MODE = u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -3181,6 +3095,118 @@ pub type DC_LAYOUT = u32;
 pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_RTL: DC_LAYOUT = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub type DEVMODE_COLLATE = u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = 0u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub type DEVMODE_COLOR = u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLOR_COLOR: DEVMODE_COLOR = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub type DEVMODE_DUPLEX = u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = 3u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub type DEVMODE_FIELD_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_SPECVERSION: DEVMODE_FIELD_FLAGS = 1025u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_ORIENTATION: DEVMODE_FIELD_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PAPERSIZE: DEVMODE_FIELD_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PAPERLENGTH: DEVMODE_FIELD_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PAPERWIDTH: DEVMODE_FIELD_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_SCALE: DEVMODE_FIELD_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_POSITION: DEVMODE_FIELD_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_NUP: DEVMODE_FIELD_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYORIENTATION: DEVMODE_FIELD_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COPIES: DEVMODE_FIELD_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DEFAULTSOURCE: DEVMODE_FIELD_FLAGS = 512u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PRINTQUALITY: DEVMODE_FIELD_FLAGS = 1024u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COLOR: DEVMODE_FIELD_FLAGS = 2048u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DUPLEX: DEVMODE_FIELD_FLAGS = 4096u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_YRESOLUTION: DEVMODE_FIELD_FLAGS = 8192u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_TTOPTION: DEVMODE_FIELD_FLAGS = 16384u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COLLATE: DEVMODE_FIELD_FLAGS = 32768u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_FORMNAME: DEVMODE_FIELD_FLAGS = 65536u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_LOGPIXELS: DEVMODE_FIELD_FLAGS = 131072u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_BITSPERPEL: DEVMODE_FIELD_FLAGS = 262144u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PELSWIDTH: DEVMODE_FIELD_FLAGS = 524288u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PELSHEIGHT: DEVMODE_FIELD_FLAGS = 1048576u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYFLAGS: DEVMODE_FIELD_FLAGS = 2097152u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYFREQUENCY: DEVMODE_FIELD_FLAGS = 4194304u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_ICMMETHOD: DEVMODE_FIELD_FLAGS = 8388608u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_ICMINTENT: DEVMODE_FIELD_FLAGS = 16777216u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_MEDIATYPE: DEVMODE_FIELD_FLAGS = 33554432u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DITHERTYPE: DEVMODE_FIELD_FLAGS = 67108864u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PANNINGWIDTH: DEVMODE_FIELD_FLAGS = 134217728u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PANNINGHEIGHT: DEVMODE_FIELD_FLAGS = 268435456u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYFIXEDOUTPUT: DEVMODE_FIELD_FLAGS = 536870912u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_INTERLACED: DEVMODE_FIELD_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_UPDATE: DEVMODE_FIELD_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COPY: DEVMODE_FIELD_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PROMPT: DEVMODE_FIELD_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_MODIFY: DEVMODE_FIELD_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_IN_BUFFER: DEVMODE_FIELD_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_IN_PROMPT: DEVMODE_FIELD_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub type DEVMODE_TRUETYPE_OPTION = u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = 3u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type DFCS_STATE = u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4770,37 +4796,6 @@ impl ::core::clone::Clone for COLORADJUSTMENT {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub struct COLORCORRECTPALETTE {
-    pub emr: EMR,
-    pub ihPalette: u32,
-    pub nFirstEntry: u32,
-    pub nPalEntries: u32,
-    pub nReserved: u32,
-}
-impl ::core::marker::Copy for COLORCORRECTPALETTE {}
-impl ::core::clone::Clone for COLORCORRECTPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub struct COLORMATCHTOTARGET {
-    pub emr: EMR,
-    pub dwAction: u32,
-    pub dwFlags: u32,
-    pub cbName: u32,
-    pub cbData: u32,
-    pub Data: [u8; 1],
-}
-impl ::core::marker::Copy for COLORMATCHTOTARGET {}
-impl ::core::clone::Clone for COLORMATCHTOTARGET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type CreatedHDC = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4824,13 +4819,13 @@ pub struct DEVMODEA {
     pub dmDriverVersion: u16,
     pub dmSize: u16,
     pub dmDriverExtra: u16,
-    pub dmFields: u32,
+    pub dmFields: DEVMODE_FIELD_FLAGS,
     pub Anonymous1: DEVMODEA_0,
-    pub dmColor: i16,
+    pub dmColor: DEVMODE_COLOR,
     pub dmDuplex: i16,
     pub dmYResolution: i16,
-    pub dmTTOption: i16,
-    pub dmCollate: i16,
+    pub dmTTOption: DEVMODE_TRUETYPE_OPTION,
+    pub dmCollate: DEVMODE_COLLATE,
     pub dmFormName: [u8; 32],
     pub dmLogPixels: u16,
     pub dmBitsPerPel: u32,
@@ -4931,13 +4926,13 @@ pub struct DEVMODEW {
     pub dmDriverVersion: u16,
     pub dmSize: u16,
     pub dmDriverExtra: u16,
-    pub dmFields: u32,
+    pub dmFields: DEVMODE_FIELD_FLAGS,
     pub Anonymous1: DEVMODEW_0,
-    pub dmColor: i16,
+    pub dmColor: DEVMODE_COLOR,
     pub dmDuplex: i16,
     pub dmYResolution: i16,
-    pub dmTTOption: i16,
-    pub dmCollate: i16,
+    pub dmTTOption: DEVMODE_TRUETYPE_OPTION,
+    pub dmCollate: DEVMODE_COLLATE,
     pub dmFormName: [u16; 32],
     pub dmLogPixels: u16,
     pub dmBitsPerPel: u32,
@@ -5100,7 +5095,7 @@ impl ::core::clone::Clone for DRAWTEXTPARAMS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMR {
-    pub iType: u32,
+    pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
 }
 impl ::core::marker::Copy for EMR {}
@@ -5200,6 +5195,37 @@ pub struct EMRBITBLT {
 impl ::core::marker::Copy for EMRBITBLT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EMRBITBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct EMRCOLORCORRECTPALETTE {
+    pub emr: EMR,
+    pub ihPalette: u32,
+    pub nFirstEntry: u32,
+    pub nPalEntries: u32,
+    pub nReserved: u32,
+}
+impl ::core::marker::Copy for EMRCOLORCORRECTPALETTE {}
+impl ::core::clone::Clone for EMRCOLORCORRECTPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct EMRCOLORMATCHTOTARGET {
+    pub emr: EMR,
+    pub dwAction: u32,
+    pub dwFlags: u32,
+    pub cbName: u32,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for EMRCOLORMATCHTOTARGET {}
+impl ::core::clone::Clone for EMRCOLORMATCHTOTARGET {
     fn clone(&self) -> Self {
         *self
     }
@@ -6253,7 +6279,7 @@ impl ::core::clone::Clone for ENHMETAHEADER {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENHMETARECORD {
-    pub iType: u32,
+    pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
     pub dParm: [u32; 1],
 }

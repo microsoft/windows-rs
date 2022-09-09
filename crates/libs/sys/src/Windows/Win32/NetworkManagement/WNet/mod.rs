@@ -1,11 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-    pub fn WNetSetLastErrorA(err: u32, lperror: ::windows_sys::core::PCSTR, lpproviders: ::windows_sys::core::PCSTR);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-    pub fn WNetSetLastErrorW(err: u32, lperror: ::windows_sys::core::PCWSTR, lpproviders: ::windows_sys::core::PCWSTR);
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
     pub fn MultinetGetConnectionPerformanceA(lpnetresource: *const NETRESOURCEA, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32;
@@ -151,6 +144,10 @@ extern "system" {
     pub fn WNetOpenEnumA(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TYPE, dwusage: WNET_OPEN_ENUM_USAGE, lpnetresource: *const NETRESOURCEA, lphenum: *mut NetEnumHandle) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
     pub fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TYPE, dwusage: WNET_OPEN_ENUM_USAGE, lpnetresource: *const NETRESOURCEW, lphenum: *mut NetEnumHandle) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+    pub fn WNetSetLastErrorA(err: u32, lperror: ::windows_sys::core::PCSTR, lpproviders: ::windows_sys::core::PCSTR);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+    pub fn WNetSetLastErrorW(err: u32, lperror: ::windows_sys::core::PCWSTR, lpproviders: ::windows_sys::core::PCWSTR);
     #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WNetUseConnection4A(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32, lpaccessname: ::windows_sys::core::PSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;

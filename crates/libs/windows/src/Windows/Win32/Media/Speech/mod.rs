@@ -116,7 +116,7 @@ impl ISpAudio {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -126,7 +126,7 @@ impl ISpAudio {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1250,7 +1250,7 @@ impl ISpMMSysAudio {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1260,7 +1260,7 @@ impl ISpMMSysAudio {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4025,7 +4025,7 @@ impl ISpRecognizer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetFormat(&self, waveformattype: SPWAVEFORMATTYPE, pformatid: &mut ::windows::core::GUID, ppcomemwfex: &mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
+    pub unsafe fn GetFormat(&self, waveformattype: SPSTREAMFORMATTYPE, pformatid: &mut ::windows::core::GUID, ppcomemwfex: &mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), waveformattype, ::core::mem::transmute(pformatid), ::core::mem::transmute(ppcomemwfex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4126,7 +4126,7 @@ pub struct ISpRecognizer_Vtbl {
     pub SetRecoState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstate: SPRECOSTATE) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut SPRECOGNIZERSTATUS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Media_Audio")]
-    pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waveformattype: SPWAVEFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waveformattype: SPSTREAMFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio"))]
     GetFormat: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4637,7 +4637,7 @@ impl ISpStream {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4647,7 +4647,7 @@ impl ISpStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4851,7 +4851,7 @@ impl ISpStreamFormat {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4861,7 +4861,7 @@ impl ISpStreamFormat {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5013,7 +5013,7 @@ impl ISpStreamFormatConverter {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5023,7 +5023,7 @@ impl ISpStreamFormatConverter {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14930,36 +14930,36 @@ impl ::core::fmt::Debug for SPDATAKEYLOCATION {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SPDISPLYATTRIBUTES(pub i32);
+pub struct SPDISPLAYATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPAF_ONE_TRAILING_SPACE: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(2i32);
+pub const SPAF_ONE_TRAILING_SPACE: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(2i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPAF_TWO_TRAILING_SPACES: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(4i32);
+pub const SPAF_TWO_TRAILING_SPACES: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(4i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPAF_CONSUME_LEADING_SPACES: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(8i32);
+pub const SPAF_CONSUME_LEADING_SPACES: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(8i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPAF_BUFFER_POSITION: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(16i32);
+pub const SPAF_BUFFER_POSITION: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(16i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPAF_ALL: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(31i32);
+pub const SPAF_ALL: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(31i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPAF_USER_SPECIFIED: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(128i32);
-impl ::core::marker::Copy for SPDISPLYATTRIBUTES {}
-impl ::core::clone::Clone for SPDISPLYATTRIBUTES {
+pub const SPAF_USER_SPECIFIED: SPDISPLAYATTRIBUTES = SPDISPLAYATTRIBUTES(128i32);
+impl ::core::marker::Copy for SPDISPLAYATTRIBUTES {}
+impl ::core::clone::Clone for SPDISPLAYATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for SPDISPLYATTRIBUTES {
+impl ::core::default::Default for SPDISPLAYATTRIBUTES {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SPDISPLYATTRIBUTES {
+unsafe impl ::windows::core::Abi for SPDISPLAYATTRIBUTES {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for SPDISPLYATTRIBUTES {
+impl ::core::fmt::Debug for SPDISPLAYATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SPDISPLYATTRIBUTES").field(&self.0).finish()
+        f.debug_tuple("SPDISPLAYATTRIBUTES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -16000,6 +16000,33 @@ impl ::core::fmt::Debug for SPSTREAMFORMAT {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SPSTREAMFORMATTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPWF_INPUT: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+pub const SPWF_SRENGINE: SPSTREAMFORMATTYPE = SPSTREAMFORMATTYPE(1i32);
+impl ::core::marker::Copy for SPSTREAMFORMATTYPE {}
+impl ::core::clone::Clone for SPSTREAMFORMATTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SPSTREAMFORMATTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SPSTREAMFORMATTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SPSTREAMFORMATTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPSTREAMFORMATTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVACTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_Speak: SPVACTIONS = SPVACTIONS(0i32);
@@ -16227,33 +16254,6 @@ unsafe impl ::windows::core::Abi for SPVPRIORITY {
 impl ::core::fmt::Debug for SPVPRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPVPRIORITY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SPWAVEFORMATTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPWF_INPUT: SPWAVEFORMATTYPE = SPWAVEFORMATTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
-pub const SPWF_SRENGINE: SPWAVEFORMATTYPE = SPWAVEFORMATTYPE(1i32);
-impl ::core::marker::Copy for SPWAVEFORMATTYPE {}
-impl ::core::clone::Clone for SPWAVEFORMATTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPWAVEFORMATTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SPWAVEFORMATTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SPWAVEFORMATTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SPWAVEFORMATTYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]

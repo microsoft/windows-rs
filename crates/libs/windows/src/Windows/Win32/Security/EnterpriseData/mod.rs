@@ -1,27 +1,5 @@
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
-pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
-    }
-    SrpHostingTerminate(r#type)
-}
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SrpIsTokenService<'a, P0>(tokenhandle: P0, istokenservice: &mut u8) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS;
-    }
-    SrpIsTokenService(tokenhandle.into(), ::core::mem::transmute(istokenservice)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[inline]
 pub unsafe fn ProtectFileToEnterpriseIdentity<'a, P0, P1>(fileorfolderpath: P0, identity: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -124,6 +102,28 @@ pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTI
         fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::HRESULT;
     }
     SrpHostingInitialize(version, r#type, ::core::mem::transmute(pvdata), cbdata).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+#[inline]
+pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
+    }
+    SrpHostingTerminate(r#type)
+}
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SrpIsTokenService<'a, P0>(tokenhandle: P0, istokenservice: &mut u8) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS;
+    }
+    SrpIsTokenService(tokenhandle.into(), ::core::mem::transmute(istokenservice)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -618,14 +618,14 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd3<'a, P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: ::core::option::Option<&FWPM_PROVIDER_CONTEXT3_>, tunnelpolicy: &FWPM_PROVIDER_CONTEXT3_, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: ::core::option::Option<&::windows::core::GUID>, sd: P1) -> u32
+pub unsafe fn FwpmIPsecTunnelAdd3<'a, P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: ::core::option::Option<&FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: &FWPM_PROVIDER_CONTEXT3, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: ::core::option::Option<&::windows::core::GUID>, sd: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FwpmIPsecTunnelAdd3(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT3_, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3_, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
+        fn FwpmIPsecTunnelAdd3(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT3, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
     FwpmIPsecTunnelAdd3(enginehandle.into(), flags, ::core::mem::transmute(mainmodepolicy), ::core::mem::transmute(tunnelpolicy), filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey), sd.into())
 }
@@ -821,28 +821,28 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventEnum4<'a, P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: &mut *mut *mut FWPM_NET_EVENT4_, numentriesreturned: &mut u32) -> u32
+pub unsafe fn FwpmNetEventEnum4<'a, P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: &mut *mut *mut FWPM_NET_EVENT4, numentriesreturned: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FwpmNetEventEnum4(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4_, numentriesreturned: *mut u32) -> u32;
+        fn FwpmNetEventEnum4(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned: *mut u32) -> u32;
     }
     FwpmNetEventEnum4(enginehandle.into(), enumhandle.into(), numentriesrequested, ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventEnum5<'a, P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: &mut *mut *mut FWPM_NET_EVENT5_, numentriesreturned: &mut u32) -> u32
+pub unsafe fn FwpmNetEventEnum5<'a, P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: &mut *mut *mut FWPM_NET_EVENT5, numentriesreturned: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FwpmNetEventEnum5(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5_, numentriesreturned: *mut u32) -> u32;
+        fn FwpmNetEventEnum5(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned: *mut u32) -> u32;
     }
     FwpmNetEventEnum5(enginehandle.into(), enumhandle.into(), numentriesrequested, ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned))
 }
@@ -1023,14 +1023,14 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd3<'a, P0, P1>(enginehandle: P0, providercontext: &FWPM_PROVIDER_CONTEXT3_, sd: P1, id: ::core::option::Option<&mut u64>) -> u32
+pub unsafe fn FwpmProviderContextAdd3<'a, P0, P1>(enginehandle: P0, providercontext: &FWPM_PROVIDER_CONTEXT3, sd: P1, id: ::core::option::Option<&mut u64>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FwpmProviderContextAdd3(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT3_, sd: super::super::Security::PSECURITY_DESCRIPTOR, id: *mut u64) -> u32;
+        fn FwpmProviderContextAdd3(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT3, sd: super::super::Security::PSECURITY_DESCRIPTOR, id: *mut u64) -> u32;
     }
     FwpmProviderContextAdd3(enginehandle.into(), ::core::mem::transmute(providercontext), sd.into(), ::core::mem::transmute(id))
 }
@@ -1132,14 +1132,14 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextEnum3<'a, P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: &mut *mut *mut FWPM_PROVIDER_CONTEXT3_, numentriesreturned: &mut u32) -> u32
+pub unsafe fn FwpmProviderContextEnum3<'a, P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: &mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned: &mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FwpmProviderContextEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3_, numentriesreturned: *mut u32) -> u32;
+        fn FwpmProviderContextEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned: *mut u32) -> u32;
     }
     FwpmProviderContextEnum3(enginehandle.into(), enumhandle.into(), numentriesrequested, ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned))
 }
@@ -1185,13 +1185,13 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextGetById3<'a, P0>(enginehandle: P0, id: u64, providercontext: &mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32
+pub unsafe fn FwpmProviderContextGetById3<'a, P0>(enginehandle: P0, id: u64, providercontext: &mut *mut FWPM_PROVIDER_CONTEXT3) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FwpmProviderContextGetById3(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32;
+        fn FwpmProviderContextGetById3(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32;
     }
     FwpmProviderContextGetById3(enginehandle.into(), id, ::core::mem::transmute(providercontext))
 }
@@ -1237,13 +1237,13 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmProviderContextGetByKey3<'a, P0>(enginehandle: P0, key: &::windows::core::GUID, providercontext: &mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32
+pub unsafe fn FwpmProviderContextGetByKey3<'a, P0>(enginehandle: P0, key: &::windows::core::GUID, providercontext: &mut *mut FWPM_PROVIDER_CONTEXT3) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FwpmProviderContextGetByKey3(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32;
+        fn FwpmProviderContextGetByKey3(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32;
     }
     FwpmProviderContextGetByKey3(enginehandle.into(), ::core::mem::transmute(key), ::core::mem::transmute(providercontext))
 }
@@ -6613,33 +6613,33 @@ impl ::core::default::Default for FWPM_NET_EVENT3_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct FWPM_NET_EVENT4_ {
+pub struct FWPM_NET_EVENT4 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
-    pub Anonymous: FWPM_NET_EVENT4__0,
+    pub Anonymous: FWPM_NET_EVENT4_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_NET_EVENT4_ {}
+impl ::core::marker::Copy for FWPM_NET_EVENT4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_NET_EVENT4_ {
+impl ::core::clone::Clone for FWPM_NET_EVENT4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4_ {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT4_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT4_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT4>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_NET_EVENT4_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_NET_EVENT4_ {
+impl ::core::default::Default for FWPM_NET_EVENT4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -6647,9 +6647,9 @@ impl ::core::default::Default for FWPM_NET_EVENT4_ {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub union FWPM_NET_EVENT4__0 {
-    pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_,
-    pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_,
+pub union FWPM_NET_EVENT4_0 {
+    pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
+    pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
     pub ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE1,
     pub classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP2,
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
@@ -6660,27 +6660,27 @@ pub union FWPM_NET_EVENT4__0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_NET_EVENT4__0 {}
+impl ::core::marker::Copy for FWPM_NET_EVENT4_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_NET_EVENT4__0 {
+impl ::core::clone::Clone for FWPM_NET_EVENT4_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4__0 {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT4__0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT4_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT4__0>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT4_0>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_NET_EVENT4__0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT4_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_NET_EVENT4__0 {
+impl ::core::default::Default for FWPM_NET_EVENT4_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -6688,33 +6688,33 @@ impl ::core::default::Default for FWPM_NET_EVENT4__0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct FWPM_NET_EVENT5_ {
+pub struct FWPM_NET_EVENT5 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
-    pub Anonymous: FWPM_NET_EVENT5__0,
+    pub Anonymous: FWPM_NET_EVENT5_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_NET_EVENT5_ {}
+impl ::core::marker::Copy for FWPM_NET_EVENT5 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_NET_EVENT5_ {
+impl ::core::clone::Clone for FWPM_NET_EVENT5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5_ {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT5_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT5_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT5>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_NET_EVENT5_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT5 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_NET_EVENT5_ {
+impl ::core::default::Default for FWPM_NET_EVENT5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -6722,9 +6722,9 @@ impl ::core::default::Default for FWPM_NET_EVENT5_ {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub union FWPM_NET_EVENT5__0 {
-    pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_,
-    pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_,
+pub union FWPM_NET_EVENT5_0 {
+    pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
+    pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
     pub ikeEmFailure: *mut FWPM_NET_EVENT_IKEEXT_EM_FAILURE1,
     pub classifyDrop: *mut FWPM_NET_EVENT_CLASSIFY_DROP2,
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
@@ -6733,30 +6733,30 @@ pub union FWPM_NET_EVENT5__0 {
     pub capabilityDrop: *mut FWPM_NET_EVENT_CAPABILITY_DROP0,
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
-    pub lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_,
+    pub lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_NET_EVENT5__0 {}
+impl ::core::marker::Copy for FWPM_NET_EVENT5_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_NET_EVENT5__0 {
+impl ::core::clone::Clone for FWPM_NET_EVENT5_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5__0 {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT5__0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT5_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT5__0>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT5_0>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_NET_EVENT5__0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT5_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_NET_EVENT5__0 {
+impl ::core::default::Default for FWPM_NET_EVENT5_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -7921,7 +7921,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
     pub flags: u32,
@@ -7940,15 +7940,15 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     pub remotePrincipalGroupSids: *mut ::windows::core::PWSTR,
     pub providerContextKey: *mut ::windows::core::GUID,
 }
-impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
-impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {}
+impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_")
+        f.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE2")
             .field("failureErrorCode", &self.failureErrorCode)
             .field("failurePoint", &self.failurePoint)
             .field("flags", &self.flags)
@@ -7969,16 +7969,16 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_MM_FAILURE2>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
-impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {}
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -8090,41 +8090,41 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
+pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
     pub keyingModuleType: IKEEXT_KEY_MODULE_TYPE,
     pub qmState: IKEEXT_QM_SA_STATE,
     pub saRole: IKEEXT_SA_ROLE,
     pub saTrafficType: IPSEC_TRAFFIC_TYPE,
-    pub Anonymous1: FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0,
-    pub Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1,
+    pub Anonymous1: FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0,
+    pub Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1,
     pub qmFilterId: u64,
     pub mmSaLuid: u64,
     pub mmProviderContextKey: ::windows::core::GUID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {}
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
+impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_QM_FAILURE1>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -8132,31 +8132,31 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
+pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {}
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
+impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -8164,31 +8164,31 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
+pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {}
+impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
+impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -8310,30 +8310,30 @@ impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     pub spi: u32,
 }
-impl ::core::marker::Copy for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {}
-impl ::core::clone::Clone for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+impl ::core::marker::Copy for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {}
+impl ::core::clone::Clone for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_").field("spi", &self.spi).finish()
+        f.debug_struct("FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0").field("spi", &self.spi).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {}
-impl ::core::default::Default for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+impl ::core::cmp::Eq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {}
+impl ::core::default::Default for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -8690,38 +8690,38 @@ impl ::core::default::Default for FWPM_PROVIDER_CONTEXT2_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct FWPM_PROVIDER_CONTEXT3_ {
+pub struct FWPM_PROVIDER_CONTEXT3 {
     pub providerContextKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
     pub flags: u32,
     pub providerKey: *mut ::windows::core::GUID,
     pub providerData: FWP_BYTE_BLOB,
     pub r#type: FWPM_PROVIDER_CONTEXT_TYPE,
-    pub Anonymous: FWPM_PROVIDER_CONTEXT3__0,
+    pub Anonymous: FWPM_PROVIDER_CONTEXT3_0,
     pub providerContextId: u64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3_ {}
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3_ {
+impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT3_ {
+unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT3 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3_ {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_PROVIDER_CONTEXT3_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_PROVIDER_CONTEXT3>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT3_ {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3_ {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -8729,43 +8729,43 @@ impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3_ {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub union FWPM_PROVIDER_CONTEXT3__0 {
+pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY1,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
-    pub ikeQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3_,
+    pub ikeQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3,
     pub authipQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
-    pub authipQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3_,
+    pub authipQmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3,
     pub ikeMmPolicy: *mut IKEEXT_POLICY2,
     pub authIpMmPolicy: *mut IKEEXT_POLICY2,
     pub dataBuffer: *mut FWP_BYTE_BLOB,
     pub classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
-    pub ikeV2QmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3_,
+    pub ikeV2QmTunnelPolicy: *mut IPSEC_TUNNEL_POLICY3,
     pub ikeV2QmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY2,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3__0 {}
+impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3__0 {
+impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT3__0 {
+unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT3_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3__0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_PROVIDER_CONTEXT3__0>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_PROVIDER_CONTEXT3_0>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT3__0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT3_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3__0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -14455,116 +14455,116 @@ impl ::core::default::Default for IPSEC_TRAFFIC1_2 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub struct IPSEC_TRAFFIC_SELECTOR0_ {
+pub struct IPSEC_TRAFFIC_SELECTOR0 {
     pub protocolId: u8,
     pub portStart: u16,
     pub portEnd: u16,
     pub ipVersion: FWP_IP_VERSION,
-    pub Anonymous1: IPSEC_TRAFFIC_SELECTOR0__0,
-    pub Anonymous2: IPSEC_TRAFFIC_SELECTOR0__1,
+    pub Anonymous1: IPSEC_TRAFFIC_SELECTOR0_0,
+    pub Anonymous2: IPSEC_TRAFFIC_SELECTOR0_1,
 }
-impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0_ {}
-impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0_ {
+impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0 {}
+impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0_ {
+unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0_ {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR0_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR0>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0_ {}
-impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0_ {
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0 {}
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub union IPSEC_TRAFFIC_SELECTOR0__0 {
+pub union IPSEC_TRAFFIC_SELECTOR0_0 {
     pub startV4Address: u32,
     pub startV6Address: [u8; 16],
 }
-impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0__0 {}
-impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0__0 {
+impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0_0 {}
+impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0__0 {
+unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0__0 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR0__0>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR0_0>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0__0 {}
-impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0__0 {
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0_0 {}
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub union IPSEC_TRAFFIC_SELECTOR0__1 {
+pub union IPSEC_TRAFFIC_SELECTOR0_1 {
     pub endV4Address: u32,
     pub endV6Address: [u8; 16],
 }
-impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0__1 {}
-impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0__1 {
+impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR0_1 {}
+impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0__1 {
+unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0__1 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR0__1>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR0_1>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0__1 {}
-impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0__1 {
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0_1 {}
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     pub flags: u32,
     pub numLocalTrafficSelectors: u32,
-    pub localTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0_,
+    pub localTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
     pub numRemoteTrafficSelectors: u32,
-    pub remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0_,
+    pub remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
 }
-impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {}
-impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+impl ::core::marker::Copy for IPSEC_TRAFFIC_SELECTOR_POLICY0 {}
+impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+impl ::core::fmt::Debug for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPSEC_TRAFFIC_SELECTOR_POLICY0_").field("flags", &self.flags).field("numLocalTrafficSelectors", &self.numLocalTrafficSelectors).field("localTrafficSelectors", &self.localTrafficSelectors).field("numRemoteTrafficSelectors", &self.numRemoteTrafficSelectors).field("remoteTrafficSelectors", &self.remoteTrafficSelectors).finish()
+        f.debug_struct("IPSEC_TRAFFIC_SELECTOR_POLICY0").field("flags", &self.flags).field("numLocalTrafficSelectors", &self.numLocalTrafficSelectors).field("localTrafficSelectors", &self.localTrafficSelectors).field("numRemoteTrafficSelectors", &self.numRemoteTrafficSelectors).field("remoteTrafficSelectors", &self.remoteTrafficSelectors).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR_POLICY0_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRAFFIC_SELECTOR_POLICY0>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {}
-impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR_POLICY0 {}
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -15132,7 +15132,7 @@ impl ::core::default::Default for IPSEC_TUNNEL_POLICY2 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub struct IPSEC_TUNNEL_POLICY3_ {
+pub struct IPSEC_TUNNEL_POLICY3 {
     pub flags: u32,
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -15142,24 +15142,24 @@ pub struct IPSEC_TUNNEL_POLICY3_ {
     pub fwdPathSaLifetime: u32,
     pub compartmentId: u32,
     pub numTrafficSelectorPolicy: u32,
-    pub trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0_,
+    pub trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0,
 }
-impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY3_ {}
-impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY3_ {
+impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY3 {}
+impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY3_ {
+unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY3 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY3_ {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_POLICY3_>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_POLICY3>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY3_ {}
-impl ::core::default::Default for IPSEC_TUNNEL_POLICY3_ {
+impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY3 {}
+impl ::core::default::Default for IPSEC_TUNNEL_POLICY3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -15246,10 +15246,10 @@ pub type FWPM_NET_EVENT_CALLBACK1 = ::core::option::Option<unsafe extern "system
 pub type FWPM_NET_EVENT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT3)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK3 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4_)>;
+pub type FWPM_NET_EVENT_CALLBACK3 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK4 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5_)>;
+pub type FWPM_NET_EVENT_CALLBACK4 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]

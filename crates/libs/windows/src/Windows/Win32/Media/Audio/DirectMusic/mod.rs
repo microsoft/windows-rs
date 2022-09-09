@@ -2491,6 +2491,51 @@ impl ::core::default::Default for DMUS_PORTCAPS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DMUS_PORTPARAMS7 {
+    pub dwSize: u32,
+    pub dwValidParams: u32,
+    pub dwVoices: u32,
+    pub dwChannelGroups: u32,
+    pub dwAudioChannels: u32,
+    pub dwSampleRate: u32,
+    pub dwEffectFlags: u32,
+    pub fShare: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DMUS_PORTPARAMS7 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DMUS_PORTPARAMS7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DMUS_PORTPARAMS7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DMUS_PORTPARAMS7").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS7 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DMUS_PORTPARAMS7 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTPARAMS7>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DMUS_PORTPARAMS7 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DMUS_PORTPARAMS7 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DMUS_PORTPARAMS8 {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -2545,8 +2590,8 @@ pub struct DMUS_REGION {
     pub ulNextRegionIdx: u32,
     pub ulFirstExtCkIdx: u32,
     pub WaveLink: WAVELINK,
-    pub WSMP: _rwsmp,
-    pub WLOOP: [_rloop; 1],
+    pub WSMP: WSMPL,
+    pub WLOOP: [WLOOP; 1],
 }
 impl ::core::marker::Copy for DMUS_REGION {}
 impl ::core::clone::Clone for DMUS_REGION {
@@ -3179,6 +3224,42 @@ impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub struct DVAudInfo {
+    pub bAudStyle: [u8; 2],
+    pub bAudQu: [u8; 2],
+    pub bNumAudPin: u8,
+    pub wAvgSamplesPerPinPerFrm: [u16; 2],
+    pub wBlkMode: u16,
+    pub wDIFMode: u16,
+    pub wBlkDiv: u16,
+}
+impl ::core::marker::Copy for DVAudInfo {}
+impl ::core::clone::Clone for DVAudInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DVAudInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DVAudInfo").field("bAudStyle", &self.bAudStyle).field("bAudQu", &self.bAudQu).field("bNumAudPin", &self.bNumAudPin).field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm).field("wBlkMode", &self.wBlkMode).field("wDIFMode", &self.wDIFMode).field("wBlkDiv", &self.wBlkDiv).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DVAudInfo {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DVAudInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVAudInfo>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DVAudInfo {}
+impl ::core::default::Default for DVAudInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct INSTHEADER {
     pub cRegions: u32,
     pub Locale: MIDILOCALE,
@@ -3429,42 +3510,6 @@ impl ::core::default::Default for RGNRANGE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct Tag_DVAudInfo {
-    pub bAudStyle: [u8; 2],
-    pub bAudQu: [u8; 2],
-    pub bNumAudPin: u8,
-    pub wAvgSamplesPerPinPerFrm: [u16; 2],
-    pub wBlkMode: u16,
-    pub wDIFMode: u16,
-    pub wBlkDiv: u16,
-}
-impl ::core::marker::Copy for Tag_DVAudInfo {}
-impl ::core::clone::Clone for Tag_DVAudInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for Tag_DVAudInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Tag_DVAudInfo").field("bAudStyle", &self.bAudStyle).field("bAudQu", &self.bAudQu).field("bNumAudPin", &self.bNumAudPin).field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm).field("wBlkMode", &self.wBlkMode).field("wDIFMode", &self.wDIFMode).field("wBlkDiv", &self.wBlkDiv).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for Tag_DVAudInfo {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for Tag_DVAudInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Tag_DVAudInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Tag_DVAudInfo {}
-impl ::core::default::Default for Tag_DVAudInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub struct WAVELINK {
     pub fusOptions: u16,
     pub usPhaseGroup: u16,
@@ -3497,86 +3542,41 @@ impl ::core::default::Default for WAVELINK {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _DMUS_PORTPARAMS {
-    pub dwSize: u32,
-    pub dwValidParams: u32,
-    pub dwVoices: u32,
-    pub dwChannelGroups: u32,
-    pub dwAudioChannels: u32,
-    pub dwSampleRate: u32,
-    pub dwEffectFlags: u32,
-    pub fShare: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _DMUS_PORTPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _DMUS_PORTPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for _DMUS_PORTPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_DMUS_PORTPARAMS").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _DMUS_PORTPARAMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _DMUS_PORTPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_DMUS_PORTPARAMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _DMUS_PORTPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for _DMUS_PORTPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct _rloop {
+pub struct WLOOP {
     pub cbSize: u32,
     pub ulType: u32,
     pub ulStart: u32,
     pub ulLength: u32,
 }
-impl ::core::marker::Copy for _rloop {}
-impl ::core::clone::Clone for _rloop {
+impl ::core::marker::Copy for WLOOP {}
+impl ::core::clone::Clone for WLOOP {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for _rloop {
+impl ::core::fmt::Debug for WLOOP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_rloop").field("cbSize", &self.cbSize).field("ulType", &self.ulType).field("ulStart", &self.ulStart).field("ulLength", &self.ulLength).finish()
+        f.debug_struct("WLOOP").field("cbSize", &self.cbSize).field("ulType", &self.ulType).field("ulStart", &self.ulStart).field("ulLength", &self.ulLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for _rloop {
+unsafe impl ::windows::core::Abi for WLOOP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for _rloop {
+impl ::core::cmp::PartialEq for WLOOP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_rloop>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WLOOP>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for _rloop {}
-impl ::core::default::Default for _rloop {
+impl ::core::cmp::Eq for WLOOP {}
+impl ::core::default::Default for WLOOP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub struct _rwsmp {
+pub struct WSMPL {
     pub cbSize: u32,
     pub usUnityNote: u16,
     pub sFineTune: i16,
@@ -3584,27 +3584,27 @@ pub struct _rwsmp {
     pub fulOptions: u32,
     pub cSampleLoops: u32,
 }
-impl ::core::marker::Copy for _rwsmp {}
-impl ::core::clone::Clone for _rwsmp {
+impl ::core::marker::Copy for WSMPL {}
+impl ::core::clone::Clone for WSMPL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for _rwsmp {
+impl ::core::fmt::Debug for WSMPL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_rwsmp").field("cbSize", &self.cbSize).field("usUnityNote", &self.usUnityNote).field("sFineTune", &self.sFineTune).field("lAttenuation", &self.lAttenuation).field("fulOptions", &self.fulOptions).field("cSampleLoops", &self.cSampleLoops).finish()
+        f.debug_struct("WSMPL").field("cbSize", &self.cbSize).field("usUnityNote", &self.usUnityNote).field("sFineTune", &self.sFineTune).field("lAttenuation", &self.lAttenuation).field("fulOptions", &self.fulOptions).field("cSampleLoops", &self.cSampleLoops).finish()
     }
 }
-unsafe impl ::windows::core::Abi for _rwsmp {
+unsafe impl ::windows::core::Abi for WSMPL {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for _rwsmp {
+impl ::core::cmp::PartialEq for WSMPL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_rwsmp>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMPL>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for _rwsmp {}
-impl ::core::default::Default for _rwsmp {
+impl ::core::cmp::Eq for WSMPL {}
+impl ::core::default::Default for WSMPL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

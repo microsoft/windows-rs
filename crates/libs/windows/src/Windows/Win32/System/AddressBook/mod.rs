@@ -676,9 +676,9 @@ impl IABContainer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<&SPropTagArray>, ulflags: u32, lpadrlist: &ADRLIST) -> ::windows::core::Result<_flaglist> {
+    pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<&SPropTagArray>, ulflags: u32, lpadrlist: &ADRLIST) -> ::windows::core::Result<FlagList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ResolveNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<_flaglist>(result__)
+        (::windows::core::Interface::vtable(self).ResolveNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FlagList>(result__)
     }
 }
 impl ::core::convert::From<IABContainer> for ::windows::core::IUnknown {
@@ -754,7 +754,7 @@ pub struct IABContainer_Vtbl {
     pub CopyEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows::core::HRESULT,
     pub DeleteEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub ResolveNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST, lpflaglist: *mut _flaglist) -> ::windows::core::HRESULT,
+    pub ResolveNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST, lpflaglist: *mut FlagList) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     ResolveNames: usize,
 }
@@ -1157,9 +1157,9 @@ impl IDistList {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<&SPropTagArray>, ulflags: u32, lpadrlist: &ADRLIST) -> ::windows::core::Result<_flaglist> {
+    pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<&SPropTagArray>, ulflags: u32, lpadrlist: &ADRLIST) -> ::windows::core::Result<FlagList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ResolveNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<_flaglist>(result__)
+        (::windows::core::Interface::vtable(self).ResolveNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FlagList>(result__)
     }
 }
 impl ::core::convert::From<IDistList> for ::windows::core::IUnknown {
@@ -1235,7 +1235,7 @@ pub struct IDistList_Vtbl {
     pub CopyEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows::core::HRESULT,
     pub DeleteEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub ResolveNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST, lpflaglist: *mut _flaglist) -> ::windows::core::HRESULT,
+    pub ResolveNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST, lpflaglist: *mut FlagList) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     ResolveNames: usize,
 }
@@ -4668,6 +4668,37 @@ impl ::core::default::Default for FLATMTSIDLIST {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub struct FlagList {
+    pub cFlags: u32,
+    pub ulFlag: [u32; 1],
+}
+impl ::core::marker::Copy for FlagList {}
+impl ::core::clone::Clone for FlagList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FlagList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FlagList").field("cFlags", &self.cFlags).field("ulFlag", &self.ulFlag).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FlagList {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FlagList {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FlagList>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FlagList {}
+impl ::core::default::Default for FlagList {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub struct MAPIERROR {
     pub ulVersion: u32,
     pub lpszError: *mut i8,
@@ -5710,7 +5741,7 @@ impl ::core::default::Default for SPropTagArray {
 pub struct SPropValue {
     pub ulPropTag: u32,
     pub dwAlignPad: u32,
-    pub Value: _PV,
+    pub Value: __UPV,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for SPropValue {}
@@ -6375,9 +6406,11 @@ impl ::core::default::Default for WAB_PARAM {
     }
 }
 #[repr(C)]
+pub struct _WABACTIONITEM(pub u8);
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub union _PV {
+pub union __UPV {
     pub i: i16,
     pub l: i32,
     pub ul: u32,
@@ -6408,60 +6441,27 @@ pub union _PV {
     pub x: i32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _PV {}
+impl ::core::marker::Copy for __UPV {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _PV {
+impl ::core::clone::Clone for __UPV {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for _PV {
+unsafe impl ::windows::core::Abi for __UPV {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for _PV {
+impl ::core::cmp::PartialEq for __UPV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_PV>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<__UPV>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for _PV {}
+impl ::core::cmp::Eq for __UPV {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::default::Default for _PV {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-pub struct _WABACTIONITEM(pub u8);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub struct _flaglist {
-    pub cFlags: u32,
-    pub ulFlag: [u32; 1],
-}
-impl ::core::marker::Copy for _flaglist {}
-impl ::core::clone::Clone for _flaglist {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _flaglist {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_flaglist").field("cFlags", &self.cFlags).field("ulFlag", &self.ulFlag).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _flaglist {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _flaglist {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_flaglist>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _flaglist {}
-impl ::core::default::Default for _flaglist {
+impl ::core::default::Default for __UPV {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

@@ -1,12 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-#[inline]
-pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN;
-    }
-    I_RpcServerInqAddressChangeFn()
-}
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -630,6 +621,15 @@ pub unsafe fn I_RpcServerGetAssociationID(binding: *const ::core::ffi::c_void, a
         fn I_RpcServerGetAssociationID(binding: *const ::core::ffi::c_void, associationid: *mut u32) -> RPC_STATUS;
     }
     I_RpcServerGetAssociationID(::core::mem::transmute(binding), ::core::mem::transmute(associationid))
+}
+#[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
+#[inline]
+pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN;
+    }
+    I_RpcServerInqAddressChangeFn()
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -6249,48 +6249,48 @@ impl ::core::fmt::Debug for RpcLocalAddressFormat {
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RpcProxyPerfCounters(pub i32);
+pub struct RpcPerfCounters(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = RpcProxyPerfCounters(1i32);
+pub const RpcCurrentUniqueUser: RpcPerfCounters = RpcPerfCounters(1i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcBackEndConnectionAttempts: RpcProxyPerfCounters = RpcProxyPerfCounters(2i32);
+pub const RpcBackEndConnectionAttempts: RpcPerfCounters = RpcPerfCounters(2i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcBackEndConnectionFailed: RpcProxyPerfCounters = RpcProxyPerfCounters(3i32);
+pub const RpcBackEndConnectionFailed: RpcPerfCounters = RpcPerfCounters(3i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcRequestsPerSecond: RpcProxyPerfCounters = RpcProxyPerfCounters(4i32);
+pub const RpcRequestsPerSecond: RpcPerfCounters = RpcPerfCounters(4i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcIncomingConnections: RpcProxyPerfCounters = RpcProxyPerfCounters(5i32);
+pub const RpcIncomingConnections: RpcPerfCounters = RpcPerfCounters(5i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcIncomingBandwidth: RpcProxyPerfCounters = RpcProxyPerfCounters(6i32);
+pub const RpcIncomingBandwidth: RpcPerfCounters = RpcPerfCounters(6i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcOutgoingBandwidth: RpcProxyPerfCounters = RpcProxyPerfCounters(7i32);
+pub const RpcOutgoingBandwidth: RpcPerfCounters = RpcPerfCounters(7i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcAttemptedLbsDecisions: RpcProxyPerfCounters = RpcProxyPerfCounters(8i32);
+pub const RpcAttemptedLbsDecisions: RpcPerfCounters = RpcPerfCounters(8i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcFailedLbsDecisions: RpcProxyPerfCounters = RpcProxyPerfCounters(9i32);
+pub const RpcFailedLbsDecisions: RpcPerfCounters = RpcPerfCounters(9i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcAttemptedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(10i32);
+pub const RpcAttemptedLbsMessages: RpcPerfCounters = RpcPerfCounters(10i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcFailedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(11i32);
+pub const RpcFailedLbsMessages: RpcPerfCounters = RpcPerfCounters(11i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub const RpcLastCounter: RpcProxyPerfCounters = RpcProxyPerfCounters(12i32);
-impl ::core::marker::Copy for RpcProxyPerfCounters {}
-impl ::core::clone::Clone for RpcProxyPerfCounters {
+pub const RpcLastCounter: RpcPerfCounters = RpcPerfCounters(12i32);
+impl ::core::marker::Copy for RpcPerfCounters {}
+impl ::core::clone::Clone for RpcPerfCounters {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for RpcProxyPerfCounters {
+impl ::core::default::Default for RpcPerfCounters {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RpcProxyPerfCounters {
+unsafe impl ::windows::core::Abi for RpcPerfCounters {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for RpcProxyPerfCounters {
+impl ::core::fmt::Debug for RpcPerfCounters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RpcProxyPerfCounters").field(&self.0).finish()
+        f.debug_tuple("RpcPerfCounters").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
@@ -12889,7 +12889,7 @@ pub type I_RpcProxyIsValidMachineFn = ::core::option::Option<unsafe extern "syst
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type I_RpcProxyUpdatePerfCounterBackendServerFn = ::core::option::Option<unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
-pub type I_RpcProxyUpdatePerfCounterFn = ::core::option::Option<unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32)>;
+pub type I_RpcProxyUpdatePerfCounterFn = ::core::option::Option<unsafe extern "system" fn(counter: RpcPerfCounters, modifytrend: i32, size: u32)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type MIDL_ES_ALLOC = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]

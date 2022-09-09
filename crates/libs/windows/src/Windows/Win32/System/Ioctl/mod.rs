@@ -2394,6 +2394,35 @@ impl ::core::fmt::Debug for DETECTION_TYPE {
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const TCCollectionBugCheck: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const TCCollectionApplicationRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const TCCollectionDeviceRequested: DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE(3i32);
+impl ::core::marker::Copy for DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DeviceInternalStatusDataRequestTypeUndefined: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(0i32);
@@ -5438,35 +5467,6 @@ unsafe impl ::windows::core::Abi for WRITE_THROUGH {
 impl ::core::fmt::Debug for WRITE_THROUGH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WRITE_THROUGH").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DEVICEDUMP_COLLECTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-pub const TCCollectionBugCheck: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-pub const TCCollectionApplicationRequested: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
-pub const TCCollectionDeviceRequested: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(3i32);
-impl ::core::marker::Copy for _DEVICEDUMP_COLLECTION_TYPE {}
-impl ::core::clone::Clone for _DEVICEDUMP_COLLECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DEVICEDUMP_COLLECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DEVICEDUMP_COLLECTION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DEVICEDUMP_COLLECTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DEVICEDUMP_COLLECTION_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -11418,7 +11418,7 @@ pub struct FILE_STORAGE_TIER {
     pub Id: ::windows::core::GUID,
     pub Name: [u16; 256],
     pub Description: [u16; 256],
-    pub Flags: FILE_STORAGE_TIER_FLAGS,
+    pub Flags: u64,
     pub ProvisionedCapacity: u64,
     pub MediaType: FILE_STORAGE_TIER_MEDIA_TYPE,
     pub Class: FILE_STORAGE_TIER_CLASS,

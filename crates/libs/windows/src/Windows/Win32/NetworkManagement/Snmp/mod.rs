@@ -1331,7 +1331,7 @@ impl ::core::fmt::Debug for SNMP_STATUS {
         f.debug_tuple("SNMP_STATUS").field(&self.0).finish()
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AsnAny {
@@ -1467,7 +1467,7 @@ impl ::core::default::Default for AsnOctetString {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBind {

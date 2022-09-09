@@ -1,14 +1,11 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDeviceIDString(pszwindowsaik: ::windows_sys::core::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
     pub fn Tbsi_Context_Create(pcontextparams: *const TBS_CONTEXT_PARAMS, phcontext: *mut *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
@@ -172,12 +169,12 @@ impl ::core::clone::Clone for TPM_DEVICE_INFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub struct tdTPM_WNF_PROVISIONING {
+pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
 }
-impl ::core::marker::Copy for tdTPM_WNF_PROVISIONING {}
-impl ::core::clone::Clone for tdTPM_WNF_PROVISIONING {
+impl ::core::marker::Copy for TPM_WNF_PROVISIONING {}
+impl ::core::clone::Clone for TPM_WNF_PROVISIONING {
     fn clone(&self) -> Self {
         *self
     }

@@ -1626,6 +1626,17 @@ impl ::core::clone::Clone for WINHTTP_PROXY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub struct WINHTTP_PROXY_NETWORKING_KEY {
+    pub pbBuffer: [u8; 128],
+}
+impl ::core::marker::Copy for WINHTTP_PROXY_NETWORKING_KEY {}
+impl ::core::clone::Clone for WINHTTP_PROXY_NETWORKING_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT {
@@ -1694,7 +1705,7 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub dwDetectedInterfaceIpCount: u32,
     pub pdwDetectedInterfaceIp: *mut u32,
     pub cNetworkKeys: u32,
-    pub pNetworkKeys: *mut _WinHttpProxyNetworkKey,
+    pub pNetworkKeys: *mut WINHTTP_PROXY_NETWORKING_KEY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINHTTP_PROXY_SETTINGS {}
@@ -1838,17 +1849,6 @@ pub struct WINHTTP_WEB_SOCKET_STATUS {
 }
 impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_STATUS {}
 impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub struct _WinHttpProxyNetworkKey {
-    pub pbBuffer: [u8; 128],
-}
-impl ::core::marker::Copy for _WinHttpProxyNetworkKey {}
-impl ::core::clone::Clone for _WinHttpProxyNetworkKey {
     fn clone(&self) -> Self {
         *self
     }

@@ -1,25 +1,5 @@
 #[cfg_attr(windows, link(name = "windows"))]
 extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(target_arch = "aarch64")]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: usize) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(target_arch = "x86_64")]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: u64) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(target_arch = "aarch64")]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(target_arch = "x86_64")]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: ::windows_sys::core::PCWSTR) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: *const EXCEPTION_RECORD);
@@ -280,9 +260,9 @@ extern "system" {
     pub fn MapFileAndCheckSumA(filename: ::windows_sys::core::PCSTR, headersum: *mut u32, checksum: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn MapFileAndCheckSumW(filename: ::windows_sys::core::PCWSTR, headersum: *mut u32, checksum: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut ::core::ffi::c_void, streamsize: *mut u32) -> super::super::super::Foundation::BOOL;
@@ -338,6 +318,14 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReportSymbolLoadSummary(hprocess: super::super::super::Foundation::HANDLE, ploadmodule: ::windows_sys::core::PCWSTR, psymboldata: *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(target_arch = "aarch64")]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: usize) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(target_arch = "x86_64")]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: u64) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     #[cfg(target_arch = "aarch64")]
     pub fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, maximumentrycount: u32, rangebase: usize, rangeend: usize) -> u32;
@@ -353,12 +341,28 @@ extern "system" {
     pub fn RtlCaptureContext2(contextrecord: *mut CONTEXT);
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, backtrace: *mut *mut ::core::ffi::c_void, backtracehash: *mut u32) -> u16;
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(target_arch = "aarch64")]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(target_arch = "x86_64")]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
     pub fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c_void);
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
     pub fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32);
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(target_arch = "aarch64")]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: ::windows_sys::core::PCWSTR) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(target_arch = "x86_64")]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: ::windows_sys::core::PCWSTR) -> super::super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     #[cfg(target_arch = "aarch64")]
     pub fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
@@ -3922,21 +3926,21 @@ pub const BREAKREASON_JIT: BREAKREASON = 7i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const BREAKREASON_MUTATION_BREAKPOINT: BREAKREASON = 8i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub type BREAKRESUME_ACTION = i32;
+pub type BREAKRESUMEACTION = i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_ABORT: BREAKRESUME_ACTION = 0i32;
+pub const BREAKRESUMEACTION_ABORT: BREAKRESUMEACTION = 0i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUME_ACTION = 1i32;
+pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUMEACTION = 1i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUME_ACTION = 2i32;
+pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUMEACTION = 2i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUME_ACTION = 3i32;
+pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUMEACTION = 3i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUME_ACTION = 4i32;
+pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUMEACTION = 4i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_IGNORE: BREAKRESUME_ACTION = 5i32;
+pub const BREAKRESUMEACTION_IGNORE: BREAKRESUMEACTION = 5i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUME_ACTION = 6i32;
+pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUMEACTION = 6i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub type BUGCHECK_ERROR = u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -5137,6 +5141,26 @@ pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = 3i32;
 pub const DOCUMENTNAMETYPE_UNIQUE_TITLE: DOCUMENTNAMETYPE = 4i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DOCUMENTNAMETYPE_SOURCE_MAP_URL: DOCUMENTNAMETYPE = 5i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type DUMP_TYPE = i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_INVALID: DUMP_TYPE = -1i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_UNKNOWN: DUMP_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_FULL: DUMP_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_SUMMARY: DUMP_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_HEADER: DUMP_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_TRIAGE: DUMP_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_BITMAP_FULL: DUMP_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_BITMAP_KERNEL: DUMP_TYPE = 6i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_TYPE_AUTOMATIC: DUMP_TYPE = 7i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub type ERRORRESUMEACTION = i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -6347,77 +6371,77 @@ pub const ObjectMethod: ModelObjectKind = 8i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const ObjectKeyReference: ModelObjectKind = 9i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub type OBJECT_ATTRIB_FLAG = u32;
+pub type OBJECT_ATTRIB_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_ATTRIB: OBJECT_ATTRIB_FLAG = 0u32;
+pub const OBJECT_ATTRIB_NO_ATTRIB: OBJECT_ATTRIB_FLAGS = 0i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_NAME: OBJECT_ATTRIB_FLAG = 1u32;
+pub const OBJECT_ATTRIB_NO_NAME: OBJECT_ATTRIB_FLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_TYPE: OBJECT_ATTRIB_FLAG = 2u32;
+pub const OBJECT_ATTRIB_NO_TYPE: OBJECT_ATTRIB_FLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_NO_VALUE: OBJECT_ATTRIB_FLAG = 4u32;
+pub const OBJECT_ATTRIB_NO_VALUE: OBJECT_ATTRIB_FLAGS = 4i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_INVALID: OBJECT_ATTRIB_FLAG = 8u32;
+pub const OBJECT_ATTRIB_VALUE_IS_INVALID: OBJECT_ATTRIB_FLAGS = 8i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_OBJECT: OBJECT_ATTRIB_FLAG = 16u32;
+pub const OBJECT_ATTRIB_VALUE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = 16i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_ENUM: OBJECT_ATTRIB_FLAG = 32u32;
+pub const OBJECT_ATTRIB_VALUE_IS_ENUM: OBJECT_ATTRIB_FLAGS = 32i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_IS_CUSTOM: OBJECT_ATTRIB_FLAG = 64u32;
+pub const OBJECT_ATTRIB_VALUE_IS_CUSTOM: OBJECT_ATTRIB_FLAGS = 64i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE: OBJECT_ATTRIB_FLAG = 112u32;
+pub const OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = 112i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_HAS_CODE: OBJECT_ATTRIB_FLAG = 128u32;
+pub const OBJECT_ATTRIB_VALUE_HAS_CODE: OBJECT_ATTRIB_FLAGS = 128i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_OBJECT: OBJECT_ATTRIB_FLAG = 256u32;
+pub const OBJECT_ATTRIB_TYPE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = 256i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_HAS_CODE: OBJECT_ATTRIB_FLAG = 512u32;
+pub const OBJECT_ATTRIB_TYPE_HAS_CODE: OBJECT_ATTRIB_FLAGS = 512i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_EXPANDABLE: OBJECT_ATTRIB_FLAG = 256u32;
+pub const OBJECT_ATTRIB_TYPE_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = 256i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_SLOT_IS_CATEGORY: OBJECT_ATTRIB_FLAG = 1024u32;
+pub const OBJECT_ATTRIB_SLOT_IS_CATEGORY: OBJECT_ATTRIB_FLAGS = 1024i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAG = 2048u32;
+pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAGS = 2048i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_PUBLIC: OBJECT_ATTRIB_FLAG = 4096u32;
+pub const OBJECT_ATTRIB_ACCESS_PUBLIC: OBJECT_ATTRIB_FLAGS = 4096i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAG = 8192u32;
+pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAGS = 8192i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_PROTECTED: OBJECT_ATTRIB_FLAG = 16384u32;
+pub const OBJECT_ATTRIB_ACCESS_PROTECTED: OBJECT_ATTRIB_FLAGS = 16384i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAG = 32768u32;
+pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAGS = 32768i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_GLOBAL: OBJECT_ATTRIB_FLAG = 65536u32;
+pub const OBJECT_ATTRIB_STORAGE_GLOBAL: OBJECT_ATTRIB_FLAGS = 65536i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_STATIC: OBJECT_ATTRIB_FLAG = 131072u32;
+pub const OBJECT_ATTRIB_STORAGE_STATIC: OBJECT_ATTRIB_FLAGS = 131072i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_FIELD: OBJECT_ATTRIB_FLAG = 262144u32;
+pub const OBJECT_ATTRIB_STORAGE_FIELD: OBJECT_ATTRIB_FLAGS = 262144i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_STORAGE_VIRTUAL: OBJECT_ATTRIB_FLAG = 524288u32;
+pub const OBJECT_ATTRIB_STORAGE_VIRTUAL: OBJECT_ATTRIB_FLAGS = 524288i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_CONSTANT: OBJECT_ATTRIB_FLAG = 1048576u32;
+pub const OBJECT_ATTRIB_TYPE_IS_CONSTANT: OBJECT_ATTRIB_FLAGS = 1048576i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED: OBJECT_ATTRIB_FLAG = 2097152u32;
+pub const OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED: OBJECT_ATTRIB_FLAGS = 2097152i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_TYPE_IS_VOLATILE: OBJECT_ATTRIB_FLAG = 4194304u32;
+pub const OBJECT_ATTRIB_TYPE_IS_VOLATILE: OBJECT_ATTRIB_FLAGS = 4194304i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS: OBJECT_ATTRIB_FLAG = 8388608u32;
+pub const OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS: OBJECT_ATTRIB_FLAGS = 8388608i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_CLASS: OBJECT_ATTRIB_FLAG = 16777216u32;
+pub const OBJECT_ATTRIB_IS_CLASS: OBJECT_ATTRIB_FLAGS = 16777216i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_FUNCTION: OBJECT_ATTRIB_FLAG = 33554432u32;
+pub const OBJECT_ATTRIB_IS_FUNCTION: OBJECT_ATTRIB_FLAGS = 33554432i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_VARIABLE: OBJECT_ATTRIB_FLAG = 67108864u32;
+pub const OBJECT_ATTRIB_IS_VARIABLE: OBJECT_ATTRIB_FLAGS = 67108864i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_PROPERTY: OBJECT_ATTRIB_FLAG = 134217728u32;
+pub const OBJECT_ATTRIB_IS_PROPERTY: OBJECT_ATTRIB_FLAGS = 134217728i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAG = 268435456u32;
+pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAGS = 268435456i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAG = 536870912u32;
+pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAGS = 536870912i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAG = 1073741824u32;
+pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAGS = 1073741824i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAG = 2147483648u32;
+pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAGS = -2147483648i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub type OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -7090,26 +7114,6 @@ pub const WheaErrSrcTypePMEM: WHEA_ERROR_SOURCE_TYPE = 15i32;
 pub const WheaErrSrcTypeDeviceDriver: WHEA_ERROR_SOURCE_TYPE = 16i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = 17i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub type _DUMP_TYPES = i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_INVALID: _DUMP_TYPES = -1i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_UNKNOWN: _DUMP_TYPES = 0i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_FULL: _DUMP_TYPES = 1i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_SUMMARY: _DUMP_TYPES = 2i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_HEADER: _DUMP_TYPES = 3i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_TRIAGE: _DUMP_TYPES = 4i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_BITMAP_FULL: _DUMP_TYPES = 5i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_BITMAP_KERNEL: _DUMP_TYPES = 6i32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DUMP_TYPE_AUTOMATIC: _DUMP_TYPES = 7i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -7342,6 +7346,22 @@ pub struct ArrayDimension {
 }
 impl ::core::marker::Copy for ArrayDimension {}
 impl ::core::clone::Clone for ArrayDimension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct BUSDATA {
+    pub BusDataType: u32,
+    pub BusNumber: u32,
+    pub SlotNumber: u32,
+    pub Buffer: *mut ::core::ffi::c_void,
+    pub Offset: u32,
+    pub Length: u32,
+}
+impl ::core::marker::Copy for BUSDATA {}
+impl ::core::clone::Clone for BUSDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -9333,6 +9353,19 @@ impl ::core::clone::Clone for IMAGEHLP_GET_TYPE_INFO_PARAMS {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct IMAGEHLP_JIT_SYMBOLMAP {
+    pub SizeOfStruct: u32,
+    pub Address: u64,
+    pub BaseOfImage: u64,
+}
+impl ::core::marker::Copy for IMAGEHLP_JIT_SYMBOLMAP {}
+impl ::core::clone::Clone for IMAGEHLP_JIT_SYMBOLMAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
@@ -11064,7 +11097,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_INFORMATION {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_CALLBACK_INPUT {
@@ -11106,7 +11139,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_INPUT_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
@@ -11120,7 +11153,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT {
         *self
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
@@ -11218,7 +11251,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0_4 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
@@ -11280,7 +11313,7 @@ impl ::core::clone::Clone for MINIDUMP_EXCEPTION_INFORMATION64 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
@@ -11309,7 +11342,7 @@ impl ::core::clone::Clone for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
@@ -11325,7 +11358,7 @@ impl ::core::clone::Clone for MINIDUMP_FUNCTION_TABLE_STREAM {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
@@ -11375,7 +11408,7 @@ impl ::core::clone::Clone for MINIDUMP_HANDLE_DESCRIPTOR_2 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
@@ -11388,7 +11421,7 @@ impl ::core::clone::Clone for MINIDUMP_HANDLE_OBJECT_INFORMATION {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
@@ -11442,7 +11475,7 @@ impl ::core::clone::Clone for MINIDUMP_INCLUDE_MODULE_CALLBACK {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -11470,7 +11503,7 @@ impl ::core::clone::Clone for MINIDUMP_IO_CALLBACK {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
@@ -11566,7 +11599,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY_INFO_LIST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
@@ -11578,7 +11611,7 @@ impl ::core::clone::Clone for MINIDUMP_MEMORY_LIST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
@@ -11594,7 +11627,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
@@ -11615,7 +11648,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_2 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_3 {
@@ -11644,7 +11677,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_3 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_4 {
@@ -11675,7 +11708,7 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_4 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_5 {
@@ -11754,7 +11787,7 @@ impl ::core::clone::Clone for MINIDUMP_MODULE_CALLBACK {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_LIST {
@@ -11834,7 +11867,7 @@ impl ::core::clone::Clone for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
@@ -11899,7 +11932,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: PROCESSOR_ARCHITECTURE,
@@ -11968,7 +12001,7 @@ impl ::core::clone::Clone for MINIDUMP_SYSTEM_INFO_1_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
@@ -12089,7 +12122,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -12112,31 +12145,9 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub struct MINIDUMP_THREAD_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::super::super::Foundation::HANDLE,
-    pub Context: CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(target_arch = "x86_64")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -12146,10 +12157,10 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
     fn clone(&self) -> Self {
@@ -12174,7 +12185,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_EX {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -12199,9 +12210,9 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -12213,10 +12224,10 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     fn clone(&self) -> Self {
@@ -12224,30 +12235,6 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub struct MINIDUMP_THREAD_EX_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::super::super::Foundation::HANDLE,
-    pub Context: CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-    pub BackingStoreBase: u64,
-    pub BackingStoreEnd: u64,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
@@ -12279,7 +12266,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_INFO {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
@@ -12292,7 +12279,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_INFO_LIST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
@@ -12316,7 +12303,7 @@ impl ::core::clone::Clone for MINIDUMP_THREAD_NAME {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
@@ -12341,7 +12328,7 @@ impl ::core::clone::Clone for MINIDUMP_TOKEN_INFO_HEADER {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
@@ -12370,7 +12357,7 @@ impl ::core::clone::Clone for MINIDUMP_UNLOADED_MODULE {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
@@ -12383,7 +12370,7 @@ impl ::core::clone::Clone for MINIDUMP_UNLOADED_MODULE_LIST {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
@@ -14636,35 +14623,6 @@ pub struct XSTATE_FEATURE {
 }
 impl ::core::marker::Copy for XSTATE_FEATURE {}
 impl ::core::clone::Clone for XSTATE_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub struct _GETSETBUSDATA {
-    pub BusDataType: u32,
-    pub BusNumber: u32,
-    pub SlotNumber: u32,
-    pub Buffer: *mut ::core::ffi::c_void,
-    pub Offset: u32,
-    pub Length: u32,
-}
-impl ::core::marker::Copy for _GETSETBUSDATA {}
-impl ::core::clone::Clone for _GETSETBUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub struct _IMAGEHLP_JIT_SYMBOL_MAP {
-    pub SizeOfStruct: u32,
-    pub Address: u64,
-    pub BaseOfImage: u64,
-}
-impl ::core::marker::Copy for _IMAGEHLP_JIT_SYMBOL_MAP {}
-impl ::core::clone::Clone for _IMAGEHLP_JIT_SYMBOL_MAP {
     fn clone(&self) -> Self {
         *self
     }

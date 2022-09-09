@@ -538,7 +538,7 @@ pub type SNMP_STATUS = u32;
 pub const SNMPAPI_ON: SNMP_STATUS = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_OFF: SNMP_STATUS = 0u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AsnAny {
@@ -606,7 +606,7 @@ impl ::core::clone::Clone for AsnOctetString {
         *self
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBind {

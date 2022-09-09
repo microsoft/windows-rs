@@ -1,14 +1,5 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: &u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: &mut u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
-    }
-    GetOwnerModuleFromPidAndInfo(ulpid, ::core::mem::transmute(pinfo), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[inline]
 pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: &mut u32, nteinstance: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1017,6 +1008,15 @@ pub unsafe fn GetNumberOfInterfaces(pdwnumif: &mut u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
+pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: &u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: &mut u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
+    }
+    GetOwnerModuleFromPidAndInfo(ulpid, ::core::mem::transmute(pinfo), class, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[inline]
 pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: &MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -1320,14 +1320,14 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: &mut [u8]) -> u32 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn Icmp6SendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: &super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: &super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: &[u8], requestoptions: ::core::option::Option<&ip_option_information>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn Icmp6SendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: &super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: &super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: &[u8], requestoptions: ::core::option::Option<&IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+        fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
     Icmp6SendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
 }
@@ -1365,41 +1365,41 @@ pub unsafe fn IcmpParseReplies(replybuffer: &mut [u8]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn IcmpSendEcho<'a, P0>(icmphandle: P0, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<&ip_option_information>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho<'a, P0>(icmphandle: P0, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<&IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+        fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
     IcmpSendEcho(icmphandle.into(), destinationaddress, ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<&ip_option_information>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<&IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+        fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
     IcmpSendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), destinationaddress, ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2Ex<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<&ip_option_information>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho2Ex<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<&IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
+        fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
     IcmpSendEcho2Ex(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), sourceaddress, destinationaddress, ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
 }
@@ -1472,14 +1472,14 @@ pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<'a, P0, P1>(pptable: &mut *mut ip_interface_name_info_w2ksp1, pdwcount: &mut u32, border: P0, hheap: P1, dwflags: u32) -> u32
+pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<'a, P0, P1>(pptable: &mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount: &mut u32, border: P0, hheap: P1, dwflags: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
+        fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
     }
     NhpAllocateAndGetInterfaceInfoFromStack(::core::mem::transmute(pptable), ::core::mem::transmute(pdwcount), border.into(), hheap.into(), dwflags)
 }
@@ -3839,6 +3839,37 @@ impl ::core::fmt::Debug for UDP_TABLE_CLASS {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct ARP_SEND_REPLY {
+    pub DestAddress: u32,
+    pub SrcAddress: u32,
+}
+impl ::core::marker::Copy for ARP_SEND_REPLY {}
+impl ::core::clone::Clone for ARP_SEND_REPLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ARP_SEND_REPLY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ARP_SEND_REPLY").field("DestAddress", &self.DestAddress).field("SrcAddress", &self.SrcAddress).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ARP_SEND_REPLY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ARP_SEND_REPLY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARP_SEND_REPLY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ARP_SEND_REPLY {}
+impl ::core::default::Default for ARP_SEND_REPLY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: ::windows::core::PWSTR,
     pub Flags: u64,
@@ -4200,6 +4231,113 @@ impl ::core::convert::From<::core::option::Option<HIFTIMESTAMPCHANGE>> for HIFTI
 }
 unsafe impl ::windows::core::Abi for HIFTIMESTAMPCHANGE {
     type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct ICMPV6_ECHO_REPLY_LH {
+    pub Address: IPV6_ADDRESS_EX,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+}
+impl ::core::marker::Copy for ICMPV6_ECHO_REPLY_LH {}
+impl ::core::clone::Clone for ICMPV6_ECHO_REPLY_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ICMPV6_ECHO_REPLY_LH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ICMPV6_ECHO_REPLY_LH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICMPV6_ECHO_REPLY_LH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ICMPV6_ECHO_REPLY_LH {}
+impl ::core::default::Default for ICMPV6_ECHO_REPLY_LH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct ICMP_ECHO_REPLY {
+    pub Address: u32,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+    pub DataSize: u16,
+    pub Reserved: u16,
+    pub Data: *mut ::core::ffi::c_void,
+    pub Options: IP_OPTION_INFORMATION,
+}
+impl ::core::marker::Copy for ICMP_ECHO_REPLY {}
+impl ::core::clone::Clone for ICMP_ECHO_REPLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ICMP_ECHO_REPLY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICMP_ECHO_REPLY").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ICMP_ECHO_REPLY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ICMP_ECHO_REPLY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICMP_ECHO_REPLY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ICMP_ECHO_REPLY {}
+impl ::core::default::Default for ICMP_ECHO_REPLY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct ICMP_ECHO_REPLY32 {
+    pub Address: u32,
+    pub Status: u32,
+    pub RoundTripTime: u32,
+    pub DataSize: u16,
+    pub Reserved: u16,
+    pub Data: *mut ::core::ffi::c_void,
+    pub Options: IP_OPTION_INFORMATION32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for ICMP_ECHO_REPLY32 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for ICMP_ECHO_REPLY32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for ICMP_ECHO_REPLY32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ICMP_ECHO_REPLY32").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+unsafe impl ::windows::core::Abi for ICMP_ECHO_REPLY32 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::PartialEq for ICMP_ECHO_REPLY32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICMP_ECHO_REPLY32>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::Eq for ICMP_ECHO_REPLY32 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for ICMP_ECHO_REPLY32 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -5908,6 +6046,41 @@ impl ::core::default::Default for IP_INTERFACE_INFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
+    pub Index: u32,
+    pub MediaType: u32,
+    pub ConnectionType: u8,
+    pub AccessType: u8,
+    pub DeviceGuid: ::windows::core::GUID,
+    pub InterfaceGuid: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for IP_INTERFACE_NAME_INFO_W2KSP1 {}
+impl ::core::clone::Clone for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_INTERFACE_NAME_INFO_W2KSP1").field("Index", &self.Index).field("MediaType", &self.MediaType).field("ConnectionType", &self.ConnectionType).field("AccessType", &self.AccessType).field("DeviceGuid", &self.DeviceGuid).field("InterfaceGuid", &self.InterfaceGuid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IP_INTERFACE_NAME_INFO_W2KSP1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IP_INTERFACE_NAME_INFO_W2KSP1 {}
+impl ::core::default::Default for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct IP_MCAST_COUNTER_INFO {
     pub InMcastOctets: u64,
     pub OutMcastOctets: u64,
@@ -5935,6 +6108,82 @@ impl ::core::cmp::PartialEq for IP_MCAST_COUNTER_INFO {
 }
 impl ::core::cmp::Eq for IP_MCAST_COUNTER_INFO {}
 impl ::core::default::Default for IP_MCAST_COUNTER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct IP_OPTION_INFORMATION {
+    pub Ttl: u8,
+    pub Tos: u8,
+    pub Flags: u8,
+    pub OptionsSize: u8,
+    pub OptionsData: *mut u8,
+}
+impl ::core::marker::Copy for IP_OPTION_INFORMATION {}
+impl ::core::clone::Clone for IP_OPTION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IP_OPTION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_OPTION_INFORMATION").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IP_OPTION_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IP_OPTION_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IP_OPTION_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IP_OPTION_INFORMATION {}
+impl ::core::default::Default for IP_OPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct IP_OPTION_INFORMATION32 {
+    pub Ttl: u8,
+    pub Tos: u8,
+    pub Flags: u8,
+    pub OptionsSize: u8,
+    pub OptionsData: *mut u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for IP_OPTION_INFORMATION32 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for IP_OPTION_INFORMATION32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::fmt::Debug for IP_OPTION_INFORMATION32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IP_OPTION_INFORMATION32").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+unsafe impl ::windows::core::Abi for IP_OPTION_INFORMATION32 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::PartialEq for IP_OPTION_INFORMATION32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IP_OPTION_INFORMATION32>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::Eq for IP_OPTION_INFORMATION32 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for IP_OPTION_INFORMATION32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -11489,280 +11738,31 @@ impl ::core::default::Default for TCP_ESTATS_SYN_OPTS_ROS_v0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct arp_send_reply {
-    pub DestAddress: u32,
-    pub SrcAddress: u32,
-}
-impl ::core::marker::Copy for arp_send_reply {}
-impl ::core::clone::Clone for arp_send_reply {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for arp_send_reply {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("arp_send_reply").field("DestAddress", &self.DestAddress).field("SrcAddress", &self.SrcAddress).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for arp_send_reply {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for arp_send_reply {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<arp_send_reply>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for arp_send_reply {}
-impl ::core::default::Default for arp_send_reply {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct icmp_echo_reply {
-    pub Address: u32,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut ::core::ffi::c_void,
-    pub Options: ip_option_information,
-}
-impl ::core::marker::Copy for icmp_echo_reply {}
-impl ::core::clone::Clone for icmp_echo_reply {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for icmp_echo_reply {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("icmp_echo_reply").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for icmp_echo_reply {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for icmp_echo_reply {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<icmp_echo_reply>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for icmp_echo_reply {}
-impl ::core::default::Default for icmp_echo_reply {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct icmp_echo_reply32 {
-    pub Address: u32,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-    pub DataSize: u16,
-    pub Reserved: u16,
-    pub Data: *mut ::core::ffi::c_void,
-    pub Options: ip_option_information32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for icmp_echo_reply32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for icmp_echo_reply32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for icmp_echo_reply32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("icmp_echo_reply32").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for icmp_echo_reply32 {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for icmp_echo_reply32 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<icmp_echo_reply32>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for icmp_echo_reply32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for icmp_echo_reply32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct icmpv6_echo_reply_lh {
-    pub Address: IPV6_ADDRESS_EX,
-    pub Status: u32,
-    pub RoundTripTime: u32,
-}
-impl ::core::marker::Copy for icmpv6_echo_reply_lh {}
-impl ::core::clone::Clone for icmpv6_echo_reply_lh {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for icmpv6_echo_reply_lh {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for icmpv6_echo_reply_lh {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<icmpv6_echo_reply_lh>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for icmpv6_echo_reply_lh {}
-impl ::core::default::Default for icmpv6_echo_reply_lh {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct ip_interface_name_info_w2ksp1 {
-    pub Index: u32,
-    pub MediaType: u32,
-    pub ConnectionType: u8,
-    pub AccessType: u8,
-    pub DeviceGuid: ::windows::core::GUID,
-    pub InterfaceGuid: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for ip_interface_name_info_w2ksp1 {}
-impl ::core::clone::Clone for ip_interface_name_info_w2ksp1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ip_interface_name_info_w2ksp1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ip_interface_name_info_w2ksp1").field("Index", &self.Index).field("MediaType", &self.MediaType).field("ConnectionType", &self.ConnectionType).field("AccessType", &self.AccessType).field("DeviceGuid", &self.DeviceGuid).field("InterfaceGuid", &self.InterfaceGuid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ip_interface_name_info_w2ksp1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ip_interface_name_info_w2ksp1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ip_interface_name_info_w2ksp1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ip_interface_name_info_w2ksp1 {}
-impl ::core::default::Default for ip_interface_name_info_w2ksp1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct ip_option_information {
-    pub Ttl: u8,
-    pub Tos: u8,
-    pub Flags: u8,
-    pub OptionsSize: u8,
-    pub OptionsData: *mut u8,
-}
-impl ::core::marker::Copy for ip_option_information {}
-impl ::core::clone::Clone for ip_option_information {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ip_option_information {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ip_option_information").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ip_option_information {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ip_option_information {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ip_option_information>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ip_option_information {}
-impl ::core::default::Default for ip_option_information {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct ip_option_information32 {
-    pub Ttl: u8,
-    pub Tos: u8,
-    pub Flags: u8,
-    pub OptionsSize: u8,
-    pub OptionsData: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for ip_option_information32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for ip_option_information32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for ip_option_information32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ip_option_information32").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for ip_option_information32 {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for ip_option_information32 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ip_option_information32>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for ip_option_information32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for ip_option_information32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct tcp_reserve_port_range {
+pub struct TCP_RESERVE_PORT_RANGE {
     pub UpperRange: u16,
     pub LowerRange: u16,
 }
-impl ::core::marker::Copy for tcp_reserve_port_range {}
-impl ::core::clone::Clone for tcp_reserve_port_range {
+impl ::core::marker::Copy for TCP_RESERVE_PORT_RANGE {}
+impl ::core::clone::Clone for TCP_RESERVE_PORT_RANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for tcp_reserve_port_range {
+impl ::core::fmt::Debug for TCP_RESERVE_PORT_RANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tcp_reserve_port_range").field("UpperRange", &self.UpperRange).field("LowerRange", &self.LowerRange).finish()
+        f.debug_struct("TCP_RESERVE_PORT_RANGE").field("UpperRange", &self.UpperRange).field("LowerRange", &self.LowerRange).finish()
     }
 }
-unsafe impl ::windows::core::Abi for tcp_reserve_port_range {
+unsafe impl ::windows::core::Abi for TCP_RESERVE_PORT_RANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for tcp_reserve_port_range {
+impl ::core::cmp::PartialEq for TCP_RESERVE_PORT_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tcp_reserve_port_range>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TCP_RESERVE_PORT_RANGE>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for tcp_reserve_port_range {}
-impl ::core::default::Default for tcp_reserve_port_range {
+impl ::core::cmp::Eq for TCP_RESERVE_PORT_RANGE {}
+impl ::core::default::Default for TCP_RESERVE_PORT_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

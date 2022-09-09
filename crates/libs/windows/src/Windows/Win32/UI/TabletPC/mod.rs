@@ -13141,6 +13141,62 @@ impl ::core::fmt::Debug for FLICKMODE {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GET_DANDIDATE_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+pub const TCF_ALLOW_RECOGNITION: GET_DANDIDATE_FLAGS = GET_DANDIDATE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+pub const TCF_FORCE_RECOGNITION: GET_DANDIDATE_FLAGS = GET_DANDIDATE_FLAGS(2i32);
+impl ::core::marker::Copy for GET_DANDIDATE_FLAGS {}
+impl ::core::clone::Clone for GET_DANDIDATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_DANDIDATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_DANDIDATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_DANDIDATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_DANDIDATE_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INK_METRIC_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+pub const IMF_FONT_SELECTED_IN_HDC: INK_METRIC_FLAGS = INK_METRIC_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+pub const IMF_ITALIC: INK_METRIC_FLAGS = INK_METRIC_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+pub const IMF_BOLD: INK_METRIC_FLAGS = INK_METRIC_FLAGS(4i32);
+impl ::core::marker::Copy for INK_METRIC_FLAGS {}
+impl ::core::clone::Clone for INK_METRIC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INK_METRIC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INK_METRIC_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INK_METRIC_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INK_METRIC_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InPlaceDirection(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceDirection_Auto: InPlaceDirection = InPlaceDirection(0i32);
@@ -14708,6 +14764,33 @@ impl ::core::fmt::Debug for PanelType {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RECO_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+pub const RECO_TYPE_WSTRING: RECO_TYPE = RECO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+pub const RECO_TYPE_WCHAR: RECO_TYPE = RECO_TYPE(1i32);
+impl ::core::marker::Copy for RECO_TYPE {}
+impl ::core::clone::Clone for RECO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RECO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RECO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RECO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RECO_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RealTimeStylusDataInterest(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_AllData: RealTimeStylusDataInterest = RealTimeStylusDataInterest(-1i32);
@@ -15092,89 +15175,6 @@ unsafe impl ::windows::core::Abi for VisualState {
 impl ::core::fmt::Debug for VisualState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VisualState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct enumGetCandidateFlags(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const TCF_ALLOW_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const TCF_FORCE_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(2i32);
-impl ::core::marker::Copy for enumGetCandidateFlags {}
-impl ::core::clone::Clone for enumGetCandidateFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for enumGetCandidateFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for enumGetCandidateFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for enumGetCandidateFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("enumGetCandidateFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct enumINKMETRIC_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const IMF_FONT_SELECTED_IN_HDC: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const IMF_ITALIC: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const IMF_BOLD: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(4i32);
-impl ::core::marker::Copy for enumINKMETRIC_FLAGS {}
-impl ::core::clone::Clone for enumINKMETRIC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for enumINKMETRIC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for enumINKMETRIC_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for enumINKMETRIC_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("enumINKMETRIC_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct enumRECO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const RECO_TYPE_WSTRING: enumRECO_TYPE = enumRECO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-pub const RECO_TYPE_WCHAR: enumRECO_TYPE = enumRECO_TYPE(1i32);
-impl ::core::marker::Copy for enumRECO_TYPE {}
-impl ::core::clone::Clone for enumRECO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for enumRECO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for enumRECO_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for enumRECO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("enumRECO_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]

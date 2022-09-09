@@ -151,7 +151,7 @@ extern "system" {
     pub fn OleCreateLinkToFileEx(lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub fn OleCreateMenuDescriptor(hmenucombined: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *const OleMenuGroupWidths) -> isize;
+    pub fn OleCreateMenuDescriptor(hmenucombined: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *const OLEMENUGROUPWIDTHS) -> isize;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn OleCreatePictureIndirect(lppictdesc: *mut PICTDESC, riid: *const ::windows_sys::core::GUID, fown: super::super::Foundation::BOOL, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -245,7 +245,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn OleRegGetMiscStatus(clsid: *const ::windows_sys::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn OleRegGetUserType(clsid: *const ::windows_sys::core::GUID, dwformoftype: u32, pszusertype: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn OleRegGetUserType(clsid: *const ::windows_sys::core::GUID, dwformoftype: USERCLASSTYPE, pszusertype: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn OleRun(punknown: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -270,7 +270,7 @@ extern "system" {
     pub fn OleSetMenuDescriptor(holemenu: isize, hwndframe: super::super::Foundation::HWND, hwndactiveobject: super::super::Foundation::HWND, lpframe: IOleInPlaceFrame, lpactiveobj: IOleInPlaceActiveObject) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn OleTranslateAccelerator(lpframe: IOleInPlaceFrame, lpframeinfo: *const OIFI, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_sys::core::HRESULT;
+    pub fn OleTranslateAccelerator(lpframe: IOleInPlaceFrame, lpframeinfo: *const OLEINPLACEFRAMEINFO, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn OleTranslateColor(clr: u32, hpal: super::super::Graphics::Gdi::HPALETTE, lpcolorref: *mut super::super::Foundation::COLORREF) -> ::windows_sys::core::HRESULT;
@@ -425,7 +425,7 @@ extern "system" {
     pub fn SafeArrayGetUBound(psa: *const super::Com::SAFEARRAY, ndim: u32, plubound: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY, pvt: *mut u16) -> ::windows_sys::core::HRESULT;
+    pub fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY, pvt: *mut super::Com::VARENUM) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn SafeArrayLock(psa: *const super::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
@@ -1634,30 +1634,6 @@ pub const EMBDHLP_INPROC_HANDLER: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const EMBDHLP_INPROC_SERVER: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_AUTO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_BSTR: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_DISPATCH: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_EMBEDDED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_FIXEDSIZE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_HAVEIID: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_HAVEVARTYPE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_RECORD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_RESERVED: u32 = 61448u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_STATIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_UNKNOWN: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FADF_VARIANT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GC_WCH_SIBLING: i32 = 1i32;
 pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub const GUID_COLOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536065, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
@@ -2503,10 +2479,6 @@ pub type ACTIVATEFLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub type AspectInfoFlag = i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVASPECTINFOFLAG_CANOPTIMIZE: AspectInfoFlag = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type BINDSPEED = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const BINDSPEED_INDEFINITE: BINDSPEED = 1i32;
@@ -2573,6 +2545,16 @@ pub const DVASPECT_OPAQUE: DVASPECT2 = 16i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DVASPECT_TRANSPARENT: DVASPECT2 = 32i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type DVASPECTINFOFLAG = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type DVEXTENTMODE = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVEXTENT_CONTENT: DVEXTENTMODE = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type ENUM_CONTROLS_WHICH_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = 1u32;
@@ -2591,39 +2573,33 @@ pub const GC_WCH_FONLYBEFORE: ENUM_CONTROLS_WHICH_FLAGS = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GC_WCH_FSELECTED: ENUM_CONTROLS_WHICH_FLAGS = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub type ExtentMode = i32;
+pub type FUNCFLAGS = u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVEXTENT_CONTENT: ExtentMode = 0i32;
+pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = 1u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVEXTENT_INTEGRAL: ExtentMode = 1i32;
+pub const FUNCFLAG_FSOURCE: FUNCFLAGS = 2u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub type FUNCFLAGS = i32;
+pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = 4u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = 1i32;
+pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = 8u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FSOURCE: FUNCFLAGS = 2i32;
+pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = 16u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = 4i32;
+pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = 32u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = 8i32;
+pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = 64u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = 16i32;
+pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = 128u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = 32i32;
+pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = 256u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = 64i32;
+pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = 512u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = 128i32;
+pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = 1024u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = 256i32;
+pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = 2048u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = 512i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = 1024i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = 2048i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = 4096i32;
+pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = 4096u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type GUIDKIND = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2644,6 +2620,14 @@ pub type IGNOREMIME = i32;
 pub const IGNOREMIME_PROMPT: IGNOREMIME = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const IGNOREMIME_TEXT: IGNOREMIME = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type KEYMODIFIERS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_SHIFT: KEYMODIFIERS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_CONTROL: KEYMODIFIERS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_ALT: KEYMODIFIERS = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type LIBFLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3199,6 +3183,12 @@ pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = 3i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type PICTUREATTRIBUTES = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type POINTERINACTIVE = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = 1i32;
@@ -3246,12 +3236,6 @@ pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = 1i32;
 pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub type PictureAttributes = i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTURE_SCALABLE: PictureAttributes = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTURE_TRANSPARENT: PictureAttributes = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type QACONTAINERFLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3385,34 +3369,6 @@ pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = 3i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub type VARFLAGS = i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FREADONLY: VARFLAGS = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FSOURCE: VARFLAGS = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FBINDABLE: VARFLAGS = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FREQUESTEDIT: VARFLAGS = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FDISPLAYBIND: VARFLAGS = 16i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FDEFAULTBIND: VARFLAGS = 32i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FHIDDEN: VARFLAGS = 64i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FRESTRICTED: VARFLAGS = 128i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = 256i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FUIDEFAULT: VARFLAGS = 512i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FNONBROWSABLE: VARFLAGS = 1024i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FREPLACEABLE: VARFLAGS = 2048i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = 4096i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type VIEWSTATUS = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = 1i32;
@@ -3456,18 +3412,6 @@ pub struct ARRAYDESC {
 impl ::core::marker::Copy for ARRAYDESC {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ARRAYDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct AspectInfo {
-    pub cb: u32,
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for AspectInfo {}
-impl ::core::clone::Clone for AspectInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -3539,17 +3483,29 @@ impl ::core::clone::Clone for CONTROLINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct DVASPECTINFO {
+    pub cb: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for DVASPECTINFO {}
+impl ::core::clone::Clone for DVASPECTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct ExtentInfo {
+pub struct DVEXTENTINFO {
     pub cb: u32,
     pub dwExtentMode: u32,
     pub sizelProposed: super::super::Foundation::SIZE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ExtentInfo {}
+impl ::core::marker::Copy for DVEXTENTINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ExtentInfo {
+impl ::core::clone::Clone for DVEXTENTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3689,28 +3645,10 @@ impl ::core::clone::Clone for OCPFIPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub struct OIFI {
-    pub cb: u32,
-    pub fMDIApp: super::super::Foundation::BOOL,
-    pub hwndFrame: super::super::Foundation::HWND,
-    pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
-    pub cAccelEntries: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for OIFI {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for OIFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct OLECMD {
-    pub cmdID: u32,
-    pub cmdf: u32,
+    pub cmdID: OLECMDID,
+    pub cmdf: OLECMDF,
 }
 impl ::core::marker::Copy for OLECMD {}
 impl ::core::clone::Clone for OLECMD {
@@ -3728,6 +3666,35 @@ pub struct OLECMDTEXT {
 }
 impl ::core::marker::Copy for OLECMDTEXT {}
 impl ::core::clone::Clone for OLECMDTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct OLEINPLACEFRAMEINFO {
+    pub cb: u32,
+    pub fMDIApp: super::super::Foundation::BOOL,
+    pub hwndFrame: super::super::Foundation::HWND,
+    pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
+    pub cAccelEntries: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OLEINPLACEFRAMEINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OLEINPLACEFRAMEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct OLEMENUGROUPWIDTHS {
+    pub width: [i32; 6],
+}
+impl ::core::marker::Copy for OLEMENUGROUPWIDTHS {}
+impl ::core::clone::Clone for OLEMENUGROUPWIDTHS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4351,26 +4318,18 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct OLEVERB {
     pub lVerb: i32,
     pub lpszVerbName: ::windows_sys::core::PWSTR,
-    pub fuFlags: u32,
-    pub grfAttribs: u32,
+    pub fuFlags: super::super::UI::WindowsAndMessaging::MENU_ITEM_FLAGS,
+    pub grfAttribs: OLEVERBATTRIB,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for OLEVERB {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for OLEVERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct OleMenuGroupWidths {
-    pub width: [i32; 6],
-}
-impl ::core::marker::Copy for OleMenuGroupWidths {}
-impl ::core::clone::Clone for OleMenuGroupWidths {
     fn clone(&self) -> Self {
         *self
     }
@@ -4582,7 +4541,7 @@ pub struct QACONTAINER {
     pub pAdviseSink: IAdviseSinkEx,
     pub pPropertyNotifySink: IPropertyNotifySink,
     pub pUnkEventSink: ::windows_sys::core::IUnknown,
-    pub dwAmbientFlags: u32,
+    pub dwAmbientFlags: QACONTAINERFLAGS,
     pub colorFore: u32,
     pub colorBack: u32,
     pub pFont: IFont,
@@ -4606,14 +4565,134 @@ impl ::core::clone::Clone for QACONTAINER {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct QACONTROL {
     pub cbSize: u32,
-    pub dwMiscStatus: u32,
-    pub dwViewStatus: u32,
+    pub dwMiscStatus: OLEMISC,
+    pub dwViewStatus: VIEWSTATUS,
     pub dwEventCookie: u32,
     pub dwPropNotifyCookie: u32,
-    pub dwPointerActivationPolicy: u32,
+    pub dwPointerActivationPolicy: POINTERINACTIVE,
 }
 impl ::core::marker::Copy for QACONTROL {}
 impl ::core::clone::Clone for QACONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SAFEARRAYUNION {
+    pub sfType: u32,
+    pub u: SAFEARRAYUNION_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SAFEARRAYUNION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SAFEARRAYUNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub union SAFEARRAYUNION_0 {
+    pub BstrStr: SAFEARR_BSTR,
+    pub UnknownStr: SAFEARR_UNKNOWN,
+    pub DispatchStr: SAFEARR_DISPATCH,
+    pub VariantStr: SAFEARR_VARIANT,
+    pub RecordStr: SAFEARR_BRECORD,
+    pub HaveIidStr: SAFEARR_HAVEIID,
+    pub ByteStr: super::Com::BYTE_SIZEDARR,
+    pub WordStr: super::Com::WORD_SIZEDARR,
+    pub LongStr: super::Com::DWORD_SIZEDARR,
+    pub HyperStr: super::Com::HYPER_SIZEDARR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SAFEARRAYUNION_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SAFEARRAYUNION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct SAFEARR_BRECORD {
+    pub Size: u32,
+    pub aRecord: *mut *mut _wireBRECORD,
+}
+impl ::core::marker::Copy for SAFEARR_BRECORD {}
+impl ::core::clone::Clone for SAFEARR_BRECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub struct SAFEARR_BSTR {
+    pub Size: u32,
+    pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for SAFEARR_BSTR {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for SAFEARR_BSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub struct SAFEARR_DISPATCH {
+    pub Size: u32,
+    pub apDispatch: *mut super::Com::IDispatch,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for SAFEARR_DISPATCH {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for SAFEARR_DISPATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct SAFEARR_HAVEIID {
+    pub Size: u32,
+    pub apUnknown: *mut ::windows_sys::core::IUnknown,
+    pub iid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for SAFEARR_HAVEIID {}
+impl ::core::clone::Clone for SAFEARR_HAVEIID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub struct SAFEARR_UNKNOWN {
+    pub Size: u32,
+    pub apUnknown: *mut ::windows_sys::core::IUnknown,
+}
+impl ::core::marker::Copy for SAFEARR_UNKNOWN {}
+impl ::core::clone::Clone for SAFEARR_UNKNOWN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SAFEARR_VARIANT {
+    pub Size: u32,
+    pub aVariant: *mut *mut _wireVARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SAFEARR_VARIANT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SAFEARR_VARIANT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4655,133 +4734,13 @@ pub struct _wireSAFEARRAY {
     pub fFeatures: u16,
     pub cbElements: u32,
     pub cLocks: u32,
-    pub uArrayStructs: _wireSAFEARRAY_UNION,
+    pub uArrayStructs: SAFEARRAYUNION,
     pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for _wireSAFEARRAY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for _wireSAFEARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub struct _wireSAFEARRAY_UNION {
-    pub sfType: u32,
-    pub u: _wireSAFEARRAY_UNION_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _wireSAFEARRAY_UNION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _wireSAFEARRAY_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub union _wireSAFEARRAY_UNION_0 {
-    pub BstrStr: _wireSAFEARR_BSTR,
-    pub UnknownStr: _wireSAFEARR_UNKNOWN,
-    pub DispatchStr: _wireSAFEARR_DISPATCH,
-    pub VariantStr: _wireSAFEARR_VARIANT,
-    pub RecordStr: _wireSAFEARR_BRECORD,
-    pub HaveIidStr: _wireSAFEARR_HAVEIID,
-    pub ByteStr: super::Com::BYTE_SIZEDARR,
-    pub WordStr: super::Com::SHORT_SIZEDARR,
-    pub LongStr: super::Com::LONG_SIZEDARR,
-    pub HyperStr: super::Com::HYPER_SIZEDARR,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _wireSAFEARRAY_UNION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _wireSAFEARRAY_UNION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct _wireSAFEARR_BRECORD {
-    pub Size: u32,
-    pub aRecord: *mut *mut _wireBRECORD,
-}
-impl ::core::marker::Copy for _wireSAFEARR_BRECORD {}
-impl ::core::clone::Clone for _wireSAFEARR_BRECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-pub struct _wireSAFEARR_BSTR {
-    pub Size: u32,
-    pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for _wireSAFEARR_BSTR {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _wireSAFEARR_BSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-pub struct _wireSAFEARR_DISPATCH {
-    pub Size: u32,
-    pub apDispatch: *mut super::Com::IDispatch,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for _wireSAFEARR_DISPATCH {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _wireSAFEARR_DISPATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct _wireSAFEARR_HAVEIID {
-    pub Size: u32,
-    pub apUnknown: *mut ::windows_sys::core::IUnknown,
-    pub iid: ::windows_sys::core::GUID,
-}
-impl ::core::marker::Copy for _wireSAFEARR_HAVEIID {}
-impl ::core::clone::Clone for _wireSAFEARR_HAVEIID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub struct _wireSAFEARR_UNKNOWN {
-    pub Size: u32,
-    pub apUnknown: *mut ::windows_sys::core::IUnknown,
-}
-impl ::core::marker::Copy for _wireSAFEARR_UNKNOWN {}
-impl ::core::clone::Clone for _wireSAFEARR_UNKNOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub struct _wireSAFEARR_VARIANT {
-    pub Size: u32,
-    pub aVariant: *mut *mut _wireVARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::marker::Copy for _wireSAFEARR_VARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::clone::Clone for _wireSAFEARR_VARIANT {
     fn clone(&self) -> Self {
         *self
     }

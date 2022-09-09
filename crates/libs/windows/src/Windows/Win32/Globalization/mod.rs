@@ -11409,13 +11409,13 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptPlaceOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>) -> ::windows::core::Result<()>
+pub unsafe fn ScriptPlaceOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const TEXTRANGE_PROPERTIES, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const SCRIPT_CHARPROP, cchars: i32, pwglyphs: *const u16, pglyphprops: *const SCRIPT_GLYPHPROP, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::HRESULT;
+        fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const TEXTRANGE_PROPERTIES, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const SCRIPT_CHARPROP, cchars: i32, pwglyphs: *const u16, pglyphprops: *const SCRIPT_GLYPHPROP, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::HRESULT;
     }
     ScriptPlaceOpenType(
         hdc.into(),
@@ -11478,13 +11478,13 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptShapeOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: &mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptShapeOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const TEXTRANGE_PROPERTIES, cranges: i32, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut SCRIPT_CHARPROP, pwoutglyphs: *mut u16, poutglyphprops: *mut SCRIPT_GLYPHPROP, pcglyphs: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ScriptShapeOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows::core::HRESULT;
+        fn ScriptShapeOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const TEXTRANGE_PROPERTIES, cranges: i32, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut SCRIPT_CHARPROP, pwoutglyphs: *mut u16, poutglyphprops: *mut SCRIPT_GLYPHPROP, pcglyphs: *mut i32) -> ::windows::core::HRESULT;
     }
     ScriptShapeOpenType(
         hdc.into(),
@@ -12578,7 +12578,7 @@ impl IMLangFontLink2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFontUnicodeRanges)(::windows::core::Interface::as_raw(self), hdc.into(), ::core::mem::transmute(puiranges), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UNICODERANGE>(result__)
     }
-    pub unsafe fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: &mut u32, pscriptfont: ::core::option::Option<&mut tagSCRIPFONTINFO>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: &mut u32, pscriptfont: ::core::option::Option<&mut SCRIPTFONTINFO>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetScriptFontInfo)(::windows::core::Interface::as_raw(self), sid, dwflags, ::core::mem::transmute(puifonts), ::core::mem::transmute(pscriptfont)).ok()
     }
     pub unsafe fn CodePageToScriptID(&self, uicodepage: u32) -> ::windows::core::Result<u8> {
@@ -12657,7 +12657,7 @@ pub struct IMLangFontLink2_Vtbl {
     pub GetFontUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::Graphics::Gdi::HDC, puiranges: *const u32, puranges: *mut UNICODERANGE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetFontUnicodeRanges: usize,
-    pub GetScriptFontInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut tagSCRIPFONTINFO) -> ::windows::core::HRESULT,
+    pub GetScriptFontInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut SCRIPTFONTINFO) -> ::windows::core::HRESULT,
     pub CodePageToScriptID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, psid: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -16685,6 +16685,82 @@ unsafe impl ::windows::core::Abi for MIMECONTF {
 impl ::core::fmt::Debug for MIMECONTF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MIMECONTF").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MLCONVCHAR(pub i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_AUTODETECT: MLCONVCHAR = MLCONVCHAR(1i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_ENTITIZE: MLCONVCHAR = MLCONVCHAR(2i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_NCR_ENTITIZE: MLCONVCHAR = MLCONVCHAR(2i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_NAME_ENTITIZE: MLCONVCHAR = MLCONVCHAR(4i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_USEDEFCHAR: MLCONVCHAR = MLCONVCHAR(8i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_NOBESTFITCHARS: MLCONVCHAR = MLCONVCHAR(16i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_DETECTJPN: MLCONVCHAR = MLCONVCHAR(32i32);
+impl ::core::marker::Copy for MLCONVCHAR {}
+impl ::core::clone::Clone for MLCONVCHAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MLCONVCHAR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MLCONVCHAR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MLCONVCHAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLCONVCHAR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MLCP(pub i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_MAILNEWS: MLCP = MLCP(1i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_BROWSER: MLCP = MLCP(2i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_VALID: MLCP = MLCP(4i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_VALID_NLS: MLCP = MLCP(8i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_PRESERVE_ORDER: MLCP = MLCP(16i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_PREFERRED_ONLY: MLCP = MLCP(32i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_FILTER_SPECIALCHAR: MLCP = MLCP(64i32);
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_EURO_UTF8: MLCP = MLCP(128i32);
+impl ::core::marker::Copy for MLCP {}
+impl ::core::clone::Clone for MLCP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MLCP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MLCP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MLCP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MLCP").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -24395,82 +24471,6 @@ impl ::core::fmt::Debug for WORDLIST_TYPE {
         f.debug_tuple("WORDLIST_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct tagMLCONVCHARF(pub i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_AUTODETECT: tagMLCONVCHARF = tagMLCONVCHARF(1i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_ENTITIZE: tagMLCONVCHARF = tagMLCONVCHARF(2i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_NCR_ENTITIZE: tagMLCONVCHARF = tagMLCONVCHARF(2i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_NAME_ENTITIZE: tagMLCONVCHARF = tagMLCONVCHARF(4i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_USEDEFCHAR: tagMLCONVCHARF = tagMLCONVCHARF(8i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_NOBESTFITCHARS: tagMLCONVCHARF = tagMLCONVCHARF(16i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_DETECTJPN: tagMLCONVCHARF = tagMLCONVCHARF(32i32);
-impl ::core::marker::Copy for tagMLCONVCHARF {}
-impl ::core::clone::Clone for tagMLCONVCHARF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for tagMLCONVCHARF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for tagMLCONVCHARF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for tagMLCONVCHARF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("tagMLCONVCHARF").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct tagMLCPF(pub i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_MAILNEWS: tagMLCPF = tagMLCPF(1i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_BROWSER: tagMLCPF = tagMLCPF(2i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_VALID: tagMLCPF = tagMLCPF(4i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_VALID_NLS: tagMLCPF = tagMLCPF(8i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_PRESERVE_ORDER: tagMLCPF = tagMLCPF(16i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_PREFERRED_ONLY: tagMLCPF = tagMLCPF(32i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_FILTER_SPECIALCHAR: tagMLCPF = tagMLCPF(64i32);
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_EURO_UTF8: tagMLCPF = tagMLCPF(128i32);
-impl ::core::marker::Copy for tagMLCPF {}
-impl ::core::clone::Clone for tagMLCPF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for tagMLCPF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for tagMLCPF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for tagMLCPF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("tagMLCPF").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct CHARSETINFO {
@@ -25623,6 +25623,37 @@ impl ::core::default::Default for NUMBERFMTW {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct OPENTYPE_FEATURE_RECORD {
+    pub tagFeature: u32,
+    pub lParameter: i32,
+}
+impl ::core::marker::Copy for OPENTYPE_FEATURE_RECORD {}
+impl ::core::clone::Clone for OPENTYPE_FEATURE_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OPENTYPE_FEATURE_RECORD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OPENTYPE_FEATURE_RECORD").field("tagFeature", &self.tagFeature).field("lParameter", &self.lParameter).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OPENTYPE_FEATURE_RECORD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OPENTYPE_FEATURE_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENTYPE_FEATURE_RECORD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OPENTYPE_FEATURE_RECORD {}
+impl ::core::default::Default for OPENTYPE_FEATURE_RECORD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct RFC1766INFO {
     pub lcid: u32,
     pub wszRfc1766: [u16; 6],
@@ -25649,6 +25680,37 @@ impl ::core::cmp::PartialEq for RFC1766INFO {
 }
 impl ::core::cmp::Eq for RFC1766INFO {}
 impl ::core::default::Default for RFC1766INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct SCRIPTFONTINFO {
+    pub scripts: i64,
+    pub wszFont: [u16; 32],
+}
+impl ::core::marker::Copy for SCRIPTFONTINFO {}
+impl ::core::clone::Clone for SCRIPTFONTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SCRIPTFONTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCRIPTFONTINFO").field("scripts", &self.scripts).field("wszFont", &self.wszFont).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SCRIPTFONTINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCRIPTFONTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCRIPTFONTINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCRIPTFONTINFO {}
+impl ::core::default::Default for SCRIPTFONTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -25714,6 +25776,36 @@ impl ::core::cmp::PartialEq for SCRIPT_ANALYSIS {
 }
 impl ::core::cmp::Eq for SCRIPT_ANALYSIS {}
 impl ::core::default::Default for SCRIPT_ANALYSIS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct SCRIPT_CHARPROP {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for SCRIPT_CHARPROP {}
+impl ::core::clone::Clone for SCRIPT_CHARPROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SCRIPT_CHARPROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCRIPT_CHARPROP").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SCRIPT_CHARPROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCRIPT_CHARPROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCRIPT_CHARPROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCRIPT_CHARPROP {}
+impl ::core::default::Default for SCRIPT_CHARPROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -25811,6 +25903,37 @@ impl ::core::cmp::PartialEq for SCRIPT_FONTPROPERTIES {
 }
 impl ::core::cmp::Eq for SCRIPT_FONTPROPERTIES {}
 impl ::core::default::Default for SCRIPT_FONTPROPERTIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct SCRIPT_GLYPHPROP {
+    pub sva: SCRIPT_VISATTR,
+    pub reserved: u16,
+}
+impl ::core::marker::Copy for SCRIPT_GLYPHPROP {}
+impl ::core::clone::Clone for SCRIPT_GLYPHPROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SCRIPT_GLYPHPROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCRIPT_GLYPHPROP").field("sva", &self.sva).field("reserved", &self.reserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SCRIPT_GLYPHPROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCRIPT_GLYPHPROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCRIPT_GLYPHPROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCRIPT_GLYPHPROP {}
+impl ::core::default::Default for SCRIPT_GLYPHPROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -25996,6 +26119,37 @@ impl ::core::cmp::PartialEq for SCRIPT_VISATTR {
 }
 impl ::core::cmp::Eq for SCRIPT_VISATTR {}
 impl ::core::default::Default for SCRIPT_VISATTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct TEXTRANGE_PROPERTIES {
+    pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
+    pub cotfRecords: i32,
+}
+impl ::core::marker::Copy for TEXTRANGE_PROPERTIES {}
+impl ::core::clone::Clone for TEXTRANGE_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TEXTRANGE_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TEXTRANGE_PROPERTIES").field("potfRecords", &self.potfRecords).field("cotfRecords", &self.cotfRecords).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TEXTRANGE_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TEXTRANGE_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TEXTRANGE_PROPERTIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TEXTRANGE_PROPERTIES {}
+impl ::core::default::Default for TEXTRANGE_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -26655,160 +26809,6 @@ impl ::core::cmp::PartialEq for UTransPosition {
 }
 impl ::core::cmp::Eq for UTransPosition {}
 impl ::core::default::Default for UTransPosition {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct opentype_feature_record {
-    pub tagFeature: u32,
-    pub lParameter: i32,
-}
-impl ::core::marker::Copy for opentype_feature_record {}
-impl ::core::clone::Clone for opentype_feature_record {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for opentype_feature_record {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("opentype_feature_record").field("tagFeature", &self.tagFeature).field("lParameter", &self.lParameter).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for opentype_feature_record {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for opentype_feature_record {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<opentype_feature_record>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for opentype_feature_record {}
-impl ::core::default::Default for opentype_feature_record {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct script_charprop {
-    pub _bitfield: u16,
-}
-impl ::core::marker::Copy for script_charprop {}
-impl ::core::clone::Clone for script_charprop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for script_charprop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("script_charprop").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for script_charprop {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for script_charprop {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<script_charprop>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for script_charprop {}
-impl ::core::default::Default for script_charprop {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct script_glyphprop {
-    pub sva: SCRIPT_VISATTR,
-    pub reserved: u16,
-}
-impl ::core::marker::Copy for script_glyphprop {}
-impl ::core::clone::Clone for script_glyphprop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for script_glyphprop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("script_glyphprop").field("sva", &self.sva).field("reserved", &self.reserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for script_glyphprop {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for script_glyphprop {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<script_glyphprop>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for script_glyphprop {}
-impl ::core::default::Default for script_glyphprop {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct tagSCRIPFONTINFO {
-    pub scripts: i64,
-    pub wszFont: [u16; 32],
-}
-impl ::core::marker::Copy for tagSCRIPFONTINFO {}
-impl ::core::clone::Clone for tagSCRIPFONTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tagSCRIPFONTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tagSCRIPFONTINFO").field("scripts", &self.scripts).field("wszFont", &self.wszFont).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tagSCRIPFONTINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tagSCRIPFONTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagSCRIPFONTINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tagSCRIPFONTINFO {}
-impl ::core::default::Default for tagSCRIPFONTINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct textrange_properties {
-    pub potfRecords: *mut opentype_feature_record,
-    pub cotfRecords: i32,
-}
-impl ::core::marker::Copy for textrange_properties {}
-impl ::core::clone::Clone for textrange_properties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for textrange_properties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("textrange_properties").field("potfRecords", &self.potfRecords).field("cotfRecords", &self.cotfRecords).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for textrange_properties {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for textrange_properties {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<textrange_properties>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for textrange_properties {}
-impl ::core::default::Default for textrange_properties {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

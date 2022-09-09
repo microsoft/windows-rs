@@ -3465,6 +3465,107 @@ unsafe impl ::windows::core::Abi for HKEY {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub struct PVALUEA {
+    pub pv_valuename: ::windows::core::PSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
+impl ::core::marker::Copy for PVALUEA {}
+impl ::core::clone::Clone for PVALUEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PVALUEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PVALUEA").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PVALUEA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PVALUEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PVALUEA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PVALUEA {}
+impl ::core::default::Default for PVALUEA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub struct PVALUEW {
+    pub pv_valuename: ::windows::core::PWSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
+impl ::core::marker::Copy for PVALUEW {}
+impl ::core::clone::Clone for PVALUEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PVALUEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PVALUEW").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PVALUEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PVALUEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PVALUEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PVALUEW {}
+impl ::core::default::Default for PVALUEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub struct REG_PROVIDER {
+    pub pi_R0_1val: PQUERYHANDLER,
+    pub pi_R0_allvals: PQUERYHANDLER,
+    pub pi_R3_1val: PQUERYHANDLER,
+    pub pi_R3_allvals: PQUERYHANDLER,
+    pub pi_flags: u32,
+    pub pi_key_context: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for REG_PROVIDER {}
+impl ::core::clone::Clone for REG_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for REG_PROVIDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("REG_PROVIDER").field("pi_R0_1val", &self.pi_R0_1val.map(|f| f as usize)).field("pi_R0_allvals", &self.pi_R0_allvals.map(|f| f as usize)).field("pi_R3_1val", &self.pi_R3_1val.map(|f| f as usize)).field("pi_R3_allvals", &self.pi_R3_allvals.map(|f| f as usize)).field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for REG_PROVIDER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for REG_PROVIDER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REG_PROVIDER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for REG_PROVIDER {}
+impl ::core::default::Default for REG_PROVIDER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub struct VALENTA {
     pub ve_valuename: ::windows::core::PSTR,
     pub ve_valuelen: u32,
@@ -3525,107 +3626,6 @@ impl ::core::cmp::PartialEq for VALENTW {
 }
 impl ::core::cmp::Eq for VALENTW {}
 impl ::core::default::Default for VALENTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub struct provider_info {
-    pub pi_R0_1val: PQUERYHANDLER,
-    pub pi_R0_allvals: PQUERYHANDLER,
-    pub pi_R3_1val: PQUERYHANDLER,
-    pub pi_R3_allvals: PQUERYHANDLER,
-    pub pi_flags: u32,
-    pub pi_key_context: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for provider_info {}
-impl ::core::clone::Clone for provider_info {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for provider_info {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("provider_info").field("pi_R0_1val", &self.pi_R0_1val.map(|f| f as usize)).field("pi_R0_allvals", &self.pi_R0_allvals.map(|f| f as usize)).field("pi_R3_1val", &self.pi_R3_1val.map(|f| f as usize)).field("pi_R3_allvals", &self.pi_R3_allvals.map(|f| f as usize)).field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for provider_info {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for provider_info {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<provider_info>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for provider_info {}
-impl ::core::default::Default for provider_info {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub struct pvalueA {
-    pub pv_valuename: ::windows::core::PSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut ::core::ffi::c_void,
-    pub pv_type: u32,
-}
-impl ::core::marker::Copy for pvalueA {}
-impl ::core::clone::Clone for pvalueA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for pvalueA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("pvalueA").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for pvalueA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for pvalueA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<pvalueA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for pvalueA {}
-impl ::core::default::Default for pvalueA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub struct pvalueW {
-    pub pv_valuename: ::windows::core::PWSTR,
-    pub pv_valuelen: i32,
-    pub pv_value_context: *mut ::core::ffi::c_void,
-    pub pv_type: u32,
-}
-impl ::core::marker::Copy for pvalueW {}
-impl ::core::clone::Clone for pvalueW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for pvalueW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("pvalueW").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for pvalueW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for pvalueW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<pvalueW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for pvalueW {}
-impl ::core::default::Default for pvalueW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

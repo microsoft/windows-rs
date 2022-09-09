@@ -1051,6 +1051,48 @@ impl ::core::clone::Clone for INPUT_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct KBDNLSTABLES {
+    pub OEMIdentifier: u16,
+    pub LayoutInformation: u16,
+    pub NumOfVkToF: u32,
+    pub pVkToF: *mut VK_F,
+    pub NumOfMouseVKey: i32,
+    pub pusMouseVKey: *mut u16,
+}
+impl ::core::marker::Copy for KBDNLSTABLES {}
+impl ::core::clone::Clone for KBDNLSTABLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct KBDTABLES {
+    pub pCharModifiers: *mut MODIFIERS,
+    pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
+    pub pDeadKey: *mut DEADKEY,
+    pub pKeyNames: *mut VSC_LPWSTR,
+    pub pKeyNamesExt: *mut VSC_LPWSTR,
+    pub pKeyNamesDead: *mut *mut u16,
+    pub pusVSCtoVK: *mut u16,
+    pub bMaxVSCtoVK: u8,
+    pub pVSCtoVK_E0: *mut VSC_VK,
+    pub pVSCtoVK_E1: *mut VSC_VK,
+    pub fLocaleFlags: u32,
+    pub nLgMax: u8,
+    pub cbLgEntry: u8,
+    pub pLigature: *mut LIGATURE1,
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+impl ::core::marker::Copy for KBDTABLES {}
+impl ::core::clone::Clone for KBDTABLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub struct KBDTABLE_DESC {
     pub wszDllName: [u16; 32],
     pub dwType: u32,
@@ -1235,6 +1277,34 @@ pub struct TRACKMOUSEEVENT {
 impl ::core::marker::Copy for TRACKMOUSEEVENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TRACKMOUSEEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct VK_F {
+    pub Vk: u8,
+    pub NLSFEProcType: u8,
+    pub NLSFEProcCurrent: u8,
+    pub NLSFEProcSwitch: u8,
+    pub NLSFEProc: [VK_FPARAM; 8],
+    pub NLSFEProcAlt: [VK_FPARAM; 8],
+}
+impl ::core::marker::Copy for VK_F {}
+impl ::core::clone::Clone for VK_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
+pub struct VK_FPARAM {
+    pub NLSFEProcIndex: u8,
+    pub NLSFEProcParam: u32,
+}
+impl ::core::marker::Copy for VK_FPARAM {}
+impl ::core::clone::Clone for VK_FPARAM {
     fn clone(&self) -> Self {
         *self
     }
@@ -1426,76 +1496,6 @@ pub struct VSC_VK {
 }
 impl ::core::marker::Copy for VSC_VK {}
 impl ::core::clone::Clone for VSC_VK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct _VK_FUNCTION_PARAM {
-    pub NLSFEProcIndex: u8,
-    pub NLSFEProcParam: u32,
-}
-impl ::core::marker::Copy for _VK_FUNCTION_PARAM {}
-impl ::core::clone::Clone for _VK_FUNCTION_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct _VK_TO_FUNCTION_TABLE {
-    pub Vk: u8,
-    pub NLSFEProcType: u8,
-    pub NLSFEProcCurrent: u8,
-    pub NLSFEProcSwitch: u8,
-    pub NLSFEProc: [_VK_FUNCTION_PARAM; 8],
-    pub NLSFEProcAlt: [_VK_FUNCTION_PARAM; 8],
-}
-impl ::core::marker::Copy for _VK_TO_FUNCTION_TABLE {}
-impl ::core::clone::Clone for _VK_TO_FUNCTION_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct tagKbdLayer {
-    pub pCharModifiers: *mut MODIFIERS,
-    pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
-    pub pDeadKey: *mut DEADKEY,
-    pub pKeyNames: *mut VSC_LPWSTR,
-    pub pKeyNamesExt: *mut VSC_LPWSTR,
-    pub pKeyNamesDead: *mut *mut u16,
-    pub pusVSCtoVK: *mut u16,
-    pub bMaxVSCtoVK: u8,
-    pub pVSCtoVK_E0: *mut VSC_VK,
-    pub pVSCtoVK_E1: *mut VSC_VK,
-    pub fLocaleFlags: u32,
-    pub nLgMax: u8,
-    pub cbLgEntry: u8,
-    pub pLigature: *mut LIGATURE1,
-    pub dwType: u32,
-    pub dwSubType: u32,
-}
-impl ::core::marker::Copy for tagKbdLayer {}
-impl ::core::clone::Clone for tagKbdLayer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub struct tagKbdNlsLayer {
-    pub OEMIdentifier: u16,
-    pub LayoutInformation: u16,
-    pub NumOfVkToF: u32,
-    pub pVkToF: *mut _VK_TO_FUNCTION_TABLE,
-    pub NumOfMouseVKey: i32,
-    pub pusMouseVKey: *mut u16,
-}
-impl ::core::marker::Copy for tagKbdNlsLayer {}
-impl ::core::clone::Clone for tagKbdNlsLayer {
     fn clone(&self) -> Self {
         *self
     }

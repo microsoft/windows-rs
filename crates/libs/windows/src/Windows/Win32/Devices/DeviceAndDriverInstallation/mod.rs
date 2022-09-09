@@ -1268,10 +1268,10 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: &mut H
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: &mut HWProfileInfo_sW, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: &mut HWPROFILEINFO_W, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sW, ulflags: u32) -> CONFIGRET;
+        fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut HWPROFILEINFO_W, ulflags: u32) -> CONFIGRET;
     }
     CM_Get_Hardware_Profile_InfoW(ulindex, ::core::mem::transmute(phwprofileinfo), ulflags)
 }
@@ -1287,10 +1287,10 @@ pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: &mu
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: &mut HWProfileInfo_sW, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: &mut HWPROFILEINFO_W, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sW, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: *mut HWPROFILEINFO_W, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
     CM_Get_Hardware_Profile_Info_ExW(ulindex, ::core::mem::transmute(phwprofileinfo), ulflags, hmachine)
 }
@@ -10176,7 +10176,7 @@ impl ::core::default::Default for BUSNUMBER_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct BUSNUMBER_RESOURCE {
     pub BusNumber_Header: BUSNUMBER_DES,
@@ -10840,6 +10840,62 @@ impl ::core::default::Default for CONFLICT_DETAILS_W {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct CONNECTION_DES {
+    pub COND_Type: u32,
+    pub COND_Flags: u32,
+    pub COND_Class: u8,
+    pub COND_ClassType: u8,
+    pub COND_Reserved1: u8,
+    pub COND_Reserved2: u8,
+    pub COND_Id: i64,
+}
+impl ::core::marker::Copy for CONNECTION_DES {}
+impl ::core::clone::Clone for CONNECTION_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTION_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONNECTION_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTION_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONNECTION_DES {}
+impl ::core::default::Default for CONNECTION_DES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct CONNECTION_RESOURCE {
+    pub Connection_Header: CONNECTION_DES,
+}
+impl ::core::marker::Copy for CONNECTION_RESOURCE {}
+impl ::core::clone::Clone for CONNECTION_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTION_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONNECTION_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTION_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONNECTION_RESOURCE {}
+impl ::core::default::Default for CONNECTION_RESOURCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct CS_DES {
     pub CSD_SignatureLength: u32,
     pub CSD_LegacyDataOffset: u32,
@@ -10868,7 +10924,7 @@ impl ::core::default::Default for CS_DES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct CS_RESOURCE {
     pub CS_Header: CS_DES,
@@ -10895,56 +10951,83 @@ impl ::core::default::Default for CS_RESOURCE {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct Connection_Des_s {
-    pub COND_Type: u32,
-    pub COND_Flags: u32,
-    pub COND_Class: u8,
-    pub COND_ClassType: u8,
-    pub COND_Reserved1: u8,
-    pub COND_Reserved2: u8,
-    pub COND_Id: i64,
+pub struct DEVPRIVATE_DES {
+    pub PD_Count: u32,
+    pub PD_Type: u32,
+    pub PD_Data1: u32,
+    pub PD_Data2: u32,
+    pub PD_Data3: u32,
+    pub PD_Flags: u32,
 }
-impl ::core::marker::Copy for Connection_Des_s {}
-impl ::core::clone::Clone for Connection_Des_s {
+impl ::core::marker::Copy for DEVPRIVATE_DES {}
+impl ::core::clone::Clone for DEVPRIVATE_DES {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for Connection_Des_s {
+unsafe impl ::windows::core::Abi for DEVPRIVATE_DES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Connection_Des_s {
+impl ::core::cmp::PartialEq for DEVPRIVATE_DES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Connection_Des_s>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPRIVATE_DES>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for Connection_Des_s {}
-impl ::core::default::Default for Connection_Des_s {
+impl ::core::cmp::Eq for DEVPRIVATE_DES {}
+impl ::core::default::Default for DEVPRIVATE_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct Connection_Resource_s {
-    pub Connection_Header: Connection_Des_s,
+pub struct DEVPRIVATE_RANGE {
+    pub PR_Data1: u32,
+    pub PR_Data2: u32,
+    pub PR_Data3: u32,
 }
-impl ::core::marker::Copy for Connection_Resource_s {}
-impl ::core::clone::Clone for Connection_Resource_s {
+impl ::core::marker::Copy for DEVPRIVATE_RANGE {}
+impl ::core::clone::Clone for DEVPRIVATE_RANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for Connection_Resource_s {
+unsafe impl ::windows::core::Abi for DEVPRIVATE_RANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Connection_Resource_s {
+impl ::core::cmp::PartialEq for DEVPRIVATE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Connection_Resource_s>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPRIVATE_RANGE>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for Connection_Resource_s {}
-impl ::core::default::Default for Connection_Resource_s {
+impl ::core::cmp::Eq for DEVPRIVATE_RANGE {}
+impl ::core::default::Default for DEVPRIVATE_RANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct DEVPRIVATE_RESOURCE {
+    pub PRV_Header: DEVPRIVATE_DES,
+    pub PRV_Data: [DEVPRIVATE_RANGE; 1],
+}
+impl ::core::marker::Copy for DEVPRIVATE_RESOURCE {}
+impl ::core::clone::Clone for DEVPRIVATE_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVPRIVATE_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DEVPRIVATE_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPRIVATE_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DEVPRIVATE_RESOURCE {}
+impl ::core::default::Default for DEVPRIVATE_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -11004,7 +11087,7 @@ impl ::core::default::Default for DMA_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct DMA_RESOURCE {
     pub DMA_Header: DMA_DES,
@@ -11026,89 +11109,6 @@ impl ::core::cmp::PartialEq for DMA_RESOURCE {
 }
 impl ::core::cmp::Eq for DMA_RESOURCE {}
 impl ::core::default::Default for DMA_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct DevPrivate_Des_s {
-    pub PD_Count: u32,
-    pub PD_Type: u32,
-    pub PD_Data1: u32,
-    pub PD_Data2: u32,
-    pub PD_Data3: u32,
-    pub PD_Flags: u32,
-}
-impl ::core::marker::Copy for DevPrivate_Des_s {}
-impl ::core::clone::Clone for DevPrivate_Des_s {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DevPrivate_Des_s {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DevPrivate_Des_s {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DevPrivate_Des_s>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DevPrivate_Des_s {}
-impl ::core::default::Default for DevPrivate_Des_s {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct DevPrivate_Range_s {
-    pub PR_Data1: u32,
-    pub PR_Data2: u32,
-    pub PR_Data3: u32,
-}
-impl ::core::marker::Copy for DevPrivate_Range_s {}
-impl ::core::clone::Clone for DevPrivate_Range_s {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DevPrivate_Range_s {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DevPrivate_Range_s {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DevPrivate_Range_s>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DevPrivate_Range_s {}
-impl ::core::default::Default for DevPrivate_Range_s {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct DevPrivate_Resource_s {
-    pub PRV_Header: DevPrivate_Des_s,
-    pub PRV_Data: [DevPrivate_Range_s; 1],
-}
-impl ::core::marker::Copy for DevPrivate_Resource_s {}
-impl ::core::clone::Clone for DevPrivate_Resource_s {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DevPrivate_Resource_s {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DevPrivate_Resource_s {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DevPrivate_Resource_s>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DevPrivate_Resource_s {}
-impl ::core::default::Default for DevPrivate_Resource_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -11636,6 +11636,33 @@ unsafe impl ::windows::core::Abi for HDEVINFO {
     type Abi = Self;
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct HWPROFILEINFO_W {
+    pub HWPI_ulHWProfile: u32,
+    pub HWPI_szFriendlyName: [u16; 80],
+    pub HWPI_dwFlags: u32,
+}
+impl ::core::marker::Copy for HWPROFILEINFO_W {}
+impl ::core::clone::Clone for HWPROFILEINFO_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HWPROFILEINFO_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HWPROFILEINFO_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HWPROFILEINFO_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HWPROFILEINFO_W {}
+impl ::core::default::Default for HWPROFILEINFO_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HWProfileInfo_sA {
@@ -11665,33 +11692,6 @@ impl ::core::cmp::PartialEq for HWProfileInfo_sA {
 impl ::core::cmp::Eq for HWProfileInfo_sA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HWProfileInfo_sA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct HWProfileInfo_sW {
-    pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [u16; 80],
-    pub HWPI_dwFlags: u32,
-}
-impl ::core::marker::Copy for HWProfileInfo_sW {}
-impl ::core::clone::Clone for HWProfileInfo_sW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for HWProfileInfo_sW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HWProfileInfo_sW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HWProfileInfo_sW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HWProfileInfo_sW {}
-impl ::core::default::Default for HWProfileInfo_sW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -11936,7 +11936,7 @@ impl ::core::default::Default for IRQ_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IRQ_RESOURCE_32 {
     pub IRQ_Header: IRQ_DES_32,
@@ -11962,7 +11962,7 @@ impl ::core::default::Default for IRQ_RESOURCE_32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IRQ_RESOURCE_64 {
     pub IRQ_Header: IRQ_DES_64,
@@ -12020,6 +12020,92 @@ impl ::core::default::Default for MEM_DES {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct MEM_LARGE_DES {
+    pub MLD_Count: u32,
+    pub MLD_Type: u32,
+    pub MLD_Alloc_Base: u64,
+    pub MLD_Alloc_End: u64,
+    pub MLD_Flags: u32,
+    pub MLD_Reserved: u32,
+}
+impl ::core::marker::Copy for MEM_LARGE_DES {}
+impl ::core::clone::Clone for MEM_LARGE_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_LARGE_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEM_LARGE_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_LARGE_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEM_LARGE_DES {}
+impl ::core::default::Default for MEM_LARGE_DES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct MEM_LARGE_RANGE {
+    pub MLR_Align: u64,
+    pub MLR_nBytes: u64,
+    pub MLR_Min: u64,
+    pub MLR_Max: u64,
+    pub MLR_Flags: u32,
+    pub MLR_Reserved: u32,
+}
+impl ::core::marker::Copy for MEM_LARGE_RANGE {}
+impl ::core::clone::Clone for MEM_LARGE_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_LARGE_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEM_LARGE_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_LARGE_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEM_LARGE_RANGE {}
+impl ::core::default::Default for MEM_LARGE_RANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub struct MEM_LARGE_RESOURCE {
+    pub MEM_LARGE_Header: MEM_LARGE_DES,
+    pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
+}
+impl ::core::marker::Copy for MEM_LARGE_RESOURCE {}
+impl ::core::clone::Clone for MEM_LARGE_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_LARGE_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEM_LARGE_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_LARGE_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEM_LARGE_RESOURCE {}
+impl ::core::default::Default for MEM_LARGE_RESOURCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct MEM_RANGE {
     pub MR_Align: u64,
     pub MR_nBytes: u32,
@@ -12048,7 +12134,7 @@ impl ::core::default::Default for MEM_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct MEM_RESOURCE {
     pub MEM_Header: MEM_DES,
@@ -12105,7 +12191,7 @@ impl ::core::default::Default for MFCARD_DES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct MFCARD_RESOURCE {
     pub MfCard_Header: MFCARD_DES,
@@ -12126,92 +12212,6 @@ impl ::core::cmp::PartialEq for MFCARD_RESOURCE {
 }
 impl ::core::cmp::Eq for MFCARD_RESOURCE {}
 impl ::core::default::Default for MFCARD_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct Mem_Large_Des_s {
-    pub MLD_Count: u32,
-    pub MLD_Type: u32,
-    pub MLD_Alloc_Base: u64,
-    pub MLD_Alloc_End: u64,
-    pub MLD_Flags: u32,
-    pub MLD_Reserved: u32,
-}
-impl ::core::marker::Copy for Mem_Large_Des_s {}
-impl ::core::clone::Clone for Mem_Large_Des_s {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for Mem_Large_Des_s {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for Mem_Large_Des_s {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Mem_Large_Des_s>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Mem_Large_Des_s {}
-impl ::core::default::Default for Mem_Large_Des_s {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct Mem_Large_Range_s {
-    pub MLR_Align: u64,
-    pub MLR_nBytes: u64,
-    pub MLR_Min: u64,
-    pub MLR_Max: u64,
-    pub MLR_Flags: u32,
-    pub MLR_Reserved: u32,
-}
-impl ::core::marker::Copy for Mem_Large_Range_s {}
-impl ::core::clone::Clone for Mem_Large_Range_s {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for Mem_Large_Range_s {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for Mem_Large_Range_s {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Mem_Large_Range_s>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Mem_Large_Range_s {}
-impl ::core::default::Default for Mem_Large_Range_s {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub struct Mem_Large_Resource_s {
-    pub MEM_LARGE_Header: Mem_Large_Des_s,
-    pub MEM_LARGE_Data: [Mem_Large_Range_s; 1],
-}
-impl ::core::marker::Copy for Mem_Large_Resource_s {}
-impl ::core::clone::Clone for Mem_Large_Resource_s {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for Mem_Large_Resource_s {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for Mem_Large_Resource_s {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Mem_Large_Resource_s>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Mem_Large_Resource_s {}
-impl ::core::default::Default for Mem_Large_Resource_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -12250,7 +12250,7 @@ impl ::core::default::Default for PCCARD_DES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct PCCARD_RESOURCE {
     pub PcCard_Header: PCCARD_DES,

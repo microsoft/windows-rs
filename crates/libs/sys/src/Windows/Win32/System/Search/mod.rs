@@ -10011,6 +10011,30 @@ impl ::core::clone::Clone for DBDATE {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBDATETIM4 {
+    pub numdays: u16,
+    pub nummins: u16,
+}
+impl ::core::marker::Copy for DBDATETIM4 {}
+impl ::core::clone::Clone for DBDATETIM4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBDATETIME {
+    pub dtdays: i32,
+    pub dttime: u32,
+}
+impl ::core::marker::Copy for DBDATETIME {}
+impl ::core::clone::Clone for DBDATETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
@@ -10149,6 +10173,18 @@ impl ::core::marker::Copy for DBLITERALINFO {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBLITERALINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBMONEY {
+    pub mnyhigh: i32,
+    pub mnylow: u32,
+}
+impl ::core::marker::Copy for DBMONEY {}
+impl ::core::clone::Clone for DBMONEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -10275,7 +10311,7 @@ impl ::core::clone::Clone for DBPARAMINFO {
 pub struct DBPARAMS {
     pub pData: *mut ::core::ffi::c_void,
     pub cParamSets: usize,
-    pub hAccessor: usize,
+    pub hAccessor: HACCESSOR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DBPARAMS {}
@@ -10291,7 +10327,7 @@ impl ::core::clone::Clone for DBPARAMS {
 pub struct DBPARAMS {
     pub pData: *mut ::core::ffi::c_void,
     pub cParamSets: usize,
-    pub hAccessor: usize,
+    pub hAccessor: HACCESSOR,
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for DBPARAMS {}
@@ -10489,6 +10525,40 @@ impl ::core::marker::Copy for DBPROPSET {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for DBPROPSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct DBROWWATCHCHANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for DBROWWATCHCHANGE {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for DBROWWATCHCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct DBROWWATCHCHANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for DBROWWATCHCHANGE {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for DBROWWATCHCHANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -10542,6 +10612,30 @@ pub struct DBTIMESTAMP {
 impl ::core::marker::Copy for DBTIMESTAMP {}
 #[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for DBTIMESTAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBVARYBIN {
+    pub len: i16,
+    pub array: [u8; 8001],
+}
+impl ::core::marker::Copy for DBVARYBIN {}
+impl ::core::clone::Clone for DBVARYBIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct DBVARYCHAR {
+    pub len: i16,
+    pub str: [i8; 8001],
+}
+impl ::core::marker::Copy for DBVARYCHAR {}
+impl ::core::clone::Clone for DBVARYCHAR {
     fn clone(&self) -> Self {
         *self
     }
@@ -10669,6 +10763,7 @@ impl ::core::clone::Clone for FILTERED_DATA_SOURCES {
         *self
     }
 }
+pub type HACCESSOR = usize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub struct HITRANGE {
@@ -11195,6 +11290,64 @@ impl ::core::clone::Clone for SORTSET {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SQLPERF {
+    pub TimerResolution: u32,
+    pub SQLidu: u32,
+    pub SQLiduRows: u32,
+    pub SQLSelects: u32,
+    pub SQLSelectRows: u32,
+    pub Transactions: u32,
+    pub SQLPrepares: u32,
+    pub ExecDirects: u32,
+    pub SQLExecutes: u32,
+    pub CursorOpens: u32,
+    pub CursorSize: u32,
+    pub CursorUsed: u32,
+    pub PercentCursorUsed: f64,
+    pub AvgFetchTime: f64,
+    pub AvgCursorSize: f64,
+    pub AvgCursorUsed: f64,
+    pub SQLFetchTime: u32,
+    pub SQLFetchCount: u32,
+    pub CurrentStmtCount: u32,
+    pub MaxOpenStmt: u32,
+    pub SumOpenStmt: u32,
+    pub CurrentConnectionCount: u32,
+    pub MaxConnectionsOpened: u32,
+    pub SumConnectionsOpened: u32,
+    pub SumConnectiontime: u32,
+    pub AvgTimeOpened: f64,
+    pub ServerRndTrips: u32,
+    pub BuffersSent: u32,
+    pub BuffersRec: u32,
+    pub BytesSent: u32,
+    pub BytesRec: u32,
+    pub msExecutionTime: u32,
+    pub msNetWorkServerTime: u32,
+}
+impl ::core::marker::Copy for SQLPERF {}
+impl ::core::clone::Clone for SQLPERF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SQL_DAY_SECOND_STRUCT {
+    pub day: u32,
+    pub hour: u32,
+    pub minute: u32,
+    pub second: u32,
+    pub fraction: u32,
+}
+impl ::core::marker::Copy for SQL_DAY_SECOND_STRUCT {}
+impl ::core::clone::Clone for SQL_DAY_SECOND_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub struct SQL_INTERVAL_STRUCT {
     pub interval_type: SQLINTERVAL,
     pub interval_sign: i16,
@@ -11209,8 +11362,8 @@ impl ::core::clone::Clone for SQL_INTERVAL_STRUCT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub union SQL_INTERVAL_STRUCT_0 {
-    pub year_month: tagSQL_YEAR_MONTH,
-    pub day_second: tagSQL_DAY_SECOND,
+    pub year_month: SQL_YEAR_MONTH_STRUCT,
+    pub day_second: SQL_DAY_SECOND_STRUCT,
 }
 impl ::core::marker::Copy for SQL_INTERVAL_STRUCT_0 {}
 impl ::core::clone::Clone for SQL_INTERVAL_STRUCT_0 {
@@ -11228,6 +11381,35 @@ pub struct SQL_NUMERIC_STRUCT {
 }
 impl ::core::marker::Copy for SQL_NUMERIC_STRUCT {}
 impl ::core::clone::Clone for SQL_NUMERIC_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SQL_YEAR_MONTH_STRUCT {
+    pub year: u32,
+    pub month: u32,
+}
+impl ::core::marker::Copy for SQL_YEAR_MONTH_STRUCT {}
+impl ::core::clone::Clone for SQL_YEAR_MONTH_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub struct SSERRORINFO {
+    pub pwszMessage: ::windows_sys::core::PWSTR,
+    pub pwszServer: ::windows_sys::core::PWSTR,
+    pub pwszProcedure: ::windows_sys::core::PWSTR,
+    pub lNative: i32,
+    pub bState: u8,
+    pub bClass: u8,
+    pub wLineNumber: u16,
+}
+impl ::core::marker::Copy for SSERRORINFO {}
+impl ::core::clone::Clone for SSERRORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -11479,187 +11661,6 @@ pub struct VECTORRESTRICTION {
 impl ::core::marker::Copy for VECTORRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for VECTORRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbdatetime {
-    pub dtdays: i32,
-    pub dttime: u32,
-}
-impl ::core::marker::Copy for dbdatetime {}
-impl ::core::clone::Clone for dbdatetime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbdatetime4 {
-    pub numdays: u16,
-    pub nummins: u16,
-}
-impl ::core::marker::Copy for dbdatetime4 {}
-impl ::core::clone::Clone for dbdatetime4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbmoney {
-    pub mnyhigh: i32,
-    pub mnylow: u32,
-}
-impl ::core::marker::Copy for dbmoney {}
-impl ::core::clone::Clone for dbmoney {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbvarybin {
-    pub len: i16,
-    pub array: [u8; 8001],
-}
-impl ::core::marker::Copy for dbvarybin {}
-impl ::core::clone::Clone for dbvarybin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct dbvarychar {
-    pub len: i16,
-    pub str: [i8; 8001],
-}
-impl ::core::marker::Copy for dbvarychar {}
-impl ::core::clone::Clone for dbvarychar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct sqlperf {
-    pub TimerResolution: u32,
-    pub SQLidu: u32,
-    pub SQLiduRows: u32,
-    pub SQLSelects: u32,
-    pub SQLSelectRows: u32,
-    pub Transactions: u32,
-    pub SQLPrepares: u32,
-    pub ExecDirects: u32,
-    pub SQLExecutes: u32,
-    pub CursorOpens: u32,
-    pub CursorSize: u32,
-    pub CursorUsed: u32,
-    pub PercentCursorUsed: f64,
-    pub AvgFetchTime: f64,
-    pub AvgCursorSize: f64,
-    pub AvgCursorUsed: f64,
-    pub SQLFetchTime: u32,
-    pub SQLFetchCount: u32,
-    pub CurrentStmtCount: u32,
-    pub MaxOpenStmt: u32,
-    pub SumOpenStmt: u32,
-    pub CurrentConnectionCount: u32,
-    pub MaxConnectionsOpened: u32,
-    pub SumConnectionsOpened: u32,
-    pub SumConnectiontime: u32,
-    pub AvgTimeOpened: f64,
-    pub ServerRndTrips: u32,
-    pub BuffersSent: u32,
-    pub BuffersRec: u32,
-    pub BytesSent: u32,
-    pub BytesRec: u32,
-    pub msExecutionTime: u32,
-    pub msNetWorkServerTime: u32,
-}
-impl ::core::marker::Copy for sqlperf {}
-impl ::core::clone::Clone for sqlperf {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct tagDBROWWATCHRANGE {
-    pub hRegion: usize,
-    pub eChangeKind: u32,
-    pub hRow: usize,
-    pub iRow: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for tagDBROWWATCHRANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for tagDBROWWATCHRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-#[cfg(target_arch = "x86")]
-pub struct tagDBROWWATCHRANGE {
-    pub hRegion: usize,
-    pub eChangeKind: u32,
-    pub hRow: usize,
-    pub iRow: usize,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for tagDBROWWATCHRANGE {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for tagDBROWWATCHRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct tagSQL_DAY_SECOND {
-    pub day: u32,
-    pub hour: u32,
-    pub minute: u32,
-    pub second: u32,
-    pub fraction: u32,
-}
-impl ::core::marker::Copy for tagSQL_DAY_SECOND {}
-impl ::core::clone::Clone for tagSQL_DAY_SECOND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct tagSQL_YEAR_MONTH {
-    pub year: u32,
-    pub month: u32,
-}
-impl ::core::marker::Copy for tagSQL_YEAR_MONTH {}
-impl ::core::clone::Clone for tagSQL_YEAR_MONTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
-pub struct tagSSErrorInfo {
-    pub pwszMessage: ::windows_sys::core::PWSTR,
-    pub pwszServer: ::windows_sys::core::PWSTR,
-    pub pwszProcedure: ::windows_sys::core::PWSTR,
-    pub lNative: i32,
-    pub bState: u8,
-    pub bClass: u8,
-    pub wLineNumber: u16,
-}
-impl ::core::marker::Copy for tagSSErrorInfo {}
-impl ::core::clone::Clone for tagSSErrorInfo {
     fn clone(&self) -> Self {
         *self
     }

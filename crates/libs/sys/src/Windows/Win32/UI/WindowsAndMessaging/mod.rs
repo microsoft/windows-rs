@@ -1,10 +1,6 @@
 #[cfg_attr(windows, link(name = "windows"))]
 extern "cdecl" {
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-    pub fn DestroyIndexedResults(resourceuri: ::windows_sys::core::PCWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-    pub fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     pub fn wsprintfA(param0: ::windows_sys::core::PSTR, param1: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     pub fn wsprintfW(param0: ::windows_sys::core::PWSTR, param1: ::windows_sys::core::PCWSTR) -> i32;
@@ -239,9 +235,13 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyIcon(hicon: HICON) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    pub fn DestroyIndexedResults(resourceuri: ::windows_sys::core::PCWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    pub fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -1478,27 +1478,7 @@ pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DC_HASDEFID: u32 = 21323u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_CREATEMENU: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_CREATEWINDOW: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_ENUMERATE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_HOOKCONTROL: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_JOURNALPLAYBACK: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_JOURNALRECORD: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_READOBJECTS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_SWITCHDESKTOP: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DESKTOP_WRITEOBJECTS: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DIFFERENCE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1852,8 +1832,6 @@ pub const EWX_QUICKRESOLVE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const EWX_SYSTEM_INITIATED: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FALT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FAPPCOMMAND_KEY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FAPPCOMMAND_MASK: u32 = 61440u32;
@@ -1861,8 +1839,6 @@ pub const FAPPCOMMAND_MASK: u32 = 61440u32;
 pub const FAPPCOMMAND_MOUSE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FAPPCOMMAND_OEM: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FCONTROL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FE_FONTSMOOTHINGCLEARTYPE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1885,12 +1861,6 @@ pub const FKF_HOTKEYACTIVE: u32 = 4u32;
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const FKF_INDICATOR: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FNOINVERT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FSHIFT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const FVIRTKEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1996,10 +1966,6 @@ pub const HC_SKIP: u32 = 2u32;
 pub const HC_SYSMODALOFF: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const HC_SYSMODALON: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const HELPINFO_MENUITEM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const HELPINFO_WINDOW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const HELP_COMMAND: i32 = 258i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -2624,34 +2590,6 @@ pub const OCR_ICOCUR: u32 = 32647u32;
 pub const OCR_ICON: u32 = 32641u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const OCR_SIZE: u32 = 32640u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODA_DRAWENTIRE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODA_FOCUS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODA_SELECT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_CHECKED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_COMBOBOXEDIT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_DEFAULT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_FOCUS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_GRAYED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_HOTLIGHT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_INACTIVE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_NOACCEL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_NOFOCUSRECT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const ODS_SELECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const OIC_BANG: u32 = 32515u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3916,6 +3854,18 @@ pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
 pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub type ACCEL_VIRT_FLAGS = u8;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FVIRTKEY: ACCEL_VIRT_FLAGS = 1u8;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FNOINVERT: ACCEL_VIRT_FLAGS = 2u8;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FSHIFT: ACCEL_VIRT_FLAGS = 4u8;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FCONTROL: ACCEL_VIRT_FLAGS = 8u8;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const FALT: ACCEL_VIRT_FLAGS = 16u8;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub type ANIMATE_WINDOW_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5759,7 +5709,7 @@ pub const CS_DROPSHADOW: WNDCLASS_STYLES = 131072u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct ACCEL {
-    pub fVirt: u8,
+    pub fVirt: ACCEL_VIRT_FLAGS,
     pub key: u16,
     pub cmd: u16,
 }
@@ -6855,6 +6805,20 @@ impl ::core::clone::Clone for TITLEBARINFOEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct TOUCHPREDICTIONPARAMETERS {
+    pub cbSize: u32,
+    pub dwLatency: u32,
+    pub dwSampleTime: u32,
+    pub bUseHWTimeStamp: u32,
+}
+impl ::core::marker::Copy for TOUCHPREDICTIONPARAMETERS {}
+impl ::core::clone::Clone for TOUCHPREDICTIONPARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TPMPARAMS {
@@ -6865,20 +6829,6 @@ pub struct TPMPARAMS {
 impl ::core::marker::Copy for TPMPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TPMPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub struct TouchPredictionParameters {
-    pub cbSize: u32,
-    pub dwLatency: u32,
-    pub dwSampleTime: u32,
-    pub bUseHWTimeStamp: u32,
-}
-impl ::core::marker::Copy for TouchPredictionParameters {}
-impl ::core::clone::Clone for TouchPredictionParameters {
     fn clone(&self) -> Self {
         *self
     }

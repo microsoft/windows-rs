@@ -1,16 +1,4 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -33,6 +21,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WTSDisconnectSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WTSEnumerateListenersA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> super::super::Foundation::BOOL;
@@ -79,12 +70,18 @@ extern "system" {
     pub fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
     pub fn WTSGetActiveConsoleSessionId() -> u32;
+    #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn WTSGetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows_sys::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn WTSGetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WTSLogoffSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -1565,6 +1562,33 @@ impl ::core::clone::Clone for CLIENT_DISPLAY {
     }
 }
 pub type HwtsVirtualChannelHandle = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRODUCT_INFOA {
+    pub CompanyName: [super::super::Foundation::CHAR; 256],
+    pub ProductID: [super::super::Foundation::CHAR; 4],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRODUCT_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRODUCT_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct PRODUCT_INFOW {
+    pub CompanyName: [u16; 256],
+    pub ProductID: [u16; 4],
+}
+impl ::core::marker::Copy for PRODUCT_INFOW {}
+impl ::core::clone::Clone for PRODUCT_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3108,7 +3132,7 @@ impl ::core::clone::Clone for WTS_USER_DATA {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_VALIDATION_INFORMATIONA {
-    pub ProductInfo: _WTS_PRODUCT_INFOA,
+    pub ProductInfo: PRODUCT_INFOA,
     pub License: [u8; 16384],
     pub LicenseLength: u32,
     pub HardwareID: [u8; 20],
@@ -3125,7 +3149,7 @@ impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_VALIDATION_INFORMATIONW {
-    pub ProductInfo: _WTS_PRODUCT_INFOW,
+    pub ProductInfo: PRODUCT_INFOW,
     pub License: [u8; 16384],
     pub LicenseLength: u32,
     pub HardwareID: [u8; 20],
@@ -3133,33 +3157,6 @@ pub struct WTS_VALIDATION_INFORMATIONW {
 }
 impl ::core::marker::Copy for WTS_VALIDATION_INFORMATIONW {}
 impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _WTS_PRODUCT_INFOA {
-    pub CompanyName: [super::super::Foundation::CHAR; 256],
-    pub ProductID: [super::super::Foundation::CHAR; 4],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _WTS_PRODUCT_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _WTS_PRODUCT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct _WTS_PRODUCT_INFOW {
-    pub CompanyName: [u16; 256],
-    pub ProductID: [u16; 4],
-}
-impl ::core::marker::Copy for _WTS_PRODUCT_INFOW {}
-impl ::core::clone::Clone for _WTS_PRODUCT_INFOW {
     fn clone(&self) -> Self {
         *self
     }

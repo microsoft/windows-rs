@@ -653,28 +653,6 @@ pub const PFM_TABLEROWDELIMITER: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_TEXTWRAPPINGBREAK: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_ARABIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_BULLET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_LCLETTER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_LCROMAN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_UCLETTER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const PFN_UCROMAN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_COPY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_CUT: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_DRAG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_DROP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RECO_PASTE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_NULL: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_READWRITEMASK: i32 = 2047i32;
@@ -1302,6 +1280,20 @@ pub const PFM_RTLPARA: PARAFORMAT_MASK = 65536u32;
 pub const PFM_STARTINDENT: PARAFORMAT_MASK = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_TABSTOPS: PARAFORMAT_MASK = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub type PARAFORMAT_NUMBERING = u16;
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_BULLET: PARAFORMAT_NUMBERING = 1u16;
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_ARABIC: PARAFORMAT_NUMBERING = 2u16;
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_LCLETTER: PARAFORMAT_NUMBERING = 3u16;
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_UCLETTER: PARAFORMAT_NUMBERING = 4u16;
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_LCROMAN: PARAFORMAT_NUMBERING = 5u16;
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub const PFN_UCROMAN: PARAFORMAT_NUMBERING = 6u16;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub type PARAFORMAT_NUMBERING_STYLE = u16;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
@@ -2689,8 +2681,8 @@ impl ::core::clone::Clone for CHANGENOTIFY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMAT2A {
     pub Base: CHARFORMATA,
     pub wWeight: u16,
@@ -2705,32 +2697,32 @@ pub struct CHARFORMAT2A {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2A {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2A_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMAT2W {
     pub Base: CHARFORMATW,
     pub wWeight: u16,
@@ -2745,32 +2737,32 @@ pub struct CHARFORMAT2W {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2W {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMAT2W_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMAT2W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMATA {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -2778,21 +2770,21 @@ pub struct CHARFORMATA {
     pub yHeight: i32,
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: u8,
-    pub bPitchAndFamily: u8,
+    pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
+    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
     pub szFaceName: [super::super::super::Foundation::CHAR; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMATA {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHARFORMATW {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -2800,13 +2792,13 @@ pub struct CHARFORMATW {
     pub yHeight: i32,
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
-    pub bCharSet: u8,
-    pub bPitchAndFamily: u8,
+    pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
+    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
     pub szFaceName: [u16; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMATW {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHARFORMATW {
     fn clone(&self) -> Self {
         *self
@@ -3113,6 +3105,21 @@ impl ::core::clone::Clone for GETTEXTLENGTHEX {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GROUPTYPINGCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub fGroupTyping: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GROUPTYPINGCHANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GROUPTYPINGCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
@@ -3121,6 +3128,19 @@ pub struct HYPHENATEINFO {
 }
 impl ::core::marker::Copy for HYPHENATEINFO {}
 impl ::core::clone::Clone for HYPHENATEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+pub struct HYPHRESULT {
+    pub khyph: KHYPH,
+    pub ichHyph: i32,
+    pub chHyph: u16,
+}
+impl ::core::marker::Copy for HYPHRESULT {}
+impl ::core::clone::Clone for HYPHRESULT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3175,7 +3195,7 @@ impl ::core::clone::Clone for OBJECTPOSITIONS {
 pub struct PARAFORMAT {
     pub cbSize: u32,
     pub dwMask: PARAFORMAT_MASK,
-    pub wNumbering: u16,
+    pub wNumbering: PARAFORMAT_NUMBERING,
     pub Anonymous: PARAFORMAT_0,
     pub dxStartIndent: i32,
     pub dxRightIndent: i32,
@@ -3406,34 +3426,6 @@ pub struct TEXTRANGEW {
 }
 impl ::core::marker::Copy for TEXTRANGEW {}
 impl ::core::clone::Clone for TEXTRANGEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _grouptypingchange {
-    pub nmhdr: super::NMHDR,
-    pub fGroupTyping: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _grouptypingchange {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _grouptypingchange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub struct hyphresult {
-    pub khyph: KHYPH,
-    pub ichHyph: i32,
-    pub chHyph: u16,
-}
-impl ::core::marker::Copy for hyphresult {}
-impl ::core::clone::Clone for hyphresult {
     fn clone(&self) -> Self {
         *self
     }

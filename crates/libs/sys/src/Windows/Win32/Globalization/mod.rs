@@ -2419,7 +2419,7 @@ extern "system" {
     pub fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows_sys::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
+    pub fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const TEXTRANGE_PROPERTIES, cranges: i32, pwcchars: ::windows_sys::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const SCRIPT_CHARPROP, cchars: i32, pwglyphs: *const u16, pglyphprops: *const SCRIPT_GLYPHPROP, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ScriptPositionSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows_sys::core::HRESULT;
@@ -2430,7 +2430,7 @@ extern "system" {
     pub fn ScriptShape(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcchars: ::windows_sys::core::PCWSTR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptShapeOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows_sys::core::PCWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn ScriptShapeOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const TEXTRANGE_PROPERTIES, cranges: i32, pwcchars: ::windows_sys::core::PCWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut SCRIPT_CHARPROP, pwoutglyphs: *mut u16, poutglyphprops: *mut SCRIPT_GLYPHPROP, pcglyphs: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -4450,6 +4450,40 @@ pub const MIMECONTF_MIME_IE4: MIMECONTF = 268435456i32;
 pub const MIMECONTF_MIME_LATEST: MIMECONTF = 536870912i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MIMECONTF_MIME_REGISTRY: MIMECONTF = 1073741824i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub type MLCONVCHAR = i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_AUTODETECT: MLCONVCHAR = 1i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_ENTITIZE: MLCONVCHAR = 2i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_NCR_ENTITIZE: MLCONVCHAR = 2i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_NAME_ENTITIZE: MLCONVCHAR = 4i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_USEDEFCHAR: MLCONVCHAR = 8i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_NOBESTFITCHARS: MLCONVCHAR = 16i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLCONVCHARF_DETECTJPN: MLCONVCHAR = 32i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub type MLCP = i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_MAILNEWS: MLCP = 1i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_BROWSER: MLCP = 2i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_VALID: MLCP = 4i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_VALID_NLS: MLCP = 8i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_PRESERVE_ORDER: MLCP = 16i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_PREFERRED_ONLY: MLCP = 32i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_FILTER_SPECIALCHAR: MLCP = 64i32;
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub const MLDETECTF_EURO_UTF8: MLCP = 128i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub type MLDETECTCP = i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -8910,40 +8944,6 @@ pub const WORDLIST_TYPE_ADD: WORDLIST_TYPE = 1i32;
 pub const WORDLIST_TYPE_EXCLUDE: WORDLIST_TYPE = 2i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const WORDLIST_TYPE_AUTOCORRECT: WORDLIST_TYPE = 3i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub type tagMLCONVCHARF = i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_AUTODETECT: tagMLCONVCHARF = 1i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_ENTITIZE: tagMLCONVCHARF = 2i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_NCR_ENTITIZE: tagMLCONVCHARF = 2i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_NAME_ENTITIZE: tagMLCONVCHARF = 4i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_USEDEFCHAR: tagMLCONVCHARF = 8i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_NOBESTFITCHARS: tagMLCONVCHARF = 16i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLCONVCHARF_DETECTJPN: tagMLCONVCHARF = 32i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub type tagMLCPF = i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_MAILNEWS: tagMLCPF = 1i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_BROWSER: tagMLCPF = 2i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_VALID: tagMLCPF = 4i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_VALID_NLS: tagMLCPF = 8i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_PRESERVE_ORDER: tagMLCPF = 16i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_PREFERRED_ONLY: tagMLCPF = 32i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_FILTER_SPECIALCHAR: tagMLCPF = 64i32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const MLDETECTF_EURO_UTF8: tagMLCPF = 128i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct CHARSETINFO {
@@ -9394,6 +9394,18 @@ impl ::core::clone::Clone for NUMBERFMTW {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct OPENTYPE_FEATURE_RECORD {
+    pub tagFeature: u32,
+    pub lParameter: i32,
+}
+impl ::core::marker::Copy for OPENTYPE_FEATURE_RECORD {}
+impl ::core::clone::Clone for OPENTYPE_FEATURE_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct RFC1766INFO {
     pub lcid: u32,
     pub wszRfc1766: [u16; 6],
@@ -9401,6 +9413,18 @@ pub struct RFC1766INFO {
 }
 impl ::core::marker::Copy for RFC1766INFO {}
 impl ::core::clone::Clone for RFC1766INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct SCRIPTFONTINFO {
+    pub scripts: i64,
+    pub wszFont: [u16; 32],
+}
+impl ::core::marker::Copy for SCRIPTFONTINFO {}
+impl ::core::clone::Clone for SCRIPTFONTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -9428,6 +9452,17 @@ pub struct SCRIPT_ANALYSIS {
 }
 impl ::core::marker::Copy for SCRIPT_ANALYSIS {}
 impl ::core::clone::Clone for SCRIPT_ANALYSIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct SCRIPT_CHARPROP {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for SCRIPT_CHARPROP {}
+impl ::core::clone::Clone for SCRIPT_CHARPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -9468,6 +9503,18 @@ pub struct SCRIPT_FONTPROPERTIES {
 }
 impl ::core::marker::Copy for SCRIPT_FONTPROPERTIES {}
 impl ::core::clone::Clone for SCRIPT_FONTPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct SCRIPT_GLYPHPROP {
+    pub sva: SCRIPT_VISATTR,
+    pub reserved: u16,
+}
+impl ::core::marker::Copy for SCRIPT_GLYPHPROP {}
+impl ::core::clone::Clone for SCRIPT_GLYPHPROP {
     fn clone(&self) -> Self {
         *self
     }
@@ -9539,6 +9586,18 @@ pub struct SCRIPT_VISATTR {
 }
 impl ::core::marker::Copy for SCRIPT_VISATTR {}
 impl ::core::clone::Clone for SCRIPT_VISATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
+pub struct TEXTRANGE_PROPERTIES {
+    pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
+    pub cotfRecords: i32,
+}
+impl ::core::marker::Copy for TEXTRANGE_PROPERTIES {}
+impl ::core::clone::Clone for TEXTRANGE_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -9883,65 +9942,6 @@ pub struct UTransPosition {
 }
 impl ::core::marker::Copy for UTransPosition {}
 impl ::core::clone::Clone for UTransPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct opentype_feature_record {
-    pub tagFeature: u32,
-    pub lParameter: i32,
-}
-impl ::core::marker::Copy for opentype_feature_record {}
-impl ::core::clone::Clone for opentype_feature_record {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct script_charprop {
-    pub _bitfield: u16,
-}
-impl ::core::marker::Copy for script_charprop {}
-impl ::core::clone::Clone for script_charprop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct script_glyphprop {
-    pub sva: SCRIPT_VISATTR,
-    pub reserved: u16,
-}
-impl ::core::marker::Copy for script_glyphprop {}
-impl ::core::clone::Clone for script_glyphprop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct tagSCRIPFONTINFO {
-    pub scripts: i64,
-    pub wszFont: [u16; 32],
-}
-impl ::core::marker::Copy for tagSCRIPFONTINFO {}
-impl ::core::clone::Clone for tagSCRIPFONTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub struct textrange_properties {
-    pub potfRecords: *mut opentype_feature_record,
-    pub cotfRecords: i32,
-}
-impl ::core::marker::Copy for textrange_properties {}
-impl ::core::clone::Clone for textrange_properties {
     fn clone(&self) -> Self {
         *self
     }

@@ -6993,6 +6993,38 @@ impl ::core::default::Default for IMEDP {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub struct IMEFAREASTINFO {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub dwData: [u32; 1],
+}
+impl ::core::marker::Copy for IMEFAREASTINFO {}
+impl ::core::clone::Clone for IMEFAREASTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IMEFAREASTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMEFAREASTINFO").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("dwData", &self.dwData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IMEFAREASTINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IMEFAREASTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMEFAREASTINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IMEFAREASTINFO {}
+impl ::core::default::Default for IMEFAREASTINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -7536,7 +7568,7 @@ impl ::core::default::Default for IMESTRINGCANDIDATE {
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub struct IMESTRINGCANDIDATEINFO {
     pub dwFarEastId: u32,
-    pub lpFarEastInfo: *mut tabIMEFAREASTINFO,
+    pub lpFarEastInfo: *mut IMEFAREASTINFO,
     pub fInfoMask: u32,
     pub iSelIndex: i32,
     pub uCount: u32,
@@ -7563,6 +7595,37 @@ impl ::core::cmp::PartialEq for IMESTRINGCANDIDATEINFO {
 }
 impl ::core::cmp::Eq for IMESTRINGCANDIDATEINFO {}
 impl ::core::default::Default for IMESTRINGCANDIDATEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub struct IMESTRINGINFO {
+    pub dwFarEastId: u32,
+    pub lpwstr: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for IMESTRINGINFO {}
+impl ::core::clone::Clone for IMESTRINGINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IMESTRINGINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IMESTRINGINFO").field("dwFarEastId", &self.dwFarEastId).field("lpwstr", &self.lpwstr).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IMESTRINGINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IMESTRINGINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMESTRINGINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IMESTRINGINFO {}
+impl ::core::default::Default for IMESTRINGINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -8231,69 +8294,6 @@ impl ::core::cmp::PartialEq for WDD_1 {
 }
 impl ::core::cmp::Eq for WDD_1 {}
 impl ::core::default::Default for WDD_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub struct tabIMEFAREASTINFO {
-    pub dwSize: u32,
-    pub dwType: u32,
-    pub dwData: [u32; 1],
-}
-impl ::core::marker::Copy for tabIMEFAREASTINFO {}
-impl ::core::clone::Clone for tabIMEFAREASTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tabIMEFAREASTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tabIMEFAREASTINFO").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("dwData", &self.dwData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tabIMEFAREASTINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tabIMEFAREASTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tabIMEFAREASTINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tabIMEFAREASTINFO {}
-impl ::core::default::Default for tabIMEFAREASTINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub struct tabIMESTRINGINFO {
-    pub dwFarEastId: u32,
-    pub lpwstr: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for tabIMESTRINGINFO {}
-impl ::core::clone::Clone for tabIMESTRINGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for tabIMESTRINGINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tabIMESTRINGINFO").field("dwFarEastId", &self.dwFarEastId).field("lpwstr", &self.lpwstr).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for tabIMESTRINGINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for tabIMESTRINGINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tabIMESTRINGINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for tabIMESTRINGINFO {}
-impl ::core::default::Default for tabIMESTRINGINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

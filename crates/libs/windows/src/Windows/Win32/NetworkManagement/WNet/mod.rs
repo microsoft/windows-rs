@@ -1,31 +1,5 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetSetLastErrorA<'a, P0, P1>(err: u32, lperror: P0, lpproviders: P1)
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WNetSetLastErrorA(err: u32, lperror: ::windows::core::PCSTR, lpproviders: ::windows::core::PCSTR);
-    }
-    WNetSetLastErrorA(err, lperror.into(), lpproviders.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-#[inline]
-pub unsafe fn WNetSetLastErrorW<'a, P0, P1>(err: u32, lperror: P0, lpproviders: P1)
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WNetSetLastErrorW(err: u32, lperror: ::windows::core::PCWSTR, lpproviders: ::windows::core::PCWSTR);
-    }
-    WNetSetLastErrorW(err, lperror.into(), lpproviders.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-#[inline]
 pub unsafe fn MultinetGetConnectionPerformanceA(lpnetresource: &NETRESOURCEA, lpnetconnectinfostruct: &mut NETCONNECTINFOSTRUCT) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -716,6 +690,32 @@ pub unsafe fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TY
         fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TYPE, dwusage: WNET_OPEN_ENUM_USAGE, lpnetresource: *const NETRESOURCEW, lphenum: *mut NetEnumHandle) -> u32;
     }
     WNetOpenEnumW(dwscope, dwtype, dwusage, ::core::mem::transmute(lpnetresource), ::core::mem::transmute(lphenum))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+#[inline]
+pub unsafe fn WNetSetLastErrorA<'a, P0, P1>(err: u32, lperror: P0, lpproviders: P1)
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WNetSetLastErrorA(err: u32, lperror: ::windows::core::PCSTR, lpproviders: ::windows::core::PCSTR);
+    }
+    WNetSetLastErrorA(err, lperror.into(), lpproviders.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+#[inline]
+pub unsafe fn WNetSetLastErrorW<'a, P0, P1>(err: u32, lperror: P0, lpproviders: P1)
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WNetSetLastErrorW(err: u32, lperror: ::windows::core::PCWSTR, lpproviders: ::windows::core::PCWSTR);
+    }
+    WNetSetLastErrorW(err, lperror.into(), lpproviders.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -165,7 +165,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ConvertStringSidToSidW(stringsid: ::windows_sys::core::PCWSTR, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-    pub fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS) -> u32;
+    pub fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTS) -> u32;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn GetAuditedPermissionsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -180,10 +180,10 @@ extern "system" {
     pub fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_W) -> u32;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetInheritanceSourceA(pobjectname: ::windows_sys::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows_sys::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32;
+    pub fn GetInheritanceSourceA(pobjectname: ::windows_sys::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows_sys::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetInheritanceSourceW(pobjectname: ::windows_sys::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows_sys::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32;
+    pub fn GetInheritanceSourceW(pobjectname: ::windows_sys::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows_sys::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
     pub fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A;
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -1852,11 +1852,11 @@ impl ::core::clone::Clone for EXPLICIT_ACCESS_W {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct FN_OBJECT_MGR_FUNCTIONS {
+pub struct FN_OBJECT_MGR_FUNCTS {
     pub Placeholder: u32,
 }
-impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTIONS {}
-impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTIONS {
+impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTS {}
+impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTS {
     fn clone(&self) -> Self {
         *self
     }

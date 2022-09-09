@@ -17543,38 +17543,38 @@ impl ::core::fmt::Debug for XHR_PROPERTY {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XMLEMEM_TYPE(pub i32);
+pub struct XMLELEM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(0i32);
+pub const XMLELEMTYPE_ELEMENT: XMLELEM_TYPE = XMLELEM_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-pub const XMLELEMTYPE_TEXT: XMLEMEM_TYPE = XMLEMEM_TYPE(1i32);
+pub const XMLELEMTYPE_TEXT: XMLELEM_TYPE = XMLELEM_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-pub const XMLELEMTYPE_COMMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(2i32);
+pub const XMLELEMTYPE_COMMENT: XMLELEM_TYPE = XMLELEM_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(3i32);
+pub const XMLELEMTYPE_DOCUMENT: XMLELEM_TYPE = XMLELEM_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = XMLEMEM_TYPE(4i32);
+pub const XMLELEMTYPE_DTD: XMLELEM_TYPE = XMLELEM_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = XMLEMEM_TYPE(5i32);
+pub const XMLELEMTYPE_PI: XMLELEM_TYPE = XMLELEM_TYPE(5i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = XMLEMEM_TYPE(6i32);
-impl ::core::marker::Copy for XMLEMEM_TYPE {}
-impl ::core::clone::Clone for XMLEMEM_TYPE {
+pub const XMLELEMTYPE_OTHER: XMLELEM_TYPE = XMLELEM_TYPE(6i32);
+impl ::core::marker::Copy for XMLELEM_TYPE {}
+impl ::core::clone::Clone for XMLELEM_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for XMLEMEM_TYPE {
+impl ::core::default::Default for XMLELEM_TYPE {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XMLEMEM_TYPE {
+unsafe impl ::windows::core::Abi for XMLELEM_TYPE {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for XMLEMEM_TYPE {
+impl ::core::fmt::Debug for XMLELEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XMLEMEM_TYPE").field(&self.0).finish()
+        f.debug_tuple("XMLELEM_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
