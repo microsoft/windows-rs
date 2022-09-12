@@ -125,12 +125,14 @@ fn test_custom_interface() -> windows::core::Result<()> {
         // This works because `ICustomPersistMemory` and `IPersistMemory` share the same guid
         let p: IPersistMemory = p.cast()?;
         assert_eq!(p.GetClassID()?, "117fb826-2155-483a-b50d-bc99a2c7cca3".into());
-        // TODO: can't test IsDirty until this is fixed: https://github.com/microsoft/win32metadata/issues/838
         assert_eq!(p.GetSizeMax()?, 10);
+        assert_eq!(p.IsDirty(), S_FALSE);
         p.Load(&[0xAAu8, 0xBB, 0xCC])?;
+        assert_eq!(p.IsDirty(), S_OK);
         let mut memory = [0x00u8, 0x00, 0x00, 0x00];
         p.Save(&mut memory, true)?;
         assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
+        assert_eq!(p.IsDirty(), S_FALSE);
 
         // Use the custom implementation of `Persist` through the custom interface of `ICustomPersist`
         let p: ICustomPersistMemory = p.cast()?;
