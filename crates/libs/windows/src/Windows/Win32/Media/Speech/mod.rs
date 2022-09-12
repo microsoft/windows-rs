@@ -732,13 +732,12 @@ impl ISpEventSource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1>(&self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+        P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+        P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), pspcallback.into().abi(), wparam.into(), lparam.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pspcallback), wparam.into(), lparam.into()).ok()
     }
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetNotifyWin32Event)(::windows::core::Interface::as_raw(self)).ok()
@@ -855,13 +854,12 @@ impl ISpEventSource2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1>(&self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+        P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+        P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), pspcallback.into().abi(), wparam.into(), lparam.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pspcallback), wparam.into(), lparam.into()).ok()
     }
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetNotifyWin32Event)(::windows::core::Interface::as_raw(self)).ok()
@@ -1458,7 +1456,7 @@ pub struct ISpMMSysAudio_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-pub struct ISpNotifyCallback(::windows::core::IUnknown);
+pub struct ISpNotifyCallback(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ISpNotifyCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1470,25 +1468,13 @@ impl ISpNotifyCallback {
         (::windows::core::Interface::vtable(self).NotifyCallback)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into()).ok()
     }
 }
-impl ::core::clone::Clone for ISpNotifyCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISpNotifyCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpNotifyCallback {}
-impl ::core::fmt::Debug for ISpNotifyCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpNotifyCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Interface for ISpNotifyCallback {
     type Vtable = ISpNotifyCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1578,13 +1564,12 @@ impl ISpNotifySource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1>(&self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+        P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+        P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), pspcallback.into().abi(), wparam.into(), lparam.into()).ok()
+        (::windows::core::Interface::vtable(self).SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pspcallback), wparam.into(), lparam.into()).ok()
     }
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotifyWin32Event)(::windows::core::Interface::as_raw(self)).ok()
@@ -1685,13 +1670,12 @@ impl ISpNotifyTranslator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitSpNotifyCallback<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InitSpNotifyCallback<'a, P0, P1>(&self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+        P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+        P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).InitSpNotifyCallback)(::windows::core::Interface::as_raw(self), pspcallback.into().abi(), wparam.into(), lparam.into()).ok()
+        (::windows::core::Interface::vtable(self).InitSpNotifyCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pspcallback), wparam.into(), lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3071,13 +3055,12 @@ impl ISpRecoContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1>(&self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+        P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+        P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), pspcallback.into().abi(), wparam.into(), lparam.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pspcallback), wparam.into(), lparam.into()).ok()
     }
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetNotifyWin32Event)(::windows::core::Interface::as_raw(self)).ok()
@@ -5277,13 +5260,12 @@ impl ISpVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1, P2>(&self, pspcallback: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetNotifyCallbackInterface<'a, P0, P1>(&self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ISpNotifyCallback>>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+        P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+        P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), pspcallback.into().abi(), wparam.into(), lparam.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCallbackInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pspcallback), wparam.into(), lparam.into()).ok()
     }
     pub unsafe fn SetNotifyWin32Event(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetNotifyWin32Event)(::windows::core::Interface::as_raw(self)).ok()

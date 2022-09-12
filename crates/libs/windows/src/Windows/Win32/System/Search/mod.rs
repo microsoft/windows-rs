@@ -14784,7 +14784,7 @@ pub struct ITrusteeGroupAdmin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-pub struct IUMS(::windows::core::IUnknown);
+pub struct IUMS(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IUMS {
     pub unsafe fn SqlUmsSuspend(&self, ticks: u32) {
         (::windows::core::Interface::vtable(self).SqlUmsSuspend)(::windows::core::Interface::as_raw(self), ticks)
@@ -14804,25 +14804,13 @@ impl IUMS {
         (::windows::core::Interface::vtable(self).SqlUmsFIsPremptive)(::windows::core::Interface::as_raw(self))
     }
 }
-impl ::core::clone::Clone for IUMS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUMS {}
-impl ::core::fmt::Debug for IUMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUMS").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Interface for IUMS {
     type Vtable = IUMS_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

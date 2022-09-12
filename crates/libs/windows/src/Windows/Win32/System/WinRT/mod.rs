@@ -336,15 +336,12 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, P0>(nameelements: &[::windows::core::PWSTR], metadatalocator: P0, iid: &mut ::windows::core::GUID, pextra: ::core::option::Option<&mut ROPARAMIIDHANDLE>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRoMetaDataLocator>>,
-{
+pub unsafe fn RoGetParameterizedTypeInstanceIID(nameelements: &[::windows::core::PWSTR], metadatalocator: &::core::option::Option<IRoMetaDataLocator>, iid: &mut ::windows::core::GUID, pextra: ::core::option::Option<&mut ROPARAMIIDHANDLE>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetParameterizedTypeInstanceIID(nameelementcount: u32, nameelements: *const ::windows::core::PWSTR, metadatalocator: *mut ::core::ffi::c_void, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::HRESULT;
     }
-    RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(pextra)).ok()
+    RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), ::core::mem::transmute_copy(metadatalocator), ::core::mem::transmute(iid), ::core::mem::transmute(pextra)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -2435,35 +2432,22 @@ pub struct IRestrictedErrorInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-pub struct IRoMetaDataLocator(::windows::core::IUnknown);
+pub struct IRoMetaDataLocator(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IRoMetaDataLocator {
-    pub unsafe fn Locate<'a, P0, P1>(&self, nameelement: P0, metadatadestination: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Locate<'a, P0>(&self, nameelement: P0, metadatadestination: &::core::option::Option<IRoSimpleMetaDataBuilder>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, IRoSimpleMetaDataBuilder>>,
     {
-        (::windows::core::Interface::vtable(self).Locate)(::windows::core::Interface::as_raw(self), nameelement.into(), metadatadestination.into().abi()).ok()
-    }
-}
-impl ::core::clone::Clone for IRoMetaDataLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRoMetaDataLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoMetaDataLocator {}
-impl ::core::fmt::Debug for IRoMetaDataLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoMetaDataLocator").field(&self.0).finish()
+        (::windows::core::Interface::vtable(self).Locate)(::windows::core::Interface::as_raw(self), nameelement.into(), ::core::mem::transmute_copy(metadatadestination)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IRoMetaDataLocator {
     type Vtable = IRoMetaDataLocator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2472,7 +2456,7 @@ pub struct IRoMetaDataLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-pub struct IRoSimpleMetaDataBuilder(::windows::core::IUnknown);
+pub struct IRoSimpleMetaDataBuilder(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IRoSimpleMetaDataBuilder {
     pub unsafe fn SetWinRtInterface(&self, iid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWinRtInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid)).ok()
@@ -2526,25 +2510,13 @@ impl IRoSimpleMetaDataBuilder {
         (::windows::core::Interface::vtable(self).SetParameterizedDelegate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(piid), numargs).ok()
     }
 }
-impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRoSimpleMetaDataBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoSimpleMetaDataBuilder {}
-impl ::core::fmt::Debug for IRoSimpleMetaDataBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoSimpleMetaDataBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Interface for IRoSimpleMetaDataBuilder {
     type Vtable = IRoSimpleMetaDataBuilder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

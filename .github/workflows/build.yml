@@ -172,6 +172,7 @@ jobs:
           cargo clippy -p test_no_use &&
           cargo clippy -p test_not_dll &&
           cargo clippy -p test_properties &&
+          cargo clippy -p test_pseudo_interfaces &&
           cargo clippy -p test_query_signature &&
           cargo clippy -p test_resources &&
           cargo clippy -p test_return_struct &&

@@ -8042,7 +8042,7 @@ pub struct ID3D11FunctionLinkingGraph_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11FunctionParameterReflection(::windows::core::IUnknown);
+pub struct ID3D11FunctionParameterReflection(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D11FunctionParameterReflection {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -8051,27 +8051,13 @@ impl ID3D11FunctionParameterReflection {
         (::windows::core::Interface::vtable(self).GetDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_PARAMETER_DESC>(result__)
     }
 }
-impl ::core::clone::Clone for ID3D11FunctionParameterReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D11FunctionParameterReflection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D11FunctionParameterReflection {}
-impl ::core::fmt::Debug for ID3D11FunctionParameterReflection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D11FunctionParameterReflection").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D11FunctionParameterReflection {}
-unsafe impl ::core::marker::Sync for ID3D11FunctionParameterReflection {}
 unsafe impl ::windows::core::Interface for ID3D11FunctionParameterReflection {
     type Vtable = ID3D11FunctionParameterReflection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42757488_334f_47fe_982e_1a65d08cc462);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -8083,7 +8069,7 @@ pub struct ID3D11FunctionParameterReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11FunctionReflection(::windows::core::IUnknown);
+pub struct ID3D11FunctionReflection(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D11FunctionReflection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -8125,27 +8111,13 @@ impl ID3D11FunctionReflection {
         (::windows::core::Interface::vtable(self).GetFunctionParameter)(::windows::core::Interface::as_raw(self), parameterindex)
     }
 }
-impl ::core::clone::Clone for ID3D11FunctionReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D11FunctionReflection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D11FunctionReflection {}
-impl ::core::fmt::Debug for ID3D11FunctionReflection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D11FunctionReflection").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D11FunctionReflection {}
-unsafe impl ::core::marker::Sync for ID3D11FunctionReflection {}
 unsafe impl ::windows::core::Interface for ID3D11FunctionReflection {
     type Vtable = ID3D11FunctionReflection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x207bcecb_d683_4a06_a8a3_9b149b9f73a4);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10460,7 +10432,7 @@ pub struct ID3D11ShaderReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11ShaderReflectionConstantBuffer(::windows::core::IUnknown);
+pub struct ID3D11ShaderReflectionConstantBuffer(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D11ShaderReflectionConstantBuffer {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10477,27 +10449,13 @@ impl ID3D11ShaderReflectionConstantBuffer {
         (::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into())
     }
 }
-impl ::core::clone::Clone for ID3D11ShaderReflectionConstantBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D11ShaderReflectionConstantBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D11ShaderReflectionConstantBuffer {}
-impl ::core::fmt::Debug for ID3D11ShaderReflectionConstantBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D11ShaderReflectionConstantBuffer").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D11ShaderReflectionConstantBuffer {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionConstantBuffer {}
 unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionConstantBuffer {
     type Vtable = ID3D11ShaderReflectionConstantBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10511,7 +10469,7 @@ pub struct ID3D11ShaderReflectionConstantBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11ShaderReflectionType(::windows::core::IUnknown);
+pub struct ID3D11ShaderReflectionType(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D11ShaderReflectionType {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10531,11 +10489,8 @@ impl ID3D11ShaderReflectionType {
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
         (::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index)
     }
-    pub unsafe fn IsEqual<'a, P0>(&self, ptype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11ShaderReflectionType>>,
-    {
-        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), ptype.into().abi()).ok()
+    pub unsafe fn IsEqual(&self, ptype: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(ptype)).ok()
     }
     pub unsafe fn GetSubType(&self) -> ::core::option::Option<ID3D11ShaderReflectionType> {
         (::windows::core::Interface::vtable(self).GetSubType)(::windows::core::Interface::as_raw(self))
@@ -10549,40 +10504,20 @@ impl ID3D11ShaderReflectionType {
     pub unsafe fn GetInterfaceByIndex(&self, uindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionType> {
         (::windows::core::Interface::vtable(self).GetInterfaceByIndex)(::windows::core::Interface::as_raw(self), uindex)
     }
-    pub unsafe fn IsOfType<'a, P0>(&self, ptype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11ShaderReflectionType>>,
-    {
-        (::windows::core::Interface::vtable(self).IsOfType)(::windows::core::Interface::as_raw(self), ptype.into().abi()).ok()
+    pub unsafe fn IsOfType(&self, ptype: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsOfType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(ptype)).ok()
     }
-    pub unsafe fn ImplementsInterface<'a, P0>(&self, pbase: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11ShaderReflectionType>>,
-    {
-        (::windows::core::Interface::vtable(self).ImplementsInterface)(::windows::core::Interface::as_raw(self), pbase.into().abi()).ok()
+    pub unsafe fn ImplementsInterface(&self, pbase: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ImplementsInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pbase)).ok()
     }
 }
-impl ::core::clone::Clone for ID3D11ShaderReflectionType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D11ShaderReflectionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D11ShaderReflectionType {}
-impl ::core::fmt::Debug for ID3D11ShaderReflectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D11ShaderReflectionType").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D11ShaderReflectionType {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionType {}
 unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionType {
     type Vtable = ID3D11ShaderReflectionType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e6ffa6a_9bae_4613_a51e_91652d508c21);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10604,7 +10539,7 @@ pub struct ID3D11ShaderReflectionType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11ShaderReflectionVariable(::windows::core::IUnknown);
+pub struct ID3D11ShaderReflectionVariable(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D11ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<D3D11_SHADER_VARIABLE_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10620,27 +10555,13 @@ impl ID3D11ShaderReflectionVariable {
         (::windows::core::Interface::vtable(self).GetInterfaceSlot)(::windows::core::Interface::as_raw(self), uarrayindex)
     }
 }
-impl ::core::clone::Clone for ID3D11ShaderReflectionVariable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D11ShaderReflectionVariable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D11ShaderReflectionVariable {}
-impl ::core::fmt::Debug for ID3D11ShaderReflectionVariable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D11ShaderReflectionVariable").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D11ShaderReflectionVariable {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionVariable {}
 unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionVariable {
     type Vtable = ID3D11ShaderReflectionVariable_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51f23923_f3e5_4bd1_91cb_606177d8db4c);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

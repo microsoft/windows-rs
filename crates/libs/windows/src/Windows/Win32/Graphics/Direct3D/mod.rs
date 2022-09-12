@@ -115,7 +115,7 @@ pub struct ID3DDestructionNotifier_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-pub struct ID3DInclude(::windows::core::IUnknown);
+pub struct ID3DInclude(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3DInclude {
     pub unsafe fn Open<'a, P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: &mut u32) -> ::windows::core::Result<()>
     where
@@ -127,27 +127,13 @@ impl ID3DInclude {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
 }
-impl ::core::clone::Clone for ID3DInclude {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3DInclude {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3DInclude {}
-impl ::core::fmt::Debug for ID3DInclude {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3DInclude").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3DInclude {}
-unsafe impl ::core::marker::Sync for ID3DInclude {}
 unsafe impl ::windows::core::Interface for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

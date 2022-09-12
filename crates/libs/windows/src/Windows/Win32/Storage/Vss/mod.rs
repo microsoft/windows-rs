@@ -1106,7 +1106,7 @@ pub struct IVssCreateExpressWriterMetadata_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-pub struct IVssCreateWriterMetadata(::windows::core::IUnknown);
+pub struct IVssCreateWriterMetadata(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IVssCreateWriterMetadata {
     pub unsafe fn AddIncludeFiles<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8, wszalternatelocation: P2) -> ::windows::core::Result<()>
     where
@@ -1196,25 +1196,13 @@ impl IVssCreateWriterMetadata {
         (::windows::core::Interface::vtable(self).SaveAsXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrxml)).ok()
     }
 }
-impl ::core::clone::Clone for IVssCreateWriterMetadata {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IVssCreateWriterMetadata {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVssCreateWriterMetadata {}
-impl ::core::fmt::Debug for IVssCreateWriterMetadata {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVssCreateWriterMetadata").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Interface for IVssCreateWriterMetadata {
     type Vtable = IVssCreateWriterMetadata_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2565,7 +2553,7 @@ pub struct IVssWMFiledesc_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-pub struct IVssWriterComponents(::windows::core::IUnknown);
+pub struct IVssWriterComponents(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IVssWriterComponents {
     pub unsafe fn GetComponentCount(&self, pccomponents: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetComponentCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pccomponents)).ok()
@@ -2578,25 +2566,13 @@ impl IVssWriterComponents {
         (::windows::core::Interface::vtable(self).GetComponent)(::windows::core::Interface::as_raw(self), icomponent, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssComponent>(result__)
     }
 }
-impl ::core::clone::Clone for IVssWriterComponents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IVssWriterComponents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVssWriterComponents {}
-impl ::core::fmt::Debug for IVssWriterComponents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVssWriterComponents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Interface for IVssWriterComponents {
     type Vtable = IVssWriterComponents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

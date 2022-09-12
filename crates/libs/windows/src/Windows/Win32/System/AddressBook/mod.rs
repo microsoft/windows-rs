@@ -3031,7 +3031,7 @@ pub struct IWABExtInit_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
-pub struct IWABOBJECT_(::windows::core::IUnknown);
+pub struct IWABOBJECT_(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IWABOBJECT_ {
     pub unsafe fn QueryInterface(&self, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
@@ -3131,25 +3131,13 @@ impl IWABOBJECT_ {
         (::windows::core::Interface::vtable(self).SetMe)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ulflags, ::core::mem::transmute(sbeid), hwnd.into()).ok()
     }
 }
-impl ::core::clone::Clone for IWABOBJECT_ {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWABOBJECT_ {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWABOBJECT_ {}
-impl ::core::fmt::Debug for IWABOBJECT_ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWABOBJECT_").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Interface for IWABOBJECT_ {
     type Vtable = IWABOBJECT__Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -3,8 +3,10 @@ use super::*;
 pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.sys {
         gen_sys_interface(gen, def)
-    } else {
+    } else if gen.reader.type_def_flags(def).winrt() || gen.reader.type_def_interface_impls(def).next().is_some() {
         gen_win_interface(gen, def)
+    } else {
+        gen_pseudo_interface(gen, def)
     }
 }
 
@@ -19,6 +21,46 @@ fn gen_sys_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             pub type #ident = *mut ::core::ffi::c_void;
         }
     }
+}
+
+fn gen_pseudo_interface(gen: &Gen, def: TypeDef) -> TokenStream {
+    let ident = gen.type_def_name(def, &[]);
+    let cfg = gen.reader.type_def_cfg(def, &[]);
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
+    let vtbl = gen.type_def_vtbl_name(def, &[]);
+    let empty = TokenStream::new();
+
+    let mut tokens = quote! {
+        #doc
+        #features
+        #[repr(transparent)]
+        pub struct #ident(::std::ptr::NonNull<::std::ffi::c_void>);
+    };
+
+    let methods = gen_methods(gen, def, &[], &[]);
+
+    tokens.combine(&quote! {
+        #features
+        impl #ident {
+            #methods
+        }
+    });
+
+    tokens.combine(&quote! {
+        #features
+        unsafe impl ::windows::core::Interface for #ident {
+            type Vtable = #vtbl;
+            const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+            unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+                *interface = ::std::ptr::null_mut();
+                ::windows::core::HRESULT(-2147467262) // E_NOINTERFACE
+            }
+        }
+    });
+
+    tokens.combine(&gen.interface_vtbl(def, &[], &ident, &empty, &features));
+    tokens
 }
 
 fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {

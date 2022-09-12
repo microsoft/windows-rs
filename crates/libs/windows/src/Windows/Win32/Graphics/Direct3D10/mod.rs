@@ -1,32 +1,30 @@
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10CompileEffectFromMemory<'a, P0, P1>(pdata: &[u8], psrcfilename: P0, pdefines: ::core::option::Option<&super::Direct3D::D3D_SHADER_MACRO>, pinclude: P1, hlslflags: u32, fxflags: u32, ppcompiledeffect: &mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrors: ::core::option::Option<&mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
+pub unsafe fn D3D10CompileEffectFromMemory<'a, P0>(pdata: &[u8], psrcfilename: P0, pdefines: ::core::option::Option<&super::Direct3D::D3D_SHADER_MACRO>, pinclude: &::core::option::Option<super::Direct3D::ID3DInclude>, hlslflags: u32, fxflags: u32, ppcompiledeffect: &mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrors: ::core::option::Option<&mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CompileEffectFromMemory(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: *mut ::core::ffi::c_void, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut *mut ::core::ffi::c_void, pperrors: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10CompileEffectFromMemory(::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, psrcfilename.into(), ::core::mem::transmute(pdefines), pinclude.into().abi(), hlslflags, fxflags, ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors)).ok()
+    D3D10CompileEffectFromMemory(::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, psrcfilename.into(), ::core::mem::transmute(pdefines), ::core::mem::transmute_copy(pinclude), hlslflags, fxflags, ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10CompileShader<'a, P0, P1, P2, P3>(psrcdata: &[u8], pfilename: P0, pdefines: ::core::option::Option<&super::Direct3D::D3D_SHADER_MACRO>, pinclude: P1, pfunctionname: P2, pprofile: P3, flags: u32, ppshader: &mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: ::core::option::Option<&mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
+pub unsafe fn D3D10CompileShader<'a, P0, P1, P2>(psrcdata: &[u8], pfilename: P0, pdefines: ::core::option::Option<&super::Direct3D::D3D_SHADER_MACRO>, pinclude: &::core::option::Option<super::Direct3D::ID3DInclude>, pfunctionname: P1, pprofile: P2, flags: u32, ppshader: &mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: ::core::option::Option<&mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CompileShader(psrcdata: ::windows::core::PCSTR, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: *mut ::core::ffi::c_void, pfunctionname: ::windows::core::PCSTR, pprofile: ::windows::core::PCSTR, flags: u32, ppshader: *mut *mut ::core::ffi::c_void, pperrormsgs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10CompileShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into(), ::core::mem::transmute(pdefines), pinclude.into().abi(), pfunctionname.into(), pprofile.into(), flags, ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs)).ok()
+    D3D10CompileShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into(), ::core::mem::transmute(pdefines), ::core::mem::transmute_copy(pinclude), pfunctionname.into(), pprofile.into(), flags, ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -250,16 +248,15 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10PreprocessShader<'a, P0, P1>(psrcdata: &[u8], pfilename: P0, pdefines: ::core::option::Option<&super::Direct3D::D3D_SHADER_MACRO>, pinclude: P1, ppshadertext: &mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: ::core::option::Option<&mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
+pub unsafe fn D3D10PreprocessShader<'a, P0>(psrcdata: &[u8], pfilename: P0, pdefines: ::core::option::Option<&super::Direct3D::D3D_SHADER_MACRO>, pinclude: &::core::option::Option<super::Direct3D::ID3DInclude>, ppshadertext: &mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: ::core::option::Option<&mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10PreprocessShader(psrcdata: ::windows::core::PCSTR, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: *mut ::core::ffi::c_void, ppshadertext: *mut *mut ::core::ffi::c_void, pperrormsgs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10PreprocessShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into(), ::core::mem::transmute(pdefines), pinclude.into().abi(), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs)).ok()
+    D3D10PreprocessShader(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, pfilename.into(), ::core::mem::transmute(pdefines), ::core::mem::transmute_copy(pinclude), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -3247,7 +3244,7 @@ pub struct ID3D10EffectMatrixVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectPass(::windows::core::IUnknown);
+pub struct ID3D10EffectPass(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D10EffectPass {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3283,27 +3280,13 @@ impl ID3D10EffectPass {
         (::windows::core::Interface::vtable(self).ComputeStateBlockMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_STATE_BLOCK_MASK>(result__)
     }
 }
-impl ::core::clone::Clone for ID3D10EffectPass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D10EffectPass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D10EffectPass {}
-impl ::core::fmt::Debug for ID3D10EffectPass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D10EffectPass").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D10EffectPass {}
-unsafe impl ::core::marker::Sync for ID3D10EffectPass {}
 unsafe impl ::windows::core::Interface for ID3D10EffectPass {
     type Vtable = ID3D10EffectPass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cfbeb89_1a06_46e0_b282_e3f9bfa36a54);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4505,7 +4488,7 @@ pub struct ID3D10EffectStringVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectTechnique(::windows::core::IUnknown);
+pub struct ID3D10EffectTechnique(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D10EffectTechnique {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4538,27 +4521,13 @@ impl ID3D10EffectTechnique {
         (::windows::core::Interface::vtable(self).ComputeStateBlockMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_STATE_BLOCK_MASK>(result__)
     }
 }
-impl ::core::clone::Clone for ID3D10EffectTechnique {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D10EffectTechnique {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D10EffectTechnique {}
-impl ::core::fmt::Debug for ID3D10EffectTechnique {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D10EffectTechnique").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D10EffectTechnique {}
-unsafe impl ::core::marker::Sync for ID3D10EffectTechnique {}
 unsafe impl ::windows::core::Interface for ID3D10EffectTechnique {
     type Vtable = ID3D10EffectTechnique_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb122ce8_d1c9_4292_b237_24ed3de8b175);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4576,7 +4545,7 @@ pub struct ID3D10EffectTechnique_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectType(::windows::core::IUnknown);
+pub struct ID3D10EffectType(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D10EffectType {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4610,27 +4579,13 @@ impl ID3D10EffectType {
         (::windows::core::Interface::vtable(self).GetMemberSemantic)(::windows::core::Interface::as_raw(self), index)
     }
 }
-impl ::core::clone::Clone for ID3D10EffectType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D10EffectType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D10EffectType {}
-impl ::core::fmt::Debug for ID3D10EffectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D10EffectType").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D10EffectType {}
-unsafe impl ::core::marker::Sync for ID3D10EffectType {}
 unsafe impl ::windows::core::Interface for ID3D10EffectType {
     type Vtable = ID3D10EffectType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9e1ddc_cd9d_4772_a837_00180b9b88fd);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4651,7 +4606,7 @@ pub struct ID3D10EffectType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectVariable(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D10EffectVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4741,27 +4696,13 @@ impl ID3D10EffectVariable {
         (::windows::core::Interface::vtable(self).GetRawValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), offset, pdata.len() as _).ok()
     }
 }
-impl ::core::clone::Clone for ID3D10EffectVariable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D10EffectVariable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D10EffectVariable {}
-impl ::core::fmt::Debug for ID3D10EffectVariable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D10EffectVariable").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D10EffectVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectVariable {}
 unsafe impl ::windows::core::Interface for ID3D10EffectVariable {
     type Vtable = ID3D10EffectVariable_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae897105_00e6_45bf_bb8e_281dd6db8e1b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6407,7 +6348,7 @@ pub struct ID3D10ShaderReflection1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10ShaderReflectionConstantBuffer(::windows::core::IUnknown);
+pub struct ID3D10ShaderReflectionConstantBuffer(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D10ShaderReflectionConstantBuffer {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6425,27 +6366,13 @@ impl ID3D10ShaderReflectionConstantBuffer {
         (::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into())
     }
 }
-impl ::core::clone::Clone for ID3D10ShaderReflectionConstantBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D10ShaderReflectionConstantBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D10ShaderReflectionConstantBuffer {}
-impl ::core::fmt::Debug for ID3D10ShaderReflectionConstantBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D10ShaderReflectionConstantBuffer").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D10ShaderReflectionConstantBuffer {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionConstantBuffer {}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionConstantBuffer {
     type Vtable = ID3D10ShaderReflectionConstantBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66c66a94_dddd_4b62_a66a_f0da33c2b4d0);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6459,7 +6386,7 @@ pub struct ID3D10ShaderReflectionConstantBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10ShaderReflectionType(::windows::core::IUnknown);
+pub struct ID3D10ShaderReflectionType(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D10ShaderReflectionType {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6479,27 +6406,13 @@ impl ID3D10ShaderReflectionType {
         (::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index)
     }
 }
-impl ::core::clone::Clone for ID3D10ShaderReflectionType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D10ShaderReflectionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D10ShaderReflectionType {}
-impl ::core::fmt::Debug for ID3D10ShaderReflectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D10ShaderReflectionType").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D10ShaderReflectionType {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionType {}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionType {
     type Vtable = ID3D10ShaderReflectionType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc530ad7d_9b16_4395_a979_ba2ecff83add);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6514,7 +6427,7 @@ pub struct ID3D10ShaderReflectionType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10ShaderReflectionVariable(::windows::core::IUnknown);
+pub struct ID3D10ShaderReflectionVariable(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D10ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_VARIABLE_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6524,27 +6437,13 @@ impl ID3D10ShaderReflectionVariable {
         (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self))
     }
 }
-impl ::core::clone::Clone for ID3D10ShaderReflectionVariable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID3D10ShaderReflectionVariable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D10ShaderReflectionVariable {}
-impl ::core::fmt::Debug for ID3D10ShaderReflectionVariable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D10ShaderReflectionVariable").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID3D10ShaderReflectionVariable {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionVariable {}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionVariable {
     type Vtable = ID3D10ShaderReflectionVariable_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bf63c95_2650_405d_99c1_3636bd1da0a1);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
+    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        *interface = ::std::ptr::null_mut();
+        ::windows::core::HRESULT(-2147467262)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

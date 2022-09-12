@@ -845,6 +845,7 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Class => true,
             TypeKind::Delegate => self.type_def_flags(row).winrt(),
+            TypeKind::Interface => self.type_def_flags(row).winrt() || self.type_def_interface_impls(row).next().is_some(),
             _ => !self.type_def_is_blittable(row),
         }
     }
