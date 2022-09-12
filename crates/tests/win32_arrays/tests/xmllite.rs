@@ -57,7 +57,6 @@ fn test() -> Result<()> {
         let mut chars_read = 0;
         let mut read_count = 0;
 
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/816
         while reader.ReadValueChunk(&mut chunk, &mut chars_read).is_ok() && chars_read > 0 {
             message.extend_from_slice(&chunk[0..chars_read as _]);
             read_count += 1;

@@ -553,10 +553,6 @@ impl<'a> Reader<'a> {
                         params[position].array_info = ArrayInfo::Removed;
                     }
                 }
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1014
-                ArrayInfo::Fixed(fixed) if fixed == 0 || self.param_free_with(params[position].def).is_some() => {
-                    params[position].array_info = ArrayInfo::Removed;
-                }
                 _ => {}
             }
         }
@@ -954,8 +950,7 @@ impl<'a> Reader<'a> {
                 _ => {}
             }
         }
-        // TODO: IRestrictedErrorInfo workaround for https://github.com/microsoft/win32metadata/issues/923
-        matches!(self.type_def_type_name(row), TypeName::IAsyncAction | TypeName::IAsyncActionWithProgress | TypeName::IAsyncOperation | TypeName::IAsyncOperationWithProgress | TypeName::IRestrictedErrorInfo)
+        matches!(self.type_def_type_name(row), TypeName::IAsyncAction | TypeName::IAsyncActionWithProgress | TypeName::IAsyncOperation | TypeName::IAsyncOperationWithProgress)
     }
     pub fn type_def_invalid_values(&self, row: TypeDef) -> Vec<i64> {
         let mut values = Vec::new();

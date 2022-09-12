@@ -5,10 +5,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         return quote! {};
     }
 
-    if gen.reader.type_def_name(def).starts_with("Disp") && gen.reader.type_def_methods(def).next().is_none() {
-        return quote! {};
-    }
-
     let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
     let type_ident = to_ident(gen.reader.type_def_name(def));
     let impl_ident = type_ident.join("_Impl");

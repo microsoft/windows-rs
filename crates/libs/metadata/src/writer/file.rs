@@ -79,8 +79,7 @@ pub fn write(filename: &str, tables: Tables) {
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
-    // TODO: workaround for https://github.com/microsoft/win32metadata/issues/963
-    buffer.write(&(IMAGE_NT_SIGNATURE as u32));
+    buffer.write(&IMAGE_NT_SIGNATURE);
     buffer.write(&file);
     buffer.write(&optional);
     buffer.write(&section);
