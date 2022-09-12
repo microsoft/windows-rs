@@ -553,10 +553,6 @@ impl<'a> Reader<'a> {
                         params[position].array_info = ArrayInfo::Removed;
                     }
                 }
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1014
-                ArrayInfo::Fixed(fixed) if fixed == 0 || self.param_free_with(params[position].def).is_some() => {
-                    params[position].array_info = ArrayInfo::Removed;
-                }
                 _ => {}
             }
         }
